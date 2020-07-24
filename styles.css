@@ -71,7 +71,6 @@ strong {
 }
 
 p,
-li,
 span,
 label,
 input,
@@ -311,7 +310,7 @@ textarea {
 }
 
 #skills {
-    display: flex; 
+    display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
@@ -405,13 +404,22 @@ textarea {
     font-size: 14px;
 }
 
-
-
 .social-list__item {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: center; 
     margin: 2em 0 0;
     padding: 0;
+    color: black; 
+}
 
+
+.social-list__link { 
+    color: #000 ;  
+    padding: 0 1em 0 1em;  
+}
+
+.social-list__link:hover { 
+    opacity: 0.7 ; 
+    color: #B27FF0 ; 
 }
