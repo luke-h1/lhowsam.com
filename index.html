@@ -9,7 +9,7 @@
             href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap"
             rel="stylesheet"
         />
-        <link href="default.css" rel="stylesheet" />
+        <link href="styles.css" rel="stylesheet" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Luke H</title>
@@ -54,7 +54,9 @@
                                 <div id="corner-tr"class="corner"></div>
 
                                 <h3>What I do</h3> 
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum, incidunt?</p>
+                                <p>Technical support</p> 
+                                <p>Incident Management
+                                </p>
                                 <div id="corner-br"class="corner"></div>
                                 <div id="corner-bl"class="corner"></div>
                             </div> 
@@ -66,20 +68,125 @@
 
         <section class="s2">
             <div class="main-container">
-                About
+                <div class="about-wrapper"> 
+                    <div class="about-me">
+                        <h4>More about me</h4> 
+                        <p>I'm passionate about solving technical problems and coming up with creative solutions.
+
+                            I am currently looking for a technical support / dev ops position at an exciting company</p>
+            
+                    </div> 
+<!-- TODO: fix this. on wrong side --> 
+<div id="skills">
+
+                    <h4>Top expertise</h4> 
+                    <ul>
+                        <li>Technical support 
+                        </li>
+                        <br> 
+                        <li>Incident Management
+                        </li>
+                        <br> 
+
+                        <li>Service desk & ticketing systems</li>                        <br> 
+
+                        <li>Git / version control</li>                        <br> 
+
+                        <li>Automation (Ansible, Bash scripting)</li>                         <br> 
+
+                        <lI>Software + hardware troubleshooting</lI> 
+                    </ul>
+                    </div>
+
+                    </div>
             </div>
         </section>
 
         <section class="s1">
-            <div class="main-container">
-                portfolio
-            </div>
-        </section>
+            <div class="main-container"> 
+                <h3 style="text-align: center;">past projects</h3>
+                <div class="post-wrapper">  
+                    <div> 
+                            <div class="post">
+                                <img class="thumbnail" src="/static/iphone-airpods-machook.jpg"> 
+                                <div class="post-preview">
+                                <h6 class="post-title">Covid-19 tracker</h6> 
+                                <p class="post-intro">In this project I made a simple covid 19 tracker app that fetches data from the https://covid19api.com/ API. I had a fun time making this and solving some of the issues that occured during the development of this app
+                                    <li class="social-list__item">
+                                </p>
+                                <a
+                                class="social-list__link"
+                                href="https://github.com/luke-h1"
+                                target="_blank"
+                                ><i class="fa fa-github fa-2x custom-fa" aria-hidden="true"></i>
+                              </a> 
+                            </li>
+                            </div>
+                        </div>  
+                </div> 
+              <div> 
+                            <div class="post">
+                                <img class="thumbnail" src="/static/js.jpg"> 
+                                <div class="post-preview">
+                                <h6 class="post-title">Javascript quote generator</h6> 
+                                <p class="post-intro">In this project, I built a random quote generator that displays a random quote to the user every time they press a button.
+                                </p> 
+                                <li class="social-list__item">
+                                <a
+                                class="social-list__link"
+                                href="https://github.com/luke-h1/Automation"
+                                target="_blank"
+                                ><i class="fa fa-github fa-2x custom-fa" aria-hidden="true"></i>
+                              </a> 
+                            </li>
 
-        <section class="s2">
-            <div class="main-container">
-                contact
+                            </div> 
+                            </div>
+                </div> 
+                <div> 
+                            <div class="post">
+                                <img class="thumbnail" src="/static/mbp-shoes.jpg"> 
+                                <div class="post-preview">
+                                <h6 class="post-title">Ansible Automation
+                                </h6> 
+                                <p class="post-intro">I love automation. I am a huge advocate for infrastructure automation as this allows teams to focus on innovating new features and solving new problems rather than being backlogged with maintaining infrastructure.
+                                    
+                                </p>
+                                <li class="social-list__item">
+                                <a
+          class="social-list__link"
+          href="https://github.com/luke-h1/covid-tracker-app"
+          target="_blank"
+          ><i class="fa fa-github fa-2x custom-fa" aria-hidden="true"></i>
+        </li>
+
+        
+                            </div> 
+                            </div> 
+                    </div>  
+                </div> 
             </div>
         </section>
+        <section class="s2">
+            <div class="main-container"> 
+                <h3 style="text-align: center;">Contact me</h3> 
+                <form id="contact-form"> 
+                    <label>Name</label> 
+                    <input class="input-field" type="text" name="name"> 
+
+                    <label>Subject</label>
+                    <input class="input-field" type="text" name="subject"> 
+
+                    <label>Email</label> 
+                    <input class="input-field" type="text" name="email"> 
+
+                    <label>Message</label>
+                    <textarea class="input-field" name="message"></textarea>  
+
+                    <input id="submit-btn" type="submit" value="Send"> 
+                    </form> 
+        </section> 
+        <script src="https://use.fontawesome.com/7eda39eee0.js"></script>
+
     </body>
 </html>
