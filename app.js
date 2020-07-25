@@ -25,11 +25,13 @@ function setTheme(mode) {
         document.getElementById('theme-style').href = 'blue.css';
     } else if (mode == 'green') {
         document.getElementById('theme-style').href = 'green.css';
-    } else {
+    } else if (mode == 'purple') {
         document.getElementById('theme-style').href = 'purple.css';
+    }else { 
+        document.getElementById('theme-style').href = 'dark-mode.css'
     }
 
-    localStorage.setItem('theme', mode) // KEY // MODE  
+    localStorage.setItem('theme', mode) // KEY // MODE   
 }
 
 // SAVE VALUES IN LOCAL STORAGE (SAVE INFO IN BROWSER):
