@@ -8,8 +8,6 @@ if (theme == null) {
     setTheme(theme);
 }
 
-
-
 for (var i = 0; themeDots.length > i; i++) {
     themeDots[i].addEventListener('click', function () {
         let mode = this.dataset.mode;
@@ -27,11 +25,11 @@ function setTheme(mode) {
         document.getElementById('theme-style').href = 'green.css';
     } else if (mode == 'purple') {
         document.getElementById('theme-style').href = 'purple.css';
-    }else { 
-        document.getElementById('theme-style').href = 'dark-mode.css'
+    } else {
+        document.getElementById('theme-style').href = 'dark-mode.css';
     }
 
-    localStorage.setItem('theme', mode) // KEY // MODE   
+    localStorage.setItem('theme', mode); // KEY // MODE
 }
 
 // SAVE VALUES IN LOCAL STORAGE (SAVE INFO IN BROWSER):

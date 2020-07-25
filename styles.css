@@ -58,18 +58,21 @@ body {
     margin: 0;
 }
 
-body * { 
+body * {
     transition: 0.5s;
 }
 
+/* 
+=====================
+    h1 to h6 amd strong font families + weights 
+=====================*/
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-strong
-{
+strong {
     color: var(--mainText);
     font-family: 'Russo One', sans-serif;
     font-weight: 500;
@@ -86,12 +89,20 @@ li {
     font-family: 'Roboto Mono', monospace;
 }
 
+/* 
+=====================
+    SECTION ONE 
+=====================*/
 .s1 {
     background-color: var(--mainColor);
     border-bottom: 1px solid var(--borderColor);
     overflow: auto;
 }
 
+/* 
+=====================
+    SECTION TWO 
+=====================*/
 .s2 {
     background-color: var(--secondaryColor);
     border-bottom: 1px solid var(--borderColor);
@@ -227,11 +238,23 @@ li {
     background-color: #2aca3e;
 }
 
+
+/* 
+=====================
+    LEFT COL STYLES  
+=====================*/
+
 .left-column {
     grid-area: left-column;
     padding-top: 50px;
     padding-bottom: 50px;
 }
+
+
+/* 
+=====================
+    RIGHT COL STYLES  
+=====================*/
 
 .right-column {
     grid-area: right-column;
@@ -241,6 +264,11 @@ li {
     padding-bottom: 50px;
 }
 
+
+/* 
+=====================
+    MEDIA QUERIES 
+=====================*/
 @media screen and (max-width: 1200px) {
     .main-container {
         width: 95%;
@@ -263,6 +291,10 @@ li {
     }
 }
 
+/* 
+=====================
+    PREVIEW
+=====================*/
 #preview-shadow {
     background-color: var(--previewShadow);
     width: 300px;
@@ -279,6 +311,11 @@ li {
     position: relative;
 }
 
+
+/* 
+=====================
+   CORNER STYLES 
+=====================*/
 .corner {
     width: 7px;
     height: 7px;
@@ -288,7 +325,7 @@ li {
     position: relative;
 }
 
-#corner-tl {
+/* #corner-tl {
     top: -5px;
     left: -5px;
 }
@@ -306,7 +343,7 @@ li {
 #corner-bl {
     bottom: -5px;
     left: -5px;
-}
+} */
 
 .about-wrapper {
     display: grid;
@@ -414,26 +451,22 @@ li {
 .social-list__item {
     list-style: none;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     margin: 2em 0 0;
     padding: 0;
-    color: black; 
+    color: black;
 }
 
-
-.social-list__link { 
-    color: #000 ;  
-    padding: 0 1em 0 1em;  
+.social-list__link {
+    color: #000;
+    padding: 0 1em 0 1em;
 }
 
-.social-list__link:hover { 
-    opacity: 0.7 ; 
-    color: #B27FF0 ; 
+.social-list__link:hover {
+    opacity: 0.7;
+    color: #b27ff0;
 }
 
-
-
-
-#navigation a { 
-    color: var(--mainText); 
+#navigation a {
+    color: var(--mainText);
 }
