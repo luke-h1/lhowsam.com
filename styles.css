@@ -58,13 +58,18 @@ body {
     margin: 0;
 }
 
+body * { 
+    transition: 0.5s;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6,
-strong {
+strong
+{
     color: var(--mainText);
     font-family: 'Russo One', sans-serif;
     font-weight: 500;
@@ -74,7 +79,9 @@ p,
 span,
 label,
 input,
-textarea {
+textarea,
+ul,
+li {
     color: var(--secondaryText);
     font-family: 'Roboto Mono', monospace;
 }
@@ -422,4 +429,11 @@ textarea {
 .social-list__link:hover { 
     opacity: 0.7 ; 
     color: #B27FF0 ; 
+}
+
+
+
+
+#navigation a { 
+    color: var(--mainText); 
 }
