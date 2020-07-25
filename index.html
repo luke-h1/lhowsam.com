@@ -9,7 +9,10 @@
     <link href="styles.css" rel="stylesheet" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luke H</title>
+    <title>Luke H</title> 
+    <!--THEME SWITCH CSS-->
+    <link href="" rel="stylesheet" id="theme-style"> 
+
 </head>
 
 <body>
@@ -36,10 +39,10 @@
                     <h5 style="text-align: center; line-height: 0;">Personalize theme<h5>
 
                             <div id="theme-options-wrapper">
-                                <div id="light-mode" class="theme-dot"></div>
-                                <div id="blue-mode" class="theme-dot"></div>
-                                <div id="green-mode" class="theme-dot"></div>
-                                <div id="purple-mode" class="theme-dot"></div>
+                                <div data-mode="light" id="light-mode" class="theme-dot"></div>
+                                <div data-mode="blue" id="blue-mode" class="theme-dot"></div>
+                                <div data-mode="green" id="green-mode" class="theme-dot"></div>
+                                <div data-mode="purple" id="purple-mode" class="theme-dot"></div>
                             </div>
                             <p id="settings-note">theme options will be saved for your <bt>next visit</p>
                 </div>
@@ -176,7 +179,18 @@
     <section class="s2">
         <div class="main-container">
             <h3 style="text-align: center;">Contact me</h3>
-            <form id="contact-form">
+            <li class="social-list__item">
+                <a class="social-list__link" href="https://github.com/luke-h1/"
+                    target="_blank"><i class="fa fa-github fa-3x " aria-hidden="true"></i>
+                </a>
+                <a class="social-list__link" href="https://www.linkedin.com/in/lukehowsam/" target="_blank"><i class="fa fa-linkedin fa-3x"
+                        aria-hidden="true" style="padding-bottom: 2em ;"></i> 
+                </a>
+            
+          
+          
+          
+            <!-- <form id="contact-form">
                 <label>Name</label>
                 <input class="input-field" type="text" name="name">
 
@@ -190,9 +204,10 @@
                 <textarea class="input-field" name="message"></textarea>
 
                 <input id="submit-btn" type="submit" value="Send">
-            </form>
+            </form> -->
     </section>
     <script src="https://use.fontawesome.com/7eda39eee0.js"></script>
+    <script src="app.js"></script>
 
 </body>
 
