@@ -3,7 +3,7 @@ const themeDots = document.getElementsByClassName('theme-dot');
 let theme = localStorage.getItem('theme');
 
 if (theme == null) {
-    setTheme('dark'); // SET THEME ON FIRST VISIT
+    setTheme('light'); // SET THEME ON FIRST VISIT
 } else {
     setTheme(theme);
 }
