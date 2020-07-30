@@ -393,7 +393,7 @@ li {
 
 .post-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 320px);
+    grid-template-columns: repeat(auto-fit, 500px);
     gap: 30px;
     justify-content: center;
 }
@@ -406,6 +406,7 @@ li {
 .post-intro {
     color: #4b5156;
     font-size: 14px;
+    line-height: 2.0; 
 }
 
 #submit-btn {
