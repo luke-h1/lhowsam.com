@@ -377,25 +377,20 @@ li {
     object-fit: cover;
 }
 
-.post {
-    /* border: 1px solid var(--borderColor);   */
-    /* -webkit-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
-                    -moz-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
-                    box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);  
-    padding-bottom: 50px ;  */
-    padding-bottom: 50px;
+.post {   
+    padding-bottom: 50px ;  
 }
 
 .post-preview {
     background-color: #fff;
-    padding: 50px;
+    padding: 25px;
 }
 
 .post-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 500px);
-    gap: 30px;
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, 550px);
+    gap: 50px;
+    justify-content: center; 
 }
 
 .post-title {
