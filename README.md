@@ -5,8 +5,8 @@ v2 version of my personal portfolio. WIP.
 
 ## improvemnts TO-DO 
   * reduce original size of images and serve scaled images  
-  * cleanup and be more specific with CSS (using a lot of pseudo selectors) 
-  * fix loading issues with font awesome (use a different CDN) 
+  * cleanup and be more specific with CSS (using a lot of pseudo selectors) ✅
+  * fix loading issues with font awesome (use a different CDN)  ✅
 
 
 
