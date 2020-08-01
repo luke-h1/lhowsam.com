@@ -9,7 +9,7 @@ if (theme == null) {
     setTheme(theme); // theme of user's choice 
 }
 
-for (var i = 0; themeDots.length > i; i++) {
+for (let i = 0; themeDots.length > i; i++) {
     themeDots[i].addEventListener('click', function () {
         let mode = this.dataset.mode;
         console.log('option-clicked:', mode);
