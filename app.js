@@ -1,11 +1,12 @@
 const themeDots = document.getElementsByClassName('theme-dot');
-
 let theme = localStorage.getItem('theme');
 
+
+
 if (theme == null) {
-    setTheme('light'); // SET THEME ON FIRST VISIT
+    setTheme('light'); // set default theme 
 } else {
-    setTheme(theme);
+    setTheme(theme); // theme of user's choice 
 }
 
 for (var i = 0; themeDots.length > i; i++) {
@@ -29,7 +30,6 @@ function setTheme(mode) {
         document.getElementById('theme-style').href = 'dark-mode.css';
     }
 
-    localStorage.setItem('theme', mode); // KEY // MODE
+    localStorage.setItem('theme', mode); // set values to be stored in local storage 
 }
 
-// SAVE VALUES IN LOCAL STORAGE (SAVE INFO IN BROWSER):
