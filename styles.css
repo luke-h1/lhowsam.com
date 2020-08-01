@@ -397,8 +397,9 @@ COLORS FOR DIFFERENT THEMES
 .thumbnail {
     display: block;
     width: 100%;
-    height: 180px;
-    object-fit: cover;
+    height: 250px;
+    object-fit: cover; 
+    background-size: cover;
 }
 
 
