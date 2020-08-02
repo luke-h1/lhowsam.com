@@ -1,14 +1,5 @@
-# portfolio-v2
-v2 version of my personal portfolio. WIP. 
-
-
-
-## improvemnts TO-DO 
-  * reduce original size of images and serve scaled images  
-  * cleanup and be more specific with CSS (using a lot of pseudo selectors) ✅
-  * fix loading issues with font awesome (use a different CDN)  ✅
-
-
+# portfolio
+personal portfolio. WIP. 
 
 
 
@@ -21,3 +12,6 @@ v2 version of my personal portfolio. WIP.
    * set alt attr on images ✅
    * look into console errors ✅
    * add meta description to document✅
+   * cleanup and be more specific with CSS (using a lot of pseudo selectors) ✅
+   * fix loading issues with font awesome (use a different CDN)  ✅
+
