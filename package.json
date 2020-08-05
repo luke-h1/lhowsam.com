@@ -1,20 +1,20 @@
 {
-  "name": "personal-site",
-  "version": "1.0.0",
-  "description": "source code for my personal site",
-  "main": "app.js",
-  "scripts": {
-    "start": "lite-server .",
-    "lint": "eslint *.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/luke-h1/personal-site.git"
-  },
-  "author": "luke-h1",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/luke-h1/personal-site/issues"
-  },
-  "homepage": "https://github.com/luke-h1/personal-site#readme"
+    "name": "personal-site",
+    "version": "1.0.0",
+    "description": "source code for my personal site",
+    "main": "app.js",
+    "scripts": {
+        "start": "lite-server .",
+        "lint": "eslint *.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/luke-h1/personal-site.git"
+    },
+    "author": "luke-h1",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/luke-h1/personal-site/issues"
+    },
+    "homepage": "https://github.com/luke-h1/personal-site#readme"
 }

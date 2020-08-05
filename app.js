@@ -2,7 +2,6 @@ const themeDots = document.getElementsByClassName('theme-dot');
 let theme = localStorage.getItem('theme');
 
 
-
 if (theme == null) {
     setTheme('light'); // set default theme 
 } else {

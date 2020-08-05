@@ -82,7 +82,6 @@ body * {
     transition: 0.2s;
 }
 
-
 /* 
 =====================
 p, span, label, input, textarea, ul, li styling 
@@ -97,8 +96,6 @@ li {
     color: var(--secondaryText);
     font-family: 'Roboto Mono', monospace;
 }
-
-
 
 /* 
 =====================
@@ -157,7 +154,6 @@ li {
     border-radius: 5px 5px 0 0;
 }
 
-
 /* ===============
     NAVIGATION 
    ===============*/
@@ -198,7 +194,7 @@ li {
     object-fit: cover;
     border: 2px solid var(--borderColor);
     display: block;
-    margin: 0 auto; 
+    margin: 0 auto;
     margin-bottom: 1em;
 }
 
@@ -218,7 +214,6 @@ li {
 .theme-dot:hover {
     border-width: 5px;
 }
-
 
 /* ========================
 COLORS FOR DIFFERENT THEMES 
@@ -262,7 +257,6 @@ COLORS FOR DIFFERENT THEMES
     background-color: #2aca3e;
 }
 
-
 /* 
 =====================
     LEFT COL STYLES  
@@ -272,7 +266,6 @@ COLORS FOR DIFFERENT THEMES
     padding-top: 50px;
     padding-bottom: 50px;
 }
-
 
 /* 
 =====================
@@ -286,7 +279,6 @@ COLORS FOR DIFFERENT THEMES
     padding-top: 50px;
     padding-bottom: 50px;
 }
-
 
 /* 
 =====================
@@ -334,7 +326,6 @@ COLORS FOR DIFFERENT THEMES
     position: relative;
 }
 
-
 /* 
 =====================
    CORNER STYLES 
@@ -368,8 +359,6 @@ COLORS FOR DIFFERENT THEMES
     left: -5px;
 } */
 
-
-
 .about-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -399,17 +388,16 @@ COLORS FOR DIFFERENT THEMES
     display: block;
     width: 100%;
     height: 250px;
-    object-fit: cover; 
+    object-fit: cover;
     background-size: cover;
 }
-
 
 /* =============
    POSTS 
    ============= */
 
-.post {   
-    padding-bottom: 50px ;  
+.post {
+    padding-bottom: 50px;
 }
 
 .post-preview {
@@ -421,7 +409,7 @@ COLORS FOR DIFFERENT THEMES
     display: grid;
     grid-template-columns: repeat(auto-fit, 550px);
     gap: 50px;
-    justify-content: center; 
+    justify-content: center;
 }
 
 .post-title {
@@ -432,7 +420,7 @@ COLORS FOR DIFFERENT THEMES
 .post-intro {
     color: #4b5156;
     font-size: 14px;
-    line-height: 2.0; 
+    line-height: 2;
 }
 
 #submit-btn {
@@ -474,7 +462,6 @@ COLORS FOR DIFFERENT THEMES
     min-height: 100px;
     font-size: 14px;
 }
-
 
 /* =============
     SOCIAL LIST 
