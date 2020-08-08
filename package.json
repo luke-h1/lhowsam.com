@@ -16,5 +16,10 @@
     "bugs": {
         "url": "https://github.com/luke-h1/personal-site/issues"
     },
-    "homepage": "https://github.com/luke-h1/personal-site#readme"
+    "homepage": "https://github.com/luke-h1/personal-site#readme",
+    "devDependencies": {
+        "eslint": "^7.6.0",
+        "eslint-config-airbnb-base": "^14.2.0",
+        "eslint-plugin-import": "^2.22.0"
+    }
 }
