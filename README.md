@@ -1,8 +1,11 @@
 # portfolio
 personal portfolio. WIP. 
 
-
-
+  ## TODO: 
+   * complete rewrite with react JS. ❌
+   
+   
+   
   ## DONE :  
    * add JS typing effect ✅
    * implement theme switcher JS  ✅ 
