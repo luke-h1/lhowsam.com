@@ -31,16 +31,16 @@ function setTheme(mode) {
   localStorage.setItem('theme', mode); // set values to be stored in local storage
 }
 
-// typing effect
-let i = 0;
-const txt = 'theme options will be saved for your next visit !';
-const speed = 50; // speed in miliseconds
+// // typing effect
+// let i = 0;
+// const txt = 'theme options will be saved for your next visit !';
+// const speed = 50; // speed in miliseconds
 
-function animation() {
-  if (i < txt.length) {
-    document.getElementById('settings-note').innerHTML += txt.charAt(i);
-    i++;
-    setTimeout(animation, speed);
-  }
-}
-animation();
+// function animation() {
+//   if (i < txt.length) {
+//     document.getElementById('settings-note').innerHTML += txt.charAt(i);
+//     i++;
+//     setTimeout(animation, speed);
+//   }
+// }
+// animation();
