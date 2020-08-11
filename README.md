@@ -2,7 +2,6 @@
 personal portfolio. WIP. 
 
   ## TODO: 
-   * complete rewrite with react JS. ❌
    
    
    
