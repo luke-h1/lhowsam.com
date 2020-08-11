@@ -407,7 +407,7 @@ COLORS FOR DIFFERENT THEMES
 
 .post-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 550px);
+    grid-template-columns: repeat(auto-fit, 450px);
     gap: 50px;
     justify-content: center;
 }
