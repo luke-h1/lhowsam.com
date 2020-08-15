@@ -20,6 +20,22 @@ custom properties
   --buttonColor: #000;
 }
 
+
+
+
+body { 
+background-color: #fff ;  
+align-items: center; 
+justify-content: center;
+transform: background 0.2s linear;  
+padding: 0 ; 
+margin: 0 ; 
+}
+
+body.dark { 
+  background: #292c35; 
+  color: #fff; 
+} 
 /* 
 =====================
   h1 to h6 sizes
@@ -72,15 +88,67 @@ ul {
   list-style: none;
 }
 
-html,
-body {
-  padding: 0;
-  margin: 0;
+/* ==================
+DARK MODE STYLING 
+===================== */
+.checkbox { 
+  opacity: 0 ; 
+  position: absolute;
 }
 
-body * {
-  transition: 0.2s;
+.label { 
+  background-color: #111; 
+  border-radius: 50px; 
+  cursor: pointer ; 
+  display:flex; 
+  justify-content: space-between;
+  position: relative; 
+  height: 17px; 
+  width: 40px;
+  transform: scale(1.5); 
+  padding: 5px;
 }
+
+.label .ball { 
+  background-color: #fff ; 
+  border-radius: 50%; 
+  position: absolute; 
+  top: 2px; 
+  left: 2px; 
+  height:22px; 
+  width:22px; 
+  transform: translateX(0px); 
+  transition: transform 0.2s linear;
+}
+.checkbox:checked + .label .ball { 
+  transform: translateX(24px)
+}
+
+.fa-moon {
+  color: #f1c40f; 
+}
+
+.fa-sun { 
+  color: #f39c12; 
+}
+
+
+/* ==============
+  THEME SWITCHER STYLING DIV 
+================== */ 
+
+.theme-switcher {
+  width: 300px; 
+  display: flex ;  
+  flex-direction: column; 
+  justify-content: center;
+  margin: 0 auto ;  
+  margin-left: 30px;
+}
+
+
+
+
 
 /* 
 =====================
@@ -271,7 +339,7 @@ COLORS FOR DIFFERENT THEMES
 =====================
   RIGHT COL STYLES  
 =====================*/
-
+theme-switcher
 .right-column {
   grid-area: right-column;
   display: grid;

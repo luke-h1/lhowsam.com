@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;300&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="normalize.css" rel="stylesheet">
     <!---NORMALIZE CSS ACROSS BROWSERS --->
     <link href="styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Luke H</title>
@@ -28,26 +26,46 @@
             <div class="greeting-wrapper">
                 <h1>Hi, I'm luke Howsam</h1>
             </div>
+            
+             
             <div class="intro-wrapper">
                 <div class="nav-wrapper">
                     <div class="dots-wrapper">
                         <div id="dot-1" class="browser-dot"></div>
                         <div id="dot-2" class="browser-dot"></div>
                         <div id="dot-3" class="browser-dot"></div>
+                        <div class="theme-switcher">
+                            <input type="checkbox" class="checkbox" id="checkbox1" />
+                            <label class="label" for="checkbox1">
+                                <i class="fa fa-moon"></i>
+                                <i class="fa fa-sun"></i>
+                                <div class="ball"></div>
+                            </label>
+                        </div>
                     </div>
 
                     <ul id="navigation">
                     </ul>
                 </div>
+                
                 <div class="left-column">
                     <img src="/static/luke.png" id="profile_pic" alt="">
+                </div> 
+                
+
+          
 
 
+
+
+
+
+<!-- 
                     <div id="theme-options-wrapper">
                         <div data-mode="dark" id="dark-mode" class="theme-dot"></div>
                         <div data-mode="light" id="light-mode" class="theme-dot"></div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="right-column">
                     <div id="preview-shadow">
@@ -63,9 +81,11 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
         </div>
     </section>
+    
     <!-- HEADER END  -->
 
     <!--SECTION TWO START -->
@@ -185,8 +205,6 @@
                         class="fa fa-linkedin fa-3x" aria-hidden="true" style="padding-bottom: 2em ;"></i>
                 </a>
     </section>
-
     <script src="app.js"></script>
 </body>
-
 </html>
