@@ -1,0 +1,26 @@
+/* DARK-MODE STYLES  */
+:root {
+  --mainColor: #000;
+  --secondaryColor: #000;
+
+  --borderColor: #164D56;
+
+  --mainText: #fff;
+  --secondaryText: #eeeeee;
+
+  --theme-dot-border: #fff;
+
+  --previewBg: rgb(81, 90, 72, 0.8);
+
+  --previewShadow: #4B5267 ; 
+
+  --buttonColor: #fff;
+} 
+
+.social-list__link { 
+  color: #fff  
+}
+
+.post-preview .social-list__link { 
+  color: #000 ; 
+}
