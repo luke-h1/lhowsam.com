@@ -1,201 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital@1&display=swap" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="normalize.css" rel="stylesheet">
-    <!---NORMALIZE CSS ACROSS BROWSERS --->
-    <link href="styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luke H</title>
-    <!--THEME SWITCH CSS-->
-    <link href="" rel="stylesheet" id="theme-style">
-    <meta charset="UTF-8">
-    <meta name="description" content="Personal portfolio">
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="author" content="Luke Howsam">
+  <meta charset="UTF-8">
+  <meta name="description" content="Personal portfolio">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Luke Howsam">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css" />   
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"> 
+  <link rel="stylesheet" href="normalize.css" />
+  <title></title>
 </head>
-
 <body>
-    <!-- HEADER START  -->
-    <section class="s1">
-        <div class="main-container">
-            <div class="greeting-wrapper">
-                <h1>Hi, I'm luke Howsam</h1>
-            </div>
-            <div class="intro-wrapper">
-                <div class="nav-wrapper">
-                    <div class="dots-wrapper">
-                        <div id="dot-1" class="browser-dot"></div>
-                        <div id="dot-2" class="browser-dot"></div>
-                        <div id="dot-3" class="browser-dot"></div>
-                    </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Contact</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Luke Howsam
+      </span>
+    </div>
+  </nav>
 
-                    <ul id="navigation">
-                    </ul>
-                </div>
-                <div class="left-column">
-                    <img src="/static/luke.png" id="profile_pic" alt="">
-
-
-                    <div id="theme-options-wrapper">
-                        <div data-mode="dark" id="dark-mode" class="theme-dot"></div>
-                        <div data-mode="light" id="light-mode" class="theme-dot"></div>
-                    </div>
-                </div>
-                 <!-- <div>    <input type="checkbox" class="checkbox" id="checkbox2" />
-            <label class="label" for="checkbox2">
-                <i class="fa fa-moon"></i>
-                <i class="fa fa-sun"></i>
-                <div class="ball"></div>
-            </label>
-        </div> -->
-        
-
-                <div class="right-column">
-                    <div id="preview-shadow">
-                        <div id="preview">
-                            <div id="corner-tl" class="corner"></div>
-                            <div id="corner-tr" class="corner"></div>
-                            <h3>What I do</h3>
-                            <p>Technical support</p>
-                            <p>Incident Management
-                            </p>
-                            <div id="corner-br" class="corner"></div>
-                            <div id="corner-bl" class="corner"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+ <div class="container">
+  <div class="card mb-3" style="max-width: 840px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <img src="/static/luke.png" class="card-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">About me</h5>
+          <p class="card-text">I'm passionate about solving technical problems and coming up with creative solutions.<br><br>
+            I am currently looking for a technical support / service desk position at an exciting company.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
-    </section>
-    <!-- HEADER END  -->
-
-    <!--SECTION TWO START -->
-    <section class="s2">
-        <div class="main-container">
-            <div class="about-wrapper">
-                <div class="about-me">
-                    <h4>More about me</h4>
-                    <p>I'm passionate about solving technical problems and coming up with creative solutions.
-
-                        I am currently looking for a technical support / service desk position at an exciting company
-                    </p>
-                </div>
-                <div id="skills">
-                    <h4>Top expertise</h4>
-                    <ul>
-                        <li>HTML + CSS</li>
-                        <br>
-                        <li>Technical support
-                        </li>
-                        <br>
-                        <li>Incident Management
-                        </li>
-                        <br>
-                        <li>Service desk & ticketing systems</li> <br>
-                        <li>Git / version control</li> <br>
-                        <li>Automation (Ansible, Bash scripting)</li> <br>
-                        <lI>Software + hardware troubleshooting</lI>
-                    </ul>
-                </div>
-            </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+<div class="card mt-3" style="max-width: 840px;">
+    <div class="card blue-grey darken-3">
+      <div class="card-content white-text">
+        <span class="card-title">What I do / my expertise</span>
+          <ul>
+              <li>HTML + CSS</li>
+              <br>
+              <li>Technical support
+              </li>
+              <br>
+              <li>Incident Management
+              </li>
+              <br>
+              <li>Service desk & ticketing systems</li> <br>
+              <li>Git / version control</li> <br>
+              <li>Automation (Ansible, Bash scripting)</li> <br>
+              <lI>Software + hardware troubleshooting</lI>
+          </ul>
+      </div>
+      </div>
+      <div class="card-action">
+        <a href="#">Get In Touch</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<hr>
+<section class="projects">
+  <h1 class="title">My Past Work</h1>
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/img1.jpeg">
+          <span class="card-title">theme switcher</span>
         </div>
-    </section>
-    <!--SECTION TWO END -->
-
-
-    <!--SECTION ONE START -->
-    <section class="s1">
-        <div class="main-container">
-            <h3 style="text-align: center;">past projects</h3>
-            <div class="post-wrapper">
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="/static/img1.jpeg" alt="">
-                        <div class="post-preview">
-                            <h6 class="post-title">Quotes App</h6>
-                            <p class="post-intro">In this project I made a quotes app that pulls data from <a
-                                    href="https://github.com/RocktimSaikia/anime-chan">this</a> API with Vanilla
-                                javascript and bootstrap. This was a really fun API to work with and made the
-                                development of this app enjoyable.</p>
-
-
-                            <hr>
-                            <li class="social-list__item">
-                                <a class="social-list__link" href="https://github.com/luke-h1/anime-quotes-app"
-                                    target="_blank"><i class="fa fa-github fa-2x " aria-hidden="true"></i>
-                                </a>
-                                <a class="social-list__link" href="https://anime-quotes-app.vercel.app/"
-                                    target="_blank"><i class="fa fa-chrome fa-2x" aria-hidden="true"></i>
-                                </a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="/static/img2.jpeg" alt="">
-                        <div class="post-preview">
-                            <h6 class="post-title">Todo App </h6>
-                            <p class="post-intro">In this project, I built a Todo App made with Vanilla javascript &
-                                boostrap. I enjoyed solving the issues that occured during the development of this app
-                                (DOM manipulation issues etc.)</p>
-                            <hr>
-                            <li class="social-list__item">
-                                <a class="social-list__link" href="https://github.com/luke-h1/vanilla-todo-app"
-                                    target="_blank"><i class="fa fa-github fa-2x " aria-hidden="true"></i>
-                                </a>
-                                <a class="social-list__link" href="https://vanilla-todo-app.vercel.app/"
-                                    target="_blank"><i class="fa fa-chrome fa-2x" aria-hidden="true"></i>
-                                </a>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="post">
-                        <img class="thumbnail" src="/static/img3.jpeg" alt="">
-                        <div class="post-preview">
-                            <h6 class="post-title">Automation
-                            </h6>
-                            <p class="post-intro">I love automation. I am a huge advocate for infrastructure automation
-                                as this allows teams to focus on innovating new features and solving new problems rather
-                                than being backlogged with maintaining infrastructure. In this project I made Ansible
-                                playbooks & Bash scripts that automate the setup of Linux, Windows & Mac OS X
-                                workstations & servers </p>
-
-                            <hr>
-                            <li class="social-list__item">
-                                <a class="social-list__link" href="https://github.com/luke-h1/Automation"
-                                    target="_blank"><i class="fa fa-github fa-2x " aria-hidden="true"></i></a>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="card-content">
+          <p>In this project I made a theme switcher that provides a light and dark mode.</p>
         </div>
-    </section>
-    <!--SECTION ONE END -->
+        <div class="card-action">
+          <a href="#">See more</a>
+        </div>
+      </div>
+    </div>
 
-    <!--SECTION TWO START -->
-    <section class="s2">
-        <div class="main-container">
-            <h3 style="text-align: center;">Contact me</h3>
-            <li class="social-list__item">
-                <a class="social-list__link" href="https://github.com/luke-h1/" target="_blank"><i
-                        class="fa fa-github fa-3x " aria-hidden="true"></i>
-                </a>
-                <a class="social-list__link" href="https://www.linkedin.com/in/lukehowsam/" target="_blank"><i
-                        class="fa fa-linkedin fa-3x" aria-hidden="true" style="padding-bottom: 2em ;"></i>
-                </a>
-    </section>
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/img2.jpeg">
+          <span class="card-title">Quotes App</span>
+        </div>
+        <div class="card-content">
+          <p>In this project I made a quotes app that pulls data from <a
+          href="https://github.com/RocktimSaikia/anime-chan">this</a> API with Vanilla
+      javascript and bootstrap. This was a really fun API to work with and made the
+      development of this app enjoyable.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <script src="app.js"></script>
+
+  <div class="row">
+    <div class="col s12 m7">
+      <div class="card">
+        <div class="card-image">
+          <img src="/static/img3.jpeg">
+          <span class="card-title">Todo App </span>
+        </div>
+        <div class="card-content">
+          <p>In this project, I built a Todo App made with Vanilla javascript &
+            boostrap. I enjoyed solving the issues that occured during the development of this app
+            (DOM manipulation issues etc.</p>
+        </div>
+        <div class="card-action">
+          <a href="#">This is a link</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="new-btn btn waves-effect waves-light" type="" name="">View More Projects
+  </button>
+</section>
+<footer class="page-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Footer Content</h5>
+        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+      </div>
+      <div class="col l4 offset-l2 s12">
+        <h5 class="white-text">Links</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!"><i class="fa fa-github fa-2x"></i></a></li><br>
+          <li><a class="grey-text text-lighten-3" href="#!"><i class="fa fa-linkedin fa-2x"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2020 Copyright luke howsam
+    <a class="grey-text text-lighten-4 right" href="#!"></a>
+    </div>
+  </div>
+</footer>
+  
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="app.js"></script>
 </body>
-
 </html>
