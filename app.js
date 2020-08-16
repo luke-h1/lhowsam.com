@@ -1,9 +1,15 @@
-const check = document.querySelector('.checkbox'); 
-check.addEventListener('change', () => { 
-    console.log('this function does fuck all !')
-})
+const checkbox = document.getElementById('checkbox1');
+checkbox.addEventListener('change', darkModeSwitcher);
 
-
+function darkModeSwitcher() {
+    if (checkbox.checked) {
+        console.log('checkbox has been checked');
+        document.getElementById('theme-style').href = 'dark-mode.css';
+    } else {
+        console.log('not checked...');
+        document.getElementById('theme-style').href = 'styles.css';
+    }
+}
 
 // old theme switcher (unused)
 
@@ -11,9 +17,9 @@ check.addEventListener('change', () => {
 // const theme = localStorage.getItem('theme');
 
 // if (theme == null) {
-//     setTheme('light'); 
+//     setTheme('light');
 // } else {
-//     setTheme(theme); 
+//     setTheme(theme);
 // }
 
 // for (let i = 0; themeDots.length > i; i++) {
