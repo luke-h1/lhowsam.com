@@ -32,3 +32,9 @@
 .icon-wrapper i:hover { 
 color:#76E5FC; 
 }
+
+.watch-projects { 
+  margin-top: 2em; 
+  border: 1px solid #fff;
+  opacity: 2;
+}

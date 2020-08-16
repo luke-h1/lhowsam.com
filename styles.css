@@ -599,24 +599,44 @@ i:hover {
 
 }
 
+.card-img { 
+  object-fit:cover;  
+  width: 30%; 
+  height:30%;   
+
+}
+
+
+.watch-projects .card-img { 
+  width: 100%; 
+}
 
 /* PROJECT CARDS START  */
 .card-img-top { 
   object-fit:cover; 
-  width: 30%; 
-  height:30%; 
+  width: 25%; 
+  height:25%;     
+  border-radius: 20%;
 }
+
+
 
 .watch-projects { 
-  margin-top: 2em; 
   border: 1px solid #000;
-  opacity: 2;
+  max-width: 65%;  
+  margin: 0 auto ; 
+  text-align: center; 
+  display: flex ; 
+  flex-direction: column; 
+  justify-content: center; 
+}
+.watch-projects p { 
+  font-size: 20px ; 
 }
 
-.new-img {
-  width: 25%
+.projects-new { 
+  margin: 2em 0 2em 0;
 }
-
 #navigation {
   cursor: pointer;
 }
