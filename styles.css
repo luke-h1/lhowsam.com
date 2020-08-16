@@ -21,19 +21,12 @@ custom properties
 }
 
 
+
+
 .icon-wrapper i { 
   margin: 0 5px 0 15px ;  
   cursor: pointer;
 }
-
-
-.btn-wrapper { 
-  text-align: center;   
-  margin-bottom: 1em; 
-
-}
-
-
 
 
 
@@ -74,9 +67,9 @@ h6 {
 }
 
 /* 
-=====================
+==============================================
   h1 to h6 amd strong font families + weights 
-=====================*/
+==============================================*/
 h1,
 h2,
 h3,
@@ -102,9 +95,9 @@ ul {
   list-style: none;
 }
 
-/* ==================
-DARK MODE STYLING 
-===================== */
+/* ============================
+DARK MODE SWITCHER STYLES START 
+=============================== */
 .checkbox { 
   opacity: 0 ; 
   position: absolute;
@@ -145,12 +138,13 @@ DARK MODE STYLING
 .fa-sun { 
   color: #f39c12; 
 }
+/* ============================
+DARK MODE SWITCHER STYLES END 
+=============================== */
 
-
-/* ==============
+/* ==========================
   THEME SWITCHER STYLING DIV 
-================== */ 
-
+============================= */ 
 .theme-switcher {
   width: 300px; 
   display: flex ;  
@@ -165,9 +159,9 @@ DARK MODE STYLING
 
 
 /* 
-=====================
+================================================
 p, span, label, input, textarea, ul, li styling 
-=====================*/
+================================================*/
 p,
 span,
 label,
@@ -177,6 +171,7 @@ ul,
 li {
   color: var(--secondaryText);
   font-family: 'Roboto Mono', monospace;
+
 }
 
 /* 
@@ -191,7 +186,7 @@ li {
 
 /* 
 =====================
-  SECTION TWO 
+  SECTION TWO START
 =====================*/
 .s2 {
   background-color: var(--secondaryColor);
@@ -226,7 +221,16 @@ li {
       'left-column right-column';
 }
 
-.nav-wrapper {
+/* 
+=====================
+  SECTION TWO END 
+=====================*/
+
+
+/* ===============
+  NAVIGATION START 
+ ===============*/
+ .nav-wrapper {
   grid-area: nav-wrapper;
   border-bottom: 1px solid var(--borderColor);
   display: flex;
@@ -236,9 +240,6 @@ li {
   border-radius: 5px 5px 0 0;
 }
 
-/* ===============
-  NAVIGATION 
- ===============*/
 
 #navigation {
   margin: 0;
@@ -250,9 +251,14 @@ li {
   margin-right: 5px;
   margin-left: 5px;
 }
+/* ===============
+  NAVIGATION END 
+ ===============*/
+
+
 
 /* ===============
-  DOTS 
+  DOTS START 
  ===============*/
 .dots-wrapper {
   display: flex;
@@ -296,10 +302,15 @@ li {
 .theme-dot:hover {
   border-width: 5px;
 }
+/* ===============
+  DOTS END 
+ ===============*/
 
-/* ========================
-COLORS FOR DIFFERENT THEMES 
-===========================*/
+
+
+/* ===================================================
+COLORS FOR DIFFERENT THEMES + SAFARI DOT THEMES START 
+======================================================*/
 #light-mode {
   background-color: #fff;
 }
@@ -338,6 +349,11 @@ COLORS FOR DIFFERENT THEMES
 #dot-3 {
   background-color: #2aca3e;
 }
+/* ===================================================
+COLORS FOR DIFFERENT THEMES + SAFARI DOT THEMES END 
+======================================================*/
+
+
 
 /* 
 =====================
@@ -472,7 +488,7 @@ theme-switcher
 }
 
 /* =============
- POSTS 
+ POSTS START 
  ============= */
 
 .post {
@@ -511,6 +527,12 @@ theme-switcher
   background-color: var(--buttonColor);
   border: none;
 }
+/* =============
+ POSTS END 
+ ============= */
+
+
+/* CONTACT FORM (DISABLED) */
 /* 
 #contact-form {
   display: block;
@@ -523,6 +545,19 @@ theme-switcher
   margin-bottom: 50px;
 } */
 
+#contact-form label {
+  line-height: 2.7em;
+}
+
+#contact-form textarea {
+  min-height: 100px;
+  font-size: 14px;
+}
+/* CONTACT FORM (DISABLED) */
+
+
+
+
 .input-field {
   width: 100%;
   padding-top: 10px;
@@ -533,14 +568,7 @@ theme-switcher
   font-size: 14px;
 }
 
-#contact-form label {
-  line-height: 2.7em;
-}
 
-#contact-form textarea {
-  min-height: 100px;
-  font-size: 14px;
-}
 
 /* =============
   SOCIAL LIST 
@@ -559,9 +587,7 @@ theme-switcher
   padding: 0 1em 0 1em;
 }
 
-/* .social-list__link:hover {
-  color: #76E5FC; 
-} */
+
 
 #navigation a {
   color: var(--mainText);
@@ -594,3 +620,13 @@ i:hover {
 #navigation {
   cursor: pointer;
 }
+/* PROJECT CARDS END */
+
+
+
+/* Button div wrapper for project section */
+.btn-wrapper { 
+  text-align: center;   
+  margin-bottom: 1em; 
+}
+/* Button div wrapper for project section */
