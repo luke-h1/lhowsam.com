@@ -24,3 +24,11 @@
 .post-preview .social-list__link { 
   color: #000 ; 
 }
+
+.icon-wrapper i { 
+  color: #fff ; 
+}
+
+.icon-wrapper i:hover { 
+color:#76E5FC; 
+}

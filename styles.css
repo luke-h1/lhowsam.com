@@ -21,6 +21,20 @@ custom properties
 }
 
 
+.icon-wrapper i { 
+  margin: 0 5px 0 15px ;  
+  cursor: pointer;
+}
+
+
+.btn-wrapper { 
+  text-align: center;   
+  margin-bottom: 1em; 
+
+}
+
+
+
 
 
 body { 
@@ -557,4 +571,24 @@ theme-switcher
 i:hover { 
   color: #76E5FC; 
 
+}
+
+.card-img-top { 
+  object-fit:cover; 
+  width: 30%; 
+  height:30%; 
+}
+
+.watch-projects { 
+  margin-top: 2em; 
+  border: 1px solid #000;
+  opacity: 2;
+}
+
+.new-img {
+  width: 25%
+}
+
+#navigation {
+  cursor: pointer;
 }
