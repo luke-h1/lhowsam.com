@@ -1,15 +1,18 @@
 const checkbox = document.getElementById('checkbox1');
 checkbox.addEventListener('change', darkModeSwitcher);
 
-function darkModeSwitcher() {
+function darkModeSwitcher() { // TODO: SAVE IN LOCAL STORAGE THE THEME THAT IS PICKED 
     if (checkbox.checked) {
         console.log('checkbox has been checked');
-        document.getElementById('theme-style').href = 'dark-mode.css';
+        document.getElementById('theme-style').href = 'dark-mode.css'; 
     } else {
         console.log('not checked...');
         document.getElementById('theme-style').href = 'styles.css';
     }
 }
+
+
+
 
 // old theme switcher (unused)
 

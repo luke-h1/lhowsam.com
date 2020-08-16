@@ -650,3 +650,8 @@ i:hover {
   margin-bottom: 1em; 
 }
 /* Button div wrapper for project section */
+
+
+.current { 
+  text-decoration: underline; 
+}
