@@ -1,220 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="normalize.css" rel="stylesheet">
-    <!---NORMALIZE CSS ACROSS BROWSERS --->
-    <link href="styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Luke H</title>
-    <!--THEME SWITCH CSS-->
-    <link href="" rel="stylesheet" id="theme-style">
-    <meta charset="UTF-8">
-    <meta name="description" content="Personal portfolio">
-    <meta name="keywords" content="HTML, CSS, JavaScript">
-    <meta name="author" content="Luke Howsam"> 
-    
-</head>
+    <head>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <link href="normalize.css" rel="stylesheet" />
+        <link href="styles.css" rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+            integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+            crossorigin="anonymous"
+        />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="styles.css" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Luke H</title>
+        <!--THEME SWITCH CSS-->
+        <link href="" rel="stylesheet" id="theme-style" />
+        <meta charset="UTF-8" />
+        <meta name="description" content="Personal portfolio" />
+        <meta name="keywords" content="HTML, CSS, JavaScript" />
+        <meta name="author" content="Luke Howsam" />
+    </head>
+    <body>
+        <!-- HEADER START  -->
+        <section class="s1">
+            <div class="main-container">
+                <div class="greeting-wrapper">
+                    <h2>Hi, I'm luke Howsam</h2>
+                    <div class="icon-wrapper">
+                        <i class="fa fa-github fa-2x"></i>
+                        <i class="fa fa-linkedin fa-2x"></i>
+                    </div>
+                </div>
 
-<body>
-    <!-- HEADER START  -->
-    <section class="s1">
-        <div class="main-container">
-            <div class="greeting-wrapper">
-                <h2>Hi, I'm luke Howsam</h2>  
-                <div class="icon-wrapper">
-                <i class="fa fa-github fa-2x"></i>  
-                <i class="fa fa-linkedin fa-2x"></i> 
-                </div> 
-            </div>
-            
-            <div class="intro-wrapper">
-                <div class="nav-wrapper">
-                    <div class="dots-wrapper">
-                        <div id="dot-1" class="browser-dot"></div>
-                        <div id="dot-2" class="browser-dot"></div>
-                        <div id="dot-3" class="browser-dot"></div>
-                        <div class="theme-switcher">
-                            <input type="checkbox" class="checkbox" id="checkbox1" />
-                            <label class="label" for="checkbox1">
-                                <i class="fa fa-moon"></i>
-                                <i class="fa fa-sun"></i>
-                                <div class="ball"></div>
-                            </label>
+                <div class="intro-wrapper">
+                    <div class="nav-wrapper">
+                        <div class="dots-wrapper">
+                            <div id="dot-1" class="browser-dot"></div>
+                            <div id="dot-2" class="browser-dot"></div>
+                            <div id="dot-3" class="browser-dot"></div>
+                            <div class="theme-switcher">
+                                <input
+                                    type="checkbox"
+                                    class="checkbox"
+                                    id="checkbox1"
+                                />
+                                <label class="label" for="checkbox1">
+                                    <i class="fa fa-moon"></i>
+                                    <i class="fa fa-sun"></i>
+                                    <div class="ball"></div>
+                                </label>
+                            </div>
                         </div>
+
+                        <ul id="navigation">
+                            <li>
+                                <a href="index.html" class="current">Home</a>
+                            </li>
+                            <li><a href="projects.html">projects</a></li>
+                            <!-- <li><a href="contact.html">contact</a></li> -->
+                        </ul>
+                    </div>
+                    <div class="left-column">
+                        <img src="/static/luke.png" id="profile_pic" alt="" />
                     </div>
 
-                    <ul id="navigation">
-                        <li><a href="index.html" class="current">Home</a></li>
-                        <li><a href="projects.html">projects</a></li>
-                        <!-- <li><a href="contact.html">contact</a></li> -->
-                    </ul>
-                </div>
-                <div class="left-column">
-                    <img src="/static/luke.png" id="profile_pic" alt="">
-                </div> 
-                
-
-          
-
-
-
-
-
-
-<!-- 
+                    <!-- 
                     <div id="theme-options-wrapper">
                         <div data-mode="dark" id="dark-mode" class="theme-dot"></div>
                         <div data-mode="light" id="light-mode" class="theme-dot"></div>
                     </div>
                 </div> -->
 
-                <div class="right-column">
-                    <div id="preview-shadow">
-                        <div id="preview">
-                            <div id="corner-tl" class="corner"></div>
-                            <div id="corner-tr" class="corner"></div>
-                            <h3>What I do</h3>
-                            <p>Technical support</p>
-                            <p>Incident Management
-                            </p>
-                            <div id="corner-br" class="corner"></div>
-                            <div id="corner-bl" class="corner"></div>
+                    <div class="right-column">
+                        <div id="preview-shadow">
+                            <div id="preview">
+                                <div id="corner-tl" class="corner"></div>
+                                <div id="corner-tr" class="corner"></div>
+                                <h3>What I do</h3>
+                                <p>Technical support</p>
+                                <p>Incident Management</p>
+                                <div id="corner-br" class="corner"></div>
+                                <div id="corner-bl" class="corner"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
             </div>
-        </div>
-    </section>
-    
-    <!-- HEADER END  -->
+        </section>
+        <!-- HEADER END  -->
 
-    <!--SECTION TWO START -->
-    <section class="s2">
-        <div class="main-container">
-            <div class="about-wrapper">
-                <div class="about-me">
-                    <h4>More about me</h4>
-                    <p>I'm passionate about solving technical problems and coming up with creative solutions.
-
-                        I am currently looking for a technical support / service desk position at an exciting company
-                    </p>
-                </div>
-                <div id="skills">
-                    <h4>Top expertise</h4>
-                    <ul>
-                        <li>HTML + CSS</li>
-                        <br>
-                        <li>Technical support
-                        </li>
-                        <br>
-                        <li>Incident Management
-                        </li>
-                        <br>
-                        <li>Service desk & ticketing systems</li> <br>
-                        <li>Git / version control</li> <br>
-                        <li>Automation (Ansible, Bash scripting)</li> <br>
-                        <lI>Software + hardware troubleshooting</lI>
-                    </ul>
+        <!--SECTION TWO START -->
+        <section class="s2">
+            <div class="main-container">
+                <div class="about-wrapper">
+                    <div class="about-me">
+                        <h4>More about me</h4>
+                        <p>
+                            I'm passionate about solving technical problems and
+                            coming up with creative solutions. I am currently
+                            looking for a technical support / service desk
+                            position at an exciting company
+                        </p>
+                    </div>
+                    <div id="skills">
+                        <h4>Top expertise</h4>
+                        <ul>
+                            <li>HTML + CSS</li>
+                            <br />
+                            <li>Technical support</li>
+                            <br />
+                            <li>Incident Management</li>
+                            <br />
+                            <li>Service desk & ticketing systems</li>
+                            <br />
+                            <li>Git / version control</li>
+                            <br />
+                            <li>Automation (Ansible, Bash scripting)</li>
+                            <br />
+                            <li>Software + hardware troubleshooting</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!--SECTION TWO END -->
+        </section>
+        <!--SECTION TWO END -->
 
-
-    <!--SECTION ONE START -->
-    <section class="s1">
-        <div class="main-container">
-            <h3 style="text-align: center;">My projects</h3>  
-            <p class="lead" style="text-align:center;"><a href="projects.html">Click here to see the full list of projects</a></p>       
+        <!--SECTION ONE START -->
+        <section class="s1">
+            <div class="main-container">
+                <h3 style="text-align: center;">My projects</h3>
+                <p class="lead" style="text-align: center;">
+                    <a href="projects.html"
+                        >Click here to see the full list of projects</a
+                    >
+                </p>
             </div>
             <div class="post-wrapper">
                 <div>
                     <div class="post">
-                        <img class="thumbnail" src="/static/img1.jpeg" alt="">
+                        <img class="thumbnail" src="/static/img1.jpeg" alt="" />
                         <div class="post-preview">
                             <h6 class="post-title">Quotes App</h6>
-                            <p class="post-intro">In this project I made a quotes app that pulls data from <a
-                                    href="https://github.com/RocktimSaikia/anime-chan">this</a> API with Vanilla
-                                javascript and bootstrap. This was a really fun API to work with and made the
-                                development of this app enjoyable.</p>
+                            <p class="post-intro">
+                                In this project I made a quotes app that pulls
+                                data from
+                                <a
+                                    href="https://github.com/RocktimSaikia/anime-chan"
+                                    >this</a
+                                >
+                                API with Vanilla javascript and bootstrap. This
+                                was a really fun API to work with and made the
+                                development of this app enjoyable.
+                            </p>
 
-
-                            <hr>
+                            <hr />
                             <li class="social-list__item">
-                                <a class="social-list__link" href="https://github.com/luke-h1/anime-quotes-app"
-                                    target="_blank"><i class="fa fa-github fa-2x " aria-hidden="true"></i>
+                                <a
+                                    class="social-list__link"
+                                    href="https://github.com/luke-h1/anime-quotes-app"
+                                    target="_blank"
+                                    ><i
+                                        class="fa fa-github fa-2x"
+                                        aria-hidden="true"
+                                    ></i>
                                 </a>
-                                <a class="social-list__link" href="https://anime-quotes-app.vercel.app/"
-                                    target="_blank"><i class="fa fa-chrome fa-2x" aria-hidden="true"></i> 
-                                </a> 
-                                </li> 
+                                <a
+                                    class="social-list__link"
+                                    href="https://anime-quotes-app.vercel.app/"
+                                    target="_blank"
+                                    ><i
+                                        class="fa fa-chrome fa-2x"
+                                        aria-hidden="true"
+                                    ></i>
+                                </a>
+                            </li>
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="post">
-                        <img class="thumbnail" src="/static/img2.jpeg" alt="">
+                        <img class="thumbnail" src="/static/img2.jpeg" alt="" />
                         <div class="post-preview">
-                            <h6 class="post-title">Todo App </h6>
-                            <p class="post-intro">In this project, I built a Todo App made with Vanilla javascript &
-                                boostrap. I enjoyed solving the issues that occured during the development of this app
-                                (DOM manipulation issues etc.)</p>
-                            <hr>
+                            <h6 class="post-title">Todo App</h6>
+                            <p class="post-intro">
+                                In this project, I built a Todo App made with
+                                Vanilla javascript & boostrap. I enjoyed solving
+                                the issues that occured during the development
+                                of this app (DOM manipulation issues etc.)
+                            </p>
+                            <hr />
                             <li class="social-list__item">
-                                <a class="social-list__link" href="https://github.com/luke-h1/vanilla-todo-app"
-                                    target="_blank"><i class="fa fa-github fa-2x " aria-hidden="true"></i>
+                                <a
+                                    class="social-list__link"
+                                    href="https://github.com/luke-h1/vanilla-todo-app"
+                                    target="_blank"
+                                    ><i
+                                        class="fa fa-github fa-2x"
+                                        aria-hidden="true"
+                                    ></i>
                                 </a>
-                                <a class="social-list__link" href="https://vanilla-todo-app.vercel.app/"
-                                    target="_blank"><i class="fa fa-chrome fa-2x" aria-hidden="true"></i>
+                                <a
+                                    class="social-list__link"
+                                    href="https://vanilla-todo-app.vercel.app/"
+                                    target="_blank"
+                                    ><i
+                                        class="fa fa-chrome fa-2x"
+                                        aria-hidden="true"
+                                    ></i>
                                 </a>
+                            </li>
                         </div>
                     </div>
                 </div>
                 <div>
                     <div class="post">
-                        <img class="thumbnail" src="/static/img3.jpeg" alt="">
+                        <img class="thumbnail" src="/static/img3.jpeg" alt="" />
                         <div class="post-preview">
-                            <h6 class="post-title">Automation
-                            </h6>
-                            <p class="post-intro">I love automation. I am a huge advocate for infrastructure automation
-                                as this allows teams to focus on innovating new features and solving new problems rather
-                                than being backlogged with maintaining infrastructure. In this project I made Ansible
-                                playbooks & Bash scripts that automate the setup of Linux, Windows & Mac OS X
-                                workstations & servers </p>
+                            <h6 class="post-title">Automation</h6>
+                            <p class="post-intro">
+                                I love automation. I am a huge advocate for
+                                infrastructure automation as this allows teams
+                                to focus on innovating new features and solving
+                                new problems rather than being backlogged with
+                                maintaining infrastructure. In this project I
+                                made Ansible playbooks & Bash scripts that
+                                automate the setup of Linux, Windows & Mac OS X
+                                workstations & servers
+                            </p>
 
-                            <hr>
+                            <hr />
                             <li class="social-list__item">
-                                <a class="social-list__link" href="https://github.com/luke-h1/Automation"
-                                    target="_blank"><i class="fa fa-github fa-2x " aria-hidden="true"></i></a>
-
+                                <a
+                                    class="social-list__link"
+                                    href="https://github.com/luke-h1/Automation"
+                                    target="_blank"
+                                    ><i
+                                        class="fa fa-github fa-2x"
+                                        aria-hidden="true"
+                                    ></i
+                                ></a>
+                            </li>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!--SECTION ONE END -->
+        </section>
+        <!--SECTION ONE END -->
 
-    <!--SECTION TWO START -->
-    <section class="s2">
-        <div class="main-container">
-            <h3 style="text-align: center;">Contact me</h3>
-            <li class="social-list__item">
-                <a class="social-list__link" href="https://github.com/luke-h1/" target="_blank"><i
-                        class="fa fa-github fa-3x " aria-hidden="true"></i>
-                </a>
-                <a class="social-list__link" href="https://www.linkedin.com/in/lukehowsam/" target="_blank"><i
-                        class="fa fa-linkedin fa-3x" aria-hidden="true" style="padding-bottom: 2em ;"></i>
-                </a>
-    </section>
-    <script src="app.js"></script>
-</body>
+        <!--SECTION TWO START -->
+        <section class="s2">
+            <div class="main-container">
+                <h3 style="text-align: center;">Contact me</h3>
+                <li class="social-list__item">
+                    <a
+                        class="social-list__link"
+                        href="https://github.com/luke-h1/"
+                        target="_blank"
+                        ><i class="fa fa-github fa-3x" aria-hidden="true"></i>
+                    </a>
+                    <a
+                        class="social-list__link"
+                        href="https://www.linkedin.com/in/lukehowsam/"
+                        target="_blank"
+                        ><i
+                            class="fa fa-linkedin fa-3x"
+                            aria-hidden="true"
+                            style="padding-bottom: 2em;"
+                        ></i>
+                    </a>
+                </li>
+            </div>
+        </section>
+        <script src="app.js"></script>
+    </body>
 </html>
