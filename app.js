@@ -9,31 +9,28 @@ if (theme === null) {
 }
 
 function darkModeSwitcher() {
-    // TODO: SAVE IN LOCAL STORAGE THE THEME THAT IS PICKED
     if (checkbox.checked) {
         console.log('checkbox has been checked');
-        document.getElementById('theme-style').href = 'dark-mode.css';
-        setTheme('dark'); 
-    } else {
-        setTheme('light')
+        setTheme('dark');
+    } else if (!checkbox.checked){
         console.log('not checked...');
-        document.getElementById('theme-style').href = 'styles.css';
+        setTheme('light');
     }
 }
 
 function setTheme(mode) {
     if (mode === 'light') {
         document.getElementById('theme-style').href = 'styles.css';
-
-    } else {
+    } else if (mode === 'dark'){
         document.getElementById('theme-style').href = 'dark-mode.css';
     }
-    localStorage.setItem('theme', mode)
-
+    localStorage.setItem('theme', mode);
 }
 
-// old theme switcher (unused)
 
+
+
+// old theme switcher (unused)
 // const themeDots = document.getElementsByClassName('theme-dot');
 // const theme = localStorage.getItem('theme');
 
