@@ -194,8 +194,15 @@ li {
     min-height: 10em;
     align-content: center;
     text-align: center;
+    font-family: 'Roboto', sans-serif;  
+    -webkit-text-fill-color: transparent; 
+
 }
 
+.h2-intro-text { 
+    background: linear-gradient(90deg, #2a65f8,#3bd86d); 
+    -webkit-background-clip: text; 
+}
 .intro-wrapper {
     background-color: var(--secondaryColor);
     border: 1px solid var(--borderColor);
