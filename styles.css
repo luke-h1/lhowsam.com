@@ -21,6 +21,18 @@ custom properties
 }
 
 
+.scrollToTopBtn {
+  z-index: 100;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 20%;
+
+}
+
+.scrollToTopBtn i { 
+    font-size: 25px;
+}
+
 .icon-wrapper i {
     margin: 0 5px 0 15px;
     cursor: pointer;

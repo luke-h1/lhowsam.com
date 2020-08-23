@@ -40,18 +40,25 @@ SCROLL TO TOP
 */
 
 const rootEl = document.documentElement;
+const topBtn = document.querySelector('.scrollToTopBtn');
 
-function handleClick() {}
+function goToTop(){
+rootEl.scrollTo({top: 0, behavior: 'smooth'}); 
+}
+topBtn.addEventListener('click', goToTop); 
+
 
 function handleScroll() {
   let scrollTotal = rootEl.scrollHeight - rootEl.clientHeight;
   if (rootEl.scrollTop / scrollTotal > 0.8) {
-    // show button
+    topBtn.style.display = 'block';
   } else {
-    // hide button
+    topBtn.style.display = 'none';
   }
 }
 document.addEventListener('scroll', handleScroll);
+
+
 
 // old theme switcher (unused)
 // const themeDots = document.getElementsByClassName('theme-dot');
