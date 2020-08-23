@@ -1,34 +1,57 @@
+/*
+==============
+THEME SWITCHER 
+==============
+*/
+
 const checkbox = document.getElementById('checkbox1');
 const theme = localStorage.getItem('theme');
 checkbox.addEventListener('change', darkModeSwitcher);
 
 if (theme === null) {
-    setTheme('light');
+  setTheme('light');
 } else {
-    setTheme(theme);
+  setTheme(theme);
 }
 
 function darkModeSwitcher() {
-    if (checkbox.checked) {
-        console.log('checkbox has been checked');
-        setTheme('dark');
-    } else if (!checkbox.checked){
-        console.log('not checked...');
-        setTheme('light');
-    }
+  if (checkbox.checked) {
+    console.log('checkbox has been checked');
+    setTheme('dark');
+  } else if (!checkbox.checked) {
+    console.log('not checked...');
+    setTheme('light');
+  }
 }
 
 function setTheme(mode) {
-    if (mode === 'light') {
-        document.getElementById('theme-style').href = 'styles.css';
-    } else if (mode === 'dark'){
-        document.getElementById('theme-style').href = 'dark-mode.css';
-    }
-    localStorage.setItem('theme', mode);
+  if (mode === 'light') {
+    document.getElementById('theme-style').href = 'styles.css';
+  } else if (mode === 'dark') {
+    document.getElementById('theme-style').href = 'dark-mode.css';
+  }
+  localStorage.setItem('theme', mode);
 }
 
+/*
+==============
+SCROLL TO TOP 
+==============
+*/
 
+const rootEl = document.documentElement;
 
+function handleClick() {}
+
+function handleScroll() {
+  let scrollTotal = rootEl.scrollHeight - rootEl.clientHeight;
+  if (rootEl.scrollTop / scrollTotal > 0.8) {
+    // show button
+  } else {
+    // hide button
+  }
+}
+document.addEventListener('scroll', handleScroll);
 
 // old theme switcher (unused)
 // const themeDots = document.getElementsByClassName('theme-dot');
