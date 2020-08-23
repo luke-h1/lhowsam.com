@@ -153,15 +153,15 @@ DARK MODE SWITCHER STYLES END
 /* ==========================
   THEME SWITCHER STYLING DIV 
 ============================= */
-.theme-switcher {
-    width: 300px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0 auto;
-    margin-left: 30px;
+.theme-switcher { 
+    display: flex;  
+    flex-direction: column; 
+    justify-content: center;  
+    align-items: center;
+    margin-bottom: 50px;
 }
 
+.theme-switcher input {}
 /* 
 ================================================
 p, span, label, input, textarea, ul, li styling 
@@ -374,18 +374,21 @@ COLORS FOR DIFFERENT THEMES + SAFARI DOT THEMES END
     grid-area: left-column;
     padding-top: 50px;
     padding-bottom: 50px;
+    overflow: hidden;
 }
 
 /* 
 =====================
   RIGHT COL STYLES  
 =====================*/
-theme-switcher .right-column {
+.right-column {
     grid-area: right-column;
     display: grid;
     align-content: center;
     padding-top: 50px;
     padding-bottom: 50px;
+    overflow: hidden;
+
 }
 
 /* 
