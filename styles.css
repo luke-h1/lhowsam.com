@@ -20,6 +20,12 @@ custom properties
     --buttonColor: #000;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap'); 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
 
 .scrollToTopBtn {
   z-index: 100;
