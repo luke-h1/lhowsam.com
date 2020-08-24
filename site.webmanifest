@@ -1,6 +1,7 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "luke-h portfolio",
+    "short_name": "luke portfolio", 
+    "start_url": "index.html", 
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
