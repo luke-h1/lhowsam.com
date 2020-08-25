@@ -38,3 +38,28 @@
     border: 1px solid #fff;
     opacity: 2;
 }
+
+
+
+.container { 
+    color: #fff;
+    background-color: #000;
+}
+
+.post-preview { 
+    background-color: #000;
+    
+}
+
+.post-title { 
+    color: #fff; 
+    text-align: center;
+}
+
+.scrollToTopBtn { 
+    color: #000; 
+}
+
+.btn-container { 
+    background-color: #000;
+}
