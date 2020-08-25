@@ -214,13 +214,18 @@ li {
     align-content: center;
     text-align: center;
     -webkit-text-fill-color: transparent;  
+    font-family: 'Russo One', sans-serif;
+
 
 
 }
 
 .h2-intro-text { 
     background: linear-gradient(90deg, #2a65f8,#3bd86d); 
-    -webkit-background-clip: text; 
+    -webkit-background-clip: text;  
+    font-family: 'Russo One', sans-serif;
+
+
 }
 .intro-wrapper {
     background-color: var(--secondaryColor);
@@ -503,8 +508,12 @@ COLORS FOR DIFFERENT THEMES + SAFARI DOT THEMES END
     width: 100%;
     height: 250px;
     object-fit: cover;
-    background-size: cover;
+    background-size: cover; 
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+
 }
+
 
 /* =============
  POSTS START 
@@ -512,11 +521,13 @@ COLORS FOR DIFFERENT THEMES + SAFARI DOT THEMES END
 
 .post {
     padding-bottom: 50px;
+
 }
 
 .post-preview {
     background-color: #fff;
     padding: 25px;
+    border-radius: 15px;
 }
 
 .post-wrapper {
