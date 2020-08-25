@@ -160,7 +160,7 @@ DARK MODE SWITCHER
 }
 
 .main-container {
-  width: 1200px;
+  width: 1100px;
   margin: 0 auto;
 }
 
@@ -629,7 +629,8 @@ i:hover {
     display: flex;
     flex-direction: column; 
     width: 95%;
-    margin: 0 auto;
+    margin: 1em 0 1em 1em; 
+
   }
   }
     
