@@ -4,9 +4,11 @@ THEME SWITCHER
 ==============
 */
 
+
 const checkbox = document.getElementById('checkbox1');
 const theme = localStorage.getItem('theme');
 checkbox.addEventListener('change', darkModeSwitcher);
+
 
 if (theme === null) {
   setTheme('light');
@@ -14,19 +16,19 @@ if (theme === null) {
   setTheme(theme);
 }
 
-function darkModeSwitcher() {
-  if (checkbox.checked) {
-    console.log('checkbox has been checked');
+function darkModeSwitcher(event) {
+  if (event.target.checked) {
+    console.log(`${event.target.value} checked`)
     setTheme('dark');
-  } else if (!checkbox.checked) {
-    console.log('not checked...');
+  } else if (!event.target.checked) {
+    console.log(`${event.target.value} not checked`)
     setTheme('light');
   }
 }
 
 function setTheme(mode) {
   if (mode === 'light') {
-    document.getElementById('theme-style').href = 'styles.css';
+    document.getElementById('theme-style').href = 'styles.css'; 
   } else if (mode === 'dark') {
     document.getElementById('theme-style').href = 'dark-mode.css';
   }
