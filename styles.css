@@ -352,11 +352,11 @@ DARK MODE SWITCHER
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 800px) {
   .container {
     display: flex;
     flex-direction: column;
-    width: 95%;
+    max-width: 80%;
     margin: 1em 0 1em 1em;
   }
 }
