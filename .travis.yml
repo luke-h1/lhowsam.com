@@ -1,0 +1,8 @@
+notifications: 
+  email: 
+    recepients:
+      - luke.howsam@yahoo.com 
+    
+
+    on_success: always 
+    on_failure: always 
