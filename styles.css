@@ -555,7 +555,7 @@ i:hover {
 }
 
 .current {
-  text-decoration: underline;
+  border-bottom: 1px solid #000;
 }
 
 .parent-container {
@@ -616,4 +616,18 @@ i:hover {
 
 .h3-center {
   text-align: center;
+}
+
+
+/* UL NAVIGATION ITEMS */
+
+.home { 
+  font-size: 20px;
+}
+.projects { 
+  font-size: 20px;
+}
+
+.home:hover, .projects:hover { 
+  color: #17a2b8;
 }
