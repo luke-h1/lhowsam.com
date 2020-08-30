@@ -27,15 +27,14 @@ function setTheme(mode) {
   localStorage.setItem('theme', mode);
 }
 
-// Scroll To Top BTN 
+// Scroll To Top BTN
 const rootEl = document.documentElement;
 const topBtn = document.querySelector('.scrollToTopBtn');
 
-function goToTop(){
-rootEl.scrollTo({top: 0, behavior: 'smooth'}); 
+function goToTop() {
+  rootEl.scrollTo({ top: 0, behavior: 'smooth' });
 }
-topBtn.addEventListener('click', goToTop); 
-
+topBtn.addEventListener('click', goToTop);
 
 function handleScroll() {
   let scrollTotal = rootEl.scrollHeight - rootEl.clientHeight;
@@ -46,9 +45,6 @@ function handleScroll() {
   }
 }
 
-
-
-// EVENT LISTENERS 
-checkbox.addEventListener('change', darkModeSwitcher);
-document.addEventListener('scroll', handleScroll);
-
+// EVENT LISTENERS
+document.addEventListener('scroll', handleScroll); 
+checkbox.addEventListener('change', darkModeSwitcher)
