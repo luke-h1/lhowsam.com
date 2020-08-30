@@ -377,35 +377,6 @@ DARK MODE SWITCHER
   position: relative;
 }
 
-/* 
-=====================
- CORNER STYLES 
-=====================*/
-/* .corner {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  border: 1.5px solid #17a2b8;
-  background-color: #fff;
-  position: relative;
-} */
-
-/* #corner-tl {
-  top: -5px;
-  left: -5px;
-}
-#corner-tr {
-  top: -5px;
-  right: -5px;
-}
-#corner-br {
-  bottom: -5px;
-  right: -5px;
-}
-#corner-bl {
-  bottom: -5px;
-  left: -5px;
-} */
 
 .about-wrapper {
   display: grid;
@@ -492,18 +463,7 @@ DARK MODE SWITCHER
  POSTS END 
  ============= */
 
-/* CONTACT FORM (DISABLED) */
-/* 
-#contact-form {
-  display: block;
-  max-width: 600px;
-  margin: 0 auto;
-  border: 1px solid var(--borderColor);
-  padding: 15px;
-  border-radius: 5px;
-  background-color: var(--mainColor);
-  margin-bottom: 50px;
-} */
+
 
 #contact-form label {
   line-height: 2.7em;
@@ -620,7 +580,6 @@ i:hover {
 
 
 /* UL NAVIGATION ITEMS */
-
 .home { 
   font-size: 20px;
 }
