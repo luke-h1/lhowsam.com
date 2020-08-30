@@ -10,10 +10,8 @@ if (theme === null) {
 
 function darkModeSwitcher(event) {
   if (event.target.checked) {
-    console.log(`${event.target.value} checked`)
     setTheme('dark');
   } else if (!event.target.checked) {
-    console.log(`${event.target.value} not checked`)
     setTheme('light');
   }
 }
