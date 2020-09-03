@@ -1,6 +1,15 @@
+/* FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* CUSTOM PROPS  */
 :root {
   --mainColor: #eaeaea;
   --secondaryColor: #fff;
@@ -19,10 +28,11 @@
   --buttonColor: #000;
 }
 
-.icon-wrapper i {
-  margin: 0 5px 0 15px;
-  cursor: pointer;
-}
+/* 
+==================================
+GENERAL RESET + CUSTOM FONTS START  
+===================================
+*/
 html {
   scroll-behavior: smooth;
 }
@@ -85,9 +95,14 @@ li {
   color: var(--secondaryText);
   font-family: 'Roboto Mono', monospace;
 }
+/* 
+==================================
+GENERAL RESET + CUSTOM FONTS END  
+===================================
+*/
 
 /*================
-DARK MODE SWITCHER 
+DARK MODE SWITCHER START
 ==================*/
 .checkbox {
   opacity: 0;
@@ -130,7 +145,9 @@ DARK MODE SWITCHER
   color: #f39c12;
 }
 
-
+/*====================
+DARK MODE SWITCHER END
+=====================*/
 
 /* 
 =====================
@@ -143,9 +160,9 @@ DARK MODE SWITCHER
 }
 
 /* 
-==============
-  SECTION TWO 
-=============*/
+====================
+  SECTION TWO  START 
+====================*/
 .s2 {
   background-color: var(--secondaryColor);
   border-bottom: 1px solid var(--borderColor);
@@ -191,9 +208,20 @@ DARK MODE SWITCHER
   -webkit-background-clip: text;
 }
 
+/* 
+====================
+  SECTION TWO  END 
+====================*/
+
 /* ===============
   NAVIGATION START 
  ===============*/
+
+.icon-wrapper i {
+  margin: 0 5px 0 15px;
+  cursor: pointer;
+}
+
 .nav-wrapper {
   grid-area: nav-wrapper;
   border-bottom: 1px solid var(--borderColor);
@@ -217,6 +245,57 @@ DARK MODE SWITCHER
 /* ===============
   NAVIGATION END 
  ===============*/
+
+/* =============
+ Navigation properties (social icons, a, i, current class, btn-wrapper) 
+ START
+ ============= */
+.social-list__item {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  margin: 2em 0 0;
+  padding: 0;
+  color: black;
+}
+.social-list__link {
+  color: #000;
+  padding: 0 1em 0 1em;
+}
+
+#navigation a {
+  color: var(--mainText);
+}
+
+i:hover {
+  color: #76e5fc;
+}
+
+#navigation {
+  cursor: pointer;
+}
+
+.btn-wrapper {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.current {
+  border-bottom: 1px solid #000;
+}
+
+#contact-form label {
+  line-height: 2.7em;
+}
+
+#contact-form textarea {
+  min-height: 100px;
+  font-size: 14px;
+}
+/* =============
+ Navigation properties (social icons, a, i, current class, btn-wrapper) 
+ END 
+ ============= */
 
 /* ===============
   DOTS START 
@@ -310,9 +389,9 @@ DARK MODE SWITCHER
 }
 
 /* 
-=====================
-  RIGHT COL STYLES  
-=====================*/
+=========================
+  RIGHT COL STYLES  START
+=========================*/
 .right-column {
   grid-area: right-column;
   display: grid;
@@ -320,41 +399,6 @@ DARK MODE SWITCHER
   padding-top: 50px;
   padding-bottom: 50px;
   overflow: hidden;
-}
-
-/* 
-=====================
-  MEDIA QUERIES 
-=====================*/
-@media screen and (max-width: 1200px) {
-  .main-container {
-    width: 95%;
-    margin: 0 auto;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .intro-wrapper {
-    grid-template-columns: 1fr;
-    /* grid-template-rows: 3em 30em; */
-    grid-template-areas:
-      'nav-wrapper'
-      'left-column'
-      'right-column';
-  }
-
-  .right-column {
-    justify-content: center;
-  }
-}
-
-@media (max-width: 800px) {
-  .container {
-    display: flex;
-    flex-direction: column;
-    max-width: 80%; 
-    margin: 1em 0 1em 1em;
-  }
 }
 
 #preview-shadow {
@@ -372,7 +416,6 @@ DARK MODE SWITCHER
   padding: 15px;
   position: relative;
 }
-
 
 .about-wrapper {
   display: grid;
@@ -408,6 +451,10 @@ DARK MODE SWITCHER
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
 }
+/* 
+=========================
+  RIGHT COL STYLES  END
+=========================*/
 
 /* =============
  POSTS START 
@@ -459,17 +506,6 @@ DARK MODE SWITCHER
  POSTS END 
  ============= */
 
-
-
-#contact-form label {
-  line-height: 2.7em;
-}
-
-#contact-form textarea {
-  min-height: 100px;
-  font-size: 14px;
-}
-
 .input-field {
   width: 100%;
   padding-top: 10px;
@@ -478,40 +514,6 @@ DARK MODE SWITCHER
   border-radius: 5px;
   border: 1px solid var(--borderColor);
   font-size: 14px;
-}
-
-.social-list__item {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  margin: 2em 0 0;
-  padding: 0;
-  color: black;
-}
-.social-list__link {
-  color: #000;
-  padding: 0 1em 0 1em;
-}
-
-#navigation a {
-  color: var(--mainText);
-}
-
-i:hover {
-  color: #76e5fc;
-}
-
-#navigation {
-  cursor: pointer;
-}
-
-.btn-wrapper {
-  text-align: center;
-  margin-bottom: 1em;
-}
-
-.current {
-  border-bottom: 1px solid #000;
 }
 
 .parent-container {
@@ -524,7 +526,7 @@ i:hover {
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  width: 740px; 
+  width: 740px;
 
   margin: 0 auto;
   margin-bottom: 1em;
@@ -550,7 +552,9 @@ i:hover {
   font-size: 16px;
 }
 
-/* SCROLL TO TOP   */
+/*================
+SCROLL TO TOP START
+==================*/
 .scrollToTopBtn {
   z-index: 100;
   text-align: center;
@@ -562,8 +566,6 @@ i:hover {
   font-size: 25px;
 }
 
-
-
 .s1-alt {
   display: flex;
   flex-direction: column;
@@ -574,21 +576,24 @@ i:hover {
   text-align: center;
 }
 
+/*================
+SCROLL TO TOP END
+==================*/
 
-/* UL NAVIGATION ITEMS */
-.home { 
+/*================
+UL NAV ITEMS 
+==================*/
+.home {
   font-size: 20px;
 }
-.projects { 
+.projects {
   font-size: 20px;
 }
 
-.home:hover, .projects:hover { 
+.home:hover,
+.projects:hover {
   color: #17a2b8;
 }
-
-
-
 
 /*================
 DARK MODE SWITCHER 
@@ -642,6 +647,41 @@ DARK MODE SWITCHER
   margin-bottom: 50px;
 }
 
-.up-icon { 
+.up-icon {
   color: #000;
+}
+
+/* 
+=====================
+  MEDIA QUERIES 
+=====================*/
+@media screen and (max-width: 1200px) {
+  .main-container {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .intro-wrapper {
+    grid-template-columns: 1fr;
+    /* grid-template-rows: 3em 30em; */
+    grid-template-areas:
+      'nav-wrapper'
+      'left-column'
+      'right-column';
+  }
+
+  .right-column {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: 1em 0 1em 1em;
+  }
 }
