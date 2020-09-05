@@ -5,6 +5,8 @@
 /* CUSTOM PROPS  */
 :root {
   --mainColor: #eaeaea;
+
+  --background-dark: #000;
   --secondaryColor: #fff;
 
   --borderColor: #c1c1c1;
@@ -26,6 +28,13 @@
 GENERAL RESET + CUSTOM FONTS START  
 ===================================
 */
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -94,9 +103,9 @@ GENERAL RESET + CUSTOM FONTS END
 ===================================
 */
 
-/*================
+/*======================
 DARK MODE SWITCHER START
-==================*/
+========================*/
 .checkbox {
   opacity: 0;
   position: absolute;
@@ -223,18 +232,42 @@ DARK MODE SWITCHER END
   align-items: center;
   background-color: var(--mainColor);
   border-radius: 5px 5px 0 0;
+  background-color: var(--background-dark);
 }
 
-#navigation {
-  margin: 0;
-  padding: 10px;
+.navigation {
+  background-color: #000;
+  padding: 25px;
+  width: 100%;
+  text-align: center;
 }
 
-#navigation li {
-  display: inline-block;
-  margin-right: 5px;
-  margin-left: 5px;
+.navigation--item {
+  font-size: 22px;
+  font-family: 'Roboto Mono', monospace;
+  margin-left: 0.9em;
 }
+
+.navigation--item:hover {
+  color: #fff;
+}
+
+.navigation--item:active {
+  outline: 0;
+}
+
+.i-wrapper {
+  padding: 25px;
+  color: #fff;
+  position: absolute;
+  top: 0; 
+  left: 0;
+}
+
+.i-wrapper i{
+  margin-left: .7em;
+}
+
 /* ===============
   NAVIGATION END 
  ===============*/
@@ -274,7 +307,7 @@ i:hover {
 }
 
 .current {
-  border-bottom: 1px solid #000;
+  border-bottom: 1px solid #fff;
 }
 
 #contact-form label {
