@@ -29,11 +29,6 @@ GENERAL RESET + CUSTOM FONTS START
 ===================================
 */
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 
 html {
   scroll-behavior: smooth;
@@ -106,12 +101,16 @@ GENERAL RESET + CUSTOM FONTS END
 /*======================
 DARK MODE SWITCHER START
 ========================*/
+
+
+
 .checkbox {
   opacity: 0;
   position: absolute;
 }
-
-.label {
+/* 
+.label { 
+  padding: 20px;
   background-color: #111;
   border-radius: 50px;
   cursor: pointer;
@@ -122,7 +121,7 @@ DARK MODE SWITCHER START
   width: 40px;
   transform: scale(1.5);
   padding: 5px;
-}
+} */
 
 .label .ball {
   background-color: #fff;
@@ -130,8 +129,8 @@ DARK MODE SWITCHER START
   position: absolute;
   top: 2px;
   left: 2px;
-  height: 22px;
-  width: 22px;
+  height: 32px;
+  width: 33px;
   transform: translateX(0px);
   transition: transform 0.2s linear;
 }
@@ -158,7 +157,7 @@ DARK MODE SWITCHER END
 .s1 {
   background-color: var(--mainColor);
   border-bottom: 1px solid var(--borderColor);
-  overflow: auto;
+  overflow: hidden;
 }
 
 /* 
@@ -173,6 +172,7 @@ DARK MODE SWITCHER END
 
 .main-container {
   width: 1100px;
+  overflow: hidden;
   margin: 0 auto;
 }
 
@@ -232,7 +232,8 @@ DARK MODE SWITCHER END
   align-items: center;
   background-color: var(--mainColor);
   border-radius: 5px 5px 0 0;
-  background-color: var(--background-dark);
+  background-color: #fff;
+
 }
 
 .navigation {
@@ -260,12 +261,12 @@ DARK MODE SWITCHER END
   padding: 25px;
   color: #fff;
   position: absolute;
-  top: 0; 
+  top: 0;
   left: 0;
 }
 
-.i-wrapper i{
-  margin-left: .7em;
+.i-wrapper i {
+  margin-left: 0.7em;
 }
 
 /* ===============
@@ -558,6 +559,10 @@ i:hover {
   margin-bottom: 1em;
   margin-top: 1em;
   text-align: center;
+}
+
+.container:first-of-type { 
+  margin-top: 1em;
 }
 
 .container img {

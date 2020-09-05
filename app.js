@@ -1,6 +1,29 @@
+const checkbox = document.getElementById('checkbox1');
+const theme = localStorage.getItem('theme');
 
 
+if (theme === null) {
+  setTheme('light');
+} else {
+  setTheme(theme);
+}
 
+function darkModeSwitcher(event) {
+  if (event.target.checked) {
+    setTheme('dark');
+  } else if (!event.target.checked) {
+    setTheme('light');
+  }
+}
+
+function setTheme(mode) {
+  if (mode === 'light') {
+    document.getElementById('theme-style').href = 'styles.css'; 
+  } else if (mode === 'dark') {
+    document.getElementById('theme-style').href = 'dark-mode.css';
+  }
+  localStorage.setItem('theme', mode);
+}
 
 // Scroll To Top BTN
 const rootEl = document.documentElement;

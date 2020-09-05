@@ -83,3 +83,11 @@ i {
   .container i { 
       text-align: center;
   }
+
+  .nav-wrapper { 
+      background-color: #000;
+  }
+
+  .s1 { 
+    overflow: hidden;
+}
