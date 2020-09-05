@@ -29,7 +29,6 @@ GENERAL RESET + CUSTOM FONTS START
 ===================================
 */
 
-
 html {
   scroll-behavior: smooth;
 }
@@ -76,6 +75,7 @@ strong {
 a {
   text-decoration: none;
   color: #17a2b8;
+  outline:0;
 }
 
 ul {
@@ -101,8 +101,6 @@ GENERAL RESET + CUSTOM FONTS END
 /*======================
 DARK MODE SWITCHER START
 ========================*/
-
-
 
 .checkbox {
   opacity: 0;
@@ -219,6 +217,15 @@ DARK MODE SWITCHER END
   NAVIGATION START 
  ===============*/
 
+.nav-wrapper a {
+  color: #000;
+  font-size: 20px;
+  margin-right: 1em;
+  outline: 0;
+  text-decoration: none;
+}
+
+
 .icon-wrapper i {
   margin: 0 5px 0 15px;
   cursor: pointer;
@@ -226,14 +233,12 @@ DARK MODE SWITCHER END
 
 .nav-wrapper {
   grid-area: nav-wrapper;
-  border-bottom: 1px solid var(--borderColor);
   display: flex;
+  color: #000;
   justify-content: space-between;
   align-items: center;
   background-color: var(--mainColor);
   border-radius: 5px 5px 0 0;
-  background-color: #fff;
-
 }
 
 .navigation {
@@ -249,25 +254,6 @@ DARK MODE SWITCHER END
   margin-left: 0.9em;
 }
 
-.navigation--item:hover {
-  color: #fff;
-}
-
-.navigation--item:active {
-  outline: 0;
-}
-
-.i-wrapper {
-  padding: 25px;
-  color: #fff;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.i-wrapper i {
-  margin-left: 0.7em;
-}
 
 /* ===============
   NAVIGATION END 
@@ -561,7 +547,7 @@ i:hover {
   text-align: center;
 }
 
-.container:first-of-type { 
+.container:first-of-type {
   margin-top: 1em;
 }
 

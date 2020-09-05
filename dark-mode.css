@@ -91,3 +91,7 @@ i {
   .s1 { 
     overflow: hidden;
 }
+
+.nav-wrapper a{ 
+    color: #fff;
+}
