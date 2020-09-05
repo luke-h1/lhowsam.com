@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "jest": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/luke-h1/personal-site#readme",
   "devDependencies": {
-    "cypress": "^5.1.0"
+    "cypress": "^5.1.0",
+    "jest": "^26.4.2"
   }
 }
