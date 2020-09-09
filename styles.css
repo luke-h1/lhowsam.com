@@ -75,7 +75,7 @@ strong {
 a {
   text-decoration: none;
   color: #17a2b8;
-  outline:0;
+  outline: 0;
 }
 
 ul {
@@ -225,7 +225,6 @@ DARK MODE SWITCHER END
   text-decoration: none;
 }
 
-
 .icon-wrapper i {
   margin: 0 5px 0 15px;
   cursor: pointer;
@@ -253,7 +252,6 @@ DARK MODE SWITCHER END
   font-family: 'Roboto Mono', monospace;
   margin-left: 0.9em;
 }
-
 
 /* ===============
   NAVIGATION END 
@@ -294,7 +292,7 @@ i:hover {
 }
 
 .current {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #000;
 }
 
 #contact-form label {
