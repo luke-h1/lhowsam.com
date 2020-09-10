@@ -711,15 +711,8 @@ DARK MODE SWITCHER
   }
 }
 
-/* SVG ICONS (TODO) */
-/* .github-svg-icon:hover {
-  fill: #2a65f8;
+.icon-container { 
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-.linkedin-svg-icon:hover {
-  fill: #2a65f8;
-}
-
-.browser-svg-icon:hover {
-  fill: #2a65f8;
-} */
