@@ -100,9 +100,9 @@ p {
 }
 
 /* 
-==================================
+=================================
 GENERAL RESET + CUSTOM FONTS END  
-===================================
+=================================
 */
 
 /*======================
@@ -113,6 +113,7 @@ DARK MODE SWITCHER START
   opacity: 0;
   position: absolute;
 }
+
 /* 
 .label { 
   padding: 20px;
@@ -156,9 +157,9 @@ DARK MODE SWITCHER END
 =====================*/
 
 /* 
-=====================
+==============
   SECTION ONE 
-=====================*/
+=============*/
 .s1 {
   background-color: var(--mainColor);
   border-bottom: 1px solid var(--borderColor);
@@ -166,9 +167,9 @@ DARK MODE SWITCHER END
 }
 
 /* 
-====================
-  SECTION TWO  START 
-====================*/
+===================
+SECTION TWO  START 
+==================*/
 .s2 {
   background-color: var(--secondaryColor);
   border-bottom: 1px solid var(--borderColor);
@@ -216,9 +217,9 @@ DARK MODE SWITCHER END
 }
 
 /* 
-====================
+==================
   SECTION TWO  END 
-====================*/
+==================/
 
 /* ===============
   NAVIGATION START 
@@ -264,10 +265,10 @@ DARK MODE SWITCHER END
   NAVIGATION END 
  ===============*/
 
-/* =============
+/* =====================================================================
  Navigation properties (social icons, a, i, current class, btn-wrapper) 
  START
- ============= */
+ ===================================================================== */
 .social-list__item {
   list-style: none;
   display: flex;
@@ -310,10 +311,10 @@ i:hover {
   min-height: 100px;
   font-size: 14px;
 }
-/* =============
+/* ====================================================================
  Navigation properties (social icons, a, i, current class, btn-wrapper) 
  END 
- ============= */
+ ===================================================================== */
 
 /* ===============
   DOTS START 
@@ -710,7 +711,8 @@ DARK MODE SWITCHER
   }
 }
 
-.github-svg-icon:hover {
+/* SVG ICONS (TODO) */
+/* .github-svg-icon:hover {
   fill: #2a65f8;
 }
 
@@ -720,4 +722,4 @@ DARK MODE SWITCHER
 
 .browser-svg-icon:hover {
   fill: #2a65f8;
-}
+} */
