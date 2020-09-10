@@ -3,7 +3,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
 
-
 /* CUSTOM PROPS  */
 :root {
   --mainColor: #eaeaea;
@@ -93,10 +92,9 @@ ul,
 li {
   color: var(--secondaryText);
   font-family: 'Roboto Mono', monospace;
-
 }
 
-p { 
+p {
   font-family: 'Kumbh Sans', sans-serif;
   font-size: 20px;
 }
@@ -573,10 +571,9 @@ i:hover {
 }
 .card-text {
   line-height: 1.6;
-  font-size: 18px; 
-  word-wrap: wrap; 
+  font-size: 18px;
+  word-wrap: wrap;
   text-align: center;
-
 }
 
 /*================
@@ -711,4 +708,16 @@ DARK MODE SWITCHER
     max-width: 80%;
     margin: 1em 0 1em 1em;
   }
+}
+
+.github-svg-icon:hover {
+  fill: #2a65f8;
+}
+
+.linkedin-svg-icon:hover {
+  fill: #2a65f8;
+}
+
+.browser-svg-icon:hover {
+  fill: #2a65f8;
 }
