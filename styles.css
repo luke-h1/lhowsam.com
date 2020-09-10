@@ -501,6 +501,14 @@ i:hover {
   margin: 0;
 }
 
+.post-title:nth-child(2){
+  margin-top: 23px;
+}
+
+.post-title:nth-child(3){
+  margin-top: 23px;
+}
+
 .post-intro {
   color: #4b5156;
   font-size: 14px;
