@@ -8,11 +8,15 @@
   --mainColor: #eaeaea;
 
   --background-dark: #000;
+
   --secondaryColor: #fff;
 
   --borderColor: #c1c1c1;
 
+  --borderColorDark: #000;
+
   --mainText: #000;
+
   --secondaryText: #4b5156;
 
   --theme-dot-border: #24292e;
@@ -34,10 +38,10 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  background-color: #fff;
+  background-color: var(--mainColor);
   align-items: center;
   justify-content: center;
-  transform: background 0.2s linear;
+  transform: background 0.3s linear;
   padding: 0;
   margin: 0;
 }
@@ -130,7 +134,7 @@ DARK MODE SWITCHER START
 } */
 
 .label .ball {
-  background-color: #fff;
+  background-color: var(--secondaryColor);
   border-radius: 50%;
   position: absolute;
   top: 2px;
@@ -226,7 +230,7 @@ SECTION TWO  START
  ===============*/
 
 .nav-wrapper a {
-  color: #000;
+  color: var(--mainText);
   font-size: 20px;
   margin-right: 1em;
   outline: 0;
@@ -249,7 +253,7 @@ SECTION TWO  START
 }
 
 .navigation {
-  background-color: #000;
+  background-color: var(--background-dark);
   padding: 25px;
   width: 100%;
   text-align: center;
@@ -275,7 +279,7 @@ SECTION TWO  START
   justify-content: center;
   margin: 2em 0 0;
   padding: 0;
-  color: black;
+  color: var(--mainText);
 }
 .social-list__link {
   color: #000;
@@ -300,7 +304,7 @@ i:hover {
 }
 
 .current {
-  border-bottom: 1px solid #000;
+  border-bottom: var(--borderColorDark);
 }
 
 #contact-form label {
@@ -316,6 +320,10 @@ i:hover {
  END 
  ===================================================================== */
 
+.btn-container {
+  background-color: var(--mainColor);
+}
+
 /* ===============
   DOTS START 
  ===============*/
@@ -325,7 +333,7 @@ i:hover {
 }
 
 .browser-dot {
-  background-color: #000;
+  background-color: var(--background-dark);
   height: 15px;
   width: 15px;
   border-radius: 50%;
@@ -350,7 +358,7 @@ i:hover {
   width: 30px;
   margin: 5px;
   border: 2px solid var(--theme-dot-border);
-  background-color: #000;
+  background-color: var(--background-dark);
   border-radius: 50%;
   -webkit-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
@@ -380,21 +388,6 @@ i:hover {
 /* =====================================
   DIFFERENT COLORS FOR DARK / LIGHT MODE 
  =======================================*/
-
-#light-mode {
-  background-color: #fff;
-}
-
-#settings-note {
-  font-size: 12px;
-  font-style: italic;
-  text-align: center;
-}
-
-#theme-options-wrapper {
-  display: flex;
-  justify-content: center;
-}
 
 /* 
 =====================
@@ -484,7 +477,7 @@ i:hover {
 }
 
 .post-preview {
-  background-color: #fff;
+  background-color: var(--secondaryColor);
   padding: 25px;
   border-radius: 15px;
 }
@@ -501,11 +494,11 @@ i:hover {
   margin: 0;
 }
 
-.post-title:nth-child(2){
+.post-title:nth-child(2) {
   margin-top: 23px;
 }
 
-.post-title:nth-child(3){
+.post-title:nth-child(3) {
   margin-top: 23px;
 }
 
@@ -520,7 +513,7 @@ i:hover {
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
-  color: #fff;
+  color: var(--secondaryColor);
   background-color: var(--buttonColor);
   border: none;
 }
@@ -551,7 +544,7 @@ i:hover {
 }
 
 .container {
-  background-color: #fff;
+  background-color: var(--secondaryColor);
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   width: 750px;
@@ -593,6 +586,7 @@ SCROLL TO TOP START
   text-align: center;
   margin: 0 auto;
   border-radius: 20%;
+  background-color: #fff;
 }
 
 .scrollToTopBtn i {
@@ -637,7 +631,7 @@ DARK MODE SWITCHER
 }
 
 .label {
-  background-color: #111;
+  background-color: var(--background-dark);
   border-radius: 50px;
   cursor: pointer;
   display: flex;
@@ -650,7 +644,7 @@ DARK MODE SWITCHER
 }
 
 .label .ball {
-  background-color: #fff;
+  background-color: var(--mainColor);
   border-radius: 50%;
   position: absolute;
   top: 2px;
@@ -719,7 +713,7 @@ DARK MODE SWITCHER
   }
 }
 
-.icon-container { 
+.icon-container {
   display: flex;
   align-items: center;
   justify-content: center;

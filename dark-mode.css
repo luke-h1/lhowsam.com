@@ -22,15 +22,15 @@
 }
 
 .social-list__link {
-  color: #fff;
+  color: var(--mainText);
 }
 
 .post-preview .social-list__link {
-  color: #000;
+  color: var(--mainText);
 }
 
 .icon-wrapper i {
-  color: #fff;
+  color: var(--mainText);
 }
 
 .icon-wrapper i:hover {
@@ -39,34 +39,34 @@
 
 .watch-projects {
   margin-top: 2em;
-  border: 1px solid #fff;
+  border: 1px solid var(--mainText);
   opacity: 2;
 }
 
 .post-preview {
-  background-color: #000;
+  background-color: var(--mainColor);
 }
 
 .post-title {
-  color: #fff;
+  color: var(--mainText);
   text-align: center;
 }
 
 .scrollToTopBtn {
-  color: #000;
+  color: var(--mainColor);
 }
 
 .btn-container {
-  background-color: #000;
+  background-color: var(--mainColor);
 }
 
 i {
-  color: #fff;
+  color: var(--buttonColor);
 }
 
 .container {
-  background-color: #000;
-  color: #fff;
+  background-color: var(--mainColor);
+  color: var(--mainColor);
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
   width: 750px;
@@ -74,7 +74,7 @@ i {
   margin-bottom: 1em;
   margin-top: 1em;
   text-align: center;
-  border: 1px solid #fff;
+  border: 1px solid var(--mainText);
 }
 
 .container i {
@@ -82,7 +82,7 @@ i {
 }
 
 .nav-wrapper {
-  background-color: #000;
+  background-color: var(--mainColor);
 }
 
 .s1 {
@@ -90,20 +90,19 @@ i {
 }
 
 .nav-wrapper a {
-  color: #fff;
+  color: var(--mainText);
 }
 
 .current {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid var(--mainText);
 }
 
 p {
   font-family: 'Kumbh Sans', sans-serif;
   font-size: 20px;
-  color: #fff;
+  color: var(--mainText);
 }
 
-
-.post-intro { 
-  color: #fff;
+.post-intro {
+  color: var(--mainText);
 }
