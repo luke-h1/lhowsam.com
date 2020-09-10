@@ -1,6 +1,8 @@
 /* FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+
 
 /* CUSTOM PROPS  */
 :root {
@@ -68,7 +70,7 @@ h5,
 h6,
 strong {
   color: var(--mainText);
-  font-family: 'Russo One', sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
   font-weight: 500;
 }
 
@@ -91,7 +93,14 @@ ul,
 li {
   color: var(--secondaryText);
   font-family: 'Roboto Mono', monospace;
+
 }
+
+p { 
+  font-family: 'Kumbh Sans', sans-serif;
+  font-size: 20px;
+}
+
 /* 
 ==================================
 GENERAL RESET + CUSTOM FONTS END  
@@ -564,7 +573,10 @@ i:hover {
 }
 .card-text {
   line-height: 1.6;
-  font-size: 16px;
+  font-size: 18px; 
+  word-wrap: wrap; 
+  text-align: center;
+
 }
 
 /*================
