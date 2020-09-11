@@ -1,0 +1,36 @@
+@media screen and (max-width: 1200px) {
+  .main-container {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .intro-wrapper {
+    grid-template-columns: 1fr;
+    /* grid-template-rows: 3em 30em; */
+    grid-template-areas:
+      'nav-wrapper'
+      'left-column'
+      'right-column';
+  }
+
+  .right-column {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: 1em 0 1em 1em;
+  }
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

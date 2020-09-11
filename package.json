@@ -1,28 +1,23 @@
 {
-  "name": "personal-site",
+  "name": "scss-misc",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "jest": "jest"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "sass --watch scss/styles.scss css/styles.css"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/luke-h1/personal-site.git"
+    "url": "git+https://github.com/luke-h1/scss-misc.git"
   },
   "author": "luke-h1",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/luke-h1/personal-site/issues"
+    "url": "https://github.com/luke-h1/scss-misc/issues"
   },
-  "homepage": "https://github.com/luke-h1/personal-site#readme",
+  "homepage": "https://github.com/luke-h1/scss-misc#readme",
   "devDependencies": {
-    "@testing-library/dom": "^7.24.1",
-    "cypress": "^5.1.0",
-    "fs": "0.0.1-security",
-    "jest": "^26.4.2",
-    "jest-dom": "^4.0.0",
-    "jsdom": "^16.4.0",
-    "path": "^0.12.7"
+    "sass": "^1.26.10"
   }
 }
