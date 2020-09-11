@@ -7,6 +7,7 @@
   --background-dark: #000;
   --btn-container: #fff;
   --link-color: #000;
+  --paragraph-color: #000;
   --secondary-color: #fff;
   --border-color: #c1c1c1;
   --border-color-dark: #000;
@@ -30,6 +31,7 @@
   --btn-container: #000;
   --link-color: #fff;
   --main-color: #000;
+  --paragraph-color: #fff;
   --background-dark: #000;
   --secondary-color: #000;
   --border-color: #c1c1c1;
@@ -585,9 +587,9 @@ i:hover {
 }
 
 .post-intro {
-  color: #4b5156;
-  font-size: 14px;
+  color: var(--paragraph-color);
   line-height: 2;
+  font-size: 18px;
 }
 
 #submit-btn {
@@ -659,6 +661,7 @@ i:hover {
   font-size: 18px;
   word-wrap: wrap;
   text-align: center;
+  color: var(--paragraph-color);
 }
 
 /*================
