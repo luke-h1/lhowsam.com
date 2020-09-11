@@ -13,8 +13,7 @@ Source code for my personal portfolio
       * potentially use a framework such as Material UI or Chakra UI 
       * parallax effect
       * more user friendly cards (projects section) 
-      
-      
-  * use scss to make switching to different themes easier & to cleanup the structure of the current css (https://github.com/luke-h1/personal-site-scss-remake)
+    
+  * use scss ✅
     
   
