@@ -10,9 +10,9 @@
     grid-template-columns: 1fr;
     /* grid-template-rows: 3em 30em; */
     grid-template-areas:
-      'nav-wrapper'
-      'left-column'
-      'right-column';
+      "nav-wrapper"
+      "left-column"
+      "right-column";
   }
 
   .right-column {
