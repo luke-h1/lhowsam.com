@@ -17,7 +17,7 @@ if (currentTheme) {
 }
 
 function switchTheme(e) {
-  console.log('I work ! ✅')
+  // console.log('I work ! ✅')
   if (e.target.checked) {
     document.documentElement.setAttribute('data-theme', 'dark');
     localStorage.setItem('theme', 'dark');
