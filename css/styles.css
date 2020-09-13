@@ -373,16 +373,15 @@ DARK MODE SWITCHER END
   padding: 0 1em 0 1em;
 }
 
-#navigation a {
-  color: var(--main-text);
-}
-
 i:hover {
   color: #76e5fc;
 }
 
 #navigation {
   cursor: pointer;
+}
+#navigation a {
+  color: var(--main-text);
 }
 
 .btn-wrapper {
@@ -452,7 +451,6 @@ i:hover {
   box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
   cursor: pointer;
 }
-
 .theme-dot:hover {
   border-width: 5px;
 }
