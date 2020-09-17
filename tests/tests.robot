@@ -7,22 +7,24 @@ Library    SeleniumLibrary
 Suite Setup       Run Keywords    
 Suite Teardown    Run Keywords    Close Browser    
 
-# TEST CASES
-*** Test Cases ***
 
+*** Variables ***
+${URL}        https://luke-h-portfolio.luke-h1.vercel.app/index.html
+${BROWSER}    chrome
+
+
+
+
+*** Test Cases ***
 
 Check Dark Mode Works
     check dark mode works
 
-
-
 Click "projects" link
     check project link works 
 
-
 integration test the dark mode switcher
     integration test dark mode 
-
 
 
 *** Keywords ***
@@ -35,21 +37,21 @@ Scroll Page To Location
 
 
 check dark mode works
-    Open Browser          https://luke-h-portfolio.luke-h1.vercel.app/index.html    chrome    
+    Open Browser          ${URL}         ${BROWSER}    
     Set Selenium Speed    0.4 Seconds
     Click Element         class=label
     Close Browser         
 
 
 check project link works
-    Open Browser    https://luke-h-portfolio.luke-h1.vercel.app/index.html    Chrome
+    Open Browser    ${URL}           ${BROWSER}
     Click Link      class=projects
     sleep           0.5 
 
 
 integration test dark mode
-    Open Browser               https://luke-h-portfolio.luke-h1.vercel.app/index.html    Chrome
-    Scroll Page To Location    0                                                         2000
+    Open Browser               ${URL}                   ${BROWSER}
+    Scroll Page To Location    0                        2000
     Sleep                      1 
     Click Element              class=scrollToTopBtn
     Sleep                      1 
@@ -60,7 +62,7 @@ integration test dark mode
     sleep                      1 
     Click Link                 class=projects
     sleep                      2 
-    Scroll Page To Location    0                                                         2000
+    Scroll Page To Location    0                        2000
     sleep                      1 
     Click Element              class=scrollToTopBtn 
     sleep                      1 
