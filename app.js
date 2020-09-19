@@ -1,13 +1,13 @@
 // Scroll To Top BTN
 const rootEl = document.documentElement;
 const topBtn = document.querySelector('.scrollToTopBtn');
-
 // theme switch
-
 const toggleSwitch = document.querySelector('.checkbox[type="checkbox"]');
 const currentTheme = localStorage.getItem('theme');
 
-// THEME SWITCHER
+/*============= 
+DARK MODE START 
+===============*/
 if (currentTheme) {
   document.documentElement.setAttribute('data-theme', currentTheme);
 
@@ -26,13 +26,16 @@ function switchTheme(e) {
     localStorage.setItem('theme', 'light');
   }
 }
+/*=========== 
+DARK MODE END 
+=============*/
 
-// SCROLL TO TOP
+/*==================
+SCROLL TOP TOP START  
+====================*/
 function goToTop() {
   rootEl.scrollTo({ top: 0, behavior: 'smooth' });
 }
-
-topBtn.addEventListener('click', goToTop);
 
 function handleScroll() {
   let scrollTotal = rootEl.scrollHeight - rootEl.clientHeight;
@@ -42,27 +45,11 @@ function handleScroll() {
     topBtn.style.display = 'none';
   }
 }
-
-// EVENT LISTENERS
-document.addEventListener('scroll', handleScroll);
-
-// function darkModeSwitcher(event) {
-//   if (event.target.checked) {
-//     setTheme('dark');
-//   } else if (!event.target.checked) {
-//     setTheme('light');
-//   }
-// }
-
-// function setTheme(mode) {
-//   if (mode === 'light') {
-//     document.getElementById('theme-style').href = 'styles.css';
-//   } else if (mode === 'dark') {
-//     document.getElementById('theme-style').href = 'dark-mode.css';
-//   }
-//   localStorage.setItem('theme', mode);
-// }
+/*================
+SCROLL TOP TOP END  
+==================*/
 
 // EVENT LISTENERS
 document.addEventListener('scroll', handleScroll);
 toggleSwitch.addEventListener('change', switchTheme, false);
+topBtn.addEventListener('click', goToTop);
