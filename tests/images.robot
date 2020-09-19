@@ -1,4 +1,3 @@
-topBtn.addEventListener('click', goToTop);
 *** Settings ***
 Library    OperatingSystem
 Library    SeleniumLibrary
