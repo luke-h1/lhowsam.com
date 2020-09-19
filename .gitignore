@@ -1,6 +1,6 @@
 .vercel
 node_modules
 cypress/
-tests/test-cases/*html 
-tests/test-cases/*xml 
+tests/test-cases/*.html 
+tests/test-cases/*.xml 
 tests/test-cases/*.png 
