@@ -673,4 +673,9 @@ UL NAV ITEMS
   color: #17a2b8;
 }
 
+.about-desc {
+  color: var(--paragraph-color);
+  line-height: 1.7;
+}
+
 /*# sourceMappingURL=styles.css.map */
