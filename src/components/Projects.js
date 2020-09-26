@@ -19,7 +19,7 @@ const Projects = () => {
             <h6 className='post-title'>Quotes App</h6>
             <p className='post-intro'>
               In this project I made a quotes app that pulls data from
-              <a href='https://github.com/RocktimSaikia/anime-chan'>{' '}this</a>
+              <a href='https://github.com/RocktimSaikia/anime-chan'>{' '}this</a>{' '}
               API with Vanilla javascript and bootstrap. This was a really fun
               API to work with and made the development of this app enjoyable.
             </p>
@@ -151,8 +151,8 @@ const Projects = () => {
           <img className='thumbnail' src={img6} alt='' />
           <h6 className='post-title'>Cocktail recipe App</h6>
           <p className='post-intro'>
-            In this project I built a cocktail recipe app that pulls data from{' '}
-            <a href='https://www.thecocktaildb.com/'>{' '}this</a>
+            In this project I built a cocktail recipe app that pulls data from
+            <a href='https://www.thecocktaildb.com/'>{' '}this{' '}</a>
             API. This was a really fun project and was the first project where I
             used higher order array methods to get multiple results from an API
           </p>
