@@ -15,7 +15,7 @@ body {
 }
 
 /*=======================
-DARK MODE SWITCHER START 
+DARK MODE SWITCHER START
 ========================*/
 .checkbox {
   opacity: 0;
@@ -72,11 +72,10 @@ DARK MODE SWITCHER START
 }
 
 /*=======================
-DARK MODE SWITCHER END 
+DARK MODE SWITCHER END
 ========================*/
 
-/* 
-===================
+/*===================
   SECTION ONE START
 ==================*/
 .s1 {
@@ -116,7 +115,8 @@ DARK MODE SWITCHER END
 }
 
 .h2-intro-text {
-  background:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);  -webkit-background-clip: text;
+  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+  -webkit-background-clip: text;
   font-family: var(--ruso);
 }
 
@@ -536,10 +536,7 @@ UL NAV ITEMS
   color: #17a2b8;
 }
 
-
-
-
-.about-desc { 
+.about-desc {
   color: var(--paragraph-color);
   line-height: 1.7;
 }

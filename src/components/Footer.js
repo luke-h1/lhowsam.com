@@ -3,9 +3,9 @@ import React from 'react';
 const Footer = () => {
   return (
     <div>
-      <button className='scrollToTopBtn'>
+      {/* <button className='scrollToTopBtn'>
         <i className='fa fa-angle-up up-icon' aria-hidden='true'></i>
-      </button>
+      </button> */}
 
       <section className='s2'>
         <div className='main-container'>
