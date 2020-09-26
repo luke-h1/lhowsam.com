@@ -11,7 +11,9 @@ Source code for my personal portfolio
 ## TODO 
 * cleanup projects component 
 * potentially break up projects into a projectItem component
-* use context API to cleanup the use of hooks in various components 
+* breakup dark theme switcher into a single component 
+* create a scrollToTop component 
+* use context API in various components 
 * take a look at SPA guidlines 
 * setup service worker as part of the above 
 
