@@ -1,23 +1,35 @@
 {
-  "name": "scss-misc",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "react-personal-site",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "sass --watch scss/styles.scss css/styles.css"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/luke-h1/scss-misc.git"
+  "eslintConfig": {
+    "extends": "react-app"
   },
-  "author": "luke-h1",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/luke-h1/scss-misc/issues"
-  },
-  "homepage": "https://github.com/luke-h1/scss-misc#readme",
-  "devDependencies": {
-    "sass": "^1.26.10"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
