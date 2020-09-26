@@ -49,6 +49,7 @@ function handleScroll() {
 SCROLL TOP TOP END  
 ==================*/
 
+
 // EVENT LISTENERS
 document.addEventListener('scroll', handleScroll);
 toggleSwitch.addEventListener('change', switchTheme, false);
