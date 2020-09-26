@@ -2,12 +2,6 @@
 Source code for my personal portfolio
 
 
-
-## tech used: 
-  * React
-  * scss 
-  
-
 ## TODO 
 * cleanup projects component 
 * potentially break up projects into a projectItem component
