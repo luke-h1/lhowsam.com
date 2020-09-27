@@ -1,5 +1,6 @@
 import React from 'react';
-import './scss/App.css';
+// import './scss/App.css';
+import './scss/App.scss'
 import Greeting from './components/Greeting';
 import AboutMe from './components/AboutMe';
 import Projects from './components/Projects';
