@@ -1,4 +1,118 @@
-@import "utilities";
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap");
+:root {
+  --main-color: #eaeaea;
+  --background-dark: #000;
+  --btn-container: #fff;
+  --link-color: #000;
+  --paragraph-color: #000;
+  --secondary-color: #fff;
+  --border-color: #c1c1c1;
+  --border-color-dark: #000;
+  --main-text: #000;
+  --secondary-text: #4b5156;
+  --theme-dot-border: #24292e;
+  --preview-shadow: #f0ead6;
+  --button-color: #000;
+  --preview-bg: rgb(251, 249, 243, 0.8);
+  --link-color: #17a2b8;
+  --dark-text: #000;
+  --dot-1: #fc6058;
+  --dot-2: #fec02f;
+  --dot-3: #2aca3e;
+  --ruso: "Russo One", sans-serif;
+  --roboto: "Roboto", sans-serif;
+  --kumbho: "Kumbh Sans", sans-serif;
+}
+
+[data-theme=dark] {
+  --btn-container: #000;
+  --link-color: #fff;
+  --main-color: #000;
+  --paragraph-color: #fff;
+  --background-dark: #000;
+  --secondary-color: #000;
+  --border-color: #c1c1c1;
+  --border-color-dark: #fff;
+  --main-text: #fff;
+  --secondary-text: #4b5156;
+  --theme-dot-border: #fff;
+  --preview-shadow: #f0ead6;
+  --button-color: #fff;
+  --preview-bg: rgb(251, 249, 243, 0.8);
+  --link-color: #17a2b8;
+  --dark-text: #000;
+  --dot-1: #fc6058;
+  --dot-2: #fec02f;
+  --dot-3: #2aca3e;
+  --ruso: "Russo One", sans-serif;
+  --roboto: "Roboto", sans-serif;
+  --kumbho: "Kumbh Sans", sans-serif;
+}
+
+h1 {
+  font-size: 56px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 28px;
+}
+
+h4 {
+  font-size: 24px;
+}
+
+h5 {
+  font-size: 20px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  color: var(--main-text);
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+  color: var(--link-color);
+  outline: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+p,
+span,
+label,
+input,
+textarea,
+ul,
+li {
+  color: var(--secondary-text);
+  font-family: "Roboto Mono", monospace;
+}
+
+p {
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 20px;
+}
 
 html {
   scroll-behavior: smooth;
@@ -11,7 +125,35 @@ body {
   transform: background 0.3s linear;
   padding: 0;
   margin: 0;
-  @import "mobile"; // media queries
+}
+@media screen and (max-width: 1200px) {
+  body .main-container {
+    width: 95%;
+    margin: 0 auto;
+  }
+}
+@media screen and (max-width: 800px) {
+  body .intro-wrapper {
+    grid-template-columns: 1fr;
+    /* grid-template-rows: 3em 30em; */
+    grid-template-areas: "nav-wrapper" "left-column" "right-column";
+  }
+  body .right-column {
+    justify-content: center;
+  }
+}
+@media (max-width: 800px) {
+  body .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    margin: 1em 0 1em 1em;
+  }
+}
+body .icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*=======================
@@ -74,7 +216,6 @@ DARK MODE SWITCHER START
 /*=======================
 DARK MODE SWITCHER END
 ========================*/
-
 /*===================
   SECTION ONE START
 ==================*/
@@ -88,7 +229,6 @@ DARK MODE SWITCHER END
 ===================
   SECTION ONE END
 ==================*/
-
 /* 
 ===================
   SECTION TWO START
@@ -130,24 +270,21 @@ DARK MODE SWITCHER END
   display: grid;
   grid-template-columns: 1fr, 1fr;
   /* grid-template-rows: 3em 30em; */
-  grid-template-areas:
-    "nav-wrapper  nav-wrapper"
-    "left-column right-column";
+  grid-template-areas: "nav-wrapper  nav-wrapper" "left-column right-column";
 }
 
 .project-title-text {
   background: linear-gradient(90deg, #2a65f8, #3bd86d);
   -webkit-background-clip: text;
 }
+
 /* 
 ===================
   SECTION TWO END
 ==================*/
-
 /* ===============
   NAVIGATION START  
  ===============*/
-
 .icon-wrapper i {
   margin: 0 5px 0 15px;
   cursor: pointer;
@@ -160,13 +297,13 @@ DARK MODE SWITCHER END
   justify-content: space-between;
   align-items: center;
   border-radius: 5px 5px 0 0;
-  a {
-    color: var(--main-text);
-    font-size: 20px;
-    margin-right: 1em;
-    outline: 0;
-    text-decoration: none;
-  }
+}
+.nav-wrapper a {
+  color: var(--main-text);
+  font-size: 20px;
+  margin-right: 1em;
+  outline: 0;
+  text-decoration: none;
 }
 
 .navigation {
@@ -185,12 +322,10 @@ DARK MODE SWITCHER END
 /* ===============
   NAVIGATION END 
  ===============*/
-
 /* =====================================================================
  Navigation properties (social icons, a, i, current class, btn-wrapper) 
  START
  ===================================================================== */
-
 .social-list__item {
   list-style: none;
   display: flex;
@@ -211,9 +346,9 @@ i:hover {
 
 #navigation {
   cursor: pointer;
-  a {
-    color: var(--main-text);
-  }
+}
+#navigation a {
+  color: var(--main-text);
 }
 
 .btn-wrapper {
@@ -238,7 +373,6 @@ i:hover {
  Navigation properties (social icons, a, i, current class, btn-wrapper) 
  END 
  ===================================================================== */
-
 .btn-container {
   background-color: var(--btn-container);
 }
@@ -283,9 +417,9 @@ i:hover {
   -moz-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
   box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.75);
   cursor: pointer;
-  &:hover {
-    border-width: 5px;
-  }
+}
+.theme-dot:hover {
+  border-width: 5px;
 }
 
 #dot-1 {
@@ -299,10 +433,10 @@ i:hover {
 #dot-3 {
   background-color: var(--dot-3);
 }
+
 /* ===============
   DOTS END 
  ===============*/
-
 /* 
 =====================
   LEFT COL STYLES  
@@ -358,10 +492,11 @@ i:hover {
   flex-direction: column;
   justify-content: center;
   background-color: var(--preview-shadow);
-  h4 {
-    color: var(--dark-text);
-  }
 }
+#skills h4 {
+  color: var(--dark-text);
+}
+
 #social-img {
   width: 100%;
 }
@@ -437,10 +572,10 @@ i:hover {
   flex-direction: column;
   align-items: center;
 }
+
 /* =============
  POSTS END 
  ============= */
-
 .input-field {
   width: 100%;
   padding-top: 10px;
@@ -467,15 +602,15 @@ i:hover {
   margin-top: 1em;
   text-align: center;
   border: 1px solid var(--border-color);
-  img {
-    object-fit: cover;
-    border-radius: 30%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 25%;
-    height: 25%;
-  }
+}
+.container img {
+  object-fit: cover;
+  border-radius: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+  height: 25%;
 }
 
 .container:first-of-type {
@@ -485,6 +620,7 @@ i:hover {
 .card-title {
   text-align: center;
 }
+
 .card-text {
   line-height: 1.6;
   font-size: 18px;
@@ -496,8 +632,7 @@ i:hover {
 /*================
 SCROLL TO TOP START
 ==================*/
-
-.btn-container { 
+.btn-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -508,15 +643,16 @@ SCROLL TO TOP START
   z-index: 5;
   border-radius: 20%;
   background-color: var(--preview-shadow);
-  i {
-    font-size: 25px;
-  }
+}
+.scrollToTopBtn i {
+  font-size: 25px;
 }
 
 .s1-alt {
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .h3-center {
@@ -526,13 +662,13 @@ SCROLL TO TOP START
 /*================
 SCROLL TO TOP END
 ==================*/
-
 /*================
 UL NAV ITEMS 
 ==================*/
 .home {
   font-size: 20px;
 }
+
 .projects {
   font-size: 20px;
 }
@@ -546,3 +682,5 @@ UL NAV ITEMS
   color: var(--paragraph-color);
   line-height: 1.7;
 }
+
+/*# sourceMappingURL=App.css.map */
