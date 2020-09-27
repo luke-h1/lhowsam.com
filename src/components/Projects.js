@@ -117,35 +117,7 @@ const Projects = () => {
             </a>
           </div>
         </div>
-        <div className='container'>
-          <img
-            className='thumbnail'
-            src={img5}
-            alt=''
-            rel='noopener noreferrer'
-          />
-          <h6 className='post-title'>Weather App</h6>
-          <p className='post-intro'>
-            In this project I built Weather App with bootstrap css & vanilla
-            Javascript. It pulls data from{' '}
-            <a href='https://www.weatherapi.com/'>This</a> API. In the future I
-            plan to deploy an express server to heroku in order to deploy this
-            App and hide my API key on the frontend. You can run this project
-            locally by requesting an API key from{' '}
-            <a href='https://www.weatherapi.com/'>here</a> and running the npm
-            package lite-server locally
-          </p>
-          <div className='icon-container'>
-            <a
-              className='social-list__link'
-              href='https://github.com/luke-h1/Automation'
-              target='_blank'
-              rel='noopener noreferrer'
-            >
-              <i className='fa fa-github fa-2x' aria-hidden='true'></i>
-            </a>
-          </div>
-        </div>
+      
 
         <div className='container'>
           <img className='thumbnail' src={img6} alt='' />
