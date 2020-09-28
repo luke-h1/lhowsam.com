@@ -18,10 +18,7 @@ const AboutMe = () => {
             <h4>Top expertise</h4>
             <ul>
               <li>HTML, CSS, SCCS </li>
-              <br />
-              <li>
-                Javascript 
-              </li>
+    
               <br />
               <li>Git / version control</li>
               <br />
