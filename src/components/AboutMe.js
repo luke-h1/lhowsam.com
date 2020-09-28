@@ -19,6 +19,10 @@ const AboutMe = () => {
             <ul>
               <li>HTML, CSS, SCCS </li>
               <br />
+              <li>
+                Javascript 
+              </li>
+              <br />
               <li>Git / version control</li>
               <br />
               <li>Automation (Ansible, Bash scripting)</li>
