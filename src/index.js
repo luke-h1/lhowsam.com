@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import './scss/App.css';
-import './scss/App.scss'
+// import './scss/App.css';  DEVELOPMENT SASS 
+import './scss/App.scss'  /* PROD SASS  */ 
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 

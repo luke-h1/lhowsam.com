@@ -1,6 +1,6 @@
 import React from 'react';
-// import './scss/App.css';
-import './scss/App.scss'
+// import './scss/App.css'; DEVELOPMENT SASS 
+import './scss/App.scss' /* PROD SASS */ 
 import Greeting from './components/Greeting';
 import AboutMe from './components/AboutMe';
 import Projects from './components/Projects';
