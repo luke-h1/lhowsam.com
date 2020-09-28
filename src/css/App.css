@@ -1,7 +1,9 @@
 /* FONTS */
-@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans&display=swap');
+
+/* Custom Properties  */
 :root {
   --main-color: #eaeaea;
   --background-dark: #000;
@@ -22,12 +24,13 @@
   --dot-1: #fc6058;
   --dot-2: #fec02f;
   --dot-3: #2aca3e;
-  --ruso: "Russo One", sans-serif;
-  --roboto: "Roboto", sans-serif;
-  --kumbho: "Kumbh Sans", sans-serif;
+  --ruso: 'Russo One', sans-serif;
+  --roboto: 'Roboto', sans-serif;
+  --kumbho: 'Kumbh Sans', sans-serif;
 }
 
-[data-theme=dark] {
+/* Dark mode properties  */
+[data-theme='dark'] {
   --btn-container: #000;
   --link-color: #fff;
   --main-color: #000;
@@ -47,11 +50,12 @@
   --dot-1: #fc6058;
   --dot-2: #fec02f;
   --dot-3: #2aca3e;
-  --ruso: "Russo One", sans-serif;
-  --roboto: "Roboto", sans-serif;
-  --kumbho: "Kumbh Sans", sans-serif;
+  --ruso: 'Russo One', sans-serif;
+  --roboto: 'Roboto', sans-serif;
+  --kumbho: 'Kumbh Sans', sans-serif;
 }
 
+/* Font size resets */
 h1 {
   font-size: 56px;
 }
@@ -84,7 +88,7 @@ h5,
 h6,
 strong {
   color: var(--main-text);
-  font-family: "Kumbh Sans", sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
   font-weight: 500;
 }
 
@@ -106,14 +110,15 @@ textarea,
 ul,
 li {
   color: var(--secondary-text);
-  font-family: "Roboto Mono", monospace;
+  font-family: 'Roboto Mono', monospace;
 }
 
 p {
-  font-family: "Kumbh Sans", sans-serif;
+  font-family: 'Kumbh Sans', sans-serif;
   font-size: 20px;
 }
 
+/* General resets & Media queries  */
 html {
   scroll-behavior: smooth;
 }
@@ -136,7 +141,7 @@ body {
   body .intro-wrapper {
     grid-template-columns: 1fr;
     /* grid-template-rows: 3em 30em; */
-    grid-template-areas: "nav-wrapper" "left-column" "right-column";
+    grid-template-areas: 'nav-wrapper' 'left-column' 'right-column';
   }
   body .right-column {
     justify-content: center;
@@ -212,10 +217,10 @@ DARK MODE SWITCHER START
 .up-icon {
   color: var(--background-dark);
 }
-
 /*=======================
 DARK MODE SWITCHER END
 ========================*/
+
 /*===================
   SECTION ONE START
 ==================*/
@@ -255,7 +260,15 @@ DARK MODE SWITCHER END
 }
 
 .h2-intro-text {
-  background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5851db,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d
+  );
   -webkit-background-clip: text;
   font-family: var(--ruso);
 }
@@ -270,7 +283,7 @@ DARK MODE SWITCHER END
   display: grid;
   grid-template-columns: 1fr, 1fr;
   /* grid-template-rows: 3em 30em; */
-  grid-template-areas: "nav-wrapper  nav-wrapper" "left-column right-column";
+  grid-template-areas: 'nav-wrapper  nav-wrapper' 'left-column right-column';
 }
 
 .project-title-text {
@@ -682,5 +695,3 @@ UL NAV ITEMS
   color: var(--paragraph-color);
   line-height: 1.7;
 }
-
-/*# sourceMappingURL=App.css.map */
