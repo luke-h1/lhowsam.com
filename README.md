@@ -3,11 +3,6 @@ Source code for my personal portfolio
 
 
 ## TODO 
-* cleanup projects component 
-* potentially break up projects into a projectItem component
-* breakup dark theme switcher into a single component 
-* create a scrollToTop component 
-* use context API in various components 
-* take a look at SPA guidlines 
-* setup service worker as part of the above 
+ * make darkmode switcher use useState instead of using onClick
+ * make scroller use useState  instead of using onClick 
 
