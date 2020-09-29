@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 
 const Footer = () => {
   const scrollClick = () => {
     const rootEl = document.documentElement;
 
-    rootEl.scrollTo({ top: 0, behavior: "smooth" });
+    rootEl.scrollTo({ top: 0, behavior: 'smooth' });
   };
   return (
     <div>

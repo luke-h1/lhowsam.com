@@ -1,9 +1,9 @@
-import React from "react";
-import img1 from "../assets/images/img-1.jpeg";
-import img2 from "../assets/images/img-2.jpeg";
-import img3 from "../assets/images/img-3.jpeg";
-import img4 from "../assets/images/img-4.jpeg";
-import img6 from "../assets/images/img-6.jpeg";
+import React from 'react';
+import img1 from '../assets/images/img-1.jpeg';
+import img2 from '../assets/images/img-2.jpeg';
+import img3 from '../assets/images/img-3.jpeg';
+import img4 from '../assets/images/img-4.jpeg';
+import img6 from '../assets/images/img-6.jpeg';
 
 const Projects = () => {
   return (
@@ -19,9 +19,9 @@ const Projects = () => {
             <p className="post-intro">
               In this project I made a quotes app that pulls data from
               <a href="https://github.com/RocktimSaikia/anime-chan">
-                {" "}
+                {' '}
                 this
-              </a>{" "}
+              </a>{' '}
               API with Vanilla javascript and bootstrap. This was a really fun
               API to work with and made the development of this app enjoyable.
             </p>

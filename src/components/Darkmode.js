@@ -1,25 +1,25 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect } from 'react';
 
 const Darkmode = () => {
   useEffect(() => {
-    const currentTheme = localStorage.getItem("theme");
+    const currentTheme = localStorage.getItem('theme');
 
     if (currentTheme) {
-      document.documentElement.setAttribute("data-theme", currentTheme);
+      document.documentElement.setAttribute('data-theme', currentTheme);
 
-      if (currentTheme === "dark") {
-        document.documentElement.setAttribute("data-theme", "dark");
+      if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
       }
     }
   }, []);
 
   const onClick = (e) => {
     if (e.target.checked) {
-      document.documentElement.setAttribute("data-theme", "dark");
-      localStorage.setItem("theme", "dark");
+      document.documentElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
     } else if (!e.target.checked) {
-      document.documentElement.setAttribute("data-theme", "light");
-      localStorage.setItem("theme", "light");
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
     }
   };
 

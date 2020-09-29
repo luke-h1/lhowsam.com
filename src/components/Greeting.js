@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import React from "react";
-import profileImage from "../assets/images/luke.png";
-import Darkmode from "./Darkmode";
+import React from 'react';
+import profileImage from '../assets/images/luke.png';
+import Darkmode from './Darkmode';
 
 const Greeting = () => {
   return (
