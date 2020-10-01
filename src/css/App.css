@@ -672,26 +672,3 @@ SCROLL TO TOP START
   text-align: center;
 }
 
-/*================
-SCROLL TO TOP END
-==================*/
-/*================
-UL NAV ITEMS 
-==================*/
-.home {
-  font-size: 20px;
-}
-
-.projects {
-  font-size: 20px;
-}
-
-.home:hover,
-.projects:hover {
-  color: #17a2b8;
-}
-
-.about-desc {
-  color: var(--paragraph-color);
-  line-height: 1.7;
-}
