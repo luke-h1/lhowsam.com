@@ -10,7 +10,7 @@ const AboutMe = () => {
             <p className="about-desc">
               I'm passionate about solving technical problems and coming up with
               creative solutions.I enjoy working with the JAMstack & various
-              automation technologies. 
+              automation technologies.
             </p>
           </div>
           <div id="skills">
