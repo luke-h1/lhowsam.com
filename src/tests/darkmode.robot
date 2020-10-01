@@ -20,8 +20,6 @@ ${BROWSER}    chrome
 Check Dark Mode Works
     check dark mode works
 
-Click "projects" link
-    check project link works 
 
 integration test the dark mode switcher
     integration test dark mode 
@@ -43,28 +41,21 @@ check dark mode works
     Close Browser         
 
 
-check project link works
-    Open Browser    ${URL}           ${BROWSER}
-    Click Link      class=projects
-    sleep           0.5 
-
 
 integration test dark mode
-    Open Browser               ${URL}                   ${BROWSER}
-    Scroll Page To Location    0                        2000
+    Open Browser               ${URL}         ${BROWSER}
+    Scroll Page To Location    0              5000
     Sleep                      1 
-    Click Element              class=scrollToTopBtn
+    Scroll Page To Location    0              0 
     Sleep                      1 
     Set Selenium Speed         0.4 Seconds
     Click Element              class=label
     sleep                      0.5 
     Click Element              class=label
     sleep                      1 
-    Click Link                 class=projects
-    sleep                      2 
-    Scroll Page To Location    0                        2000
+    Scroll Page To Location    0              5000
     sleep                      1 
-    Click Element              class=scrollToTopBtn 
+    Scroll Page To Location    0              0 
     sleep                      1 
     Click Element              class=label
     sleep                      1 
