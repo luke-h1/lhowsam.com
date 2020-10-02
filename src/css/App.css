@@ -672,3 +672,25 @@ SCROLL TO TOP START
   text-align: center;
 }
 
+
+/* REACT ICON STYLES START */
+.icon-lg { 
+  font-size: 40px;
+}
+
+.icon-md { 
+  font-size: 35px;
+}
+
+
+/* HOVER STATES */
+.icon-lg:hover,
+.icon-md:hover { 
+  fill: #D5C5C8;  
+  cursor:pointer; 
+}
+
+
+
+
+/* REACT ICON STYLES END */

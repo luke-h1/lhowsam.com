@@ -4,6 +4,8 @@ import img2 from '../assets/images/img-2.jpeg';
 import img3 from '../assets/images/img-3.jpeg';
 import img4 from '../assets/images/img-4.jpeg';
 import img6 from '../assets/images/img-6.jpeg';
+import { FaGithub } from 'react-icons/fa';
+import { GoBrowser } from 'react-icons/go';
 
 const Projects = () => {
   return (
@@ -32,7 +34,7 @@ const Projects = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i className="fa fa-github fa-2x" aria-hidden="true"></i>
+                <FaGithub className="icon-md" />
               </a>
               <a
                 className="social-list__link"
@@ -40,7 +42,7 @@ const Projects = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <i className="fa fa-chrome fa-2x" aria-hidden="true"></i>
+                <GoBrowser className="icon-md" />
               </a>
             </div>
           </div>
@@ -61,7 +63,7 @@ const Projects = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fa fa-github fa-2x" aria-hidden="true"></i>
+              <FaGithub className="icon-md" />
             </a>
             <a
               className="social-list__link"
@@ -69,7 +71,7 @@ const Projects = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fa fa-chrome fa-2x" aria-hidden="true"></i>
+              <GoBrowser className="icon-md" />
             </a>
           </div>
         </div>
@@ -91,7 +93,7 @@ const Projects = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fa fa-github fa-2x" aria-hidden="true"></i>
+              <FaGithub className="icon-md" />
             </a>
           </div>
         </div>
@@ -115,7 +117,7 @@ const Projects = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fa fa-github fa-2x" aria-hidden="true"></i>
+              <FaGithub className="icon-md" />
             </a>
             <a
               className="social-list__link"
@@ -123,7 +125,7 @@ const Projects = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fa fa-chrome fa-2x" aria-hidden="true"></i>
+              <GoBrowser className="icon-md" />
             </a>
           </div>
         </div>
@@ -144,7 +146,7 @@ const Projects = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fa fa-github fa-2x" aria-hidden="true"></i>
+              <FaGithub className="icon-md" />
             </a>
             <a
               className="social-list__link"
@@ -152,7 +154,7 @@ const Projects = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fa fa-chrome fa-2x" aria-hidden="true"></i>
+              <GoBrowser className="icon-md" />
             </a>
           </div>
         </div>

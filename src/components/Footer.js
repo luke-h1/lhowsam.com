@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
   const scrollClick = () => {
@@ -24,7 +25,10 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fa fa-github fa-3x" aria-hidden="true"></i>
+              <FaGithub
+                className="icon-lg"
+                aria-hidden="true"
+              ></FaGithub>
             </a>
             <a
               className="social-list__link"
@@ -32,7 +36,10 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className="fa fa-linkedin fa-3x" aria-hidden="true"></i>
+              <FaLinkedin
+                className="icon-lg"
+                aria-hidden="true"
+              ></FaLinkedin>
             </a>
           </div>
         </div>
