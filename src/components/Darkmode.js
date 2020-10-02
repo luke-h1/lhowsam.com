@@ -1,24 +1,27 @@
-import React, { Fragment, useEffect } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 const Darkmode = () => {
+  const [theme, setTheme] = useState('light');
   useEffect(() => {
     const currentTheme = localStorage.getItem('theme');
-
     if (currentTheme) {
-      document.documentElement.setAttribute('data-theme', currentTheme);
+      setTheme('light');
 
       if (currentTheme === 'dark') {
+        setTheme('dark');
         document.documentElement.setAttribute('data-theme', 'dark');
       }
     }
   }, []);
 
-  const onClick = (e) => {
-    if (e.target.checked) {
+  const setDarkMode = () => {
+    if (theme === 'light') {
+      setTheme('dark');
       document.documentElement.setAttribute('data-theme', 'dark');
       localStorage.setItem('theme', 'dark');
-    } else if (!e.target.checked) {
+    } else {
+      setTheme('light');
       document.documentElement.setAttribute('data-theme', 'light');
       localStorage.setItem('theme', 'light');
     }
@@ -32,7 +35,7 @@ const Darkmode = () => {
           className="checkbox"
           id="checkbox"
           name="checkbox"
-          onClick={onClick}
+          onClick={setDarkMode}
         />
         <label className="label" htmlFor="checkbox">
           <FaMoon className="fa fa-moon"></FaMoon>
