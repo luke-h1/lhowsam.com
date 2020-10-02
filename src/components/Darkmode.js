@@ -1,4 +1,6 @@
 import React, { Fragment, useEffect } from 'react';
+import {FaMoon,FaSun} from 'react-icons/fa'
+
 
 const Darkmode = () => {
   useEffect(() => {
@@ -34,8 +36,8 @@ const Darkmode = () => {
           onClick={onClick}
         />
         <label className="label" htmlFor="checkbox">
-          <i className="fa fa-moon"></i>
-          <i className="fa fa-sun"></i>
+          <FaMoon className="fa fa-moon"></FaMoon>
+          <FaSun className="fa fa-sun"></FaSun>
           <div className="ball"></div>
         </label>
       </div>
