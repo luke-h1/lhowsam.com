@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
-
+import { FaLinkedin, FaGithub, FaChevronUp } from 'react-icons/fa';
+import { BiChevronUp } from 'react-icons/bi';
 const Footer = () => {
   const scrollClick = () => {
     const rootEl = document.documentElement;
@@ -11,7 +11,7 @@ const Footer = () => {
     <div>
       <div className="btn-container">
         <button className="scrollToTopBtn" onClick={scrollClick}>
-          <i className="fa fa-angle-up up-icon" aria-hidden="true"></i>
+          <BiChevronUp className="icon-sm" />
         </button>
       </div>
 
@@ -25,10 +25,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaGithub
-                className="icon-lg"
-                aria-hidden="true"
-              ></FaGithub>
+              <FaGithub className="icon-lg" aria-hidden="true"></FaGithub>
             </a>
             <a
               className="social-list__link"
@@ -36,10 +33,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <FaLinkedin
-                className="icon-lg"
-                aria-hidden="true"
-              ></FaLinkedin>
+              <FaLinkedin className="icon-lg" aria-hidden="true"></FaLinkedin>
             </a>
           </div>
         </div>

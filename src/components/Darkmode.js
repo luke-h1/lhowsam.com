@@ -1,6 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import {FaMoon,FaSun} from 'react-icons/fa'
-
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 const Darkmode = () => {
   useEffect(() => {
