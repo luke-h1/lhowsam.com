@@ -1,16 +1,16 @@
 import React from 'react';
-import { FaLinkedin, FaGithub, FaChevronUp } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
 import { BiChevronUp } from 'react-icons/bi';
 const Footer = () => {
-  const scrollClick = () => {
+  const handleClick = () => {
     const rootEl = document.documentElement;
-
     rootEl.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
   return (
     <div>
       <div className="btn-container">
-        <button className="scrollToTopBtn" onClick={scrollClick}>
+        <button className="scrollToTopBtn" onClick={handleClick}>
           <BiChevronUp className="icon-sm" />
         </button>
       </div>
