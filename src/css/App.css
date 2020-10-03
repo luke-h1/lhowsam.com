@@ -181,7 +181,7 @@ DARK MODE SWITCHER START
 }
 
 .label .ball {
-  background-color: var(--main-color);
+  background-color: #fff;
   border-radius: 50%;
   position: absolute;
   top: 2px;
