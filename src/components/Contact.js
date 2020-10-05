@@ -8,7 +8,7 @@ function Contact() {
       <div>
         <div class="contact-wrapper">
           <div class="alternatives">
-            <h3>You can reach me on the following: </h3>
+            <h3>You can reach me on: </h3>
             <br />
             <div class="icon-wrapper">
               <a href="https://www.linkedin.com/in/lukehowsam/">

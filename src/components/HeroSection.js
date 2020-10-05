@@ -33,7 +33,7 @@ function HeroSection({ lightBg }) {
               <p>Automation (ansible / bash scripting)</p>
               <p>HTML, CSS</p>
               <p>Vanilla Javascript</p>
-              <p>Basic React (hooks + react router)</p>
+              <p>Basic React </p>
               <p>Technical Support</p>
             </div>
           </div>
