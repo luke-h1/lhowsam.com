@@ -1,166 +1,112 @@
 import React from 'react';
-import img1 from '../assets/images/img-1.jpeg';
-import img2 from '../assets/images/img-2.jpeg';
-import img3 from '../assets/images/img-3.jpeg';
-import img4 from '../assets/images/img-4.jpeg';
-import img6 from '../assets/images/img-6.jpeg';
+import { IconContext } from 'react-icons/lib';
+import './Projects.css';
+import Image1 from '../images/img-1.jpeg';
+import Image2 from '../images/img-2.jpeg';
+import Image3 from '../images/img-3.jpeg';
 import { FaGithub } from 'react-icons/fa';
 import { GoBrowser } from 'react-icons/go';
-
-const Projects = () => {
+function Pricing() {
   return (
-    <div>
-      <section className="s1 s1-alt">
-        <div className="main-container">
-          <h3 className="h3-center">My Projects</h3>
-        </div>
-        <div className="container">
-          <img className="thumbnail" src={img1} alt="" />
-          <div className="post-preview">
-            <h6 className="post-title">Quotes App</h6>
-            <p className="post-intro">
-              In this project I made a quotes app that pulls data from
-              <a href="https://github.com/RocktimSaikia/anime-chan">
-                {' '}
-                this
-              </a>{' '}
-              API with Vanilla javascript and bootstrap. This was a really fun
-              API to work with and made the development of this app enjoyable.
-            </p>
-            <div className="icon-container">
-              <a
-                className="social-list__link"
-                href="https://github.com/luke-h1/anime-quotes-app"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub className="icon-md" />
-              </a>
-              <a
-                className="social-list__link"
-                href="https://anime-quotes-app.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GoBrowser className="icon-md" />
-              </a>
+    <IconContext.Provider value={{ color: '#fff', size: 64 }}>
+      <div>
+        <div class="project-wrapper">
+          <h2 class="project__title">Projects</h2>
+          <div className="project-container">
+            <div className="project-card">
+              <div className="img-container">
+                <img src={Image1} alt="" />
+              </div>
+              <h3 class="project__card-title">Vanilla JS Todo App</h3>
+              <p className="project-description">
+                In this project, I built a Todo App made with Vanilla javascript
+                & boostrap. I enjoyed solving the issues that occured during the
+                development of this app (DOM manipulation issues etc.)
+              </p>
+              <div className="icon-container">
+                <a
+                  class="icon-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt=""
+                  href="https://github.com/luke-h1/vanilla-todo-app"
+                >
+                  <FaGithub className="icon-social" />
+                </a>
+                <a
+                  className="icon-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt=""
+                  href="https://vanilla-todo-app.vercel.app/"
+                >
+                  <GoBrowser className="icon-social" />
+                </a>
+              </div>
+            </div>
+
+            <div className="project-card">
+              <div className="img-container">
+                <img src={Image2} alt="" />
+              </div>
+              <h3 class="project__card-title">Automation</h3>
+              <p className="project-description">
+                I am a huge advocate for infrastructure automation as this
+                allows teams to focus on innovating new features and solving new
+                problems rather than being backlogged with maintaining
+                infrastructure. In this project I made Ansible playbooks & Bash
+                scripts that automate the setup of Linux & Mac OS X workstations
+                & servers
+              </p>
+              <div className="icon-container">
+                <a
+                  class="icon-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt=""
+                  href="https://github.com/luke-h1/Automation"
+                >
+                  <FaGithub className="icon-social" />
+                </a>
+              </div>
+            </div>
+
+            <div className="project-card">
+              <div className="img-container">
+                <img src={Image3} alt="" />
+              </div>
+              <h3 class="project__card-title">Form Validator</h3>
+              <p className="project-description">
+                In this project I built a form validator that uses built in
+                javascript regular expressions to validate name, email, postcode
+                & phone numbers.
+              </p>
+              <div className="icon-container">
+                <a
+                  class="icon-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt=""
+                  href="https://github.com/luke-h1/javascript-regex-validation-form"
+                >
+                  <FaGithub className="icon-social" />
+                </a>
+                <a
+                  className="icon-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt=""
+                  href="https://javascript-regex-validation-form.vercel.app/"
+                >
+                  <GoBrowser className="icon-social" />
+                </a>
+              </div>
             </div>
           </div>
         </div>
-
-        <div className="container">
-          <img className="thumbnail" src={img2} alt="" />
-          <h6 className="post-title">Todo App</h6>
-          <p className="post-intro">
-            In this project, I built a Todo App made with Vanilla javascript &
-            boostrap. I enjoyed solving the issues that occured during the
-            development of this app (DOM manipulation issues etc.)
-          </p>
-          <div className="icon-container">
-            <a
-              className="social-list__link"
-              href="https://github.com/luke-h1/vanilla-todo-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub className="icon-md" />
-            </a>
-            <a
-              className="social-list__link"
-              href="https://vanilla-todo-app.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GoBrowser className="icon-md" />
-            </a>
-          </div>
-        </div>
-
-        <div className="container">
-          <img className="thumbnail" src={img3} alt="" />
-          <h6 className="post-title">Automation</h6>
-          <p className="post-intro">
-            I am a huge advocate for infrastructure automation as this allows
-            teams to focus on innovating new features and solving new problems
-            rather than being backlogged with maintaining infrastructure. In
-            this project I made Ansible playbooks & Bash scripts that automate
-            the setup of Linux & Mac OS X workstations & servers
-          </p>
-          <div className="icon-container">
-            <a
-              className="social-list__link"
-              href="https://github.com/luke-h1/Automation"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub className="icon-md" />
-            </a>
-          </div>
-        </div>
-        <div className="container">
-          <img
-            className="thumbnail"
-            src={img4}
-            alt=""
-            rel="noopener noreferrer"
-          />
-          <h6 className="post-title">form validator</h6>
-          <p className="post-intro">
-            In this project I built a form validator that uses built in
-            javascript regular expressions to validate name, email, postcode &
-            phone numbers.
-          </p>
-          <div className="icon-container">
-            <a
-              className="social-list__link"
-              href="https://github.com/luke-h1/javascript-regex-validation-form"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub className="icon-md" />
-            </a>
-            <a
-              className="social-list__link"
-              href="https://javascript-regex-validation-form.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GoBrowser className="icon-md" />
-            </a>
-          </div>
-        </div>
-
-        <div className="container">
-          <img className="thumbnail" src={img6} alt="" />
-          <h6 className="post-title">Cocktail recipe App</h6>
-          <p className="post-intro">
-            In this project I built a cocktail recipe app that pulls data from
-            <a href="https://www.thecocktaildb.com/"> this </a>
-            API. This was a really fun project and was the first project where I
-            used higher order array methods to get multiple results from an API
-          </p>
-          <div className="icon-container">
-            <a
-              className="social-list__link"
-              href="https://github.com/luke-h1/cocktail-recipe-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FaGithub className="icon-md" />
-            </a>
-            <a
-              className="social-list__link"
-              href="https://cocktail-recipe-app.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GoBrowser className="icon-md" />
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
+      </div>
+    </IconContext.Provider>
   );
-};
+}
 
-export default Projects;
+export default Pricing;

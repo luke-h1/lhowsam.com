@@ -1,14 +1,17 @@
 {
-  "name": "react-personal-site",
+  "name": "personal-site-react-v2",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@statickit/core": "^2.5.1",
+    "@statickit/react": "^2.1.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-icons": "^3.11.0",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
   "scripts": {
@@ -29,9 +32,9 @@
       "not op_mini all"
     ],
     "development": [
-      "last 2 chrome versions",
-      "last 2 firefox versions",
-      "last 2 safari versions"
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
     ]
   },
   "devDependencies": {

@@ -1,45 +1,43 @@
 import React from 'react';
-import { FaLinkedin, FaGithub } from 'react-icons/fa';
-import { BiChevronUp } from 'react-icons/bi';
-const Footer = () => {
-  const handleClick = () => {
-    const rootEl = document.documentElement;
-    rootEl.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+import './Footer.css';
+import { Link } from 'react-router-dom';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FiDroplet } from 'react-icons/fi';
+function Footer() {
   return (
-    <div>
-      <div className="btn-container">
-        <button className="scrollToTopBtn" onClick={handleClick}>
-          <BiChevronUp className="icon-sm" />
-        </button>
-      </div>
-
-      <section className="s2">
-        <div className="main-container">
-          <h3 className="h3-center">Contact Me</h3>
-          <div className="icon-container">
+    <div className="footer-container">
+      <section className="social-media">
+        <div className="social-media-wrap">
+          <div className="footer-logo">
+            <Link to="/" className="social-logo">
+              <FiDroplet className="navbar-icon" />
+              Luke H
+            </Link>
+          </div>
+          <small className="website-rights">Luke Howsam © 2020</small>
+          <div className="social-icons">
             <a
-              className="social-list__link"
-              href="https://github.com/luke-h1/"
+              className="social-icon-link"
+              href="https://github.com/luke-h1"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Github"
             >
-              <FaGithub className="icon-lg" aria-hidden="true"></FaGithub>
+              <FaGithub />
             </a>
             <a
-              className="social-list__link"
+              className="social-icon-link"
               href="https://www.linkedin.com/in/lukehowsam/"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
             >
-              <FaLinkedin className="icon-lg" aria-hidden="true"></FaLinkedin>
+              <FaLinkedin />
             </a>
           </div>
         </div>
       </section>
     </div>
   );
-};
-
+}
 export default Footer;
