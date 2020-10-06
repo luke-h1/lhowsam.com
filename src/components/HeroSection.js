@@ -32,7 +32,7 @@ function HeroSection({ lightBg }) {
               <p className="lead">Top Skills</p>
               <p>Automation (ansible / bash scripting)</p>
               <p>HTML, CSS</p>
-              <p>Vanilla Javascript</p>
+              <p>Basic vanilla Javascript</p>
               <p>Basic React </p>
               <p>Technical Support</p>
             </div>
