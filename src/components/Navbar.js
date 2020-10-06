@@ -34,7 +34,7 @@ function Navbar() {
               onBlur={closeMobileMenu}
             >
               <FiDroplet className="navbar-icon" />
-              <p class="lead">Luke Howsam</p>
+              <p className="lead">Luke Howsam</p>
             </Link>
             <div
               className="menu-icon"
