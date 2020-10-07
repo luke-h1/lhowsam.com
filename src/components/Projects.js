@@ -10,8 +10,8 @@ function Pricing() {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
-        <div class="project-wrapper">
-          <h2 class="project__title">Projects</h2>
+        <div className="project-wrapper">
+          <h2 className="project__title">Projects</h2>
           <div className="project-container">
             <div className="project-card">
               <div className="img-container">
@@ -25,7 +25,7 @@ function Pricing() {
               </p>
               <div className="icon-container">
                 <a
-                  class="icon-link"
+                  className="icon-link"
                   target="_blank"
                   rel="noopener noreferrer"
                   alt=""
@@ -60,7 +60,7 @@ function Pricing() {
               </p>
               <div className="icon-container">
                 <a
-                  class="icon-link"
+                  className="icon-link"
                   target="_blank"
                   rel="noopener noreferrer"
                   alt=""
@@ -83,7 +83,7 @@ function Pricing() {
               </p>
               <div className="icon-container">
                 <a
-                  class="icon-link"
+                  className="icon-link"
                   target="_blank"
                   rel="noopener noreferrer"
                   alt=""
