@@ -293,3 +293,38 @@ img {
     font-family: inherit;
   }
 }
+
+
+@media(max-width: 400px){
+  .skills-container {
+    text-align: center;
+    background-color: #1c2237;
+    border: 1px solid #fff;
+    color: #fff;
+    width: 450px;
+    border-radius: 20px;
+  }
+  .home__hero-img {
+    max-width: 100%; 
+    margin-left: -2.5em;
+    padding-right: 0;
+    max-width: 155%; 
+
+  }
+  .skills-container p { 
+    font-size: 20px;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    word-wrap: wrap;
+    -webkit-box-align: center;
+    align-items: center;
+    line-height: 1;
+    font-family: inherit;
+  }
+  }
+
+
+
+  
+
