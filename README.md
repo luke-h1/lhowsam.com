@@ -3,4 +3,4 @@ Source code for my personal portfolio
 
 
 ## TODO:  
-  * fix responsiveness on mobile. 
+  * Look at using prop types / passing in props on all components 
