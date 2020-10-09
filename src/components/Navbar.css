@@ -111,7 +111,7 @@
   .nav-links:hover {
     color: #f00946;
     transform: scale(1.2);
-    transition: all 0.3s ease;
+    transition: all 1.0s ease;
   }
 
   .nav-item:hover {
@@ -119,7 +119,9 @@
   }
 
   .nav-item {
-    width: 100%;
+    width: 100%; 
+    font-weight: 700; 
+    font-size: 35px;
   }
 
   .navbar-logo {
@@ -154,7 +156,7 @@
 }
 
 .lead { 
-  font-size: 18px;
+  font-size: 20px;
 }
 /* NAVBAR STYLES END  */
 

@@ -17,7 +17,7 @@ function Pricing() {
               <div className="img-container">
                 <img src={Image1} alt="" />
               </div>
-              <h3 class="project__card-title">Vanilla JS Todo App</h3>
+              <h3 className="project__card-title">Vanilla JS Todo App</h3>
               <p className="project-description">
                 In this project, I built a Todo App made with Vanilla javascript
                 & boostrap. I enjoyed solving the issues that occured during the
@@ -49,7 +49,7 @@ function Pricing() {
               <div className="img-container">
                 <img src={Image2} alt="" />
               </div>
-              <h3 class="project__card-title">Automation</h3>
+              <h3 className="project__card-title">Automation</h3>
               <p className="project-description">
                 I am a huge advocate for infrastructure automation as this
                 allows teams to focus on innovating new features and solving new
@@ -75,7 +75,7 @@ function Pricing() {
               <div className="img-container">
                 <img src={Image3} alt="" />
               </div>
-              <h3 class="project__card-title">Form Validator</h3>
+              <h3 className="project__card-title">Form Validator</h3>
               <p className="project-description">
                 In this project I built a form validator that uses built in
                 javascript regular expressions to validate name, email, postcode

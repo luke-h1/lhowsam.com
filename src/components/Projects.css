@@ -34,9 +34,7 @@ img {
 }
 
 .project-card:nth-child(2) {
-  margin-top: 1.1em;
   height: 550px;
-  transform: scale(0.95);
 }
 
 .project-card:hover {
@@ -69,6 +67,7 @@ img {
 
 .project__title {
   border-bottom: 2px solid #f00946;
+  font-size: 35px;
 }
 
 .project__card-title {

@@ -28,7 +28,7 @@ function HeroSection({ lightBg }) {
                 />
               </div>
             </div>
-            <div className="skills-container">
+            <div className="skills-container"> 
               <h1 className='skills'>Top Skills</h1>
               <p>Automation (ansible / bash scripting)</p>
               <p>HTML, CSS</p>

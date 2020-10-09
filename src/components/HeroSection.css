@@ -1,6 +1,6 @@
 .home__hero-section {
   color: #fff;
-  padding: 150px 0;
+  padding: 25px;
 }
 
 .home__hero-row {
@@ -9,13 +9,13 @@
 
 .row {
   display: flex;
-  margin: 0 -15px -15px -15px;
+  /* margin: 0 -15px -15px -15px; */
   flex-wrap: wrap;
   align-content: stretch;
 }
 
 .col {
-  padding: 0 15px 15px 15px;
+  padding: 0 50px 50px 50px;
   margin-bottom: 15px;
   flex: 1;
   max-width: 50%;
@@ -23,9 +23,8 @@
 }
 
 .home__hero-text-wrapper {
-  max-width: 570px;
+  max-width: 500px;
   padding-top: 0;
-  padding-bottom: 60px;
 }
 
 .top-line {
@@ -33,9 +32,21 @@
   font-size: 16px;
   line-height: 16px;
   font-weight: 700;
+  width: 30%;
   letter-spacing: 1.4px;
   text-transform: uppercase;
   margin-bottom: 16px;
+  border-bottom: 2px solid #bc1888;
+}
+
+.top-line:after { 
+  content: '';
+  display: block;
+  margin: auto;
+  height: 3px;
+  width: 0px;
+  background: transparent;
+  transition: width .8s ease, background-color .5s ease;
 }
 
 .heading {
@@ -60,15 +71,15 @@
   font-size: 18px;
   line-height: 24px;
 }
-
+/* 
 .home__hero-img-wrapper {
-  max-width: 650px;
-}
+  max-width: 450px;
+} */
 
 .home__hero-img {
   margin: 0 0 0 150px;
   padding-right: 0;
-  max-width: 45%;
+  max-width: 55%;
   border-radius: 15px;
   filter: grayscale(100%) brightness(80%);
 }
@@ -144,12 +155,14 @@ img {
 }
 
 .skills-container {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   background-color: #1c2237;
   border: 1px solid #fff;
   color: #fff;
   width: 350px;
-  border-radius: 20px;
+  border-radius: 20px; 
 }
 
 .skills { 
@@ -195,7 +208,8 @@ img {
   border-radius: 5px;
   text-align: center;
   display: flex;
-  -webkit-box-align: center;
+  flex-direction: column;
+  -webkit-box-align: center; 
   align-items: center;
   line-height: 0.5;
   font-family: inherit;
@@ -220,7 +234,7 @@ img {
   .home__hero-img {
     margin-left: 8em;
     padding-right: 0;
-    max-width: 40%;
+    max-width: 50%;
   }
 
   .skills-container {
@@ -255,6 +269,6 @@ img {
   .home__hero-img {
     margin-left: 3.5em;
     padding-right: 0;
-    max-width: 45%;
+    max-width: 55%;
   }
 }
