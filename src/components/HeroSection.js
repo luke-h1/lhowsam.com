@@ -4,9 +4,7 @@ import './HeroSection.css';
 function HeroSection({ lightBg }) {
   return (
     <Fragment>
-      <div
-        className={'home__hero-section darkBg'}
-      >
+      <div className={'home__hero-section darkBg'}>
         <div className="container">
           <div className="row home__hero-row">
             <div className="col">
@@ -28,8 +26,8 @@ function HeroSection({ lightBg }) {
                 />
               </div>
             </div>
-            <div className="skills-container"> 
-              <h1 className='skills'>Top Skills</h1>
+            <div className="skills-container">
+              <h1 className="skills">Top Skills</h1>
               <p>Automation (ansible / bash scripting)</p>
               <p>HTML, CSS</p>
               <p>Basic vanilla Javascript</p>

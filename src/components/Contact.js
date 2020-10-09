@@ -11,10 +11,18 @@ function Contact() {
             <h3>You can reach me on: </h3>
             <br />
             <div class="icon-wrapper">
-              <a href="https://www.linkedin.com/in/lukehowsam/">
+              <a
+                href="https://www.linkedin.com/in/lukehowsam/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaLinkedin className="icon-contact" />
               </a>{' '}
-              <a href="https://github.com/luke-h1">
+              <a
+                href="https://github.com/luke-h1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaGithub className="icon-contact" />
               </a>
             </div>
