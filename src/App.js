@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -9,7 +9,7 @@ import Contact from './components/Contact';
 function App() {
   return (
     <Fragment>
-      <Router>
+      <BrowserRouter>
         <Navbar />
         <Switch>
           <Route path="/" exact component={HeroSection} />
@@ -17,7 +17,7 @@ function App() {
           <Route path="/contact" exact component={Contact} />
         </Switch>
         <Footer />
-      </Router>
+      </BrowserRouter>
     </Fragment>
   );
 }
