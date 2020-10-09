@@ -26,11 +26,12 @@ img {
   margin-bottom: 1em;
   margin-top: 1em;
   width: 350px;
-  height: 530px;
+  height: 550px;
   background-color: #fefffe;
   border-radius: 10px;
   border: 1px solid #000;
   color: #000;
+  padding-bottom: 15px;
 }
 
 .project-card:nth-child(2) {
@@ -64,7 +65,6 @@ img {
   align-items: center;
 }
 
-
 .project__title {
   border-bottom: 2px solid #f00946;
   font-size: 35px;
@@ -86,10 +86,26 @@ img {
   fill: #2ab7ca;
 }
 
-
-@media(max-width: 1124px){
-  .project-container { 
+@media (max-width: 1124px) {
+  .project-container {
     grid-template-columns: repeat(1, 1fr);
+  }
+  .project-card {
+    margin-bottom: 1em;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    width: 550px;
+    height: 550px;
+    background-color: #fefffe;
+    border-radius: 10px;
+    border: 1px solid #000;
+    color: #000;
+  }
+
+  .img-container img {
+    width: 85%;
+    height: 100%;
+    object-fit: contain;
   }
 }
 
@@ -98,11 +114,11 @@ img {
     grid-template-columns: repeat(1, 1fr);
   }
   .project-card {
-    /* margin-bottom: 1em;
     margin-bottom: 1em;
-    margin-top: 1em; */
-    width: 450px;
-    height: 530px;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    width: 550px;
+    height: 550px;
     background-color: #fefffe;
     border-radius: 10px;
     border: 1px solid #000;
@@ -130,17 +146,18 @@ img {
     margin-bottom: 1em;
     margin-bottom: 1em;
     margin-top: 1em;
-    width: 450px;
-    height: 430px;
+    width: 550px;
+    height: 550px;
     background-color: #fefffe;
     border-radius: 10px;
     border: 1px solid #000;
     color: #000;
   }
   .img-container img {
-    width: 68%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
     object-fit: contain;
+    border-radius: 20px;
   }
 
   .project-description {
@@ -159,8 +176,8 @@ img {
     margin-bottom: 1em;
     margin-right: 1em;
     margin-top: 1em;
-    width: 250px;
-    height: 430px;
+    width: 350px;
+    height: 450px;
     background-color: #fefffe;
     border-radius: 10px;
     border: 1px solid #000;
