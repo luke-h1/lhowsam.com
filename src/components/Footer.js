@@ -14,7 +14,7 @@ function Footer() {
               Luke H
             </Link>
           </div>
-          <small className="website-rights">Luke Howsam © 2020</small>
+          <small className="website-rights">Luke Howsam © 2020 </small>
           <div className="social-icons">
             <a
               className="social-icon-link"
@@ -40,4 +40,5 @@ function Footer() {
     </div>
   );
 }
+
 export default Footer;
