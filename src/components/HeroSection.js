@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import profileImage from '../images/luke.png';
 import './HeroSection.css';
+import {FaGithub, FaLinkedin} from 'react-icons/fa';
 function HeroSection({ lightBg }) {
   return (
     <Fragment>
@@ -23,8 +24,11 @@ function HeroSection({ lightBg }) {
                   src={profileImage}
                   alt="profile card"
                   className="home__hero-img"
-                />
-              </div>
+                /> 
+              {/* <FaGithub className='icon-social'/> 
+              <FaLinkedin className='icon-social' />  */}
+              </div>  
+            
             </div>
             <div className="skills-container">
               <h1 className="skills">Top Skills</h1>

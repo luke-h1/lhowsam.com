@@ -102,6 +102,17 @@ img {
   -ms-animation: fadeIn ease 3s;
 }
 
+
+
+.icon-social {
+  margin: 10px;
+  fill: #000;
+  width: 35px;
+  height: 35px;
+}
+
+
+
 @keyframes fadeIn {
   from {
     opacity: 0;
