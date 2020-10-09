@@ -5,7 +5,7 @@ function HeroSection({ lightBg }) {
   return (
     <Fragment>
       <div
-        className={lightBg ? 'home__hero-section' : 'home__hero-section darkBg'}
+        className={'home__hero-section darkBg'}
       >
         <div className="container">
           <div className="row home__hero-row">
@@ -29,7 +29,7 @@ function HeroSection({ lightBg }) {
               </div>
             </div>
             <div className="skills-container">
-              <p className="lead">Top Skills</p>
+              <h1 className='skills'>Top Skills</h1>
               <p>Automation (ansible / bash scripting)</p>
               <p>HTML, CSS</p>
               <p>Basic vanilla Javascript</p>

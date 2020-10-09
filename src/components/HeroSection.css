@@ -152,12 +152,8 @@ img {
   border-radius: 20px;
 }
 
-.lead {
-  font-weight: 700;
-  width: 50%;
-  margin: 0 auto;
-  border-bottom: 2px solid #f00946;
-  margin-bottom: 10px;
+.skills { 
+  margin-top: 15px;
 }
 
 .list {
@@ -189,7 +185,11 @@ img {
 
 .skills-container p {
   padding: 1rem 1rem;
-  background-color: rgb(25, 10, 239);
+  background: #f09433; 
+  background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
   color: white;
   margin: 1rem;
   border-radius: 5px;
