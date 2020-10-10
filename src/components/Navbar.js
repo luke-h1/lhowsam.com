@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { FiDroplet } from 'react-icons/fi';
 import { FaTimes, FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
+import PropTypes from 'prop-types';
 import './Navbar.css';
-function Navbar() {
+
+function Navbar({ title, iconStyles, navLinkStyles }) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
   const handleClick = () => setClick(!click);
@@ -33,8 +35,8 @@ function Navbar() {
               onClick={closeMobileMenu}
               onBlur={closeMobileMenu}
             >
-              <FiDroplet className="navbar-icon" />
-              <p className="lead">Luke Howsam</p>
+              <FiDroplet className={iconStyles} />
+              <p className="lead">{title}</p>
             </Link>
             <div
               className="menu-icon"
@@ -47,7 +49,7 @@ function Navbar() {
               <li className="nav-item">
                 <Link
                   to="/"
-                  className="nav-links"
+                  className={navLinkStyles}
                   onClick={closeMobileMenu}
                   onBlur={closeMobileMenu}
                 >
@@ -57,7 +59,7 @@ function Navbar() {
               <li className="nav-item">
                 <Link
                   to="projects"
-                  className="nav-links"
+                  className={navLinkStyles}
                   onClick={closeMobileMenu}
                   onBlur={closeMobileMenu}
                 >
@@ -67,7 +69,7 @@ function Navbar() {
               <li className="nav-item">
                 <Link
                   to="contact"
-                  className="nav-links"
+                  className={navLinkStyles}
                   onClick={closeMobileMenu}
                   onBlur={closeMobileMenu}
                 >
@@ -81,4 +83,16 @@ function Navbar() {
     </Fragment>
   );
 }
+
+Navbar.defaultProps = {
+  title: 'Luke Howsam',
+  iconStyles: 'navbar-icon',
+  navLinkStyles: 'nav-links',
+};
+
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string.isRequired,
+};
+
 export default Navbar;

@@ -6,6 +6,9 @@ import Image2 from '../images/img-2.jpeg';
 import Image3 from '../images/img-3.jpeg';
 import { FaGithub } from 'react-icons/fa';
 import { GoBrowser } from 'react-icons/go';
+import PropTypes from 'prop-types';
+
+
 function Pricing() {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
