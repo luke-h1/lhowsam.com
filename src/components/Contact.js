@@ -11,7 +11,7 @@ function Contact({ title }) {
           <div class="alternatives">
             <h3>{title} </h3>
             <br />
-            <div class="icon-wrapper">
+            <div className="icon-wrapper">
               <a
                 href="https://www.linkedin.com/in/lukehowsam/"
                 target="_blank"
