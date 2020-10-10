@@ -144,7 +144,7 @@ function Projects({ title, iconStyles }) {
               <div className="img-container">
                 <img src={Image5} alt="" />
               </div>
-              <h3 className="project__card-title">Automation</h3>
+              <h3 className="project__card-title">Quotes App</h3>
               <p className="project-description">
                 In this project I made a quotes app that pulls data from
                 <a href="https://github.com/RocktimSaikia/anime-chan">
