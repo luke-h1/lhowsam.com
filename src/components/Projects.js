@@ -10,61 +10,6 @@ import { FaGithub } from 'react-icons/fa';
 import { GoBrowser } from 'react-icons/go';
 import PropTypes from 'prop-types';
 function Projects({ title, iconStyles }) {
-  const ProjectItemGithubOnly = (props) => {
-    return (
-      <div className="project-card">
-        <div className="img-container">
-          <img src={props.image} alt="" />
-        </div>
-        <h3 className="project__card-title">{props.title}</h3>
-        <p className="project-description">{props.description}</p>
-        <div className="icon-container">
-          <a
-            className="icon-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            alt=""
-            href="{props.href}"
-          >
-            <FaGithub className={iconStyles} />
-          </a>
-        </div>
-      </div>
-    );
-  };
-
-  const ProjectItemGithubBrowser = (props) => {
-    return (
-      <div className="project-card">
-        <div className="img-container">
-          <img src={props.image} alt="" />
-        </div>
-        <h3 className="project__card-title">{props.title}</h3>
-        <p className="project-description">{props.description}</p>
-        <div className="icon-container">
-          <a
-            className="icon-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            alt=""
-            href="{props.githubHref}"
-          >
-            <FaGithub className={iconStyles} />
-          </a>
-          <a
-            className="icon-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            alt=""
-            href="{props.browserHref}"
-          >
-            <GoBrowser className={iconStyles} />
-          </a>
-        </div>
-      </div>
-    );
-  };
-
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
@@ -168,7 +113,14 @@ function Projects({ title, iconStyles }) {
               <p className="project-description">
                 In this app I made a drink recipe app using vanilla JS & the
                 fetch API that pulls data from
-                <a href="https://www.thecocktaildb.com/"> this </a>
+                <a
+                  href="https://www.thecocktaildb.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {' '}
+                  this{' '}
+                </a>
                 API. This was a really fun project and was the first project
                 where I used higher order array methods to get multiple results
                 from an API
@@ -201,7 +153,11 @@ function Projects({ title, iconStyles }) {
               <h3 className="project__card-title">Quotes App</h3>
               <p className="project-description">
                 In this project I made a quotes app that pulls data from
-                <a href="https://github.com/RocktimSaikia/anime-chan">
+                <a
+                  href="https://github.com/RocktimSaikia/anime-chan"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {' '}
                   this
                 </a>{' '}
