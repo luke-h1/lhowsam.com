@@ -10,8 +10,8 @@
 }
 
 img {
-  border-top-left-radius: 14px;
-  border-top-right-radius: 14px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .project-container {
