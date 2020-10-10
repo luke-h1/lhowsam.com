@@ -1,9 +1,11 @@
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
 import './Projects.css';
-import Image1 from '../images/img-1.jpeg';
-import Image2 from '../images/img-2.jpeg';
-import Image3 from '../images/img-3.jpeg';
+import Image1 from '../images/project-img-1.jpeg';
+import Image2 from '../images/project-img-2.jpeg';
+import Image3 from '../images/project-img-3.jpeg';
+import Image4 from '../images/project-img-4.jpeg';
+import Image5 from '../images/project-img-5.jpeg';
 import { FaGithub } from 'react-icons/fa';
 import { GoBrowser } from 'react-icons/go';
 import PropTypes from 'prop-types';
@@ -104,6 +106,75 @@ function Projects({ title, iconStyles }) {
                 </a>
               </div>
             </div>
+            <div className="project-card">
+              <div className="img-container">
+                <img src={Image4} alt="" />
+              </div>
+              <h3 className="project__card-title">Cocktail recipe App</h3>
+              <p className="project-description">
+                In this app I made a drink recipe app using vanilla JS & the
+                fetch API that pulls data from
+                <a href="https://www.thecocktaildb.com/"> this </a>
+                API. This was a really fun project and was the first project
+                where I used higher order array methods to get multiple results
+                from an API
+              </p>
+              <div className="icon-container">
+                <a
+                  className="icon-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt=""
+                  href="https://github.com/luke-h1/cocktail-recipe-app"
+                >
+                  <FaGithub className={iconStyles} />
+                </a>
+                <a
+                  className="icon-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt=""
+                  href="https://cocktail-recipe-app.vercel.app/"
+                >
+                  <GoBrowser className={iconStyles} />
+                </a>
+              </div>
+            </div>
+            <div className="project-card">
+              <div className="img-container">
+                <img src={Image5} alt="" />
+              </div>
+              <h3 className="project__card-title">Automation</h3>
+              <p className="project-description">
+                In this project I made a quotes app that pulls data from
+                <a href="https://github.com/RocktimSaikia/anime-chan">
+                  {' '}
+                  this
+                </a>{' '}
+                API with Vanilla javascript and bootstrap. This was a really fun
+                API to work with and made the development of this app enjoyable.
+              </p>
+              <div className="icon-container">
+                <a
+                  className="icon-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt=""
+                  href="https://github.com/luke-h1/anime-quotes-app"
+                >
+                  <FaGithub className={iconStyles} />
+                </a>
+                <a
+                  className="icon-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt=""
+                  href="https://anime-quotes-app.vercel.app/"
+                >
+                  <GoBrowser className={iconStyles} />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -113,12 +184,12 @@ function Projects({ title, iconStyles }) {
 
 Projects.defaultProps = {
   title: 'Projects',
-  iconStyles: 'icon-social'
+  iconStyles: 'icon-social',
 };
 
-Projects.propTypes = { 
+Projects.propTypes = {
   title: PropTypes.string.isRequired,
   iconStyles: PropTypes.string.isRequired,
-}
+};
 
 export default Projects;
