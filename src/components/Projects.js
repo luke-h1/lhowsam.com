@@ -9,7 +9,7 @@ import { GoBrowser } from 'react-icons/go';
 import PropTypes from 'prop-types';
 
 
-function Pricing() {
+function Projects() {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
@@ -112,4 +112,8 @@ function Pricing() {
   );
 }
 
-export default Pricing;
+Projects.defaultProps = { 
+
+}
+
+export default Projects;
