@@ -84,13 +84,13 @@ img {
 
 @media (max-width: 1124px) {
   .project-container {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .project-card {
     margin-bottom: 1em;
     margin-bottom: 1em;
     margin-top: 1em;
-    width: 450px;
+    width: 350px;
     height: 650px;
     background-color: #fefffe;
     border-radius: 10px;
@@ -107,13 +107,13 @@ img {
 
 @media (max-width: 991px) {
   .project-container {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   .project-card {
     margin-bottom: 1em;
     margin-bottom: 1em;
     margin-top: 1em;
-    width: 450px;
+    width: 350px;
     height: 600px;
     background-color: #fefffe;
     border-radius: 10px;
