@@ -8,13 +8,12 @@ import { FaGithub } from 'react-icons/fa';
 import { GoBrowser } from 'react-icons/go';
 import PropTypes from 'prop-types';
 
-
-function Projects() {
+function Projects({ title, iconStyles }) {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
         <div className="project-wrapper">
-          <h2 className="project__title">Projects</h2>
+          <h2 className="project__title">{title}</h2>
           <div className="project-container">
             <div className="project-card">
               <div className="img-container">
@@ -34,7 +33,7 @@ function Projects() {
                   alt=""
                   href="https://github.com/luke-h1/vanilla-todo-app"
                 >
-                  <FaGithub className="icon-social" />
+                  <FaGithub className={iconStyles} />
                 </a>
                 <a
                   className="icon-link"
@@ -43,7 +42,7 @@ function Projects() {
                   alt=""
                   href="https://vanilla-todo-app.vercel.app/"
                 >
-                  <GoBrowser className="icon-social" />
+                  <GoBrowser className={iconStyles} />
                 </a>
               </div>
             </div>
@@ -69,7 +68,7 @@ function Projects() {
                   alt=""
                   href="https://github.com/luke-h1/Automation"
                 >
-                  <FaGithub className="icon-social" />
+                  <FaGithub className={iconStyles} />
                 </a>
               </div>
             </div>
@@ -92,7 +91,7 @@ function Projects() {
                   alt=""
                   href="https://github.com/luke-h1/javascript-regex-validation-form"
                 >
-                  <FaGithub className="icon-social" />
+                  <FaGithub className={iconStyles} />
                 </a>
                 <a
                   className="icon-link"
@@ -101,7 +100,7 @@ function Projects() {
                   alt=""
                   href="https://javascript-regex-validation-form.vercel.app/"
                 >
-                  <GoBrowser className="icon-social" />
+                  <GoBrowser className={iconStyles} />
                 </a>
               </div>
             </div>
@@ -112,8 +111,14 @@ function Projects() {
   );
 }
 
-Projects.defaultProps = { 
+Projects.defaultProps = {
+  title: 'Projects',
+  iconStyles: 'icon-social'
+};
 
+Projects.propTypes = { 
+  title: PropTypes.string.isRequired,
+  iconStyles: PropTypes.string.isRequired,
 }
 
 export default Projects;
