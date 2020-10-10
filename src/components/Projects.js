@@ -9,104 +9,122 @@ import Image5 from '../images/project-img-5.jpeg';
 import { FaGithub } from 'react-icons/fa';
 import { GoBrowser } from 'react-icons/go';
 import PropTypes from 'prop-types';
-
 function Projects({ title, iconStyles }) {
+  const ProjectItemGithubOnly = (props) => {
+    return (
+      <div className="project-card">
+        <div className="img-container">
+          <img src={props.image} alt="" />
+        </div>
+        <h3 className="project__card-title">{props.title}</h3>
+        <p className="project-description">{props.description}</p>
+        <div className="icon-container">
+          <a
+            className="icon-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            alt=""
+            href="{props.href}"
+          >
+            <FaGithub className={iconStyles} />
+          </a>
+        </div>
+      </div>
+    );
+  };
+
+  const ProjectItemGithubBrowser = (props) => {
+    return (
+      <div className="project-card">
+        <div className="img-container">
+          <img src={props.image} alt="" />
+        </div>
+        <h3 className="project__card-title">{props.title}</h3>
+        <p className="project-description">{props.description}</p>
+        <div className="icon-container">
+          <a
+            className="icon-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            alt=""
+            href="{props.githubHref}"
+          >
+            <FaGithub className={iconStyles} />
+          </a>
+          <a
+            className="icon-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            alt=""
+            href="{props.browserHref}"
+          >
+            <GoBrowser className={iconStyles} />
+          </a>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
         <div className="project-wrapper">
           <h2 className="project__title">{title}</h2>
           <div className="project-container">
-            <div className="project-card">
-              <div className="img-container">
-                <img src={Image1} alt="" />
-              </div>
-              <h3 className="project__card-title">Vanilla JS Todo App</h3>
-              <p className="project-description">
-                In this project, I built a Todo App made with Vanilla javascript
+            <ProjectItemGithubOnly
+              image={Image1}
+              title="Vanilla JS Todo App"
+              description="     In this project, I built a Todo App made with Vanilla javascript
                 & boostrap. I enjoyed solving the issues that occured during the
-                development of this app (DOM manipulation issues etc.)
-              </p>
-              <div className="icon-container">
-                <a
-                  className="icon-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  alt=""
-                  href="https://github.com/luke-h1/vanilla-todo-app"
-                >
-                  <FaGithub className={iconStyles} />
-                </a>
-                <a
-                  className="icon-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  alt=""
-                  href="https://vanilla-todo-app.vercel.app/"
-                >
-                  <GoBrowser className={iconStyles} />
-                </a>
-              </div>
-            </div>
+                development of this app (DOM manipulation issues etc.)"
+              githubHref='https://github.com/luke-h1/vanilla-todo-app"'
+              browserHref="https://vanilla-todo-app.vercel.app/"
+            />
 
-            <div className="project-card">
-              <div className="img-container">
-                <img src={Image2} alt="" />
-              </div>
-              <h3 className="project__card-title">Automation</h3>
-              <p className="project-description">
-                I am a huge advocate for infrastructure automation as this
+            <ProjectItemGithubOnly
+              image={Image2}
+              title="Automation"
+              description="    I am a huge advocate for infrastructure automation as this
                 allows teams to focus on innovating new features and solving new
                 problems rather than being backlogged with maintaining
                 infrastructure. In this project I made Ansible playbooks & Bash
                 scripts that automate the setup of Linux & Mac OS X workstations
-                & servers
-              </p>
-              <div className="icon-container">
-                <a
-                  className="icon-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  alt=""
-                  href="https://github.com/luke-h1/Automation"
-                >
-                  <FaGithub className={iconStyles} />
-                </a>
-              </div>
-            </div>
+                & servers"
+              githubHref="https://github.com/luke-h1/Automation"
+            />
 
-            <div className="project-card">
-              <div className="img-container">
-                <img src={Image3} alt="" />
-              </div>
-              <h3 className="project__card-title">Form Validator</h3>
-              <p className="project-description">
-                In this project I built a form validator that uses built in
+            <ProjectItemGithubBrowser
+              image={Image3}
+              title="Form Validator"
+              description="  In this project I built a form validator that uses built in
                 javascript regular expressions to validate name, email, postcode
-                & phone numbers.
-              </p>
-              <div className="icon-container">
-                <a
-                  className="icon-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  alt=""
-                  href="https://github.com/luke-h1/javascript-regex-validation-form"
-                >
-                  <FaGithub className={iconStyles} />
-                </a>
-                <a
-                  className="icon-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  alt=""
-                  href="https://javascript-regex-validation-form.vercel.app/"
-                >
-                  <GoBrowser className={iconStyles} />
-                </a>
-              </div>
-            </div>
-            <div className="project-card">
+                & phone numbers."
+              browserHref="https://javascript-regex-validation-form.vercel.app/"
+              githubHref="https://github.com/luke-h1/javascript-regex-validation-form"
+            />
+
+            <ProjectItemGithubBrowser
+              image={Image4}
+              title="Drink Recipe App"
+              description="In this app I made a drink recipe app using vanilla JS & the
+                fetch API that pulls data from the cocktail DB API. This was a really fun project and was the first project
+                where I used higher order array methods to get multiple results
+                from an API"
+              browserHref="https://cocktail-recipe-app.vercel.app/"
+              githubHref="https://github.com/luke-h1/cocktail-recipe-app"
+            />
+
+            <ProjectItemGithubBrowser
+              image={Image5}
+              title="Quotes App"
+              description="In This Project I made a quotes app that pulls data from the anime-chan 
+            API with Vanilla javascript and bootstrap. This was a really fun
+            API to work with and made the development of this app enjoyable"
+              browserHref="https://anime-quotes-app.vercel.app/"
+              githubHref="https://github.com/luke-h1/anime-quotes-app"
+            />
+
+            {/* <div className="project-card">
               <div className="img-container">
                 <img src={Image4} alt="" />
               </div>
@@ -139,42 +157,7 @@ function Projects({ title, iconStyles }) {
                   <GoBrowser className={iconStyles} />
                 </a>
               </div>
-            </div>
-            <div className="project-card">
-              <div className="img-container">
-                <img src={Image5} alt="" />
-              </div>
-              <h3 className="project__card-title">Quotes App</h3>
-              <p className="project-description">
-                In this project I made a quotes app that pulls data from
-                <a href="https://github.com/RocktimSaikia/anime-chan">
-                  {' '}
-                  this
-                </a>{' '}
-                API with Vanilla javascript and bootstrap. This was a really fun
-                API to work with and made the development of this app enjoyable.
-              </p>
-              <div className="icon-container">
-                <a
-                  className="icon-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  alt=""
-                  href="https://github.com/luke-h1/anime-quotes-app"
-                >
-                  <FaGithub className={iconStyles} />
-                </a>
-                <a
-                  className="icon-link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  alt=""
-                  href="https://anime-quotes-app.vercel.app/"
-                >
-                  <GoBrowser className={iconStyles} />
-                </a>
-              </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -185,6 +168,7 @@ function Projects({ title, iconStyles }) {
 Projects.defaultProps = {
   title: 'Projects',
   iconStyles: 'icon-social',
+  Image1: '../images/project-img-1.jpeg',
 };
 
 Projects.propTypes = {
