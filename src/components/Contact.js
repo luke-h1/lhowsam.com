@@ -7,8 +7,8 @@ function Contact({ title }) {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
-        <div class="contact-wrapper">
-          <div class="alternatives">
+        <div className="contact-wrapper">
+          <div className="alternatives">
             <h3>{title} </h3>
             <br />
             <div className="icon-wrapper">

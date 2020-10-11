@@ -1,0 +1,82 @@
+* {
+  box-sizing: border-box;
+}
+
+.fourOhFour-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-color: #1c2237;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fourOhFour--container {
+  z-index: 1;
+  background-color: #1c2237;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fourOhFour--intro {
+  margin-bottom: 2em;
+}
+
+.fourOhFour--links {
+  display: block;
+  font-size: 25px;
+  color: #fff;
+  text-decoration: none;
+  margin: 2em 0 2em 0;
+  font-weight: 700;
+  border-bottom: 2px solid #ff3cac;
+  
+}
+
+
+.fourOhFour--links:hover { 
+color: #f00946;
+transform: scale(1.2);
+transition: all 1.0s ease; 
+}
+
+
+.fourOhFour-link--icon {
+  fill: #000;
+  margin-left: 20px;
+}
+
+.fourOhFour-link--icon:hover {
+  fill: #2ab7ca;
+}
+
+.instructions {
+  border-bottom: 2px solid #f00946;
+  width: 50%;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .instructions {
+    font-size: 16px;
+  }
+  .fourOhFour--intro {
+    font-size: 25px;
+  }
+}
+
+@media (max-width: 640px) {
+  .instructions {
+    font-size: 16px;
+  }
+  .fourOhFour--intro {
+    font-size: 20px;
+  }
+ 
+}
