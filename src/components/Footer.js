@@ -3,7 +3,8 @@ import './Footer.css';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FiDroplet } from 'react-icons/fi';
-function Footer() {
+import PropTypes from 'prop-types';
+function Footer({ title, copyright }) {
   return (
     <div className="footer-container">
       <section className="social-media">
@@ -11,10 +12,10 @@ function Footer() {
           <div className="footer-logo">
             <Link to="/" className="social-logo">
               <FiDroplet className="navbar-icon" />
-              Luke H
+              {title}
             </Link>
           </div>
-          <small className="website-rights">Luke Howsam © 2020 </small>
+          <small className="website-rights">{copyright}</small>
           <div className="social-icons">
             <a
               className="social-icon-link"
@@ -40,5 +41,15 @@ function Footer() {
     </div>
   );
 }
+
+Footer.defaultProps = {
+  title: 'Luke H',
+  copyright: 'Luke Howsam © 2020 ',
+};
+
+Footer.propTypes = {
+  title: PropTypes.string.isRequired,
+  copyright: PropTypes.string.isRequired,
+};
 
 export default Footer;
