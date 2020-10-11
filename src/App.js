@@ -16,7 +16,7 @@ function App() {
           <Route path="/" exact component={HeroSection} />
           <Route path="/projects" exact component={Projects} />
           <Route path="/contact" exact component={Contact} />
-          <Route default component={fourOhFour} /> 
+          <Route default component={fourOhFour} />
         </Switch>
         <Footer />
       </BrowserRouter>

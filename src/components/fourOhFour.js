@@ -6,8 +6,13 @@ function fourOhFour() {
   return (
     <div className="fourOhFour-wrapper">
       <div className="fourOhFour--container">
-        <h1 className='fourOhFour--intro'>The Page you're looking for doesn't exist... <span role='img' aria-label='not found'>🤷‍♂️ 🙅‍♂️</span></h1>
-        <h2 className='instructions'>Find your way back to the right page:</h2>
+        <h1 className="fourOhFour--intro">
+          The Page you're looking for doesn't exist...{' '}
+          <span role="img" aria-label="not found">
+            🤷‍♂️ 🙅‍♂️ 🤔
+          </span>
+        </h1>
+        <h2 className="instructions">Find your way back to the right page:</h2>
 
         <Link to="/" className="fourOhFour--links">
           Home
