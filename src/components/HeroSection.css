@@ -28,7 +28,7 @@
 }
 
 .top-line {
-  color: #f00946;
+  color: #ff3cac;
   font-size: 16px;
   line-height: 16px;
   font-weight: 700;
@@ -36,17 +36,19 @@
   letter-spacing: 1.4px;
   text-transform: uppercase;
   margin-bottom: 16px;
-  border-bottom: 2px solid #bc1888;
+  border-bottom: 2px solid #ff3cac;
+  filter: brightness(1.5);
+  filter: contrast(300);
 }
 
-.top-line:after { 
-  content: '';
+.top-line:after {
+  content: "";
   display: block;
   margin: auto;
   height: 3px;
   width: 0px;
   background: transparent;
-  transition: width .8s ease, background-color .5s ease;
+  transition: width 0.8s ease, background-color 0.5s ease;
 }
 
 .heading {
@@ -102,16 +104,12 @@ img {
   -ms-animation: fadeIn ease 3s;
 }
 
-
-
 .icon-social {
   margin: 10px;
   fill: #000;
   width: 35px;
   height: 35px;
 }
-
-
 
 @keyframes fadeIn {
   from {
@@ -173,10 +171,10 @@ img {
   border: 1px solid #fff;
   color: #fff;
   width: 350px;
-  border-radius: 20px; 
+  border-radius: 20px;
 }
 
-.skills { 
+.skills {
   margin-top: 15px;
 }
 
@@ -188,7 +186,6 @@ img {
 .paragraph {
   font-size: 25px;
 }
-
 
 /* Social Icons */
 .social-icon-link {
@@ -209,18 +206,18 @@ img {
 
 .skills-container p {
   padding: 1rem 1rem;
-  background: #f09433; 
-  background-color: #0093E9;
-  background-color: #21D4FD;
-  background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 100%);
-  
+  background: #f09433;
+  background-color: #0093e9;
+  background-color: #21d4fd;
+  background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+
   color: white;
   margin: 1rem;
   border-radius: 5px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  -webkit-box-align: center; 
+  -webkit-box-align: center;
   align-items: center;
   line-height: 0.5;
   font-family: inherit;
@@ -283,7 +280,7 @@ img {
   .home__hero-img {
     margin-left: 3.5em;
     padding-right: 0;
-    max-width: 85%; 
+    max-width: 85%;
   }
   .skills-container {
     margin-top: 3em;
@@ -305,8 +302,7 @@ img {
   }
 }
 
-
-@media(max-width: 400px){
+@media (max-width: 400px) {
   .skills-container {
     text-align: center;
     background-color: #1c2237;
@@ -316,13 +312,12 @@ img {
     border-radius: 20px;
   }
   .home__hero-img {
-    max-width: 100%; 
+    max-width: 100%;
     margin-left: -2.5em;
     padding-right: 0;
-    max-width: 155%; 
-
+    max-width: 155%;
   }
-  .skills-container p { 
+  .skills-container p {
     font-size: 20px;
     border-radius: 5px;
     text-align: center;
@@ -333,9 +328,4 @@ img {
     line-height: 1;
     font-family: inherit;
   }
-  }
-
-
-
-  
-
+}
