@@ -42,7 +42,7 @@ HeroSection.defaultProps = {
   title: `Hi, I'm Luke`,
   skills: 'Top Skills',
   introText: `I'm passionate about solving technical problems and coming up
-  with creative solutions.I enjoy working with the JAMstack &
+  with creative solutions. I enjoy working with the JAMstack &
   various automation technologies.`,
 };
 
