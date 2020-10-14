@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@statickit/core": "^2.5.1",
-    "@statickit/react": "^2.1.1",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
@@ -20,7 +18,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier \"src/**/*.{js,html}\" --write",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet"
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "clean": "rm -rf node_modules && npm i"
   },
   "eslintConfig": {
     "extends": "react-app"
