@@ -20,7 +20,8 @@
     "format": "prettier \"src/**/*.{js,html}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "clean": "rm -rf node_modules && npm i",
-    "jest:updateSnapshot": "jest --silent -u"
+    "jest:update": "jest --silent -u",
+    "jest:interactive": "jest --watch"
   },
   "eslintConfig": {
     "extends": "react-app"
