@@ -23,3 +23,5 @@ sketch
 .vercel
 .vscode/
 .vscode
+.snap
+*.snap
