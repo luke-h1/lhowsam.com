@@ -19,7 +19,8 @@
     "eject": "react-scripts eject",
     "format": "prettier \"src/**/*.{js,html}\" --write",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
-    "clean": "rm -rf node_modules && npm i"
+    "clean": "rm -rf node_modules && npm i",
+    "jest:updateSnapshot": "jest --silent -u"
   },
   "eslintConfig": {
     "extends": "react-app"
