@@ -42,7 +42,7 @@
   border-bottom: 2px solid #ff3cac;
   filter: brightness(1.5);
   filter: contrast(300);
-  font-family: "Permanent Marker", cursive;
+  font-family: "Permanent Marker", sans-serif;
 }
 
 .top-line:after {
