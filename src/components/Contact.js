@@ -3,7 +3,7 @@ import { IconContext } from 'react-icons/lib';
 import './Contact.css';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-function Contact({ title }) {
+const Contact = ({ title }) => {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
@@ -32,7 +32,7 @@ function Contact({ title }) {
       </div>
     </IconContext.Provider>
   );
-}
+};
 
 Contact.defaultProps = {
   title: `You can reach me on: `,

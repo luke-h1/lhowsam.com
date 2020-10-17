@@ -29,10 +29,10 @@
 
 .top-line {
   color: #ff3cac;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 16px;
   font-weight: 700;
-  width: 30%;
+  width: 50%;
   letter-spacing: 1.4px;
   text-transform: uppercase;
   margin-bottom: 16px;
@@ -278,9 +278,9 @@ img {
     border-radius: 20px;
   }
   .home__hero-img {
-    margin-left: 3.5em;
+    margin-left: 6em;
     padding-right: 0;
-    max-width: 85%;
+    max-width: 55%;
   }
   .skills-container {
     margin-top: 3em;
@@ -312,10 +312,21 @@ img {
     border-radius: 20px;
   }
   .home__hero-img {
-    max-width: 100%;
+    max-width: 50%;
     margin-left: -2.5em;
     padding-right: 0;
     max-width: 155%;
+  }
+  .home__hero-text-wrapper { 
+    min-width: 20px;
+
+  }
+
+  .paragraph { 
+    font-size: 18px;
+    word-wrap: wrap;
+    width: 100%;
+
   }
   .skills-container p {
     font-size: 20px;

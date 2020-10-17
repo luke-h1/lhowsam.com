@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './fourOhFour.css';
 import { FiArrowRight } from 'react-icons/fi';
-function fourOhFour() {
+const fourOhFour = () => {
   return (
     <div className="fourOhFour-wrapper">
       <div className="fourOhFour--container">
@@ -29,6 +29,6 @@ function fourOhFour() {
       </div>
     </div>
   );
-}
+};
 
 export default fourOhFour;

@@ -82,6 +82,13 @@ img {
   fill: #2ab7ca;
 }
 
+/* .social-media { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+} */
+
 @media (max-width: 1124px) {
   .project-container {
     grid-template-columns: repeat(2, 1fr);
@@ -192,4 +199,10 @@ img {
     border: 1px solid #000;
     color: #000;
   }
+  /* .footer-logo { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  } */
 }

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FiDroplet } from 'react-icons/fi';
 import PropTypes from 'prop-types';
-function Footer({ title, copyright }) {
+const Footer = ({ title, copyright }) => {
   return (
     <div className="footer-container">
       <section className="social-media">
@@ -40,7 +40,7 @@ function Footer({ title, copyright }) {
       </section>
     </div>
   );
-}
+};
 
 Footer.defaultProps = {
   title: 'Luke H',

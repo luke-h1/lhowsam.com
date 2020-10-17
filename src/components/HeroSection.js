@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import profileImage from '../images/luke.png';
 import './HeroSection.css';
 import PropTypes from 'prop-types';
-function HeroSection({ lightBg, title, skills, introText }) {
+const HeroSection = ({ lightBg, title, skills, introText }) => {
   return (
     <Fragment>
       <div className={'home__hero-section darkBg'}>
@@ -36,10 +36,10 @@ function HeroSection({ lightBg, title, skills, introText }) {
       </div>
     </Fragment>
   );
-}
+};
 
 HeroSection.defaultProps = {
-  title: `Hi, I'm Luke`,
+  title: "Hi, I'm Luke",
   skills: 'Top Skills',
   introText: `I'm passionate about solving technical problems and coming up
   with creative solutions. I enjoy working with the JAMstack &

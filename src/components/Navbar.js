@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import { FiDroplet } from 'react-icons/fi';
 import { FaTimes, FaBars } from 'react-icons/fa';
@@ -6,24 +6,11 @@ import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
 import './Navbar.css';
 
-function Navbar({ title, iconStyles, navLinkStyles }) {
+const Navbar = ({ title, iconStyles, navLinkStyles }) => {
   const [click, setClick] = useState(false);
-  const [button, setButton] = useState(true);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
-  const showButton = () => {
-    if (window.innerWidth <= 960) {
-      setButton(false);
-    } else {
-      setButton(true);
-    }
-  };
-
-  useEffect(() => {
-    showButton();
-  }, []);
-  window.addEventListener('resize', showButton);
   return (
     <Fragment>
       <IconContext.Provider value={{ color: '#fff' }}>
@@ -82,7 +69,7 @@ function Navbar({ title, iconStyles, navLinkStyles }) {
       </IconContext.Provider>
     </Fragment>
   );
-}
+};
 
 Navbar.defaultProps = {
   title: 'Luke Howsam',

@@ -9,7 +9,7 @@ import Image5 from '../images/project-img-5.jpeg';
 import { FaGithub } from 'react-icons/fa';
 import { GoBrowser } from 'react-icons/go';
 import PropTypes from 'prop-types';
-function Projects({ title, iconStyles }) {
+const Projects = ({ title, iconStyles }) => {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
@@ -190,7 +190,7 @@ function Projects({ title, iconStyles }) {
       </div>
     </IconContext.Provider>
   );
-}
+};
 
 Projects.defaultProps = {
   title: 'Projects',
