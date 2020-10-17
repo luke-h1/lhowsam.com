@@ -3,13 +3,12 @@ import { IconContext } from 'react-icons/lib';
 import './Contact.css';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-const Contact = ({ title,MainTitle }) => {
+const Contact = ({ title, MainTitle }) => {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
-
         <div className="contact-wrapper">
-        <h1 class="main-title">{MainTitle}</h1>
+          <h1 class="main-title">{MainTitle}</h1>
           <div className="alternatives">
             <h3>{title}</h3>
             <br />
@@ -38,7 +37,7 @@ const Contact = ({ title,MainTitle }) => {
 
 Contact.defaultProps = {
   title: `You can reach me on: `,
-  MainTitle: 'Get In Touch'
+  MainTitle: 'Get In Touch',
 };
 
 Contact.propTypes = {

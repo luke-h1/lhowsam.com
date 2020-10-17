@@ -15,7 +15,9 @@ const Footer = ({ title, copyright }) => {
               {title}
             </Link>
           </div>
-          <small className="website-rights">{copyright}</small>
+          <small className="website-rights">
+            {copyright} {new Date().getFullYear()}
+          </small>
           <div className="social-icons">
             <a
               className="social-icon-link"
@@ -44,7 +46,7 @@ const Footer = ({ title, copyright }) => {
 
 Footer.defaultProps = {
   title: 'Luke H',
-  copyright: 'Luke Howsam © 2020 ',
+  copyright: 'Luke Howsam © ',
 };
 
 Footer.propTypes = {
