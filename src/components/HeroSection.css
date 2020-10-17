@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+
 .home__hero-section {
   color: #fff;
   padding: 25px;
@@ -29,16 +31,18 @@
 
 .top-line {
   color: #ff3cac;
-  font-size: 20px;
+  font-size: 22px;
   line-height: 16px;
   font-weight: 700;
   width: 50%;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.8px;
+  line-height: 1.6;
   text-transform: uppercase;
   margin-bottom: 16px;
   border-bottom: 2px solid #ff3cac;
   filter: brightness(1.5);
   filter: contrast(300);
+  font-family: "Permanent Marker", cursive;
 }
 
 .top-line:after {
@@ -83,13 +87,14 @@
   padding-right: 0;
   max-width: 55%;
   border-radius: 15px;
-  filter: grayscale(100%) brightness(80%);
+  filter: grayscale(100%);
 }
 
 .home__hero-img:hover {
-  filter: grayscale(0%) brightness(95%);
-  transition: 1.3s;
-  cursor: pointer;
+  transition-duration: 1s;
+  filter: drop-shadow(16px 16px 20px rgba(110, 32, 219, 1));
+  transition-property: opacity;
+  background: rgb(2, 0, 36);
 }
 
 img {
@@ -176,6 +181,13 @@ img {
 
 .skills {
   margin-top: 15px;
+  font-family: "Permanent Marker", cursive;
+  background: linear-gradient(90deg, #3e74f9, #6ddb90);
+  background: -webkit-radial-gradient(90deg, #3e74f9, #6ddb90);
+  background: -moz-radial-gradient(90deg, #3e74f9, #6ddb90);
+  background: radial-gradient(90deg, #3e74f9, #6ddb90);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
 }
 
 .list {
@@ -317,16 +329,14 @@ img {
     padding-right: 0;
     max-width: 155%;
   }
-  .home__hero-text-wrapper { 
+  .home__hero-text-wrapper {
     min-width: 20px;
-
   }
 
-  .paragraph { 
+  .paragraph {
     font-size: 18px;
     word-wrap: wrap;
     width: 100%;
-
   }
   .skills-container p {
     font-size: 20px;
