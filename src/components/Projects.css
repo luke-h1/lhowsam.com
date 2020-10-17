@@ -30,7 +30,7 @@ img {
   background-color: #fefffe;
   border-radius: 10px;
   border: 1px solid #000;
-    color: #000;
+  color: #000;
   padding-bottom: 15px;
 }
 
@@ -64,6 +64,15 @@ img {
 .project__title {
   border-bottom: 2px solid #f00946;
   font-size: 35px;
+  font-family: "Permanent Marker", sans-serif;
+  background: linear-gradient(90deg, #ff3cac, #ff3cac);
+  background: -webkit-radial-gradient(90deg, #ff3cac, #ff3cac);
+  background: -moz-radial-gradient(90deg, #ff3cac, #ff3cac);
+  background: radial-gradient(90deg, #ff3cac, #ff3cac);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  letter-spacing: 5px;
+  
 }
 
 .project__card-title {

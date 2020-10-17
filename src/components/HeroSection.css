@@ -30,8 +30,16 @@
 }
 
 .top-line {
-  color: #ff3cac;
-  font-size: 22px;
+  font-family: "Permanent Marker", sans-serif;
+  background: linear-gradient(90deg, #ff3cac, #ff3cac);
+  background: -webkit-radial-gradient(90deg, #ff3cac, #ff3cac);
+  background: -moz-radial-gradient(90deg, #ff3cac, #ff3cac);
+  background: radial-gradient(90deg, #ff3cac, #ff3cac);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-size: 25px;
+  letter-spacing: 5px;
+
   line-height: 16px;
   font-weight: 700;
   width: 50%;
@@ -184,7 +192,7 @@ img {
 
 .skills {
   margin-top: 15px;
-  font-family: "Permanent Marker", cursive;
+  font-family: "Permanent Marker", sans-serif;
   background: linear-gradient(90deg, #3e74f9, #6ddb90);
   background: -webkit-radial-gradient(90deg, #3e74f9, #6ddb90);
   background: -moz-radial-gradient(90deg, #3e74f9, #6ddb90);

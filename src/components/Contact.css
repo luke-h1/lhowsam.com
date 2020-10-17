@@ -114,6 +114,21 @@
   fill: #2ab7ca;
 }
 
+.main-title { 
+  border-bottom: 2px solid #f00946;
+  font-size: 35px;
+  font-family: "Permanent Marker", sans-serif;
+  background: linear-gradient(90deg, #ff3cac, #ff3cac);
+  background: -webkit-radial-gradient(90deg, #ff3cac, #ff3cac);
+  background: -moz-radial-gradient(90deg, #ff3cac, #ff3cac);
+  background: radial-gradient(90deg, #ff3cac, #ff3cac);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  margin-bottom: 2em;
+  line-height: 2;
+  letter-spacing: 5px;
+}
+
 
 @media(max-width: 1024px){
   .icon-contact { 
