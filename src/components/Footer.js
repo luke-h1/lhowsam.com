@@ -26,7 +26,7 @@ const Footer = ({ title, copyright }) => {
               rel="noopener noreferrer"
               aria-label="Github"
             >
-              <FaGithub />
+              <FaGithub test-id="github"/>
             </a>
             <a
               className="social-icon-link"
@@ -35,7 +35,7 @@ const Footer = ({ title, copyright }) => {
               rel="noopener noreferrer"
               aria-label="LinkedIn"
             >
-              <FaLinkedin />
+              <FaLinkedin test-id="linkedin"/>
             </a>
           </div>
         </div>
