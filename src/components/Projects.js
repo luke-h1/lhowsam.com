@@ -18,7 +18,7 @@ const Projects = ({ title, iconStyles }) => {
           <div className="project-container">
             <div className="project-card">
               <div className="img-container">
-                <img src={Image1} alt="" />
+                <img src={Image1} alt="" loading="lazy" />
               </div>
               <h3 className="project__card-title">Vanilla JS Todo App</h3>
               <p className="project-description">
@@ -50,7 +50,7 @@ const Projects = ({ title, iconStyles }) => {
 
             <div className="project-card">
               <div className="img-container">
-                <img src={Image2} alt="" />
+                <img src={Image2} alt="" loading="lazy" />
               </div>
               <h3 className="project__card-title">Automation</h3>
               <p className="project-description">
@@ -76,7 +76,7 @@ const Projects = ({ title, iconStyles }) => {
 
             <div className="project-card">
               <div className="img-container">
-                <img src={Image3} alt="" />
+                <img src={Image3} alt="" loading="lazy" />
               </div>
               <h3 className="project__card-title">Form Validator</h3>
               <p className="project-description">
@@ -107,7 +107,7 @@ const Projects = ({ title, iconStyles }) => {
             </div>
             <div className="project-card">
               <div className="img-container">
-                <img src={Image4} alt="" />
+                <img src={Image4} alt="" loading="lazy" />
               </div>
               <h3 className="project__card-title">Cocktail recipe App</h3>
               <p className="project-description">
@@ -148,7 +148,7 @@ const Projects = ({ title, iconStyles }) => {
             </div>
             <div className="project-card">
               <div className="img-container">
-                <img src={Image5} alt="" />
+                <img src={Image5} alt="" loading="lazy" />
               </div>
               <h3 className="project__card-title">Quotes App</h3>
               <p className="project-description">

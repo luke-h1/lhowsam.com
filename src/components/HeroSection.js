@@ -20,6 +20,7 @@ const HeroSection = ({ lightBg, title, skills, introText }) => {
                   src={profileImage}
                   alt="profile card"
                   className="home__hero-img"
+                  loading="lazy"
                 />
               </div>
             </div>
