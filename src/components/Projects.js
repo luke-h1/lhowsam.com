@@ -111,19 +111,16 @@ const Projects = ({ title, iconStyles }) => {
               </div>
               <h3 className="project__card-title">Cocktail recipe App</h3>
               <p className="project-description">
-                In this app I made a drink recipe app using vanilla JS & the
-                fetch API that pulls data from
+                In this app I made a drink recipe app using React & React hooks
+                that utilizes the fetch API that pulls data from
                 <a
                   href="https://www.thecocktaildb.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {' '}
-                  this{' '}
+                  this API
                 </a>
-                API. This was a really fun project and was the first project
-                where I used higher order array methods to get multiple results
-                from an API
               </p>
               <div className="icon-container">
                 <a
