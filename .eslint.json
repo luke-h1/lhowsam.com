@@ -14,13 +14,7 @@
     "react/prop-types": 0,
     "react-hooks/rules-of-hooks": "error",
     "no-console": "warn",
-    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "prettier/prettier": [
-      "error",
-      {
-        "semi": false
-      }
-    ]
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }]
   },
   "parser": "babel-eslint",
   "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
