@@ -13,7 +13,7 @@
   align-items: center;
 }
 
-.fourOhFour--container {
+.fourOhFour__container {
   z-index: 1;
   background-color: #1c2237;
   color: #fff;
@@ -24,18 +24,17 @@
   align-items: center;
 }
 
-.fourOhFour--intro {
+.fourOhFour__intro {
   margin-bottom: 2em;
 }
 
-.fourOhFour--links {
+.fourOhFour__links {
   display: block;
   font-size: 25px;
   color: #fff;
   text-decoration: none;
   margin: 2em 0 2em 0;
   font-weight: 700;
-  border-bottom: 2px solid #ff3cac;
   
 }
 

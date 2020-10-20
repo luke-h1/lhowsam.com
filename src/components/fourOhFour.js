@@ -13,8 +13,8 @@ const fourOhFour = ({
 }) => {
   return (
     <div className="fourOhFour-wrapper">
-      <div className="fourOhFour--container">
-        <h1 className="fourOhFour--intro">
+      <div className="fourOhFour__container">
+        <h1 className="fourOhFour__intro">
           {fourOhFourTitle}{' '}
           <span role="img" aria-label="not found">
             🤔
@@ -22,17 +22,17 @@ const fourOhFour = ({
         </h1>
         <h2 className="instructions">{instructions}</h2>
 
-        <Link to="/" className="fourOhFour--links">
+        <Link to="/" className="fourOhFour__links">
           {linkOne}
-          <FiArrowRight className="fourOhFour-link--icon" />
+          <FiArrowRight className="fourOhFour-link__icon" />
         </Link>
-        <Link to="/projects" className="fourOhFour--links">
+        <Link to="/projects" className="fourOhFour__links">
           {linkTwo}
-          <FiArrowRight className="fourOhFour-link--icon" />
+          <FiArrowRight className="fourOhFour-link__icon" />
         </Link>
-        <Link to="/contact" className="fourOhFour--links">
+        <Link to="/contact" className="fourOhFour__links">
           {linkThree}
-          <FiArrowRight className="fourOhFour-link--icon" />
+          <FiArrowRight className="fourOhFour-link__icon" />
         </Link>
       </div>
     </div>
@@ -40,7 +40,7 @@ const fourOhFour = ({
 };
 
 fourOhFour.defaultProps = {
-  fourOhFourTitle: "The Page you're looking for doesn't exist...",
+  fourOhFourTitle: "The Page you're looking for doesn't exist",
   instructions: 'Find your way back to the right page:',
   linkOne: 'Home',
   linkTwo: 'Projects',
