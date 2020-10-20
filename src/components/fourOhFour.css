@@ -39,19 +39,19 @@
 }
 
 
-.fourOhFour--links:hover { 
+.fourOhFour__links:hover { 
 color: #f00946;
 transform: scale(1.2);
 transition: all 1.0s ease; 
 }
 
 
-.fourOhFour-link--icon {
+.fourOhFour-link__icon {
   fill: #000;
   margin-left: 20px;
 }
 
-.fourOhFour-link--icon:hover {
+.fourOhFour-link__icon:hover {
   fill: #2ab7ca;
 }
 
@@ -74,7 +74,7 @@ transition: all 1.0s ease;
   .instructions {
     font-size: 16px;
   }
-  .fourOhFour--intro {
+  .fourOhFour__intro {
     font-size: 20px;
   }
  
