@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Projects from './components/Projects';
-import HeroSection from './components/HeroSection';
-import Contact from './components/Contact';
-import fourOhFour from './components/fourOhFour';
+import Navbar from './components/Navbar/Navbar';
+import Footer from './components/Footer/Footer';
+import Projects from './components/Projects/Projects';
+import HeroSection from './components/HeroSection/HeroSection';
+import Contact from './components/Contact/Contact';
+import fourOhFour from './components/fourOhFour/fourOhFour';
 function App() {
   return (
     <Fragment>
