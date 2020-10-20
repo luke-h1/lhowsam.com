@@ -65,7 +65,7 @@ transition: all 1.0s ease;
   .instructions {
     font-size: 16px;
   }
-  .fourOhFour--intro {
+  .fourOhFour__intro {
     font-size: 25px;
   }
 }
