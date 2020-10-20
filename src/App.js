@@ -6,7 +6,7 @@ import Footer from './components/Footer/Footer';
 import Projects from './components/Projects/Projects';
 import HeroSection from './components/HeroSection/HeroSection';
 import Contact from './components/Contact/Contact';
-import fourOhFour from './components/fourOhFour/fourOhFour';
+import fourOhFour from './components/FourOhFour/fourOhFour';
 function App() {
   return (
     <Fragment>
