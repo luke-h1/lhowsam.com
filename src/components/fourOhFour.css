@@ -1,7 +1,6 @@
 * {
-  box-sizing: border-box;
+  overflow: hidden;
 }
-
 .fourOhFour-wrapper {
   width: 100vw;
   height: 100vh;
@@ -35,16 +34,13 @@
   text-decoration: none;
   margin: 2em 0 2em 0;
   font-weight: 700;
-  
 }
 
-
-.fourOhFour__links:hover { 
-color: #f00946;
-transform: scale(1.2);
-transition: all 1.0s ease; 
+.fourOhFour__links:hover {
+  color: #f00946;
+  transform: scale(1.2);
+  transition: all 1s ease;
 }
-
 
 .fourOhFour-link__icon {
   fill: #000;
@@ -77,5 +73,4 @@ transition: all 1.0s ease;
   .fourOhFour__intro {
     font-size: 20px;
   }
- 
 }
