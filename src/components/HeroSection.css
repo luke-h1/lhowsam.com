@@ -3,6 +3,7 @@
 .home__hero-section {
   color: #fff;
   padding: 25px;
+  min-width: 100vw;
 }
 
 .home__hero-row {
