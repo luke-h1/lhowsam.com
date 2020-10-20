@@ -3,6 +3,9 @@ import { IconContext } from 'react-icons/lib';
 import './Contact.css';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import PropTypes from 'prop-types';
+
+// TODO: ADD CONTACT FORM WITH VALIDATION HERE....
+
 const Contact = ({ title, MainTitle }) => {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>

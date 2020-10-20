@@ -54,17 +54,22 @@ HeroSection.defaultProps = {
   introText: `I'm passionate about solving technical problems and coming up
   with creative solutions. I enjoy working with the JAMstack &
   various automation technologies.`,
+  skillItemOne: 'Automation (ansible / bash scripting)',
+  skillItemTwo: 'HTML, CSS, SASS',
+  skillItemThree: 'Basic vanilla Javascript',
+  skillItemFour: 'Basic React',
+  skillItemFive: 'Technical Support',
 };
 
 HeroSection.propTypes = {
   title: PropTypes.string.isRequired,
   skills: PropTypes.string.isRequired,
   introText: PropTypes.string.isRequired,
-  skillItemOne: 'Automation (ansible / bash scripting)',
-  skillItemTwo: 'HTML, CSS, SASS',
-  skillItemThree: 'Basic vanilla Javascript',
-  skillItemFour: 'Basic React',
-  skillItemFive: 'Technical Support',
+  skillItemOne: PropTypes.string.isRequired,
+  skillItemTwo: PropTypes.string.isRequired,
+  skillItemThree: PropTypes.string.isRequired,
+  skillItemFour: PropTypes.string.isRequired,
+  skillItemFive: PropTypes.string.isRequired,
 };
 
 export default HeroSection;
