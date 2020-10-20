@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import './fourOhFour.css';
 import PropTypes from 'prop-types';
 import { FiArrowRight } from 'react-icons/fi';
-
 const fourOhFour = ({
   linkOne,
   linkTwo,
