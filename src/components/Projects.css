@@ -36,7 +36,6 @@ img {
 
 .project-card:hover {
   transform: scale(1.06);
-  transition: all 0.6s ease-out;
   cursor: pointer;
 }
 
