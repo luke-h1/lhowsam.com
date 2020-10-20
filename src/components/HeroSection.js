@@ -2,7 +2,16 @@ import React, { Fragment } from 'react';
 import profileImage from '../images/luke.png';
 import './HeroSection.css';
 import PropTypes from 'prop-types';
-const HeroSection = ({ lightBg, title, skills, introText }) => {
+const HeroSection = ({
+  title,
+  skills,
+  introText,
+  skillItemOne,
+  skillItemTwo,
+  skillItemThree,
+  skillItemFour,
+  skillItemFive,
+}) => {
   return (
     <Fragment>
       <div className={'home__hero-section darkBg'}>
@@ -26,11 +35,11 @@ const HeroSection = ({ lightBg, title, skills, introText }) => {
             </div>
             <div className="skills-container">
               <h1 className="skills">{skills}</h1>
-              <p>Automation (ansible / bash scripting)</p>
-              <p>HTML, CSS</p>
-              <p>Basic vanilla Javascript</p>
-              <p>Basic React </p>
-              <p>Technical Support</p>
+              <p>{skillItemOne}</p>
+              <p>{skillItemTwo}</p>
+              <p>{skillItemThree}</p>
+              <p>{skillItemFour}</p>
+              <p>{skillItemFive}</p>
             </div>
           </div>
         </div>
@@ -51,6 +60,11 @@ HeroSection.propTypes = {
   title: PropTypes.string.isRequired,
   skills: PropTypes.string.isRequired,
   introText: PropTypes.string.isRequired,
+  skillItemOne: 'Automation (ansible / bash scripting)',
+  skillItemTwo: 'HTML, CSS, SASS',
+  skillItemThree: 'Basic vanilla Javascript',
+  skillItemFour: 'Basic React',
+  skillItemFive: 'Technical Support',
 };
 
 export default HeroSection;

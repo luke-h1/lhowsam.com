@@ -4,7 +4,13 @@ import './fourOhFour.css';
 import PropTypes from 'prop-types';
 import { FiArrowRight } from 'react-icons/fi';
 
-const fourOhFour = ({ linkOne, linkTwo, linkThree, fourOhFourTitle,instructions }) => {
+const fourOhFour = ({
+  linkOne,
+  linkTwo,
+  linkThree,
+  fourOhFourTitle,
+  instructions,
+}) => {
   return (
     <div className="fourOhFour-wrapper">
       <div className="fourOhFour--container">
