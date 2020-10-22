@@ -1,4 +1,4 @@
-/* NAVBAR STYLES START*/ 
+/* NAVBAR STYLES START*/
 .navbar {
   background: #1c2237;
   height: 80px;
@@ -54,10 +54,9 @@
 .nav-item {
   height: 80px;
   border-bottom: 2px solid transparent;
-}
-
-.nav-item:hover {
-  border-bottom: 2px solid #f00946;
+  &:hover {
+    border-bottom: 2px solid #f00946;
+  }
 }
 
 .nav-links {
@@ -107,22 +106,20 @@
     padding: 2rem;
     width: 100%;
     display: table;
-  }
-
-  .nav-links:hover {
-    color: #f00946;
-    transform: scale(1.2);
-    transition: all 1.0s ease;
-  }
-
-  .nav-item:hover {
-    border: none;
+    &:hover {
+      color: #f00946;
+      transform: scale(1.2);
+      transition: all 1s ease;
+    }
   }
 
   .nav-item {
-    width: 100%; 
-    font-weight: 700; 
+    width: 100%;
+    font-weight: 700;
     font-size: 35px;
+    &:hover {
+      border: none;
+    }
   }
 
   .navbar-logo {
@@ -156,8 +153,7 @@
   }
 }
 
-.lead { 
+.lead {
   font-size: 20px;
 }
 /* NAVBAR STYLES END  */
-

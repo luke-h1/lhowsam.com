@@ -4,7 +4,7 @@ import { FiDroplet } from 'react-icons/fi';
 import { FaTimes, FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
-import './Navbar.css';
+import './Navbar.scss';
 
 const Navbar = ({ title, iconStyles, navLinkStyles }) => {
   const [click, setClick] = useState(false);
