@@ -1,6 +1,6 @@
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
-import './Contact.css';
+import './Contact.scss';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
