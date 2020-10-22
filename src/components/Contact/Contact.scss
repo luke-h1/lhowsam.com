@@ -58,12 +58,14 @@
 .main-title {
   border-bottom: 2px solid #f00946;
   font-size: 35px;
-  font-family: 'Permanent Marker', sans-serif;
+  font-family: "Permanent Marker", sans-serif;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   -webkit-background-clip: text;
   margin-bottom: 2em;
   line-height: 2;
   letter-spacing: 5px;
+  filter: brightness(1.5);
+  filter: contrast(300);
 }
 
 @media (max-width: 1024px) {
