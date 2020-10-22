@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 .home__hero-section {
   color: #fff;
@@ -31,7 +31,7 @@
 }
 
 .top-line {
-  font-family: "Permanent Marker", sans-serif;
+  font-family: 'Permanent Marker', sans-serif;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -47,9 +47,9 @@
   border-bottom: 2px solid #ff3cac;
   filter: brightness(1.5);
   filter: contrast(300);
-  font-family: "Permanent Marker", sans-serif;
+  font-family: 'Permanent Marker', sans-serif;
   :after {
-    content: "";
+    content: '';
     display: block;
     margin: auto;
     height: 3px;
@@ -184,7 +184,11 @@ img {
   p {
     padding: 1rem 1rem;
     background: #c0392b; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #8e44ad, #c0392b); /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(
+      to right,
+      #8e44ad,
+      #c0392b
+    ); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(
       to right,
       #8e44ad,
@@ -210,12 +214,11 @@ img {
   width: 50%;
   margin: 0 auto;
   margin-top: 15px;
-  font-family: "Permanent Marker", sans-serif;
+  font-family: 'Permanent Marker', sans-serif;
   background-color: #352384;
   background-image: linear-gradient(315deg, #352384 0%, #f3f3f5 74%);
   -webkit-background-clip: text;
   border-bottom: 2px solid #ff3cac;
-
 }
 
 .list {
