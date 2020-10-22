@@ -12,7 +12,6 @@ const Projects = ({ title, iconStyles }) => {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
-       
         <div className="project-wrapper">
           <h2 className="project__title">{title}</h2>
           <div className="project-container">

@@ -10,7 +10,6 @@ const Contact = ({ title, MainTitle }) => {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
-        
         <div className="contact-wrapper">
           <h1 class="main-title">{MainTitle}</h1>
           <div className="alternatives">

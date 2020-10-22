@@ -14,7 +14,6 @@ const HeroSection = ({
 }) => {
   return (
     <Fragment>
-      
       <div className={'home__hero-section darkBg'}>
         <div className="container">
           <div className="row home__hero-row">
