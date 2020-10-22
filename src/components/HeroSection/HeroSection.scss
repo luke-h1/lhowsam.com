@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 .home__hero-section {
   color: #fff;
@@ -31,7 +31,7 @@
 }
 
 .top-line {
-  font-family: "Permanent Marker", sans-serif;
+  font-family: 'Permanent Marker', sans-serif;
   background: linear-gradient(90deg, #ff3cac, #ff3cac);
   background: -webkit-radial-gradient(90deg, #ff3cac, #ff3cac);
   background: -moz-radial-gradient(90deg, #ff3cac, #ff3cac);
@@ -51,9 +51,9 @@
   border-bottom: 2px solid #ff3cac;
   filter: brightness(1.5);
   filter: contrast(300);
-  font-family: "Permanent Marker", sans-serif;
+  font-family: 'Permanent Marker', sans-serif;
   :after {
-    content: "";
+    content: '';
     display: block;
     margin: auto;
     height: 3px;
@@ -206,7 +206,7 @@ img {
 
 .skills {
   margin-top: 15px;
-  font-family: "Permanent Marker", sans-serif;
+  font-family: 'Permanent Marker', sans-serif;
   background: linear-gradient(90deg, #3e74f9, #6ddb90);
   background: -webkit-radial-gradient(90deg, #3e74f9, #6ddb90);
   background: -moz-radial-gradient(90deg, #3e74f9, #6ddb90);
@@ -269,7 +269,7 @@ img {
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
-    p { 
+    p {
       padding: 1.2rem 1.2rem;
       background-color: rgb(25, 10, 239);
       color: white;
@@ -284,7 +284,6 @@ img {
       font-family: inherit;
     }
   }
-  
 }
 
 @media (max-width: 640px) {
