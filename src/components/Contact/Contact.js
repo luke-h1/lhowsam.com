@@ -14,7 +14,12 @@ const Contact = ({ title, MainTitle }) => {
         <Helmet>
           <meta charSet="utf-8" />
           <title>Contact</title>
-          <link rel="canonical" href="https://luke-h-portfolio.vercel.app/contact" />
+          <link
+            rel="canonical"
+            href="https://luke-h-portfolio.vercel.app/contact"
+          />
+                            <meta name="description" content="Contact" />
+
         </Helmet>
         <div className="contact-wrapper">
           <h1 class="main-title">{MainTitle}</h1>

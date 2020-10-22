@@ -19,6 +19,8 @@ const HeroSection = ({
         <meta charSet="utf-8" />
         <title>Home</title>
         <link rel="canonical" href="https://luke-h-portfolio.vercel.app/" />
+        <meta name="description" content="Home" />
+  </Helmet>
       </Helmet>
       <div className={'home__hero-section darkBg'}>
         <div className="container">

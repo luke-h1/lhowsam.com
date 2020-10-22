@@ -16,6 +16,8 @@ const Projects = ({ title, iconStyles }) => {
         <Helmet>
           <meta charSet="utf-8" />
           <title>Projects</title>
+                  <meta name="description" content="Projects" />
+
           <link
             rel="canonical"
             href="https://luke-h-portfolio.vercel.app/projects"
