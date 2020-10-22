@@ -7,22 +7,12 @@ import Image4 from '../../images/project-img-4.jpeg';
 import Image5 from '../../images/project-img-5.jpeg';
 import { FaGithub } from 'react-icons/fa';
 import { GoBrowser } from 'react-icons/go';
-import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
 const Projects = ({ title, iconStyles }) => {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>Projects</title>
-                  <meta name="description" content="Projects" />
-
-          <link
-            rel="canonical"
-            href="https://luke-h-portfolio.vercel.app/projects"
-          />
-        </Helmet>
+       
         <div className="project-wrapper">
           <h2 className="project__title">{title}</h2>
           <div className="project-container">
