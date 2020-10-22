@@ -241,7 +241,6 @@ img {
   }
 }
 
-
 @media screen and (max-width: 991px) {
   .container {
     padding-right: 30px;
@@ -270,54 +269,53 @@ img {
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
+    p { 
+      padding: 1.2rem 1.2rem;
+      background-color: rgb(25, 10, 239);
+      color: white;
+      margin: 1rem;
+      border-radius: 5px;
+      text-align: center;
+      display: flex;
+      word-wrap: wrap;
+      -webkit-box-align: center;
+      align-items: center;
+      line-height: 1;
+      font-family: inherit;
+    }
   }
-  .skills-container p {
-    padding: 1.2rem 1.2rem;
-    background-color: rgb(25, 10, 239);
-    color: white;
-    margin: 1rem;
-    border-radius: 5px;
-    text-align: center;
-    display: flex;
-    word-wrap: wrap;
-    -webkit-box-align: center;
-    align-items: center;
-    line-height: 1;
-    font-family: inherit;
-  }
+  
 }
 
 @media (max-width: 640px) {
   .skills-container {
+    margin-top: 3em;
+    margin-left: 2em;
     text-align: center;
     background-color: #1c2237;
     border: 1px solid #fff;
     color: #fff;
     width: 450px;
     border-radius: 20px;
+    p {
+      padding: 1.2rem 1.2rem;
+      background-color: rgb(25, 10, 239);
+      color: white;
+      margin: 1rem;
+      border-radius: 5px;
+      text-align: center;
+      display: flex;
+      word-wrap: wrap;
+      -webkit-box-align: center;
+      align-items: center;
+      line-height: 1;
+      font-family: inherit;
+    }
   }
   .home__hero-img {
     margin-left: 6em;
     padding-right: 0;
     max-width: 55%;
-  }
-  .skills-container {
-    margin-top: 3em;
-    margin-left: 2em;
-  }
-  .skills-container p {
-    padding: 1.2rem 1.2rem;
-    background-color: rgb(25, 10, 239);
-    color: white;
-    margin: 1rem;
-    border-radius: 5px;
-    text-align: center;
-    display: flex;
-    word-wrap: wrap;
-    -webkit-box-align: center;
-    align-items: center;
-    line-height: 1;
-    font-family: inherit;
   }
 }
 
@@ -329,6 +327,17 @@ img {
     color: #fff;
     width: 450px;
     border-radius: 20px;
+    p {
+      font-size: 20px;
+      border-radius: 5px;
+      text-align: center;
+      display: flex;
+      word-wrap: wrap;
+      -webkit-box-align: center;
+      align-items: center;
+      line-height: 1;
+      font-family: inherit;
+    }
   }
   .home__hero-img {
     max-width: 50%;
@@ -344,16 +353,5 @@ img {
     font-size: 18px;
     word-wrap: wrap;
     width: 100%;
-  }
-  .skills-container p {
-    font-size: 20px;
-    border-radius: 5px;
-    text-align: center;
-    display: flex;
-    word-wrap: wrap;
-    -webkit-box-align: center;
-    align-items: center;
-    line-height: 1;
-    font-family: inherit;
   }
 }
