@@ -2,6 +2,7 @@ import React, { Fragment } from 'react';
 import profileImage from '../../images/luke.png';
 import './HeroSection.scss';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 const HeroSection = ({
   title,
   skills,
@@ -14,6 +15,11 @@ const HeroSection = ({
 }) => {
   return (
     <Fragment>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Home</title>
+        <link rel="canonical" href="https://luke-h-portfolio.vercel.app/" />
+      </Helmet>
       <div className={'home__hero-section darkBg'}>
         <div className="container">
           <div className="row home__hero-row">
