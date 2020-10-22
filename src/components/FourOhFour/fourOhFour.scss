@@ -8,7 +8,6 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-
 }
 
 .fourOhFour__container {
@@ -26,7 +25,6 @@
   margin-bottom: 2em;
   font-family: "Permanent Marker", sans-serif;
   font-size: 30px;
-
 }
 
 .fourOhFour__links {
@@ -36,21 +34,19 @@
   text-decoration: none;
   margin: 2em 0 2em 0;
   font-weight: 700;
-}
-
-.fourOhFour__links:hover {
-  color: #f00946;
-  transform: scale(1.2);
-  transition: all 1s ease;
+  &:hover {
+    color: #f00946;
+    transform: scale(1.2);
+    transition: all 1s ease;
+  }
 }
 
 .fourOhFour-link__icon {
   fill: #000;
   margin-left: 20px;
-}
-
-.fourOhFour-link__icon:hover {
-  fill: #2ab7ca;
+  &:hover {
+    fill: #2ab7ca;
+  }
 }
 
 .instructions {

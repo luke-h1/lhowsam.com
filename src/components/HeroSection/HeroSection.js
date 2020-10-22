@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import profileImage from '../../images/luke.png';
-import './HeroSection.css';
+import './HeroSection.scss';
 import PropTypes from 'prop-types';
 const HeroSection = ({
   title,
