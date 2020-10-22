@@ -12,8 +12,8 @@ const Button = styled.button`
   &:hover {
     background-color: #fff;
     color: #000;
-    transition: all .4s ease-in-out; 
-    transform: scale(1.10);
+    transition: all 0.4s ease-in-out;
+    transform: scale(1.1);
     cursor: pointer;
   }
 `;
