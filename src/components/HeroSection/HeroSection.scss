@@ -462,7 +462,11 @@ img {
     width: 90%;
   }
   .skill {
+    display: flex;
+    flex-direction: column;
+    justify-content: baseline;
     p {
+
       line-height: 1.2;
       font-size: 13px;
     }
