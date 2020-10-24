@@ -256,6 +256,11 @@ img {
 
 .skills-header {
   text-align: center;
+  h3 { 
+    margin-top: 0.5rem;
+    margin-bottom: 0.7rem;
+
+  }
 }
 
 .skills-body {
@@ -301,6 +306,7 @@ img {
 
 .skill-2 {
   margin-top: 1rem;
+
 }
 
 /* Social Icons */
@@ -319,6 +325,10 @@ img {
     }
   }
 }
+
+
+
+
 
 @media screen and (max-width: 991px) {
   .container {
@@ -362,6 +372,14 @@ img {
       line-height: 1;
       font-family: inherit;
     }
+  }
+
+  .skill { 
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 1.5rem;
+  }
+  .skills-title {
+    width: 30%;
   }
 }
 
