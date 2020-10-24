@@ -3,12 +3,8 @@ import profileImage from '../../images/luke.png';
 import './HeroSection.scss';
 import PropTypes from 'prop-types';
 import { FaReact } from 'react-icons/fa';
-import {GoTools} from 'react-icons/go'
-const HeroSection = ({
-  title,
-  introText,
-  subTitle
-}) => {
+import { GoTools } from 'react-icons/go';
+const HeroSection = ({ title, introTextPt1, introTextPt2, subTitle }) => {
   return (
     <Fragment>
       <div className={'home__hero-section darkBg'}>
@@ -16,9 +12,10 @@ const HeroSection = ({
           <div className="row home__hero-row">
             <div className="col">
               <div className="home__hero-text-wrapper">
-                <div className="top-line">{title}</div>  
-                <h2 className='sub-title'>{subTitle}</h2>
-                <p className="paragraph">{introText}</p>
+                <div className="top-line">{title}</div>
+                <h2 className="sub-title">{subTitle}</h2>
+                <p className="paragraph">{introTextPt1}</p>
+                <p className="paragraph-2">{introTextPt2}</p>
               </div>
             </div>
             <div className="col">
@@ -82,14 +79,8 @@ HeroSection.defaultProps = {
   title: "Hi, I'm Luke",
   subTitle: 'About Me',
   skills: 'Top Skills',
-  introText: `I'm passionate about solving technical problems and coming up
-  with creative solutions. I enjoy working with the JAMstack &
-  various automation technologies.`,
-  skillItemOne: 'Automation (ansible / bash scripting)',
-  skillItemTwo: 'HTML, CSS, SASS',
-  skillItemThree: 'Basic vanilla Javascript',
-  skillItemFour: 'Basic React',
-  skillItemFive: 'Technical Support',
+  introTextPt1: ` I'm passionate about various web technologies and making the web fast & accesible to everyone. I strive to write clean, robust & reusable code.`,
+  introTextPt2: `This means that I strive to follow best practices and utilize industry standard tools such as git-flow, continuous integration (github actions, travisCI), linting (ESlint, prettier) and package management (NPM)`,
 };
 
 HeroSection.propTypes = {
