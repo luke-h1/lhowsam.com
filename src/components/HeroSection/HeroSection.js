@@ -6,13 +6,8 @@ import { FaReact } from 'react-icons/fa';
 import {GoTools} from 'react-icons/go'
 const HeroSection = ({
   title,
-  skills,
   introText,
-  skillItemOne,
-  skillItemTwo,
-  skillItemThree,
-  skillItemFour,
-  skillItemFive,
+  subTitle
 }) => {
   return (
     <Fragment>
@@ -21,7 +16,8 @@ const HeroSection = ({
           <div className="row home__hero-row">
             <div className="col">
               <div className="home__hero-text-wrapper">
-                <div className="top-line">{title}</div>
+                <div className="top-line">{title}</div>  
+                <h2 className='sub-title'>{subTitle}</h2>
                 <p className="paragraph">{introText}</p>
               </div>
             </div>
@@ -84,6 +80,7 @@ const HeroSection = ({
 
 HeroSection.defaultProps = {
   title: "Hi, I'm Luke",
+  subTitle: 'About Me',
   skills: 'Top Skills',
   introText: `I'm passionate about solving technical problems and coming up
   with creative solutions. I enjoy working with the JAMstack &
