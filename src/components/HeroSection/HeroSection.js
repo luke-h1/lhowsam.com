@@ -33,14 +33,17 @@ const HeroSection = ({
                 />
               </div>
             </div>
-            <div className="skills-container">
+            {/* <div className="skills-container">
               <h1 className="skills">{skills}</h1>
               <p>{skillItemOne}</p>
               <p>{skillItemTwo}</p>
               <p>{skillItemThree}</p>
               <p>{skillItemFour}</p>
               <p>{skillItemFive}</p>
-            </div>
+            </div> */}
+          </div>
+          <div className="showcase">
+              <h1>Top Skills</h1>
           </div>
         </div>
       </div>
