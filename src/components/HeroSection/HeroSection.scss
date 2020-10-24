@@ -462,10 +462,18 @@ img {
     width: 90%;
   }
   .skill {
-    p { 
+    p {
       line-height: 1.2;
       font-size: 13px;
     }
+  }
+  .home__hero-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -490,10 +498,10 @@ img {
     }
   }
   .home__hero-img {
-    max-width: 50%;
     margin-left: -2.5em;
     padding-right: 0;
-    max-width: 155%;
+    min-width: 100%;
+    max-width: 100%;
   }
   .home__hero-text-wrapper {
     min-width: 20px;
@@ -505,15 +513,15 @@ img {
     width: 150%;
   }
 
-  .paragraph-2 { 
+  .paragraph-2 {
     width: 150%;
   }
 
-  .top-line { 
+  .top-line {
     width: 140%;
   }
 
-  .sub-title { 
+  .sub-title {
     width: 120%;
   }
 }
