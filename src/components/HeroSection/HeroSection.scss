@@ -225,13 +225,45 @@ img {
   font-size: 25px;
 }
 
-.showcase {
-  min-height: 15vh;
+.showcase-skills {
+  margin: 1rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #1c2237;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  min-height: 30vh;
+  padding: 2rem 0px;
+}
+
+.skills-header {
+  text-align: center;
+}
+
+.skills-body {
+  width: 100%;
+  display: flex;
+  flex-flow: row-reverse wrap;
+  padding: 1rem;
+  justify-content: space-evenly;
+}
+
+.skill-icon {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  &:hover {
+    color: #2ab7ca;
+    cursor: pointer;
+  }
+}
+
+.skill {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
 }
 
 /* Social Icons */
