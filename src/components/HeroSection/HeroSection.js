@@ -28,14 +28,6 @@ const HeroSection = ({ title, introTextPt1, introTextPt2, subTitle }) => {
                 />
               </div>
             </div>
-            {/* <div className="skills-container">
-              <h1 className="skills">{skills}</h1>
-              <p>{skillItemOne}</p>
-              <p>{skillItemTwo}</p>
-              <p>{skillItemThree}</p>
-              <p>{skillItemFour}</p>
-              <p>{skillItemFive}</p>
-            </div> */}
           </div>
           <div className="showcase-skills">
             <div className="skills-header">
@@ -85,13 +77,10 @@ HeroSection.defaultProps = {
 
 HeroSection.propTypes = {
   title: PropTypes.string.isRequired,
+  subTitle: PropTypes.string.isRequired,
   skills: PropTypes.string.isRequired,
-  introText: PropTypes.string.isRequired,
-  skillItemOne: PropTypes.string.isRequired,
-  skillItemTwo: PropTypes.string.isRequired,
-  skillItemThree: PropTypes.string.isRequired,
-  skillItemFour: PropTypes.string.isRequired,
-  skillItemFive: PropTypes.string.isRequired,
+  introTextPt1: PropTypes.string.isRequired,
+  introTextPt2: PropTypes.string.isRequired,
 };
 
 export default HeroSection;
