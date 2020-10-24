@@ -251,8 +251,9 @@ img {
 }
 
 .skill-icon {
-  color: #fff;
-  font-size: 24px;
+  color: #5fd5f7;
+  margin-left: 5px;
+  font-size: 30px;
   cursor: pointer;
   &:hover {
     color: #2ab7ca;
@@ -264,6 +265,26 @@ img {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 5px;
+  flex-wrap: wrap;
+  text-align: center;
+  p {
+    padding: 1rem 1rem;
+    font-family: inherit;
+    background-color: #60dafb;
+    filter: brightness(0.9);
+    color: white;
+    margin: 0.5rem;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    line-height: 0.5;
+  }
+}
+
+.skill-2 { 
+  margin-top: 1rem;
 }
 
 /* Social Icons */
