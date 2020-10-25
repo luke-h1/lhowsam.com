@@ -4,7 +4,7 @@ import './App.scss';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Projects from './components/Projects/Projects';
-import Home from './pages/Home/Home'
+import Home from './pages/Home/Home';
 import Contact from './components/Contact/Contact';
 import fourOhFour from './components/FourOhFour/fourOhFour';
 function App() {

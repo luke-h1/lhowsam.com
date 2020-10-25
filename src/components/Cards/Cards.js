@@ -15,20 +15,20 @@ import Image5 from '../../images/project-img-5.jpeg';
 const Cards = () => {
   return (
     <div className="cards">
-      <h1 className='card__title'>Projects</h1>
+      <h1 className="card__title">Projects</h1>
       <div className="cards__container">
         <div className="cards__wrapper">
           <ul className="cards__items">
             <CardItem
               src={Image2}
               text="Drink Recipe Site"
-              label="React, SASS"
+              label="React Hooks, SASS"
               path="/projects/drink-recipe-site"
             />
             <CardItem
               src={Image3}
               text="Automation"
-              label="Ansible, Bash"
+              label="Ansible, Bash, CI"
               path="/projects/Automation"
             />
             <CardItem
@@ -43,8 +43,9 @@ const Cards = () => {
               label="Vanilla JS"
               path="/projects/quotes-app"
             />
-            {/* Add new ul after 4 cards */}
           </ul>
+
+          {/* Add new ul after 4 cards */}
         </div>
       </div>
     </div>

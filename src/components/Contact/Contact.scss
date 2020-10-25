@@ -1,17 +1,14 @@
 .contact-wrapper {
   min-height: 55vh;
   min-width: 100vw;
-  background-color: #1c2237;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.contact__title {
-  border-bottom: 2px solid #f00946;
-}
 
 .alternatives {
   justify-content: center;
@@ -48,7 +45,7 @@
 
 .icon-contact {
   font-size: 20px;
-  fill: #fff;
+  fill: #000;
   margin: 0 1em 0 1em;
   &:hover {
     fill: #2ab7ca;
@@ -56,7 +53,6 @@
 }
 
 .main-title {
-  border-bottom: 2px solid #f00946;
   font-size: 35px;
   font-family: 'Permanent Marker', sans-serif;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
