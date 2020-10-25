@@ -5,10 +5,13 @@ import Image2 from '../../images/project-img-2.jpeg';
 import Image3 from '../../images/project-img-3.jpeg';
 import Image4 from '../../images/project-img-4.jpeg';
 import Image5 from '../../images/project-img-5.jpeg';
+
+/* Todo: Add routes + components for individual project */
+
 const Cards = () => {
   return (
     <div className="cards">
-      <h1>check out these destinations</h1>
+      <h1>Projects</h1>
       <div className="cards__container">
         <div className="cards__wrapper">
           <ul className="cards__items">
