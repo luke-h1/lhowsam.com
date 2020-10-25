@@ -5,12 +5,11 @@ import { FaTimes, FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
 import './Navbar.scss';
-
 const Navbar = ({ title, iconStyles, navLinkStyles }) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-
+// Maybe pass in props to different sections of SPA 
   return (
     <Fragment>
       <IconContext.Provider value={{ color: '#fff' }}>
@@ -43,9 +42,10 @@ const Navbar = ({ title, iconStyles, navLinkStyles }) => {
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
+              
+              {/* <li className="nav-item">
                 <Link
-                  to="projects"
+                  to="/Cards"
                   className={navLinkStyles}
                   onClick={closeMobileMenu}
                   onBlur={closeMobileMenu}
@@ -62,7 +62,7 @@ const Navbar = ({ title, iconStyles, navLinkStyles }) => {
                 >
                   Get In Touch
                 </Link>
-              </li>
+              </li> */}
             </ul>
           </div>
         </nav>

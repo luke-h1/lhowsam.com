@@ -7,7 +7,7 @@ import Image4 from '../../images/project-img-4.jpeg';
 import Image5 from '../../images/project-img-5.jpeg';
 
 /* Todo: 
- * Add routes + components for individual project 
+ * Add routes + reusable components for individual project 
  * use BEM in other files 
 
 */

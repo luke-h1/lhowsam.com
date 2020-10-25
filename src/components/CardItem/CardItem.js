@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
-
+import './CardItem.scss';
 const CardItem = (props) => {
   return (
     <Fragment>
