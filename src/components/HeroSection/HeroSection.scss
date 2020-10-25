@@ -2,7 +2,7 @@
 
 .home__hero-section {
   color: #fff;
-  padding: 25px;
+  // padding: 25px;
   min-width: 100vw;
 }
 
@@ -250,66 +250,7 @@ img {
   padding: 2rem 0px;
 }
 
-/* skills Section */
-.skills-title {
-  text-align: center;
-  border-bottom: 2px solid #ff3cac;
-  width: 10%;
-  margin: 0 auto;
-}
 
-.skills-header {
-  text-align: center;
-  h3 {
-    margin-top: 0.5rem;
-    margin-bottom: 0.7rem;
-  }
-}
-
-.skills-body {
-  width: 100%;
-  display: flex;
-  flex-flow: row-reverse wrap;
-  padding: 1rem;
-  justify-content: space-evenly;
-}
-
-.skill-icon {
-  color: #5fd5f7;
-  margin-left: 5px;
-  font-size: 30px;
-  cursor: pointer;
-  &:hover {
-    color: #2ab7ca;
-    cursor: pointer;
-  }
-}
-
-.skill {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 5px;
-  flex-wrap: wrap;
-  text-align: center;
-  p {
-    padding: 1rem 1rem;
-    font-family: inherit;
-    background-color: #60dafb;
-    filter: brightness(0.9);
-    color: white;
-    margin: 0.5rem;
-    border-radius: 5px;
-    text-align: center;
-    display: flex;
-    -webkit-box-align: center;
-    align-items: center;
-    line-height: 0.5;
-  }
-}
-
-.skill-2 {
-  margin-top: 1rem;
-}
 
 /* Social Icons */
 .social-icon-link {
