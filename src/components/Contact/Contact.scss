@@ -1,8 +1,8 @@
 .contact-wrapper {
   min-height: 55vh;
   min-width: 100vw;
-  background-color: #fff;
-  color: #000;
+  background-color: #1c2237;
+  color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,7 +30,7 @@
 
 .icon-social {
   margin: 10px;
-  fill: #000;
+  fill: #fff;
   width: 35px;
   height: 35px;
   &:hover {
@@ -45,7 +45,7 @@
 
 .icon-contact {
   font-size: 20px;
-  fill: #000;
+  fill: #fff;
   margin: 0 1em 0 1em;
   &:hover {
     fill: #2ab7ca;
