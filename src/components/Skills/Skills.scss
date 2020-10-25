@@ -2,7 +2,6 @@
 .showcase-skills {
   margin: 0;
   padding: 0;
-
   background-color: #fff;
   color: #000;
   min-width: 100vw;
@@ -11,10 +10,29 @@
   max-height: 55vh;
 }
 .skills-title {
+  color: #000;
   text-align: center;
-  border-bottom: 2px solid #ff3cac;
   width: 10%;
   margin: 0 auto;
+  font-family: "Permanent Marker", sans-serif;
+  // -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  font-size: 25px;
+  letter-spacing: 5px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  line-height: 1.6;
+  text-transform: uppercase;
+  font-family: "Permanent Marker", sans-serif;
+  :after {
+    content: "";
+    display: block;
+    margin: auto;
+    height: 3px;
+    width: 0px;
+    transition: width 0.8s ease, background-color 0.5s ease;
+  }
 }
 
 .skills-header {
