@@ -17,4 +17,4 @@ const CardItem = (props) => {
     </Fragment>
   );
 };
-export default CardItem
+export default CardItem;
