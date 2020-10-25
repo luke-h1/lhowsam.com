@@ -3,20 +3,20 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
-import ProjectPage from './pages/ProjectPage/ProjectPage';
-import Home from './pages/Home/Home';
+import Projects from './components/Projects/Projects';
+import HeroSection from './components/HeroSection/HeroSection';
 import Contact from './components/Contact/Contact';
-import fourOhFour from './components/FourOhFour/fourOhFour';
+import FourOhFour from './components/FourOhFour/FourOhFour';
 function App() {
   return (
     <Fragment>
       <BrowserRouter>
         <Navbar />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/projects" exact component={ProjectPage} />
+          <Route path="/" exact component={HeroSection} />
+          <Route path="/projects" exact component={Projects} />
           <Route path="/contact" exact component={Contact} />
-          <Route default component={fourOhFour} />
+          <Route default component={FourOhFour} />
         </Switch>
         <Footer />
       </BrowserRouter>

@@ -1,17 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 .home__hero-section {
   color: #fff;
   padding: 25px;
   min-width: 100vw;
-  max-width: 10vw;
-  min-height: 100vh;
 }
-
-.darkBg {
-  min-width: 100vw;
-  background: #1A181B;
-  
-}
-
 
 .home__hero-row {
   align-items: center;
@@ -24,16 +17,16 @@
 }
 
 .col {
-  padding: 150px 50px 50px 50px;
+  padding: 0 50px 50px 50px;
   margin-bottom: 15px;
   flex: 1;
-  max-width: 100%;
+  max-width: 50%;
   flex-basis: 50%;
 }
 
 .home__hero-text-wrapper {
   max-width: 500px;
-  padding-top: 50px;
+  padding-top: 0;
 }
 
 .top-line {
@@ -82,7 +75,9 @@
   color: #1c2237;
 }
 
-
+.darkBg {
+  background-color: #1c2237;
+}
 
 .home__hero-subtitle {
   max-width: 440px;
@@ -98,7 +93,7 @@
 .home__hero-img {
   margin: 0 0 0 150px;
   padding-right: 0;
-  max-width: 40%;
+  max-width: 55%;
   border-radius: 15px;
   filter: grayscale(100%);
   &:hover {
@@ -255,6 +250,67 @@ img {
   padding: 2rem 0px;
 }
 
+/* skills Section */
+.skills-title {
+  text-align: center;
+  border-bottom: 2px solid #ff3cac;
+  width: 10%;
+  margin: 0 auto;
+}
+
+.skills-header {
+  text-align: center;
+  h3 {
+    margin-top: 0.5rem;
+    margin-bottom: 0.7rem;
+  }
+}
+
+.skills-body {
+  width: 100%;
+  display: flex;
+  flex-flow: row-reverse wrap;
+  padding: 1rem;
+  justify-content: space-evenly;
+}
+
+.skill-icon {
+  color: #5fd5f7;
+  margin-left: 5px;
+  font-size: 30px;
+  cursor: pointer;
+  &:hover {
+    color: #2ab7ca;
+    cursor: pointer;
+  }
+}
+
+.skill {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 5px;
+  flex-wrap: wrap;
+  text-align: center;
+  p {
+    padding: 1rem 1rem;
+    font-family: inherit;
+    background-color: #60dafb;
+    filter: brightness(0.9);
+    color: white;
+    margin: 0.5rem;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    line-height: 0.5;
+  }
+}
+
+.skill-2 {
+  margin-top: 1rem;
+}
+
 /* Social Icons */
 .social-icon-link {
   color: #fff;
@@ -373,11 +429,6 @@ img {
 }
 
 @media (max-width: 640px) {
-  .darkBg {
-  min-width: 120vw;
-  background: #1A181B;
-}
-
   .skills-container {
     margin-top: 3em;
     margin-left: 2em;

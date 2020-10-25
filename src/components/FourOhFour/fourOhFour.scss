@@ -1,74 +1,74 @@
 .fourOhFour-wrapper {
-  width: 100vw;
-  height: 100vh;
-  background-color: #1c2237;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
-
-.fourOhFour__container {
-  z-index: 1;
-  background-color: #1c2237;
-  color: #fff;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.fourOhFour__intro {
-  margin-bottom: 2em;
-  font-family: 'Permanent Marker', sans-serif;
-  font-size: 30px;
-}
-
-.fourOhFour__links {
-  display: block;
-  font-size: 25px;
-  color: #fff;
-  text-decoration: none;
-  margin: 2em 0 2em 0;
-  font-weight: 700;
-  &:hover {
-    color: #f00946;
-    transform: scale(1.2);
-    transition: all 1s ease;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1c2237;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
   }
-}
-
-.fourOhFour-link__icon {
-  fill: #000;
-  margin-left: 20px;
-  &:hover {
-    fill: #2ab7ca;
+  
+  .fourOhFour__container {
+    z-index: 1;
+    background-color: #1c2237;
+    color: #fff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
-}
-
-.instructions {
-  border-bottom: 2px solid #f00946;
-  width: 50%;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  .instructions {
-    font-size: 16px;
-  }
+  
   .fourOhFour__intro {
+    margin-bottom: 2em;
+    font-family: 'Permanent Marker', sans-serif;
+    font-size: 30px;
+  }
+  
+  .fourOhFour__links {
+    display: block;
     font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    margin: 2em 0 2em 0;
+    font-weight: 700;
+    &:hover {
+      color: #f00946;
+      transform: scale(1.2);
+      transition: all 1s ease;
+    }
   }
-}
-
-@media (max-width: 640px) {
+  
+  .fourOhFour-link__icon {
+    fill: #000;
+    margin-left: 20px;
+    &:hover {
+      fill: #2ab7ca;
+    }
+  }
+  
   .instructions {
-    font-size: 16px;
+    border-bottom: 2px solid #f00946;
+    width: 50%;
+    text-align: center;
   }
-  .fourOhFour__intro {
-    font-size: 20px;
+  
+  @media (max-width: 768px) {
+    .instructions {
+      font-size: 16px;
+    }
+    .fourOhFour__intro {
+      font-size: 25px;
+    }
   }
-}
+  
+  @media (max-width: 640px) {
+    .instructions {
+      font-size: 16px;
+    }
+    .fourOhFour__intro {
+      font-size: 20px;
+    }
+  }

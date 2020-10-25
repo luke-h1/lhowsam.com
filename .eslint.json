@@ -1,42 +1,42 @@
 {
-  "extends": [
-    "airbnb",  
-    "eslint:recommended",
-    "prettier/react",
-    "plugin:jsx-a11y/recommended",
-    "plugin:import/errors",
-    "plugin:react/recommended",
-    "prettier",
-    "plugin:import/errors",
-    "plugin:import/warnings"
-  ],
-  "rules": {
-    "react/prop-types": 0,
-    "react-hooks/rules-of-hooks": "error",
-    "no-console": "warn",
-    "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }],
-    "react/jsx-props-no-spreading": "off",
-    "react/state-in-constructor": "off",
-    "no-unsafe-finally": "off" 
-  },
-  "parser": "babel-eslint",
-  "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
-  "parserOptions": {
-    "ecmaVersion": 2018,
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
-  },
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true,
-    "commonjs": true
-  },
-  "settings": {
-    "react": {
-      "version": "detect"
+    "extends": [
+      "airbnb",  
+      "eslint:recommended",
+      "prettier/react",
+      "plugin:jsx-a11y/recommended",
+      "plugin:import/errors",
+      "plugin:react/recommended",
+      "prettier",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    "rules": {
+      "react/prop-types": 0,
+      "react-hooks/rules-of-hooks": "error",
+      "no-console": "warn",
+      "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }],
+      "react/jsx-props-no-spreading": "off",
+      "react/state-in-constructor": "off",
+      "no-unsafe-finally": "off" 
+    },
+    "parser": "babel-eslint",
+    "plugins": ["react", "import", "jsx-a11y", "react-hooks"],
+    "parserOptions": {
+      "ecmaVersion": 2018,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true,
+      "commonjs": true
+    },
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
     }
   }
-}
