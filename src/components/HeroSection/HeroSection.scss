@@ -2,6 +2,7 @@
   color: #fff;
   // padding: 25px;
   min-width: 100vw;
+  min-height: 100vh;
 }
 
 .home__hero-row {
@@ -15,16 +16,16 @@
 }
 
 .col {
-  padding: 0 50px 50px 50px;
+  padding: 150px 50px 50px 50px;
   margin-bottom: 15px;
   flex: 1;
-  max-width: 50%;
+  max-width: 100%;
   flex-basis: 50%;
 }
 
 .home__hero-text-wrapper {
   max-width: 500px;
-  padding-top: 0;
+  padding-top: 50px;
 }
 
 .top-line {
