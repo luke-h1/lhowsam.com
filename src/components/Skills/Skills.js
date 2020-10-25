@@ -30,7 +30,12 @@ const Skills = () => {
                   <p>Automation</p>
                   <p>Ansible</p>
                   <p>Bash</p>
-                  <p>Linux</p>
+                  <p>Linux / Mac</p>
+                  <p>Jira</p>
+                  <p>Ticketing systems</p>
+                  <p>CI / CD</p>
+                  <p>Git / Github (version control)</p>
+                  <p>Confluence</p>
                 </div>
               </div>
             </div>
