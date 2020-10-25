@@ -30,7 +30,7 @@ h1 {
 }
 .card__title {
   color: #fff;
-  font-family: "Permanent Marker", sans-serif;
+  font-family: 'Permanent Marker', sans-serif;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -44,9 +44,9 @@ h1 {
   margin-bottom: 16px;
   filter: brightness(1.5);
   filter: contrast(300);
-  font-family: "Permanent Marker", sans-serif;
+  font-family: 'Permanent Marker', sans-serif;
   :after {
-    content: "";
+    content: '';
     display: block;
     margin: auto;
     height: 3px;
