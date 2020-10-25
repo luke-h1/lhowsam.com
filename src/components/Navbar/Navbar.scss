@@ -158,4 +158,14 @@
 .lead {
   font-size: 20px;
 }
+
+
+@media(max-width: 640px){
+  .navbar {
+    min-width: 120vw;
+  } 
+}
+
+
 /* NAVBAR STYLES END  */
+

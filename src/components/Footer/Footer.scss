@@ -172,3 +172,10 @@
     justify-content: center;
   }
 }
+
+
+@media(max-width: 640px){
+  .footer-container {
+    min-width: 120vw;
+  }
+}

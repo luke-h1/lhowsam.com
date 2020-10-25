@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const HeroSection = ({ title, introTextPt1, introTextPt2, subTitle }) => {
   return (
     <Fragment>
-      <div className={'home__hero-section darkBg'}>
+      <div className='home__hero-section darkBg'>
         <div className="container">
           <div className="row home__hero-row">
             <div className="col">

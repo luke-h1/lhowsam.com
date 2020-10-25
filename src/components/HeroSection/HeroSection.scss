@@ -1,9 +1,17 @@
 .home__hero-section {
   color: #fff;
-  // padding: 25px;
+  padding: 25px;
   min-width: 100vw;
+  max-width: 10vw;
   min-height: 100vh;
 }
+
+.darkBg {
+  min-width: 100vw;
+  background: #1A181B;
+  
+}
+
 
 .home__hero-row {
   align-items: center;
@@ -74,9 +82,7 @@
   color: #1c2237;
 }
 
-.darkBg {
-  background: #1A181B;
-}
+
 
 .home__hero-subtitle {
   max-width: 440px;
@@ -367,6 +373,11 @@ img {
 }
 
 @media (max-width: 640px) {
+  .darkBg {
+  min-width: 120vw;
+  background: #1A181B;
+}
+
   .skills-container {
     margin-top: 3em;
     margin-left: 2em;

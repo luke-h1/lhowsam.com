@@ -89,3 +89,9 @@
 .skill-2 {
   margin-top: 1rem;
 }
+
+@media(max-width: 640px){
+  .showcase-skills { 
+    min-width: 120vw;
+  }
+}

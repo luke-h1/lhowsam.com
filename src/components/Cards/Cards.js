@@ -18,7 +18,7 @@ const Cards = () => {
       <h1 className="card__title">Projects</h1>
       <div className="cards__container">
         <div className="cards__wrapper">
-          <ul className="cards__items">
+          <div className="cards__items">
             <CardItem
               src={Image2}
               text="Drink Recipe Site"
@@ -43,7 +43,7 @@ const Cards = () => {
               label="Vanilla JS"
               path="/projects/quotes-app"
             />
-          </ul>
+          </div>
 
           {/* Add new ul after 4 cards */}
         </div>

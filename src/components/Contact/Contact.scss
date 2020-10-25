@@ -69,3 +69,10 @@
     width: 45px;
   }
 }
+
+
+@media(max-width: 640px){
+  .contact-wrapper {
+    min-width: 120vw;
+  }
+}
