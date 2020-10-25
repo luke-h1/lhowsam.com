@@ -2,7 +2,7 @@
 
 .home__hero-section {
   color: #fff;
-  padding: 25px;
+  padding: 55px;
   min-width: 100vw;
 }
 
@@ -94,7 +94,7 @@
   margin: 0 0 0 150px;
   padding-right: 0;
   max-width: 55%;
-  border-radius: 15px;
+  border-radius: 18px;
   filter: grayscale(100%);
   &:hover {
     transition-duration: 1s;
@@ -201,7 +201,7 @@ img {
 
     color: #fff;
     margin: 1rem;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -297,13 +297,13 @@ img {
     background-color: #60dafb;
     filter: brightness(0.9);
     color: white;
-    margin: 0.5rem;
-    border-radius: 5px;
+    margin: 0.6rem;
+    border-radius: 8px;
     text-align: center;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
-    line-height: 0.5;
+    line-height: 0.7;
   }
 }
 
@@ -436,14 +436,13 @@ img {
     background-color: #1c2237;
     border: 1px solid #fff;
     color: #fff;
-    width: 450px;
     border-radius: 20px;
     p {
       padding: 1.2rem 1.2rem;
       background-color: rgb(25, 10, 239);
       color: white;
       margin: 1rem;
-      border-radius: 5px;
+      border-radius: 8px;
       text-align: center;
       display: flex;
       word-wrap: wrap;
@@ -470,8 +469,8 @@ img {
     flex-direction: column;
     justify-content: baseline;
     p {
-      line-height: 1.2;
-      font-size: 13px;
+      line-height: 0.7;
+      font-size: 16px;
     }
   }
   .home__hero-text-wrapper {
@@ -481,6 +480,9 @@ img {
     align-items: center;
     width: 100%;
     text-align: center;
+  }
+  .skill-body {
+    width: 75%;
   }
 }
 
@@ -505,10 +507,10 @@ img {
     }
   }
   .home__hero-img {
-    margin-left: -2.5em;
-    padding-right: 0;
-    min-width: 100%;
-    max-width: 100%;
+    margin-left: -1.5em;
+
+    min-width: 150%;
+    max-width: 150%;
   }
   .home__hero-text-wrapper {
     min-width: 20px;
@@ -517,11 +519,11 @@ img {
   .paragraph {
     font-size: 18px;
     word-wrap: wrap;
-    width: 150%;
+    width: 300%;
   }
 
   .paragraph-2 {
-    width: 150%;
+    width: 300%;
   }
 
   .top-line {
