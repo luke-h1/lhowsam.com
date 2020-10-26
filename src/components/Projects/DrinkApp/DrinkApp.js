@@ -9,7 +9,7 @@ const DrinkApp = () => {
       <CardItemLarge
         title="Drink Recipe App"
         src={Image2}
-        alt="Drink recipe app"
+        alt="lights"
         desc="In this app I made a drink recipe app using React hooks that
          pulls data from the DrinkDB API. This was a really fun project to work on and was one of the first projects I converted to React JS (from vanilla JS)"
         label="React, Vanilla JS, CSS"

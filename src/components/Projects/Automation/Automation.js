@@ -10,7 +10,7 @@ const Automation = () => {
       <CardItemLarge
         title="Automation"
         src={Image3}
-        alt='text'
+        alt='City Traffic'
         desc="I am a huge advocate for infrastructure automation as this
         allows teams to focus on innovating new features and solving new
         problems rather than being backlogged with maintaining

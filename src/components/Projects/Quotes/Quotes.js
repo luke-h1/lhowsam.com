@@ -6,9 +6,9 @@ const Quotes = () => {
   return (
     <Fragment>
       <CardItemLarge
-        title=""
+        title="Quotes App"
         src={Image6}
-        alt=""
+        alt="Macbook in Dark room"
         desc=" In this project I made a quotes app that pulls data from the anime-chan API with vanilla Javascript and materialize CSS. This was a really intuitive
       API to work with and made the development of this app enjoyable."
         label="Vanilla JS, infinite scroll"
