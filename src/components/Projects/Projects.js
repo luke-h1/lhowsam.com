@@ -18,25 +18,25 @@ const Projects = ({ title, iconStyles }) => {
               src={Image2}
               text="Drink Recipe Site"
               label="React Hooks, SASS"
-              path="/projects/drink-recipe-site"
+              path="drink-app"
             />
             <CardItem
               src={Image3}
               text="Automation"
               label="Ansible, Bash, CI"
-              path="/projects/Automation"
+              path="Automation"
             />
             <CardItem
               src={Image4}
               text="Form Validator"
               label="Vanilla JS"
-              path="/projects/form-validator"
+              path="form-validator"
             />
             <CardItem
               src={Image6}
               text="Quotes App"
               label="Vanilla JS"
-              path="/projects/quotes-app"
+              path="quotes-app"
             />
           </div>
         </div>

@@ -1,0 +1,55 @@
+.project-large-wrapper {
+  min-width: 100vw;
+  background-color: #202c39;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+img { 
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 550px;
+
+  img {
+    width: 300px;
+    height: 350px;
+    margin: 1em 0 1em 0;
+    border-radius: 15px;
+  }
+}
+
+.container {
+  text-align: center;
+  p { 
+    font-size: 18px;
+    line-height: 1.6;
+  }
+}
+
+.item-title { 
+  text-align: center;
+  font-family: 'Permanent Marker', sans-serif;
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  -webkit-background-clip: text;
+  letter-spacing: 3px;
+
+}
+
+.github-link { 
+  color: #fff;
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.site-link { 
+  color: #fff;
+  font-size: 35px;
+  margin-bottom: 20px;
+}
