@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
+import '../../CardItem/CardItemLarge/CardItemLarge.scss'
+
 import Image3 from '../../../Images/Projects/Image3.jpeg';
 
 const Automation = () => {

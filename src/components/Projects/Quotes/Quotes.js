@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
 import Image6 from '../../../Images/Projects/Image6.jpeg';
-
+import '../../CardItem/CardItemLarge/CardItemLarge.scss'
 const Quotes = () => {
   return (
     <Fragment>

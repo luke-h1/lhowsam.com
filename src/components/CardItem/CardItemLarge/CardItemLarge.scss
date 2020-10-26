@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-img { 
+img {
 }
 .card {
   display: flex;
@@ -27,29 +27,42 @@ img {
 
 .container {
   text-align: center;
-  p { 
+  p {
     font-size: 18px;
     line-height: 1.6;
   }
 }
 
-.item-title { 
+.item-title {
   text-align: center;
   font-family: 'Permanent Marker', sans-serif;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   -webkit-background-clip: text;
   letter-spacing: 3px;
-
 }
 
-.github-link { 
+.github-link {
   color: #fff;
   font-size: 35px;
   margin-bottom: 10px;
 }
 
-.site-link { 
+.site-link {
   color: #fff;
   font-size: 35px;
   margin-bottom: 20px;
+}
+
+@media (max-width: 640px) {
+  .card {
+    max-width: 440px;
+  }
+
+  .container {
+    p {
+      font-size: 16px;
+      width: 85%;
+      margin: 0 auto;
+    }
+  }
 }

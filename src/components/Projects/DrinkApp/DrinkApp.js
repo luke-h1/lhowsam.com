@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
 import Image2 from '../../../Images/Projects/Image2.jpeg';
+import '../../CardItem/CardItemLarge/CardItemLarge.scss'
 
 const DrinkApp = () => {
   return (
