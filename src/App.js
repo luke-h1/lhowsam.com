@@ -23,8 +23,8 @@ function App() {
           <Route path="/Automation" exact component={Automation} />
           <Route exact path="/drink-app" component={DrinkApp} />
           <Route exact path="/form-validator" component={FormValidator} />
-          <Route exact path="/quotes-app" component={Quotes} />
-          <Route default component={FourOhFour} />
+          <Route exact path="/quotes-app" component={Quotes} /> 
+          <Route default component={FourOhFour} /> 
         </Switch>
         <Footer />
       </BrowserRouter>

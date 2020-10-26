@@ -1,7 +1,7 @@
 .fourOhFour-wrapper {
   width: 100vw;
   height: 100vh;
-  background-color: #1c2237;
+  background-color: #202c39;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -10,9 +10,10 @@
   overflow: hidden;
 }
 
+
 .fourOhFour__container {
   z-index: 1;
-  background-color: #1c2237;
+  background-color: #202c39;
   color: #fff;
   text-align: center;
   display: flex;
@@ -23,7 +24,7 @@
 
 .fourOhFour__intro {
   margin-bottom: 2em;
-  font-family: 'Permanent Marker', sans-serif;
+  font-family: 'PT Sans', sans-serif;
   font-size: 30px;
 }
 
@@ -50,7 +51,6 @@
 }
 
 .instructions {
-  border-bottom: 2px solid #f00946;
   width: 50%;
   text-align: center;
 }

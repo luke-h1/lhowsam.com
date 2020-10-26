@@ -82,7 +82,6 @@
 }
 
 .darkBg {
-  // background-color: #1c2237;
   background-color: #202c39;
 }
 
@@ -554,11 +553,11 @@ img {
     width: 120%;
   }
 }
-@media(max-width: 380px){
-.para-home-container { 
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 15px;
-  width: 350px;
-}
+@media (max-width: 380px) {
+  .para-home-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 15px;
+    width: 350px;
+  }
 }
