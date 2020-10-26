@@ -12,8 +12,9 @@ const HeroSection = ({ title, introTextPt1, introTextPt2, subTitle }) => {
           <div className="row home__hero-row">
             <div className="col">
               <div className="home__hero-text-wrapper">
-                <div className="top-line-home">{title}</div>
-                <h2 className="sub-title">{subTitle}</h2>
+                <div className="top-line-home">
+                  <h2>{title}</h2>
+                  </div>
                 <p className="paragraph">{introTextPt1}</p>
                 <p className="paragraph-2">{introTextPt2}</p>
               </div>
