@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
-import '../../CardItem/CardItemLarge/CardItemLarge.scss'
+import '../../CardItem/CardItemLarge/CardItemLarge.scss';
 
 import Image3 from '../../../Images/Projects/Image3.jpeg';
 
@@ -10,7 +10,7 @@ const Automation = () => {
       <CardItemLarge
         title="Automation"
         src={Image3}
-        alt='City Traffic'
+        alt="City Traffic"
         desc="I am a huge advocate for infrastructure automation as this
         allows teams to focus on innovating new features and solving new
         problems rather than being backlogged with maintaining

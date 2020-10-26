@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
 import Image4 from '../../../Images/Projects/Image4.jpeg';
-import '../../CardItem/CardItemLarge/CardItemLarge.scss'
+import '../../CardItem/CardItemLarge/CardItemLarge.scss';
 
 const FormValidator = () => {
   return (

@@ -14,11 +14,11 @@ const HeroSection = ({ title, introTextPt1, introTextPt2, subTitle }) => {
               <div className="home__hero-text-wrapper">
                 <div className="top-line-home">
                   <h2>{title}</h2>
-                  </div> 
-                  <div className="para-home-container">
+                </div>
+                <div className="para-home-container">
                   <p className="paragraph">{introTextPt1}</p>
-                <p className="paragraph-2">{introTextPt2}</p>
-                  </div>
+                  <p className="paragraph-2">{introTextPt2}</p>
+                </div>
               </div>
             </div>
             <div className="col">
