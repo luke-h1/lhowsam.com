@@ -477,14 +477,14 @@ img {
     max-width: 55%;
   }
   .paragraph {
-    width: 150%;
+    width: 100%;
     text-align: left;
     margin-right: 2rem;
     // margin-left: 2rem;
   }
 
   .paragraph-2 {
-    width: 150%;
+    width: 100%;
     text-align: left;
     margin-right: 2rem;
 
@@ -546,16 +546,6 @@ img {
     min-width: 20px;
   }
 
-  // .paragraph {
-  //   font-size: 18px;
-  //   word-wrap: wrap;
-  //   width: -10%;
-  // }
-
-  // .paragraph-2 {
-  //   width: 300%;
-  // }
-
   .top-line {
     width: 140%;
   }
@@ -563,4 +553,12 @@ img {
   .sub-title {
     width: 120%;
   }
+}
+@media(max-width: 380px){
+.para-home-container { 
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 15px;
+  width: 350px;
+}
 }
