@@ -14,7 +14,7 @@ const fourOhFour = ({
     <div className="fourOhFour-wrapper">
       <div className="fourOhFour__container">
         <h1 className="fourOhFour__intro">
-           {fourOhFourTitle}{' '}
+          {fourOhFourTitle}{' '}
           <span role="img" aria-label="not found">
             🤔
           </span>
