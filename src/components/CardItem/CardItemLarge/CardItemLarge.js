@@ -26,6 +26,7 @@ const CardItem = (props) => {
             </div>
             <p>{props.desc}</p>
           </div>
+          <Link to='/projects' className='project-large-link'>Back to projects</Link>
         </div>
       </div>
     </Fragment>

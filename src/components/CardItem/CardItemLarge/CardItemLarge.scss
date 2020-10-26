@@ -41,16 +41,38 @@ img {
   letter-spacing: 3px;
 }
 
+.project-large-link {
+  color: #fff;
+  text-decoration: none;
+  margin-top: 1rem;
+  font-size: 18px;
+  &:hover {
+    color: #f00946;
+    cursor: pointer;
+
+    transition: all ease 0.3s;
+    transform: scale(1.15);
+  }
+}
+
 .github-link {
   color: #fff;
   font-size: 35px;
   margin-bottom: 10px;
+  &:hover {
+    color: #2ab7ca;
+    cursor: pointer;
+  }
 }
 
 .site-link {
   color: #fff;
   font-size: 35px;
   margin-bottom: 20px;
+  &:hover {
+    color: #2ab7ca;
+    cursor: pointer;
+  }
 }
 
 @media (max-width: 640px) {
