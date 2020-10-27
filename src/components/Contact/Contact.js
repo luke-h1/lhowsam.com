@@ -3,7 +3,7 @@ import { IconContext } from 'react-icons/lib';
 import './Contact.scss';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-import {AiOutlineMail} from 'react-icons/ai';
+import { AiOutlineMail } from 'react-icons/ai';
 // TODO: ADD CONTACT FORM WITH VALIDATION HERE....
 
 const Contact = ({ title, MainTitle }) => {
@@ -16,8 +16,8 @@ const Contact = ({ title, MainTitle }) => {
             <h3>{title}</h3>
             <br />
             <div className="icon-wrapper">
-              <a href='mailto:luke.howsam@yahoo.com'>
-                <AiOutlineMail className='icon-contact email'/> 
+              <a href="mailto:luke.howsam@yahoo.com?subject=Get In Touch">
+                <AiOutlineMail className="icon-contact email" />
               </a>
               <a
                 href="https://www.linkedin.com/in/lukehowsam/"
