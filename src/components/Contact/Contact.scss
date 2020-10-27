@@ -13,6 +13,11 @@
   border-bottom: 2px solid #f00946;
 }
 
+.email { 
+  margin-bottom: 5px;
+}
+
+
 .alternatives {
   justify-content: center;
   display: flex;
@@ -34,8 +39,8 @@
 .icon-social {
   margin: 10px;
   fill: #000;
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   &:hover {
     fill: #2ab7ca;
   }
@@ -43,7 +48,8 @@
 
 .icon-wrapper {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 8px;
 }
 
 .icon-contact {
