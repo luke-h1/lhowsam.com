@@ -88,7 +88,7 @@
 }
 
 .home__hero-subtitle {
-  max-width: 440px;
+  max-width: 450px;
   margin-bottom: 35px;
   font-size: 18px;
   line-height: 24px;
@@ -96,6 +96,10 @@
 
 .home__hero-img-wrapper {
   max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .home__hero-img {
