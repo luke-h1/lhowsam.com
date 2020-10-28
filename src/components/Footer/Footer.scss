@@ -22,7 +22,6 @@
   color: #fff;
 }
 
-
 .footer-subscription-heading {
   margin-bottom: 24px;
   font-size: 24px;
@@ -124,8 +123,6 @@
   cursor: pointer;
 }
 
-
-
 .social-logo {
   color: #fff;
   justify-self: start;
@@ -171,9 +168,8 @@
   }
 }
 
-
-@media(max-width:640px){
-  .footer-icon { 
+@media (max-width: 640px) {
+  .footer-icon {
     margin-right: 20px;
   }
 }

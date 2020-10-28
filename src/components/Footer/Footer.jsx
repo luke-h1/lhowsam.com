@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FiDroplet } from 'react-icons/fi';
 import PropTypes from 'prop-types';
-const Footer = ({copyright }) => {
+const Footer = ({ copyright }) => {
   return (
     <div className="footer-container">
       <section className="social-media">
