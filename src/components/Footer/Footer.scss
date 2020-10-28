@@ -1,5 +1,5 @@
 .footer-container {
-  background-color: #202c39;
+  background-color: #000;
   padding: 4rem 0 2rem 0;
   display: flex;
   flex-direction: column;
@@ -7,6 +7,8 @@
   align-items: center;
   min-height: 40vh;
   min-width: 100vw;
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 .footer-subscription {
@@ -107,67 +109,35 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 100%;
   max-width: 1000px;
   margin: 40px auto 0 auto;
+  text-align: center;
 }
 
 .social-icons {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 150px;
+  width: 100px;
   cursor: pointer;
 }
 
 .social-logo {
   color: #fff;
   justify-self: start;
-  margin-left: 20px;
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-bottom: 16px;
 }
 
 .website-rights {
   color: #fff;
-  margin-bottom: 16px;
+  margin-bottom: 15px;
+  text-align: center;
 }
 
-@media (max-width: 820px) {
-  .footer-links {
-    padding-top: 2rem;
-  }
-
-  .footer-input {
-    width: 100%;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .footer-link-wrapper {
-    flex-direction: column;
-  }
-
-  .social-media-wrap {
-    flex-direction: column;
-  }
-}
-
-@media (max-width: 786px) {
-  .social-media {
-    flex-direction: column;
-  }
-
-  .social-logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-}
