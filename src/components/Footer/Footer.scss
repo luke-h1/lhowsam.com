@@ -142,12 +142,11 @@
   text-align: center;
 }
 
-
-@media (max-width: 1000px){
-  .social-icons { 
+@media (max-width: 1000px) {
+  .social-icons {
     align-items: center;
     // flex-direction: column;
-    // .social-icon-link { 
+    // .social-icon-link {
     //   margin: 12px 0 0 12px ;
     // }
   }
@@ -176,7 +175,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
   }
 }
 

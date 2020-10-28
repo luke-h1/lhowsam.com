@@ -2,7 +2,7 @@ import React from 'react';
 import './Footer.scss';
 import { Link } from 'react-router-dom';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { FiDroplet } from 'react-icons/fi';
+import { BiCodeAlt } from 'react-icons/bi';
 import PropTypes from 'prop-types';
 const Footer = ({ copyright }) => {
   return (
@@ -11,7 +11,7 @@ const Footer = ({ copyright }) => {
         <div className="social-media-wrap">
           <div className="footer-logo">
             <Link to="/" className="social-logo">
-              <FiDroplet className="footer-icon" />
+              <BiCodeAlt className="footer-icon" />
             </Link>
           </div>
           <small className="website-rights">

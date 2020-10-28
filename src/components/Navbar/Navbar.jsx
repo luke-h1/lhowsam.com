@@ -1,6 +1,6 @@
 import React, { useState, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { FiDroplet } from 'react-icons/fi';
+import { BiCodeAlt } from 'react-icons/bi';
 import { FaTimes, FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
@@ -22,7 +22,7 @@ const Navbar = ({ title, iconStyles, navLinkStyles }) => {
               onClick={closeMobileMenu}
               onBlur={closeMobileMenu}
             >
-              <FiDroplet className={iconStyles} />
+              <BiCodeAlt className={iconStyles} />
               <p className="lead">{title}</p>
             </Link>
             <div
