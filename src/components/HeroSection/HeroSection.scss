@@ -65,8 +65,9 @@
 }
 
 .para-home-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 5px;
 }
 
 .heading {
@@ -392,6 +393,9 @@ img {
     width: 50%;
   }
 
+  .para-home-container {
+  }
+
   .paragraph {
     width: 100%;
   }
@@ -472,24 +476,8 @@ img {
     }
   }
   .home__hero-img {
-    margin-left: 6em;
-    padding-right: 0;
-    max-width: 55%;
-  }
-  .paragraph {
-    width: 100%;
-    text-align: left;
-    margin-right: 2rem;
-    // margin-left: 2rem;
   }
 
-  .paragraph-2 {
-    width: 100%;
-    text-align: left;
-    margin-right: 2rem;
-
-    // margin-left: 2rem;
-  }
   .skill {
     display: flex;
     flex-direction: column;
@@ -513,6 +501,9 @@ img {
   .top-line-home {
     text-align: center;
     margin-left: 1.2rem;
+  }
+  .para-home-container {
+    width: 450px;
   }
 }
 
@@ -556,9 +547,6 @@ img {
 }
 @media (max-width: 380px) {
   .para-home-container {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    grid-gap: 15px;
     width: 350px;
   }
 }
