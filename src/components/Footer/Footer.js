@@ -11,7 +11,7 @@ const Footer = ({copyright }) => {
         <div className="social-media-wrap">
           <div className="footer-logo">
             <Link to="/" className="social-logo">
-              <FiDroplet className="navbar-icon" />
+              <FiDroplet className="footer-icon" />
             </Link>
           </div>
           <small className="website-rights">
