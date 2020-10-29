@@ -14,7 +14,7 @@ import Quotes from './components/Projects/Quotes/Quotes';
 import ReactGA from 'react-ga';
 
 function initializeReactGA() {
-  ReactGA.initialize('G-1ET2BMQ0ZY');
+  ReactGA.initialize('G-6HTJJFPEQ9');
   ReactGA.pageview('/');
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './FourOhFour.scss';
+import './fourOhFour.scss';
 import PropTypes from 'prop-types';
 import { FiArrowRight } from 'react-icons/fi';
 const fourOhFour = ({
