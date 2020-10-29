@@ -12,8 +12,6 @@ import DrinkApp from './components/Projects/DrinkApp/DrinkApp';
 import FormValidator from './components/Projects/FormValidator/FormValidator';
 import Quotes from './components/Projects/Quotes/Quotes';
 
-
-
 function App() {
   return (
     <Fragment>

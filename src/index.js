@@ -8,9 +8,8 @@ import ReactGA from 'react-ga';
 
 function initializeReactGA() {
   ReactGA.initialize('G-6HTJJFPEQ9');
-  ReactGA.pageview('/projects');
+  ReactGA.pageview('/');
 }
-
 
 ReactDOM.render(
   <React.StrictMode>
