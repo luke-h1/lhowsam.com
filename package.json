@@ -64,7 +64,8 @@
     "eslint-plugin-jsx-a11y": "^6.3.1",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.1.2"
+    "prettier": "^2.1.2",
+    "react-ga": "^3.2.0"
   },
   "browserslist": {
     "production": [
