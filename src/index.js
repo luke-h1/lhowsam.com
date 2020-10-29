@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import ReactGA from 'react-ga';
 
 function initializeReactGA() {
-  ReactGA.initialize('G-6HTJJFPEQ9');
+  ReactGA.initialize('G-5XW5D1CNCB');
   ReactGA.pageview('/');
 }
 
