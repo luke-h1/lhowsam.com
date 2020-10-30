@@ -79,8 +79,6 @@ Navbar.defaultProps = {
 
 Navbar.propTypes = {
   title: PropTypes.string.isRequired,
-  handleClick: PropTypes.func.isRequired,
-  closeMobileMenu: PropTypes.func.isRequired,
 };
 
 export default Navbar;

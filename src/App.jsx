@@ -11,21 +11,6 @@ import Automation from './components/Projects/Automation/Automation';
 import DrinkApp from './components/Projects/DrinkApp/DrinkApp';
 import FormValidator from './components/Projects/FormValidator/FormValidator';
 import Quotes from './components/Projects/Quotes/Quotes';
-import ReactGA from 'react-ga';
-import TagManager from 'react-gtm-module';
-
-function initializeReactGA() {
-  // ReactGA.initialize('UA-251109845');
-  ReactGA.initialize('G-SVNV2BSZ6Y');
-  ReactGA.pageview(window.location.pathname + window.location.search);
-  ReactGA.pageview('/projects');
-}
-
-const tagManagerArgs = {
-  gtmId: process.env.REACT_APP_GTAG,
-};
-
-TagManager.initialize(tagManagerArgs);
 
 function App() {
   return (
