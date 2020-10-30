@@ -14,12 +14,10 @@ import Quotes from './components/Projects/Quotes/Quotes';
 import ReactGA from 'react-ga';
 
 function initializeReactGA() {
-  ReactGA.initialize('G-81MSNRE0CV');
+  ReactGA.initialize('UA-251109845');
   ReactGA.pageview('/');
   ReactGA.pageview(window.location.pathname + window.location.search);
 }
-
-
 
 function App() {
   return (
