@@ -11,6 +11,15 @@ import Automation from './components/Projects/Automation/Automation';
 import DrinkApp from './components/Projects/DrinkApp/DrinkApp';
 import FormValidator from './components/Projects/FormValidator/FormValidator';
 import Quotes from './components/Projects/Quotes/Quotes';
+import ReactGA from 'react-ga';
+
+function initializeReactGA() {
+  ReactGA.initialize('G-81MSNRE0CV');
+  ReactGA.pageview('/');
+  ReactGA.pageview(window.location.pathname + window.location.search);
+}
+
+
 
 function App() {
   return (

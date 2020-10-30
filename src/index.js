@@ -4,12 +4,6 @@ import './App.scss';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
-import ReactGA from 'react-ga';
-
-function initializeReactGA() {
-  ReactGA.initialize('G-5XW5D1CNCB');
-  ReactGA.pageview('/');
-}
 
 ReactDOM.render(
   <React.StrictMode>
