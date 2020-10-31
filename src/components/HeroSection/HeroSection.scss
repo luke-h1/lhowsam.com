@@ -83,7 +83,7 @@
 }
 
 .darkBg {
-  background-color: #000000;
+  background-color: #183d5d;
 }
 
 .home__hero-subtitle {
@@ -264,6 +264,10 @@ img {
 
 /* skills Section */
 .skills-title {
+  font-family: 'Permanent Marker', sans-serif;
+  background-image: linear-gradient(to top, #fff 0%, #fff 100%);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
   text-align: center;
   border-bottom: 2px solid #ff3cac;
   width: 10%;
