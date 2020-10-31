@@ -4,7 +4,6 @@ import './Contact.scss';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { AiOutlineMail } from 'react-icons/ai';
-// TODO: ADD CONTACT FORM WITH VALIDATION HERE....
 
 const Contact = ({ title, MainTitle }) => {
   return (
