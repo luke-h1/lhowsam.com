@@ -1,5 +1,6 @@
+@import '../../global';
 .footer-container {
-  background-color: #183d5d;
+  background-color: $backgroundColor;
   padding: 4rem 0 2rem 0;
   display: flex;
   flex-direction: column;
@@ -7,7 +8,7 @@
   align-items: center;
   min-height: 40vh;
   min-width: 100vw;
-  color: #fff;
+  color: $lightTextColor;
 }
 
 .footer-subscription {
@@ -18,7 +19,7 @@
   text-align: center;
   margin-bottom: 24px;
   padding: 24px;
-  color: #fff;
+  color: $lightTextColor;
 }
 
 .footer-subscription-heading {
@@ -39,7 +40,7 @@
   border: none;
   font-size: 18px;
   margin-bottom: 16px;
-  border: 1px solid #fff;
+  border: 1px solid $lightBackgroundColor;
   ::placeholder {
     color: #b1b1b1;
   }
@@ -76,11 +77,11 @@
     margin-bottom: 16px;
   }
   > h2 {
-    color: #fff;
+    color: $lightTextColor;
   }
 
   a {
-    color: #fff;
+    color: $lightTextColor;
     text-decoration: none;
     margin-bottom: 0.5rem;
     &:hover {
@@ -92,16 +93,16 @@
 
 /* Social Icons */
 .social-icon-link {
-  color: #fff;
+  color: $lightTextColor;
   font-size: 24px;
   cursor: pointer;
   &:hover {
-    color: #2ab7ca;
+    color: $fillColor;
     cursor: pointer;
   }
   a {
     &:hover {
-      color: #2ab7ca;
+      color: $fillColor;
       cursor: pointer;
     }
   }
@@ -131,7 +132,7 @@
 }
 
 .social-logo {
-  color: #fff;
+  color: $lightTextColor;
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;

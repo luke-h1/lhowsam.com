@@ -1,7 +1,8 @@
+@import '../../global';
 .contact-wrapper {
   min-height: 100vh;
   min-width: 100vw;
-  background-color: #183d5d;
+  background-color: $backgroundColor;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -10,7 +11,7 @@
 }
 
 .contact__title {
-  border-bottom: 2px solid #f00946;
+  border-bottom: 2px solid $borderBottomColor;
 }
 
 .email {
@@ -41,7 +42,7 @@
   width: 30px;
   height: 30px;
   &:hover {
-    fill: #2ab7ca;
+    fill: $fillColor;
   }
 }
 
@@ -56,14 +57,14 @@
   fill: #fff;
   margin: 0 1em 0 1em;
   &:hover {
-    fill: #2ab7ca;
+    fill: $fillColor;
   }
 }
 
 .main-title {
-  border-bottom: 2px solid #f00946;
+  border-bottom: 2px solid $borderBottomColor;
   font-size: 35px;
-  font-family: 'Permanent Marker', sans-serif;
+  font-family: $permanentMarkerFont;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   -webkit-background-clip: text;
   margin-bottom: 2em;

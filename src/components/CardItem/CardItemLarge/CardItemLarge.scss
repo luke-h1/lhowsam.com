@@ -1,11 +1,12 @@
+@import '../../../global';
 .project-large-wrapper {
   min-width: 100vw;
-  color: #fff;
+  color: $lightTextColor;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #183d5d;
+  background-color: $backgroundColor;
 }
 
 .card {
@@ -33,19 +34,19 @@
 
 .item-title {
   text-align: center;
-  font-family: 'Permanent Marker', sans-serif;
+  font-family: $permanentMarkerFont;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   -webkit-background-clip: text;
   letter-spacing: 3px;
 }
 
 .project-large-link {
-  color: #fff;
+  color: $lightTextColor;
   text-decoration: none;
   margin-top: 1rem;
   font-size: 18px;
   &:hover {
-    color: #f00946;
+    color: $borderBottomColor;
     cursor: pointer;
 
     transition: all ease 0.3s;
@@ -54,11 +55,11 @@
 }
 
 .github-link {
-  color: #fff;
+  color: $lightTextColor;
   font-size: 35px;
   margin-bottom: 10px;
   &:hover {
-    color: #2ab7ca;
+    color: $fillColor;
     cursor: pointer;
   }
 }
@@ -68,7 +69,7 @@
   font-size: 35px;
   margin-bottom: 20px;
   &:hover {
-    color: #2ab7ca;
+    color: $fillColor;
     cursor: pointer;
   }
 }

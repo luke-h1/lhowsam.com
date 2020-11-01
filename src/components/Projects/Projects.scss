@@ -1,8 +1,9 @@
+@import '../../global';
 .project-wrapper {
   min-height: 100vh;
   min-width: 100vw;
-  background-color: #183d5d;
-  color: #fff;
+  background-color: $backgroundColor;
+  color: $lightTextColor;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -63,7 +64,7 @@ img {
 .project__title {
   filter: brightness(1.5);
   filter: contrast(300);
-  border-bottom: 2px solid #f00946;
+  border-bottom: 2px solid $borderBottomColor;
   font-size: 35px;
   font-family: 'Permanent Marker', sans-serif;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
@@ -82,7 +83,7 @@ img {
   width: 35px;
   height: 35px;
   &:hover {
-    fill: #2ab7ca;
+    fill: $fillColor;
   }
 }
 
