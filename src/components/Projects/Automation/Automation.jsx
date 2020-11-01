@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
 import '../../CardItem/CardItemLarge/CardItemLarge.scss';
 
@@ -6,7 +6,7 @@ import Image3 from '../../../Images/Projects/Image3.jpeg';
 
 const Automation = () => {
   return (
-    <Fragment>
+    <>
       <CardItemLarge
         title="Automation"
         src={Image3}
@@ -21,7 +21,7 @@ const Automation = () => {
         github="https://github.com/luke-h1/Automation"
         site=""
       />
-    </Fragment>
+    </>
   );
 };
 

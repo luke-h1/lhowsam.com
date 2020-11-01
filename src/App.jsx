@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import Navbar from './components/Navbar/Navbar';
@@ -14,7 +14,7 @@ import Quotes from './components/Projects/Quotes/Quotes';
 
 function App() {
   return (
-    <Fragment>
+    <>
       <BrowserRouter>
         <Navbar />
         <Switch>
@@ -29,7 +29,7 @@ function App() {
         </Switch>
         <Footer />
       </BrowserRouter>
-    </Fragment>
+    </>
   );
 }
 export default App;

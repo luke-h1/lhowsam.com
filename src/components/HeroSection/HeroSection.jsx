@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import ProfileImage from '../../Images/luke.png';
 import './HeroSection.scss';
 import { FaReact } from 'react-icons/fa';
@@ -6,7 +6,7 @@ import { BsTools } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 const HeroSection = ({ title, introTextPt1, introTextPt2, subTitle }) => {
   return (
-    <Fragment>
+    <>
       <div className={'home__hero-section darkBg'}>
         <div className="container">
           <div className="row home__hero-row">
@@ -64,7 +64,7 @@ const HeroSection = ({ title, introTextPt1, introTextPt2, subTitle }) => {
           </div>
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
 

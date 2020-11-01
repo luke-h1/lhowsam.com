@@ -1,10 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
 import Image6 from '../../../Images/Projects/Image6.jpeg';
 import '../../CardItem/CardItemLarge/CardItemLarge.scss';
 const Quotes = () => {
   return (
-    <Fragment>
+    <>
       <CardItemLarge
         title="Breaking Bad Quotes App"
         src={Image6}
@@ -13,7 +13,7 @@ const Quotes = () => {
         github="https://github.com/luke-h1/breaking-bad-quotes-react"
         site="https://breaking-bad-quotes.vercel.app/"
       ></CardItemLarge>
-    </Fragment>
+    </>
   );
 };
 export default Quotes;
