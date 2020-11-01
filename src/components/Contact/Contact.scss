@@ -61,6 +61,27 @@
   }
 }
 
+.wave {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    width: 50%;
+    text-align: center;
+    line-height: 1.2;
+  }
+}
+
+.wave-btn {
+  margin-top: 1rem;
+}
+
+.wave-joke {
+  margin-top: 1.5rem;
+}
+
 .main-title {
   border-bottom: 2px solid $borderBottomColor;
   font-size: 35px;

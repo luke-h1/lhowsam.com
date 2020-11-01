@@ -4,6 +4,7 @@ import './Contact.scss';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { AiOutlineMail } from 'react-icons/ai';
+import Wave from '../common/wave/wave';
 
 const Contact = ({ title, MainTitle }) => {
   return (
@@ -32,6 +33,15 @@ const Contact = ({ title, MainTitle }) => {
               >
                 <FaGithub className="icon-contact" />
               </a>
+            </div>
+            <div className="wave">
+            <p>Alertnatively you can just wave to me by clicking the below button</p>
+            <Wave className='wave-btn'/>  
+            <p className='wave-joke'>Please note that I may not wave back. This is because I am very far away and probably didn't see you click this button.
+            <span role="img" aria-label="smiley face">
+            😀 
+            </span>
+            </p>
             </div>
           </div>
         </div>
