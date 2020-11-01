@@ -96,8 +96,9 @@
   }
 
   .nav-menu.active {
-    background-color: #000;
+    background-color: $backgroundColor;
     color: $lightTextColor;
+    font-family: $ptSans;
     left: 0;
     opacity: 1;
     transition: all 0.6s ease;
