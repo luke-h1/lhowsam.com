@@ -12,7 +12,7 @@ const Automation = () => {
         src={Image3}
         alt="City Traffic"
         desc="I am a huge advocate for infrastructure automation & continuous integration as this
-        allows developerrs to focus on innovating new features and solving new
+        allows developers to focus on innovating new features and solving new
         problems rather than being backlogged with maintaining existing
         infrastructure. In this project I made Ansible playbooks & Bash
         scripts that automate the setup of Linux & Mac OS X workstations
