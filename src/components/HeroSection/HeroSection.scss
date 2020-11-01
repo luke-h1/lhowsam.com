@@ -38,9 +38,6 @@
 
 .top-line-home {
   font-family: $permanentMarkerFont;
-  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
   font-size: 25px;
   letter-spacing: 5px;
   font-weight: 700;
@@ -49,17 +46,8 @@
   text-transform: uppercase;
   filter: brightness(1.5);
   filter: contrast(300);
-  :after {
-    content: '';
-    display: block;
-    margin: auto;
-    height: 3px;
-    width: 0px;
-    background: transparent;
-    transition: width 0.8s ease, background-color 0.5s ease;
-  }
-  h2 {
-    margin-bottom: 2.5rem;
+  h2 { 
+    margin-bottom: 2.5rem; 
   }
 }
 
@@ -104,7 +92,7 @@
   margin: 0 0 0 150px;
   padding-right: 0;
   max-width: 55%;
-  border-radius: 18px;
+  border-radius: 20px;
   filter: grayscale(100%);
   &:hover {
     transition-duration: 0.2s;
@@ -224,13 +212,12 @@ img {
 .skills {
   filter: brightness(1.5);
   filter: contrast(300);
-  width: 60%;
   margin: 0 auto;
   margin-top: 15px;
   font-family: 'Permanent Marker', sans-serif;
   background-color: #2098f4;
   background-image: linear-gradient(315deg, #352384 0%, #f3f3f5 74%);
-  -webkit-background-clip: text;
+  // -webkit-background-clip: text;
   border-bottom: 2px solid #ff3cac;
 }
 
@@ -263,16 +250,8 @@ img {
 
 /* skills Section */
 .skills-title {
-  font-family: 'Permanent Marker', sans-serif;
-  background-image: linear-gradient(
-    to top,
-    $lightTextColor 0%,
-    $lightTextColor 100%
-  );
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
+  font-family: $permanentMarkerFont; 
   text-align: center;
-  width: 30%;
   margin: 0 auto;
 }
 
@@ -481,6 +460,7 @@ img {
     }
   }
   .home__hero-img {
+    margin-right: 2rem;
   }
 
   .skill {
@@ -503,10 +483,7 @@ img {
   .skill-body {
     width: 75%;
   }
-  .top-line-home {
-    text-align: center;
-    margin-left: 1.2rem;
-  }
+
   .para-home-container {
     width: 450px;
   }

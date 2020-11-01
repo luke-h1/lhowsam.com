@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BiCodeAlt } from 'react-icons/bi';
 import { FaTimes, FaBars } from 'react-icons/fa';
