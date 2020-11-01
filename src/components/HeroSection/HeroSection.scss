@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
-
+@import '../../global';
 .home__hero-section {
-  color: #fff;
+  color: $lightTextColor;
   padding: 55px;
   min-width: 100vw;
 }
@@ -37,7 +37,7 @@
 }
 
 .top-line-home {
-  font-family: 'Permanent Marker', sans-serif;
+  font-family: $permanentMarkerFont;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
@@ -49,7 +49,6 @@
   text-transform: uppercase;
   filter: brightness(1.5);
   filter: contrast(300);
-  font-family: 'Permanent Marker', sans-serif;
   :after {
     content: '';
     display: block;
@@ -83,7 +82,7 @@
 }
 
 .darkBg {
-  background-color: #183d5d;
+  background-color: $backgroundColor;
 }
 
 .home__hero-subtitle {
@@ -180,9 +179,9 @@ img {
 }
 
 .light {
-  color: #fff;
+  color: $lightTextColor;
   width: 15%;
-  border-bottom: 2px solid #f00946;
+  border-bottom: 2px solid $borderBottomColor;
   margin-bottom: 10px;
 }
 
@@ -191,8 +190,8 @@ img {
   flex-direction: column;
   text-align: center;
   background-color: #1c2237;
-  border: 1px solid #fff;
-  color: #fff;
+  border: 1px solid $lightTextColor;
+  color: $lightTextColor;
   width: 350px;
   border-radius: 20px;
   p {
@@ -209,7 +208,7 @@ img {
       #c0392b
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-    color: #fff;
+    color: $lightTextColor;
     margin: 1rem;
     border-radius: 8px;
     text-align: center;
@@ -225,7 +224,7 @@ img {
 .skills {
   filter: brightness(1.5);
   filter: contrast(300);
-  width: 50%;
+  width: 60%;
   margin: 0 auto;
   margin-top: 15px;
   font-family: 'Permanent Marker', sans-serif;
@@ -265,7 +264,7 @@ img {
 /* skills Section */
 .skills-title {
   font-family: 'Permanent Marker', sans-serif;
-  background-image: linear-gradient(to top, #fff 0%, #fff 100%);
+  background-image: linear-gradient(to top, $lightTextColor 0%, $lightTextColor 100%);
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
   text-align: center;
@@ -296,7 +295,7 @@ img {
   font-size: 30px;
   cursor: pointer;
   &:hover {
-    color: #2ab7ca;
+    color: $fillColor;
     cursor: pointer;
   }
 }
@@ -312,7 +311,7 @@ img {
     font-family: inherit;
     background-color: #60dafb;
     filter: brightness(0.9);
-    color: white;
+    color: $lightTextColor;
     margin: 0.6rem;
     border-radius: 8px;
     text-align: center;
@@ -329,16 +328,16 @@ img {
 
 /* Social Icons */
 .social-icon-link {
-  color: #fff;
+  color: $lightTextColor;
   font-size: 24px;
   cursor: pointer;
   &:hover {
-    color: #2ab7ca;
+    color: $fillColor;
     cursor: pointer;
   }
   a {
     &:hover {
-      color: #2ab7ca;
+      color: $fillColor;
       cursor: pointer;
     }
   }
@@ -399,8 +398,7 @@ img {
     width: 50%;
   }
 
-  .para-home-container {
-  }
+  
 
   .paragraph {
     width: 100%;
@@ -435,7 +433,7 @@ img {
     p {
       padding: 1.2rem 1.2rem;
       background-color: rgb(25, 10, 239);
-      color: white;
+      color: $lightTextColor;
       margin: 1rem;
       border-radius: 5px;
       text-align: center;
@@ -463,13 +461,13 @@ img {
     margin-left: 2em;
     text-align: center;
     background-color: #1c2237;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid $lightTextColor;
+    color: $lightTextColor;
     border-radius: 20px;
     p {
       padding: 1.2rem 1.2rem;
       background-color: rgb(25, 10, 239);
-      color: white;
+      color: $lightTextColor;
       margin: 1rem;
       border-radius: 8px;
       text-align: center;
@@ -517,8 +515,8 @@ img {
   .skills-container {
     text-align: center;
     background-color: #1c2237;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid $lightTextColor;
+    color: $lightTextColor;
     width: 450px;
     border-radius: 20px;
     p {

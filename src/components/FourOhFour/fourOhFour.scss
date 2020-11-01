@@ -1,8 +1,9 @@
+@import '../../global';
 .fourOhFour-wrapper {
   width: 100vw;
   height: 100vh;
-  background-color: #183d5d;
-  color: #fff;
+  background-color: $backgroundColor;
+  color: $lightTextColor;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,8 +13,8 @@
 
 .fourOhFour__container {
   z-index: 1;
-  background-color: #183d5d;
-  color: #fff;
+  background-color: $backgroundColor;
+  color: $lightTextColor;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -30,12 +31,12 @@
 .fourOhFour__links {
   display: block;
   font-size: 25px;
-  color: #fff;
+  color: $lightTextColor;
   text-decoration: none;
   margin: 2em 0 2em 0;
   font-weight: 700;
   &:hover {
-    color: #f00946;
+    color: $borderBottomColor;
     transform: scale(1.2);
     transition: all 1s ease;
   }
@@ -45,7 +46,7 @@
   fill: #000;
   margin-left: 20px;
   &:hover {
-    fill: #2ab7ca;
+    fill: $fillColor;
   }
 }
 
