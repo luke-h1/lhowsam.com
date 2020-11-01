@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
 import Image4 from '../../../Images/Projects/Image4.jpeg';
 import '../../CardItem/CardItemLarge/CardItemLarge.scss';
 
 const FormValidator = () => {
   return (
-    <Fragment>
+    <>
       <CardItemLarge
         title="Form Validator"
         src={Image4}
@@ -17,7 +17,7 @@ const FormValidator = () => {
         github="javascript-regex-validation-form"
         site="https://javascript-regex-validation-form.vercel.app/"
       ></CardItemLarge>
-    </Fragment>
+    </>
   );
 };
 export default FormValidator;

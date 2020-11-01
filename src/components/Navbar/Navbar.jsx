@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState} from 'react';
 import { Link } from 'react-router-dom';
 import { BiCodeAlt } from 'react-icons/bi';
 import { FaTimes, FaBars } from 'react-icons/fa';
@@ -12,7 +12,7 @@ const Navbar = ({ title, iconStyles, navLinkStyles }) => {
   const closeMobileMenu = () => setClick(false);
 
   return (
-    <Fragment>
+    <>
       <IconContext.Provider value={{ color: '#fff' }}>
         <nav className="navbar">
           <div className="navbar-container container">
@@ -67,7 +67,7 @@ const Navbar = ({ title, iconStyles, navLinkStyles }) => {
           </div>
         </nav>
       </IconContext.Provider>
-    </Fragment>
+    </>
   );
 };
 

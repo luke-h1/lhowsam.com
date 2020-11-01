@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './CardItemLarge.scss';
 import { FaGithub } from 'react-icons/fa';
 import { IoMdBrowsers } from 'react-icons/io';
 const CardItem = (props) => {
   return (
-    <Fragment>
+    <>
       <div className="project-large-wrapper">
         <div className="card">
           <h1 className="item-title">{props.title}</h1>
@@ -41,7 +41,7 @@ const CardItem = (props) => {
           </Link>
         </div>
       </div>
-    </Fragment>
+    </>
   );
 };
 export default CardItem;

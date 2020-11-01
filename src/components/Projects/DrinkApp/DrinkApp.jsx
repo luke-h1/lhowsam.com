@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
 import Image2 from '../../../Images/Projects/Image2.jpeg';
 import '../../CardItem/CardItemLarge/CardItemLarge.scss';
 
 const DrinkApp = () => {
   return (
-    <Fragment>
+    <>
       <CardItemLarge
         title="Cocktail Recipe App"
         src={Image2}
@@ -16,7 +16,7 @@ const DrinkApp = () => {
         github="https://github.com/luke-h1/cocktail-recipe-app "
         site="https://cocktail-recipe-app.vercel.app/"
       ></CardItemLarge>
-    </Fragment>
+    </>
   );
 };
 export default DrinkApp;

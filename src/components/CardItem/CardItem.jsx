@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './CardItem.scss';
 const CardItem = (props) => {
   return (
-    <Fragment>
+    <>
       <div className="cards__item">
         <Link className="cards__item__link" to={props.path}>
           <figure className="cards__item__pic-wrap" data-category={props.label}>
@@ -14,7 +14,7 @@ const CardItem = (props) => {
           </div>
         </Link>
       </div>
-    </Fragment>
+    </>
   );
 };
 export default CardItem;
