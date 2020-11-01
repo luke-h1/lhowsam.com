@@ -16,7 +16,7 @@ const Projects = ({ title, iconStyles }) => {
           <div className="project-container">
             <CardItem
               src={Image2}
-              text="Drink Recipe Site"
+              text="Cocktail Recipe App"
               label="React Hooks, SASS"
               path="drink-app"
             />

@@ -7,12 +7,12 @@ const DrinkApp = () => {
   return (
     <Fragment>
       <CardItemLarge
-        title="Drink Recipe App"
+        title="Cocktail Recipe App"
         src={Image2}
         alt="lights"
-        desc="In this app I made a drink recipe app using React hooks that
-         pulls data from the DrinkDB API. This was a really fun project to work on and was one of the first projects I converted to React JS (from vanilla JS)"
-        label="React, Vanilla JS, CSS"
+        desc="In this app I made a Cocktail Recipe app using React hooks & SCSS that
+        pulls data from the CocktailDB API. This was a really fun project to work on and was one of the first projects I converted to React JS (from vanilla JS)"
+        label="React,SASS"
         github="https://github.com/luke-h1/cocktail-recipe-app "
         site="https://cocktail-recipe-app.vercel.app/"
       ></CardItemLarge>

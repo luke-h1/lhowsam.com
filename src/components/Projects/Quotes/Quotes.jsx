@@ -6,14 +6,12 @@ const Quotes = () => {
   return (
     <Fragment>
       <CardItemLarge
-        title="Quotes App"
+        title="Breaking Bad Quotes App"
         src={Image6}
         alt="Macbook in Dark room"
-        desc=" In this project I made a quotes app that pulls data from the anime-chan API with vanilla Javascript and materialize CSS. This was a really intuitive
-        API to work with and made the development of this app enjoyable."
-        label="Vanilla JS, infinite scroll"
-        github="https://github.com/luke-h1/anime-quotes-app"
-        site="https://anime-quotes-app.vercel.app/"
+        desc=" In this project I built a quote app that uses React hooks to display random breaking bad quotes."
+        github="https://github.com/luke-h1/breaking-bad-quotes-react"
+        site="https://breaking-bad-quotes.vercel.app/"
       ></CardItemLarge>
     </Fragment>
   );
