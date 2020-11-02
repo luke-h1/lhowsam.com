@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 const HeroSection = ({ title, introTextPt1, introTextPt2, subTitle }) => {
   return (
     <>
-      <div className='home__hero-section'>
+      <div className="home__hero-section">
         <div className="container">
           <div className="row home__hero-row">
             <div className="col">
