@@ -4,6 +4,7 @@
   color: $lightTextColor;
   padding: 55px;
   min-width: 100vw;
+  background-color: $backgroundColor;
 }
 
 .home__hero-row {
@@ -67,10 +68,6 @@
 
 .dark {
   color: #1c2237;
-}
-
-.darkBg {
-  background-color: $backgroundColor;
 }
 
 .home__hero-subtitle {
