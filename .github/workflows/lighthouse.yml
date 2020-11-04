@@ -4,13 +4,12 @@ on:
     branches:
       - dev
 jobs:
-  lighthouseci:
+  static-dist-dir:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: rm -rf node_modules 
-      - run: npm install 
-      - run: npm install && npm install -g @lhci/cli@0.6.x
-      - run: npm run build
-      - run: lhci autorun
+      - name: Run Lighthouse against a static dist dir
+        uses: treosh/lighthouse-ci-action@v3
+        with:
+          # no urls needed, since it uses local folder to scan .html files
+          configPath: './lighthouserc.json'
