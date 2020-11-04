@@ -1,10 +1,10 @@
 import React from 'react';
-import ProfileImage from '../../Images/luke.png';
+import ProfileImage from '../../Images/luke.png'; 
 import './HeroSection.scss';
 import { FaReact } from 'react-icons/fa';
 import { BsTools } from 'react-icons/bs';
 import PropTypes from 'prop-types';
-const HeroSection = ({ title, introTextPt1, introTextPt2, subTitle }) => {
+const HeroSection = ({ title, introTextPt1, introTextPt2 }) => {
   return (
     <>
       <div className='home__hero-section'>
@@ -70,7 +70,6 @@ const HeroSection = ({ title, introTextPt1, introTextPt2, subTitle }) => {
 
 HeroSection.defaultProps = {
   title: "Hi, I'm Luke",
-  subTitle: 'About Me',
   skills: 'Top Skills',
   introTextPt1: ` I'm passionate about various web technologies and making the web fast & accesible to everyone. I strive to write clean, robust & reusable code.`,
   introTextPt2: `This means that I strive to follow best practices and utilize industry standard tools such as git-flow, continuous integration (github actions, travisCI), linting (ESlint, prettier) and package management (NPM)`,
@@ -78,7 +77,6 @@ HeroSection.defaultProps = {
 
 HeroSection.propTypes = {
   title: PropTypes.string.isRequired,
-  subTitle: PropTypes.string.isRequired,
   skills: PropTypes.string.isRequired,
   introTextPt1: PropTypes.string.isRequired,
   introTextPt2: PropTypes.string.isRequired,
