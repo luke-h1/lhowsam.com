@@ -1,6 +1,6 @@
 import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
-import Image6 from '../../../Images/Projects/Image6.jpeg';
+import Image6 from '../../../Images/Projects/Shop-albert-renn.jpeg';
 import '../../CardItem/CardItemLarge/CardItemLarge.scss';
 const Quotes = () => {
   return (

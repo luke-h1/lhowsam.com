@@ -1,6 +1,6 @@
 import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
-import Image2 from '../../../Images/Projects/Image2.jpeg';
+import Image2 from '../../../Images/Projects/Drink-carson.jpeg';
 import '../../CardItem/CardItemLarge/CardItemLarge.scss';
 
 const DrinkApp = () => {

@@ -1,11 +1,12 @@
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
 import './Projects.scss';
-import Image1 from '../../Images/Projects/Image1.jpeg';
-import Image2 from '../../Images/Projects/Image2.jpeg';
-import Image3 from '../../Images/Projects/Image3.jpeg';
-import Image4 from '../../Images/Projects/Image4.jpeg';
-import Image6 from '../../Images/Projects/Image6.jpeg';
+import Image1 from '../../Images/Projects/Coffee-jon-tyson.jpeg';
+import Image2 from '../../Images/Projects/Drink-carson.jpeg';
+import Image3 from '../../Images/Projects/MBP-moran.jpeg';
+import Image4 from '../../Images/Projects/pattern-ahmad-dirini.jpeg';
+import Image5 from '../../Images/Projects/Shop-albert-renn.jpeg';
+
 import PropTypes from 'prop-types';
 import CardItem from '../CardItem/CardItem';
 const Projects = ({ title, iconStyles }) => {
@@ -39,7 +40,7 @@ const Projects = ({ title, iconStyles }) => {
               path="form-validator"
             />
             <CardItem
-              src={Image6}
+              src={Image5}
               text="Quotes App"
               label="Vanilla JS"
               path="quotes-app"
