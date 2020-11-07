@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 @import '../../global';
 .home__hero-section {
-  color: $lightTextColor;
+  color: var(--lightTextColor);
   padding: 55px;
   min-width: 100vw;
-  background-color: $backgroundColor;
+  background-color: var(--backgroundColor);
 }
 
 .home__hero-row {
@@ -38,7 +38,7 @@
 }
 
 .top-line-home {
-  font-family: $permanentMarkerFont;
+  font-family: var(--permanentMarker);
   font-size: 25px;
   letter-spacing: 5px;
   font-weight: 700;
@@ -114,7 +114,7 @@ img {
 
 .icon-social {
   margin: 10px;
-  fill: #000;
+  fill: var(--backgroundColor);
   width: 35px;
   height: 35px;
 }
@@ -164,9 +164,9 @@ img {
 }
 
 .light {
-  color: $lightTextColor;
+  color: var(--lightTextColor); 
   width: 15%;
-  border-bottom: 2px solid $borderBottomColor;
+  border-bottom: 2px solid var(--borderBottomColorRed);
   margin-bottom: 10px;
 }
 
@@ -174,9 +174,9 @@ img {
   display: flex;
   flex-direction: column;
   text-align: center;
-  background-color: #1c2237;
-  border: 1px solid $lightTextColor;
-  color: $lightTextColor;
+  background-color: var(--backgroundColor);
+  border: 1px solid var(--lightTextColor); 
+  color: var(--lightTextColor);
   width: 350px;
   border-radius: 20px;
   p {
@@ -193,7 +193,7 @@ img {
       #c0392b
     ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-    color: $lightTextColor;
+    color: var(--lightTextColor);
     margin: 1rem;
     border-radius: 8px;
     text-align: center;
@@ -211,7 +211,7 @@ img {
   filter: contrast(300);
   margin: 0 auto;
   margin-top: 15px;
-  font-family: 'Permanent Marker', sans-serif;
+  font-family: var(--permanentMarker);
   background-color: #2098f4;
   background-image: linear-gradient(315deg, #352384 0%, #f3f3f5 74%);
   // -webkit-background-clip: text;
@@ -247,7 +247,7 @@ img {
 
 /* skills Section */
 .skills-title {
-  font-family: $permanentMarkerFont;
+  font-family: var(--permanentMarker);
   text-align: center;
   margin: 0 auto;
 }
@@ -290,7 +290,7 @@ img {
     font-family: inherit;
     background-color: #60dafb;
     filter: brightness(0.9);
-    color: $lightTextColor;
+    color: var(--lightTextColor);
     margin: 0.6rem;
     border-radius: 8px;
     text-align: center;
@@ -307,16 +307,16 @@ img {
 
 /* Social Icons */
 .social-icon-link {
-  color: $lightTextColor;
+  color: var(--lightTextColor);
   font-size: 24px;
   cursor: pointer;
   &:hover {
-    color: $fillColor;
+    color: var(--iconHoverColor);
     cursor: pointer;
   }
   a {
     &:hover {
-      color: $fillColor;
+      color: var(--iconHoverColor);
       cursor: pointer;
     }
   }
@@ -410,7 +410,7 @@ img {
     p {
       padding: 1.2rem 1.2rem;
       background-color: rgb(25, 10, 239);
-      color: $lightTextColor;
+      color: var(--lightTextColor);
       margin: 1rem;
       border-radius: 5px;
       text-align: center;
@@ -437,14 +437,14 @@ img {
     margin-top: 3em;
     margin-left: 2em;
     text-align: center;
-    background-color: #1c2237;
-    border: 1px solid $lightTextColor;
-    color: $lightTextColor;
+    background-color: var(--backgroundColor);
+    border: 1px solid var(--lightTextColor);
+    color: var(--lightTextColor);
     border-radius: 20px;
     p {
       padding: 1.2rem 1.2rem;
       background-color: rgb(25, 10, 239);
-      color: $lightTextColor;
+      color: var(--lightTextColor);
       margin: 1rem;
       border-radius: 8px;
       text-align: center;
@@ -490,8 +490,8 @@ img {
   .skills-container {
     text-align: center;
     background-color: #1c2237;
-    border: 1px solid $lightTextColor;
-    color: $lightTextColor;
+    border: 1px solid var(--lightTextColor);
+    color: var(--lightTextColor);
     width: 450px;
     border-radius: 20px;
     p {

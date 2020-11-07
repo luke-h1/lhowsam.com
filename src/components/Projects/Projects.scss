@@ -2,8 +2,8 @@
 .project-wrapper {
   min-height: 100vh;
   min-width: 100vw;
-  background-color: $backgroundColor;
-  color: $lightTextColor;
+  background-color: var(--backgroundColor);
+  color: var(--lightTextColor);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,8 +30,8 @@ img {
   height: 550px;
   background-color: #fefffe;
   border-radius: 10px;
-  border: 1px solid #000;
-  color: #000;
+  border: 1px solid var(--backgroundColor);
+  color: var(--darkTextColor);
   padding-bottom: 15px;
   &:hover {
     transform: scale(1.06);
@@ -64,7 +64,7 @@ img {
 .project__title {
   filter: brightness(1.5);
   filter: contrast(300);
-  border-bottom: 2px solid $borderBottomColor;
+  border-bottom: 2px solid var(--borderBottomColorRed);
   font-size: 35px;
   font-family: 'Permanent Marker', sans-serif;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
