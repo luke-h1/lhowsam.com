@@ -5,7 +5,6 @@ import { FaTimes, FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
 import './Navbar.scss';
-import UseDarkMode from '../common/DarkMode/useDarkMode';
 const Navbar = ({ title, iconStyles, navLinkStyles }) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -23,7 +22,6 @@ const Navbar = ({ title, iconStyles, navLinkStyles }) => {
             >
               <BiCodeAlt className={iconStyles} />
               <p className="lead">{title}</p>
-              {/* <UseDarkMode /> */}
             </Link>
             <div
               className="menu-icon"

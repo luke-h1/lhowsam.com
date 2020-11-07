@@ -2,8 +2,8 @@
 .fourOhFour-wrapper {
   width: 100vw;
   height: 100vh;
-  background-color: var(--backgroundColor);
-  color: var(--lightTextColor);
+  background-color: $backgroundColor;
+  color: $lightTextColor;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,8 +13,8 @@
 
 .fourOhFour__container {
   z-index: 1;
-  background-color: var(--backgroundColor);
-  color: var(--lightTextColor);
+  background-color: $backgroundColor;
+  color: $lightTextColor;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -24,29 +24,29 @@
 
 .fourOhFour__intro {
   margin-bottom: 2em;
-  font-family: var(--mainFont);
+  font-family: $mainFont;
   font-size: 30px;
 }
 
 .fourOhFour__links {
   display: block;
   font-size: 25px;
-  color: var(--lightTextColor);
+  color: $lightTextColor;
   text-decoration: none;
   margin: 2em 0 2em 0;
   font-weight: 700;
   &:hover {
-    color: var(--borderBottomColorRed);
+    color: $borderBottom;
     transform: scale(1.2);
     transition: all 1s ease;
   }
 }
 
 .fourOhFour-link__icon {
-  fill: var(--backgroundColor);
+  fill: $backgroundColor;
   margin-left: 20px;
   &:hover {
-    fill: var(--iconHoverColor);
+    fill: $iconHover;
   }
 }
 

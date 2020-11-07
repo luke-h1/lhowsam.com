@@ -1,38 +1,15 @@
-// Normal Styles
-:root {
-  /* Global Colors */
-  --backgroundColor: #000;
-  --lightBackgroundColor: #fff;
-  --borderBottomColorRed: #f00946;
-  --iconHoverColor: #2ab7ca;
-  --labelColor: #1f98f4;
-  --lightTextColor: #fff;
-  --darkTextColor: #000;
-  /* Global Fonts */
-  --mainFont: 'PT Sans', sans-serif;
-  --permanentMarker: 'Permanent Marker', sans-serif;
-}
 
-// dark mode style
-[data-theme='dark'] {
-  --backgroundColor: #000;
-  --lightBackgroundColor: #fff;
-  --borderBottomColorRed: #f00946;
-  --iconHoverColor: #2ab7ca;
-  --labelColor: #1f98f4;
-  --lightTextColor: #fff;
-  --darkTextColor: #000;
-  --iconColor: #fff;
-}
+// Global Fonts 
+$mainFont: 'PT Sans', sans-serif; 
+$titleFont: 'Permanent Marker', sans-serif;
 
-// light mode style
-[data-theme='light'] {
-  --backgroundColor: #454955;
-  --lightBackgroundColor: #fff;
-  --borderBottomColorRed: #f00946;
-  --iconHoverColor: #2ab7ca;
-  --labelColor: #1f98f4;
-  --lightTextColor: #fff;
-  --darkTextColor: #000;
-  --iconColor: #fff;
-}
+
+
+// Global colors 
+$backgroundColor: #000;
+$lightBackgroundColor: #fff;
+$borderBottom: #f00946;
+$iconHover: #2ab7ca; 
+$labelColor: #1f98f4;
+$lightTextColor: #fff;
+$darkTextColor: #000;

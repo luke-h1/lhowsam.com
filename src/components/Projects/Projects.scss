@@ -2,8 +2,8 @@
 .project-wrapper {
   min-height: 100vh;
   min-width: 100vw;
-  background-color: var(--backgroundColor);
-  color: var(--lightTextColor);
+  background-color: $backgroundColor;
+  color: $lightTextColor;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -30,8 +30,8 @@ img {
   height: 550px;
   background-color: #fefffe;
   border-radius: 10px;
-  border: 1px solid var(--backgroundColor);
-  color: var(--darkTextColor);
+  border: 1px solid $backgroundColor;
+  color: $darkTextColor;
   padding-bottom: 15px;
   &:hover {
     transform: scale(1.06);
@@ -64,9 +64,9 @@ img {
 .project__title {
   filter: brightness(1.5);
   filter: contrast(300);
-  border-bottom: 2px solid var(--borderBottomColorRed);
+  border-bottom: 2px solid $borderBottom;
   font-size: 35px;
-  font-family: var(--permanentMarker);
+  font-family: $titleFont;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   -webkit-background-clip: text;
   letter-spacing: 5px;
@@ -79,11 +79,11 @@ img {
 
 .icon-social {
   margin: 10px;
-  fill: var(--backgroundColor);
+  fill: $backgroundColor;
   width: 35px;
   height: 35px;
   &:hover {
-    fill: var(--iconHoverColor);
+    fill: $iconHover;
   }
 }
 
@@ -99,8 +99,8 @@ img {
     height: 650px;
     background-color: #fefffe;
     border-radius: 10px;
-    border: 1px solid var(--backgroundColor);
-    color: var(--darkTextColor);
+    border: 1px solid $backgroundColor;
+    color: $darkTextColor;
   }
 
   .img-container {
@@ -124,8 +124,8 @@ img {
     height: 600px;
     background-color: #fefffe;
     border-radius: 10px;
-    border: 1px solid var(--backgroundColor);
-    color: var(--darkTextColor);
+    border: 1px solid $backgroundColor;
+    color: $darkTextColor;
   }
   .img-container {
     img {
@@ -154,8 +154,8 @@ img {
     height: 650px;
     background-color: #fefffe;
     border-radius: 10px;
-    border: 1px solid var(--backgroundColor);
-    color: var(--darkTextColor);
+    border: 1px solid $backgroundColor;
+    color: $darkTextColor;
   }
   .img-container {
     img {
@@ -185,8 +185,8 @@ img {
     height: 550px;
     background-color: #fefffe;
     border-radius: 10px;
-    border: 1px solid var(--backgroundColor);
-    color: var(--darkTextColor);
+    border: 1px solid $backgroundColor;
+    color: $darkTextColor;
   }
 }
 
@@ -199,7 +199,7 @@ img {
     height: 550px;
     background-color: #fefffe;
     border-radius: 10px;
-    border: 1px solid var(--backgroundColor);
-    color: var(--darkTextColor);
+    border: 1px solid $backgroundColor;
+    color: $darkTextColor;
   }
 }

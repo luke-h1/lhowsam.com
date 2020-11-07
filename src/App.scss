@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+
 @import './global';
 
 * {
@@ -8,7 +10,7 @@
 }
 
 body {
-  font-family: var(--mainFont);
+  font-family: $mainFont;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
