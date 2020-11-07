@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
-
+@import './global';
 * {
   box-sizing: border-box;
   padding: 0;
@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'PT Sans', sans-serif;
+  font-family: var(--ptSans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
