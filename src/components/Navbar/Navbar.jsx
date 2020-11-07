@@ -23,7 +23,7 @@ const Navbar = ({ title, iconStyles, navLinkStyles }) => {
             >
               <BiCodeAlt className={iconStyles} />
               <p className="lead">{title}</p>
-              <UseDarkMode />
+              {/* <UseDarkMode /> */}
             </Link>
             <div
               className="menu-icon"
