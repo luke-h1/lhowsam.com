@@ -163,10 +163,21 @@
 
 /* Dark Mode Styles */
 
-.test {
+.moon {
+  fill: var(--iconColor);
+}
+
+.sun {
   fill: var(--iconColor);
 }
 
 .theme-switcher {
-  margin-left: 1rem;
+  margin-left: 2rem;
+}
+
+
+@media(max-width: 640px){
+  .theme-switcher { 
+    font-size: 18px;
+  }
 }

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import lightSvg from '../../../Images/svg/sun.svg';
-import darkSvg from '../../../Images/svg/moon.svg';
-
+import { FiSun, FiMoon } from 'react-icons/fi';
 const useDarkMode = () => {
   const [theme, setTheme] = useState('dark');
   useEffect(() => {
@@ -17,6 +15,7 @@ const useDarkMode = () => {
   }, []);
 
   const toggleTheme = () => {
+    handleIcon();
     if (theme === 'light') {
       setTheme('dark');
       document.documentElement.setAttribute('data-theme', 'dark');
@@ -32,21 +31,16 @@ const useDarkMode = () => {
   const [icon, setIcon] = useState(true);
   const handleIcon = () => setIcon(!icon);
 
-  const Icon = () => { 
-    let icon;
-    if (theme === 'light'){
-      icon = 
-    }
-  }
-
-
   return (
     <>
       <div className="theme-switcher">
-        {icon ? <FiSun onClick={toggleTheme} /> : <FiMoon onClick={toggleTheme} className='test'/> }
+        {icon ? (
+          <FiSun onClick={toggleTheme} className="sun" />
+        ) : (
+          <FiMoon onClick={toggleTheme} className="moon" />
+        )}
       </div>
     </>
   );
 };
 export default useDarkMode;
-
