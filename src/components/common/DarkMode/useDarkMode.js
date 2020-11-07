@@ -29,21 +29,16 @@ const useDarkMode = () => {
   // const [icon, setIcon] = useState(false);
   // const handleIcon = () => setIcon(!icon);
 
+
+
   return (
     <>
       <div className="theme-switcher">
-        <input
-          type="checkbox"
-          className="checkbox"
-          id="checkbox"
-          name="checkbox"
+        <FiSun
+
           onClick={toggleTheme}
         />
-        <label className="label" htmlFor="checkbox">
-          <FiSun className="sun"></FiSun>
-          <FiMoon className="moon"></FiMoon>
-          <div className="ball"></div>
-        </label>
+       
       </div>
     </>
   );
