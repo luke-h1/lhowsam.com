@@ -164,7 +164,7 @@ img {
 }
 
 .light {
-  color: var(--lightTextColor); 
+  color: var(--lightTextColor);
   width: 15%;
   border-bottom: 2px solid var(--borderBottomColorRed);
   margin-bottom: 10px;
@@ -175,7 +175,7 @@ img {
   flex-direction: column;
   text-align: center;
   background-color: var(--backgroundColor);
-  border: 1px solid var(--lightTextColor); 
+  border: 1px solid var(--lightTextColor);
   color: var(--lightTextColor);
   width: 350px;
   border-radius: 20px;
@@ -274,7 +274,7 @@ img {
   font-size: 30px;
   cursor: pointer;
   &:hover {
-    color: $fillColor;
+    color: var(--iconHoverColor);
     cursor: pointer;
   }
 }

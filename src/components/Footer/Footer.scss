@@ -40,7 +40,7 @@
   border: none;
   font-size: 18px;
   margin-bottom: 16px;
-  border: 1px solid var(--lightBackgroundColor); 
+  border: 1px solid var(--lightBackgroundColor);
   ::placeholder {
     color: #b1b1b1;
   }
@@ -81,7 +81,7 @@
   }
 
   a {
-    color: var(--lightTextColor); 
+    color: var(--lightTextColor);
     text-decoration: none;
     margin-bottom: 0.5rem;
     &:hover {
@@ -93,7 +93,7 @@
 
 /* Social Icons */
 .social-icon-link {
-  color: var(--lightTextColor); 
+  color: var(--lightTextColor);
   font-size: 24px;
   cursor: pointer;
   &:hover {

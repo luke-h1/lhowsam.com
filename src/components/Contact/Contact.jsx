@@ -35,13 +35,18 @@ const Contact = ({ title, MainTitle }) => {
               </a>
             </div>
             <div className="wave">
-            <p>Alertnatively you can just wave to me by clicking the below button</p>
-            <Wave className='wave-btn'/>  
-            <p className='wave-joke'>Please note that I may not wave back. This is because I am very far away and probably didn't see you click this button.
-            <span role="img" aria-label="smiley face">
-            😀 
-            </span>
-            </p>
+              <p>
+                Alertnatively you can just wave to me by clicking the below
+                button
+              </p>
+              <Wave className="wave-btn" />
+              <p className="wave-joke">
+                Please note that I may not wave back. This is because I am very
+                far away and probably didn't see you click this button.
+                <span role="img" aria-label="smiley face">
+                  😀
+                </span>
+              </p>
             </div>
           </div>
         </div>
