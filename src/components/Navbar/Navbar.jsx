@@ -4,6 +4,7 @@ import { BiCodeAlt } from 'react-icons/bi';
 import { FaTimes, FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
+import {FiSun} from 'react-icons/fi';
 import './Navbar.scss';
 
 const Navbar = ({ title, iconStyles, navLinkStyles }) => {
@@ -32,6 +33,7 @@ const Navbar = ({ title, iconStyles, navLinkStyles }) => {
             >
               {click ? <FaTimes /> : <FaBars />}
             </div>
+            
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
               <li className="nav-item">
                 <Link
