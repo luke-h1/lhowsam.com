@@ -66,7 +66,7 @@ img {
   filter: contrast(300);
   border-bottom: 2px solid var(--borderBottomColorRed);
   font-size: 35px;
-  font-family: 'Permanent Marker', sans-serif;
+  font-family: var(--permanentMarket);
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   -webkit-background-clip: text;
   letter-spacing: 5px;
@@ -79,11 +79,11 @@ img {
 
 .icon-social {
   margin: 10px;
-  fill: #000;
+  fill: var(--backgroundColor);
   width: 35px;
   height: 35px;
   &:hover {
-    fill: $fillColor;
+    fill: var(--iconHoverColor);
   }
 }
 
@@ -99,8 +99,8 @@ img {
     height: 650px;
     background-color: #fefffe;
     border-radius: 10px;
-    border: 1px solid #000;
-    color: #000;
+    border: 1px solid var(--backgroundColor);
+    color: var(--darkTextColor);
   }
 
   .img-container {
@@ -124,8 +124,8 @@ img {
     height: 600px;
     background-color: #fefffe;
     border-radius: 10px;
-    border: 1px solid #000;
-    color: #000;
+    border: 1px solid var(--backgroundColor);
+    color: var(--darkTextColor);
   }
   .img-container {
     img {
@@ -154,8 +154,8 @@ img {
     height: 650px;
     background-color: #fefffe;
     border-radius: 10px;
-    border: 1px solid #000;
-    color: #000;
+    border: 1px solid var(--backgroundColor);
+    color: var(--darkTextColor);
   }
   .img-container {
     img {
@@ -185,8 +185,8 @@ img {
     height: 550px;
     background-color: #fefffe;
     border-radius: 10px;
-    border: 1px solid #000;
-    color: #000;
+    border: 1px solid var(--backgroundColor);
+    color: var(--darkTextColor);
   }
 }
 
@@ -199,7 +199,7 @@ img {
     height: 550px;
     background-color: #fefffe;
     border-radius: 10px;
-    border: 1px solid #000;
-    color: #000;
+    border: 1px solid var(--backgroundColor);
+    color: var(--darkTextColor);
   }
 }
