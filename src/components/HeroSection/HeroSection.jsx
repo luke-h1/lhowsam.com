@@ -4,7 +4,6 @@ import './HeroSection.scss';
 import { FaReact } from 'react-icons/fa';
 import { BsTools } from 'react-icons/bs';
 import PropTypes from 'prop-types';
-
 const HeroSection = ({ title, introTextPt1, introTextPt2 }) => {
   return (
     <>
