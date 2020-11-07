@@ -4,10 +4,18 @@ import { BiCodeAlt } from 'react-icons/bi';
 import { FaTimes, FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
-import {FiSun} from 'react-icons/fi';
 import './Navbar.scss';
+import Sun from '../../Images/svg/sun.svg';
+import Moon from '../../Images/svg/moon.svg';
+const Navbar = ({ title, iconStyles, navLinkStyles, theme }) => {
+  let svg = Sun; 
+  if(theme === 'dark'){
+    svg = Sun; 
+  }else { 
+    svg = Moon;
+  }
 
-const Navbar = ({ title, iconStyles, navLinkStyles }) => {
+
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -25,6 +33,7 @@ const Navbar = ({ title, iconStyles, navLinkStyles }) => {
             >
               <BiCodeAlt className={iconStyles} />
               <p className="lead">{title}</p>
+              
             </Link>
             <div
               className="menu-icon"
