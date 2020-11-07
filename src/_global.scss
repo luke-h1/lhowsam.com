@@ -1,20 +1,38 @@
-/* Global Colors */
+// Normal Styles
+:root {
+  /* Global Colors */
+  --backgroundColor: #000;
+  --lightBackgroundColor: #fff;
+  --borderBottomColorRed: #f00946;
+  --iconHoverColor: #2ab7ca;
+  --labelColor: #1f98f4;
+  --lightTextColor: #fff;
+  --darkTextColor: #000;
+  /* Global Fonts */
+  --ptSans: 'PT Sans', sans-serif;
+  --permanentMarker: 'Permanent Marker', sans-serif;
+}
 
-// Background color (Light blue)
-$backgroundColor: #000;
+// dark mode style
+[data-theme='dark'] {
+  --backgroundColor: #000;
+  --lightBackgroundColor: #fff;
+  --borderBottomColorRed: #f00946;
+  --iconHoverColor: #2ab7ca;
+  --labelColor: #1f98f4;
+  --lightTextColor: #fff;
+  --darkTextColor: #000;
+  --iconColor: #fff;
+}
 
-$lightBackgroundColor: #fff;
-
-// border bottom color (red)
-$borderBottomColor: #f00946;
-
-// hover color
-$fillColor: #2ab7ca;
-
-$labelColor: #1f98f4;
-
-$lightTextColor: #fff;
-
-// fonts
-$ptSans: 'PT Sans', sans-serif;
-$permanentMarkerFont: 'Permanent Marker', sans-serif;
+// light mode style
+[data-theme='light'] {
+  --backgroundColor: #454955;
+  --lightBackgroundColor: #fff;
+  --borderBottomColorRed: #f00946;
+  --iconHoverColor: #2ab7ca;
+  --labelColor: #1f98f4;
+  --lightTextColor: #fff;
+  --darkTextColor: #000;
+  --iconColor: #fff;
+}

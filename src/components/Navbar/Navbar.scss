@@ -1,9 +1,9 @@
 @import '../../global';
 /* NAVBAR STYLES START*/
 .navbar {
-  background-color: $backgroundColor;
+  background-color: var(--backgroundColor);
   height: 80px;
-  color: $lightTextColor;
+  color: var(--lightTextColor);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,7 +31,7 @@
 }
 
 .navbar-logo {
-  color: $lightTextColor;
+  color: var(--lightTextColor);
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
@@ -57,12 +57,12 @@
   height: 80px;
   border-bottom: 2px solid transparent;
   &:hover {
-    border-bottom: 2px solid $borderBottomColor;
+    border-bottom: 2px solid var(--borderBottomColorRed);
   }
 }
 
 .nav-links {
-  color: $lightTextColor;
+  color: var(--lightTextColor);
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -71,7 +71,7 @@
 }
 
 .fa-bars {
-  color: $lightTextColor;
+  color: var(--lightTextColor);
 }
 
 .menu-icon {
@@ -96,9 +96,9 @@
   }
 
   .nav-menu.active {
-    background-color: $backgroundColor;
-    color: $lightTextColor;
-    font-family: $ptSans;
+    background-color: var(--backgroundColor);
+    color: var(--lightTextColor);
+    font-family: var(--ptSans);
     left: 0;
     opacity: 1;
     transition: all 0.6s ease;
@@ -111,7 +111,7 @@
     width: 100%;
     display: table;
     &:hover {
-      color: $borderBottomColor;
+      color: var(--borderBottomColorRed);
       transform: scale(1.2);
       transition: all 1s ease;
     }
@@ -144,7 +144,7 @@
   }
 
   .fa-times {
-    color: $lightTextColor;
+    color: var(--lightTextColor);
     font-size: 2rem;
   }
 
@@ -156,8 +156,27 @@
     height: 120px;
   }
 }
-
 .lead {
   font-size: 20px;
 }
 /* NAVBAR STYLES END  */
+
+/* Dark Mode Styles */
+
+.moon {
+  fill: var(--iconColor);
+}
+
+.sun {
+  fill: var(--iconColor);
+}
+
+.theme-switcher {
+  margin-left: 2rem;
+}
+
+@media (max-width: 640px) {
+  .theme-switcher {
+    font-size: 18px;
+  }
+}

@@ -1,7 +1,8 @@
+@import '../../../global';
 .wave-btn {
   background: rebeccapurple;
   border: none;
-  color: #fff;
+  color: var(--lightTextColor);
   font-size: 1.25rem;
   padding: 0.3rem;
   border-radius: 15px;

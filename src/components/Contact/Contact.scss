@@ -2,8 +2,8 @@
 .contact-wrapper {
   min-height: 100vh;
   min-width: 100vw;
-  background-color: $backgroundColor;
-  color: #fff;
+  background-color: var(--backgroundColor);
+  color: var(--lightTextColor);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +11,7 @@
 }
 
 .contact__title {
-  border-bottom: 2px solid $borderBottomColor;
+  border-bottom: 2px solid var(--borderBottomColorRed);
 }
 
 .email {
@@ -42,7 +42,7 @@
   width: 30px;
   height: 30px;
   &:hover {
-    fill: $fillColor;
+    fill: var(--iconHoverColor);
   }
 }
 
@@ -54,10 +54,10 @@
 
 .icon-contact {
   font-size: 20px;
-  fill: #fff;
+  fill: var(--lightBackgroundColor);
   margin: 0 1em 0 1em;
   &:hover {
-    fill: $fillColor;
+    fill: var(--iconHoverColor);
   }
 }
 
@@ -83,9 +83,9 @@
 }
 
 .main-title {
-  border-bottom: 2px solid $borderBottomColor;
+  border-bottom: 2px solid var(--borderBottomColorRed);
   font-size: 35px;
-  font-family: $permanentMarkerFont;
+  font-family: var(--permanentMarker);
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   -webkit-background-clip: text;
   margin-bottom: 2em;
