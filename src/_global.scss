@@ -22,11 +22,13 @@
   --labelColor: #1f98f4;
   --lightTextColor: #fff;
   --darkTextColor: #000;
+  --iconColor: #fff;
 }
 
 // light mode style
 [data-theme='light'] {
   --backgroundColor: #fff;
   --lightBackgroundColor: #000;
-  --lightTextColor: var(--darkTextColor);
+  --lightTextColor: #000;
+  --iconColor: #000;
 }
