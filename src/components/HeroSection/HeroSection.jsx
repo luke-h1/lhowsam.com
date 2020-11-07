@@ -6,7 +6,6 @@ import { BsTools } from 'react-icons/bs';
 import PropTypes from 'prop-types';
 
 const HeroSection = ({ title, introTextPt1, introTextPt2 }) => {
-
   return (
     <>
       <div className="home__hero-section">
@@ -15,7 +14,7 @@ const HeroSection = ({ title, introTextPt1, introTextPt2 }) => {
             <div className="col">
               <div className="home__hero-text-wrapper">
                 <div className="top-line-home">
-                  <h2>{title}</h2> 
+                  <h2>{title}</h2>
                 </div>
                 <div className="para-home-container">
                   <p className="paragraph">{introTextPt1}</p>
