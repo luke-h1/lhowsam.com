@@ -5,21 +5,11 @@ import { FaTimes, FaBars } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
 import './Navbar.scss';
-import Sun from '../../Images/svg/sun.svg';
-import Moon from '../../Images/svg/moon.svg';
-const Navbar = ({ title, iconStyles, navLinkStyles, theme }) => {
-  let svg = Sun; 
-  if(theme === 'dark'){
-    svg = Sun; 
-  }else { 
-    svg = Moon;
-  }
-
-
+import UseDarkMode from '../common/DarkMode/useDarkMode';
+const Navbar = ({ title, iconStyles, navLinkStyles}) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-
   return (
     <>
       <IconContext.Provider value={{ color: '#fff' }}>
@@ -33,7 +23,8 @@ const Navbar = ({ title, iconStyles, navLinkStyles, theme }) => {
             >
               <BiCodeAlt className={iconStyles} />
               <p className="lead">{title}</p>
-              
+              <UseDarkMode /> 
+
             </Link>
             <div
               className="menu-icon"
@@ -42,7 +33,6 @@ const Navbar = ({ title, iconStyles, navLinkStyles, theme }) => {
             >
               {click ? <FaTimes /> : <FaBars />}
             </div>
-            
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
               <li className="nav-item">
                 <Link
@@ -77,6 +67,7 @@ const Navbar = ({ title, iconStyles, navLinkStyles, theme }) => {
             </ul>
           </div>
         </nav>
+        
       </IconContext.Provider>
     </>
   );
