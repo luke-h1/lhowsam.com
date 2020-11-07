@@ -1,6 +1,6 @@
 @import '../../global';
 .footer-container {
-  background-color: $backgroundColor;
+  background-color: var(--backgroundColor);
   padding: 4rem 0 2rem 0;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@
   align-items: center;
   min-height: 40vh;
   min-width: 100vw;
-  color: $lightTextColor;
+  color: var(--lightTextColor);
 }
 
 .footer-subscription {
@@ -19,7 +19,7 @@
   text-align: center;
   margin-bottom: 24px;
   padding: 24px;
-  color: $lightTextColor;
+  color: var(--lightTextColor);
 }
 
 .footer-subscription-heading {
@@ -40,7 +40,7 @@
   border: none;
   font-size: 18px;
   margin-bottom: 16px;
-  border: 1px solid $lightBackgroundColor;
+  border: 1px solid var(--lightBackgroundColor); 
   ::placeholder {
     color: #b1b1b1;
   }
@@ -77,11 +77,11 @@
     margin-bottom: 16px;
   }
   > h2 {
-    color: $lightTextColor;
+    color: var(--lightTextColor);
   }
 
   a {
-    color: $lightTextColor;
+    color: var(--lightTextColor); 
     text-decoration: none;
     margin-bottom: 0.5rem;
     &:hover {
@@ -93,16 +93,16 @@
 
 /* Social Icons */
 .social-icon-link {
-  color: $lightTextColor;
+  color: var(--lightTextColor); 
   font-size: 24px;
   cursor: pointer;
   &:hover {
-    color: $fillColor;
+    color: var(--iconHoverColor);
     cursor: pointer;
   }
   a {
     &:hover {
-      color: $fillColor;
+      color: var(--iconHoverColor);
       cursor: pointer;
     }
   }
@@ -132,7 +132,7 @@
 }
 
 .social-logo {
-  color: $lightTextColor;
+  color: var(--lightTextColor);
   justify-self: start;
   margin-left: 20px;
   cursor: pointer;
@@ -145,7 +145,7 @@
 }
 
 .website-rights {
-  color: #fff;
+  color: var(--lightTextColor);
   margin-bottom: 15px;
   text-align: center;
 }
