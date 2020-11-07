@@ -11,6 +11,7 @@ import Automation from './components/Projects/Automation/Automation';
 import DrinkApp from './components/Projects/DrinkApp/DrinkApp';
 import FormValidator from './components/Projects/FormValidator/FormValidator';
 import Quotes from './components/Projects/Quotes/Quotes';
+import PersonalSite from './components/Projects/PersonalSite/PersonalSite';
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           <Route path="/" exact component={HeroSection} />
           <Route path="/projects" exact component={Projects} />
           <Route path="/contact" exact component={Contact} />
-          <Route path="/Automation" exact component={Automation} />
+          <Route exact path="/Automation" component={Automation} />
+          <Route exact path='/personal-site' component={PersonalSite} /> 
           <Route exact path="/drink-app" component={DrinkApp} />
           <Route exact path="/form-validator" component={FormValidator} />
           <Route exact path="/quotes-app" component={Quotes} />

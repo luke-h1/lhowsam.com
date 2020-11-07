@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
 import './Projects.scss';
+import Image1 from '../../Images/Projects/Image1.jpeg';
 import Image2 from '../../Images/Projects/Image2.jpeg';
 import Image3 from '../../Images/Projects/Image3.jpeg';
 import Image4 from '../../Images/Projects/Image4.jpeg';
@@ -14,6 +15,11 @@ const Projects = ({ title, iconStyles }) => {
         <div className="project-wrapper">
           <h2 className="project__title">{title}</h2>
           <div className="project-container">
+            <CardItem 
+              src={Image1} 
+              text='Personal Site'
+              label='React, Vanilla JS, SCSS, CSS'
+              path='personal-site' /> 
             <CardItem
               src={Image2}
               text="Cocktail Recipe App"
