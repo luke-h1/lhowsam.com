@@ -1,29 +1,27 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from 'react';
 export const useDarkMode = () => {
-  const [theme, setTheme] = useState("dark")
+  const [theme, setTheme] = useState('dark');
   const toggleTheme = () => {
-    if (theme === "light") {
+    if (theme === 'light') {
       if (window) {
-        window.localStorage.setItem("theme", "dark")
+        window.localStorage.setItem('theme', 'dark');
       }
-      setTheme("dark")
+      setTheme('dark');
     } else {
       if (window) {
-        window.localStorage.setItem("theme", "light")
+        window.localStorage.setItem('theme', 'light');
       }
-      setTheme("light")
+      setTheme('light');
     }
-  }
-  
+  };
 
   useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme")
-    localTheme && setTheme(localTheme)
-  }, [])
+    const localTheme = window.localStorage.getItem('theme');
+    localTheme && setTheme(localTheme);
+  }, []);
 
-  return [theme, toggleTheme]
-}
-
+  return [theme, toggleTheme];
+};
 
 // import React, { useEffect, useState } from 'react';
 // import { FiSun, FiMoon } from 'react-icons/fi';
@@ -71,7 +69,3 @@ export const useDarkMode = () => {
 //   );
 // };
 // export default useDarkMode;
-
-
-
-
