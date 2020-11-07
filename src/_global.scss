@@ -27,8 +27,14 @@
 
 // light mode style
 [data-theme='light'] {
-  --backgroundColor: #fff;
-  --lightBackgroundColor: #000;
-  --lightTextColor: #000;
-  --iconColor: #000;
+  --backgroundColor: #454955;
+  --lightBackgroundColor: #fff;
+  --borderBottomColorRed: #f00946;
+  --iconHoverColor: #2ab7ca;
+  --labelColor: #1f98f4;
+  --lightTextColor: #fff;
+  --darkTextColor: #000;
+  --iconColor: #fff;
+
+
 }
