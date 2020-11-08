@@ -23,7 +23,7 @@ function App() {
           <Route path="/projects" exact component={Projects} />
           <Route path="/contact" exact component={Contact} />
           <Route exact path="/Automation" component={Automation} />
-          <Route exact path='/personal-site' component={PersonalSite} /> 
+          <Route exact path="/personal-site" component={PersonalSite} />
           <Route exact path="/drink-app" component={DrinkApp} />
           <Route exact path="/form-validator" component={FormValidator} />
           <Route exact path="/quotes-app" component={Quotes} />

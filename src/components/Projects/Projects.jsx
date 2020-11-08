@@ -16,11 +16,12 @@ const Projects = ({ title, iconStyles }) => {
         <div className="project-wrapper">
           <h2 className="project__title">{title}</h2>
           <div className="project-container">
-            <CardItem 
-              src={Image1} 
-              text='Personal Site'
-              label='React, Vanilla JS, SCSS, CSS'
-              path='personal-site' /> 
+            <CardItem
+              src={Image1}
+              text="Personal Site"
+              label="React, Vanilla JS, SCSS, CSS"
+              path="personal-site"
+            />
             <CardItem
               src={Image2}
               text="Cocktail Recipe App"
