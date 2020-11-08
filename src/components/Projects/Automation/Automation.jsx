@@ -2,7 +2,7 @@ import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
 import '../../CardItem/CardItemLarge/CardItemLarge.scss';
 
-import Image3 from '../../../Images/Projects/MBP-moran.jpeg';
+import Image3 from '../../../Images/Projects/pink-pattern-pawel.jpeg';
 
 const Automation = () => {
   return (
