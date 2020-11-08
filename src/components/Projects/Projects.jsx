@@ -3,7 +3,7 @@ import { IconContext } from 'react-icons/lib';
 import './Projects.scss';
 import Image1 from '../../Images/Projects/Coffee-jon-tyson.jpeg';
 import Image2 from '../../Images/Projects/Drink-carson.jpeg';
-import Image3 from '../../Images/Projects/MBP-moran.jpeg';
+import Image3 from '../../Images/Projects/pink-pattern-pawel.jpeg';
 import Image4 from '../../Images/Projects/pattern-ahmad-dirini.jpeg';
 import Image5 from '../../Images/Projects/Shop-albert-renn.jpeg';
 
