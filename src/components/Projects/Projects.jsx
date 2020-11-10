@@ -21,30 +21,35 @@ const Projects = ({ title, iconStyles }) => {
               text="Personal Site"
               label="React, Vanilla JS, SCSS, CSS"
               path="personal-site"
+              loading='lazy'
             />
             <CardItem
               src={Image2}
               text="Cocktail Recipe App"
               label="React Hooks, SASS"
               path="drink-app"
+              loading='lazy'
             />
             <CardItem
               src={Image3}
               text="Automation"
               label="Ansible, Bash, CI"
               path="Automation"
+              loading='lazy'
             />
             <CardItem
               src={Image4}
               text="Form Validator"
               label="Vanilla JS"
               path="form-validator"
+              loading='lazy'
             />
             <CardItem
               src={Image5}
               text="Quotes App"
               label="Vanilla JS"
               path="quotes-app"
+              loading='lazy'
             />
           </div>
         </div>
