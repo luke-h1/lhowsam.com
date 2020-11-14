@@ -16,13 +16,17 @@ const Contact = ({ title, MainTitle }) => {
             <h3>{title}</h3>
             <br />
             <div className="icon-wrapper">
-              <a href="mailto:luke.howsam@yahoo.com?subject=Get In Touch">
+              <a
+                href="mailto:luke.howsam@yahoo.com?subject=Get In Touch"
+                aria-label="Email"
+              >
                 <AiOutlineMail className="icon-contact email" />
               </a>
               <a
                 href="https://www.linkedin.com/in/lukehowsam/"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Linkedin"
               >
                 <FaLinkedin className="icon-contact" />
               </a>{' '}
@@ -30,6 +34,7 @@ const Contact = ({ title, MainTitle }) => {
                 href="https://github.com/luke-h1"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Github"
               >
                 <FaGithub className="icon-contact" />
               </a>
