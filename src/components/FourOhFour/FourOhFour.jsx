@@ -21,15 +21,19 @@ const fourOhFour = ({
         </h1>
         <h2 className="instructions">{instructions}</h2>
 
-        <Link to="/" className="fourOhFour__links">
+        <Link to="/" className="fourOhFour__links" aria-label="Home">
           {linkOne}
           <FiArrowRight className="fourOhFour-link__icon" />
         </Link>
-        <Link to="/projects" className="fourOhFour__links">
+        <Link
+          to="/projects"
+          className="fourOhFour__links"
+          aria-label="projects"
+        >
           {linkTwo}
           <FiArrowRight className="fourOhFour-link__icon" />
         </Link>
-        <Link to="/contact" className="fourOhFour__links">
+        <Link to="/contact" className="fourOhFour__links" aria-label="contact">
           {linkThree}
           <FiArrowRight className="fourOhFour-link__icon" />
         </Link>

@@ -34,7 +34,8 @@ const Footer = ({ copyright }) => {
               rel="noopener noreferrer"
               aria-label="LinkedIn"
             >
-              <FaLinkedin test-id="linkedin" />
+              <FaLinkedin test-id="linkedin"
+              />
             </a>
           </div>
         </div>
