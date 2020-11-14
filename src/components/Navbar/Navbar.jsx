@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BiCodeAlt } from 'react-icons/bi';
-import { FaTimes, FaBars } from 'react-icons/fa';
+import { FaTimes } from 'react-icons/fa';
+import { GoThreeBars } from 'react-icons/go';
 import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
 import './Navbar.scss';
@@ -28,7 +29,7 @@ const Navbar = ({ title, iconStyles, navLinkStyles }) => {
               onClick={handleClick}
               onBlur={handleClick}
             >
-              {click ? <FaTimes /> : <FaBars />}
+              {click ? <FaTimes /> : <GoThreeBars />}
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
               <li className="nav-item">
