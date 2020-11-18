@@ -22,8 +22,7 @@ const CardItem = (props) => {
                 href={props.github}
                 target="_blank"
                 rel="noreferrer"
-                aria-label='Github'
-
+                aria-label="Github"
               >
                 {props.github ? <FaGithub /> : null}
               </a>
@@ -32,7 +31,7 @@ const CardItem = (props) => {
                 href={props.site}
                 target="_blank"
                 rel="noreferrer"
-                aria-label='Live site link'
+                aria-label="Live site link"
               >
                 {props.site ? <IoMdBrowsers /> : null}
               </a>
