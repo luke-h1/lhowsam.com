@@ -6,7 +6,7 @@ import { GoThreeBars } from 'react-icons/go';
 import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
 import './Navbar.scss';
-const Navbar = ({ title, iconStyles, navLinkStyles }) => {
+const Navbar = ({ iconStyles, navLinkStyles }) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -22,7 +22,7 @@ const Navbar = ({ title, iconStyles, navLinkStyles }) => {
               onBlur={closeMobileMenu}
             >
               <BiCodeAlt className={iconStyles} />
-              <p className="lead">{title}</p>
+              {/* <p className="lead">{title}</p> */}
             </Link>
             <div
               className="menu-icon"
@@ -71,13 +71,9 @@ const Navbar = ({ title, iconStyles, navLinkStyles }) => {
 };
 
 Navbar.defaultProps = {
-  title: 'Luke Howsam',
   iconStyles: 'navbar-icon',
   navLinkStyles: 'nav-links',
 };
 
-Navbar.propTypes = {
-  title: PropTypes.string.isRequired,
-};
 
 export default Navbar;
