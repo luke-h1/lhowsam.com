@@ -1,11 +1,11 @@
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
 import './Projects.scss';
-import Image1 from '../../Images/Projects/Coffee-jon-tyson.jpeg';
-import Image2 from '../../Images/Projects/Drink-carson.jpeg';
-import Image3 from '../../Images/Projects/pink-pattern-pawel.jpeg';
-import Image4 from '../../Images/Projects/pattern-ahmad-dirini.jpeg';
-import Image5 from '../../Images/Projects/Shop-albert-renn.jpeg';
+import Image1 from '../../images/Projects/Coffee-jon-tyson.jpeg'
+import Image2 from '../../images/Projects/Drink-carson.jpeg';
+import Image3 from '../../images/Projects/pink-pattern-pawel.jpeg';
+import Image4 from '../../images/Projects/pattern-ahmad-dirini.jpeg';
+import Image5 from '../../images/Projects/Shop-albert-renn.jpeg';
 
 import PropTypes from 'prop-types';
 import CardItem from '../CardItem/CardItem';

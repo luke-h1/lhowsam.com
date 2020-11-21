@@ -1,79 +1,75 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { BiCodeAlt } from 'react-icons/bi';
-import { FaTimes } from 'react-icons/fa';
-import { GoThreeBars } from 'react-icons/go';
-import { IconContext } from 'react-icons/lib';
-import PropTypes from 'prop-types';
-import './Navbar.scss';
-const Navbar = ({ iconStyles, navLinkStyles }) => {
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+import React, { useState } from 'react'
+import { FaBars, FaTimes } from 'react-icons/fa'
+import { IconContext } from 'react-icons/lib'
+import {
+  Nav,
+  NavbarContainer,
+  NavLogo,
+  NavIcon,
+  MobileIcon,
+  NavMenu,
+  NavItem,
+  NavItemBtn,
+  NavLinks,
+  NavBtnLink,
+} from './NavbarElements'
+import { NavContactButton } from '../Button/NavContactButton'
+
+function Navbar() {
+  const [click, setClick] = useState(false)
+  const handleClick = () => setClick(!click)
+  const closeMobileMenu = () => setClick(false)
   return (
     <>
-      <IconContext.Provider value={{ color: '#fff' }}>
-        <nav className="navbar">
-          <div className="navbar-container container">
-            <Link
-              to="/"
-              className="navbar-logo"
-              onClick={closeMobileMenu}
-              onBlur={closeMobileMenu}
-            >
-              <BiCodeAlt className={iconStyles} />
-              {/* <p className="lead">{title}</p> */}
-            </Link>
-            <div
-              className="menu-icon"
-              onClick={handleClick}
-              onBlur={handleClick}
-            >
-              {click ? <FaTimes /> : <GoThreeBars />}
-            </div>
-            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-              <li className="nav-item">
-                <Link
-                  to="/"
-                  className={navLinkStyles}
-                  onClick={closeMobileMenu}
-                  onBlur={closeMobileMenu}
-                >
+      <IconContext.Provider value={{ color: '#000' }}>
+        <Nav>
+          <NavbarContainer>
+            <NavLogo to="/" onClick={closeMobileMenu}>
+              <NavIcon />
+              Luke H
+            </NavLogo>
+            <MobileIcon onClick={handleClick}>
+              {click ? <FaTimes /> : <FaBars />}
+            </MobileIcon>
+            <NavMenu onClick={handleClick} click={click}>
+              <NavItem>
+                <NavLinks to="/" onClick={closeMobileMenu}>
                   Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="projects"
-                  className={navLinkStyles}
-                  onClick={closeMobileMenu}
-                  onBlur={closeMobileMenu}
-                >
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to="/projects" onClick={closeMobileMenu}>
                   Projects
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link
-                  to="contact"
-                  className={navLinkStyles}
-                  onClick={closeMobileMenu}
-                  onBlur={closeMobileMenu}
-                >
-                  Get In Touch
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </nav>
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to="/blog" onClick={closeMobileMenu}>
+                  Blog
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to="/about" onClick={closeMobileMenu}>
+                  About
+                </NavLinks>
+              </NavItem>
+              <NavItem>
+                <NavLinks to="/contact" onClick={closeMobileMenu}>
+                  Contact
+                </NavLinks>
+              </NavItem>
+              <NavItemBtn>
+                <NavBtnLink to="/contact">
+                  <NavContactButton round="true" primary="true">
+                    Get In Touch
+                  </NavContactButton>
+                </NavBtnLink>
+              </NavItemBtn>
+            </NavMenu>
+          </NavbarContainer>
+        </Nav>
       </IconContext.Provider>
     </>
-  );
-};
+  )
+}
 
-Navbar.defaultProps = {
-  iconStyles: 'navbar-icon',
-  navLinkStyles: 'nav-links',
-};
-
-
-export default Navbar;
+export default Navbar

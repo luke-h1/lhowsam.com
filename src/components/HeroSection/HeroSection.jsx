@@ -1,5 +1,5 @@
 import React from 'react';
-import ProfileImage from '../../Images/luke.jpeg';
+import ProfileImage from '../../images/luke.jpeg';
 import './HeroSection.scss';
 import { FaReact } from 'react-icons/fa';
 import { BsTools } from 'react-icons/bs';
