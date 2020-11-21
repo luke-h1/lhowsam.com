@@ -4,6 +4,7 @@ import './HeroSection.scss';
 import { FaReact } from 'react-icons/fa';
 import { BsTools } from 'react-icons/bs';
 import PropTypes from 'prop-types';
+import {Link} from 'react-router-dom'
 const HeroSection = ({ title, introTextPt1, introTextPt2 }) => {
   return (
     <>
@@ -14,6 +15,8 @@ const HeroSection = ({ title, introTextPt1, introTextPt2 }) => {
               <div className="home__hero-text-wrapper">
                 <div className="top-line-home">
                   <h2>{title}</h2>
+                  <Link to='/blog/postone' style={{ color: '#fff' }}>Blog post test </Link>
+
                 </div>
                 <div className="para-home-container">
                   <p className="paragraph">{introTextPt1}</p>

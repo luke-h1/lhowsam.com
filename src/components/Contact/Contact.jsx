@@ -5,6 +5,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { AiOutlineMail } from 'react-icons/ai';
 import Wave from '../common/wave/wave';
+import { Link } from 'react-router-dom'
 
 const Contact = ({ title, MainTitle }) => {
   return (
