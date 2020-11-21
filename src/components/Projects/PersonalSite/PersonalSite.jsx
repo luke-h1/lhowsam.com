@@ -1,6 +1,6 @@
 import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
-import Image1 from '../../../Images/Projects/Coffee-jon-tyson.jpeg';
+import Image1 from '../../../images/Projects/Coffee-jon-tyson.jpeg';
 
 const PersonalSite = () => {
   return (

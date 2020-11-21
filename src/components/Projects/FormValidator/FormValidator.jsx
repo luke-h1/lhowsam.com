@@ -1,6 +1,6 @@
 import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
-import Image4 from '../../../Images/Projects/pattern-ahmad-dirini.jpeg';
+import Image4 from '../../../images/Projects/pattern-ahmad-dirini.jpeg';
 import '../../CardItem/CardItemLarge/CardItemLarge.scss';
 
 const FormValidator = () => {
