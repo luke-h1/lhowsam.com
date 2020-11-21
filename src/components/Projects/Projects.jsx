@@ -47,7 +47,7 @@ const Projects = ({ title, iconStyles }) => {
             <CardItem
               src={Image5}
               text="Quotes App"
-              label="Vanilla JS"
+              label="React, SCSS"
               path="quotes-app"
               loading="lazy"
             />
