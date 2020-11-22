@@ -10,6 +10,9 @@ export const ShowCaseWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (max-width: 620px) {
+    min-height: 120vh;
+  }
 `;
 
 export const ShowCaseContainer = styled.div`
@@ -17,6 +20,12 @@ export const ShowCaseContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
+  @media (max-width: 898px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 620px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 `;
 
 export const ShowCaseTitle = styled.h1`

@@ -1,25 +1,34 @@
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
-import './Contact.scss';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-import { AiOutlineMail } from 'react-icons/ai';
 import Wave from '../utils/wave/Wave';
+import {
+  ContactWrapper,
+  Alternatives,
+  IconWrapper,
+  EmailIcon,
+  LinkedIn,
+  Github,
+  WaveJoke,
+  WaveDiv,
+  WaveWrap,
+} from './ContactElements';
+
 const Contact = ({ title, MainTitle }) => {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
-        <div className="contact-wrapper">
-          <h1 className="main-title">{MainTitle}</h1>
-          <div className="alternatives">
+        <ContactWrapper>
+          <h1>Get In Touch</h1>
+          <Alternatives>
             <h3>{title}</h3>
             <br />
-            <div className="icon-wrapper">
+            <IconWrapper>
               <a
-                href="mailto:luke.howsam@yahoo.com?subject=Get In Touch"
+                href="mailto:luke.howsam@yahoo.com?subject='Get In Touch'"
                 aria-label="Email"
               >
-                <AiOutlineMail className="icon-contact email" />
+                <EmailIcon />
               </a>
               <a
                 href="https://www.linkedin.com/in/lukehowsam/"
@@ -27,7 +36,7 @@ const Contact = ({ title, MainTitle }) => {
                 rel="noopener noreferrer"
                 aria-label="Linkedin"
               >
-                <FaLinkedin className="icon-contact" />
+                <LinkedIn />
               </a>{' '}
               <a
                 href="https://github.com/luke-h1"
@@ -35,25 +44,27 @@ const Contact = ({ title, MainTitle }) => {
                 rel="noopener noreferrer"
                 aria-label="Github"
               >
-                <FaGithub className="icon-contact" />
+                <Github />
               </a>
-            </div>
-            <div className="wave">
-              <p>
+            </IconWrapper>
+            <WaveWrap>
+              <WaveJoke>
                 Alertnatively you can just wave to me by clicking the below
                 button
-              </p>
-              <Wave className="wave-btn" />
-              <p className="wave-joke">
+              </WaveJoke>
+              <WaveDiv>
+                <Wave centered="true" />
+              </WaveDiv>
+              <WaveJoke>
                 Please note that I may not wave back. This is because I am very
                 far away and probably didn't see you click this button.
                 <span role="img" aria-label="smiley face">
                   😀
                 </span>
-              </p>
-            </div>
-          </div>
-        </div>
+              </WaveJoke>
+            </WaveWrap>
+          </Alternatives>
+        </ContactWrapper>
       </div>
     </IconContext.Provider>
   );

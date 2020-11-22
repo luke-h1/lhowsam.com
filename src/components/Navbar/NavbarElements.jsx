@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { BiCodeBlock } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import { Container } from '../Container/Container';
+import { Container } from '../utils/Containers/Container';
 import { lightTheme, darkTheme } from '../../styles/Themes';
 export const Nav = styled.nav`
   background: ${lightTheme.backgroundColor};
