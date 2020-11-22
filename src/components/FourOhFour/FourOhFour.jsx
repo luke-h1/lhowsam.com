@@ -1,8 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './fourOhFour.scss';
 import PropTypes from 'prop-types';
-import { FiArrowRight } from 'react-icons/fi';
+import {
+  Wrapper,
+  Container,
+  Intro,
+  Instructions,
+  NotFoundLink,
+  ArrowIcon,
+} from './FourOhFourElements';
 const fourOhFour = ({
   linkOne,
   linkTwo,
@@ -11,34 +17,30 @@ const fourOhFour = ({
   instructions,
 }) => {
   return (
-    <div className="fourOhFour-wrapper">
-      <div className="fourOhFour__container">
-        <h1 className="fourOhFour__intro">
+    <Wrapper>
+      <Container>
+        <Intro>
           {fourOhFourTitle}{' '}
           <span role="img" aria-label="not found">
             🤔
           </span>
-        </h1>
-        <h2 className="instructions">{instructions}</h2>
+        </Intro>
+        <Instructions>{instructions}</Instructions>
 
-        <Link to="/" className="fourOhFour__links" aria-label="Home">
+        <NotFoundLink to="/" aria-label="Home">
           {linkOne}
-          <FiArrowRight className="fourOhFour-link__icon" />
-        </Link>
-        <Link
-          to="/projects"
-          className="fourOhFour__links"
-          aria-label="projects"
-        >
+          <ArrowIcon />
+        </NotFoundLink>
+        <NotFoundLink to="/projects" aria-label="projects">
           {linkTwo}
-          <FiArrowRight className="fourOhFour-link__icon" />
-        </Link>
-        <Link to="/contact" className="fourOhFour__links" aria-label="contact">
+          <ArrowIcon />
+        </NotFoundLink>
+        <NotFoundLink to="/contact" aria-label="contact">
           {linkThree}
-          <FiArrowRight className="fourOhFour-link__icon" />
-        </Link>
-      </div>
-    </div>
+          <ArrowIcon />
+        </NotFoundLink>
+      </Container>
+    </Wrapper>
   );
 };
 
