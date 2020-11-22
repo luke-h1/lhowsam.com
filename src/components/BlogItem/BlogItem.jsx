@@ -9,7 +9,7 @@ import {
   Author,
   BlogWrapper,
 } from './BlogItemElements';
-import { BlogData } from '../../data/BlogData';
+import { BlogData } from '../../data/BlogPostItemData';
 const BlogItem = () => {
   return (
     <>
