@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { primaryFont } from './typography';
 import { normalize } from 'polished';
-
+import {lightTheme, darkTheme} from './Themes';
 export const GlobalStyle = createGlobalStyle`
   ${normalize()}
   * {
@@ -14,5 +14,7 @@ body {
   font-family: ${primaryFont};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: ${lightTheme.backgroundColor}
+
 }
 `;

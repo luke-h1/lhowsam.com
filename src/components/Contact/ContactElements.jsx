@@ -22,7 +22,6 @@ export const MainTitle = styled.h1`
   filter: brightness(1.5);
   filter: contrast(300);
   background-color: ${lightTheme.backgroundColor};
-
 `;
 
 export const Alternatives = styled.div`

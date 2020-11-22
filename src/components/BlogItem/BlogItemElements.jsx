@@ -1,77 +1,71 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-
-export const BlogWrapper = styled.div`
-  padding: 2.5rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+import { lightTheme, darkTheme } from '../../styles/Themes';
+export const BlogSection = styled.div`
+  padding-top: 65px;
+  max-width: 550px;
+  margin: 0px auto;
+  padding-left: 16px;
+  padding-right: 16px;
 `;
 
-export const BlogCardItem = styled.article`
+export const BlogIntro = styled.div`
+  margin-bottom: 32px;
+  margin-top: 32px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  width: 350px;
-  height: 400px;
-  background: #fff;
-  box-shadow: 0 0.1875rem 1.5rem #000;
-  border-radius: 0.375rem;
-  overflow: hidden;
-  @media (max-width: 40rem) {
-    /* flex-wrap: wrap; */
-  }
+  -webkit-box-pack: center;
+  justify-content: center;
 `;
 
-export const CardLink = styled(Link)`
-  position: relative;
+export const Title = styled.h1`
+  text-align: center;
+`;
+
+export const Intro = styled.p`
+  font-size: 18px;
+  text-align: center;
   display: block;
-  color: inherit;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+`;
+
+export const BlogPost = styled(Link)`
+  margin-top: 32px;
+  padding-bottom: 32px;
+  color: rgb(56, 103, 214);
+  display: block;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   text-decoration: none;
-`;
-
-export const PostTitle = styled.h3`
-  font-size: 1.125rem;
-  line-height: 1.4;
-  color: 000;
-  font-weight: 700;
-  margin: 0 0 0.5rem 0;
-  &:hover {
-    transition: (color 0.3s ease);
-  }
-`;
-
-export const PostImage = styled.img`
+  color: inherit;
   display: block;
-  width: 100%;
-  height: 50%;
-  object-fit: cover;
-  &:hover {
-    transition: opacity 0.3s ease;
-    opacity: 0.9;
-  }
-  @media (max-width: 40rem) {
-  }
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
 `;
 
-export const BlogDetails = styled.div`
-  padding: 1.5rem;
-`;
-
-export const PostCat = styled.h4`
-  display: inline-block;
-  text-transform: uppercase;
-  font-size: 0.75rem;
+export const BlogTitle = styled.h1`
+  color: ${lightTheme.textColor};
+  text-decoration: none;
+  margin: 0px 0px 8px;
+  font-size: 24px;
+  display: block;
+  align-self: flex-start;
   font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.0625rem;
-  margin: 0 0 0.75rem 0;
-  padding: 0 0 0.25rem 0;
-  border-bottom: 0.125rem solid #000;
+  line-height: 1.25;
+  &:hover {
+    cursor: pointer;
+    color: ${lightTheme.hoverColor};
+    text-decoration: underline;
+  }
 `;
 
-export const Author = styled.p`
-  font-size: 0.875rem;
-  line-height: 1;
-  margin: 1.125rem 0 0 0;
-  padding: 1.125rem 0 0 0;
-  border-top: 0.0625rem solid #000;
+export const BlogDate = styled.p`
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  vertical-align: baseline;
+  font-size: 15px;
+  color: ${lightTheme.textColor};
 `;

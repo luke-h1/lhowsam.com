@@ -1,36 +1,36 @@
 import React from 'react';
 import {
-  BlogCardItem,
-  CardLink,
-  PostTitle,
-  PostImage,
-  BlogDetails,
-  PostCat,
-  Author,
-  BlogWrapper,
+  Title,
+  BlogIntro,
+  Intro,
+  BlogSection,
+  BlogPost,
+  BlogTitle,
+  BlogDate,
 } from './BlogItemElements';
 import { BlogData } from '../../data/BlogPostItemData';
 const BlogItem = () => {
   return (
     <>
-      <BlogWrapper>
+      <BlogSection>
+        <BlogIntro>
+          <Title>Blog</Title>
+          <Intro>
+            Candid thoughts about Javascript, React, Automation & other
+            interesting things :)
+          </Intro>
+        </BlogIntro>
         {BlogData.map((blog, i) => {
           return (
-            <CardLink to={blog.link}>
-              <BlogCardItem>
-                <PostImage src={blog.img} />
-                <BlogDetails>
-                  <PostCat>{blog.category}</PostCat>
-                  <PostTitle>{blog.title}</PostTitle>
-                  <h3>{blog.topic}</h3>
-                  <Author>{blog.Author}</Author>
-                  <h3>{blog.postedAt}</h3>
-                </BlogDetails>
-              </BlogCardItem>
-            </CardLink>
+            <>
+              <BlogPost key={i} to={blog.link}>
+                <BlogTitle>{blog.title}</BlogTitle>
+                <BlogDate>{blog.date}</BlogDate>
+              </BlogPost>
+            </>
           );
         })}
-      </BlogWrapper>
+      </BlogSection>
     </>
   );
 };
