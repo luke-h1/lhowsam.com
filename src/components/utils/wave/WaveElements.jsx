@@ -12,6 +12,5 @@ export const WaveButton = styled.button`
   justify-content: ${({ centered }) => (centered ? 'center' : null)};
   align-items: ${({ centered }) => (centered ? 'center' : null)};
   cursor: pointer;
-  width: 20%;
   margin: 0 auto;
 `;
