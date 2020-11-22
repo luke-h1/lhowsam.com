@@ -6,16 +6,19 @@ import Image2 from '../../images/Projects/Drink-carson.jpeg';
 import Image3 from '../../images/Projects/pink-pattern-pawel.jpeg';
 import Image4 from '../../images/Projects/pattern-ahmad-dirini.jpeg';
 import Image5 from '../../images/Projects/Shop-albert-renn.jpeg';
-
 import PropTypes from 'prop-types';
 import CardItem from '../CardItem/CardItem';
+
+import { ProjectWrapper, CardWrap, ProjectTitle,CardContainer } from './ProjectElements';
+
 const Projects = ({ title, iconStyles }) => {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
-      <div>
-        <div className="project-wrapper">
-          <h2 className="project__title">{title}</h2>
-          <div className="project-container">
+      <>
+        <ProjectWrapper>
+          <ProjectTitle>{title}</ProjectTitle>
+          <CardContainer>
+          <CardWrap>
             <CardItem
               src={Image1}
               text="Personal Site"
@@ -51,15 +54,16 @@ const Projects = ({ title, iconStyles }) => {
               path="/projects/quotes-app"
               loading="lazy"
             />
-          </div>
-        </div>
-      </div>
+          </CardWrap>
+          </CardContainer>
+        </ProjectWrapper>
+      </>
     </IconContext.Provider>
   );
 };
 
 Projects.defaultProps = {
-  title: 'Projects',
+  title: 'My Projects',
   iconStyles: 'icon-social',
 };
 

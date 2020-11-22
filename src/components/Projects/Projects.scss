@@ -1,14 +1,4 @@
 @import '../../global';
-.project-wrapper {
-  min-height: 120vh;
-  min-width: 100vw;
-  background-color: $backgroundColor;
-  color: $darkTextColor;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
 
 img {
   border-top-left-radius: 5px;
@@ -21,6 +11,7 @@ img {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 35px;
+
 }
 
 .project-card {
@@ -33,6 +24,8 @@ img {
   border: 1px solid $backgroundColor;
   color: $darkTextColor;
   padding-bottom: 15px;
+  margin-bottom: 4rem;
+
   &:hover {
     transform: scale(1.06);
     transition: all ease 0.2s;
@@ -64,7 +57,8 @@ img {
 .project__title {
   filter: brightness(1.5);
   filter: contrast(300);
-  border-bottom: 2px solid $borderBottom;
+  text-align: center;
+  margin: 0 auto;
   font-size: 35px;
   font-family: $titleFont;
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);

@@ -16,7 +16,6 @@
   align-items: center;
   width: 450px;
 
-
   img {
     width: 200px;
     height: 200px;
@@ -36,11 +35,8 @@
 .item-title {
   text-align: center;
   font-family: $titleFont;
-  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
-  -webkit-background-clip: text;
   letter-spacing: 3px;
   color: $darkTextColor;
-
 }
 
 .project-large-link {
