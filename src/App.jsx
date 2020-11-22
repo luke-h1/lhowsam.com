@@ -11,6 +11,7 @@ import Quotes from './components/Projects/Quotes/Quotes';
 import PersonalSite from './components/Projects/PersonalSite/PersonalSite';
 import { GlobalStyle } from './styles/GlobalStyles';
 import BlogItem from './components/BlogItem/BlogItem';
+import BlogPage from './Pages/BlogPage/BlogPage';
 function App() {
   return (
     <>
@@ -33,7 +34,7 @@ function App() {
             component={FormValidator}
           />
           <Route exact path="/projects/quotes-app" component={Quotes} />
-          <Route exact path="/blog" component={BlogItem} />
+          <Route exact path="/blog" component={BlogPage} />
           <Route default component={FourOhFour} />
         </Switch>
       </BrowserRouter>
