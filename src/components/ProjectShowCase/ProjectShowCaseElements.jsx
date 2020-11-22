@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const ShowCaseWrapper = styled.div`
-  min-height: 70vh;
+  min-height: 100vh;
   min-width: 100vw;
   background-color: ${lightTheme.backgroundColor};
   color: ${lightTheme.textColor};
@@ -13,7 +13,7 @@ export const ShowCaseWrapper = styled.div`
   @media (max-width: 620px) {
     min-height: 120vh;
   }
-  @media(max-width:375px){
+  @media (max-width: 375px) {
     min-height: 140vh;
   }
 `;

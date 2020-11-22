@@ -12,7 +12,6 @@ export const HomeHeroSection = styled.div`
   background-color: ${lightTheme.backgroundColor};
 `;
 
-
 export const GridContainer = styled.div`
   display: flex;
   flex-direction: column;

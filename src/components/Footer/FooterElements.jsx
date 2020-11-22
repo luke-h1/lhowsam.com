@@ -10,10 +10,9 @@ export const FooterContainer = styled.footer`
   width: 100%;
   margin: 0;
   height: 100px;
-  @media(max-width: 375px){
-      height: 120px;
+  @media (max-width: 375px) {
+    height: 120px;
   }
-
 `;
 
 export const FooterWrap = styled.div`
