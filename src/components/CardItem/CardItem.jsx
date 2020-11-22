@@ -1,24 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './CardItem.scss';
+import {
+  CardItem1,
+  CardLink,
+  CardFigure,
+  CardItemInfo,
+  CardText,
+  CardImage,
+} from './CardItemElements';
+
 const CardItem = (props) => {
   return (
     <>
-      <div className="cards__item">
-        <Link className="cards__item__link" to={props.path}>
-          <figure className="cards__item__pic-wrap" data-category={props.label}>
-            <img
-              src={props.src}
-              alt="Travel"
-              className="cards__item__img"
-              loading={props.loading}
-            />
-          </figure>
-          <div className="cards__item__info">
-            <h5 className="cards__item__text">{props.text}</h5>
-          </div>
-        </Link>
-      </div>
+      <CardItem1>
+        <CardLink className="cards__item__link" to={props.path}>
+          <CardFigure data-category={props.label}>
+            <CardImage src={props.src} alt="Travel" loading={props.loading} />
+          </CardFigure>
+          <CardItemInfo>
+            <CardText>{props.text}</CardText>
+          </CardItemInfo>
+        </CardLink>
+      </CardItem1>
     </>
   );
 };
