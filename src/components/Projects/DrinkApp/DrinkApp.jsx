@@ -1,7 +1,6 @@
 import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
 import Image2 from '../../../images/Projects/Drink-carson.jpeg';
-import '../../CardItem/CardItemLarge/CardItemLarge.scss';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
 

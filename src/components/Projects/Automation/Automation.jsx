@@ -1,6 +1,5 @@
 import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
-import '../../CardItem/CardItemLarge/CardItemLarge.scss';
 import Image3 from '../../../images/Projects/pink-pattern-pawel.jpeg';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
