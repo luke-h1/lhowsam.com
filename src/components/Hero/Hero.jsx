@@ -1,31 +1,39 @@
 import React from 'react';
-import styles from './Hero.module.scss';
 import profileImage from '../../images/luke.jpeg';
+import {
+  HomeHeroSection,
+  GridContainer,
+  IntroductionContainer,
+  List,
+  CollectionItem,
+  HeroImage,
+} from './HeroElements';
+
 const Hero = ({ title, introduction }) => {
   return (
     <>
-      <div className={styles.homeHeroSection}>
-        <div className={styles.gridContainer}>
+      <HomeHeroSection>
+        <GridContainer>
           <h1>{title}</h1>
-          <div className={styles.introductionContainer}>
+          <IntroductionContainer>
             <p>{introduction}</p>
             <hr />
-            <ul className={styles.list}>
+            <List>
               <h3>More About Me</h3>
-              <li className={styles.collectionItem}>
+              <CollectionItem>
                 🌱 I’m currently learning ... Javascript, React & Jest
-              </li>
-              <li className={styles.collectionItem}>
+              </CollectionItem>
+              <CollectionItem>
                 {' '}
                 💚 I enjoying working on ... React, Testing methodologies and
                 frameworks (following best practices, unit testing), Automation
                 technologies (Ansible, bash ) & OOS projects
-              </li>
-            </ul>
-          </div>
-          <img src={profileImage} className={styles.heroImage} alt="" />
-        </div>
-      </div>
+              </CollectionItem>
+            </List>
+          </IntroductionContainer>
+          <HeroImage src={profileImage} alt="" />
+        </GridContainer>
+      </HomeHeroSection>
     </>
   );
 };
