@@ -1,54 +1,51 @@
 import React from 'react';
-import './Footer.scss';
-import { Link } from 'react-router-dom';
-import { FaGithub, FaLinkedin } from 'react-icons/fa';
-import { BiCodeAlt } from 'react-icons/bi';
-import PropTypes from 'prop-types';
-const Footer = ({ copyright }) => {
+import { SiGithub } from 'react-icons/si';
+import { AiOutlineMail } from 'react-icons/ai';
+import { ImLinkedin2 } from 'react-icons/im';
+import {
+  FooterContainer,
+  FooterWrap,
+  SocialMedia,
+  SocialMediaWrap,
+  SocialIconLink,
+  SocialIcons,
+  SocialLogo,
+} from './FooterElements';
+
+const Footer = () => {
   return (
-    <div className="footer-container">
-      <section className="social-media">
-        <div className="social-media-wrap">
-          <div className="footer-logo">
-            <Link to="/" className="social-logo">
-              <BiCodeAlt className="footer-icon" />
-            </Link>
-          </div>
-          <small className="website-rights">
-            {copyright} {new Date().getFullYear()}
-          </small>
-          <div className="social-icons">
-            <a
-              className="social-icon-link"
-              href="https://github.com/luke-h1"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Github"
-            >
-              <FaGithub test-id="github" />
-            </a>
-            <a
-              className="social-icon-link"
-              href="https://www.linkedin.com/in/lukehowsam/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin test-id="linkedin" />
-            </a>
-          </div>
-        </div>
-      </section>
-    </div>
+    <FooterContainer>
+      <FooterWrap>
+        <SocialMedia>
+          <SocialMediaWrap>
+            <SocialLogo to="/">Logo goes here</SocialLogo>
+            <SocialIcons>
+              <SocialIconLink
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <SiGithub />
+              </SocialIconLink>
+              <SocialIconLink
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <ImLinkedin2 />
+              </SocialIconLink>
+              <SocialIconLink
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <AiOutlineMail />
+              </SocialIconLink>
+            </SocialIcons>
+          </SocialMediaWrap>
+        </SocialMedia>
+      </FooterWrap>
+    </FooterContainer>
   );
 };
-
-Footer.defaultProps = {
-  copyright: 'Luke Howsam ©',
-};
-
-Footer.propTypes = {
-  copyright: PropTypes.string.isRequired,
-};
-
 export default Footer;

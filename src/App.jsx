@@ -4,7 +4,6 @@ import './App.scss';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 import Projects from './components/Projects/Projects';
-import HeroSection from './components/HeroSection/HeroSection';
 import Contact from './components/Contact/Contact';
 import FourOhFour from './components/FourOhFour/FourOhFour';
 import Automation from './components/Projects/Automation/Automation';
