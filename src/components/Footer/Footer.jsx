@@ -11,14 +11,16 @@ import {
   SocialIcons,
   SocialLogo,
 } from './FooterElements';
-
+import { CodeIcon } from '../utils/Icons/CodeIcon';
 const Footer = () => {
   return (
     <FooterContainer>
       <FooterWrap>
         <SocialMedia>
           <SocialMediaWrap>
-            <SocialLogo to="/">Logo goes here</SocialLogo>
+            <SocialLogo to="/">
+              <CodeIcon />
+            </SocialLogo>
             <SocialIcons>
               <SocialIconLink
                 href="https://github.com/luke-h1"

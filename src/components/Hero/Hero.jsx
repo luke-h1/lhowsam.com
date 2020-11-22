@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Hero.module.scss';
 import profileImage from '../../images/luke.jpeg';
-const Hero = ({ title, introduction, introductionTwo }) => {
+const Hero = ({ title, introduction }) => {
   return (
     <>
       <div className={styles.homeHeroSection}>
