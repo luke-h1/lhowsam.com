@@ -21,21 +21,22 @@ const Footer = () => {
             <SocialLogo to="/">Logo goes here</SocialLogo>
             <SocialIcons>
               <SocialIconLink
-                href="#"
+                href="https://github.com/luke-h1"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <SiGithub />
               </SocialIconLink>
               <SocialIconLink
-                href="#"
+                href="https://www.linkedin.com/in/lukehowsam/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <ImLinkedin2 />
               </SocialIconLink>
               <SocialIconLink
-                href="#"
+                href="mailto:luke.howsam@yahoo.com?subject=Get In Touch"
+                aria-label="Email"
                 target="_blank"
                 rel="noopener noreferrer"
               >
