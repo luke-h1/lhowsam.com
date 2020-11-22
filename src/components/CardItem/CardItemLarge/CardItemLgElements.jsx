@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-
+import { light } from '../../../styles/Colors';
+import { lightTheme, darkTheme } from '../../../styles/Themes';
 export const CardLgWrapper = styled.div`
   min-width: 100vw;
-  color: $darkTextColor;
+  color: ${lightTheme.textColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: $backgroundColor;
+  background-color: ${lightTheme.backgroundColor};
 `;
 
 export const Card = styled.div`
@@ -33,7 +34,7 @@ export const ItemTitle = styled.h1`
   text-align: center;
   font-family: $titleFont;
   letter-spacing: 3px;
-  color: $darkTextColor;
+  color: ${lightTheme.textColor};
 `;
 
 export const Container = styled.div`
@@ -54,13 +55,13 @@ export const Container = styled.div`
 // export const IconContainer = styled.div``
 
 export const GithubLink = styled.a`
-  color: $darkTextColor;
+  color: ${lightTheme.textColor};
   font-size: 35px;
   margin-bottom: 10px;
   margin: 0 10px 0 10px;
 
   &:hover {
-    color: $iconHover;
+    color: ${lightTheme.hoverColor};
     cursor: pointer;
     transform: scale(1.15);
     transition: scale ease 0.5s;
@@ -69,12 +70,11 @@ export const GithubLink = styled.a`
 
 export const SiteLink = styled.a`
   margin: 0 10px 0 10px;
-
-  color: $darkTextColor;
+  color: ${lightTheme.textColor};
   font-size: 35px;
   margin-bottom: 20px;
   &:hover {
-    color: $iconHover;
+    color: ${lightTheme.hoverColor};
     cursor: pointer;
     transform: scale(1.15);
     transition: scale ease 0.5s;
@@ -82,14 +82,12 @@ export const SiteLink = styled.a`
 `;
 
 export const ProjectLgLink = styled(Link)`
-  color: $darkTextColor;
+  color: ${lightTheme.textColor};
   text-decoration: none;
   margin-top: 1rem;
   font-size: 18px;
   &:hover {
-    color: $borderBottom;
     cursor: pointer;
-
     transition: all ease 0.2s;
     transform: scale(1.15);
   }
