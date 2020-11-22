@@ -10,6 +10,8 @@ export const HomeHeroSection = styled.div`
   min-width: 100vw;
   padding: 1rem;
   background-color: ${lightTheme.backgroundColor};
+
+
 `;
 
 export const GridContainer = styled.div`

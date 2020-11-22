@@ -13,6 +13,9 @@ export const ShowCaseWrapper = styled.div`
   @media (max-width: 620px) {
     min-height: 120vh;
   }
+  @media(max-width:375px){
+    min-height: 140vh;
+  }
 `;
 
 export const ShowCaseContainer = styled.div`
