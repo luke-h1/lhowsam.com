@@ -8,7 +8,7 @@ export const SkillWrapper = styled.div`
   flex-wrap: wrap;
   white-space: nowrap;
   align-items: center;
-  min-height: 45vh;
+  min-height: 35vh;
   margin: 0 auto;
   background-color: ${lightTheme.backgroundColor};
 `;
