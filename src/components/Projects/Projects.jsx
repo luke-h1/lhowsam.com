@@ -1,6 +1,5 @@
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
-import './Projects.scss';
 import Image1 from '../../images/Projects/Coffee-jon-tyson.jpeg';
 import Image2 from '../../images/Projects/Drink-carson.jpeg';
 import Image3 from '../../images/Projects/pink-pattern-pawel.jpeg';

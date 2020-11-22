@@ -53,10 +53,15 @@
   }
 }
 
+.icon-container { 
+}
+
 .github-link {
   color: $darkTextColor;
   font-size: 35px;
   margin-bottom: 10px;
+  margin: 0 10px 0 10px;
+
   &:hover {
     color: $iconHover;
     cursor: pointer;
@@ -66,6 +71,8 @@
 }
 
 .site-link {
+  margin: 0 10px 0 10px;
+
   color: $darkTextColor;
   font-size: 35px;
   margin-bottom: 20px;
