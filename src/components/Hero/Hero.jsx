@@ -23,7 +23,6 @@ const Hero = ({ title, introduction }) => {
               </li>
             </ul>
           </div>
-
           <img src={profileImage} className={styles.heroImage} alt="" />
         </div>
       </div>

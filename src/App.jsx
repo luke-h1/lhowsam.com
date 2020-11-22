@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
-import Navbar from './components/Navbar/Navbar';
-import Footer from './components/Footer/Footer';
+
 import Projects from './components/Projects/Projects';
 import Contact from './components/Contact/Contact';
 import FourOhFour from './components/FourOhFour/FourOhFour';
@@ -12,14 +11,13 @@ import FormValidator from './components/Projects/FormValidator/FormValidator';
 import Quotes from './components/Projects/Quotes/Quotes';
 import PersonalSite from './components/Projects/PersonalSite/PersonalSite';
 import BlogTest from './components/Blog/BlogTest';
-import Hero from './components/Hero/Hero';
+import Home from './Pages/Home/Home';
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
         <Switch>
-          <Route path="/" exact component={Hero} />
+          <Route path="/" exact component={Home} />
           <Route path="/projects" exact component={Projects} />
           <Route path="/contact" exact component={Contact} />
           <Route exact path="/Automation" component={Automation} />
@@ -30,7 +28,6 @@ function App() {
           <Route exact path="/blog/postone" component={BlogTest} />
           <Route default component={FourOhFour} />
         </Switch>
-        <Footer />
       </BrowserRouter>
     </>
   );
