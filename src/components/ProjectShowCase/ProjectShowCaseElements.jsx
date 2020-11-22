@@ -13,12 +13,10 @@ export const ShowCaseWrapper = styled.div`
 
 export const ShowCaseContainer = styled.div`
   margin-top: 2rem;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
 `;
-
 
 export const ShowCaseTitle = styled.h1`
   text-align: center;

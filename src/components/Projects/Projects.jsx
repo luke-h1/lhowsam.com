@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
 import './Projects.scss';
-import Image1 from '../../images/Projects/Coffee-jon-tyson.jpeg'
+import Image1 from '../../images/Projects/Coffee-jon-tyson.jpeg';
 import Image2 from '../../images/Projects/Drink-carson.jpeg';
 import Image3 from '../../images/Projects/pink-pattern-pawel.jpeg';
 import Image4 from '../../images/Projects/pattern-ahmad-dirini.jpeg';
@@ -20,35 +20,35 @@ const Projects = ({ title, iconStyles }) => {
               src={Image1}
               text="Personal Site"
               label="React, Vanilla JS, SCSS, CSS"
-              path="personal-site"
+              path="/projects/personal-site"
               loading="lazy"
             />
             <CardItem
               src={Image2}
               text="Cocktail Recipe App"
               label="React Hooks, SASS"
-              path="drink-app"
+              path="/projects/drink-app"
               loading="lazy"
             />
             <CardItem
               src={Image3}
               text="Automation"
               label="Ansible, Bash, CI"
-              path="Automation"
+              path="/projects/Automation"
               loading="lazy"
             />
             <CardItem
               src={Image4}
               text="Form Validator"
               label="Vanilla JS"
-              path="form-validator"
+              path="/projects/form-validator"
               loading="lazy"
             />
             <CardItem
               src={Image5}
               text="Quotes App"
               label="React, SCSS"
-              path="quotes-app"
+              path="/projects/quotes-app"
               loading="lazy"
             />
           </div>

@@ -4,17 +4,17 @@ import {
   ShowCaseContainer,
   ShowCaseTitle,
 } from './ProjectShowCaseElements';
-
 import CardItem from '../CardItem/CardItem';
 import Image1 from '../../images/Projects/Coffee-jon-tyson.jpeg';
 import Image2 from '../../images/Projects/Drink-carson.jpeg';
 import Image3 from '../../images/Projects/pink-pattern-pawel.jpeg';
+import {Link} from 'react-router-dom';
 const ProjectShowCase = () => {
   return (
     <>
       <ShowCaseWrapper>
         <ShowCaseTitle>Recent Projects</ShowCaseTitle>
-
+        <small><Link to='/projects'>See more projects</Link></small>
         <ShowCaseContainer>
           <CardItem
             src={Image1}

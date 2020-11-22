@@ -1,9 +1,10 @@
 import React from 'react';
 
-const BlogTest = () => { 
+const AboutPage = () => { 
   return ( 
     <>
+    
     </>
   )
 }
-export default BlogTest
+export default AboutPage;
