@@ -1,34 +1,36 @@
 import React from 'react';
 import {
-  BlogContainer,
-  BlogCard,
-  BlogH1,
-  ShortDesc,
-  BlogP,
+  BlogCardItem,
+  CardLink,
+  PostTitle,
+  PostImage,
+  BlogDetails,
+  postCat,
+  Author,
   BlogWrapper,
 } from './BlogItemElements';
-import Button from '../utils/Buttons/ButtonElements';
-import Img from '../../images/Projects/Coffee-jon-tyson.jpeg';
 import { BlogData } from '../../data/BlogData';
-import { Link } from 'react-router-dom';
 const BlogItem = () => {
   return (
     <>
-      <BlogContainer>
+      <BlogWrapper>
         {BlogData.map((blog, i) => {
           return (
-            <BlogWrapper>
-              <BlogCard>
-                <BlogH1>{blog.name}</BlogH1>
-                <ShortDesc>
-                  <BlogP>{blog.desc}</BlogP>
-                  <Link to={blog.link}>Link</Link>
-                </ShortDesc>
-              </BlogCard>
-            </BlogWrapper>
+            <CardLink to={blog.link}>
+              <BlogCardItem>
+                <PostImage src={blog.img} />
+                <BlogDetails>
+                  <postCat>{blog.category}</postCat>
+                  <PostTitle>{blog.title}</PostTitle>
+                  <h3>{blog.topic}</h3>
+                  <Author>{blog.Author}</Author>
+                  <h3>{blog.postedAt}</h3>
+                </BlogDetails>
+              </BlogCardItem>
+            </CardLink>
           );
         })}
-      </BlogContainer>
+      </BlogWrapper>
     </>
   );
 };
