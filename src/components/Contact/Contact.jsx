@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
 import Wave from '../utils/wave/Wave';
@@ -17,7 +17,7 @@ import {
 const Contact = ({ title }) => {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
-      <div>
+      <>
         <ContactWrapper>
           <h1>Get In Touch</h1>
           <Alternatives>
@@ -65,7 +65,7 @@ const Contact = ({ title }) => {
             </WaveWrap>
           </Alternatives>
         </ContactWrapper>
-      </div>
+      </>
     </IconContext.Provider>
   );
 };

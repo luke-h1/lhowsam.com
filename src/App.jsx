@@ -10,6 +10,7 @@ import FormValidator from './components/Projects/FormValidator/FormValidator';
 import Quotes from './components/Projects/Quotes/Quotes';
 import PersonalSite from './components/Projects/PersonalSite/PersonalSite';
 import { GlobalStyle } from './styles/GlobalStyles';
+import Blog from './Blog/Blog';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             component={FormValidator}
           />
           <Route exact path="/projects/quotes-app" component={Quotes} />
+          <Route exact path="/blog" component={Blog} />
           <Route default component={FourOhFour} />
         </Switch>
       </BrowserRouter>
