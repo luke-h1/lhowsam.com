@@ -11,7 +11,7 @@ export const CardWrap = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
-  width: 75%;
+  width: 100%;
   margin-bottom: 4rem;
   @media (max-width: 1380px) {
     grid-template-columns: repeat(3, 1fr);
