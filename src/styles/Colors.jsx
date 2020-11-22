@@ -2,6 +2,7 @@ export const blue = {
   100: '#2ab7ca',
   200: '#1f98f4',
   300: '#4b59f7',
+  400: '#9AF1',
 };
 
 export const light = {
