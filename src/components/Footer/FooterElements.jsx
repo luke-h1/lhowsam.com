@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { lightTheme } from '../../styles/Themes';
 
 export const FooterContainer = styled.footer`
-  background-color: #fff;
-  border-top: 1px solid #eee;
+  background-color: ${lightTheme.backgroundColor};
+  border-top: 1px solid ${lightTheme.FooterBorder};
   position: fixed;
   bottom: 0px;
   width: 100%;
@@ -37,7 +38,7 @@ export const SocialMediaWrap = styled.div`
 `;
 
 export const SocialLogo = styled(Link)`
-  color: #000;
+  color: ${lightTheme.textColor};
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
@@ -56,10 +57,10 @@ export const SocialIcons = styled.div`
 `;
 
 export const SocialIconLink = styled.a`
-  color: #000;
+  color: ${lightTheme.textColor};
   font-size: 24px;
   &:hover {
-    color: #1f98f4;
+    color: ${lightTheme.hoverColor};
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }

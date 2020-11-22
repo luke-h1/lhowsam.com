@@ -1,40 +1,40 @@
-import styled from 'styled-components'
-import { BiCodeBlock } from 'react-icons/bi'
-import { Link } from 'react-router-dom'
-import { Container } from '../Container/Container'
-
+import styled from 'styled-components';
+import { BiCodeBlock } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
+import { Container } from '../Container/Container';
+import { lightTheme, darkTheme } from '../../styles/Themes';
 export const Nav = styled.nav`
-  background: #fff;
+  background: ${lightTheme.backgroundColor};
   height: 90px;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 999;
   position: relative;
-  border-bottom: 1px solid #eee;
-`
+  border-bottom: 1px solid ${lightTheme.FooterBorder};
+`;
 
 export const NavbarContainer = styled(Container)`
   display: flex;
   justify-content: space-between;
   height: 80px;
   ${Container}
-  color: #000 !important;
-`
+  color: ${lightTheme.textColor} !important;
+`;
 
 export const NavLogo = styled(Link)`
-  color: #000;
+  color: ${lightTheme.textColor};
   justify-self: flex-start;
   cursor: pointer;
   text-decoration: none;
   font-size: 1.8rem;
   display: flex;
   align-items: center;
-`
+`;
 
 export const NavIcon = styled(BiCodeBlock)`
   margin-right: 0.5rem;
-`
+`;
 
 export const MobileIcon = styled.div`
   display: none;
@@ -46,9 +46,9 @@ export const MobileIcon = styled.div`
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-    color: #000;
+    color: ${lightTheme.textColor};
   }
-`
+`;
 
 export const NavMenu = styled.ul`
   display: flex;
@@ -69,7 +69,7 @@ export const NavMenu = styled.ul`
     left: ${({ click }) => (click ? 0 : '-200%')};
     opacity: 1;
     transition: all 0.2s ease;
-    background: #eee;
+    background: ${lightTheme.FooterBorder};
     font-size: 1.8rem;
     font-weight: 700;
     overflow-y: hidden; /* Hide vertical scrollbar */
@@ -77,13 +77,13 @@ export const NavMenu = styled.ul`
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
   }
-`
+`;
 
 export const NavItem = styled.li`
   height: 80px;
   border-bottom: 2px solid transparent;
   &:hover {
-    border-bottom: 2px solid #4b59f7;
+    border-bottom: 2px solid ${lightTheme.darkBlueBorder};
   }
   @media screen and (max-width: 960px) {
     width: 100%;
@@ -96,7 +96,7 @@ export const NavItem = styled.li`
       transform: scale(1.11);
     }
   }
-`
+`;
 
 export const NavItemBtn = styled.li`
   @media screen and (max-width: 960px) {
@@ -106,10 +106,10 @@ export const NavItemBtn = styled.li`
     width: 100%;
     height: 120px;
   }
-`
+`;
 
 export const NavLinks = styled(Link)`
-  color: #000;
+  color: ${lightTheme.textColor};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -125,11 +125,11 @@ export const NavLinks = styled(Link)`
     text-align: center;
     width: 100%;
     &:hover {
-      color: #4b59f7;
+      color: ${lightTheme.darkBlueBorder};
       transition: all 0.3s ease;
     }
   }
-`
+`;
 
 export const NavBtnLink = styled(Link)`
   display: flex;
@@ -141,4 +141,4 @@ export const NavBtnLink = styled(Link)`
   width: 100%;
   border: none;
   outline: none;
-`
+`;

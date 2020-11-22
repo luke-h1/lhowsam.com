@@ -7,7 +7,7 @@ import Footer from '../../Footer/Footer';
 const PersonalSite = () => {
   return (
     <>
-    <Navbar /> 
+      <Navbar />
       <CardItemLarge
         title="Personal Site (This one!)"
         src={Image1}
@@ -17,7 +17,7 @@ const PersonalSite = () => {
         github="https://github.com/luke-h1/lhowsam.com"
         site="https://lhowsam.com"
       ></CardItemLarge>
-      <Footer /> 
+      <Footer />
     </>
   );
 };

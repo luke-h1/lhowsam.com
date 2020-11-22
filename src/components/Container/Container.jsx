@@ -1,5 +1,5 @@
 /* eslint-disable import/prefer-default-export */
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.div`
   z-index: 1;
@@ -12,4 +12,4 @@ export const Container = styled.div`
     /* padding-right: 30px;
     padding-left: 30px; */
   }
-`
+`;

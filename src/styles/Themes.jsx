@@ -4,7 +4,10 @@ import { primaryFont } from './typography';
 export const lightTheme = {
   backgroundColor: light[100],
   hoverColor: blue[200],
+  FooterBorder: light[200],
   textColor: dark[100],
+  whiteTextColor: light[100],
+  darkBlueBorder: blue[300],
   primaryFont,
 };
 

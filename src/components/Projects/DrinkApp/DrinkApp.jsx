@@ -8,7 +8,7 @@ import Footer from '../../Footer/Footer';
 const DrinkApp = () => {
   return (
     <>
-    <Navbar /> 
+      <Navbar />
       <CardItemLarge
         title="Cocktail Recipe App"
         src={Image2}
@@ -19,7 +19,7 @@ const DrinkApp = () => {
         github="https://github.com/luke-h1/cocktail-recipe-app "
         site="https://cocktail-recipe-app.vercel.app/"
       ></CardItemLarge>
-      <Footer /> 
+      <Footer />
     </>
   );
 };

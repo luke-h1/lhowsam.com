@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import { FaBars, FaTimes } from 'react-icons/fa'
-import { IconContext } from 'react-icons/lib'
+import React, { useState } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { IconContext } from 'react-icons/lib';
 import {
   Nav,
   NavbarContainer,
@@ -12,13 +12,13 @@ import {
   NavItemBtn,
   NavLinks,
   NavBtnLink,
-} from './NavbarElements'
-import { NavContactButton } from '../Button/NavContactButton'
+} from './NavbarElements';
+import { NavContactButton } from '../Button/NavContactButton';
 
 function Navbar() {
-  const [click, setClick] = useState(false)
-  const handleClick = () => setClick(!click)
-  const closeMobileMenu = () => setClick(false)
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
   return (
     <>
       <IconContext.Provider value={{ color: '#000' }}>
@@ -47,7 +47,7 @@ function Navbar() {
                   Blog
                 </NavLinks>
               </NavItem>
-             
+
               <NavItem>
                 <NavLinks to="/contact" onClick={closeMobileMenu}>
                   Contact
@@ -65,7 +65,7 @@ function Navbar() {
         </Nav>
       </IconContext.Provider>
     </>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

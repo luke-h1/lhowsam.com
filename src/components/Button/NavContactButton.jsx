@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
-import styled from 'styled-components'
-import { Link } from 'react-router-dom'
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const NavContactButton = styled(Link)`
   background: ${({ primary }) => (primary ? '#f26a2e' : '#077bf1')};
@@ -22,4 +22,4 @@ export const NavContactButton = styled(Link)`
   @media (max-width: 900px) {
     display: none;
   }
-`
+`;

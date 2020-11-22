@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { lightTheme, darkTheme } from '../../styles/Themes';
 export const CardItem1 = styled.div`
   display: flex;
   flex: 1;
   margin: 0 1rem;
   border-radius: 10px;
-  background: #fff;
+  background: ${lightTheme.backgroundColor};
   max-width: 250px;
   min-width: 250px;
 `;
@@ -54,8 +55,8 @@ export const CardFigure = styled.figure`
     max-width: calc((100%) - 60px);
     font-size: 12px;
     font-weight: 700;
-    color: #fff;
-    background-color: #1f98f4;
+    color: ${lightTheme.whiteTextColor};
+    background-color: ${lightTheme.hoverColor};
     box-sizing: border-box;
   }
 `;
@@ -65,7 +66,7 @@ export const CardItemInfo = styled.div`
 `;
 
 export const CardText = styled.h5`
-  color: #000;
+  color: ${lightTheme.textColor};
   font-size: 18px;
   line-height: 24px;
 `;

@@ -8,7 +8,12 @@ import Image5 from '../../images/Projects/Shop-albert-renn.jpeg';
 import PropTypes from 'prop-types';
 import CardItem from '../CardItem/CardItem';
 
-import { ProjectWrapper, CardWrap, ProjectTitle,CardContainer } from './ProjectElements';
+import {
+  ProjectWrapper,
+  CardWrap,
+  ProjectTitle,
+  CardContainer,
+} from './ProjectElements';
 
 const Projects = ({ title, iconStyles }) => {
   return (
@@ -17,43 +22,43 @@ const Projects = ({ title, iconStyles }) => {
         <ProjectWrapper>
           <ProjectTitle>{title}</ProjectTitle>
           <CardContainer>
-          <CardWrap>
-            <CardItem
-              src={Image1}
-              text="Personal Site"
-              label="React, Vanilla JS, SCSS, CSS"
-              path="/projects/personal-site"
-              loading="lazy"
-            />
-            <CardItem
-              src={Image2}
-              text="Cocktail Recipe App"
-              label="React Hooks, SASS"
-              path="/projects/drink-app"
-              loading="lazy"
-            />
-            <CardItem
-              src={Image3}
-              text="Automation"
-              label="Ansible, Bash, CI"
-              path="/projects/Automation"
-              loading="lazy"
-            />
-            <CardItem
-              src={Image4}
-              text="Form Validator"
-              label="Vanilla JS"
-              path="/projects/form-validator"
-              loading="lazy"
-            />
-            <CardItem
-              src={Image5}
-              text="Quotes App"
-              label="React, SCSS"
-              path="/projects/quotes-app"
-              loading="lazy"
-            />
-          </CardWrap>
+            <CardWrap>
+              <CardItem
+                src={Image1}
+                text="Personal Site"
+                label="React, Vanilla JS, SCSS, CSS"
+                path="/projects/personal-site"
+                loading="lazy"
+              />
+              <CardItem
+                src={Image2}
+                text="Cocktail Recipe App"
+                label="React Hooks, SASS"
+                path="/projects/drink-app"
+                loading="lazy"
+              />
+              <CardItem
+                src={Image3}
+                text="Automation"
+                label="Ansible, Bash, CI"
+                path="/projects/Automation"
+                loading="lazy"
+              />
+              <CardItem
+                src={Image4}
+                text="Form Validator"
+                label="Vanilla JS"
+                path="/projects/form-validator"
+                loading="lazy"
+              />
+              <CardItem
+                src={Image5}
+                text="Quotes App"
+                label="React, SCSS"
+                path="/projects/quotes-app"
+                loading="lazy"
+              />
+            </CardWrap>
           </CardContainer>
         </ProjectWrapper>
       </>

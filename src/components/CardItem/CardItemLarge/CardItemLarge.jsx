@@ -41,6 +41,9 @@ const CardItem = (props) => {
           <Link to="/projects" className="project-large-link">
             Back to projects
           </Link>
+          <Link to="/" className="project-large-link">
+            Back to Home
+          </Link>
         </div>
       </div>
     </>

@@ -8,7 +8,7 @@ import Footer from '../../Footer/Footer';
 const FormValidator = () => {
   return (
     <>
-    <Navbar /> 
+      <Navbar />
       <CardItemLarge
         title="Form Validator"
         src={Image4}
@@ -20,7 +20,7 @@ const FormValidator = () => {
         github="javascript-regex-validation-form"
         site="https://javascript-regex-validation-form.vercel.app/"
       ></CardItemLarge>
-      <Footer /> 
+      <Footer />
     </>
   );
 };

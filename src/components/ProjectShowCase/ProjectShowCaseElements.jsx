@@ -1,10 +1,11 @@
 import styled from 'styled-components';
+import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const ShowCaseWrapper = styled.div`
   min-height: 70vh;
   min-width: 100vw;
-  background-color: $backgroundColor;
-  color: $lightTextColor;
+  background-color: ${lightTheme.backgroundColor};
+  color: ${lightTheme.textColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,4 +23,4 @@ export const ShowCaseTitle = styled.h1`
   text-align: center;
   margin-bottom: 15px;
   font-weight: 600;
-`
+`;
