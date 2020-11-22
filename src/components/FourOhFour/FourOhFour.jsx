@@ -1,5 +1,4 @@
 import React from 'react';
-import './fourOhFour.scss';
 import PropTypes from 'prop-types';
 import {
   Wrapper,
