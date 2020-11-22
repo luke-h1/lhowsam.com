@@ -5,7 +5,7 @@ import { Container } from '../Container/Container'
 
 export const Nav = styled.nav`
   background: #fff;
-  height: 70px;
+  height: 90px;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1300px) / 2);
@@ -66,7 +66,7 @@ export const NavMenu = styled.ul`
     position: absolute;
     top: 80px;
     overflow: hidden;
-    left: ${({ click }) => (click ? 0 : '-100%')};
+    left: ${({ click }) => (click ? 0 : '-200%')};
     opacity: 1;
     transition: all 0.2s ease;
     background: #eee;
