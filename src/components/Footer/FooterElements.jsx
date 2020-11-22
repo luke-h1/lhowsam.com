@@ -8,7 +8,7 @@ export const FooterContainer = styled.footer`
   bottom: 0px;
   width: 100%;
   margin: 0;
-  height: 90px;
+  height: 100px;
 `;
 
 export const FooterWrap = styled.div`
