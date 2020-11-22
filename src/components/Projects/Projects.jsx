@@ -26,7 +26,7 @@ const Projects = ({ title, iconStyles }) => {
               <CardItem
                 src={Image1}
                 text="Personal Site"
-                label="React, Vanilla JS, SCSS, CSS"
+                label="React, Vanilla JS, SCSS, CSS, styled-components"
                 path="/projects/personal-site"
                 loading="lazy"
               />
