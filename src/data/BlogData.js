@@ -12,9 +12,10 @@ export const BlogData = [
   {
     img: ImageTest,
     alt: 'test',
-    name: 'blog post one',
+    name: 'blog post two',
     desc:
       'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium assumenda voluptatem nobis aliquam ex non, ipsam eveniet, quos dolores totam possimus aperiam itaque quod eos rem velit nesciunt, est exercitationem?',
     button: 'Go to post',
+    link: '/blog/blogposttwo',
   },
 ];
