@@ -13,7 +13,7 @@ import {
   NavLinks,
   NavBtnLink,
 } from './NavbarElements';
-import { NavContactButton } from '../Button/NavContactButton';
+import { NavContactButton } from '../utils/Buttons/NavContactButton';
 
 function Navbar() {
   const [click, setClick] = useState(false);

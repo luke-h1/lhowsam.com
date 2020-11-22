@@ -1,5 +1,6 @@
-@import '../../../global';
-.wave-btn {
+import styled from 'styled-components';
+
+export const WaveButton = styled.button`
   background: rebeccapurple;
   border: none;
   color: $lightTextColor;
@@ -8,4 +9,4 @@
   border-radius: 15px;
   outline: 0;
   cursor: pointer;
-}
+`;

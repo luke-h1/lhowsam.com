@@ -4,8 +4,7 @@ import './Contact.scss';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { AiOutlineMail } from 'react-icons/ai';
-import Wave from '../common/wave/wave';
-
+import Wave from '../utils/wave/Wave';
 const Contact = ({ title, MainTitle }) => {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
