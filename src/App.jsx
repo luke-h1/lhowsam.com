@@ -10,8 +10,8 @@ import FormValidator from './components/Projects/FormValidator/FormValidator';
 import Quotes from './components/Projects/Quotes/Quotes';
 import PersonalSite from './components/Projects/PersonalSite/PersonalSite';
 import { GlobalStyle } from './styles/GlobalStyles';
-import BlogItem from './components/BlogItem/BlogItem';
 import BlogPage from './Pages/BlogPage/BlogPage';
+import HelloWorld from './components/BlogPosts/HelloWorld';
 function App() {
   return (
     <>
@@ -35,6 +35,7 @@ function App() {
           />
           <Route exact path="/projects/quotes-app" component={Quotes} />
           <Route exact path="/blog" component={BlogPage} />
+          <Route exact path="/blog/hello-world" component={HelloWorld} />
           <Route default component={FourOhFour} />
         </Switch>
       </BrowserRouter>
