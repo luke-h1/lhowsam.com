@@ -2,10 +2,13 @@ import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
 import Image2 from '../../../images/Projects/Drink-carson.jpeg';
 import '../../CardItem/CardItemLarge/CardItemLarge.scss';
+import Navbar from '../../Navbar/Navbar';
+import Footer from '../../Footer/Footer';
 
 const DrinkApp = () => {
   return (
     <>
+    <Navbar /> 
       <CardItemLarge
         title="Cocktail Recipe App"
         src={Image2}
@@ -16,6 +19,7 @@ const DrinkApp = () => {
         github="https://github.com/luke-h1/cocktail-recipe-app "
         site="https://cocktail-recipe-app.vercel.app/"
       ></CardItemLarge>
+      <Footer /> 
     </>
   );
 };

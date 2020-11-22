@@ -1,10 +1,13 @@
 import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
 import Image1 from '../../../images/Projects/Coffee-jon-tyson.jpeg';
+import Navbar from '../../Navbar/Navbar';
+import Footer from '../../Footer/Footer';
 
 const PersonalSite = () => {
   return (
     <>
+    <Navbar /> 
       <CardItemLarge
         title="Personal Site (This one!)"
         src={Image1}
@@ -14,6 +17,7 @@ const PersonalSite = () => {
         github="https://github.com/luke-h1/lhowsam.com"
         site="https://lhowsam.com"
       ></CardItemLarge>
+      <Footer /> 
     </>
   );
 };

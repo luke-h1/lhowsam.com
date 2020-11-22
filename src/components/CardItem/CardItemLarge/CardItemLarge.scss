@@ -1,7 +1,7 @@
 @import '../../../global';
 .project-large-wrapper {
   min-width: 100vw;
-  color: $lightTextColor;
+  color: $darkTextColor;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,11 +14,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 550px;
+  width: 450px;
+
 
   img {
-    width: 300px;
-    height: 350px;
+    width: 200px;
+    height: 200px;
     margin: 1em 0 1em 0;
     border-radius: 15px;
   }
@@ -38,10 +39,12 @@
   background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
   -webkit-background-clip: text;
   letter-spacing: 3px;
+  color: $darkTextColor;
+
 }
 
 .project-large-link {
-  color: $lightTextColor;
+  color: $darkTextColor;
   text-decoration: none;
   margin-top: 1rem;
   font-size: 18px;
@@ -55,7 +58,7 @@
 }
 
 .github-link {
-  color: $lightTextColor;
+  color: $darkTextColor;
   font-size: 35px;
   margin-bottom: 10px;
   &:hover {
@@ -67,7 +70,7 @@
 }
 
 .site-link {
-  color: $lightTextColor;
+  color: $darkTextColor;
   font-size: 35px;
   margin-bottom: 20px;
   &:hover {

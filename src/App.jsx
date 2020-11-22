@@ -3,13 +3,14 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import ProjectPage from './Pages/Projects/ProjectPage';
 import ContactPage from './Pages/Contact/ContactPage';
+import HomePage from './Pages/HomePage/HomePage';
+
 import FourOhFour from './components/FourOhFour/FourOhFour';
 import Automation from './components/Projects/Automation/Automation';
 import DrinkApp from './components/Projects/DrinkApp/DrinkApp';
 import FormValidator from './components/Projects/FormValidator/FormValidator';
 import Quotes from './components/Projects/Quotes/Quotes';
 import PersonalSite from './components/Projects/PersonalSite/PersonalSite';
-import HomePage from './Pages/HomePage/HomePage';
 function App() {
   return (
     <>

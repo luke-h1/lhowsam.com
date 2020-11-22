@@ -2,10 +2,13 @@ import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
 import Image4 from '../../../images/Projects/pattern-ahmad-dirini.jpeg';
 import '../../CardItem/CardItemLarge/CardItemLarge.scss';
+import Navbar from '../../Navbar/Navbar';
+import Footer from '../../Footer/Footer';
 
 const FormValidator = () => {
   return (
     <>
+    <Navbar /> 
       <CardItemLarge
         title="Form Validator"
         src={Image4}
@@ -17,6 +20,7 @@ const FormValidator = () => {
         github="javascript-regex-validation-form"
         site="https://javascript-regex-validation-form.vercel.app/"
       ></CardItemLarge>
+      <Footer /> 
     </>
   );
 };

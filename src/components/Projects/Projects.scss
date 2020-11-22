@@ -1,9 +1,9 @@
 @import '../../global';
 .project-wrapper {
-  min-height: 100vh;
+  min-height: 120vh;
   min-width: 100vw;
   background-color: $backgroundColor;
-  color: $lightTextColor;
+  color: $darkTextColor;
   display: flex;
   flex-direction: column;
   justify-content: center;

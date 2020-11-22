@@ -47,11 +47,7 @@ function Navbar() {
                   Blog
                 </NavLinks>
               </NavItem>
-              <NavItem>
-                <NavLinks to="/about" onClick={closeMobileMenu}>
-                  About
-                </NavLinks>
-              </NavItem>
+             
               <NavItem>
                 <NavLinks to="/contact" onClick={closeMobileMenu}>
                   Contact
