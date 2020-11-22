@@ -35,6 +35,9 @@ export const ItemTitle = styled.h1`
   font-family: $titleFont;
   letter-spacing: 3px;
   color: ${lightTheme.textColor};
+  @media (max-width: 640px) {
+    width: 85%;
+  }
 `;
 
 export const Container = styled.div`
@@ -44,7 +47,7 @@ export const Container = styled.div`
     line-height: 1.6;
     @media (max-width: 640px) {
       font-size: 16px;
-      width: 85%;
+      width: 75%;
       margin: 0 auto;
     }
   }
@@ -86,6 +89,21 @@ export const ProjectLgLink = styled(Link)`
   text-decoration: none;
   margin-top: 1rem;
   font-size: 18px;
+  &:hover {
+    cursor: pointer;
+    transition: all ease 0.2s;
+    transform: scale(1.15);
+  }
+`;
+
+export const ProjectSecondLink = styled(Link)`
+  color: ${lightTheme.textColor};
+  text-decoration: none;
+  margin-top: 1rem;
+  font-size: 18px;
+  @media (max-width: 700px) {
+    margin-bottom: 6rem;
+  }
   &:hover {
     cursor: pointer;
     transition: all ease 0.2s;

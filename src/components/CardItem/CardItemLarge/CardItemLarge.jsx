@@ -9,6 +9,7 @@ import {
   SiteLink,
   ProjectLgLink,
   GithubLink,
+  ProjectSecondLink,
 } from './CardItemLgElements';
 
 const CardItem = (props) => {
@@ -48,9 +49,9 @@ const CardItem = (props) => {
           <ProjectLgLink to="/projects" className="project-large-link">
             Back to projects
           </ProjectLgLink>
-          <ProjectLgLink to="/" className="project-large-link">
+          <ProjectSecondLink to="/" className="project-large-link">
             Back to Home
-          </ProjectLgLink>
+          </ProjectSecondLink>
         </Card>
       </CardLgWrapper>
     </>
