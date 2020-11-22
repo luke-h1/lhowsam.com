@@ -42,11 +42,11 @@ function Navbar() {
                   Projects
                 </NavLinks>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLinks to="/blog" onClick={closeMobileMenu}>
                   Blog
                 </NavLinks>
-              </NavItem>
+              </NavItem> */}
 
               <NavItem>
                 <NavLinks to="/contact" onClick={closeMobileMenu}>
