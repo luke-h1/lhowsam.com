@@ -10,6 +10,7 @@ export const SkillWrapper = styled.div`
   align-items: center;
   min-height: 45vh;
   margin: 0 auto;
+  background-color: ${lightTheme.backgroundColor};
 `;
 
 export const Title = styled.h1`

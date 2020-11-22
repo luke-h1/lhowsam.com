@@ -5,7 +5,7 @@ import { FaGithub } from 'react-icons/fa';
 import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const ContactWrapper = styled.div`
-  min-height: 50vh;
+  min-height: 100vh;
   min-width: 100vw;
   background-color: ${lightTheme.backgroundColor};
   color: ${lightTheme.textColor};
@@ -21,6 +21,8 @@ export const MainTitle = styled.h1`
   letter-spacing: 5px;
   filter: brightness(1.5);
   filter: contrast(300);
+  background-color: ${lightTheme.backgroundColor};
+
 `;
 
 export const Alternatives = styled.div`

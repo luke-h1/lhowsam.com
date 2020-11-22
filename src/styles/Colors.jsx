@@ -6,7 +6,7 @@ export const blue = {
 };
 
 export const light = {
-  100: '#fff',
+  100: '#F6F7F8',
   200: '#eee',
 };
 
