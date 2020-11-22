@@ -5,7 +5,7 @@ import {
   PostTitle,
   PostImage,
   BlogDetails,
-  postCat,
+  PostCat,
   Author,
   BlogWrapper,
 } from './BlogItemElements';
@@ -20,7 +20,7 @@ const BlogItem = () => {
               <BlogCardItem>
                 <PostImage src={blog.img} />
                 <BlogDetails>
-                  <postCat>{blog.category}</postCat>
+                  <PostCat>{blog.category}</PostCat>
                   <PostTitle>{blog.title}</PostTitle>
                   <h3>{blog.topic}</h3>
                   <Author>{blog.Author}</Author>

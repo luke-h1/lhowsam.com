@@ -43,7 +43,6 @@ export const PostImage = styled.img`
   display: block;
   width: 100%;
   height: 50%;
-
   object-fit: cover;
   &:hover {
     transition: opacity 0.3s ease;
@@ -57,7 +56,7 @@ export const BlogDetails = styled.div`
   padding: 1.5rem;
 `;
 
-export const postCat = styled.h4`
+export const PostCat = styled.h4`
   display: inline-block;
   text-transform: uppercase;
   font-size: 0.75rem;

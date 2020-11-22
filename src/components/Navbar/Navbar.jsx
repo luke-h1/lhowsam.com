@@ -42,11 +42,11 @@ function Navbar() {
                   Projects
                 </NavLinks>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLinks to="/blog" onClick={closeMobileMenu}>
                   Blog
                 </NavLinks>
-              </NavItem>
+              </NavItem> */}
 
               <NavItem>
                 <NavLinks to="/contact" onClick={closeMobileMenu}>
@@ -54,8 +54,8 @@ function Navbar() {
                 </NavLinks>
               </NavItem>
               <NavItemBtn>
-                <NavBtnLink to="/contact">
-                  <NavContactButton round="true" primary="true">
+                <NavBtnLink>
+                  <NavContactButton round="true" primary="true" to="/contact">
                     Get In Touch
                   </NavContactButton>
                 </NavBtnLink>

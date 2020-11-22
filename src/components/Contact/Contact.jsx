@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
 import Wave from '../utils/wave/Wave';
@@ -25,7 +25,7 @@ const Contact = ({ title }) => {
             <br />
             <IconWrapper>
               <a
-                href="mailto:luke.howsam@yahoo.com?subject='Get In Touch'"
+                href="mailto:luke.howsam@yahoo.com?subject=Get In Touch"
                 aria-label="Email"
               >
                 <EmailIcon />
