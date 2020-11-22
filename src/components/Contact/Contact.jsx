@@ -14,7 +14,7 @@ import {
   WaveWrap,
 } from './ContactElements';
 
-const Contact = ({ title, MainTitle }) => {
+const Contact = ({ title }) => {
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <div>
