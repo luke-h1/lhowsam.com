@@ -1,5 +1,5 @@
 import React from 'react';
-import profileImage from '../../images/luke.jpeg';
+import profileImage from '../../assets/images/luke.jpeg';
 import {
   HomeHeroSection,
   GridContainer,

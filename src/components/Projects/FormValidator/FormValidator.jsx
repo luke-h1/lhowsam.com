@@ -1,6 +1,6 @@
 import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
-import Image4 from '../../../images/Projects/pattern-ahmad-dirini.jpeg';
+import Image4 from '../../../assets/images/Projects/pattern-ahmad-dirini.jpeg';
 import Navbar from '../../Navbar/Navbar';
 import Footer from '../../Footer/Footer';
 

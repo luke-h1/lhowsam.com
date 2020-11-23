@@ -1,7 +1,8 @@
 import React from 'react';
 import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
-import Image2 from '../../../images/Projects/Drink-carson.jpeg';
+import Image2 from '../../../assets/images/Projects/Drink-carson.jpeg';
 import Navbar from '../../Navbar/Navbar';
+
 import Footer from '../../Footer/Footer';
 
 const DrinkApp = () => {
