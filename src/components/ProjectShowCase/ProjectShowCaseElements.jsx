@@ -4,7 +4,7 @@ import { lightTheme, darkTheme } from '../../styles/Themes';
 export const ShowCaseWrapper = styled.div`
   min-height: 50vh;
   min-width: 100vw;
-  margin-bottom: 8rem; 
+  margin-bottom: 8rem;
   background-color: ${lightTheme.backgroundColor};
   color: ${lightTheme.textColor};
   display: flex;
