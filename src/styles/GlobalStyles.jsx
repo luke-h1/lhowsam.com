@@ -14,7 +14,8 @@ body {
   font-family: ${primaryFont};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: ${lightTheme.backgroundColor}
+  background-color: ${lightTheme.backgroundColor};
+  overflow-x: hidden;  
 
 }
 `;

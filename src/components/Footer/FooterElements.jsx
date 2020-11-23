@@ -34,7 +34,7 @@ export const SocialMediaWrap = styled.div`
   justify-content: space-between;
   align-items: center;
   max-width: 1100px;
-  margin: 16px auto 0 auto;
+  margin: 13px auto 0 auto;
   @media (max-width: 820px) {
     flex-direction: column;
   }
