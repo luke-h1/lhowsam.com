@@ -5,9 +5,9 @@ import {
   ShowCaseTitle,
 } from './ProjectShowCaseElements';
 import CardItem from '../CardItem/CardItem';
-import Image1 from '../../images/Projects/Coffee-jon-tyson.jpeg';
-import Image2 from '../../images/Projects/Drink-carson.jpeg';
-import Image3 from '../../images/Projects/pink-pattern-pawel.jpeg';
+import Image1 from '../../assets/images/Projects/Coffee-jon-tyson.jpeg';
+import Image2 from '../../assets/images/Projects/Drink-carson.jpeg';
+import Image3 from '../../assets/images/Projects/pink-pattern-pawel.jpeg';
 import { Link } from 'react-router-dom';
 const ProjectShowCase = () => {
   return (
