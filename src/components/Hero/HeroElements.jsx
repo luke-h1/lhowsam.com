@@ -5,11 +5,13 @@ export const HomeHeroSection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: ${lightTheme.textColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   min-height: 50vh;
   min-width: 100vw;
   padding: 1rem;
-  background-color: ${lightTheme.backgroundColor};
+  background-color: ${lightTheme
+    ? lightTheme.backgroundColor
+    : darkTheme.backgroundColor};
 `;
 
 export const GridContainer = styled.div`
@@ -18,7 +20,6 @@ export const GridContainer = styled.div`
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  // box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 100vw;
   min-height: 50vh;
 `;
@@ -59,8 +60,6 @@ export const HeroImage = styled.img`
   padding-right: 0;
   max-width: 200px;
   border-radius: 20px;
-  // filter: grayscale(100%);
-
   &:hover {
     transition-duration: 0.1s;
     filter: drop-shadow(10px 10px 35px rgba(110, 32, 209, 1));

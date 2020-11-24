@@ -4,14 +4,17 @@ import { Link } from 'react-router-dom';
 import { Container } from '../utils/Containers/Container';
 import { lightTheme, darkTheme } from '../../styles/Themes';
 export const Nav = styled.nav`
-  background: ${lightTheme.backgroundColor};
+  background: ${lightTheme
+    ? lightTheme.backgroundColor
+    : darkTheme.backgroundColor};
   height: 90px;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 999;
   position: relative;
-  border-bottom: 1px solid ${lightTheme.FooterBorder};
+  border-bottom: 1px solid
+    ${lightTheme ? lightTheme.FooterBorder : darkTheme.FooterBorder};
 `;
 
 export const NavbarContainer = styled(Container)`
@@ -19,11 +22,11 @@ export const NavbarContainer = styled(Container)`
   justify-content: space-between;
   height: 80px;
   ${Container}
-  color: ${lightTheme.textColor} !important;
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor} !important;
 `;
 
 export const NavLogo = styled(Link)`
-  color: ${lightTheme.textColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   justify-self: flex-start;
   cursor: pointer;
   text-decoration: none;
@@ -46,7 +49,7 @@ export const MobileIcon = styled.div`
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-    color: ${lightTheme.textColor};
+    color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   }
 `;
 
@@ -69,7 +72,9 @@ export const NavMenu = styled.ul`
     left: ${({ click }) => (click ? 0 : '-200%')};
     opacity: 1;
     transition: all 0.2s ease;
-    background: ${lightTheme.FooterBorder};
+    background: ${lightTheme
+      ? lightTheme.FooterBorder
+      : darkTheme.FooterBorder};
     font-size: 1.8rem;
     font-weight: 700;
     overflow-y: hidden; /* Hide vertical scrollbar */
@@ -83,7 +88,8 @@ export const NavItem = styled.li`
   height: 80px;
   border-bottom: 2px solid transparent;
   &:hover {
-    border-bottom: 2px solid ${lightTheme.darkBlueBorder};
+    border-bottom: 2px solid
+      ${lightTheme ? lightTheme.darkBlueBorder : darkTheme.darkBlueBorder};
   }
   @media screen and (max-width: 960px) {
     width: 100%;
@@ -109,7 +115,7 @@ export const NavItemBtn = styled.li`
 `;
 
 export const NavLinks = styled(Link)`
-  color: ${lightTheme.textColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -125,7 +131,9 @@ export const NavLinks = styled(Link)`
     text-align: center;
     width: 100%;
     &:hover {
-      color: ${lightTheme.darkBlueBorder};
+      color: ${lightTheme
+        ? lightTheme.darkBlueBorder
+        : darkTheme.darkBlueBorder};
       transition: all 0.3s ease;
     }
   }

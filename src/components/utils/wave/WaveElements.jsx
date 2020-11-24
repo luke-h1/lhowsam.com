@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const WaveButton = styled.button`
   background: rebeccapurple;
   border: none;
-  color: $lightTextColor;
+  color: #000;
   font-size: 1.25rem;
   padding: 0.3rem;
   border-radius: 15px;

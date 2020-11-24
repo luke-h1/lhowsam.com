@@ -3,12 +3,15 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { FaLinkedin } from 'react-icons/fa';
 import { FaGithub } from 'react-icons/fa';
 import { lightTheme, darkTheme } from '../../styles/Themes';
+import { dark } from '../../styles/Colors';
 
 export const ContactWrapper = styled.div`
   min-height: 100vh;
   min-width: 100vw;
-  background-color: ${lightTheme.backgroundColor};
-  color: ${lightTheme.textColor};
+  background-color: ${lightTheme
+    ? lightTheme.backgroundColor
+    : darkTheme.backgroundColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,7 +24,9 @@ export const MainTitle = styled.h1`
   letter-spacing: 5px;
   filter: brightness(1.5);
   filter: contrast(300);
-  background-color: ${lightTheme.backgroundColor};
+  background-color: ${lightTheme
+    ? lightTheme.backgroundColor
+    : darkTheme.backgroundColor};
 `;
 
 export const Alternatives = styled.div`
@@ -53,10 +58,10 @@ export const IconWrapper = styled.div`
 
 export const EmailIcon = styled(AiOutlineMail)`
   font-size: 20px;
-  fill: ${lightTheme.textColor};
+  fill: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   margin: 0 1em 5px 1em;
   &:hover {
-    fill: ${lightTheme.hoverColor};
+    fill: ${lightTheme ? lightTheme.hoverColor : darkTheme.hoverColor};
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
@@ -64,10 +69,10 @@ export const EmailIcon = styled(AiOutlineMail)`
 
 export const LinkedIn = styled(FaLinkedin)`
   font-size: 20px;
-  fill: ${lightTheme.textColor};
+  fill: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   margin: 0 1em 0 1em;
   &:hover {
-    fill: ${lightTheme.hoverColor};
+    fill: ${lightTheme ? lightTheme.hoverColor : darkTheme.hoverColor};
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
@@ -75,10 +80,10 @@ export const LinkedIn = styled(FaLinkedin)`
 
 export const Github = styled(FaGithub)`
   font-size: 20px;
-  fill: ${lightTheme.textColor};
+  fill: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   margin: 0 1em 0 1em;
   &:hover {
-    fill: ${lightTheme.hoverColor};
+    fill: ${lightTheme ? lightTheme.hoverColor : darkTheme.hoverColor};
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
