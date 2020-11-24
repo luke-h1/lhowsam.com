@@ -10,7 +10,9 @@ export const SkillWrapper = styled.div`
   align-items: center;
   min-height: 35vh;
   margin: 0 auto;
-  background-color: ${lightTheme.backgroundColor};
+  background-color: ${lightTheme
+    ? lightTheme.backgroundColor
+    : darkTheme.backgroundColor};
 `;
 
 export const Title = styled.h1`
@@ -34,8 +36,10 @@ export const SkillsHeader = styled.div`
 `;
 
 export const Skill = styled.p`
-  background-color: ${lightTheme.hoverColor};
-  color: ${lightTheme.textColor};
+  background-color: ${lightTheme
+    ? lightTheme.hoverColor
+    : darkTheme.hoverColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   text-align: center;
   padding: 8px;
   border-radius: 8px;

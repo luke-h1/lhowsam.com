@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { light } from '../../../styles/Colors';
 import { lightTheme, darkTheme } from '../../../styles/Themes';
 export const CardLgWrapper = styled.div`
   min-width: 100vw;
-  color: ${lightTheme.textColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${lightTheme.backgroundColor};
+  background-color: ${lightTheme
+    ? lightTheme.backgroundColor
+    : darkTheme.backgroundColor};
 `;
 
 export const Card = styled.div`
@@ -34,7 +35,7 @@ export const ItemTitle = styled.h1`
   text-align: center;
   font-family: $titleFont;
   letter-spacing: 3px;
-  color: ${lightTheme.textColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   @media (max-width: 640px) {
     width: 85%;
   }
@@ -58,13 +59,13 @@ export const Container = styled.div`
 // export const IconContainer = styled.div``
 
 export const GithubLink = styled.a`
-  color: ${lightTheme.textColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   font-size: 35px;
   margin-bottom: 10px;
   margin: 0 10px 0 10px;
 
   &:hover {
-    color: ${lightTheme.hoverColor};
+    color: ${lightTheme ? lightTheme.hoverColor : darkTheme.hoverColor};
     cursor: pointer;
     transform: scale(1.15);
     transition: scale ease 0.5s;
@@ -73,11 +74,11 @@ export const GithubLink = styled.a`
 
 export const SiteLink = styled.a`
   margin: 0 10px 0 10px;
-  color: ${lightTheme.textColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   font-size: 35px;
   margin-bottom: 20px;
   &:hover {
-    color: ${lightTheme.hoverColor};
+    color: ${lightTheme ? lightTheme.hoverColor : darkTheme.hoverColor};
     cursor: pointer;
     transform: scale(1.15);
     transition: scale ease 0.5s;
@@ -85,7 +86,7 @@ export const SiteLink = styled.a`
 `;
 
 export const ProjectLgLink = styled(Link)`
-  color: ${lightTheme.textColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   text-decoration: none;
   margin-top: 1rem;
   font-size: 18px;
@@ -97,7 +98,7 @@ export const ProjectLgLink = styled(Link)`
 `;
 
 export const ProjectSecondLink = styled(Link)`
-  color: ${lightTheme.textColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   text-decoration: none;
   margin-top: 1rem;
   font-size: 18px;

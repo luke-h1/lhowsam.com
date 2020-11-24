@@ -46,7 +46,7 @@ export const BlogPost = styled(Link)`
 `;
 
 export const BlogTitle = styled.h1`
-  color: ${lightTheme.textColor};
+  color: ${lightTheme ? lightTheme.textColor : lightTheme.textColor};
   text-decoration: none;
   margin: 0px 0px 8px;
   font-size: 24px;
@@ -56,7 +56,7 @@ export const BlogTitle = styled.h1`
   line-height: 1.25;
   &:hover {
     cursor: pointer;
-    color: ${lightTheme.hoverColor};
+    color: ${lightTheme ? lightTheme.hoverColor : darkTheme.hoverColor};
     text-decoration: underline;
   }
 `;
@@ -67,5 +67,5 @@ export const BlogDate = styled.p`
   border: 0px;
   vertical-align: baseline;
   font-size: 15px;
-  color: ${lightTheme.textColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
 `;

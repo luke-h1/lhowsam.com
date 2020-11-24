@@ -15,5 +15,8 @@ export const darkTheme = {
   backgroundColor: dark[100],
   hoverColor: blue[200],
   textColor: light[100],
+  darkBlueBorder: blue[300],
+  whiteTextColor: light[100],
+  lightBackgroundColor: light[100],
   primaryFont,
 };

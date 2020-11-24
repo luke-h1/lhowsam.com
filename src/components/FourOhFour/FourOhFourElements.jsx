@@ -6,8 +6,10 @@ import { lightTheme, darkTheme } from '../../styles/Themes';
 export const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: $backgroundColor;
-  color: $lightTextColor;
+  background-color: ${lightTheme
+    ? lightTheme.backgroundColor
+    : darkTheme.backgroundColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -17,8 +19,10 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   z-index: 1;
-  background-color: $backgroundColor;
-  color: $lightTextColor;
+  background-color: ${lightTheme
+    ? lightTheme.backgroundColor
+    : darkTheme.backgroundColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -46,14 +50,14 @@ export const Instructions = styled.h2`
 export const NotFoundLink = styled(Link)`
   display: block;
   font-size: 25px;
-  color: ${lightTheme.textColor};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   text-decoration: none;
   margin: 2em 0 2em 0;
   font-weight: 700;
   &:hover {
     transform: scale(1.2);
     transition: all 0.3s ease;
-    color: ${lightTheme.hoverColor};
+    color: ${lightTheme ? lightTheme.hoverColor : darkTheme.hoverColor};
   }
 `;
 

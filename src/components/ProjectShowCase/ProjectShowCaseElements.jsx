@@ -5,8 +5,8 @@ export const ShowCaseWrapper = styled.div`
   min-height: 50vh;
   min-width: 100vw;
   margin-bottom: 8rem;
-  background-color: ${lightTheme.backgroundColor};
-  color: ${lightTheme.textColor};
+  background-color: ${lightTheme ? lightTheme.backgroundColor : darkTheme};
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
   display: flex;
   flex-direction: column;
   justify-content: center;
