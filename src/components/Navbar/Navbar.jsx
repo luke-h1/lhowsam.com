@@ -13,7 +13,7 @@ import {
   NavLinks,
   NavBtnLink,
 } from './NavbarElements';
-import { NavContactButton } from '../utils/Buttons/NavContactButton';
+import { ThemeSwitchButton } from '../utils/Buttons/ThemeSwitchButton';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -54,9 +54,10 @@ function Navbar() {
               </NavItem>
               <NavItemBtn>
                 <NavBtnLink>
-                  <NavContactButton round="true" primary="true" to="/contact">
-                    Get In Touch
-                  </NavContactButton>
+                  <ThemeSwitchButton round="true" primary="true">
+                    {/* icon goes here depending on what state the theme is in */}
+                    {/* TODO: Add onClick handler to this */}
+                  </ThemeSwitchButton>
                 </NavBtnLink>
               </NavItemBtn>
             </NavMenu>
