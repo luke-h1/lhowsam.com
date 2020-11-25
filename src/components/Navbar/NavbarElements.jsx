@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import { BiCodeBlock } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { Container } from '../utils/Containers/Container';
+import { FiSun, FiMoon } from 'react-icons/fi';
 import { lightTheme, darkTheme } from '../../styles/Themes';
+import { dark, light } from '../../styles/Colors';
 export const Nav = styled.nav`
   background: ${lightTheme
     ? lightTheme.backgroundColor
@@ -149,4 +151,12 @@ export const NavBtnLink = styled(Link)`
   width: 100%;
   border: none;
   outline: none;
+`;
+
+export const Sun = styled(FiSun)`
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+`;
+
+export const Moon = styled(FiMoon)`
+  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
 `;
