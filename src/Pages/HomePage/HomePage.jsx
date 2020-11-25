@@ -5,14 +5,16 @@ import Navbar from '../../components/Navbar/Navbar';
 import ProjectShowCase from '../../components/ProjectShowCase/ProjectShowCase';
 import Skills from '../../components/Skills/Skills';
 const Home = () => {
+
+
   return (
-    <>
-      <Navbar />
-      <Hero />
-      <Skills />
-      <ProjectShowCase />
-      <Footer />
-    </>
+      <>
+        <Navbar />
+        <Hero />
+        <Skills />
+        <ProjectShowCase />
+        <Footer />
+      </>
   );
 };
 export default Home;

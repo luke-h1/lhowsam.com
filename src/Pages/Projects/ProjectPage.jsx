@@ -4,12 +4,14 @@ import Navbar from '../../components/Navbar/Navbar';
 import Projects from '../../components/Projects/Projects';
 
 const ProjectPage = () => {
+ 
+
   return (
-    <>
-      <Navbar />
-      <Projects />
-      <Footer />
-    </>
+      <>
+        <Navbar />
+        <Projects />
+        <Footer />
+      </>
   );
 };
 export default ProjectPage;
