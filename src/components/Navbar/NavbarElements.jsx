@@ -76,8 +76,8 @@ export const NavMenu = styled.ul`
     opacity: 1;
     transition: all 0.2s ease;
     background: ${lightTheme
-    ? lightTheme.FooterBorder
-    : darkTheme.FooterBorder};
+      ? lightTheme.FooterBorder
+      : darkTheme.FooterBorder};
     font-size: 1.8rem;
     font-weight: 700;
     overflow-y: hidden; /* Hide vertical scrollbar */
@@ -135,8 +135,8 @@ export const NavLinks = styled(Link)`
     width: 100%;
     &:hover {
       color: ${lightTheme
-    ? lightTheme.darkBlueBorder
-    : darkTheme.darkBlueBorder};
+        ? lightTheme.darkBlueBorder
+        : darkTheme.darkBlueBorder};
       transition: all 0.3s ease;
     }
   }

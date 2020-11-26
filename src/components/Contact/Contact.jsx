@@ -51,8 +51,7 @@ const Contact = ({ title }) => (
           </IconWrapper>
           <WaveWrap>
             <WaveJoke>
-              Alertnatively you can just wave to me by clicking the below
-              button
+              Alertnatively you can just wave to me by clicking the below button
             </WaveJoke>
             <WaveDiv>
               <Wave centered="true" />

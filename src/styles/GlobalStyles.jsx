@@ -18,8 +18,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: ${
-  lightTheme ? lightTheme.backgroundColor : darkTheme.backgroundColor
-};
+    lightTheme ? lightTheme.backgroundColor : darkTheme.backgroundColor
+  };
   overflow-x: hidden;  
 
 }

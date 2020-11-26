@@ -1,9 +1,10 @@
+/* eslint-disable no-undef */
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../../styles/Themes';
-
+import { NavContactButton } from '../utils/Buttons/NavContactButton';
 import {
   Nav,
   NavbarContainer,
@@ -16,13 +17,11 @@ import {
   NavLinks,
   NavBtnLink,
 } from './NavbarElements';
-import { ThemeSwitchButton } from '../utils/Buttons/ThemeSwitchButton';
 
 function Navbar() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-  const [useDarkTheme, setUseDarkTheme] = useState(false);
 
   return (
     <ThemeProvider theme={useDarkTheme ? darkTheme : lightTheme}>
@@ -60,15 +59,12 @@ function Navbar() {
                 </NavItem>
                 <NavItemBtn>
                   <NavBtnLink>
-                    <ThemeSwitchButton
+                    <NavContactButton
                       round="true"
                       primary="true"
-                      onClick={() => setUseDarkTheme(false)}
                     >
-                      Switch Theme
-                      {/* icon goes here depending on what state the theme is in */}
-                      {/* TODO: Add onClick handler to this */}
-                    </ThemeSwitchButton>
+                      Get In Touch
+                    </NavContactButton>
                   </NavBtnLink>
                 </NavItemBtn>
               </NavMenu>

@@ -23,10 +23,7 @@ const CardItem = (props) => {
         <Card>
           <ItemTitle>{title}</ItemTitle>
           <Container>
-            <img
-              src={src}
-              alt={alt}
-            />
+            <img src={src} alt={alt} />
 
             <div>
               <GithubLink

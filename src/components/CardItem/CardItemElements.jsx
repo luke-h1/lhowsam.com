@@ -61,8 +61,8 @@ export const CardFigure = styled.figure`
     font-weight: 700;
     color: ${lightTheme ? lightTheme.whiteTextColor : darkTheme.whiteTextColor};
     background-color: ${lightTheme
-    ? lightTheme.hoverColor
-    : darkTheme.whiteTextColor};
+      ? lightTheme.hoverColor
+      : darkTheme.whiteTextColor};
     box-sizing: border-box;
   }
 `;
