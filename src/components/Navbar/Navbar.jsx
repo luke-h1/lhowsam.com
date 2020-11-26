@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
 import { ThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme } from '../../styles/Themes';
+import { lightTheme } from '../../styles/Themes';
 import { NavContactButton } from '../utils/Buttons/NavContactButton';
 import {
   Nav,
@@ -24,7 +24,7 @@ function Navbar() {
   const closeMobileMenu = () => setClick(false);
 
   return (
-    <ThemeProvider theme={useDarkTheme ? darkTheme : lightTheme}>
+    <ThemeProvider theme={lightTheme}>
       <>
         <IconContext.Provider value={{ color: '#000' }}>
           <Nav>
@@ -59,10 +59,7 @@ function Navbar() {
                 </NavItem>
                 <NavItemBtn>
                   <NavBtnLink>
-                    <NavContactButton
-                      round="true"
-                      primary="true"
-                    >
+                    <NavContactButton round="true" primary="true">
                       Get In Touch
                     </NavContactButton>
                   </NavBtnLink>
