@@ -10,7 +10,6 @@ if ! $CONTINUE; then
     echo "Not breaking prod"
     exit 33
 fi
-npm run format
 npm run lint 
 if ! npm run lint; then
     echo ''
