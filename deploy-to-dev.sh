@@ -7,8 +7,8 @@ fi
 
 if ! $CONTINUE; then
     # Check if we're continuing and output a message if not
-    echo "Not breaking development"
-    exit 33
+    echo "Exiting with status code 1"
+    exit 1
 fi
 npm run lint 
 if ! npm run lint; then
