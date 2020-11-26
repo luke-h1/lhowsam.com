@@ -8,7 +8,7 @@ fi
 if ! $CONTINUE; then
     # Check if we're continuing and output a message if not
     echo "Exiting with status code 1"
-    exit 33
+    exit 1
 fi
 npm run lint 
 if ! npm run lint; then
