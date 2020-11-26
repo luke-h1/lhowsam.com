@@ -1,9 +1,9 @@
+/* eslint-disable */
 import styled from 'styled-components';
 import { AiOutlineMail } from 'react-icons/ai';
-import { FaLinkedin } from 'react-icons/fa';
-import { FaGithub } from 'react-icons/fa';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+
 import { lightTheme, darkTheme } from '../../styles/Themes';
-import { dark } from '../../styles/Colors';
 
 export const ContactWrapper = styled.div`
   min-height: 100vh;

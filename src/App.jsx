@@ -12,6 +12,7 @@ import PersonalSite from './components/Projects/PersonalSite/PersonalSite';
 import { GlobalStyle } from './styles/GlobalStyles';
 import BlogPage from './Pages/BlogPage/BlogPage';
 import HelloWorld from './components/BlogPosts/HelloWorld';
+
 function App() {
   return (
     <>

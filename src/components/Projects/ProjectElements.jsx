@@ -1,5 +1,8 @@
+/* eslint-disable */
+
 import styled from 'styled-components';
 import { lightTheme, darkTheme } from '../../styles/Themes';
+
 export const ProjectWrapper = styled.div`
   min-width: 100vw;
   padding: 4rem;

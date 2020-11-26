@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 export const blue = {
   100: '#2ab7ca',
   200: '#1f98f4',

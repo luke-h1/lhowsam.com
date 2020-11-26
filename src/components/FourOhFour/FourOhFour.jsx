@@ -8,40 +8,40 @@ import {
   NotFoundLink,
   ArrowIcon,
 } from './FourOhFourElements';
+
 const fourOhFour = ({
   linkOne,
   linkTwo,
   linkThree,
   fourOhFourTitle,
   instructions,
-}) => {
-  return (
-    <Wrapper>
-      <Container>
-        <Intro>
-          {fourOhFourTitle}{' '}
-          <span role="img" aria-label="not found">
-            🤔
-          </span>
-        </Intro>
-        <Instructions>{instructions}</Instructions>
+}) => (
+  <Wrapper>
+    <Container>
+      <Intro>
+        {fourOhFourTitle}
+        {' '}
+        <span role="img" aria-label="not found">
+          🤔
+        </span>
+      </Intro>
+      <Instructions>{instructions}</Instructions>
 
-        <NotFoundLink to="/" aria-label="Home">
-          {linkOne}
-          <ArrowIcon />
-        </NotFoundLink>
-        <NotFoundLink to="/projects" aria-label="projects">
-          {linkTwo}
-          <ArrowIcon />
-        </NotFoundLink>
-        <NotFoundLink to="/contact" aria-label="contact">
-          {linkThree}
-          <ArrowIcon />
-        </NotFoundLink>
-      </Container>
-    </Wrapper>
-  );
-};
+      <NotFoundLink to="/" aria-label="Home">
+        {linkOne}
+        <ArrowIcon />
+      </NotFoundLink>
+      <NotFoundLink to="/projects" aria-label="projects">
+        {linkTwo}
+        <ArrowIcon />
+      </NotFoundLink>
+      <NotFoundLink to="/contact" aria-label="contact">
+        {linkThree}
+        <ArrowIcon />
+      </NotFoundLink>
+    </Container>
+  </Wrapper>
+);
 
 fourOhFour.defaultProps = {
   fourOhFourTitle: "404 - The Page you're looking for doesn't exist",

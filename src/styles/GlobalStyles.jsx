@@ -1,7 +1,10 @@
+/* eslint-disable */
+
 import { createGlobalStyle } from 'styled-components';
-import { primaryFont } from './typography';
 import { normalize } from 'polished';
+import { primaryFont } from './typography';
 import { lightTheme, darkTheme } from './Themes';
+
 export const GlobalStyle = createGlobalStyle`
   ${normalize()}
   * {
@@ -15,8 +18,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: ${
-    lightTheme ? lightTheme.backgroundColor : darkTheme.backgroundColor
-  };
+  lightTheme ? lightTheme.backgroundColor : darkTheme.backgroundColor
+};
   overflow-x: hidden;  
 
 }

@@ -1,10 +1,11 @@
+/* eslint-disable */
 import styled from 'styled-components';
 import { BiCodeBlock } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import { Container } from '../utils/Containers/Container';
 import { FiSun, FiMoon } from 'react-icons/fi';
+import { Container } from '../utils/Containers/Container';
 import { lightTheme, darkTheme } from '../../styles/Themes';
-import { dark, light } from '../../styles/Colors';
+
 export const Nav = styled.nav`
   background: ${lightTheme
     ? lightTheme.backgroundColor
@@ -75,8 +76,8 @@ export const NavMenu = styled.ul`
     opacity: 1;
     transition: all 0.2s ease;
     background: ${lightTheme
-      ? lightTheme.FooterBorder
-      : darkTheme.FooterBorder};
+    ? lightTheme.FooterBorder
+    : darkTheme.FooterBorder};
     font-size: 1.8rem;
     font-weight: 700;
     overflow-y: hidden; /* Hide vertical scrollbar */
@@ -134,8 +135,8 @@ export const NavLinks = styled(Link)`
     width: 100%;
     &:hover {
       color: ${lightTheme
-        ? lightTheme.darkBlueBorder
-        : darkTheme.darkBlueBorder};
+    ? lightTheme.darkBlueBorder
+    : darkTheme.darkBlueBorder};
       transition: all 0.3s ease;
     }
   }

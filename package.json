@@ -5,6 +5,7 @@
   "dependencies": {
     "normalize.css": "^8.0.1",
     "polished": "^4.0.4",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-icons": "^3.11.0",
@@ -31,7 +32,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier \"src/**/*.{js,html,scss,jsx,ts,tsx,md}\" --write",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
     "clean": "rm -rf node_modules && npm i",
     "jest:update": "jest --silent -u",
     "jest:interactive": "jest --watch",

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { blue, light, dark } from './Colors';
 import { primaryFont } from './typography';
 

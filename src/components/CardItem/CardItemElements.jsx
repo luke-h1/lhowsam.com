@@ -1,6 +1,8 @@
+/* eslint-disable */
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { lightTheme, darkTheme } from '../../styles/Themes';
+
 export const CardItem1 = styled.div`
   display: flex;
   flex: 1;
@@ -59,8 +61,8 @@ export const CardFigure = styled.figure`
     font-weight: 700;
     color: ${lightTheme ? lightTheme.whiteTextColor : darkTheme.whiteTextColor};
     background-color: ${lightTheme
-      ? lightTheme.hoverColor
-      : darkTheme.whiteTextColor};
+    ? lightTheme.hoverColor
+    : darkTheme.whiteTextColor};
     box-sizing: border-box;
   }
 `;

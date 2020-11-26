@@ -22,6 +22,21 @@
     "react/jsx-filename-extension": [1, { "extensions": [".jsx"] }],
     "react/jsx-props-no-spreading": "off",
     "react/state-in-constructor": "off",
-    "no-unsafe-finally": "off"
+    "no-unsafe-finally": "off",
+    "react/no-unescaped-entities": [
+      "error",
+      {
+        "forbid": [
+          {
+            "char": ">",
+            "alertnatives": ["@gt;"]
+          },
+          {
+            "char": "}",
+            "alertnatives": ["&125;"]
+          }
+        ]
+      }
+    ]
   }
 }
