@@ -7,7 +7,7 @@ fi
 
 if ! $CONTINUE; then
     # Check if we're continuing and output a message if not
-    echo "Not breaking prod"
+    echo "Exiting"
     exit 33
 fi
 npm run lint 
@@ -25,4 +25,3 @@ fi
 rm -rf build/ 
 npm run build 
 vercel --prod 
-
