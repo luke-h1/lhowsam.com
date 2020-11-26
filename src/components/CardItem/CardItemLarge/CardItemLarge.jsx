@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FaGithub } from 'react-icons/fa';
 import { IoMdBrowsers } from 'react-icons/io';
 import {
@@ -13,38 +14,40 @@ import {
 } from './CardItemLgElements';
 
 const CardItem = (props) => {
+  const {
+    src, alt, title, site, desc, github,
+  } = props;
   return (
     <>
       <CardLgWrapper>
         <Card>
-          <ItemTitle>{props.title}</ItemTitle>
+          <ItemTitle>{title}</ItemTitle>
           <Container>
             <img
-              src={props.src}
-              alt={props.alt}
-              // className="project-large-image"
+              src={src}
+              alt={alt}
             />
 
             <div>
               <GithubLink
-                href={props.github}
+                href={github}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Github"
               >
-                {props.github ? <FaGithub /> : null}
+                {github ? <FaGithub /> : null}
               </GithubLink>
               <SiteLink
                 className="site-link"
-                href={props.site}
+                href={site}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Live site link"
               >
-                {props.site ? <IoMdBrowsers /> : null}
+                {site ? <IoMdBrowsers /> : null}
               </SiteLink>
             </div>
-            <p>{props.desc}</p>
+            <p>{desc}</p>
           </Container>
           <ProjectLgLink to="/projects" className="project-large-link">
             Back to projects
@@ -56,5 +59,14 @@ const CardItem = (props) => {
       </CardLgWrapper>
     </>
   );
+};
+
+CardItem.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  site: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired,
 };
 export default CardItem;

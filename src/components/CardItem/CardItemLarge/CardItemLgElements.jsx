@@ -1,6 +1,8 @@
+/* eslint-disable */
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { lightTheme, darkTheme } from '../../../styles/Themes';
+
 export const CardLgWrapper = styled.div`
   min-width: 100vw;
   color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};

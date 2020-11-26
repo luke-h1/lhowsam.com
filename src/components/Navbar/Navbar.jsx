@@ -17,6 +17,7 @@ import {
   NavBtnLink,
 } from './NavbarElements';
 import { ThemeSwitchButton } from '../utils/Buttons/ThemeSwitchButton';
+
 function Navbar() {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);

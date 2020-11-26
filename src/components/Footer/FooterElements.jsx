@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { darkTheme, lightTheme } from '../../styles/Themes';

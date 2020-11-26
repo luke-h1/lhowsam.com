@@ -1,6 +1,9 @@
+/* eslint-disable */
+
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { lightTheme, darkTheme } from '../../styles/Themes';
+
 export const BlogSection = styled.div`
   padding-top: 65px;
   max-width: 550px;
