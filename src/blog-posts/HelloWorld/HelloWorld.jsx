@@ -4,7 +4,7 @@ import BlogPostTemplate from '../../templates/BlogPostTemplate/BlogPostTemplate'
 
 const HelloWorld = () => (
   <>
-      <Helmet>
+    <Helmet>
       <title>Blog - Hello World</title>
       <meta name="description" content="Home page" />
     </Helmet>

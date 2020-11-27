@@ -6,7 +6,7 @@ import Footer from '../../components/Footer/Footer';
 
 const BlogPage = () => (
   <>
-      <Helmet>
+    <Helmet>
       <title>Blog</title>
       <meta name="description" content="Blog page" />
     </Helmet>
