@@ -22,7 +22,7 @@ npm build
 
 ### Serve
 
-gatsby serve — Gatsby starts a local HTML server for testing your built site.
+start a local HTML server for testing your built site.
 
 ```shell
 npm run serve
@@ -30,7 +30,7 @@ npm run serve
 
 ### Lint
 
-Lint the code according to eslintrc file, for consistency.
+Lint the code according to the Airbnb eslint config 
 
 ```shell
 npm run lint
@@ -39,7 +39,7 @@ npm run lint
 
 ### Clean
 
-Remove the .cache, public and node_modules for a scratch compile.
+Remove the .cache, package-lock.json,  public and node_modules for a scratch compile.
 
 ```shell
 npm run clean
