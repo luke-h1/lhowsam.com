@@ -1,9 +1,9 @@
 import React from 'react';
-import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
-import Image2 from '../../../assets/images/Projects/Drink-carson.jpeg';
-import Navbar from '../../Navbar/Navbar';
+import CardItemLarge from '../../templates/CardItemLarge/CardItemLarge';
+import Image2 from '../../assets/images/Projects/Drink-carson.jpeg';
+import Navbar from '../../components/Navbar/Navbar';
 
-import Footer from '../../Footer/Footer';
+import Footer from '../../components/Footer/Footer';
 
 const DrinkApp = () => (
   <>

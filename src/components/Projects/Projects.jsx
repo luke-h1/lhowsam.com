@@ -8,7 +8,7 @@ import Image2 from '../../assets/images/Projects/Drink-carson.jpeg';
 import Image3 from '../../assets/images/Projects/pink-pattern-pawel.jpeg';
 import Image4 from '../../assets/images/Projects/pattern-ahmad-dirini.jpeg';
 import Image5 from '../../assets/images/Projects/Shop-albert-renn.jpeg';
-import CardItem from '../CardItem/CardItem';
+import CardItem from '../../templates/CardItem/CardItem';
 
 import {
   ProjectWrapper,

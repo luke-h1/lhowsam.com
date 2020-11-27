@@ -1,8 +1,8 @@
 import React from 'react';
-import CardItemLarge from '../../CardItem/CardItemLarge/CardItemLarge';
-import Image6 from '../../../assets/images/Projects/Shop-albert-renn.jpeg';
-import Navbar from '../../Navbar/Navbar';
-import Footer from '../../Footer/Footer';
+import CardItemLarge from '../../templates/CardItemLarge/CardItemLarge';
+import Image6 from '../../assets/images/Projects/Shop-albert-renn.jpeg';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 const Quotes = () => (
   <>

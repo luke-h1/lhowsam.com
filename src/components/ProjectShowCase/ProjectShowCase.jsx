@@ -5,7 +5,7 @@ import {
   ShowCaseContainer,
   ShowCaseTitle,
 } from './ProjectShowCaseElements';
-import CardItem from '../CardItem/CardItem';
+import CardItem from '../../templates/CardItem/CardItem';
 import Image1 from '../../assets/images/Projects/Coffee-jon-tyson.jpeg';
 import Image2 from '../../assets/images/Projects/Drink-carson.jpeg';
 import Image3 from '../../assets/images/Projects/pink-pattern-pawel.jpeg';

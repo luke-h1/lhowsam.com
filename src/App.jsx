@@ -4,14 +4,14 @@ import ProjectPage from './Pages/Projects/ProjectPage';
 import ContactPage from './Pages/Contact/ContactPage';
 import HomePage from './Pages/HomePage/HomePage';
 import FourOhFour from './components/FourOhFour/FourOhFour';
-import Automation from './components/Projects/Automation/Automation';
-import DrinkApp from './components/Projects/DrinkApp/DrinkApp';
-import FormValidator from './components/Projects/FormValidator/FormValidator';
-import Quotes from './components/Projects/Quotes/Quotes';
-import PersonalSite from './components/Projects/PersonalSite/PersonalSite';
+import Automation from './projects/Automation/Automation';
+import DrinkApp from './projects/DrinkApp/DrinkApp';
+import FormValidator from './projects/FormValidator/FormValidator';
+import Quotes from './projects/Quotes/Quotes';
+import PersonalSite from './projects/PersonalSite/PersonalSite';
 import { GlobalStyle } from './styles/GlobalStyles';
 import BlogPage from './Pages/BlogPage/BlogPage';
-import HelloWorld from './components/BlogPosts/HelloWorld';
+import HelloWorld from './blog-posts/HelloWorld/HelloWorld';
 
 function App() {
   return (

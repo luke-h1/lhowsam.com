@@ -88,31 +88,3 @@ export const Github = styled(FaGithub)`
     transition: scale ease 0.5s;
   }
 `;
-
-export const WaveWrap = styled.div`
-  margin-top: 5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  P {
-    margin-top: 1rem;
-    text-align: center;
-    margin: 0 auto;
-  }
-`;
-
-export const WaveJoke = styled.p`
-  margin-top: 1.5rem;
-  text-align: center;
-  @media (max-width: 640px) {
-    margin: 0 auto;
-    width: 85%;
-  }
-`;
-
-export const WaveDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 15px 0 15px 0;
-`;

@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-import BlogPostTemplate from '../BlogPostTemplate/BlogPostTemplate';
+import BlogPostTemplate from '../../templates/BlogPostTemplate/BlogPostTemplate';
 
 const HelloWorld = () => (
   <>

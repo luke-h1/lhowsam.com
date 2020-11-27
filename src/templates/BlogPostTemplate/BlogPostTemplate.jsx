@@ -8,8 +8,8 @@ import {
   BlogLink,
   BlogLinkWrap,
 } from './BlogPostTemplateElements';
-import Navbar from '../Navbar/Navbar';
-import Footer from '../Footer/Footer';
+import Navbar from '../../components/Navbar/Navbar';
+import Footer from '../../components/Footer/Footer';
 
 const BlogPostTemplate = (props) => {
   const {
