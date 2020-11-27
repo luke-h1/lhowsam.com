@@ -9,7 +9,7 @@ import Skills from '../../components/Skills/Skills';
 const Home = () => (
   <>
     <Helmet>
-      <title>Home</title>
+      <title>Luke H - Home</title>
       <meta name="description" content="Home page" />
     </Helmet>
     <Navbar />
