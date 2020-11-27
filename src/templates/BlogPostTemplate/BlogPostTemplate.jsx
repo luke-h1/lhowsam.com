@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -30,7 +31,6 @@ const BlogPostTemplate = (props) => {
           <BlogLink to="/">Back to Home</BlogLink>
         </BlogLinkWrap>
       </Wrapper>
-
       <Footer />
     </>
   );
@@ -40,8 +40,6 @@ BlogPostTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
-  desc2: PropTypes.string.isRequired,
-  desc3: PropTypes.string.isRequired,
 };
 
 export default BlogPostTemplate;

@@ -18,6 +18,7 @@ export const Nav = styled.nav`
   position: relative;
   border-bottom: 1px solid
     ${lightTheme ? lightTheme.FooterBorder : darkTheme.FooterBorder};
+    min-width: 100vw;
 `;
 
 export const NavbarContainer = styled(Container)`
