@@ -117,6 +117,16 @@ export const CardText = styled.h5`
   &:last-of-type {
     margin-top: 1rem;
     font-weight: normal;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
   }
 `;
+
+
+export const PostedAt = styled.div`
+  margin-top: 1.4rem;
+  p { 
+    font-weight: bold;
+    color: #000;
+  }
+
+`

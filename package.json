@@ -42,7 +42,7 @@
     "jest:update": "jest --silent -u",
     "jest:interactive": "jest --watch",
     "stats": "react-scripts build \"--stats\" && webpack-bundle-analyzer build/bundle-stats.json",
-    "serve": "serve build/"
+    "serve": "serve -s build"
   },
   "eslintConfig": {
     "extends": "react-app"

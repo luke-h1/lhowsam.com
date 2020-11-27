@@ -11,6 +11,7 @@ import {
   CardImage,
   CardItemInfo,
   CardText,
+  PostedAt,
 } from './BlogItemElements';
 import { Button } from '../utils/Buttons/Button/Button';
 import { BlogData } from '../../data/BlogPostItemData';
@@ -28,23 +29,21 @@ const BlogItem = () => (
       {BlogData.map((post, i) => (
         <CardItem1 key={i}>
           <CardLink className="cards__item__link" to={post.slug}>
-            <CardFigure data-category={post.postedAt}>
+            <CardFigure data-category={post.label}>
               <CardImage src={post.image} alt={post.title} />
             </CardFigure>
             <CardItemInfo>
               <CardText>{post.title}</CardText>
-              <CardText>
-                {post.excerpt}
-              </CardText>
-              <Button to={post.slug}>
-                Read More
-              </Button>
+              <CardText>{post.excerpt}</CardText>
+              <Button to={post.slug}>Read More</Button>
+              <PostedAt>
+                <p>{post.postedAt}</p>
+              </PostedAt>
             </CardItemInfo>
           </CardLink>
         </CardItem1>
       ))}
     </BlogSection>
   </>
-
 );
 export default BlogItem;
