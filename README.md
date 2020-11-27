@@ -6,7 +6,7 @@
 
 ### Develop
 
-Start a hot-reloading development environment accessible at `localhost:8000`
+Start a hot-reloading development environment accessible at `localhost:3000`
 
 ```shell
 npm start
@@ -14,7 +14,7 @@ npm start
 
 ### Build
 
-Get an optimized production build for your site generating static HTML and per-route JavaScript code bundles.
+Get an optimized production build 
 
 ```shell
 npm build
@@ -22,7 +22,7 @@ npm build
 
 ### Serve
 
-start a local HTML server for testing your built site.
+start a local server for testing your built site.
 
 ```shell
 npm run serve
@@ -39,7 +39,7 @@ npm run lint
 
 ### Clean
 
-Remove the .cache, package-lock.json,  public and node_modules for a scratch compile.
+Remove the package-lock.json and node_modules for a scratch compile.
 
 ```shell
 npm run clean
