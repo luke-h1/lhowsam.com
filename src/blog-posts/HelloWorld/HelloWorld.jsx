@@ -3,6 +3,10 @@ import BlogPostTemplate from '../../templates/BlogPostTemplate/BlogPostTemplate'
 
 const HelloWorld = () => (
   <>
+      <Helmet>
+      <title>Blog - Hello World</title>
+      <meta name="description" content="Home page" />
+    </Helmet>
     <BlogPostTemplate
       title="Hello World"
       desc="Welcome to my new blog. This is about the 4th time I've attempted to create a decent looking blog page. I've only created this one blog post even after all of those attempts"
