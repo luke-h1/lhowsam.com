@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import CardItemLarge from '../../templates/CardItemLarge/CardItemLarge';
 import Image2 from '../../assets/images/Projects/Drink-carson.jpeg';
 import Navbar from '../../components/Navbar/Navbar';
@@ -7,6 +9,10 @@ import Footer from '../../components/Footer/Footer';
 
 const DrinkApp = () => (
   <>
+    <Helmet>
+      <title>Projects - Drink App</title>
+      <meta name="description" content="Projects - Drink App" />
+    </Helmet>
     <Navbar />
     <CardItemLarge
       title="Cocktail Recipe App"

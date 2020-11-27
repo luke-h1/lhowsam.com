@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import CardItemLarge from '../../templates/CardItemLarge/CardItemLarge';
 import Image6 from '../../assets/images/Projects/Shop-albert-renn.jpeg';
 import Navbar from '../../components/Navbar/Navbar';
@@ -6,6 +7,10 @@ import Footer from '../../components/Footer/Footer';
 
 const Quotes = () => (
   <>
+    <Helmet>
+      <title>Projects - Quotes</title>
+      <meta name="description" content="Projects - Quotes" />
+    </Helmet>
     <Navbar />
     <CardItemLarge
       title="Breaking Bad Quotes App"

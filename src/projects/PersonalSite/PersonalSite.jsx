@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import CardItemLarge from '../../templates/CardItemLarge/CardItemLarge';
 import Image1 from '../../assets/images/Projects/Coffee-jon-tyson.jpeg';
 import Navbar from '../../components/Navbar/Navbar';
@@ -6,6 +8,10 @@ import Footer from '../../components/Footer/Footer';
 
 const PersonalSite = () => (
   <>
+    <Helmet>
+      <title>Projects - Personal Site</title>
+      <meta name="description" content="Projects - Personal Site" />
+    </Helmet>
     <Navbar />
     <CardItemLarge
       title="Personal Site (This one!)"

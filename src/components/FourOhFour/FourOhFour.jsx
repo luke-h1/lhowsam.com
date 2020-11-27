@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
 import PropTypes from 'prop-types';
 import {
   Wrapper,
@@ -17,6 +18,10 @@ const fourOhFour = ({
   instructions,
 }) => (
   <Wrapper>
+    <Helmet>
+      <title>404 not found</title>
+      <meta name="description" content="404 not found" />
+    </Helmet>
     <Container>
       <Intro>
         {fourOhFourTitle}

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Helmet } from 'react-helmet';
+
 import CardItemLarge from '../../templates/CardItemLarge/CardItemLarge';
 import Image4 from '../../assets/images/Projects/pattern-ahmad-dirini.jpeg';
 import Navbar from '../../components/Navbar/Navbar';
@@ -6,6 +8,10 @@ import Footer from '../../components/Footer/Footer';
 
 const FormValidator = () => (
   <>
+    <Helmet>
+      <title>Projects - Form Validator</title>
+      <meta name="description" content="Projects - Form Validator" />
+    </Helmet>
     <Navbar />
     <CardItemLarge
       title="Form Validator"

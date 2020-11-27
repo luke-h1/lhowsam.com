@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import CardItemLarge from '../../templates/CardItemLarge/CardItemLarge';
 import Image3 from '../../assets/images/Projects/pink-pattern-pawel.jpeg';
 import Navbar from '../../components/Navbar/Navbar';
@@ -6,6 +7,10 @@ import Footer from '../../components/Footer/Footer';
 
 const Automation = () => (
   <>
+    <Helmet>
+      <title>Projects - Automation</title>
+      <meta name="description" content="Projects - Automation" />
+    </Helmet>
     <Navbar />
     <CardItemLarge
       title="Automation"
