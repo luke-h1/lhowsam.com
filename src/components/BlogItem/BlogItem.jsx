@@ -28,7 +28,7 @@ const BlogItem = () => (
       {BlogData.map((post, i) => (
         <CardItem1 key={i}>
           <CardLink className="cards__item__link" to={post.slug}>
-            <CardFigure data-category={post.label}>
+            <CardFigure data-category={post.postedAt}>
               <CardImage src={post.image} alt={post.title} />
             </CardFigure>
             <CardItemInfo>
