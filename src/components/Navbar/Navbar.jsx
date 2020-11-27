@@ -59,7 +59,7 @@ function Navbar() {
                 </NavItem>
                 <NavItemBtn>
                   <NavBtnLink>
-                    <NavContactButton round="true" primary="true">
+                    <NavContactButton round="true" primary="true" to="/contact">
                       Get In Touch
                     </NavContactButton>
                   </NavBtnLink>
