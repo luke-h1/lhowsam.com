@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const ShowCaseWrapper = styled.div`
-  min-height: 50vh;
+  min-height: 60vh;
   min-width: 100vw;
   margin-bottom: 8rem;
-  background-color: ${(props) => props.theme.backgroundColor}; 
-  color: ${(props) => props.theme.textColor}; 
+  background-color: ${(props) => props.theme.primaryBackgroundColor}; 
+  color: ${(props) => props.theme.primaryColor}; 
   display: flex;
   flex-direction: column;
   justify-content: center;

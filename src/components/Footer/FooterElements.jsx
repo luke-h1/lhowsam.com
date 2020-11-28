@@ -4,20 +4,22 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const FooterContainer = styled.footer`
-  background-color: ${(props) => props.backgroundColor};
-  border-top: 1px solid ${(props) => props.FooterBorder}; 
   position: fixed;
   bottom: 0px;
   width: 100%;
   margin: 0;
-  height: 100px;
+  background-color: ${(props) => props.theme.primaryNavColor};
+  height: 80px;
+  @media(min-width: 500px){
+    height: 100px;
+  }
   @media (max-width: 375px) {
     height: 120px;
   }
 `;
 
 export const FooterWrap = styled.div`
-  padding: 14px 24px;
+  padding: 16px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,7 +44,7 @@ export const SocialMediaWrap = styled.div`
 `;
 
 export const SocialLogo = styled(Link)`
-  color: ${(props) => props.textColor}; 
+  color: ${(props) => props.primaryColor}; 
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
@@ -61,10 +63,10 @@ export const SocialIcons = styled.div`
 `;
 
 export const SocialIconLink = styled.a`
-  color: ${(props) => props.theme.textColor}; 
+  color: ${(props) => props.theme.primaryColor}; 
   font-size: 24px;
   &:hover {
-    color: ${(props) => props.theme.hoverColor}; 
+    color: ${(props) => props.theme.primaryHoverColor}; 
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }

@@ -27,7 +27,6 @@ function Navbar({ theme, toggleTheme }) {
   return (
     <ThemeProvider theme={lightTheme}>
       <>
-        <IconContext.Provider value={{ color: '#000' }}>
           <Nav>
             <NavbarContainer>
               <NavLogo to="/" onClick={closeMobileMenu}>
@@ -70,7 +69,6 @@ function Navbar({ theme, toggleTheme }) {
               </NavMenu>
             </NavbarContainer>
           </Nav>
-        </IconContext.Provider>
       </>
     </ThemeProvider>
   );

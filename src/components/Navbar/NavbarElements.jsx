@@ -4,17 +4,16 @@ import { BiCodeBlock } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { Container } from '../utils/Containers/Container';
-import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const Nav = styled.nav`
-  background: ${(props) => props.theme.backgroundColor}; 
+  background: ${(props) => props.theme.primaryNavColor}; 
   height: 90px;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 999;
   position: relative;
-  border-bottom: 1px solid ${(props) => props.theme.FooterBorder}; 
+  border-bottom: 1px solid ${(props) => props.theme.textOnDisabled}; 
     min-width: 100vw;
 `;
 
@@ -23,11 +22,11 @@ export const NavbarContainer = styled(Container)`
   justify-content: space-between;
   height: 80px;
   ${Container}
-  color: ${(props) => props.theme.textColor}; 
+  color: ${(props) => props.theme.primaryColor}; 
 `;
 
 export const NavLogo = styled(Link)`
-  color: ${(props) => props.theme.textColor}; 
+  color: ${(props) => props.theme.primaryColor}; 
   justify-self: flex-start;
   cursor: pointer;
   text-decoration: none;
@@ -50,7 +49,7 @@ export const MobileIcon = styled.div`
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-    color: ${(props) => props.theme.textColor}; 
+    color: ${(props) => props.theme.primaryColor}; 
   }
 `;
 
@@ -73,7 +72,7 @@ export const NavMenu = styled.ul`
     left: ${({ click }) => (click ? 0 : '-200%')};
     opacity: 1;
     transition: all 0.2s ease;
-    background: ${(props) => props.theme.FooterBorder}; 
+    background: ${(props) => props.theme.primaryNavColor}; 
     font-size: 1.8rem;
     font-weight: 700;
     overflow-y: hidden; /* Hide vertical scrollbar */
@@ -87,7 +86,7 @@ export const NavItem = styled.li`
   height: 80px;
   border-bottom: 2px solid transparent;
   &:hover {
-    border-bottom: 2px solid ${(props) => props.theme.darkBlueBorder};
+    border-bottom: 2px solid ${(props) => props.theme.primaryHoverColor};
   }
   @media screen and (max-width: 960px) {
     width: 100%;
@@ -113,7 +112,7 @@ export const NavItemBtn = styled.li`
 `;
 
 export const NavLinks = styled(Link)`
-  color: ${(props) => props.theme.textColor};
+  color: ${(props) => props.theme.primaryColor};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -129,7 +128,7 @@ export const NavLinks = styled(Link)`
     text-align: center;
     width: 100%;
     &:hover {
-      color: ${(props) => props.theme.darkBlueBorder}; 
+      color: ${(props) => props.theme.primaryHoverColor}; 
       transition: all 0.3s ease;
     }
   }
@@ -148,9 +147,9 @@ export const NavBtnLink = styled(Link)`
 `;
 
 export const Sun = styled(FiSun)`
-  color: ${(props) => props.theme.textColor}; 
+  color: ${(props) => props.theme.primaryColor}; 
 `;
 
 export const Moon = styled(FiMoon)`
-  color: ${(props) => props.theme.textColor}; 
+  color: ${(props) => props.theme.primaryColor}; 
 `;

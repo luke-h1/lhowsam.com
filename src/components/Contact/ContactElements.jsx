@@ -7,7 +7,7 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa';
 export const ContactWrapper = styled.div`
   min-height: 100vh;
   min-width: 100vw;
-  background-color: ${(props) => props.theme.backgroundColor}; 
+  background-color: ${(props) => props.theme.primaryBackgroundColor}; 
   color: ${(props) => props.theme.textColor}; 
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@ export const MainTitle = styled.h1`
   letter-spacing: 5px;
   filter: brightness(1.5);
   filter: contrast(300);
-  background-color: ${(props) => props.theme.backgroundColor}; 
+  background-color: ${(props) => props.theme.primaryBackgroundColor}; 
 `;
 
 export const Alternatives = styled.div`
@@ -53,10 +53,10 @@ export const IconWrapper = styled.div`
 
 export const EmailIcon = styled(AiOutlineMail)`
   font-size: 20px;
-  fill: ${(props) => props.theme.textColor}; 
+  fill: ${(props) => props.theme.primaryColor}; 
   margin: 0 1em 5px 1em;
   &:hover {
-    fill: ${(props) => props.theme.hoverColor}; 
+    fill: ${(props) => props.theme.primaryHoverColor}; 
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
@@ -67,7 +67,7 @@ export const LinkedIn = styled(FaLinkedin)`
   fill: ${(props) => props.theme.textColor}; 
   margin: 0 1em 0 1em;
   &:hover {
-    fill: ${(props) => props.theme.hoverColor};
+    fill: ${(props) => props.theme.primaryHoverColor};
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
@@ -78,7 +78,7 @@ export const Github = styled(FaGithub)`
   fill: ${(props) => props.theme.textColor};
   margin: 0 1em 0 1em;
   &:hover {
-    fill: ${(props) => props.theme.hoverColor};
+    fill: ${(props) => props.theme.primaryHoverColor};
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }

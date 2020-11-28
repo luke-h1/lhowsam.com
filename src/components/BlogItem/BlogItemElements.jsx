@@ -41,7 +41,7 @@ export const CardItem1 = styled.div`
   flex: 1;
   margin: 0 1rem;
   border-radius: 10px;
-  background: ${(props) => props.theme.backgroundColor}; 
+  background: ${(props) => props.theme.primaryBackgroundColor}; 
   max-width: 500px;
   min-width: 500px;
   @media(max-width: 558px){
@@ -95,8 +95,8 @@ export const CardFigure = styled.figure`
     max-width: calc((100%) - 60px);
     font-size: 12px;
     font-weight: 700;
-    color: ${(props) => props.theme.neutralColor}; 
-    background-color: ${(props) => props.theme.textColor};
+    color: ${(props) => props.theme.textColor}; 
+    background-color: ${(props) => props.theme.primaryActiveColor};
     box-sizing: border-box;
   }
 `;

@@ -39,7 +39,7 @@ export const Blog = styled.p`
 `;
 
 export const BlogLink = styled(Link)`
-  color: ${(props) => props.theme.textColor}; 
+  color: ${(props) => props.theme.primaryColor}; 
   text-decoration: none;
   margin: 20px 1rem 0 1rem;
   align-items: center;
@@ -47,7 +47,7 @@ export const BlogLink = styled(Link)`
   font-size: 18px;
   &:hover {
     cursor: pointer;
-    color: ${(props) => props.theme.hoverColor}; 
+    color: ${(props) => props.theme.primaryHoverColor}; 
     transition: all ease 0.2s;
     transform: scale(1.15);
   }
