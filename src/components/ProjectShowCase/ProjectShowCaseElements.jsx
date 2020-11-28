@@ -1,12 +1,11 @@
 /* eslint-disable */
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { lightTheme, darkTheme } from '../../styles/Themes';
+
 
 export const ShowCaseWrapper = styled.div`
   min-height: 90vh;
   min-width: 100vw;
-
   background-color: ${(props) => props.theme.primaryBackgroundColor}; 
   color: ${(props) => props.theme.primaryColor}; 
   display: flex;
