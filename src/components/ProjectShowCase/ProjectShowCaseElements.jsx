@@ -1,4 +1,5 @@
 /* eslint-disable */
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { lightTheme, darkTheme } from '../../styles/Themes';
 
@@ -38,3 +39,11 @@ export const ShowCaseTitle = styled.h1`
   margin-bottom: 15px;
   font-weight: 600;
 `;
+
+export const Small = styled.small`
+  color: ${(props) => props.theme.primaryColor};
+`
+
+export const ProjectLink = styled(Link)`
+  color: ${(props) => props.theme.primaryColor};
+`

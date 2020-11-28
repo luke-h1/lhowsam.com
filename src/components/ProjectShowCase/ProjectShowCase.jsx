@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {
   ShowCaseWrapper,
   ShowCaseContainer,
   ShowCaseTitle,
+  Small,
+  ProjectLink,
 } from './ProjectShowCaseElements';
 import CardItem from '../../templates/CardItem/CardItem';
 import Image1 from '../../assets/images/Projects/Coffee-jon-tyson.jpeg';
@@ -14,9 +15,9 @@ const ProjectShowCase = () => (
   <>
     <ShowCaseWrapper>
       <ShowCaseTitle>Recent Projects</ShowCaseTitle>
-      <small>
-        <Link to="/projects">See more projects</Link>
-      </small>
+      <Small>
+        <ProjectLink to="/projects">See more projects</ProjectLink>
+      </Small>
       <ShowCaseContainer>
         <CardItem
           src={Image1}
