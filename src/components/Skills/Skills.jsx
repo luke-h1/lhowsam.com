@@ -1,4 +1,6 @@
 import React from 'react';
+import { SkillData } from '../../data/SkillItemData';
+
 import {
   SkillWrapper,
   SkillsHeader,
@@ -12,11 +14,9 @@ const Skills = () => (
     <Title>Top Skills</Title>
     <SkillBody>
       <SkillsHeader />
-      <Skill>Javascript</Skill>
-      <Skill>Basic React</Skill>
-      <Skill>CSS / SCSS</Skill>
-      <Skill>Ansible / Automation</Skill>
-      <Skill>Bash / Linux</Skill>
+      {SkillData.map((skill) => (
+        <Skill key={skill.id}>{skill.title}</Skill>
+      ))}
     </SkillBody>
   </SkillWrapper>
 );
