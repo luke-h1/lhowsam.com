@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const ShowCaseWrapper = styled.div`
-  min-height: 60vh;
+  min-height: 100vh;
   min-width: 100vw;
   background-color: ${(props) => props.theme.primaryBackgroundColor}; 
   color: ${(props) => props.theme.primaryColor}; 
