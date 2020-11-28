@@ -17,7 +17,7 @@ npm start
 Get an optimized production build 
 
 ```shell
-npm build
+npm run build
 ```
 
 ### Serve
