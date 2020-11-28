@@ -50,7 +50,7 @@ export const MobileIcon = styled.div`
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-    color: ${(props) => props.textColor}; 
+    color: ${(props) => props.theme.textColor}; 
   }
 `;
 
@@ -73,7 +73,7 @@ export const NavMenu = styled.ul`
     left: ${({ click }) => (click ? 0 : '-200%')};
     opacity: 1;
     transition: all 0.2s ease;
-    background: ${(props) => props.FooterBorder}; 
+    background: ${(props) => props.theme.FooterBorder}; 
     font-size: 1.8rem;
     font-weight: 700;
     overflow-y: hidden; /* Hide vertical scrollbar */
@@ -87,7 +87,7 @@ export const NavItem = styled.li`
   height: 80px;
   border-bottom: 2px solid transparent;
   &:hover {
-    border-bottom: 2px solid ${(props) => props.darkBlueBorder};
+    border-bottom: 2px solid ${(props) => props.theme.darkBlueBorder};
   }
   @media screen and (max-width: 960px) {
     width: 100%;
@@ -113,7 +113,7 @@ export const NavItemBtn = styled.li`
 `;
 
 export const NavLinks = styled(Link)`
-  color: ${(props) => props.textColor};
+  color: ${(props) => props.theme.textColor};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -129,7 +129,7 @@ export const NavLinks = styled(Link)`
     text-align: center;
     width: 100%;
     &:hover {
-      color: ${(props) => props.darkBlueBorder}; 
+      color: ${(props) => props.theme.darkBlueBorder}; 
       transition: all 0.3s ease;
     }
   }
@@ -148,9 +148,9 @@ export const NavBtnLink = styled(Link)`
 `;
 
 export const Sun = styled(FiSun)`
-  color: ${(props) => props.textColor}; 
+  color: ${(props) => props.theme.textColor}; 
 `;
 
 export const Moon = styled(FiMoon)`
-  color: ${(props) => props.textColor}; 
+  color: ${(props) => props.theme.textColor}; 
 `;

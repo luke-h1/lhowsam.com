@@ -1,16 +1,16 @@
 /* eslint-disable */
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { lightTheme, darkTheme } from '../../styles/Themes';
+
 
 export const CardLgWrapper = styled.div`
   min-width: 100vw;
-  color: ${(props) => props.textColor}; 
+  color: ${(props) => props.theme.textColor}; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) => props.backgroundColor}; 
+  background-color: ${(props) => props.theme.backgroundColor}; 
 `;
 
 export const Card = styled.div`
@@ -35,7 +35,7 @@ export const ItemTitle = styled.h1`
   text-align: center;
   font-family: $titleFont;
   letter-spacing: 3px;
-  color: ${(props) => props.textColor};
+  color: ${(props) => props.theme.textColor};
   @media (max-width: 640px) {
     width: 85%;
   }
@@ -56,13 +56,13 @@ export const Container = styled.div`
 
 
 export const GithubLink = styled.a`
-  color: ${(props) => props.textColor};
+  color: ${(props) => props.theme.textColor};
   font-size: 35px;
   margin-bottom: 10px;
   margin: 0 10px 0 10px;
 
   &:hover {
-    color: ${(props) => props.hoverColor};
+    color: ${(props) => props.theme.hoverColor};
     cursor: pointer;
     transform: scale(1.15);
     transition: scale ease 0.5s;
@@ -71,11 +71,11 @@ export const GithubLink = styled.a`
 
 export const SiteLink = styled.a`
   margin: 0 10px 0 10px;
-  color: ${(props) => props.textColor};
+  color: ${(props) => props.theme.textColor};
   font-size: 35px;
   margin-bottom: 20px;
   &:hover {
-    color: ${(props) => props.hoverColor};
+    color: ${(props) => props.theme.hoverColor};
     cursor: pointer;
     transform: scale(1.15);
     transition: scale ease 0.5s;
@@ -83,7 +83,7 @@ export const SiteLink = styled.a`
 `;
 
 export const ProjectLgLink = styled(Link)`
-  color: ${(props) => props.textColor};
+  color: ${(props) => props.theme.textColor};
   text-decoration: none;
   margin-top: 1rem;
   font-size: 18px;
@@ -95,7 +95,7 @@ export const ProjectLgLink = styled(Link)`
 `;
 
 export const ProjectSecondLink = styled(Link)`
-  color: ${(props) => props.textColor};
+  color: ${(props) => props.theme.textColor};
   text-decoration: none;
   margin-top: 1rem;
   font-size: 18px;

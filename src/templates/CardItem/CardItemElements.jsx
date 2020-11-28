@@ -57,8 +57,8 @@ export const CardFigure = styled.figure`
     max-width: calc((100%) - 60px);
     font-size: 12px;
     font-weight: 700;
-    color: ${(props) => props.whiteTextColor}; 
-    background-color: ${(props) => props.hoverColor}; 
+    color: ${(props) => props.theme.whiteTextColor}; 
+    background-color: ${(props) => props.theme.hoverColor}; 
     box-sizing: border-box;
   }
 `;
@@ -68,7 +68,7 @@ export const CardItemInfo = styled.div`
 `;
 
 export const CardText = styled.h5`
-  color: ${(props) => props.textColor}; 
+  color: ${(props) => props.theme.textColor}; 
   font-size: 18px;
   line-height: 24px;
 `;

@@ -4,6 +4,6 @@ import { BiCodeBlock } from 'react-icons/bi';
 import { lightTheme, darkTheme } from '../../../styles/Themes';
 
 export const CodeIcon = styled(BiCodeBlock)`
-  color: ${(props) => props.textColor}; 
+  color: ${(props) => props.theme.textColor}; 
   font-size: 24px;
 `;

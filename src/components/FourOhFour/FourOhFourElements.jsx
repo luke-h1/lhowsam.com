@@ -7,8 +7,8 @@ import { lightTheme, darkTheme } from '../../styles/Themes';
 export const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: ${(props) => props.backgroundColor};
-  color: ${(props) => props.textColor}; 
+  background-color: ${(props) => props.theme.backgroundColor};
+  color: ${(props) => props.theme.textColor}; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,8 +18,8 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   z-index: 1;
-  background-color: ${(props) => props.backgroundColor}; 
-  color: ${(props) => props.textColor}; 
+  background-color: ${(props) => props.theme.backgroundColor}; 
+  color: ${(props) => props.theme.textColor}; 
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -47,14 +47,14 @@ export const Instructions = styled.h2`
 export const NotFoundLink = styled(Link)`
   display: block;
   font-size: 25px;
-  color: ${(props) => props.textColor};
+  color: ${(props) => props.theme.textColor};
   text-decoration: none;
   margin: 2em 0 2em 0;
   font-weight: 700;
   &:hover {
     transform: scale(1.2);
     transition: all 0.3s ease;
-    color: ${(props) => props.hoverColor};
+    color: ${(props) => props.theme.hoverColor};
   }
 `;
 

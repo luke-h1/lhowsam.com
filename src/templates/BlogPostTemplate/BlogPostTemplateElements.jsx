@@ -2,7 +2,6 @@
 
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const Wrapper = styled.article`
   padding-top: 65px;
@@ -40,7 +39,7 @@ export const Blog = styled.p`
 `;
 
 export const BlogLink = styled(Link)`
-  color: ${(props) => props.textColor}; 
+  color: ${(props) => props.theme.textColor}; 
   text-decoration: none;
   margin: 20px 1rem 0 1rem;
   align-items: center;
@@ -48,7 +47,7 @@ export const BlogLink = styled(Link)`
   font-size: 18px;
   &:hover {
     cursor: pointer;
-    color: ${(props) => props.hoverColor}; 
+    color: ${(props) => props.theme.hoverColor}; 
     transition: all ease 0.2s;
     transform: scale(1.15);
   }

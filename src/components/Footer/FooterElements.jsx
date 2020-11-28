@@ -2,7 +2,6 @@
 
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { darkTheme, lightTheme } from '../../styles/Themes';
 
 export const FooterContainer = styled.footer`
   background-color: ${(props) => props.backgroundColor};
@@ -62,10 +61,10 @@ export const SocialIcons = styled.div`
 `;
 
 export const SocialIconLink = styled.a`
-  color: ${(props) => props.textColor}; 
+  color: ${(props) => props.theme.textColor}; 
   font-size: 24px;
   &:hover {
-    color: ${(props) => props.hoverColor}; 
+    color: ${(props) => props.theme.hoverColor}; 
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }

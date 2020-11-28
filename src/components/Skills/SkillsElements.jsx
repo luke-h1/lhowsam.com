@@ -11,7 +11,7 @@ export const SkillWrapper = styled.div`
   align-items: center;
   min-height: 35vh;
   margin: 0 auto;
-  background-color: ${(props) => props.backgroundColor}; 
+  background-color: ${(props) => props.theme.backgroundColor}; 
 `;
 
 export const Title = styled.h1`
@@ -35,8 +35,8 @@ export const SkillsHeader = styled.div`
 `;
 
 export const Skill = styled.p`
-  background-color: ${(props) => props.hoverColor}; 
-  color: ${(props) => props.textColor}; 
+  background-color: ${(props) => props.theme.hoverColor}; 
+  color: ${(props) => props.theme.textColor}; 
   text-align: center;
   padding: 8px;
   border-radius: 8px;

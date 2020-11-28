@@ -8,7 +8,7 @@ export const ProjectWrapper = styled.div`
   padding: 4rem;
   min-height: 100vh;
   text-align: center;
-  background-color: ${(props) => props.backgroundColor}; 
+  background-color: ${(props) => props.theme.backgroundColor}; 
 `;
 
 export const CardWrap = styled.div`

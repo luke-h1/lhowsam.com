@@ -7,7 +7,7 @@ const Button = styled.button`
   padding: 5px 20px;
   border-radius: 6px;
   border: none;
-  background: ${(props) => props.backgroundColor}; 
+  background: ${(props) => props.theme.backgroundColor}; 
   color: #fff;
   cursor: pointer;
   font-size: 24px;
