@@ -5,6 +5,7 @@ import styled from 'styled-components';
 
 export const CardLgWrapper = styled.div`
   min-width: 100vw;
+  min-height: 100vh;
   color: ${(props) => props.theme.primaryColor}; 
   display: flex;
   flex-direction: column;
@@ -62,7 +63,7 @@ export const GithubLink = styled.a`
   margin: 0 10px 0 10px;
 
   &:hover {
-    color: ${(props) => props.theme.hoverColor};
+    color: ${(props) => props.theme.primaryHoverColor};
     cursor: pointer;
     transform: scale(1.15);
     transition: scale ease 0.5s;
