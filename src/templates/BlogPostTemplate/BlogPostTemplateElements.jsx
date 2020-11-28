@@ -40,7 +40,7 @@ export const Blog = styled.p`
 `;
 
 export const BlogLink = styled(Link)`
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  color: ${(props) => props.textColor}; 
   text-decoration: none;
   margin: 20px 1rem 0 1rem;
   align-items: center;
@@ -48,7 +48,7 @@ export const BlogLink = styled(Link)`
   font-size: 18px;
   &:hover {
     cursor: pointer;
-    color: ${lightTheme ? lightTheme.hoverColor : lightTheme.hoverColor};
+    color: ${(props) => props.hoverColor}; 
     transition: all ease 0.2s;
     transform: scale(1.15);
   }

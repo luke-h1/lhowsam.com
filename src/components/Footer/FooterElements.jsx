@@ -5,11 +5,8 @@ import { Link } from 'react-router-dom';
 import { darkTheme, lightTheme } from '../../styles/Themes';
 
 export const FooterContainer = styled.footer`
-  background-color: ${lightTheme
-    ? lightTheme.backgroundColor
-    : darkTheme.backgroundColor};
-  border-top: 1px solid
-    ${lightTheme ? lightTheme.FooterBorder : darkTheme.FooterBorder};
+  background-color: ${(props) => props.backgroundColor};
+  border-top: 1px solid ${(props) => props.FooterBorder}; 
   position: fixed;
   bottom: 0px;
   width: 100%;
@@ -46,7 +43,7 @@ export const SocialMediaWrap = styled.div`
 `;
 
 export const SocialLogo = styled(Link)`
-  color: ${lightTheme.textColor ? lightTheme.textColor : darkTheme.textColor};
+  color: ${(props) => props.textColor}; 
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
@@ -65,10 +62,10 @@ export const SocialIcons = styled.div`
 `;
 
 export const SocialIconLink = styled.a`
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  color: ${(props) => props.textColor}; 
   font-size: 24px;
   &:hover {
-    color: ${lightTheme ? lightTheme.hoverColor : darkTheme.hoverColor};
+    color: ${(props) => props.hoverColor}; 
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }

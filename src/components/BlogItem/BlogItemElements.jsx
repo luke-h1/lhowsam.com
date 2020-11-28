@@ -2,7 +2,6 @@
 
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const BlogSection = styled.div`
   max-width: 550px;
@@ -42,9 +41,7 @@ export const CardItem1 = styled.div`
   flex: 1;
   margin: 0 1rem;
   border-radius: 10px;
-  background: ${lightTheme
-    ? lightTheme.backgroundColor
-    : darkTheme.backgroundColor};
+  background: ${(props) => props.backgroundColor}; 
   max-width: 500px;
   min-width: 500px;
   @media(max-width: 558px){
@@ -98,10 +95,8 @@ export const CardFigure = styled.figure`
     max-width: calc((100%) - 60px);
     font-size: 12px;
     font-weight: 700;
-    color: ${lightTheme ? lightTheme.whiteTextColor : darkTheme.whiteTextColor};
-    background-color: ${lightTheme
-      ? lightTheme.hoverColor
-      : darkTheme.whiteTextColor};
+    color: ${(props) => props.neutralColor}; 
+    background-color: ${(props) => props.textColor};
     box-sizing: border-box;
   }
 `;
@@ -111,7 +106,7 @@ export const CardItemInfo = styled.div`
 `;
 
 export const CardText = styled.h5`
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  color: ${(props) => props.textColor};
   font-size: 18px;
   line-height: 24px;
   &:last-of-type {
@@ -128,5 +123,4 @@ export const PostedAt = styled.div`
     font-weight: bold;
     color: #000;
   }
-
-`
+`; 

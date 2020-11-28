@@ -8,9 +8,7 @@ export const ProjectWrapper = styled.div`
   padding: 4rem;
   min-height: 100vh;
   text-align: center;
-  background-color: ${lightTheme
-    ? lightTheme.backgroundColor
-    : darkTheme.backgroundColor};
+  background-color: ${(props) => props.backgroundColor}; 
 `;
 
 export const CardWrap = styled.div`
