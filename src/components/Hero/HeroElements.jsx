@@ -7,13 +7,11 @@ export const HomeHeroSection = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  color: ${(props) => props.theme.primaryColor};
   min-height: 50vh;
   min-width: 100vw;
   padding: 1rem;
-  background-color: ${lightTheme
-    ? lightTheme.backgroundColor
-    : darkTheme.backgroundColor};
+  background-color: ${(props) => props.theme.primaryBackgroundColor}; 
 `;
 
 export const GridContainer = styled.div`
@@ -24,6 +22,8 @@ export const GridContainer = styled.div`
   align-items: center;
   width: 100vw;
   min-height: 50vh;
+  background-color: ${(props) => props.theme.primaryBackgroundColor}; 
+
 `;
 
 export const IntroductionContainer = styled.div`

@@ -2,15 +2,12 @@
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: ${lightTheme
-    ? lightTheme.backgroundColor
-    : darkTheme.backgroundColor};
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  background-color: ${(props) => props.theme.primaryBackgroundColor};
+  color: ${(props) => props.theme.primaryColor}; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,10 +17,8 @@ export const Wrapper = styled.div`
 
 export const Container = styled.div`
   z-index: 1;
-  background-color: ${lightTheme
-    ? lightTheme.backgroundColor
-    : darkTheme.backgroundColor};
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  background-color: ${(props) => props.theme.primaryBackgroundColor}; 
+  color: ${(props) => props.theme.primaryColor}; 
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -34,6 +29,7 @@ export const Container = styled.div`
 export const Intro = styled.h1`
   margin-bottom: 2em;
   font-family: $mainFont;
+  color: ${(props) => props.theme.primaryColor};
   font-size: 30px;
   @media (max-width: 768px) {
     font-size: 25px;
@@ -51,14 +47,13 @@ export const Instructions = styled.h2`
 export const NotFoundLink = styled(Link)`
   display: block;
   font-size: 25px;
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  color: #000;
   text-decoration: none;
   margin: 2em 0 2em 0;
   font-weight: 700;
   &:hover {
     transform: scale(1.2);
     transition: all 0.3s ease;
-    color: ${lightTheme ? lightTheme.hoverColor : darkTheme.hoverColor};
   }
 `;
 

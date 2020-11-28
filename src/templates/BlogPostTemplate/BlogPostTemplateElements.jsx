@@ -2,7 +2,13 @@
 
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { lightTheme, darkTheme } from '../../styles/Themes';
+
+
+export const BlogPostWrapper = styled.div`
+min-width: 100vw;
+min-height: 100vh;
+background-color: ${(props) => props.theme.primaryBackgroundColor};
+`
 
 export const Wrapper = styled.article`
   padding-top: 65px;
@@ -10,6 +16,7 @@ export const Wrapper = styled.article`
   margin: 0px auto;
   padding-left: 16px;
   padding-right: 16px;
+  color: ${(props) => props.theme.primaryColor};
 `;
 
 export const Title = styled.h1`
@@ -40,7 +47,7 @@ export const Blog = styled.p`
 `;
 
 export const BlogLink = styled(Link)`
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  color: ${(props) => props.theme.primaryColor}; 
   text-decoration: none;
   margin: 20px 1rem 0 1rem;
   align-items: center;
@@ -48,7 +55,7 @@ export const BlogLink = styled(Link)`
   font-size: 18px;
   &:hover {
     cursor: pointer;
-    color: ${lightTheme ? lightTheme.hoverColor : lightTheme.hoverColor};
+    color: ${(props) => props.theme.primaryHoverColor}; 
     transition: all ease 0.2s;
     transform: scale(1.15);
   }

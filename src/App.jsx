@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import ProjectPage from './Pages/Projects/ProjectPage';
@@ -13,7 +14,8 @@ import { GlobalStyle } from './styles/GlobalStyles';
 import BlogPage from './Pages/BlogPage/BlogPage';
 import HelloWorld from './blog-posts/HelloWorld/HelloWorld';
 
-function App() {
+const App = () => {
+
   return (
     <>
       <GlobalStyle />

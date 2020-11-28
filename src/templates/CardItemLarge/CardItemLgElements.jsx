@@ -1,18 +1,17 @@
 /* eslint-disable */
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { lightTheme, darkTheme } from '../../styles/Themes';
+
 
 export const CardLgWrapper = styled.div`
   min-width: 100vw;
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  min-height: 100vh;
+  color: ${(props) => props.theme.primaryColor}; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: ${lightTheme
-    ? lightTheme.backgroundColor
-    : darkTheme.backgroundColor};
+  background-color: ${(props) => props.theme.primaryBackgroundColor}; 
 `;
 
 export const Card = styled.div`
@@ -37,7 +36,7 @@ export const ItemTitle = styled.h1`
   text-align: center;
   font-family: $titleFont;
   letter-spacing: 3px;
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  color: ${(props) => props.theme.primaryColor};
   @media (max-width: 640px) {
     width: 85%;
   }
@@ -56,18 +55,15 @@ export const Container = styled.div`
   }
 `;
 
-// export const ProjectImageLg = styled.image``
-
-// export const IconContainer = styled.div``
 
 export const GithubLink = styled.a`
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  color: ${(props) => props.theme.primaryColor};
   font-size: 35px;
   margin-bottom: 10px;
   margin: 0 10px 0 10px;
 
   &:hover {
-    color: ${lightTheme ? lightTheme.hoverColor : darkTheme.hoverColor};
+    color: ${(props) => props.theme.primaryHoverColor};
     cursor: pointer;
     transform: scale(1.15);
     transition: scale ease 0.5s;
@@ -76,11 +72,11 @@ export const GithubLink = styled.a`
 
 export const SiteLink = styled.a`
   margin: 0 10px 0 10px;
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  color: ${(props) => props.theme.primaryColor};
   font-size: 35px;
   margin-bottom: 20px;
   &:hover {
-    color: ${lightTheme ? lightTheme.hoverColor : darkTheme.hoverColor};
+    color: ${(props) => props.theme.primaryHoverColor};
     cursor: pointer;
     transform: scale(1.15);
     transition: scale ease 0.5s;
@@ -88,7 +84,7 @@ export const SiteLink = styled.a`
 `;
 
 export const ProjectLgLink = styled(Link)`
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  color: ${(props) => props.theme.primaryColor};
   text-decoration: none;
   margin-top: 1rem;
   font-size: 18px;
@@ -100,7 +96,7 @@ export const ProjectLgLink = styled(Link)`
 `;
 
 export const ProjectSecondLink = styled(Link)`
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  color: ${(props) => props.theme.primaryColor};
   text-decoration: none;
   margin-top: 1rem;
   font-size: 18px;

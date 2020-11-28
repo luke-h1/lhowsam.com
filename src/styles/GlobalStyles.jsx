@@ -11,6 +11,14 @@ export const GlobalStyle = createGlobalStyle`
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+} 
+html { 
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+*, *:before *:after { 
+  box-sizing: inherit;
 }
 
 body {
@@ -21,6 +29,5 @@ body {
     lightTheme ? lightTheme.backgroundColor : darkTheme.backgroundColor
   };
   overflow-x: hidden;  
-
 }
 `;

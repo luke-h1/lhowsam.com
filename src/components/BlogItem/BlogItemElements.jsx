@@ -2,19 +2,22 @@
 
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const BlogSection = styled.div`
-  max-width: 550px;
+  min-width: 100vw;
+  max-width: 100vw;
   margin: 0px auto;
   padding-left: 16px;
   padding-right: 16px;
   min-height: 100vh;
+  background-color: ${(props) => props.theme.primaryBackgroundColor};
 `;
 
 export const BlogIntro = styled.div`
+  color: ${(props) => props.theme.primaryColor};
+
   margin-bottom: 1.5rem;
-  margin-top: 32px;
+  /* margin-top: 32px; */
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -27,6 +30,7 @@ export const Title = styled.h1`
 `;
 
 export const Intro = styled.p`
+  color: ${(props) => props.theme.primaryColor};
   font-size: 18px;
   text-align: center;
   display: block;
@@ -42,11 +46,9 @@ export const CardItem1 = styled.div`
   flex: 1;
   margin: 0 1rem;
   border-radius: 10px;
-  background: ${lightTheme
-    ? lightTheme.backgroundColor
-    : darkTheme.backgroundColor};
-  max-width: 500px;
-  min-width: 500px;
+  background: #fff; 
+  max-width: 450px;
+  min-width: 450px;
   @media(max-width: 558px){
     max-width: 400px;
     min-width: 300px;
@@ -98,10 +100,8 @@ export const CardFigure = styled.figure`
     max-width: calc((100%) - 60px);
     font-size: 12px;
     font-weight: 700;
-    color: ${lightTheme ? lightTheme.whiteTextColor : darkTheme.whiteTextColor};
-    background-color: ${lightTheme
-      ? lightTheme.hoverColor
-      : darkTheme.whiteTextColor};
+    color: #000; 
+    background-color: ${(props) => props.theme.primaryHoverColor};
     box-sizing: border-box;
   }
 `;
@@ -111,7 +111,7 @@ export const CardItemInfo = styled.div`
 `;
 
 export const CardText = styled.h5`
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  color: ${(props) => props.theme.textColor};
   font-size: 18px;
   line-height: 24px;
   &:last-of-type {
@@ -128,5 +128,12 @@ export const PostedAt = styled.div`
     font-weight: bold;
     color: #000;
   }
+`; 
 
+
+export const BlogWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+  grid-gap: 15px;
 `

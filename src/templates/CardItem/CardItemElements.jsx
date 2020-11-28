@@ -8,9 +8,7 @@ export const CardItem1 = styled.div`
   flex: 1;
   margin: 0 1rem;
   border-radius: 10px;
-  background: ${lightTheme
-    ? lightTheme.backgroundColor
-    : darkTheme.backgroundColor};
+  background: #fff;
   max-width: 250px;
   min-width: 250px;
 `;
@@ -59,10 +57,8 @@ export const CardFigure = styled.figure`
     max-width: calc((100%) - 60px);
     font-size: 12px;
     font-weight: 700;
-    color: ${lightTheme ? lightTheme.whiteTextColor : darkTheme.whiteTextColor};
-    background-color: ${lightTheme
-      ? lightTheme.hoverColor
-      : darkTheme.whiteTextColor};
+    color: ${(props) => props.theme.darkTextColor}; 
+    background-color: ${(props) => props.theme.primaryHoverColor}; 
     box-sizing: border-box;
   }
 `;
@@ -72,7 +68,7 @@ export const CardItemInfo = styled.div`
 `;
 
 export const CardText = styled.h5`
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  color: ${(props) => props.theme.darkTextColor}; 
   font-size: 18px;
   line-height: 24px;
 `;

@@ -1,13 +1,13 @@
 /* eslint-disable */
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const ShowCaseWrapper = styled.div`
-  min-height: 50vh;
+  min-height: 60vh;
   min-width: 100vw;
-  margin-bottom: 8rem;
-  background-color: ${lightTheme ? lightTheme.backgroundColor : darkTheme};
-  color: ${lightTheme ? lightTheme.textColor : darkTheme.textColor};
+  background-color: ${(props) => props.theme.primaryBackgroundColor}; 
+  color: ${(props) => props.theme.primaryColor}; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -31,6 +31,7 @@ export const ShowCaseContainer = styled.div`
   @media (max-width: 620px) {
     grid-template-columns: repeat(1, 1fr);
   }
+  margin-bottom: 4rem;
 `;
 
 export const ShowCaseTitle = styled.h1`
@@ -38,3 +39,11 @@ export const ShowCaseTitle = styled.h1`
   margin-bottom: 15px;
   font-weight: 600;
 `;
+
+export const Small = styled.small`
+  color: ${(props) => props.theme.primaryColor};
+`
+
+export const ProjectLink = styled(Link)`
+  color: ${(props) => props.theme.primaryColor};
+`

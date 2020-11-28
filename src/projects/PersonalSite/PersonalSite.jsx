@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -5,14 +6,29 @@ import CardItemLarge from '../../templates/CardItemLarge/CardItemLarge';
 import Image1 from '../../assets/images/Projects/Coffee-jon-tyson.jpeg';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import { useDarkTheme } from '../../hooks/useDarkMode';
+import { lightTheme, darkTheme } from '../../styles/Themes';
+import { ThemeProvider } from 'styled-components';
 
-const PersonalSite = () => (
+const PersonalSite = () => {
+  const [theme, setTheme] = useDarkTheme(
+    (typeof window !== 'undefined' && window.localStorage.getItem('theme')) || 'light',
+  );
+
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
+
+
+return (
+  <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+
   <>
     <Helmet>
       <title>Projects - Personal Site</title>
       <meta name="description" content="Projects - Personal Site" />
     </Helmet>
-    <Navbar />
+    <Navbar theme={theme} toggleTheme={themeToggler}/>
     <CardItemLarge
       title="Personal Site (This one!)"
       src={Image1}
@@ -22,7 +38,10 @@ const PersonalSite = () => (
       github="https://github.com/luke-h1/lhowsam.com"
       site="https://lhowsam.com"
     />
-    <Footer />
+    <Footer theme={theme}/>
   </>
+  </ThemeProvider>
+
 );
+}
 export default PersonalSite;
