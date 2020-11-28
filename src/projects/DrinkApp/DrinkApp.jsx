@@ -1,13 +1,26 @@
+/* eslint-disable */
 import React from 'react';
 import { Helmet } from 'react-helmet';
-
 import CardItemLarge from '../../templates/CardItemLarge/CardItemLarge';
 import Image2 from '../../assets/images/Projects/Drink-carson.jpeg';
 import Navbar from '../../components/Navbar/Navbar';
-
 import Footer from '../../components/Footer/Footer';
+import { useDarkTheme } from '../../hooks/useDarkMode';
+import { lightTheme, darkTheme } from '../../styles/Themes';
+import { ThemeProvider } from 'styled-components';
 
-const DrinkApp = () => (
+const DrinkApp = () => {
+  const [theme, setTheme] = useDarkTheme(
+    (typeof window !== 'undefined' && window.localStorage.getItem('theme')) || 'light',
+  );
+
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
+
+
+return (
+  <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
   <>
     <Helmet>
       <title>Projects - Drink App</title>
@@ -26,5 +39,8 @@ const DrinkApp = () => (
     />
     <Footer />
   </>
+  </ThemeProvider>
+
 );
+}
 export default DrinkApp;

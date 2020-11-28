@@ -8,7 +8,7 @@ export const CardItem1 = styled.div`
   flex: 1;
   margin: 0 1rem;
   border-radius: 10px;
-  background: ${(props) => props.primaryBackgroundColor}; 
+  background: #fff;
   max-width: 250px;
   min-width: 250px;
 `;

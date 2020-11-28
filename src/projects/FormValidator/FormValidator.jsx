@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -5,8 +7,24 @@ import CardItemLarge from '../../templates/CardItemLarge/CardItemLarge';
 import Image4 from '../../assets/images/Projects/pattern-ahmad-dirini.jpeg';
 import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
+import { useDarkTheme } from '../../hooks/useDarkMode';
+import { lightTheme, darkTheme } from '../../styles/Themes';
+import { ThemeProvider } from 'styled-components';
 
-const FormValidator = () => (
+
+const FormValidator = () => {
+  const [theme, setTheme] = useDarkTheme(
+    (typeof window !== 'undefined' && window.localStorage.getItem('theme')) || 'light',
+  );
+
+  const themeToggler = () => {
+    theme === 'light' ? setTheme('dark') : setTheme('light');
+  };
+
+
+return (
+  <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+
   <>
     <Helmet>
       <title>Projects - Form Validator</title>
@@ -26,5 +44,8 @@ const FormValidator = () => (
     />
     <Footer />
   </>
+  </ThemeProvider>
+
 );
+}
 export default FormValidator;
