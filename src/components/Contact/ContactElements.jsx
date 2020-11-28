@@ -8,7 +8,7 @@ export const ContactWrapper = styled.div`
   min-height: 100vh;
   min-width: 100vw;
   background-color: ${(props) => props.theme.primaryBackgroundColor}; 
-  color: ${(props) => props.theme.textColor}; 
+  color: ${(props) => props.theme.primaryColor}; 
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -56,7 +56,6 @@ export const EmailIcon = styled(AiOutlineMail)`
   fill: ${(props) => props.theme.primaryColor}; 
   margin: 0 1em 5px 1em;
   &:hover {
-    fill: ${(props) => props.theme.primaryHoverColor}; 
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
@@ -64,10 +63,9 @@ export const EmailIcon = styled(AiOutlineMail)`
 
 export const LinkedIn = styled(FaLinkedin)`
   font-size: 20px;
-  fill: ${(props) => props.theme.textColor}; 
+  fill: ${(props) => props.theme.primaryColor}; 
   margin: 0 1em 0 1em;
   &:hover {
-    fill: ${(props) => props.theme.primaryHoverColor};
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
@@ -75,10 +73,9 @@ export const LinkedIn = styled(FaLinkedin)`
 
 export const Github = styled(FaGithub)`
   font-size: 20px;
-  fill: ${(props) => props.theme.textColor};
+  fill: ${(props) => props.theme.primaryColor}; 
   margin: 0 1em 0 1em;
   &:hover {
-    fill: ${(props) => props.theme.primaryHoverColor};
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
