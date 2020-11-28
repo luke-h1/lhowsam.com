@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable no-unused-expressions */
 import React from 'react';
 import Helmet from 'react-helmet';
 import { ThemeProvider } from 'styled-components';
@@ -26,7 +26,7 @@ const Home = () => {
           <title>Luke H - Home</title>
           <meta name="description" content="Home page" />
         </Helmet>
-        <Navbar theme={theme} toggleTheme={themeToggler}/>
+        <Navbar theme={theme} toggleTheme={themeToggler} />
         <Hero theme={theme} />
         <Skills theme={theme} />
         <ProjectShowCase theme={theme} />

@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
