@@ -148,8 +148,17 @@ export const NavBtnLink = styled(Link)`
 
 export const Sun = styled(FiSun)`
   color: ${(props) => props.theme.primaryColor}; 
+  font-size: 25px;
+
 `;
 
 export const Moon = styled(FiMoon)`
   color: ${(props) => props.theme.primaryColor}; 
+  font-size: 25px;
+
 `;
+
+
+export const IconContainer = styled.div`
+  margin-left: 10px;
+`
