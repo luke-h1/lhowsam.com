@@ -16,7 +16,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.0",
     "serve": "^11.3.2",
-    "styled-components": "^5.2.0",
+    "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4",
     "workbox-background-sync": "^5.1.3",
     "workbox-broadcast-update": "^5.1.3",
