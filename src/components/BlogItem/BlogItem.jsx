@@ -26,8 +26,8 @@ const BlogItem = () => (
           interesting things
         </Intro>
       </BlogIntro>
-      {BlogData.map((post, i) => (
-        <CardItem1 key={i}>
+      {BlogData.map((post) => (
+        <CardItem1 key={post.id}>
           <CardLink className="cards__item__link" to={post.slug}>
             <CardFigure data-category={post.label}>
               <CardImage src={post.image} alt={post.title} />
