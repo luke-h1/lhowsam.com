@@ -2,10 +2,9 @@
 /* eslint-disable */
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { IconContext } from 'react-icons/lib';
 import { ThemeProvider } from 'styled-components';
-import { lightTheme } from '../../styles/Themes';
-import { NavContactButton } from '../utils/Buttons/NavContactButton';
+import { lightTheme, darkTheme } from '../../styles/Themes';
+
 import {
   Nav,
   NavbarContainer,
@@ -24,8 +23,9 @@ function Navbar({ theme, toggleTheme }) {
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
+
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
           <Nav>
             <NavbarContainer>
