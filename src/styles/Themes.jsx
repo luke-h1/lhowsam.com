@@ -1,26 +1,30 @@
 /* eslint-disable */
 
-import { blue, light, dark } from './Colors';
+import { blue, light, dark, neutral } from './Colors';
 import { primaryFont } from './typography';
 
-export const lightTheme = {
-  backgroundColor: light[100],
-  hoverColor: blue[200],
-  FooterBorder: light[200],
+
+export const lightTheme = { 
+  primaryBackgroundColor: light[100],
+  primaryColor: dark[100],
+  primaryHoverColor: blue[200],
+  primaryActiveColor: blue[100],
+  textColorOnPrimary: neutral[100],
   textColor: dark[100],
-  blogColor: light[100],
-  whiteTextColor: light[100],
-  darkBlueBorder: blue[300],
+  textColorInverted: neutral[400],
+  textOnDisabled: neutral[300],
   primaryFont,
-};
+}
 
 export const darkTheme = {
-  backgroundColor: dark[100],
-  hoverColor: blue[200],
-  textColor: light[100],
-  blogColor: light[100],
-  darkBlueBorder: blue[300],
-  whiteTextColor: light[100],
-  lightBackgroundColor: light[100],
+  primaryBackgroundColor: dark[100],
+  primaryColor: neutral[100],
+  primaryHoverColor: green[100],
+  primaryActiveColor: neutral[300],
+  textColor: neutral[600],
+  textColorInverted: neutral[400],
+  textOnDisabled: neutral[300],
   primaryFont,
-};
+
+}
+
