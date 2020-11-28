@@ -5,7 +5,6 @@ import { lightTheme, darkTheme } from '../../styles/Themes';
 export const ShowCaseWrapper = styled.div`
   min-height: 60vh;
   min-width: 100vw;
-  margin-bottom: 8rem;
   background-color: ${(props) => props.theme.primaryBackgroundColor}; 
   color: ${(props) => props.theme.primaryColor}; 
   display: flex;
@@ -31,6 +30,7 @@ export const ShowCaseContainer = styled.div`
   @media (max-width: 620px) {
     grid-template-columns: repeat(1, 1fr);
   }
+  margin-bottom: 4rem;
 `;
 
 export const ShowCaseTitle = styled.h1`
