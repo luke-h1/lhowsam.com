@@ -31,7 +31,7 @@ export const ShowCaseContainer = styled.div`
   @media (max-width: 620px) {
     grid-template-columns: repeat(1, 1fr);
   }
-  margin-bottom: 4rem;
+  margin-bottom: 10rem;
 `;
 
 export const ShowCaseTitle = styled.h1`
