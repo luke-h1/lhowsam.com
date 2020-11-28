@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable */
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { ThemeProvider } from 'styled-components';
@@ -20,7 +19,7 @@ import {
   Sun,
   Moon,
 } from './NavbarElements';
-import { Button } from '../utils/Buttons/Button/Button';
+
 function Navbar({ theme, toggleTheme }) {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -70,7 +69,7 @@ function Navbar({ theme, toggleTheme }) {
                   </IconContainer>
                 </NavBtnLink>
               </NavItemBtn>
-              <NavItemBtn></NavItemBtn>
+              <NavItemBtn />
             </NavMenu>
           </NavbarContainer>
         </Nav>
