@@ -10,7 +10,7 @@ export const dark = {
 };
 
 export const blue = {
-  100: "#3a36e0",
+  100: "#00B4D8",
   200: "#0804b8",
   300: "#030086",
   400: "#5f25a4",

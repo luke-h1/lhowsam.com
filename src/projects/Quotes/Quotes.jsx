@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import CardItemLarge from '../../templates/CardItemLarge/CardItemLarge';
@@ -6,6 +8,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import Footer from '../../components/Footer/Footer';
 
 const Quotes = () => (
+
   <>
     <Helmet>
       <title>Projects - Quotes</title>
@@ -22,5 +25,6 @@ const Quotes = () => (
     />
     <Footer />
   </>
+
 );
 export default Quotes;
