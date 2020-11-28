@@ -32,6 +32,8 @@ export const CardImage = styled.img`
 `;
 
 export const CardLink = styled(Link)`
+  color: #000;
+
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -51,13 +53,14 @@ export const CardFigure = styled.figure`
   &::after {
     content: attr(data-category);
     position: absolute;
+    color: #000;
+
     bottom: 0;
     margin-left: 10px;
     padding: 6px 8px;
     max-width: calc((100%) - 60px);
     font-size: 12px;
     font-weight: 700;
-    color: ${(props) => props.theme.darkTextColor}; 
     background-color: ${(props) => props.theme.primaryHoverColor}; 
     box-sizing: border-box;
   }

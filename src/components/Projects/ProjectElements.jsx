@@ -9,6 +9,7 @@ export const ProjectWrapper = styled.div`
   min-height: 100vh;
   text-align: center;
   background-color: ${(props) => props.theme.primaryBackgroundColor}; 
+
 `;
 
 export const CardWrap = styled.div`
@@ -29,7 +30,7 @@ export const CardWrap = styled.div`
 `;
 
 export const ProjectTitle = styled.h1`
-  color: ${(props) => props.theme.primaryColor}
+  color: ${(props) => props.theme.primaryColor}; 
   text-align: center;
   margin-bottom: 1rem;
 `;
