@@ -28,7 +28,7 @@ return (
       <title>Projects - Quotes</title>
       <meta name="description" content="Projects - Quotes" />
     </Helmet>
-    <Navbar />
+    <Navbar theme={theme} toggleTheme={themeToggler}/>
     <CardItemLarge
       title="Breaking Bad Quotes App"
       src={Image6}
@@ -37,7 +37,7 @@ return (
       github="https://github.com/luke-h1/breaking-bad-quotes-react"
       site="https://breaking-bad-quotes.vercel.app/"
     />
-    <Footer />
+    <Footer theme={theme} />
   </>
   </ThemeProvider>
 

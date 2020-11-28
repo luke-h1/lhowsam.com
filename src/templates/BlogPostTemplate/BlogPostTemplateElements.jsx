@@ -3,12 +3,20 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
+
+export const BlogPostWrapper = styled.div`
+min-width: 100vw;
+min-height: 100vh;
+background-color: ${(props) => props.theme.primaryBackgroundColor};
+`
+
 export const Wrapper = styled.article`
   padding-top: 65px;
   max-width: 550px;
   margin: 0px auto;
   padding-left: 16px;
   padding-right: 16px;
+  color: ${(props) => props.theme.primaryColor};
 `;
 
 export const Title = styled.h1`

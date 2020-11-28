@@ -25,7 +25,7 @@ return (
       <title>Projects - Automation</title>
       <meta name="description" content="Projects - Automation" />
     </Helmet>
-    <Navbar />
+    <Navbar theme={theme} toggleTheme={themeToggler}/>
     <CardItemLarge
       title="Automation"
       src={Image3}
@@ -40,7 +40,7 @@ return (
       github="https://github.com/luke-h1/Automation"
       site=""
     />
-    <Footer />
+    <Footer theme={theme} />
   </>
   </ThemeProvider>
 );

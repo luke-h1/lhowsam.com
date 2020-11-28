@@ -28,7 +28,7 @@ return (
       <title>Projects - Personal Site</title>
       <meta name="description" content="Projects - Personal Site" />
     </Helmet>
-    <Navbar />
+    <Navbar theme={theme} toggleTheme={themeToggler}/>
     <CardItemLarge
       title="Personal Site (This one!)"
       src={Image1}
@@ -38,7 +38,7 @@ return (
       github="https://github.com/luke-h1/lhowsam.com"
       site="https://lhowsam.com"
     />
-    <Footer />
+    <Footer theme={theme}/>
   </>
   </ThemeProvider>
 

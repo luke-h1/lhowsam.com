@@ -26,7 +26,7 @@ return (
       <title>Projects - Drink App</title>
       <meta name="description" content="Projects - Drink App" />
     </Helmet>
-    <Navbar />
+    <Navbar theme={theme} toggleTheme={themeToggler} />
     <CardItemLarge
       title="Cocktail Recipe App"
       src={Image2}
@@ -37,7 +37,7 @@ return (
       github="https://github.com/luke-h1/cocktail-recipe-app "
       site="https://cocktail-recipe-app.vercel.app/"
     />
-    <Footer />
+    <Footer theme={theme} />
   </>
   </ThemeProvider>
 

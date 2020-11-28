@@ -30,7 +30,7 @@ return (
       <title>Projects - Form Validator</title>
       <meta name="description" content="Projects - Form Validator" />
     </Helmet>
-    <Navbar />
+    <Navbar theme={theme} toggleTheme={themeToggler}/>
     <CardItemLarge
       title="Form Validator"
       src={Image4}
@@ -42,7 +42,7 @@ return (
       github="javascript-regex-validation-form"
       site="https://javascript-regex-validation-form.vercel.app/"
     />
-    <Footer />
+    <Footer theme={theme} />
   </>
   </ThemeProvider>
 
