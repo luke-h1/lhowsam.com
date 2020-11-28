@@ -7,14 +7,14 @@ import { Container } from '../utils/Containers/Container';
 import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const Nav = styled.nav`
-  background: ${(props) => props.backgroundColor}; 
+  background: ${(props) => props.theme.backgroundColor}; 
   height: 90px;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem calc((100vw - 1300px) / 2);
   z-index: 999;
   position: relative;
-  border-bottom: 1px solid ${(props) => props.FooterBorder}; 
+  border-bottom: 1px solid ${(props) => props.theme.FooterBorder}; 
     min-width: 100vw;
 `;
 
@@ -23,11 +23,11 @@ export const NavbarContainer = styled(Container)`
   justify-content: space-between;
   height: 80px;
   ${Container}
-  color: ${(props) => props.textColor}; 
+  color: ${(props) => props.theme.textColor}; 
 `;
 
 export const NavLogo = styled(Link)`
-  color: ${(props) => props.textColor}; 
+  color: ${(props) => props.theme.textColor}; 
   justify-self: flex-start;
   cursor: pointer;
   text-decoration: none;
