@@ -1,4 +1,5 @@
 /* eslint-disable no-undef */
+/* eslint-disable */
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconContext } from 'react-icons/lib';
@@ -17,8 +18,8 @@ import {
   NavLinks,
   NavBtnLink,
 } from './NavbarElements';
-
-function Navbar() {
+import {Button} from '../utils/Buttons/Button/Button';
+function Navbar({ theme, toggleTheme }) {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -59,10 +60,12 @@ function Navbar() {
                 </NavItem>
                 <NavItemBtn>
                   <NavBtnLink>
-                    <NavContactButton round="true" primary="true" to="/contact">
-                      Get In Touch
-                    </NavContactButton>
+                    <Button theme={theme} toggleTheme={toggleTheme} onClick={toggleTheme}>
+                      Switch Theme
+                    </Button>
                   </NavBtnLink>
+                </NavItemBtn>
+                <NavItemBtn>
                 </NavItemBtn>
               </NavMenu>
             </NavbarContainer>
