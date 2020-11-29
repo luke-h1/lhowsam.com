@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Are you sure your changes aren't going to break development ?"
+echo "Are you sure your changes aren't going to break Development ?"
 read -r response
 if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
     CONTINUE=true
@@ -20,9 +20,20 @@ if ! npm run lint; then
     echo "###########################################" 
     exit 1
 else
-    echo 'eslint returned no errors. Deploying to development ✅'
+    echo 'eslint returned no errors. Continuing with deployment'
 fi
+npm run test 
+if ! npm run test; then 
+    echo ''
+    echo ''
+    echo "###########################################" 
+    echo "# ❌     Unit tests failed             ❌  #" 
+    echo "# ❌ process exited with status code 1 ❌  #" 
+    echo "###########################################" 
+    exit 1 
+else 
+    echo 'Unit tests have passed. Deploying to Development ✅'
+fi 
 rm -rf build/ 
 npm run build 
-vercel 
-
+vercel --prod 
