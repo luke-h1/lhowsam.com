@@ -73,7 +73,7 @@ export const BlogPost = styled(Link)`
 `;
 
 export const BlogTitle = styled.h1`
-  color: ${(props) => props.theme.primaryActiveColor};
+  color: ${(props) => props.theme.primaryColor};
   text-decoration: none;
   margin: 0px 0px 8px;
   font-size: 24px;
@@ -89,18 +89,17 @@ export const BlogTitle = styled.h1`
 `;
 
 export const BlogDate = styled.p`
-  color: ${(props) => props.theme.primaryActiveColor};
+  color: ${(props) => props.theme.primaryColor};
   margin: 0px;
   padding: 0px;
   border: 0px;
   vertical-align: baseline;
   font-size: 15px;
-  color: ${(props) => props.theme.primaryActiveColor};
 `;
 
 export const BlogExcerpt = styled.p`
   text-align: center;
   margin-top: 1.2rem;
   font-weight: 500;
-  color: ${(props) => props.theme.primaryActiveColor};
+  color: ${(props) => props.theme.primaryColor};
 `;

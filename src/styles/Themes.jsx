@@ -7,6 +7,7 @@ import { primaryFont } from './typography';
 export const lightTheme = { 
   primaryBackgroundColor: light[100],
   primaryColor: dark[100],
+  darkTextColor: dark[100],
   primaryHoverColor: blue[100],
   primaryActiveColor: neutral[100],
   textColorOnPrimary: neutral[100],
