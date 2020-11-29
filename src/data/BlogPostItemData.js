@@ -8,9 +8,10 @@ export const BlogData = [
     slug: '/blog/hello-world',
     image: BlogImage1,
     button: 'Read More',
-    excerpt: 'Welcome to my new blog. This is about the 4th time I\'ve attempted to create a decent looking blog page. I\'ve only created this one blog post even after all of those attempts....',
+    excerpt: 'Welcome to my new blog. This is about the 4th time I\'ve attempted to create a decent looking blog page....', 
     label: 'First Blog Post',
     id: 1,
   },
+  
 
 ];

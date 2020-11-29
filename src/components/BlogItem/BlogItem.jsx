@@ -4,16 +4,13 @@ import {
   BlogIntro,
   Intro,
   BlogSection,
-  CardItem1,
-  CardLink,
-  CardFigure,
-  CardImage,
-  CardItemInfo,
-  CardText,
-  PostedAt,
+  BlogPost,
+  BlogTitle,
+  BlogDate,
   BlogWrapper,
+  BlogExcerpt,
 } from './BlogItemElements';
-import { Button } from '../utils/Buttons/Button/Button';
+// import { Button } from '../utils/Buttons/Button/Button';
 import { BlogData } from '../../data/BlogPostItemData';
 
 const BlogItem = () => (
@@ -27,22 +24,13 @@ const BlogItem = () => (
         </Intro>
       </BlogIntro>
       <BlogWrapper>
-        {BlogData.map((post) => (
-          <CardItem1 key={post.id}>
-            <CardLink className="cards__item__link" to={post.slug}>
-              <CardFigure data-category={post.label}>
-                <CardImage src={post.image} alt={post.title} />
-              </CardFigure>
-              <CardItemInfo>
-                <CardText>{post.title}</CardText>
-                <CardText>{post.excerpt}</CardText>
-                <Button to={post.slug}>Read More</Button>
-                <PostedAt>
-                  <p>{post.postedAt}</p>
-                </PostedAt>
-              </CardItemInfo>
-            </CardLink>
-          </CardItem1>
+        {BlogData.map((blog) => (
+          <BlogPost key={blog.id} to={blog.slug}>
+            <BlogTitle>{blog.title}</BlogTitle>
+            <BlogDate>{blog.postedAt}</BlogDate>
+            <BlogExcerpt>{blog.excerpt}</BlogExcerpt>
+          </BlogPost>
+
         ))}
       </BlogWrapper>
     </BlogSection>

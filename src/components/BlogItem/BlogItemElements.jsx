@@ -13,18 +13,6 @@ export const BlogSection = styled.div`
   background-color: ${(props) => props.theme.primaryBackgroundColor};
 `;
 
-export const BlogIntro = styled.div`
-  color: ${(props) => props.theme.primaryColor};
-
-  margin-bottom: 1.5rem;
-  /* margin-top: 32px; */
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  -webkit-box-pack: center;
-  justify-content: center;
-`;
-
 export const Title = styled.h1`
   text-align: center;
 `;
@@ -40,100 +28,72 @@ export const Intro = styled.p`
   margin-inline-end: 0px;
 `;
 
-/* BLOG CARD STYLES */
-export const CardItem1 = styled.div`
-  display: flex;
-  flex: 1;
-  margin: 0 1rem;
-  border-radius: 10px;
-  background: #fff; 
-  max-width: 450px;
-  min-width: 450px;
-  @media(max-width: 558px){
-    max-width: 400px;
-    min-width: 300px;
-  }
-`;
-
-export const CardImage = styled.img`
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  transition: all 0.2s linear;
-  &:hover {
-    transform: scale(1.1);
-    filter: brightness(150%);
-  }
-`;
-
-export const CardLink = styled(Link)`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  box-shadow: 0 6px 20px rgba(56, 125, 255, 0.17);
-  -webkit-filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-  filter: drop-shadow(0 6px 20px rgba(56, 125, 255, 0.017));
-  border-radius: 10px;
-  overflow: hidden;
-  text-decoration: none;
-`;
-
-export const CardFigure = styled.figure`
-  position: relative;
-  width: 100%;
-  padding-top: 67%;
-  overflow: hidden;
-  &::after {
-    content: attr(data-category);
-    position: absolute;
-    bottom: 0;
-    margin-left: 10px;
-    padding: 6px 8px;
-    max-width: calc((100%) - 60px);
-    font-size: 12px;
-    font-weight: 700;
-    color: #000; 
-    background-color: ${(props) => props.theme.primaryHoverColor};
-    box-sizing: border-box;
-  }
-`;
-
-export const CardItemInfo = styled.div`
-  padding: 20px 30px 30px;
-`;
-
-export const CardText = styled.h5`
-  color: ${(props) => props.theme.textColor};
-  font-size: 18px;
-  line-height: 24px;
-  &:last-of-type {
-    margin-top: 1rem;
-    font-weight: normal;
-    margin-bottom: 1em;
-  }
-`;
-
-
 export const PostedAt = styled.div`
   margin-top: 1.4rem;
-  p { 
+  p {
     font-weight: bold;
     color: #000;
   }
-`; 
-
+`;
 
 export const BlogWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   text-align: center;
   grid-gap: 15px;
-`
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+`;
+
+export const BlogIntro = styled.div`
+  margin-bottom: 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const BlogPost = styled(Link)`
+  margin-top: 32px;
+  padding-bottom: 32px;
+  color: rgb(56, 103, 214);
+  display: block;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+`;
+
+export const BlogTitle = styled.h1`
+  color: ${(props) => props.theme.textColor};
+  text-decoration: none;
+  margin: 0px 0px 8px;
+  font-size: 24px;
+  display: block;
+  align-self: flex-start;
+  font-weight: 700;
+  line-height: 1.25;
+  &:hover {
+    cursor: pointer;
+    color: ${(props) => props.theme.primaryHoverColor};
+    text-decoration: underline;
+  }
+`;
+
+export const BlogDate = styled.p`
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  vertical-align: baseline;
+  font-size: 15px;
+  color: ${(props) => props.theme.textColor};
+`;
+
+export const BlogExcerpt = styled.p`
+  text-align: center;
+  margin-top: 1.2rem;
+  font-weight: 500;
+`;
