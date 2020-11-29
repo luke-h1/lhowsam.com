@@ -37,6 +37,8 @@ export const ShowCaseTitle = styled.h1`
   text-align: center;
   margin-bottom: 15px;
   font-weight: 600;
+  color: ${(props) => props.theme.primaryTitleColor}
+
 `;
 
 export const Small = styled.small`

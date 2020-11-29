@@ -30,7 +30,7 @@ export const CardWrap = styled.div`
 `;
 
 export const ProjectTitle = styled.h1`
-  color: ${(props) => props.theme.primaryColor}; 
+  color: ${(props) => props.theme.primaryTitleColor};
   text-align: center;
   margin-bottom: 1rem;
 `;

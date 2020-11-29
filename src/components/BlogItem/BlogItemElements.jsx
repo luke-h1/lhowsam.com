@@ -15,7 +15,7 @@ export const BlogSection = styled.div`
 
 export const Title = styled.h1`
   text-align: center;
-  color: ${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.primaryTitleColor};
 
 `;
 

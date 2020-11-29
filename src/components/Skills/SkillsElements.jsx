@@ -17,6 +17,8 @@ export const SkillWrapper = styled.div`
 export const Title = styled.h1`
   font-size: 30px;
   text-align: center;
+  color: ${(props) => props.theme.primaryTitleColor}
+
 `;
 
 export const SkillBody = styled.div`

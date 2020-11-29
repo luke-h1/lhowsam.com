@@ -8,11 +8,16 @@ export const ContactWrapper = styled.div`
   min-height: 100vh;
   min-width: 100vw;
   background-color: ${(props) => props.theme.primaryBackgroundColor}; 
-  color: ${(props) => props.theme.primaryColor}; 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: ${(props) => props.theme.primaryColor}; 
+
+  h1 { 
+    color: ${(props) => props.theme.primaryTitleColor}; 
+
+  }
 `;
 
 export const MainTitle = styled.h1`

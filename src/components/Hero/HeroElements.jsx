@@ -23,6 +23,10 @@ export const GridContainer = styled.div`
   width: 100vw;
   min-height: 50vh;
   background-color: ${(props) => props.theme.primaryBackgroundColor}; 
+  h1 { 
+    color: ${(props) => props.theme.primaryTitleColor}
+
+  }
 
 `;
 
@@ -50,6 +54,8 @@ export const List = styled.ul`
   h3 {
     margin-top: 10px;
     text-align: center;
+    color: ${(props) => props.theme.primaryTitleColor}
+
   }
 `;
 
