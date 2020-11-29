@@ -23,7 +23,7 @@ const Hero = ({ title, introduction }) => (
           <List>
             <h3>More About Me</h3>
             <CollectionItem>
-              🌱 I’m currently learning ... Javascript, React & Jest
+              🌱 I’m currently learning ... Javascript & React
             </CollectionItem>
             <CollectionItem>
               {' '}
