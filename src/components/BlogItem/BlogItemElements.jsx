@@ -15,6 +15,8 @@ export const BlogSection = styled.div`
 
 export const Title = styled.h1`
   text-align: center;
+  color: ${(props) => props.theme.primaryColor};
+
 `;
 
 export const Intro = styled.p`
@@ -29,6 +31,7 @@ export const Intro = styled.p`
 `;
 
 export const PostedAt = styled.div`
+
   margin-top: 1.4rem;
   p {
     font-weight: bold;
@@ -37,6 +40,7 @@ export const PostedAt = styled.div`
 `;
 
 export const BlogWrapper = styled.div`
+  color: ${(props) => props.theme.primaryColor};
   display: flex;
   text-align: center;
   grid-gap: 15px;
@@ -46,6 +50,7 @@ export const BlogWrapper = styled.div`
 `;
 
 export const BlogIntro = styled.div`
+
   margin-bottom: 32px;
   width: 100%;
   display: flex;
@@ -56,19 +61,19 @@ export const BlogIntro = styled.div`
 `;
 
 export const BlogPost = styled(Link)`
+
   margin-top: 32px;
   padding-bottom: 32px;
   color: rgb(56, 103, 214);
   display: block;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
   text-decoration: none;
   color: inherit;
   display: block;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid ${(props) => props.theme.primaryColor}
 `;
 
 export const BlogTitle = styled.h1`
-  color: ${(props) => props.theme.textColor};
+  color: ${(props) => props.theme.primaryActiveColor};
   text-decoration: none;
   margin: 0px 0px 8px;
   font-size: 24px;
@@ -84,16 +89,18 @@ export const BlogTitle = styled.h1`
 `;
 
 export const BlogDate = styled.p`
+  color: ${(props) => props.theme.primaryActiveColor};
   margin: 0px;
   padding: 0px;
   border: 0px;
   vertical-align: baseline;
   font-size: 15px;
-  color: ${(props) => props.theme.textColor};
+  color: ${(props) => props.theme.primaryActiveColor};
 `;
 
 export const BlogExcerpt = styled.p`
   text-align: center;
   margin-top: 1.2rem;
   font-weight: 500;
+  color: ${(props) => props.theme.primaryActiveColor};
 `;
