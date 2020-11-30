@@ -10,12 +10,11 @@ export const FooterContainer = styled.footer`
   margin: 0;
   background-color: ${(props) => props.theme.primaryNavColor};
   height: 80px;
-  @media(min-width: 500px){
-    height: 100px;
+
+  @media (max-width: 500px) {
+    display: none;
   }
-  @media (max-width: 375px) {
-    height: 120px;
-  }
+  
 `;
 
 export const FooterWrap = styled.div`
