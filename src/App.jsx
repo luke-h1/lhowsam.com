@@ -15,7 +15,7 @@ import BlogPage from './Pages/BlogPage/BlogPage';
 import HelloWorld from './blog-posts/HelloWorld/HelloWorld';
 
 ReactGA.initialize(`${process.env.REACT_APP_GOOGLE_TRACKING_ID}`);
-ReactGA.pageview(window.location.pathname + window.location.search)
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const App = () => (
   <>
