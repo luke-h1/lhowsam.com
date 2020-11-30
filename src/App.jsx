@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import ReactGA from 'react-ga';
 import ProjectPage from './Pages/Projects/ProjectPage';
 import ContactPage from './Pages/Contact/ContactPage';
 import HomePage from './Pages/HomePage/HomePage';
@@ -12,6 +13,9 @@ import PersonalSite from './projects/PersonalSite/PersonalSite';
 import { GlobalStyle } from './styles/GlobalStyles';
 import BlogPage from './Pages/BlogPage/BlogPage';
 import HelloWorld from './blog-posts/HelloWorld/HelloWorld';
+
+ReactGA.initialize(`${process.env.REACT_APP_GOOGLE_TRACKING_ID}`);
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const App = () => (
   <>
