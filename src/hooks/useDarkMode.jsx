@@ -21,6 +21,6 @@ export const useDarkTheme = () => {
     const localStorageTheme = window.localStorage.getItem('theme');
     // eslint-disable-next-line no-unused-expressions
     localStorageTheme && setTheme(localStorageTheme);
-  }, []);
+  }, [theme]);
   return [theme, toggleTheme];
 };
