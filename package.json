@@ -18,6 +18,7 @@
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-ga": "^3.3.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.1.0",
     "react-router-dom": "^5.2.0",
@@ -64,7 +65,6 @@
     "moduleDirectories": [
       "node_modules"
     ],
-    
     "transform": {
       "^.+\\.jsx?$": "./node_modules/babel-jest",
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./FileTransformer.js"
@@ -73,8 +73,9 @@
     "roots": [
       "./src/components/__tests__/"
     ],
-    "modulePathIgnorePatterns": ["<rootDir>/src/components/__tests__/__snapshots__"], 
-
+    "modulePathIgnorePatterns": [
+      "<rootDir>/src/components/__tests__/__snapshots__"
+    ],
     "testRegex": ".*.test.js",
     "verbose": true
   },
