@@ -8,7 +8,7 @@ import {
   PostLink
 } from './PostPreviewElements';
 import ReadLink from '../utils/ReadLink/ReadLink';
-
+import { Link } from 'gatsby';
 const PostPreview = ({ post }) => (
   <>
     <PostArticle>

@@ -29,46 +29,46 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   });
 };
 
-/* INDIVIDUAL PROJECT PAGE */
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const result = await graphql(
-    `
-      {
-        allProjects {
-          edges {
-            node {
-              slug
-              id
-              image {
-                publicURL
-              }
-            }
-          }
-        }
-      }
-    `,
-  );
+// /* INDIVIDUAL PROJECT PAGE */
+// exports.createPages = async ({ actions, graphql, reporter }) => {
+//   const result = await graphql(
+//     `
+//       {
+//         allProjects {
+//           edges {
+//             node {
+//               slug
+//               id
+//               image {
+//                 publicURL
+//               }
+//             }
+//           }
+//         }
+//       }
+//     `,
+//   );
 
-  if (result.error) {
-    reporter.panic('Problem Loading Project');
-    return;
-  }
+//   if (result.error) {
+//     reporter.panic('Problem Loading Project');
+//     return;
+//   }
 
-  const projects = result.data.allProjects.edges;
+//   const projects = result.data.allProjects.edges;
 
-  projects.forEach(({ node: project }) => {
-    const { slug, id, image } = project;
+//   projects.forEach(({ node: project }) => {
+//     const { slug, id, image } = project;
 
-    actions.createPage({
-      path: `/projects/${slug}`,
-      component: require.resolve('./src/components/Project/Project.jsx'),
-      context: {
-        slug,
-        image,
-      },
-    });
-  });
-};
+//     actions.createPage({
+//       path: `/projects/${slug}`,
+//       component: require.resolve('./src/components/Project/Project.jsx'),
+//       context: {
+//         slug,
+//         image,
+//       },
+//     });
+//   });
+// };
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
