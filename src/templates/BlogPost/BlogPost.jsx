@@ -1,65 +1,51 @@
-/* eslint-disable */
-/* eslint-disable react/prop-types */
+/* eslint-disable */ 
 import React from 'react';
-import PropTypes from 'prop-types';
-import {
-  Wrapper,
-  Title,
-  Intro,
-  Blog,
-  BlogLink,
-  BlogLinkWrap,
-  BlogPostWrapper,
-} from './BlogPostTemplateElements';
-import Navbar from '../../components/Navbar/Navbar';
-import Footer from '../../components/Footer/Footer';
-import { ThemeProvider } from 'styled-components';
-import { useDarkTheme } from '../../hooks/useDarkMode';
-import {lightTheme, darkTheme} from '../../styles/Themes';
+import {graphql} from 'gatsby';
+import styled from 'styled-components';
+import ReadLink from '../../components/utils/ReadLink/ReadLink';
+import {MDXRenderer} from 'gatsby-plugin-mdx';
+import Layout from '../../components/layout'
+export const query = graphql`
+  query($slug: String!) {
+    mdx(frontmatter: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        author
+      }
+      body
+    }
+  }
+`
 
-const BlogPostTemplate = (props) => {
-  const {
-    title, date, desc, desc2, desc3,
-  } = props;
 
-  const [theme, setTheme] = useDarkTheme(
-    (typeof window !== 'undefined' && window.localStorage.getItem('theme')) || 'light',
-  );
+/* 
+query { 
+  allFile(filter: { sourceInstanceName: {eq: "projects"}}){
+    nodes { 
+      childMdx {
+        frontmatter {
+          title 
+        }
+      }
+    }
+  }
+}
+content/projects
+content/posts
 
-  const themeToggler = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
+*/
 
-  return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+const Styledp = styled.p`
+  font-size: 0.75rem;
+`; 
 
-    <>
-      <Navbar theme={theme} toggleTheme={themeToggler}/>
-      <BlogPostWrapper>
-      <Wrapper>
-        <Title>{title}</Title>
-        <Intro>{date}</Intro>
-        <Blog />
-        <Blog>{desc}</Blog>
-        <Blog>{desc2}</Blog>
-        <Blog>{desc3}</Blog>
-        <BlogLinkWrap>
-          <BlogLink to="/blog">Back to Blog</BlogLink>
-          <BlogLink to="/">Back to Home</BlogLink>
-        </BlogLinkWrap>
-      </Wrapper>
-      </BlogPostWrapper>
-      <Footer theme={theme} />
-    </>
-    </ThemeProvider>
-
-  );
-};
-
-BlogPostTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-};
-
-export default BlogPostTemplate;
+const BlogPost = ({data: {mdx: post }}) => (
+  <Layout>
+    <h1>{post.frontmatter.title}</h1>
+    <Styledp>posted by author</Styledp>
+        <MDXRenderer>{post.body}</MDXRenderer>
+      <p>post body goes here</p>
+      <ReadLink to='/'>Back to home </ReadLink>
+  </Layout>
+)
+export default BlogPost;
