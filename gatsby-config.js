@@ -1,14 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
+    title: 'Luke H',
     author: {
-      name: 'Kyle Mathews',
-      summary: 'who lives and works in San Francisco building useful things.',
+      name: 'Luke Howsam',
+      summary: 'summary goes here',
     },
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsby-starter-blog-demo.netlify.app/',
+    description: 'My personal portfolio',
+    siteUrl: 'https://lhowsam.com',
     social: {
-      twitter: 'kylemathews',
+      twitter: 'lukeH_1999',
+      github: 'luke-h1',
+      linkedin: 'https://www.linkedin.com/in/lukehowsam/',
     },
   },
   plugins: [
@@ -39,7 +41,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 630,
+              maxWidth: 800,
             },
           },
           {
@@ -67,8 +69,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Gatsby Starter Blog',
-        short_name: 'GatsbyJS',
+        name: 'Luke H portfolio',
+        short_name: 'lukeH',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#663399',
@@ -77,8 +79,5 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
   ],
 };
