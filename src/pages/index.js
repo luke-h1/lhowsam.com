@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Hero from "../components/Hero/Hero"
-
+import RecentProjects from "../components/RecentProjects/RecentProjects"
 const index = ({ data, location, theme }) => {
   const siteTitle = data.site.siteMetadata?.title || `Luke H`
   const posts = data.allMarkdownRemark.nodes
@@ -13,6 +13,7 @@ const index = ({ data, location, theme }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" />
       <Hero theme={theme} />
+      <RecentProjects theme={theme} />
     </Layout>
   )
 }
