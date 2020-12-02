@@ -1,7 +1,7 @@
 /* eslint-disable */
 import styled from 'styled-components';
 import { BiCodeBlock } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link } from 'gatsby';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { Container } from '../utils/Containers/Container';
 
