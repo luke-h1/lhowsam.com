@@ -68,7 +68,9 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix"
+    "test": "jest --silent",
+    "test:update": "jest --silent -u",
+    "test:watch": "jest --slient --watch",
+    "test:coverage": "jest --silent --coverage",    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix"
   }
 }
