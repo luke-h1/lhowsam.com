@@ -24,7 +24,6 @@ const CardItem = (props) => {
           <ItemTitle>{title}</ItemTitle>
           <Container>
             <img src={src} alt={alt} />
-
             <div>
               <GithubLink
                 href={github}
