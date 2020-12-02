@@ -35,16 +35,7 @@ const BlogPostTemplate = ({ data, location }) => {
           <Bio />
         </footer>
       </article>
-      <nav className="blog-post-nav">
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
+    
           <li>
             {previous && (
               <Link to={previous.fields.slug} rel="prev">
@@ -59,8 +50,6 @@ const BlogPostTemplate = ({ data, location }) => {
               </Link>
             )}
           </li>
-        </ul>
-      </nav>
     </Layout>
   )
 }
