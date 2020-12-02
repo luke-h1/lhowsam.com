@@ -32,7 +32,7 @@ module.exports = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: {
-          default: require.resolve('./src/templates/BlogPost.jsx'),
+          default: require.resolve('./src/templates/BlogPost/BlogPost.jsx'),
         },
         gatsbyRemarkPlugins: ['gatsby-remark-images'],
         plugins: ['gatsby-remark-images'],
