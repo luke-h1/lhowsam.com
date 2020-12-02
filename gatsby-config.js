@@ -3,7 +3,7 @@ module.exports = {
     title: 'Luke H',
     author: {
       name: 'Luke Howsam',
-      summary: 'summary goes here',
+      summary: 'Personal portfolio',
     },
     description: 'My personal portfolio',
     siteUrl: 'https://lhowsam.com',
@@ -21,13 +21,22 @@ module.exports = {
         name: 'blog',
       },
     },
+
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/projects`,
-        name: 'projects',
+        name: 'project',
+        path: `${__dirname}/src/data`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'skill',
+        path: `${__dirname}/src/data`,
+      },
+    },
+
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
