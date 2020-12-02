@@ -1,2 +1,6 @@
 reportWebVitals.js
 ./src/components/__tests__/**
+./src/pages/bio.js
+./src/pages/seo.js
+./src/pages/index.js
+./src/pages/blog-post.js
