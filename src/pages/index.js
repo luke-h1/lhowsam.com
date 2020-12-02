@@ -3,14 +3,16 @@ import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Hero from "../components/Hero/Hero"
 
-const index = ({ data, location }) => {
+const index = ({ data, location, theme }) => {
   const siteTitle = data.site.siteMetadata?.title || `Luke H`
   const posts = data.allMarkdownRemark.nodes
 
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="Home" />
+      <Hero theme={theme} />
     </Layout>
   )
 }
