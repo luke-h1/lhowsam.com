@@ -1,14 +1,16 @@
+/* eslint-disable */
 import React from 'react';
 import {
   Title,
   BlogIntro,
   Intro,
   BlogSection,
-  BlogPost,
   BlogWrapper,
 
 } from './BlogElements';
+
 import usePosts from '../../hooks/usePosts';
+import PostPreview from '../PostPreview/PostPreview';
 
 const Blog = () => {
   const posts = usePosts();
@@ -24,11 +26,11 @@ const Blog = () => {
         </BlogIntro>
         <BlogWrapper>
           {posts.map((post) => (
-            <BlogPost key={post.slug} post={post} />
-          ))}
+              <PostPreview key={post.slug} post={post} /> 
+))}
         </BlogWrapper>
       </BlogSection>
     </>
   );
 };
-export default Blog;
+export default Blog

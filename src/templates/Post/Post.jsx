@@ -4,9 +4,11 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 import Image from 'gatsby-image';
 import ReadLink from '../../components/utils/ReadLink/ReadLink';
+
 const PostArticle = styled.article`
   margin-top: 0;
   padding-bottom: 1rem;
+  color: #000;
   :first-of-type{
     margin-top: 1rem;
   }
@@ -14,11 +16,15 @@ const PostArticle = styled.article`
 
 const PostWrap = styled.div`
   padding: 0.2rem;
+  color: #000;
+
 `;
 
 const PostLink = styled(Link)`
   margin: 1rem 1rem 0 0;
   width: 100px;
+  color: #000;
+
 `;
 
 const PostImage = styled(Image)`
@@ -35,7 +41,7 @@ const PostIntro = styled.p`
   font-size: 18px;
 `;
 
-const Post = ({ post }) => (
+const Post = ({ post}) => (
   <>
     <PostArticle>
       <PostWrap>
@@ -51,3 +57,4 @@ const Post = ({ post }) => (
     </PostArticle>
   </>
 );
+export default Post;
