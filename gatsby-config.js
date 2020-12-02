@@ -22,6 +22,23 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/content/projects`,
+        name: 'projects',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        defaultLayouts: {
+          default: require.resolve('./src/templates/BlogPost.jsx'),
+        },
+        gatsbyRemarkPlugins: ['gatsby-remark-images'],
+        plugins: ['gatsby-remark-images'],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
       options: {
         devMode: false,
