@@ -71,6 +71,7 @@
     "test": "jest --silent",
     "test:update": "jest --silent -u",
     "test:watch": "jest --slient --watch",
-    "test:coverage": "jest --silent --coverage",    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix"
+    "test:coverage": "jest --silent --coverage",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix"
   }
 }
