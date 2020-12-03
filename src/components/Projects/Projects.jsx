@@ -18,9 +18,10 @@ const Projects = () => {
       <ProjectTitle>My Projects</ProjectTitle>
       <CardContainer>
         <CardWrap>
-         {projects.map((project) => (
+          {/* {projects.forEach((project) => (
            <ProjectPreview key={project.slug} project={project} /> 
-         ))}
+          ))} */}
+          {projects.forEach((project) => {console.log(project)})}
         </CardWrap>
       </CardContainer>
     </ProjectWrapper>
