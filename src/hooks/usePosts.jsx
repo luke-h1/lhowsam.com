@@ -35,23 +35,3 @@ const usePosts = () => {
   }));
 };
 export default usePosts;
-
-//
-// {
-//   allMdx {
-//     nodes {
-//       frontmatter {
-//         title
-//         author
-//         slug
-//         image {
-//           childImageSharp {
-//             fluid {
-//               srcWebp
-//             }
-//           }
-//         }
-//       }
-//     }
-//   }
-// }

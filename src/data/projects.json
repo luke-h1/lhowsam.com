@@ -15,7 +15,7 @@
     "githubLink": "https://github.com/luke-h1/lhowsam.com",
     "siteLink": "https://lhowsam.com",
     "image": "",
-    "slug": "personal-site",
+    "slug": "/projects/personal-site",
     "techonologies": ["SASS", "styled-components", "React", "Gatsby"],
     "description": "This is a project I've worked on since I started learning web development. It has been through many iterations (css to scss, scss to styled components, Vanilla JS to React & React to Gatsby to name a few..) and it has helped me challenge myself & learn a lot about various web technologies in general. I really enjoy spending time improving this site and thinking of new features I can add."
   },

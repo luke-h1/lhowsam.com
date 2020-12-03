@@ -28,50 +28,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
   });
 };
-
-/* INDIVIDUAL PROJECT PAGE */
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const result = await graphql(
-    `
-      {
-        Projects {
-          edges {
-            node {
-              slug
-              id
-              githubLink
-              image {
-                
-              }
-            }
-          }
-        }
-      }
-    `,
-  );
-
-  if (result.error) {
-    reporter.panic('Problem Loading projects');
-    return;
-  }
-
-  const projects = result.data.Projects.edges;
-
-  projects.forEach(({ node: project }) => {
-    const { slug, id, image } = project;
-
-    actions.createPage({
-      path: `/projects/${slug}`,
-      component: require.resolve(
-        './src/components/ProjectPreview/ProjectPreview.jsx',
-      ),
-      context: {
-        slug,
-        image,
-      },
-    });
-  });
-};
+/* PROJECT PAGES */
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
