@@ -12,22 +12,22 @@ const useProjects = () => {
           siteLink
           image
           slug
-          techonologies
           description
-        }     }
+        }
+      }
     }
   }
-
+  
 `);
 
-  return data.allProjectsJson.nodes.map((project) => ({
+  return data.allProjectsJson.edges.map((project) => ({
     title: project.title,
-    slug: project.slug,
-    image: project.image,
     id: project.id,
-    technologies: project.technologies,
     githubLink: project.githubLink,
     siteLink: project.siteLink,
+    image: project.image,
+    slug: project.slug,
+    description: project.description,
   }));
 };
 export default useProjects;
