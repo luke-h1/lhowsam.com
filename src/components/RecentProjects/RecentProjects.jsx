@@ -7,9 +7,9 @@ import {
   ProjectLink,
 } from './RecentProjectsElements';
 import CardItem from '../../templates/CardItem/CardItem';
-import Image1 from '../../../content/assets/Image1.jpeg';
-import Image2 from '../../../content/assets/Image2.jpeg';
-import Image3 from '../../../content/assets/Image3.jpeg';
+import Image1 from '../../images/assets/Image1.jpeg';
+import Image2 from '../../images/assets/Image2.jpeg';
+import Image3 from '../../images/assets/Image3.jpeg';
 
 const RecentProjects = () => (
   <>
