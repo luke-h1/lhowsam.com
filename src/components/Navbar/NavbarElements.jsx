@@ -1,7 +1,7 @@
 /* eslint-disable */
 import styled from 'styled-components';
 import { BiCodeBlock } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link } from 'gatsby';
 import { FiSun, FiMoon } from 'react-icons/fi';
 import { Container } from '../utils/Containers/Container';
 
@@ -149,16 +149,24 @@ export const NavBtnLink = styled(Link)`
 export const Sun = styled(FiSun)`
   color: ${(props) => props.theme.primaryColor}; 
   font-size: 25px;
+  &:hover { 
+    cursor: pointer;
+  }
+
 
 `;
 
 export const Moon = styled(FiMoon)`
   color: ${(props) => props.theme.primaryColor}; 
   font-size: 25px;
+  &:hover { 
+    cursor: pointer;
+  }
 
 `;
 
 
 export const IconContainer = styled.div`
   margin-left: 10px;
+
 `
