@@ -24,16 +24,15 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'images',
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/content/projects`,
+        name: 'projects',
       },
     },
-
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'project',
-        path: `${__dirname}/src/data`,
+        name: 'images',
+        path: `${__dirname}/src/images`,
       },
     },
     {
@@ -87,6 +86,7 @@ module.exports = {
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
           'gatsby-plugin-styled-components',
+          'gatsby-transformer-json',
         ],
       },
     },

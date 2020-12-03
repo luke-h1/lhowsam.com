@@ -2,7 +2,8 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
-import profileImage from '../../../static/luke.jpeg';
+import profileImage from '../../../content/assets/luke.jpeg';
+
 import {
   HomeHeroSection,
   GridContainer,
