@@ -38,15 +38,5 @@
     "slug": "image-app",
     "techonologies": ["React", "styled-components", "unsplash-js"],
     "description": "In this project I made a site that calls the Unsplash API to display pictures from Unsplash. I used React router, hooks, the unsplash-js library & styled-components in this project."
-  },
-  {
-    "id": "1",
-    "title": "",
-    "githubLink": "",
-    "siteLink": "",
-    "image": "",
-    "slug": "",
-    "techonologies": ["", "", ""],
-    "description": ""
   }
 ]

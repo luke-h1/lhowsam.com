@@ -72,7 +72,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "GATSBY_GRAPHQL_IDE=playground gatsby develop",
+    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

@@ -1,9 +1,12 @@
 /* eslint-disable */
 import React from 'react'
 import CardItem from '../../templates/CardItem/CardItem';
+import { graphql, useStaticQuery } from 'gatsby';
+import { Link } from 'gatsby';
 
+const ProjectPreview = ({ Project }) => {
 
-const ProjectPreview = ({ Project }) => (
+return (
   <>
   <CardItem
     path={Project.slug}
@@ -11,14 +14,7 @@ const ProjectPreview = ({ Project }) => (
     fluid={Project.image.sharp.fluid} alt={Project.title}
     text={Project.text}  
   />
-
-
-
-
-        {/* TODO: LOOP THRU & SHOW CARD ITEM FOR EACH PROJECT  */}
-        
-        {/* TODO: CREATE JSON OBJ TO LOOP THRU AND CREATE A PAGE BASED ON RESULTS */}
   </>
 )
-
+}
 export default ProjectPreview
