@@ -1,6 +1,52 @@
 [
   {
     "id": "1",
-    "title": ""
+    "title": "Automation",
+    "githubLink": "https://github.com/luke-h1/Automation",
+    "siteLink": "",
+    "image": "",
+    "slug": "automation",
+    "techonologies": ["Ansible", "Bash", "CI / CD", "Linux"],
+    "description": "I am a hude advocate for infrastructure automation & continuous integration as this allows developers to focus on innovating new features and solving new problems rather than been backlogged with maintaining existing infrastructure. In this project I made ansible playbooks and bash scripts to automate the setup of Linux & Mac OS X. In addition to this I also setup an Azure pipeline YAML linter to run on PRs to ensure that any new features added contain no errors."
+  },
+  {
+    "id": "1",
+    "title": "",
+    "githubLink": "",
+    "siteLink": "",
+    "image": "",
+    "slug": "",
+    "techonologies": ["", "", ""],
+    "description": ""
+  },
+  {
+    "id": "1",
+    "title": "",
+    "githubLink": "",
+    "siteLink": "",
+    "image": "",
+    "slug": "",
+    "techonologies": ["", "", ""],
+    "description": ""
+  },
+  {
+    "id": "1",
+    "title": "",
+    "githubLink": "",
+    "siteLink": "",
+    "image": "",
+    "slug": "",
+    "techonologies": ["", "", ""],
+    "description": ""
+  },
+  {
+    "id": "1",
+    "title": "",
+    "githubLink": "",
+    "siteLink": "",
+    "image": "",
+    "slug": "",
+    "techonologies": ["", "", ""],
+    "description": ""
   }
 ]
