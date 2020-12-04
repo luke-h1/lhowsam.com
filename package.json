@@ -42,7 +42,7 @@
     "react-icons": "^4.1.0",
     "styled-components": "^5.2.1",
     "typeface-merriweather": "0.0.72",
-    "typeface-montserrat": "0.0.75"
+    "typeface-montserrat": "1.1.13"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
