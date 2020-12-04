@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+/* eslint-disable */
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { ThemeProvider } from 'styled-components';
@@ -48,11 +49,11 @@ function Navbar({ theme, toggleTheme }) {
                   Projects
                 </NavLinks>
               </NavItem>
-              <NavItem>
+              {/* <NavItem>
                 <NavLinks to="/blog" onClick={closeMobileMenu}>
                   Blog
                 </NavLinks>
-              </NavItem>
+              </NavItem> */}
               <NavItem>
                 <NavLinks to="/contact" onClick={closeMobileMenu}>
                   Contact
