@@ -13,7 +13,16 @@ const useProjects = () => {
           slug
           techonologies
           title
-          image
+          image {
+            sharp: childImageSharp {
+              fluid(
+                maxWidth: 550
+                maxHeight: 550 
+              ) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
+            }
+          }
         }
       }
     }
