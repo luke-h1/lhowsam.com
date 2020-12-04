@@ -5,11 +5,7 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
-<<<<<<< HEAD
-    "@testing-library/user-event": "^12.2.2",
-=======
     "@testing-library/user-event": "^12.5.0",
->>>>>>> main
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
