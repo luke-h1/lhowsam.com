@@ -1,5 +1,5 @@
 # lhowsam.com
-  * Source code for my personal portfolio. Made with Gatsby & styled components
+  * Source code for my personal portfolio. Made with React & styled components
 
 
 ## Available NPM Commands
