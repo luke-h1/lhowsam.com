@@ -6,17 +6,18 @@ import {
   ProjectTitle,
   CardContainer,
 } from './ProjectsElements';
-
 import ProjectPreview from '../ProjectPreview/ProjectPreview';
-import projectData from '../../data/data';
+import useProjects from '../../hooks/useProjects';
+
 const Projects = () => {
+  const projects = useProjects();
   return (
   <>
     <ProjectWrapper>
       <ProjectTitle>My Projects</ProjectTitle>
       <CardContainer>
         <CardWrap>
-          {projectData.map((project) => (
+          {projects.map((project) => (
            <ProjectPreview key={project.slug} project={project} /> 
           ))}
         </CardWrap>

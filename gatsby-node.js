@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* BLOG POST PAGES */
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
@@ -28,23 +29,59 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     });
   });
 };
-/* PROJECT PAGES */
+
+
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const result = await graphql(
+    `
+      {
+        allProjectsJson {
+          edges {
+            node {
+              slug
+              id
+              image {
+                publicURL
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+
+  if (result.error) {
+    reporter.panic("Problem Loading Project")
+    return
+  }
+
+  const projects = result.data.allProjectsJson.edges
+
+  projects.forEach(({ node: project }) => {
+    const { slug, id, image } = project
+
+    actions.createPage({
+      path: `/${slug}`,
+      component: require.resolve("./src/components/Projects/Projects.jsx"),
+      context: {
+        slug,
+        image,
+      },
+    })
+  })
+}
+
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
-
-  // Explicitly define the siteMetadata {} object
-  // This way those will always be defined even if removed from gatsby-config.js
-
-  // Also explicitly define the Markdown frontmatter
-  // This way the "MarkdownRemark" queries will return `null` even when no
-  // blog posts are stored inside "content/blog" instead of returning an error
   createTypes(`
     type SiteSiteMetadata {
       author: Author
       siteUrl: String
       social: Social
     }
+
+ 
 
     type Author {
       name: String

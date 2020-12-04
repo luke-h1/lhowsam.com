@@ -17,7 +17,7 @@ return (
      <CardItem1>
         <CardLink className="cards__item__link" to={project.slug}>
           <CardFigure data-category={project.technologies}>
-            <CardImage fluid={project.image} alt={project.title}  style={{ color: '#000' }} />
+            <CardImage fluid={project.image} alt={project.title} />
           </CardFigure>
           <CardItemInfo>
             <CardText>{project.title}</CardText>
