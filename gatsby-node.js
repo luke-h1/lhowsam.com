@@ -31,47 +31,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 };
 
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
-  const result = await graphql(
-    `
-      {
-        allProjectsJson {
-          edges {
-            node {
-              slug
-              id
-              image {
-                publicURL
-              }
-            }
-          }
-        }
-      }
-    `
-  )
-
-  if (result.error) {
-    reporter.panic("Problem Loading Project")
-    return
-  }
-
-  const projects = result.data.allProjectsJson.edges
-
-  projects.forEach(({ node: project }) => {
-    const { slug, id, image } = project
-
-    actions.createPage({
-      path: `/${slug}`,
-      component: require.resolve("./src/components/Projects/Projects.jsx"),
-      context: {
-        slug,
-        image,
-      },
-    })
-  })
-}
-
-
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
   createTypes(`
