@@ -6,7 +6,7 @@
 
 ### Develop
 
-Start a hot-reloading development environment accessible at `localhost:8000`
+Start a hot-reloading development environment accessible at `localhost:3000`
 
 ```shell
 npm start
