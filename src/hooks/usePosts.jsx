@@ -15,7 +15,9 @@ const usePosts = () => {
                 maxWidth: 550
                 maxHeight: 550
               ) {
-                ...GatsbyImageSharpFluid_withWebp
+                srcSetWebp
+                ...GatsbyImageSharpFluid
+                
               }
             }
           }

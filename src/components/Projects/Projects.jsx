@@ -7,21 +7,18 @@ import {
   CardContainer,
 } from './ProjectsElements';
 
-import useProjects from '../../hooks/useProjects';
 import ProjectPreview from '../ProjectPreview/ProjectPreview';
-
+import projectData from '../../data/data';
 const Projects = () => {
-  const projects = useProjects();
   return (
   <>
     <ProjectWrapper>
       <ProjectTitle>My Projects</ProjectTitle>
       <CardContainer>
         <CardWrap>
-          {projects.map((project) => (
+          {projectData.map((project) => (
            <ProjectPreview key={project.slug} project={project} /> 
           ))}
-          {projects.forEach((project) => {console.log(project)})}
         </CardWrap>
       </CardContainer>
     </ProjectWrapper>

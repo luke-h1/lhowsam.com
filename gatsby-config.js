@@ -31,15 +31,17 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'images',
-        path: `${__dirname}/src/images/assets/`,
+        name: 'skill',
+        path: `${__dirname}/src/data`,
       },
+
     },
+
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'skill',
-        path: `${__dirname}/src/data`,
+        path: `${__dirname}/static`,
+        name: 'images',
       },
     },
 
