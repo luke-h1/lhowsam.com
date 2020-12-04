@@ -5,14 +5,11 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.2.2",
-    "@wojtekmaj/enzyme-adapter-react-17": "^0.3.1",
+    "@testing-library/user-event": "^12.5.0",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
-    "enzyme": "^3.11.0",
-    "jest-enzyme": "^7.1.2",
     "normalize.css": "^8.0.1",
     "polished": "^4.0.5",
     "prop-types": "^15.7.2",
@@ -27,18 +24,18 @@
     "serve": "^11.3.2",
     "styled-components": "^5.2.1",
     "web-vitals": "^1.0.1",
-    "workbox-background-sync": "^5.1.4",
-    "workbox-broadcast-update": "^5.1.4",
-    "workbox-cacheable-response": "^5.1.4",
-    "workbox-core": "^5.1.4",
-    "workbox-expiration": "^5.1.4",
-    "workbox-google-analytics": "^5.1.4",
-    "workbox-navigation-preload": "^5.1.4",
-    "workbox-precaching": "^5.1.4",
-    "workbox-range-requests": "^5.1.4",
-    "workbox-routing": "^5.1.4",
-    "workbox-strategies": "^5.1.4",
-    "workbox-streams": "^5.1.4"
+    "workbox-background-sync": "^6.0.2",
+    "workbox-broadcast-update": "^6.0.2",
+    "workbox-cacheable-response": "^6.0.2",
+    "workbox-core": "^6.0.2",
+    "workbox-expiration": "^6.0.2",
+    "workbox-google-analytics": "^6.0.2",
+    "workbox-navigation-preload": "^6.0.2",
+    "workbox-precaching": "^6.0.2",
+    "workbox-range-requests": "^6.0.2",
+    "workbox-routing": "^6.0.2",
+    "workbox-strategies": "^6.0.2",
+    "workbox-streams": "^6.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -109,6 +106,6 @@
     "jest-serializer-html": "^7.0.0",
     "prettier": "^2.2.1",
     "react-testing-library": "^8.0.1",
-    "webpack-bundle-analyzer": "^4.1.0"
+    "webpack-bundle-analyzer": "^4.2.0"
   }
 }
