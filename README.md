@@ -2,6 +2,13 @@
   * Source code for my personal portfolio. Made with React & styled components
 
 
+## Project Structure 
+
+* Main - Represents what is currently on production 
+* Dev - Represents the features currently being worked on 
+
+
+
 ## Available NPM Commands
 
 ### Develop
