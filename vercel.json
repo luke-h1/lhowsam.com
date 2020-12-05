@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "name": "luke-h-portfolio",
+  "alias": "lhowsam.com",
+  "builds": [
+    { 
+      "src": "package.json", 
+      "use": "@now/static-build", 
+      "config": {
+        "distDir": "public"
+      }
+   }
+  ]
+}
