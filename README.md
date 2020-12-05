@@ -59,10 +59,5 @@ gatsby clean
 Remove the .cache, public, package-lock.json and node_modules for a scratch compile.
 
 ```shell
-<<<<<<< HEAD
-gatsby clean 
-
-=======
 npm run deep-clean 
->>>>>>> dev
 ```
