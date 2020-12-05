@@ -26,7 +26,7 @@ const index = ({ data, location }) => {
       <Layout>
         <SEO title="Home" />
         <Hero theme={theme} />
-        <RecentProjects theme={theme} />
+        {/* <RecentProjects theme={theme} /> */}
       </Layout>
     </ThemeProvider>
 

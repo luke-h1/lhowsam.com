@@ -1,15 +1,14 @@
 /* eslint-disable */ 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
-    query {
-      allMdx {
-        nodes {
-          frontmatter {
-            slug
-          }
-        }
+  {
+    allMdx {
+      nodes {
+        id
       }
     }
+  }
+  
   `);
 
   if (result.errors) {
