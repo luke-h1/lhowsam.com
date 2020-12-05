@@ -27,7 +27,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       },
     });
   });
-};
+}
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
@@ -63,4 +63,4 @@ exports.createSchemaCustomization = ({ actions }) => {
       slug: String
     }
   `);
-};
+}

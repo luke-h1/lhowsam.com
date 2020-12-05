@@ -24,7 +24,7 @@ const BlogPostItem = ({data: {mdx: post }}) => (
     <Styledp>posted by author</Styledp>
         <MDXRenderer>{post.body}</MDXRenderer>
       <p>post body goes here</p>
-      <ReadLink to='/'>Back to home </ReadLink>
+      {/* <ReadLink to='/'>Back to home </ReadLink> */}
   </Layout>
 )
 export default BlogPostItem;

@@ -6,13 +6,13 @@ const usePosts = () => {
     allMdx {
       edges {
         node {
-          slug 
           excerpt
           timeToRead
           excerpt
           frontmatter {
             title
             date
+            slug 
           }
         }
       }
@@ -24,7 +24,7 @@ const usePosts = () => {
   return data.allMdx.edges.map((post) => ({
     title: post.node.frontmatter.title,
     date: post.node.frontmatter.date,
-    slug: post.node.slug,
+    slug: post.node.frontmatter.slug,
     excerpt: post.node.excerpt,
     timeToRead: post.node.timeToRead,
   }));
