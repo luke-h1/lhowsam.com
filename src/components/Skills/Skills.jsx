@@ -1,5 +1,5 @@
 import React from 'react';
-import { SkillData } from '../../data/SkillItemData';
+import { SkillData } from '../../data/SkillData';
 
 import {
   SkillWrapper,

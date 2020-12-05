@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link } from 'gatsby';
 
 export const FooterContainer = styled.footer`
   position: fixed;

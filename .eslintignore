@@ -1,2 +1,1 @@
-reportWebVitals.js
-./src/components/__tests__/**
+src/templates/blog-post.jsx

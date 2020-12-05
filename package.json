@@ -1,110 +1,85 @@
 {
-  "name": "personal-site",
-  "version": "0.1.0",
+  "name": "lhowsam.com",
   "private": true,
+  "description": "Personal Site",
+  "version": "0.1.0",
+  "author": "Luke Howsam <luke-h1>",
+  "bugs": {
+    "url": "https://github.com/luke-h1/issues"
+  },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.5.0",
-    "babel-plugin-dynamic-import-node": "^2.3.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "normalize.css": "^8.0.1",
+    "@mdx-js/mdx": "^1.6.22",
+    "@mdx-js/react": "^1.6.22",
+    "babel-plugin-styled-components": "^1.12.0",
+    "gatsby": "^2.26.1",
+    "gatsby-background-image": "^1.3.1",
+    "gatsby-image": "^2.5.0",
+    "gatsby-plugin-feed": "^2.7.0",
+    "gatsby-plugin-google-analytics": "^2.5.0",
+    "gatsby-plugin-manifest": "^2.6.1",
+    "gatsby-plugin-mdx": "^1.6.0",
+    "gatsby-plugin-offline": "^3.4.0",
+    "gatsby-plugin-react-helmet": "^3.4.0",
+    "gatsby-plugin-sharp": "^2.8.0",
+    "gatsby-plugin-styled-components": "^3.6.0",
+    "gatsby-remark-copy-linked-files": "^2.4.0",
+    "gatsby-remark-images": "^3.5.1",
+    "gatsby-remark-prismjs": "^3.7.0",
+    "gatsby-remark-responsive-iframe": "^2.5.0",
+    "gatsby-remark-smartypants": "^2.4.0",
+    "gatsby-source-filesystem": "^2.5.0",
+    "gatsby-transformer-json": "^2.7.0",
+    "gatsby-transformer-remark": "^2.10.0",
+    "gatsby-transformer-sharp": "^2.6.0",
     "polished": "^4.0.5",
+    "prismjs": "^1.22.0",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-ga": "^3.3.0",
-    "react-helmet": "^6.1.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^5.2.1",
     "react-icons": "^4.1.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.1",
-    "react-test-renderer": "^17.0.1",
-    "serve": "^11.3.2",
     "styled-components": "^5.2.1",
-    "web-vitals": "^1.0.1",
-    "workbox-background-sync": "^6.0.2",
-    "workbox-broadcast-update": "^6.0.2",
-    "workbox-cacheable-response": "^6.0.2",
-    "workbox-core": "^6.0.2",
-    "workbox-expiration": "^6.0.2",
-    "workbox-google-analytics": "^6.0.2",
-    "workbox-navigation-preload": "^6.0.2",
-    "workbox-precaching": "^6.0.2",
-    "workbox-range-requests": "^6.0.2",
-    "workbox-routing": "^6.0.2",
-    "workbox-strategies": "^6.0.2",
-    "workbox-streams": "^6.0.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "jest --silent",
-    "test:update": "jest --silent -u",
-    "test:watch": "jest --slient --watch",
-    "test:coverage": "jest --silent --coverage",
-    "eject": "react-scripts eject",
-    "format": "prettier \"src/**/*.{js,html,scss,jsx,ts,tsx,md}\" --write",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
-    "clean": "rm -rf node_modules package-lock.json && npm i --legacy-peer-deps",
-    "jest:update": "jest --silent -u",
-    "jest:interactive": "jest --watch",
-    "stats": "react-scripts build \"--stats\" && webpack-bundle-analyzer build/bundle-stats.json",
-    "serve": "serve -s build"
-  },
-  "jest": {
-    "automock": false,
-    "moduleFileExtensions": [
-      "jsx",
-      "js"
-    ],
-    "moduleDirectories": [
-      "node_modules"
-    ],
-    "transform": {
-      "^.+\\.jsx?$": "./node_modules/babel-jest",
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./FileTransformer.js"
-    },
-    "testEnvironment": "jsdom",
-    "roots": [
-      "./src/components/__tests__/"
-    ],
-    "modulePathIgnorePatterns": [
-      "<rootDir>/src/components/__tests__/__snapshots__"
-    ],
-    "testRegex": ".*.test.js",
-    "verbose": true
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "typeface-merriweather": "0.0.72",
+    "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
-    "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.3",
-    "eslint": "^7.15.0",
+    "babel-preset-gatsby": "^0.8.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "jest-serializer-html": "^7.0.0",
-    "prettier": "^2.2.1",
-    "react-testing-library": "^8.0.1",
-    "webpack-bundle-analyzer": "^4.2.0"
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "gatsby-plugin-eslint": "^2.0.8",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.3",
+    "prettier": "2.1.2",
+    "react-test-renderer": "^17.0.1"
+  },
+  "homepage": "https://lhowsam.com",
+  "keywords": [
+    "gatsby",
+    "luke howsam",
+    "personal site",
+    "tech blog"
+  ],
+  "license": "ISC",
+  "main": "n/a",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/luke-h1/lhowsam.com"
+  },
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "deep-clean": "npm run clean && rm -rf node_modules package-lock.json && npm i --legacy-peer-deps",
+    "test": "jest --silent"
   }
 }

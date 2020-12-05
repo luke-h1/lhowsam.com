@@ -1,5 +1,5 @@
 # lhowsam.com
-  * Source code for my personal portfolio. Made with React & styled components
+  * Source code for my personal portfolio. Made with Gatsby, React & styled components
 
 
 ## Project Structure 
@@ -13,7 +13,7 @@
 
 ### Develop
 
-Start a hot-reloading development environment accessible at `localhost:3000`
+Start a hot-reloading development environment accessible at `localhost:8000`
 
 ```shell
 npm start
@@ -46,8 +46,17 @@ npm run lint
 
 ### Clean
 
-Remove the package-lock.json and node_modules for a scratch compile.
+Remove the .cache & public directory for a scratch compile.
 
 ```shell
-npm run clean
+gatsby clean 
+```
+
+
+### Deep Clean
+
+Remove the .cache, public, package-lock.json and node_modules for a scratch compile.
+
+```shell
+gatsby clean 
 ```
