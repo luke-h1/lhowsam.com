@@ -44,4 +44,5 @@ const RecentProjects = () => (
     </ShowCaseWrapper>
   </>
 );
+
 export default RecentProjects;
