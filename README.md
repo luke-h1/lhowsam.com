@@ -51,3 +51,12 @@ Remove the .cache & public directory for a scratch compile.
 ```shell
 gatsby clean 
 ```
+
+
+### Deep Clean
+
+Remove the .cache, public, package-lock.json and node_modules for a scratch compile.
+
+```shell
+gatsby clean 
+```
