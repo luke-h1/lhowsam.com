@@ -20,9 +20,8 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-gtag',
+      resolve: 'gatsby-plugin-google-analytics',
       options: {
-        // your google analytics tracking id
         trackingId: process.env.GOOGLE_ANALYTICS_KEY,
         head: true,
         // enable ip anonymization
