@@ -32,6 +32,7 @@ const Blog = () => {
               <BlogExcerpt>{post.excerpt}</BlogExcerpt>
             </BlogPost>
           ))}
+
         </BlogWrapper>
       </BlogSection>
     </>
