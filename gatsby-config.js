@@ -20,6 +20,16 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        defaultLayouts: {
+          default: require.resolve('./src/components/Layout/Layout.jsx'),
+        },
+        gatsbyRemarkPlugins: ['gatsby-remark-images'],
+        plugins: ['gatsby-remark-images'],
+      },
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content/blog`,
