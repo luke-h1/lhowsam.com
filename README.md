@@ -60,4 +60,5 @@ Remove the .cache, public, package-lock.json and node_modules for a scratch comp
 
 ```shell
 gatsby clean 
+
 ```
