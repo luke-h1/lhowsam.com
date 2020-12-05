@@ -2,9 +2,12 @@ import React from 'react';
 import Layout from '../../components/layout';
 import ProjectPage from '../../templates/ProjectPage/ProjectPage';
 import Image5 from '../../../static/Image5.jpeg';
+import SEO from '../../components/seo';
 
 const Automation = () => (
   <Layout>
+    <SEO title="Projects - Quotes App" />
+
     <ProjectPage
       title="Breaking Bad Quotes App"
       src={Image5}

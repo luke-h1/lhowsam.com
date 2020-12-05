@@ -23,7 +23,7 @@ const index = ({ data, location }) => {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
 
       <Layout>
-        <SEO title="Home" />
+        <SEO title="Contact" />
         <Contact theme={theme} />
       </Layout>
     </ThemeProvider>

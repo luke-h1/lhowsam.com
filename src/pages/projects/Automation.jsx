@@ -2,9 +2,12 @@ import React from 'react';
 import Layout from '../../components/layout';
 import ProjectPage from '../../templates/ProjectPage/ProjectPage';
 import Image3 from '../../../static/Image3.jpeg';
+import SEO from '../../components/seo';
 
 const Automation = () => (
   <Layout>
+    <SEO title="Projects - Automation" />
+
     <ProjectPage
       title="Automation"
       src={Image3}

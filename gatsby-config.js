@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Luke Howsam Personal Site',
+    title: 'Luke H',
     author: {
       name: 'Luke Howsam',
       summary: '// TODO',
@@ -84,7 +84,7 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'content/assets/gatsby-icon.png',
+        icon: 'content/assets/logo512.png',
       },
     },
     'gatsby-plugin-react-helmet',

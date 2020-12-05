@@ -2,9 +2,12 @@ import React from 'react';
 import Layout from '../../components/layout';
 import ProjectPage from '../../templates/ProjectPage/ProjectPage';
 import Image2 from '../../../static/Image2.jpeg';
+import SEO from '../../components/seo';
 
 const DrinkApp = () => (
   <Layout>
+    <SEO title="Projects - Drink App" />
+
     <ProjectPage
       title="Cocktail Recipe App"
       src={Image2}
