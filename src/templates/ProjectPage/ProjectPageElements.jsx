@@ -19,8 +19,11 @@ export const Card = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 450px;
-  @media (max-width: 640px) {
+  width: 750px;
+  @media(max-width: 811px){
+    width: 650px;
+  }
+  @media (max-width: 690px) {
     max-width: 440px;
   }
 
