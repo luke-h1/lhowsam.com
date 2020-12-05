@@ -1,110 +1,55 @@
 {
-  "name": "personal-site",
-  "version": "0.1.0",
+  "name": "gatsby-starter-default",
   "private": true,
+  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "version": "0.1.0",
+  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
-    "@testing-library/user-event": "^12.5.0",
-    "babel-plugin-dynamic-import-node": "^2.3.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "normalize.css": "^8.0.1",
-    "polished": "^4.0.5",
+    "gatsby": "^2.26.1",
+    "gatsby-image": "^2.5.0",
+    "gatsby-plugin-manifest": "^2.6.1",
+    "gatsby-plugin-offline": "^3.4.0",
+    "gatsby-plugin-react-helmet": "^3.4.0",
+    "gatsby-plugin-sharp": "^2.8.0",
+    "gatsby-source-filesystem": "^2.5.0",
+    "gatsby-transformer-sharp": "^2.6.0",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-ga": "^3.3.0",
-    "react-helmet": "^6.1.0",
-    "react-icons": "^4.1.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.1",
-    "react-test-renderer": "^17.0.1",
-    "serve": "^11.3.2",
-    "styled-components": "^5.2.1",
-    "web-vitals": "^1.0.1",
-    "workbox-background-sync": "^6.0.2",
-    "workbox-broadcast-update": "^6.0.2",
-    "workbox-cacheable-response": "^6.0.2",
-    "workbox-core": "^6.0.2",
-    "workbox-expiration": "^6.0.2",
-    "workbox-google-analytics": "^6.0.2",
-    "workbox-navigation-preload": "^6.0.2",
-    "workbox-precaching": "^6.0.2",
-    "workbox-range-requests": "^6.0.2",
-    "workbox-routing": "^6.0.2",
-    "workbox-strategies": "^6.0.2",
-    "workbox-streams": "^6.0.2"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "jest --silent",
-    "test:update": "jest --silent -u",
-    "test:watch": "jest --slient --watch",
-    "test:coverage": "jest --silent --coverage",
-    "eject": "react-scripts eject",
-    "format": "prettier \"src/**/*.{js,html,scss,jsx,ts,tsx,md}\" --write",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
-    "clean": "rm -rf node_modules package-lock.json && npm i --legacy-peer-deps",
-    "jest:update": "jest --silent -u",
-    "jest:interactive": "jest --watch",
-    "stats": "react-scripts build \"--stats\" && webpack-bundle-analyzer build/bundle-stats.json",
-    "serve": "serve -s build"
-  },
-  "jest": {
-    "automock": false,
-    "moduleFileExtensions": [
-      "jsx",
-      "js"
-    ],
-    "moduleDirectories": [
-      "node_modules"
-    ],
-    "transform": {
-      "^.+\\.jsx?$": "./node_modules/babel-jest",
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./FileTransformer.js"
-    },
-    "testEnvironment": "jsdom",
-    "roots": [
-      "./src/components/__tests__/"
-    ],
-    "modulePathIgnorePatterns": [
-      "<rootDir>/src/components/__tests__/__snapshots__"
-    ],
-    "testRegex": ".*.test.js",
-    "verbose": true
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0"
   },
   "devDependencies": {
-    "@babel/plugin-transform-modules-commonjs": "^7.12.1",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.6.3",
-    "eslint": "^7.15.0",
+    "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^6.15.0",
+    "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "jest-serializer-html": "^7.0.0",
-    "prettier": "^2.2.1",
-    "react-testing-library": "^8.0.1",
-    "webpack-bundle-analyzer": "^4.2.0"
+    "eslint-plugin-react-hooks": "^1.7.0",
+    "gatsby-plugin-eslint": "^2.0.8",
+    "prettier": "^2.1.2"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
   }
 }
