@@ -1,6 +1,6 @@
 /* eslint-disable */
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link } from 'gatsby';
 import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const CardItem1 = styled.div`

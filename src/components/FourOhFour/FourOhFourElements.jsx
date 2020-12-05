@@ -1,6 +1,6 @@
 /* eslint-disable */
 import { FiArrowRight } from 'react-icons/fi';
-import { Link } from 'react-router-dom';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`

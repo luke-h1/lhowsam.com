@@ -3,11 +3,11 @@
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
-import Image1 from '../../assets/images/Projects/Coffee-jon-tyson.jpeg';
-import Image2 from '../../assets/images/Projects/Drink-carson.jpeg';
-import Image3 from '../../assets/images/Projects/pink-pattern-pawel.jpeg';
-import Image4 from '../../assets/images/Projects/pattern-ahmad-dirini.jpeg';
-import Image5 from '../../assets/images/Projects/Shop-albert-renn.jpeg';
+import Image1 from '../../../static/Image1.jpeg';
+import Image2 from '../../../static/Image2.jpeg';
+import Image3 from '../../../static/Image3.jpeg';
+import Image4 from '../../../static/Image4.jpeg';
+import Image5 from '../../../static/Image5.jpeg';
 import CardItem from '../../templates/CardItem/CardItem';
 
 import {
@@ -15,7 +15,7 @@ import {
   CardWrap,
   ProjectTitle,
   CardContainer,
-} from './ProjectElements';
+} from './ProjectsElements';
 
 const Projects = ({ title }) => (
   <IconContext.Provider value={{ color: '#fff', size: 64 }}>
