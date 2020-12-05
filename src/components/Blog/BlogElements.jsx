@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
@@ -72,21 +71,7 @@ export const BlogPost = styled(Link)`
   border-bottom: 2px solid ${(props) => props.theme.primaryColor}
 `;
 
-export const BlogTitle = styled.h1`
-  color: ${(props) => props.theme.primaryColor};
-  text-decoration: none;
-  margin: 0px 0px 8px;
-  font-size: 24px;
-  display: block;
-  align-self: flex-start;
-  font-weight: 700;
-  line-height: 1.25;
-  &:hover {
-    cursor: pointer;
-    color: ${(props) => props.theme.primaryHoverColor};
-    text-decoration: underline;
-  }
-`;
+
 
 export const BlogDate = styled.p`
   color: ${(props) => props.theme.primaryColor};

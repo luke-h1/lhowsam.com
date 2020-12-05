@@ -4,11 +4,7 @@ import {
   BlogIntro,
   Intro,
   BlogSection,
-  BlogPost,
-  BlogTitle,
-  BlogDate,
   BlogWrapper,
-  BlogExcerpt,
 } from './BlogElements';
 import useBlogPosts from '../../hooks/useBlogPosts';
 
@@ -26,11 +22,7 @@ const Blog = () => {
         </BlogIntro>
         <BlogWrapper>
           {posts.map((post) => (
-            <BlogPost key={post.id} to={post.slug}>
-              <BlogTitle>{post.title}</BlogTitle>
-              <BlogDate>{post.postedAt}</BlogDate>
-              <BlogExcerpt>{post.excerpt}</BlogExcerpt>
-            </BlogPost>
+            <BlogPostPreview key={post.id} post={post} />
           ))}
 
         </BlogWrapper>
