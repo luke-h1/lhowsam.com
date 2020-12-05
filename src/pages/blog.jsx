@@ -23,7 +23,7 @@ const blog = ({ data, location }) => {
     <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
 
       <Layout>
-        <SEO title="Home" />
+        <SEO title="Blog" />
         <Blog theme={theme} />
       </Layout>
     </ThemeProvider>
