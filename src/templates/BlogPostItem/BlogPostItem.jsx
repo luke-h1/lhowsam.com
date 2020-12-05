@@ -19,6 +19,7 @@ export const query = graphql`
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
+        date
       }
       body
     }
@@ -31,7 +32,7 @@ const BlogPostItem = ({data: {mdx: post }}) => (
     <BlogPostWrapper>
       <Wrapper>
         <Title>{post.frontmatter.title}</Title>
-        <Intro>Hello</Intro>
+        <Intro>{post.frontmatter.date}</Intro>
         <Blog />
         <Blog>
         <MDXRenderer>{post.body}</MDXRenderer>     

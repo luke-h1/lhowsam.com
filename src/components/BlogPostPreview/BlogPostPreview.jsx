@@ -13,7 +13,7 @@ const BlogPostPreview = ({ post }) => (
   <>
     <BlogPost key={post.id} to={post.slug}>
       <BlogTitle>{post.title}</BlogTitle>
-      <BlogDate>{post.postedAt}</BlogDate>
+      <BlogDate>{post.date}</BlogDate>
       <BlogExcerpt>{post.excerpt}</BlogExcerpt>
     </BlogPost>
   </>

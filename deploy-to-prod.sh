@@ -36,4 +36,3 @@ else
 fi 
 rm -rf .cache public/
 npm run build
-git push -u origin main
