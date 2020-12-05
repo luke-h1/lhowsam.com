@@ -34,6 +34,4 @@ if ! npm run test; then
 else 
     echo 'Unit tests have passed. Deploying to Development ✅'
 fi 
-rm -rf .cache public/
-npm run build 
 vercel 
