@@ -35,4 +35,4 @@ else
     echo 'Unit tests have passed. Deploying to production ✅'
 fi 
 rm -rf .cache public/
-npm run build
+git push -u origin main
