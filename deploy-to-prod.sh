@@ -34,3 +34,4 @@ if ! npm run test; then
 else 
     echo 'Unit tests have passed. Deploying to production ✅'
 fi 
+git push -u origin main
