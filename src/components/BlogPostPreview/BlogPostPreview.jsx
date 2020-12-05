@@ -1,5 +1,14 @@
 /* eslint-disable */
 import React from "react"
+
+import {
+  BlogPost,
+  BlogTitle,
+  BlogDate,
+  BlogExcerpt
+} from './BlogPostPreviewElements';
+
+
 const BlogPostPreview = ({ post }) => (
   <>
     <BlogPost key={post.id} to={post.slug}>

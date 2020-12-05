@@ -1,4 +1,5 @@
 import React from 'react';
+import BlogPostPreview from '../BlogPostPreview/BlogPostPreview';
 import {
   Title,
   BlogIntro,
@@ -24,7 +25,7 @@ const Blog = () => {
           {posts.map((post) => (
             <BlogPostPreview key={post.id} post={post} />
           ))}
-
+          ;
         </BlogWrapper>
       </BlogSection>
     </>
