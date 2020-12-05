@@ -4,7 +4,8 @@
 
 ## Project Structure 
 
-* Main - Represents what is currently on production 
+* Main - Represents what is currently on production (deployments are handled by Vercel)
+
 * Dev - Represents the features currently being worked on 
 
 
