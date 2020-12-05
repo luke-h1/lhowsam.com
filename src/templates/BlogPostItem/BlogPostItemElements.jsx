@@ -12,11 +12,14 @@ background-color: ${(props) => props.theme.primaryBackgroundColor};
 
 export const Wrapper = styled.article`
   padding-top: 65px;
-  max-width: 550px;
+  max-width: 750px;
   margin: 0px auto;
   padding-left: 16px;
   padding-right: 16px;
   color: ${(props) => props.theme.primaryColor};
+  @media(max-width: 650px){
+    max-width: 650px;
+  }
 `;
 
 export const Title = styled.h1`
