@@ -10,6 +10,7 @@ import { useDarkTheme } from '../hooks/useDarkMode';
 import { lightTheme, darkTheme } from '../styles/Themes';
 import Hero from '../components/Hero/Hero';
 import RecentProjects from '../components/RecentProjects/RecentProjects';
+import Skills from '../components/Skills/Skills';
 
 const index = ({ data, location }) => {
   const [theme, setTheme] = useDarkTheme(
@@ -25,8 +26,8 @@ const index = ({ data, location }) => {
       <Layout>
         <SEO title="Home" />
         <Hero theme={theme} />
+        <Skills theme={theme} />
         <RecentProjects />
-
       </Layout>
     </ThemeProvider>
 
