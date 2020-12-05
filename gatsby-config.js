@@ -20,6 +20,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: `${process.env.GATSBY_GOOGLE_ANALYTICS_KEY}`,
+        head: true,
+      },
+    },
+    {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: {
@@ -68,12 +75,7 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-styled-components',
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: `${process.env.GOOGLE_ANALYTICS_KEY}`,
-      },
-    },
+
     'gatsby-plugin-feed',
     {
       resolve: 'gatsby-plugin-manifest',
