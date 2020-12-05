@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from "react"
-
+import { Link } from 'gatsby';
 import {
   BlogPost,
   BlogTitle,

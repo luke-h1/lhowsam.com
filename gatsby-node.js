@@ -20,19 +20,17 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   posts.forEach(post => {
     actions.createPage({
-      path: post.nodes.frontmatter.slug,
+      path: post.frontmatter.slug,
       component: require.resolve('./src/templates/BlogPostItem/BlogPostItem.jsx'),
       context: {
-        slug: post.nodes.frontmatter.slug,
+        slug: post.frontmatter.slug,
       },
     });
   });
 };
 
-
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
-
 
   createTypes(`
     type SiteSiteMetadata {

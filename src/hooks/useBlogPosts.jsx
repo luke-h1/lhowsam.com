@@ -24,7 +24,7 @@ const usePosts = () => {
   return data.allMdx.edges.map((post) => ({
     title: post.node.frontmatter.title,
     date: post.node.frontmatter.date,
-    slug: post.node.frontmatter.slug,
+    slug: post.node.slug,
     excerpt: post.node.excerpt,
     timeToRead: post.node.timeToRead,
   }));

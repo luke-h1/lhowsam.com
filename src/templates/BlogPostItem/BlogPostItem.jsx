@@ -2,14 +2,13 @@
 import React from 'react';
 import {graphql} from 'gatsby';
 import styled from 'styled-components';
-import Layout from '../../components/Layout/Layout';
+import Layout from '../../components/layout';
 import {MDXRenderer} from 'gatsby-plugin-mdx';
 export const query = graphql`
   query($slug: String!) {
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
-        author
       }
       body
     }

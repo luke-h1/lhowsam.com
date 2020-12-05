@@ -25,7 +25,7 @@ const Blog = () => {
           {posts.map((post) => (
             <BlogPostPreview key={post.id} post={post} />
           ))}
-          ;
+
         </BlogWrapper>
       </BlogSection>
     </>
