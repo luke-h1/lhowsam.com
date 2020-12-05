@@ -44,7 +44,6 @@ Lint the code according to the Airbnb eslint config
 npm run lint
 ```
 
-
 ### Clean
 
 Remove the .cache & public directory for a scratch compile.
