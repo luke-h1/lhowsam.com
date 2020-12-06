@@ -6,7 +6,8 @@
     "description": "lorem ipsum",
     "githbLink": "",
     "siteLink": "",
-    "label": "React, Gatsby, SCSS, styled-components"
+    "label": "React, Gatsby, SCSS, styled-components",
+    "image": "../../content/assets/project-images/Image1.jpeg"
   },
   {
     "id": 2,
@@ -15,7 +16,9 @@
     "description": "lorem ipsum",
     "githbLink": "",
     "siteLink": "",
-    "label": ""
+    "label": "",
+    "image": "../../content/assets/project-images/Image2.jpeg"
+
   },
   {
     "id": 3,
@@ -24,7 +27,9 @@
     "description": "lorem ipsum",
     "githbLink": "",
     "siteLink": "",
-    "label": "React Hooks, SASS"
+    "label": "React Hooks, SASS",
+    "image": "../../content/assets/project-images/Image3.jpeg"
+
   },
   {
     "id": 4,
@@ -33,7 +38,9 @@
     "description": "lorem ipsum",
     "githbLink": "",
     "siteLink": "",
-    "label": ""
+    "label": "",
+    "image": "../../content/assets/project-images/Image4.jpeg"
+
   },
   {
     "id": 4,
@@ -42,6 +49,8 @@
     "description": "lorem ipsum",
     "githbLink": "",
     "siteLink": "",
-    "label": ""
+    "label": "",
+    "image": "../../content/assets/project-images/Image5.jpeg"
+
   }
 ]
