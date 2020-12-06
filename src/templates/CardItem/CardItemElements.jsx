@@ -54,7 +54,6 @@ export const CardFigure = styled.figure`
     content: attr(data-category);
     position: absolute;
     color: #000;
-
     bottom: 0;
     margin-left: 10px;
     padding: 6px 8px;
@@ -71,7 +70,7 @@ export const CardItemInfo = styled.div`
 `;
 
 export const CardText = styled.h5`
-  color: ${(props) => props.theme.darkTextColor}; 
+  color: ${(props) => props.theme.darkTextColor} !important; 
   font-size: 18px;
   line-height: 24px;
 `;
