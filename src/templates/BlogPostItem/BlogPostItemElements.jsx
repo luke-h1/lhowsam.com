@@ -6,8 +6,9 @@ import { Link } from 'gatsby';
 
 export const BlogPostWrapper = styled.div`
 min-width: 100vw;
-min-height: 100vh;
+min-height: 200vh;
 background-color: ${(props) => props.theme.primaryBackgroundColor};
+
 `
 
 export const Wrapper = styled.article`
