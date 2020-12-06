@@ -9,6 +9,7 @@ import Image3 from '../../../static/Image3.jpeg';
 import Image4 from '../../../static/Image4.jpeg';
 import Image5 from '../../../static/Image5.jpeg';
 import CardItem from '../../templates/CardItem/CardItem';
+import ProjectData from '../../data/ProjectData';
 
 import {
   ProjectWrapper,
@@ -24,6 +25,16 @@ const Projects = ({ title }) => (
         <ProjectTitle>{title}</ProjectTitle>
         <CardContainer>
           <CardWrap>
+            {ProjectData.forEach((project) => (
+              <CardItem
+                src={Image1}
+                text={project.title}
+                label="React, Vanilla JS, SCSS, CSS, styled-components"
+                path="/projects/personal-site"
+                loading="lazy"
+              />
+            ))}
+
             <CardItem
               src={Image1}
               text="Personal Site"
