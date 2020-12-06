@@ -25,9 +25,8 @@ body {
   font-family: ${primaryFont};
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: ${
-    lightTheme ? lightTheme.backgroundColor : darkTheme.backgroundColor
-  };
+  background-color: ${(props) => props.theme.primaryBackgroundColor}; 
+
   overflow-x: hidden;  
 }
 `;

@@ -2,7 +2,8 @@
 /* eslint-disable react/require-default-props */
 import React from 'react';
 import PropTypes from 'prop-types';
-import profileImage from '../../../static/luke.jpeg';
+import { useStaticQuery, graphql } from 'gatsby';
+// import profileImage from '../../../static/luke.jpeg';
 import {
   HomeHeroSection,
   GridContainer,
@@ -12,32 +13,46 @@ import {
   HeroImage,
 } from './HeroElements';
 
-const Hero = ({ title, introduction }) => (
-  <>
-    <HomeHeroSection>
-      <GridContainer>
-        <h1>{title}</h1>
-        <IntroductionContainer>
-          <p>{introduction}</p>
-          <hr />
-          <List>
-            <h3>More About Me</h3>
-            <CollectionItem>
-              🌱 I’m currently learning ... Javascript & React
-            </CollectionItem>
-            <CollectionItem>
-              {' '}
-              💚 I enjoying working on ... React, Testing methodologies and
-              frameworks (following best practices, unit testing), Automation
-              technologies (Ansible, bash ) & OOS projects
-            </CollectionItem>
-          </List>
-        </IntroductionContainer>
-        <HeroImage src={profileImage} alt="" />
-      </GridContainer>
-    </HomeHeroSection>
-  </>
-);
+const Hero = ({ title, introduction }) => {
+  const { image } = useStaticQuery(graphql`
+  query {
+    image: file(relativePath: {eq: "luke.jpeg"}) {
+      sharp: childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+  }
+  
+  `);
+  return (
+    <>
+      <HomeHeroSection>
+        <GridContainer>
+          <h1>{title}</h1>
+          <IntroductionContainer>
+            <p>{introduction}</p>
+            <hr />
+            <List>
+              <h3>More About Me</h3>
+              <CollectionItem>
+                🌱 I’m currently learning ... Javascript & React
+              </CollectionItem>
+              <CollectionItem>
+                {' '}
+                💚 I enjoying working on ... React, Testing methodologies and
+                frameworks (following best practices, unit testing), Automation
+                technologies (Ansible, bash ) & OOS projects
+              </CollectionItem>
+            </List>
+          </IntroductionContainer>
+          <HeroImage src={image.sharp.fluid.src} alt="" />
+        </GridContainer>
+      </HomeHeroSection>
+    </>
+  );
+};
 Hero.defaultProps = {
   title: "Hi I'm Luke 👋",
   introduction:

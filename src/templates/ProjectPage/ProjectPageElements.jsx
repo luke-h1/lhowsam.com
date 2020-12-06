@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 export const CardLgWrapper = styled.div`
   min-width: 100vw;
-  min-height: 100vh;
+  min-height: 70vh;
   color: ${(props) => props.theme.primaryColor}; 
   display: flex;
   flex-direction: column;
