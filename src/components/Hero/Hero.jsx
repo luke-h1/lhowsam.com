@@ -1,9 +1,5 @@
-/* eslint-disable react/default-props-match-prop-types */
-/* eslint-disable react/require-default-props */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { useStaticQuery, graphql } from 'gatsby';
-// import profileImage from '../../../static/luke.jpeg';
 import {
   HomeHeroSection,
   GridContainer,
@@ -13,7 +9,7 @@ import {
   HeroImage,
 } from './HeroElements';
 
-const Hero = ({ title, introduction }) => {
+const Hero = () => {
   const { image } = useStaticQuery(graphql`
   query {
     image: file(relativePath: {eq: "luke.jpeg"}) {
@@ -30,9 +26,12 @@ const Hero = ({ title, introduction }) => {
     <>
       <HomeHeroSection>
         <GridContainer>
-          <h1>{title}</h1>
+          <h1>Hi I'm Luke 👋</h1>
           <IntroductionContainer>
-            <p>{introduction}</p>
+            <p>
+              I'm passionate about various web technologies and making the web fast &
+              accesible to everyone. I strive to write clean, robust & reusable code.
+            </p>
             <hr />
             <List>
               <h3>More About Me</h3>
@@ -52,16 +51,6 @@ const Hero = ({ title, introduction }) => {
       </HomeHeroSection>
     </>
   );
-};
-Hero.defaultProps = {
-  title: "Hi I'm Luke 👋",
-  introduction:
-    "I'm passionate about various web technologies and making the web fast & accesible to everyone. I strive to write clean, robust & reusable code.",
-};
-
-Hero.propTypes = {
-  title: PropTypes.string.isRequired,
-  introduction: PropTypes.string.isRequired,
 };
 
 export default Hero;

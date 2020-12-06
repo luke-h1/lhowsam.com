@@ -1,8 +1,5 @@
-/* eslint-disable react/require-default-props */
-/* eslint-disable react/default-props-match-prop-types */
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
-import PropTypes from 'prop-types';
 import useProjectDetails from '../../hooks/useProjectDetails';
 import CardItem from '../../templates/CardItem/CardItem';
 
@@ -13,14 +10,14 @@ import {
   CardContainer,
 } from './ProjectsElements';
 
-const Projects = ({ title }) => {
+const Projects = () => {
   const projects = useProjectDetails();
 
   return (
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <>
         <ProjectWrapper>
-          <ProjectTitle>{title}</ProjectTitle>
+          <ProjectTitle>My Projects</ProjectTitle>
           <CardContainer>
             <CardWrap>
               {projects.map((project) => (
@@ -38,13 +35,6 @@ const Projects = ({ title }) => {
       </>
     </IconContext.Provider>
   );
-};
-Projects.defaultProps = {
-  title: 'My Projects',
-};
-
-Projects.propTypes = {
-  title: PropTypes.string.isRequired,
 };
 
 export default Projects;

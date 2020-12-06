@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 import { Link } from 'gatsby';
 
-export const NavContactButton = styled(Link)`
+export const Button = styled(Link)`
   background: ${({ primary }) => (primary ? '#f26a2e' : '#077bf1')};
   white-space: nowrap;
   padding: ${({ big }) => (big ? '16px 40px' : '10px 32px')};

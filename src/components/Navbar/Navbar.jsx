@@ -1,6 +1,5 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { ThemeProvider } from 'styled-components';
 import { lightTheme, darkTheme } from '../../styles/Themes';
@@ -64,7 +63,7 @@ function Navbar({ theme, toggleTheme }) {
                   <IconContainer>
                     {theme === 'light' ? (
                       <Moon onClick={toggleTheme} />
-                      ) : (
+                    ) : (
                       <Sun onClick={toggleTheme} />
                     )}
                   </IconContainer>
@@ -78,5 +77,10 @@ function Navbar({ theme, toggleTheme }) {
     </ThemeProvider>
   );
 }
+
+Navbar.propTypes = {
+  theme: PropTypes.bool.isRequired,
+  toggleTheme: PropTypes.func.isRequired,
+};
 
 export default Navbar;

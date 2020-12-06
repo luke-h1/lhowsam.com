@@ -1,13 +1,11 @@
 /* eslint-disable */
-import React from "react"
-import { Link } from 'gatsby';
+import React from 'react';
 import {
   BlogPost,
   BlogTitle,
   BlogDate,
-  BlogExcerpt
+  BlogExcerpt,
 } from './BlogPostPreviewElements';
-
 
 const BlogPostPreview = ({ post }) => (
   <>
@@ -17,5 +15,5 @@ const BlogPostPreview = ({ post }) => (
       <BlogExcerpt>{post.excerpt}</BlogExcerpt>
     </BlogPost>
   </>
-)
-export default BlogPostPreview
+);
+export default BlogPostPreview;

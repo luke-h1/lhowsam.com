@@ -1,6 +1,5 @@
 /* eslint-disable */
 import styled from 'styled-components';
-import { lightTheme, darkTheme } from '../../../styles/Themes';
 
 const Button = styled.button`
   min-width: 100px;
