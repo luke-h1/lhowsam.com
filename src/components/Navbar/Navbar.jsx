@@ -63,9 +63,9 @@ function Navbar({ theme, toggleTheme }) {
                 <NavBtnLink>
                   <IconContainer>
                     {theme === 'light' ? (
-                      <Sun onClick={toggleTheme} />
-                    ) : (
                       <Moon onClick={toggleTheme} />
+                      ) : (
+                      <Sun onClick={toggleTheme} />
                     )}
                   </IconContainer>
                 </NavBtnLink>

@@ -149,12 +149,27 @@ export const NavBtnLink = styled(Link)`
 export const Sun = styled(FiSun)`
   color: ${(props) => props.theme.primaryColor}; 
   font-size: 25px;
+  &:hover { 
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: scale(1s);
+    color: ${(props) => props.theme.primaryHoverColorYellow};
+  }
 
 `;
 
 export const Moon = styled(FiMoon)`
   color: ${(props) => props.theme.primaryColor}; 
   font-size: 25px;
+  &:hover { 
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: scale(1s);
+    color: ${(props) => props.theme.primaryHoverColor};
+
+
+  }
+
 
 `;
 
