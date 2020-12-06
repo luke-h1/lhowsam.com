@@ -1,13 +1,15 @@
 /* eslint-disable react/require-default-props */
 /* eslint-disable react/default-props-match-prop-types */
+/* eslint-disable */
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
 import PropTypes from 'prop-types';
-import Image1 from '../../../static/Image1.jpeg';
-import Image2 from '../../../static/Image2.jpeg';
-import Image3 from '../../../static/Image3.jpeg';
-import Image4 from '../../../static/Image4.jpeg';
-import Image5 from '../../../static/Image5.jpeg';
+import Image1 from '../../../content/assets/project-images/Image1.jpeg';
+import Image2 from '../../../content/assets/project-images/Image2.jpeg';
+import Image3 from '../../../content/assets/project-images/Image3.jpeg';
+import Image4 from '../../../content/assets/project-images/Image4.jpeg';
+import Image5 from '../../../content/assets/project-images/Image5.jpeg';
+
 import CardItem from '../../templates/CardItem/CardItem';
 // import ProjectData from '../../data/ProjectData';
 
@@ -25,15 +27,6 @@ const Projects = ({ title }) => (
         <ProjectTitle>{title}</ProjectTitle>
         <CardContainer>
           <CardWrap>
-            {/* {ProjectData.forEach((project) => (
-              <CardItem
-                src={Image1}
-                text={project.title}
-                label="React, Vanilla JS, SCSS, CSS, styled-components"
-                path="/projects/personal-site"
-                loading="lazy"
-              />
-            ))} */}
             <CardItem
               src={Image1}
               text="Personal Site"

@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../../components/layout';
 import ProjectPage from '../../templates/ProjectPage/ProjectPage';
-import Image3 from '../../../static/Image3.jpeg';
+import Image3 from '../../../content/assets/project-images/Image3.jpeg';
 import SEO from '../../components/seo';
 
 const Automation = () => (

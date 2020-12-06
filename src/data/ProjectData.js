@@ -1,8 +1,4 @@
 /* eslint-disable import/prefer-default-export */
-import Image1 from '../../static/Image1.jpeg';
-import Image2 from '../../static/Image2.jpeg';
-import Image3 from '../../static/Image3.jpeg';
-import Image4 from '../../static/Image4.jpeg';
 
 export const ProjectData = [
   {
@@ -10,7 +6,7 @@ export const ProjectData = [
     title: 'Personal Site',
     slug: '/projects/personal-site',
     description: 'lorem ipsum',
-    image: Image1,
+    // image: `${images.Image2}`,
     githbLink: '',
     siteLink: '',
     label: 'React, Gatsby, SCSS, styled-components',
@@ -20,7 +16,7 @@ export const ProjectData = [
     title: 'Automation',
     slug: '/projects/automation',
     description: 'lorem ipsum',
-    image: Image2,
+    // image: Image2,
     githbLink: '',
     siteLink: '',
     label: '',
@@ -30,7 +26,7 @@ export const ProjectData = [
     title: 'Cocktail Recipe App',
     slug: '/projects/drink-app',
     description: 'lorem ipsum',
-    image: Image3,
+    // image: Image3,
     githbLink: '',
     siteLink: '',
     label: 'React Hooks, SASS',
@@ -40,7 +36,7 @@ export const ProjectData = [
     title: 'Quotes App',
     slug: '/projects/quote-generator',
     description: 'lorem ipsum',
-    image: Image4,
+    // image: Image4,
     githbLink: '',
     siteLink: '',
     label: '',
@@ -50,7 +46,7 @@ export const ProjectData = [
     title: 'Form Validator',
     slug: '/projects/form-validator',
     description: 'lorem ipsum',
-    image: Image4,
+    // image: Image4,
     githbLink: '',
     siteLink: '',
     label: '',
