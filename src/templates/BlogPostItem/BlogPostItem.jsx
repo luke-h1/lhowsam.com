@@ -24,6 +24,10 @@ export const query = graphql`
       body
     }
   }
+  
+`
+
+const Renderer = styled(MDXRenderer)`
 `
 
 
@@ -35,7 +39,7 @@ const BlogPostItem = ({data: {mdx: post }}) => (
         <Intro>{post.frontmatter.date}</Intro>
         <Blog />
         <Blog>
-        <MDXRenderer>{post.body}</MDXRenderer>     
+        <Renderer>{post.body}</Renderer>     
           </Blog>
         <BlogLinkWrap>
           <BlogLink to="/blog">Back to Blog</BlogLink>

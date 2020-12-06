@@ -26,9 +26,7 @@ Let's assume you want to merge branch <strong>hotfix</strong> into your <strong>
 
 Before you touch anything ensure that your local repository (feature branch) is up to date with the latest changes from your remote origin with a: 
 <br />
-<CodeBlock>
-git fetch && git status 
-</CodeBlock>
+<CodeBlock>git fetch && git status </CodeBlock>
 <br />
 If anything shows up here move it to your desktop or stash it
 <br />
@@ -41,13 +39,15 @@ git checkout master && git pull
 </CodeBlock>
 <br />
 <h2>3 - Dress up your feature branch</h2>
-<CodeBlock>
-git checkout feature-branch && git merge --strategy=ours master
-</CodeBlock>
+
+<CodeBlock>git checkout feature-branch</CodeBlock> 
+<CodeBlock>git merge --strategy=ours master</CodeBlock>
+
 <br /> 
 <h2>4 - Go in for the kill</h2> 
-<CodeBlock>
-git checkout master && git merge --no-ff feature-branch
-</CodeBlock>
+
+<CodeBlock>git checkout master</CodeBlock>
+<CodeBlock>git merge --no-ff feature-branch</CodeBlock>
+
 <br /> 
 This merge approach will add one commit on top of your master / main branch which pastes in whatever is in your feature branch without complaining about conflicts.
