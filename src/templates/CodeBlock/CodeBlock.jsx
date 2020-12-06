@@ -19,7 +19,7 @@ export default ({ children }) => (
       {({
         className, style, tokens, getLineProps, getTokenProps,
       }) => (
-        <pre className={className} style={{ ...style, padding: '1px', wordBreak: 'break-word' }}>
+        <pre className={className} style={{ ...style, padding: '15px', wordBreak: 'break-word' }}>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
