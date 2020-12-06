@@ -3,6 +3,7 @@
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import styled from 'styled-components';
+import theme from 'prism-react-renderer/themes/synthwave84';
 
 const Wrap = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ const Wrap = styled.div`
 
 export default ({ children }) => (
   <Wrap>
-    <Highlight {...defaultProps} code={children} language="javascript">
+    <Highlight {...defaultProps} code={children} theme={theme} language="javascript">
       {({
         className, style, tokens, getLineProps, getTokenProps,
       }) => (
