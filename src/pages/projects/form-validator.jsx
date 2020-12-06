@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../../components/layout';
 import ProjectPage from '../../templates/ProjectPage/ProjectPage';
-import Image4 from '../../../content/assets/project-images/Image4.jpeg';
+import Image5 from '../../../content/assets/project-images/Image5.jpeg';
 import SEO from '../../components/seo';
 
 const formValidator = () => (
@@ -10,7 +10,7 @@ const formValidator = () => (
 
     <ProjectPage
       title="Form Validator"
-      src={Image4}
+      src={Image5}
       alt="Dark room with lights hanging from the ceiling"
       desc="In this project I built a form validator that uses built in
         javascript regular expressions to validate name, email, postcode

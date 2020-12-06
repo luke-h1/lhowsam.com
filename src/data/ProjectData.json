@@ -12,12 +12,12 @@
   {
     "id": 2,
     "title": "Automation",
-    "slug": "/projects/automation",
+    "slug": "/projects/Automation",
     "description": "lorem ipsum",
     "githbLink": "",
     "siteLink": "",
-    "label": "",
-    "image": "../../content/assets/project-images/Image2.jpeg"
+    "label": "Bash, Ansible, Azure",
+    "image": "../../content/assets/project-images/Image3.jpeg"
 
   },
   {
@@ -28,28 +28,28 @@
     "githbLink": "",
     "siteLink": "",
     "label": "React Hooks, SASS",
-    "image": "../../content/assets/project-images/Image3.jpeg"
+    "image": "../../content/assets/project-images/Image2.jpeg"
 
   },
   {
     "id": 4,
     "title": "Quotes App",
-    "slug": "/projects/quote-generator",
+    "slug": "/projects/quotes-app",
     "description": "lorem ipsum",
     "githbLink": "",
     "siteLink": "",
-    "label": "",
+    "label": "React, SCSS",
     "image": "../../content/assets/project-images/Image4.jpeg"
 
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "Form Validator",
     "slug": "/projects/form-validator",
     "description": "lorem ipsum",
     "githbLink": "",
     "siteLink": "",
-    "label": "",
+    "label": "Vanilla JS, Robot Framework",
     "image": "../../content/assets/project-images/Image5.jpeg"
 
   }
