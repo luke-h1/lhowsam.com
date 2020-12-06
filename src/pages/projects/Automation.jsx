@@ -10,7 +10,7 @@ const Automation = () => (
 
     <ProjectPage
       title="Automation"
-      src={Image2}
+      src={Image3}
       alt="City Traffic"
       desc="I am a huge advocate for infrastructure automation & continuous integration as this
         allows developers to focus on innovating new features and solving new
