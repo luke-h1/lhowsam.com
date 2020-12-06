@@ -3,7 +3,6 @@
 import { blue, light, dark, neutral, green } from './Colors';
 import { primaryFont } from './typography';
 
-
 export const lightTheme = { 
   primaryBackgroundColor: light[100],
   primaryColor: dark[100],
@@ -35,7 +34,7 @@ export const darkTheme = {
   primaryNavColor: dark[100],
   primaryFooterColor: dark[100],
   PrimaryFooterBorder: dark[100],
-  primaryTitleColor: green[100],
+  primaryTitleColor: neutral[100],
 
 
   primaryFont,
