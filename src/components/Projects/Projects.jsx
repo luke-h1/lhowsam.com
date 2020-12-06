@@ -3,13 +3,14 @@
 /* eslint-disable */
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
+import { graphql, useStaticQuery } from 'gatsby';
 import PropTypes from 'prop-types';
 import Image1 from '../../../content/assets/project-images/Image1.jpeg';
 import Image2 from '../../../content/assets/project-images/Image2.jpeg';
 import Image3 from '../../../content/assets/project-images/Image3.jpeg';
 import Image4 from '../../../content/assets/project-images/Image4.jpeg';
 import Image5 from '../../../content/assets/project-images/Image5.jpeg';
-
+import useProjectDetails from '../../hooks/useProjectDetails';
 import CardItem from '../../templates/CardItem/CardItem';
 // import ProjectData from '../../data/ProjectData';
 
@@ -20,14 +21,26 @@ import {
   CardContainer,
 } from './ProjectsElements';
 
-const Projects = ({ title }) => (
+const Projects = ({ title }) => {
+const projects = useProjectDetails();
+
+return (
   <IconContext.Provider value={{ color: '#fff', size: 64 }}>
     <>
       <ProjectWrapper>
         <ProjectTitle>{title}</ProjectTitle>
         <CardContainer>
           <CardWrap>
-            <CardItem
+            {projects.map((project) =>  (
+                <CardItem
+                src={Image1}
+                text={project.title}
+                label={project.label}
+                path={project.slug}
+                loading="lazy"
+              />
+            ))}
+            {/* <CardItem
               src={Image1}
               text="Personal Site"
               label="React, Vanilla JS, SCSS, CSS, styled-components"
@@ -61,14 +74,14 @@ const Projects = ({ title }) => (
               label="React, SCSS"
               path="/projects/quotes-app"
               loading="lazy"
-            />
+            /> */}
           </CardWrap>
         </CardContainer>
       </ProjectWrapper>
     </>
   </IconContext.Provider>
 );
-
+}
 Projects.defaultProps = {
   title: 'My Projects',
 };
