@@ -1,6 +1,7 @@
 /* eslint-disable */ 
 import React from 'react';
 import {graphql} from 'gatsby';
+import SEO from '../../components/seo';
 import styled from 'styled-components';
 import Layout from '../../components/layout';
 import {MDXRenderer} from 'gatsby-plugin-mdx';
@@ -34,6 +35,8 @@ const Renderer = styled(MDXRenderer)`
 const BlogPostItem = ({data: {mdx: post }}) => (
   <Layout>
     <BlogPostWrapper>
+    <SEO title={`${post.frontmatter.title} | blog` } />
+
       <Wrapper>
         <Title>{post.frontmatter.title}</Title>
         <Intro>{post.frontmatter.date}</Intro>
