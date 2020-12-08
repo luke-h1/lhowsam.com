@@ -17,16 +17,10 @@ export default ({ children }) => (
   <Wrap>
     <Highlight {...defaultProps} code={children} theme={theme} language="javascript">
       {({
-        className, style, tokens, getLineProps, getTokenProps,
+        className, style,
       }) => (
-        <pre className={className} style={{ ...style, padding: '15px', wordBreak: 'break-word' }}>
-          {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
+        <pre className={className} style={{ ...style, padding: '8px', margin: '5px', wordBreak: 'break-word' }}>
+          {children}
         </pre>
       )}
     </Highlight>
