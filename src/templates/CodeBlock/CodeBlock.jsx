@@ -19,7 +19,12 @@ export default ({ children }) => (
       {({
         className, style,
       }) => (
-        <pre className={className} style={{ ...style, padding: '8px', margin: '5px', wordBreak: 'break-word' }}>
+        <pre
+          className={className}
+          style={{
+            ...style, padding: '8px', margin: '5px', wordBreak: 'break-word',
+          }}
+        >
           {children}
         </pre>
       )}
