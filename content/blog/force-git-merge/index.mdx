@@ -26,8 +26,9 @@ Let's assume you want to merge branch <strong>hotfix</strong> into your <strong>
 Before you touch anything ensure that your local repository (feature branch) is up to date with the latest changes from your remote origin with a: 
 <br />
 
-```javascript
+```
 git fetch && git status
+
 ```
 
 <br />
@@ -49,7 +50,7 @@ git checkout master && git pull
 git checkout feature-branch
 ```
 
-```javascript
+```
 git merge --strategy=ours master
 ```
 
@@ -60,7 +61,7 @@ git merge --strategy=ours master
 git checkout master
 ```
 
-```javascript
+```
 git merge --no-ff feature-branch
 ```
 
