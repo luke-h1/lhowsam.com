@@ -121,7 +121,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     'gatsby-plugin-styled-components',
-    'gatsby-plugin-emotion',
 
     'gatsby-plugin-feed',
     {
