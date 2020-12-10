@@ -3,9 +3,9 @@ module.exports = {
     title: 'Luke H',
     author: {
       name: 'Luke Howsam',
-      summary: '// TODO',
+      summary: 'My personal portfolio made with Gatsby, React & styled-components',
     },
-    description: 'My personal site / Blog',
+    description: 'My personal portfolio & Blog',
     siteUrl: 'https://lhowsam.com',
     social: {
       twitter: 'LukeH_1999',
@@ -126,7 +126,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'personal site / blog',
+        name: 'luke howsam',
         short_name: 'lhowsam.com',
         start_url: '/',
         background_color: '#ffffff',
@@ -136,8 +136,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
 };
