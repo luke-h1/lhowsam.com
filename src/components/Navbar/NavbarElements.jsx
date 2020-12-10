@@ -7,10 +7,10 @@ import { Container } from '../../utils/Containers/Container';
 
 export const Nav = styled.nav`
   background: ${(props) => props.theme.primaryNavColor}; 
-  height: 90px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem calc((100vw - 1300px) / 2);
+  /* padding: 0.1rem calc((100vw - 1300px) / 2); */
   z-index: 999;
   position: relative;
   border-bottom: 1px solid ${(props) => props.theme.textOnDisabled}; 
@@ -20,7 +20,7 @@ export const Nav = styled.nav`
 export const NavbarContainer = styled(Container)`
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  height: 60px;
   ${Container}
   color: ${(props) => props.theme.primaryColor}; 
 `;
@@ -30,7 +30,7 @@ export const NavLogo = styled(Link)`
   justify-self: flex-start;
   cursor: pointer;
   text-decoration: none;
-  font-size: 1.8rem;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
 `;
@@ -83,10 +83,10 @@ export const NavMenu = styled.ul`
 `;
 
 export const NavItem = styled.li`
-  height: 80px;
+  height: 60px;
   border-bottom: 2px solid transparent;
   &:hover {
-    border-bottom: 2px solid ${(props) => props.theme.primaryHoverColor};
+    border-bottom: 1px solid ${(props) => props.theme.primaryHoverColor};
   }
   @media screen and (max-width: 960px) {
     width: 100%;
