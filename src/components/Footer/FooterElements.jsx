@@ -9,7 +9,10 @@ export const FooterContainer = styled.footer`
   width: 100%;
   margin: 0;
   background-color: ${(props) => props.theme.primaryNavColor};
-  height: 100px;
+  min-height: 50px;
+  /* @media(min-width: 680px){
+    height: 90px;
+  } */
 
   @media (max-width: 500px) {
     display: none;
