@@ -12,7 +12,8 @@ BlogLinkWrap,
 BlogPostWrapper,
 Wrapper,
 Title,
-Intro
+Intro,
+Date,
 } from './BlogPostItemElements';
 
 export const query = graphql`
@@ -39,7 +40,7 @@ const BlogPostItem = ({data: {mdx: post }}) => (
 
       <Wrapper>
         <Title>{post.frontmatter.title}</Title>
-        <Intro>{post.frontmatter.date}</Intro>
+        <Date>{post.frontmatter.date}</Date>
         <Blog />
         <Blog>
         <Renderer>{post.body}</Renderer>     

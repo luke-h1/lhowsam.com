@@ -25,9 +25,16 @@ export const Wrapper = styled.article`
   }
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
   text-align: center;
+  margin-bottom: 8px;
 `;
+
+export const Date = styled.p`
+  color: ${(props) => props.theme.borderBottom};
+  text-align: center;
+`
+
 
 export const Intro = styled.div`
   margin-bottom: 32px;
