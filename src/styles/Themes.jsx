@@ -19,6 +19,7 @@ export const lightTheme = {
   primaryNavColor: light[100],
   primaryTitleColor: dark[100],
   primaryHoverColorYellow: yellow[100], 
+  borderBottom: neutral[400],
 
   primaryFont,
 }
@@ -36,6 +37,7 @@ export const darkTheme = {
   primaryFooterColor: dark[100],
   PrimaryFooterBorder: dark[100],
   primaryTitleColor: neutral[100],
+  borderBottom: neutral[500],
 
 
   primaryFont,

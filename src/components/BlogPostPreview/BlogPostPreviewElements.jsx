@@ -26,11 +26,12 @@ export const BlogPost = styled(Link)`
   text-decoration: none;
   color: inherit;
   display: block;
-  border-bottom: 2px solid ${(props) => props.theme.primaryColor};
+  border-bottom: 2px solid ${(props) => props.theme.borderBottom};
+  font-weight: 300;
 `;
 
 export const BlogDate = styled.p`
-  color: ${(props) => props.theme.primaryColor};
+  color: ${(props) => props.theme.borderBottom};
   margin: 0px;
   padding: 0px;
   border: 0px;
