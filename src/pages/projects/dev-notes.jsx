@@ -26,7 +26,7 @@ const developerNotes = () => {
         title="Developer Notes"
         src={image.sharp.fluid.src}
         alt="lights"
-        desc="In this app I made a Gatsby site which contains outputs mdx files containing useful notes I've learned about different technologies & notes I have learned."
+        desc="In this app I made a Gatsby site which contains outputs mdx files containing useful notes I've learned about different technologies & languages I have learned."
         github="https://github.com/luke-h1/developer-notes "
         site="https://dev-notes-mi.vercel.app/"
       />
