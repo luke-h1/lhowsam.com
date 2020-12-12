@@ -4,11 +4,11 @@ import Layout from '../../components/layout';
 import ProjectPage from '../../templates/ProjectPage/ProjectPage';
 import SEO from '../../components/seo';
 
-const DrinkApp = () => {
+const developerNotes = () => {
   // eslint-disable-next-line no-unused-vars
   const { image } = useStaticQuery(graphql`
   query {
-    image: file(relativePath: {eq: "project-images/Image1.jpeg"}) {
+    image: file(relativePath: {eq: "project-images/Image7.jpeg"}) {
         sharp: childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_withWebp
@@ -20,19 +20,17 @@ const DrinkApp = () => {
 
   return (
     <Layout>
-      <SEO title="Projects - Drink App" />
+      <SEO title="Projects - Dev notes" />
 
       <ProjectPage
-        title="Cocktail Recipe App"
+        title="Developer Notes"
         src={image.sharp.fluid.src}
         alt="lights"
-        desc="In this app I made a Cocktail Recipe app using React hooks & SCSS that
-   pulls data from the CocktailDB API. This was a really fun project to work on and was one of the first projects I converted to React JS (from vanilla JS)"
-        label="React,SASS"
-        github="https://github.com/luke-h1/cocktail-recipe-app "
-        site="https://cocktail-recipe-app.vercel.app/"
+        desc="In this app I made a Gatsby site which contains outputs mdx files containing useful notes I've learned about different technologies & notes I have learned."
+        github="https://github.com/luke-h1/developer-notes "
+        site="https://dev-notes-mi.vercel.app/"
       />
     </Layout>
   );
 };
-export default DrinkApp;
+export default developerNotes;
