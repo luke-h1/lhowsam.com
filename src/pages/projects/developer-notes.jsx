@@ -24,7 +24,7 @@ const DrinkApp = () => {
 
       <ProjectPage
         title="Cocktail Recipe App"
-        src={Image}
+        src={image.sharp.fluid.src}
         alt="lights"
         desc="In this app I made a Cocktail Recipe app using React hooks & SCSS that
    pulls data from the CocktailDB API. This was a really fun project to work on and was one of the first projects I converted to React JS (from vanilla JS)"

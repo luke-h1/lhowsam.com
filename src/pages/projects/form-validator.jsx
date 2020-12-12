@@ -24,7 +24,7 @@ const formValidator = () => {
 
       <ProjectPage
         title="Form Validator"
-        src={Image}
+        src={image.sharp.fluid.src}
         alt="Dark room with lights hanging from the ceiling"
         desc="In this project I built a form validator that uses built in
         javascript regular expressions to validate name, email, postcode

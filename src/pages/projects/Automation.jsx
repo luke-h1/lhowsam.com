@@ -8,7 +8,7 @@ const Automation = () => {
   // eslint-disable-next-line no-unused-vars
   const { image } = useStaticQuery(graphql`
   query {
-    image: file(relativePath: {eq: "project-images/Image1.jpeg"}) {
+    image: file(relativePath: {eq: "project-images/Image3.jpeg"}) {
         sharp: childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_withWebp
@@ -24,7 +24,7 @@ const Automation = () => {
 
       <ProjectPage
         title="Automation"
-        src={Image}
+        src={image.sharp.fluid.src}
         alt="City Traffic"
         desc="I am a huge advocate for infrastructure automation & continuous integration as this
         allows developers to focus on innovating new features and solving new
