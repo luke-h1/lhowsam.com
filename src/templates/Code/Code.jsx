@@ -1,10 +1,12 @@
 /* eslint-disable */
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme  from 'prism-react-renderer/themes/shadesOfPurple'; 
+
 const SyntaxHiglight = (props) => (
   <Highlight
     {...defaultProps}
-    // theme={theme}
+    theme={theme}
     code={props.children.trim()}
     language="jsx"
   >
