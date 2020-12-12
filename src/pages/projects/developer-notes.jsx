@@ -8,7 +8,7 @@ const DrinkApp = () => {
   // eslint-disable-next-line no-unused-vars
   const { image } = useStaticQuery(graphql`
   query {
-    image: file(relativePath: {eq: "project-images/Image2.jpeg"}) {
+    image: file(relativePath: {eq: "project-images/Image1.jpeg"}) {
         sharp: childImageSharp {
           fluid {
             ...GatsbyImageSharpFluid_withWebp
