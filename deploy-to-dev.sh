@@ -41,4 +41,7 @@ rm -rf .cache public/
 echo ""
 echo ""
 echo "starting deploy"
+echo ""
+echo ""
+
 vc 
