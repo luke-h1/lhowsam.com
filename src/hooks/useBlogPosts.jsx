@@ -9,10 +9,12 @@ const usePosts = () => {
           excerpt
           timeToRead
           excerpt
+          id
           frontmatter {
             title
             date
             slug 
+            
           }
         }
       }
@@ -26,6 +28,7 @@ const usePosts = () => {
     date: post.node.frontmatter.date,
     slug: post.node.frontmatter.slug,
     excerpt: post.node.excerpt,
+    id: post.node.id,
     timeToRead: post.node.timeToRead,
   }));
 };

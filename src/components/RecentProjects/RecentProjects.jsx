@@ -26,6 +26,7 @@ const RecentProjects = () => {
               label={project.label}
               path={project.slug}
               loading="lazy"
+              key={project.slug}
             />
           ))}
         </ShowCaseContainer>

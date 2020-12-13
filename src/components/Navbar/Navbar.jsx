@@ -79,7 +79,7 @@ function Navbar({ theme, toggleTheme }) {
 }
 
 Navbar.propTypes = {
-  theme: PropTypes.bool.isRequired,
+  theme: PropTypes.string.isRequired,
   toggleTheme: PropTypes.func.isRequired,
 };
 
