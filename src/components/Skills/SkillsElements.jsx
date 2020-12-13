@@ -9,7 +9,7 @@ export const SkillWrapper = styled.div`
   flex-wrap: wrap;
   white-space: nowrap;
   align-items: center;
-  min-height: 25vh;
+  min-height: 22vh;
   margin: 0 auto;
   background-color: ${(props) => props.theme.primaryBackgroundColor}; 
 `;
