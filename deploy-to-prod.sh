@@ -22,6 +22,8 @@ if ! npm run lint; then
 else
     echo 'eslint returned no errors. Continuing with deployment'
 fi
+echo ""
+echo ""
 npm run test 
 if ! npm run test; then 
     echo ''
