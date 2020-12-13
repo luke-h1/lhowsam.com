@@ -1,0 +1,14 @@
+trigger:
+- main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- script: Lint 
+  displayName: 'eslint'
+
+- script: |
+    npm run lint
+    
+  displayName: 'lint'
