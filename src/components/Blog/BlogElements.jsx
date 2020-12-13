@@ -68,7 +68,7 @@ export const BlogPost = styled(Link)`
   text-decoration: none;
   color: inherit;
   display: block;
-  border-bottom: 2px solid ${(props) => props.theme.primaryColor}
+  border-bottom: 2px solid ${(props) => props.theme.primaryBorderBottom}
 `;
 
 

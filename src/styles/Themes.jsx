@@ -20,6 +20,7 @@ export const lightTheme = {
   primaryTitleColor: dark[100],
   primaryHoverColorYellow: yellow[100], 
   borderBottom: neutral[400],
+  primaryBorderBottom: neutral[500],
   primaryFont,
   titleFont,
 }
