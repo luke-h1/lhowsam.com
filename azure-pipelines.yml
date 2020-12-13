@@ -5,5 +5,5 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: npm i --legacy-peer-deps && npm run lint  
+- script: npm i --legacy-peer-deps && npm run lint && npm run test
   displayName: 'Run eslint & run jest unit tests'
