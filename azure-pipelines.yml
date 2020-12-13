@@ -6,5 +6,5 @@ pool:
 
 steps:
 - script: npm i --legacy-peer-deps && npm run lint  
-  displayName: 'eslint'
+  displayName: 'Run eslint & run jest unit tests'
     
