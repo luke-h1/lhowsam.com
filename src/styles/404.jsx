@@ -8,4 +8,6 @@ export const NotFoundWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-weight: 700;
+  text-align: center;
 `;
