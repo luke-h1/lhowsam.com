@@ -1,9 +1,7 @@
 /* eslint-disable */
-
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'polished';
-import { primaryFont } from './typography';
-import { lightTheme, darkTheme } from './Themes';
+import { primaryFont} from './typography';
 import PtSans from '../fonts/PTSans-Regular.ttf';
 export const GlobalStyle = createGlobalStyle`
   ${normalize()}
@@ -22,9 +20,9 @@ html {
 }
 
 @font-face {
-  font-family: ${primaryFont};
-  src: url(${PtSans}) format('truetype');
-}
+    font-family: ${primaryFont};
+    src: url(${PtSans}) format('truetype');
+ }
 
 body {
   font-family: ${primaryFont};

@@ -1,6 +1,5 @@
 /* eslint-disable */
 import styled from 'styled-components';
-import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const HomeHeroSection = styled.div`
   display: flex;
@@ -24,7 +23,7 @@ export const GridContainer = styled.div`
   min-height: 50vh;
   background-color: ${(props) => props.theme.primaryBackgroundColor}; 
   h1 { 
-    color: ${(props) => props.theme.primaryTitleColor}
+    color: ${(props) => props.theme.primaryTitleColor};
 
   }
 
