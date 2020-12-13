@@ -1,9 +1,8 @@
 /* eslint-disable */
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'polished';
-import { primaryFont, titleFont } from './typography';
+import { primaryFont} from './typography';
 import PtSans from '../fonts/PTSans-Regular.ttf';
-import Amatic from '../fonts/AmaticSC-Regular.ttf'
 export const GlobalStyle = createGlobalStyle`
   ${normalize()}
   * {
@@ -20,9 +19,8 @@ html {
   box-sizing: inherit;
 }
 
-
 @font-face {
-    font-family: ${titleFont};
+    font-family: ${primaryFont};
     src: url(${PtSans}) format('truetype');
  }
 
