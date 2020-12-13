@@ -13,7 +13,7 @@ const Contact = () => (
   <IconContext.Provider value={{ color: '#fff', size: 64 }}>
     <>
       <ContactWrapper>
-        <h1>Get in touch</h1>
+        <h1>Contact</h1>
         <Alternatives>
           <h3>You can reach me on:</h3>
           <br />

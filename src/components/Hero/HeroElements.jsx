@@ -24,6 +24,7 @@ export const GridContainer = styled.div`
   background-color: ${(props) => props.theme.primaryBackgroundColor}; 
   h1 { 
     color: ${(props) => props.theme.primaryTitleColor};
+    font-family: ${(props) => props.theme.titleFont};
 
   }
 

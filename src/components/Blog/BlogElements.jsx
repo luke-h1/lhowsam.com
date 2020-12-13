@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 
 export const BlogSection = styled.div`
   min-width: 100vw;
-  max-width: 100vw;
+  max-width: 100vh;
   margin: 0px auto;
   padding-left: 16px;
   padding-right: 16px;
@@ -15,7 +15,7 @@ export const BlogSection = styled.div`
 export const Title = styled.h1`
   text-align: center;
   color: ${(props) => props.theme.primaryTitleColor};
-
+  margin-top: 4rem;
 `;
 
 export const Intro = styled.p`

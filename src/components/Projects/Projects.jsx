@@ -17,7 +17,7 @@ const Projects = () => {
     <IconContext.Provider value={{ color: '#fff', size: 64 }}>
       <>
         <ProjectWrapper>
-          <ProjectTitle>My Projects</ProjectTitle>
+          <ProjectTitle>Projects</ProjectTitle>
           <CardContainer>
             <CardWrap>
               {projects.map((project) => (

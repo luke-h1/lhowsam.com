@@ -33,6 +33,8 @@ export const NavLogo = styled(Link)`
   font-size: 1.2rem;
   display: flex;
   align-items: center;
+  font-family: ${(props) => props.theme.titleFont};
+
 `;
 
 export const NavIcon = styled(BiCodeBlock)`
