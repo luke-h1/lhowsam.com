@@ -40,4 +40,3 @@ export const darkTheme = {
   primaryFont,
 
 }
-
