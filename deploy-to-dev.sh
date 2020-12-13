@@ -34,4 +34,11 @@ if ! npm run test; then
 else 
     echo 'Unit tests have passed. Deploying to Development ✅'
 fi 
-vercel 
+echo ""
+echo ""
+echo "removing .cache, public/ for a scratch compile"
+rm -rf .cache public/
+echo ""
+echo ""
+echo "starting deploy"
+vc 
