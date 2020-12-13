@@ -19,7 +19,7 @@ const RecentProjects = () => {
           <ProjectLink to="/projects">See more projects</ProjectLink>
         </Small>
         <ShowCaseContainer>
-          {Recent.map((project) => (
+          {Recent && Recent.map((project) => (
             <CardItem
               src={project.image.sharp.fluid.src}
               text={project.title}

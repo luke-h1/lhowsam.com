@@ -22,7 +22,7 @@ const Blog = () => {
           </Intro>
         </BlogIntro>
         <BlogWrapper>
-          {posts.map((post) => (
+          {posts && posts.map((post) => (
             <BlogPostPreview key={post.id} post={post} />
           ))}
 

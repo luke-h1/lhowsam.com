@@ -14,7 +14,7 @@ const Skills = () => (
     <Title>Top Skills</Title>
     <SkillBody>
       <SkillsHeader />
-      {SkillData.map((skill) => (
+      {SkillData && SkillData.map((skill) => (
         <Skill key={skill.id}>{skill.title}</Skill>
       ))}
     </SkillBody>
