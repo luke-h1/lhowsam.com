@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import { blue, light, dark, neutral, green, yellow } from './Colors';
-import { primaryFont  } from './typography';
+import { primaryFont, titleFont } from './typography';
 
 export const lightTheme = { 
   primaryBackgroundColor: light[100],
@@ -21,6 +21,7 @@ export const lightTheme = {
   primaryHoverColorYellow: yellow[100], 
   borderBottom: neutral[400],
   primaryFont,
+  titleFont,
 }
 
 export const darkTheme = {
@@ -38,5 +39,6 @@ export const darkTheme = {
   primaryTitleColor: neutral[100],
   borderBottom: neutral[500],
   primaryFont,
+  titleFont,
 
 }

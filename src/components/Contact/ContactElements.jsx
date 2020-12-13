@@ -5,7 +5,7 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 
 export const ContactWrapper = styled.div`
-  min-height: 100vh;
+  min-height: 25vh;
   min-width: 100vw;
   background-color: ${(props) => props.theme.primaryBackgroundColor}; 
   display: flex;
@@ -16,6 +16,8 @@ export const ContactWrapper = styled.div`
 
   h1 { 
     color: ${(props) => props.theme.primaryTitleColor}; 
+    font-family: ${(props) => props.theme.titleFont};
+
 
   }
 `;

@@ -2,10 +2,10 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="sc-bdfBwQ jndBTF"
+  className="sc-bdfBwQ gqEKrV"
 >
   <h1>
-    Get in touch
+    Contact
   </h1>
   <div
     className="sc-dlfnbm kwCsZc"

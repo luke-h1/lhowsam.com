@@ -1,12 +1,11 @@
 /* eslint-disable */
 
 import styled from 'styled-components';
-import { lightTheme, darkTheme } from '../../styles/Themes';
 
 export const ProjectWrapper = styled.div`
   min-width: 100vw;
-  padding: 4rem;
-  min-height: 100vh;
+  padding: 2rem;
+  min-height: 80vh;
   text-align: center;
   background-color: ${(props) => props.theme.primaryBackgroundColor}; 
 
@@ -32,7 +31,8 @@ export const CardWrap = styled.div`
 export const ProjectTitle = styled.h1`
   color: ${(props) => props.theme.primaryTitleColor};
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+
 `;
 
 export const CardContainer = styled.div`
