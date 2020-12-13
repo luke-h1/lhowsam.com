@@ -1,10 +1,9 @@
 /* eslint-disable */
-
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'polished';
-import { primaryFont } from './typography';
-import { lightTheme, darkTheme } from './Themes';
+import { primaryFont, titleFont } from './typography';
 import PtSans from '../fonts/PTSans-Regular.ttf';
+import Amatic from '../fonts/AmaticSC-Regular.ttf'
 export const GlobalStyle = createGlobalStyle`
   ${normalize()}
   * {
@@ -21,10 +20,11 @@ html {
   box-sizing: inherit;
 }
 
+
 @font-face {
-  font-family: ${primaryFont};
-  src: url(${PtSans}) format('truetype');
-}
+    font-family: ${titleFont};
+    src: url(${PtSans}) format('truetype');
+ }
 
 body {
   font-family: ${primaryFont};
