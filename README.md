@@ -9,7 +9,7 @@ You can read about these technologies here:
 - [Gatsby](https://www.gatsbyjs.org/)
 - [GraphQL](https://graphql.org/)
 - [Styled Components](https://www.styled-components.com/)
-
+<br /> 
 
 Unit tests & linting pipeline: 
 <br /> 
