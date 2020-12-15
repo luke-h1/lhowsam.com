@@ -10,7 +10,6 @@ if ! $CONTINUE; then
     echo "Exiting with status code 1"
     exit 1
 fi
-npm run lint 
 if ! npm run lint; then
     echo ''
     echo ''
@@ -22,7 +21,8 @@ if ! npm run lint; then
 else
     echo 'eslint returned no errors. Continuing with deployment'
 fi
-npm run test 
+echo ""
+echo ""
 if ! npm run test; then 
     echo ''
     echo ''
@@ -43,5 +43,4 @@ echo ""
 echo "starting deploy"
 echo ""
 echo ""
-
-vc 
+vc --prod

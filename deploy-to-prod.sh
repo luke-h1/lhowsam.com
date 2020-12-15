@@ -10,7 +10,6 @@ if ! $CONTINUE; then
     echo "Exiting with status code 1"
     exit 1
 fi
-npm run lint 
 if ! npm run lint; then
     echo ''
     echo ''
@@ -24,7 +23,6 @@ else
 fi
 echo ""
 echo ""
-npm run test 
 if ! npm run test; then 
     echo ''
     echo ''
