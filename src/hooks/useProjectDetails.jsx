@@ -31,6 +31,8 @@ const useProjectDetails = () => {
     slug: project.node.slug,
     label: project.node.label,
     image: project.node.image,
+    githubLink: project.node.githubLink,
+    siteLink: project.node.siteLink,
   }));
 };
 export default useProjectDetails;
