@@ -1,4 +1,4 @@
-/* eslint-disable */ 
+/* eslint-disable */
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
     query {
@@ -10,23 +10,25 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
         }
       }
     }
-  `);
+  `)
 
   if (result.errors) {
-    reporter.panic('failed to create posts', result.errors);
+    reporter.panic("failed to create posts", result.errors)
   }
 
-  const posts = result.data.allMdx.nodes;
+  const posts = result.data.allMdx.nodes
 
   posts.forEach(post => {
     actions.createPage({
       path: post.frontmatter.slug,
-      component: require.resolve('./src/templates/BlogPostItem/BlogPostItem.jsx'),
+      component: require.resolve(
+        "./src/templates/BlogPostItem/BlogPostItem.jsx"
+      ),
       context: {
         slug: post.frontmatter.slug,
       },
-    });
-  });
+    })
+  })
 }
 
 /* Project dynamic creation */
@@ -34,37 +36,53 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
     query {
-      allMdx {
-        nodes {
-          frontmatter {
+      allProjectDataJson {
+        edges {
+          node {
+            id
+            title
             slug
+            label
+            githubLink
+            siteLink
+            image {
+              sharp: childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
           }
         }
       }
     }
-  `);
+  `)
 
   if (result.errors) {
-    reporter.panic('failed to create posts', result.errors);
+    reporter.panic("failed to create projects", result.errors)
   }
 
-  const posts = result.data.allMdx.nodes;
+  const projects = result.data.allProjectDataJson.edges
 
-  posts.forEach(post => {
+  projects.forEach(({ node: project }) => {
+    const { slug, id, image, githubLink, siteLink } = project
+
     actions.createPage({
-      path: post.frontmatter.slug,
-      component: require.resolve('./src/templates/BlogPostItem/BlogPostItem.jsx'),
+      path: `${slug}`,
+      component: require.resolve("./src/templates/ProjectPage/ProjectPage.jsx"),
       context: {
-        slug: post.frontmatter.slug,
+        slug,
+        image,
+        siteLink,
+        githubLink,
+        id,
       },
-    });
-  });
+    })
+  })
 }
 
-
-
 exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
+  const { createTypes } = actions
 
   createTypes(`
     type SiteSiteMetadata {
@@ -96,5 +114,5 @@ exports.createSchemaCustomization = ({ actions }) => {
     type Fields {
       slug: String
     }
-  `);
+  `)
 }
