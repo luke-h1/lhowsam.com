@@ -12,6 +12,7 @@ You can read about these technologies here:
 
 
 Testing + linting pipeline status: 
+<br /> 
 [![Build Status](https://dev.azure.com/lukehowsam/testing/_apis/build/status/luke-h1.lhowsam.com?branchName=dev)](https://dev.azure.com/lukehowsam/testing/_build/latest?definitionId=5&branchName=dev)
 
 ## Project Structure 
