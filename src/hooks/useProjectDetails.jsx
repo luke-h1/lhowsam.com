@@ -10,6 +10,8 @@ const useProjectDetails = () => {
           title
           slug
           label
+          githubLink
+          siteLink
           image {
             sharp: childImageSharp {
               fluid {

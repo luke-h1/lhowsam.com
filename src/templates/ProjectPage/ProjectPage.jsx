@@ -15,7 +15,7 @@ import {
 
 const ProjectPage = (props) => {
   const {
-    src, alt, title, site, desc, github,
+    src, alt, title, site, desc, githubLink, siteLink,
   } = props;
   return (
     <>
@@ -27,16 +27,16 @@ const ProjectPage = (props) => {
 
             <div>
               <GithubLink
-                href={github}
+                href={githubLink}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Github"
               >
-                {github ? <FaGithub /> : null}
+                {githubLink ? <FaGithub /> : null}
               </GithubLink>
               <SiteLink
                 className="site-link"
-                href={site}
+                href={siteLink}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Live site link"
@@ -64,6 +64,8 @@ ProjectPage.propTypes = {
   title: PropTypes.string.isRequired,
   site: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
-  github: PropTypes.string.isRequired,
+  githubLink: PropTypes.string.isRequired,
+  siteLink: PropTypes.string.isRequired,
+
 };
 export default ProjectPage;

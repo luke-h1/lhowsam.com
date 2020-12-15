@@ -4,7 +4,7 @@
     "title": "Personal Site",
     "slug": "/projects/personal-site",
     "description": "lorem ipsum",
-    "githbLink": "",
+    "githubLink": "",
     "siteLink": "",
     "label": "React, Gatsby, SCSS, styled-components",
     "image": "../../content/assets/project-images/Image1.jpeg"
@@ -14,7 +14,7 @@
     "title": "Automation",
     "slug": "/projects/Automation",
     "description": "lorem ipsum",
-    "githbLink": "",
+    "githubLink": "",
     "siteLink": "",
     "label": "Bash, Linux, Ansible, Azure",
     "image": "../../content/assets/project-images/Image3.jpeg"
@@ -24,7 +24,7 @@
     "title": "Cocktail Recipe App",
     "slug": "/projects/drink-app",
     "description": "lorem ipsum",
-    "githbLink": "",
+    "githubLink": "",
     "siteLink": "",
     "label": "React Hooks, SASS",
     "image": "../../content/assets/project-images/Image2.jpeg"
@@ -34,7 +34,7 @@
     "title": "Quotes App",
     "slug": "/projects/quotes-app",
     "description": "lorem ipsum",
-    "githbLink": "",
+    "githubLink": "",
     "siteLink": "",
     "label": "React, SCSS",
     "image": "../../content/assets/project-images/Image4.jpeg"
@@ -44,7 +44,7 @@
     "title": "Form Validator",
     "slug": "/projects/form-validator",
     "description": "form validator",
-    "githbLink": "",
+    "githubLink": "",
     "siteLink": "",
     "label": "Vanilla JS, Robot Framework",
     "image": "../../content/assets/project-images/Image5.jpeg"
@@ -54,7 +54,7 @@
     "title": "Dev notes",
     "slug": "/projects/dev-notes",
     "description": "developer notes",
-    "githbLink": "",
+    "githubLink": "",
     "siteLink": "",
     "label": "GatsbyJS",
     "image": "../../content/assets/project-images/Image7.jpeg"
