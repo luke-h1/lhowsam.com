@@ -1,6 +1,6 @@
 # lhowsam.com
 
-Source code for my personal portfolio. Made with Gatsby, React & styled components
+Source code for my personal portfolio.
 
 This project uses Gatsby (React), GraphQL and Styled Components
 
