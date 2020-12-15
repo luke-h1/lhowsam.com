@@ -63,7 +63,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   const projects = result.data.allProjectDataJson.edges
-
+// TODO: FIX FOR EACH HERE 
   projects.forEach(({ node: project }) => {
     const { slug, id, image, githubLink, siteLink } = project
 
