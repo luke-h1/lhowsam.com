@@ -27,8 +27,6 @@ const Projects = () => {
                   label={project.label}
                   path={project.slug}
                   key={project.id}
-                  githubLink={project.githubLink}
-                  siteLink={project.siteLink}
                   loading="lazy"
                 />
               ))}

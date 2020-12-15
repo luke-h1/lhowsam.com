@@ -1,10 +1,7 @@
-/* eslint-disable */
 import React from 'react';
-import { graphql } from 'gatsby'
+import PropTypes from 'prop-types';
 import { FaGithub } from 'react-icons/fa';
 import { IoMdBrowsers } from 'react-icons/io';
-import useProjectDetails from '../../hooks/useProjectDetails';
-import Layout from '../../components/layout';
 import {
   CardLgWrapper,
   Card,
@@ -16,60 +13,38 @@ import {
   ProjectSecondLink,
 } from './ProjectPageElements';
 
-export const query = graphql`
-query {
-  allProjectDataJson {
-    edges {
-      node {
-        id
-        title
-        slug
-        label
-        githubLink
-        siteLink
-        image {
-          sharp: childImageSharp {
-            fluid {
-             src
-            }
-          }
-        }
-      }
-    }
-  }
-}
-`
-
-
-
-const ProjectPage = ({ data: { project } }) => (
-  <>
-    <Layout>
+const ProjectPage = (props) => {
+  const {
+    src, alt, title, site, desc, github,
+  } = props;
+  return (
+    <>
       <CardLgWrapper>
         <Card>
-          <ItemTitle>{project.title}</ItemTitle>
+          <ItemTitle>{title}</ItemTitle>
           <Container>
-            <img src={image} alt={title} />
+            <img src={src} alt={alt} />
+
             <div>
               <GithubLink
-                href={githubLink}
+                href={github}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Github"
               >
-                {githubLink && <FaGithub />}
+                {github ? <FaGithub /> : null}
               </GithubLink>
               <SiteLink
                 className="site-link"
-                href={siteLink}
+                href={site}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Live site link"
               >
-                {siteLink && <IoMdBrowsers />}
+                {site ? <IoMdBrowsers /> : null}
               </SiteLink>
             </div>
-            <p>{description && description}</p>
+            <p>{desc}</p>
           </Container>
           <ProjectLgLink to="/projects" className="project-large-link">
             Back to projects
@@ -79,8 +54,16 @@ const ProjectPage = ({ data: { project } }) => (
           </ProjectSecondLink>
         </Card>
       </CardLgWrapper>
-    </Layout>
-  </>
-);
+    </>
+  );
+};
 
+ProjectPage.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  site: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+  github: PropTypes.string.isRequired,
+};
 export default ProjectPage;

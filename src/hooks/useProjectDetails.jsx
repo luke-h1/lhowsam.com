@@ -10,9 +10,6 @@ const useProjectDetails = () => {
           title
           slug
           label
-          githubLink
-          siteLink
-          description
           image {
             sharp: childImageSharp {
               fluid {
@@ -32,9 +29,6 @@ const useProjectDetails = () => {
     slug: project.node.slug,
     label: project.node.label,
     image: project.node.image,
-    githubLink: project.node.githubLink,
-    siteLink: project.node.siteLink,
-    description: project.node.description,
   }));
 };
 export default useProjectDetails;
