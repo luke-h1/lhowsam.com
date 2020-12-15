@@ -1,6 +1,17 @@
 # lhowsam.com
-  * Source code for my personal portfolio. Made with Gatsby, React & styled components
 
+Source code for my personal portfolio. Made with Gatsby, React & styled components
+
+This project uses Gatsby (React), GraphQL and Styled Components
+
+You can read about these technologies here:
+
+- [Gatsby](https://www.gatsbyjs.org/)
+- [GraphQL](https://graphql.org/)
+- [Styled Components](https://www.styled-components.com/)
+
+
+Testing + linting pipeline status: 
 [![Build Status](https://dev.azure.com/lukehowsam/testing/_apis/build/status/luke-h1.lhowsam.com?branchName=dev)](https://dev.azure.com/lukehowsam/testing/_build/latest?definitionId=5&branchName=dev)
 
 ## Project Structure 
