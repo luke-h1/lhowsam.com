@@ -30,9 +30,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     })
   })
 }
-
-/* Project dynamic creation */
-
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
     query {
@@ -48,7 +45,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             image {
               sharp: childImageSharp {
                 fluid {
-                 src
+                  src
                 }
               }
             }
@@ -62,24 +59,23 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panic("failed to create projects", result.errors)
   }
 
-  const projects = result.data.allProjectDataJson.edges
-// TODO: FIX FOR EACH HERE 
-  projects.forEach(({ node: project }) => {
-    const { slug, id, image, githubLink, siteLink } = project
+  const projects = result.data.allProjectDataJson.edges.node
 
+  projects.forEach(({ node: project }) => {
     actions.createPage({
-      path: `${slug}`,
+      path: `${project.slug}`,
       component: require.resolve("./src/templates/ProjectPage/ProjectPage.jsx"),
       context: {
-        slug,
-        image,
-        siteLink,
-        githubLink,
-        id,
+        slug: project.slug,
+        image: project.image,
+        siteLink: project.siteLink,
+        githubLink: project.githubLink,
+        id: project.id,
       },
     })
   })
 }
+
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions

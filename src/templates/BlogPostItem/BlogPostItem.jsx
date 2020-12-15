@@ -1,19 +1,19 @@
 /* eslint-disable */ 
+
 import React from 'react';
-import {graphql} from 'gatsby';
-import SEO from '../../components/seo';
+import { graphql } from 'gatsby';
 import styled from 'styled-components';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
+import SEO from '../../components/seo';
 import Layout from '../../components/layout';
-import {MDXRenderer} from 'gatsby-plugin-mdx';
 import {
-Blog,
-BlogLink,
-BlogLinkWrap,
-BlogPostWrapper,
-Wrapper,
-Title,
-Intro,
-Date,
+  Blog,
+  BlogLink,
+  BlogLinkWrap,
+  BlogPostWrapper,
+  Wrapper,
+  Title,
+  Date,
 } from './BlogPostItemElements';
 
 export const query = graphql`
@@ -27,30 +27,29 @@ export const query = graphql`
     }
   }
   
-`
+`;
 
 const Renderer = styled(MDXRenderer)`
-`
+`;
 
-
-const BlogPostItem = ({data: {mdx: post }}) => (
+const BlogPostItem = ({ data: { mdx: post } }) => (
   <Layout>
     <BlogPostWrapper>
-    <SEO title={`${post.frontmatter.title} | blog` } />
+      <SEO title={`${post.frontmatter.title} | blog`} />
 
       <Wrapper>
         <Title>{post.frontmatter.title}</Title>
         <Date>{post.frontmatter.date}</Date>
         <Blog />
         <Blog>
-        <Renderer>{post.body}</Renderer>     
-          </Blog>
+          <Renderer>{post.body}</Renderer>
+        </Blog>
         <BlogLinkWrap>
           <BlogLink to="/blog">Back to Blog</BlogLink>
           <BlogLink to="/">Back to Home</BlogLink>
         </BlogLinkWrap>
       </Wrapper>
-      </BlogPostWrapper>
+    </BlogPostWrapper>
   </Layout>
-)
+);
 export default BlogPostItem;
