@@ -48,7 +48,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             image {
               sharp: childImageSharp {
                 fluid {
-                  src
+                 src
                 }
               }
             }
@@ -69,7 +69,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
     actions.createPage({
       path: `${slug}`,
-      component: require.resolve("./src/components/layout.jsx"),
+      component: require.resolve("./src/templates/ProjectPage/ProjectPage.jsx"),
       context: {
         slug,
         image,

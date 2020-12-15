@@ -12,6 +12,7 @@ const useProjectDetails = () => {
           label
           githubLink
           siteLink
+          description
           image {
             sharp: childImageSharp {
               fluid {
@@ -33,6 +34,7 @@ const useProjectDetails = () => {
     image: project.node.image,
     githubLink: project.node.githubLink,
     siteLink: project.node.siteLink,
+    description: project.node.description,
   }));
 };
 export default useProjectDetails;

@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { FaGithub } from 'react-icons/fa';
 import { IoMdBrowsers } from 'react-icons/io';
+import useProjectDetails from '../../hooks/useProjectDetails';
 import {
   CardLgWrapper,
   Card,
@@ -13,38 +13,37 @@ import {
   ProjectSecondLink,
 } from './ProjectPageElements';
 
-const ProjectPage = (props) => {
-  const {
-    src, alt, title, site, desc, githubLink, siteLink,
-  } = props;
+const ProjectPage = () => {
+  const project = useProjectDetails();
+
   return (
     <>
       <CardLgWrapper>
         <Card>
-          <ItemTitle>{title}</ItemTitle>
+          <ItemTitle>{project.title}</ItemTitle>
           <Container>
-            <img src={src} alt={alt} />
+            <img src={project.image} alt={project.title} />
 
             <div>
               <GithubLink
-                href={githubLink}
+                href={project.githubLink}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Github"
               >
-                {githubLink ? <FaGithub /> : null}
+                {project.githubLink && <FaGithub />}
               </GithubLink>
               <SiteLink
                 className="site-link"
-                href={siteLink}
+                href={project.siteLink}
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Live site link"
               >
-                {site ? <IoMdBrowsers /> : null}
+                {project.siteLink && <IoMdBrowsers />}
               </SiteLink>
             </div>
-            <p>{desc}</p>
+            <p>{project.description && project.description}</p>
           </Container>
           <ProjectLgLink to="/projects" className="project-large-link">
             Back to projects
@@ -58,14 +57,4 @@ const ProjectPage = (props) => {
   );
 };
 
-ProjectPage.propTypes = {
-  src: PropTypes.string.isRequired,
-  alt: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  site: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-  githubLink: PropTypes.string.isRequired,
-  siteLink: PropTypes.string.isRequired,
-
-};
 export default ProjectPage;
