@@ -37,7 +37,6 @@ const BlogPostItem = ({data: {mdx: post }}) => (
   <Layout>
     <BlogPostWrapper>
     <SEO title={`${post.frontmatter.title} | blog` } />
-
       <Wrapper>
         <Title>{post.frontmatter.title}</Title>
         <Date>{post.frontmatter.date}</Date>
