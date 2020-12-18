@@ -12,12 +12,12 @@ jobs:
     - name: 'Checkout repository'
       uses: actions/checkout@v2
       with:
-          ref: ${{github.event.pull_request.head.ref}}
-          repository: ${{github.event.pull_request.head.repo.full_name}}
+        ref: ${{github.event.pull_request.head.ref}}
+        repository: ${{github.event.pull_request.head.repo.full_name}}
       - name: 'setup node'
         uses: actions/setup-node@v1
         with:
-          node-version: 14
+         d  node-version: 14
       - name: Install Node Dependencies
         run: npm i --legacy-peer-deps
       - name: Run all Unit Tests
