@@ -1,15 +1,4 @@
 #!/bin/bash
-echo "Are you sure your changes aren't going to break Development ?"
-read -r response
-if [[ $response =~ ^([yY][eE][sS]|[yY])$ ]]; then
-    CONTINUE=true
-fi
-
-if ! $CONTINUE; then
-    # Check if we're continuing and output a message if not
-    echo "Exiting with status code 1"
-    exit 1
-fi
 if ! npm run lint; then
     echo ''
     echo ''
