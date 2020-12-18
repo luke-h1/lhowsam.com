@@ -21,7 +21,7 @@ if ! npm run test; then
     echo "###########################################" 
     exit 1 
 else 
-    echo 'Unit tests have passed. Deploying to Development ✅'
+    echo 'Unit tests have passed. Continuing with deployment'
 fi 
 echo ""
 echo ""
