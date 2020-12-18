@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-unused-expressions */
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-
 import { ThemeProvider } from 'styled-components';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
