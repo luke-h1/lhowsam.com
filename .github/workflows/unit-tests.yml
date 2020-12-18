@@ -1,24 +1,24 @@
-name: Unit Test 
+name: unit tests
 
 on:
-  pull_request:
-  push:
-    branches: [main, dev]
-
+  pull_request_target:
+    branches:
+    - master
+    - dev 
 jobs:
-  unit_test_pull_request:
+  unit-tests:
     runs-on: ubuntu-latest
     steps:
-    - name: 'Checkout repository'
+    - name: Checkout
       uses: actions/checkout@v2
       with:
         ref: ${{github.event.pull_request.head.ref}}
         repository: ${{github.event.pull_request.head.repo.full_name}}
-      - name: 'setup node'
-        uses: actions/setup-node@v1
-        with:
-         d  node-version: 14
-      - name: Install Node Dependencies
-        run: npm i --legacy-peer-deps
-      - name: Run all Unit Tests
-        run: npm run test
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - name: Install dependencies
+      run: npm i --legacy-peer-deps
+    - name: run all unit tests
+      run: npm run test
