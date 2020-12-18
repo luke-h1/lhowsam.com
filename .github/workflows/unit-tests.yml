@@ -1,32 +1,19 @@
-name: Unit tests
+name: Unit Test 
 
 on:
-  push:
-    branches: [ dev ]
   pull_request:
-    branches: [ dev ]
+  push:
+    branches: [main, dev]
 
 jobs:
-  unit-tests:
-    name: Unit tests
+  unit_test_pull_request:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x]
     steps:
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-
-    - name: Install dependencies
-      run: |
-        npm i --legacy-peer-deps     
-
-    - name: npm run build 
-      run: |
-        npm run build 
-
-    - name: run unit tests
-      run: |
-        npm run test
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Install Node Dependencies
+        run: npm i --legacy-peer-deps
+      - name: Run all Unit Tests
+        run: npm run test
