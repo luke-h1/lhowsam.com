@@ -8,6 +8,8 @@ if ! npm run lint; then
     echo "###########################################" 
     exit 1
 else
+    echo ""
+    echo ""
     echo 'eslint returned no errors. Continuing with deployment'
 fi
 echo ""
@@ -21,6 +23,8 @@ if ! npm run test; then
     echo "###########################################" 
     exit 1 
 else 
+    echo ""
+    echo ""
     echo 'Unit tests have passed. Continuing with deployment'
 fi 
 echo ""
