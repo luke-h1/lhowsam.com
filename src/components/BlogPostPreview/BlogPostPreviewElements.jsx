@@ -15,9 +15,8 @@ export const BlogTitle = styled.h1`
     cursor: pointer;
     color: ${(props) => props.theme.primaryHoverColor};
     text-decoration: underline;
-  } 
-  `;------
-
+  }
+`;
 export const BlogPost = styled(Link)`
   margin-top: 32px;
   padding-bottom: 32px;

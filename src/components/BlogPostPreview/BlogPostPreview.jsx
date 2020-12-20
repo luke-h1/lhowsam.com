@@ -17,7 +17,3 @@ const BlogPostPreview = ({ post }) => (
   </>
 );
 export default BlogPostPreview;
----
---
-blah blah 
-blah
