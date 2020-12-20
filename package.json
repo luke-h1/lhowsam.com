@@ -89,7 +89,10 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "eslint \"src/**/*.{js,jsx}\" --quiet --fix"
+      "pre-commit": "lint-staged"
     }
-  }
+  },
+  "lint-staged": [
+    "eslint \"src/**/*.{js,jsx}\" --quiet --fix"
+  ]
 }
