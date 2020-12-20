@@ -88,6 +88,8 @@
     "jest:update": "jest --silent -u"
   },
   "husky": {
-    "hooks": {}
+    "hooks": {
+      "pre-commit": "eslint \"src/**/*.{js,jsx}\" --quiet --fix"
+    }
   }
 }
