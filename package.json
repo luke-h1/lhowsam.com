@@ -80,16 +80,12 @@
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
+    "pre-commit": "npm run lint && npm run test",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "deep-clean": "npm run clean && rm -rf node_modules package-lock.json && npm i --legacy-peer-deps",
     "test": "jest --silent",
     "jest:update": "jest --silent -u"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
   }
 }
