@@ -3,7 +3,8 @@ module.exports = {
     title: 'Luke H',
     author: {
       name: 'Luke Howsam',
-      summary: 'My personal portfolio made with Gatsby, React & styled-components',
+      summary:
+        'My personal portfolio made with Gatsby, React & styled-components',
     },
     description: 'My personal portfolio & Blog',
     siteUrl: 'https://lhowsam.com',
