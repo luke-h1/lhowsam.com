@@ -89,10 +89,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "echo [Husky] test"
+      "pre-commit": "npm run lint"
     }
-  },
-  "lint-staged": [
-    "eslint \"src/**/*.{js,jsx}\" --quiet --fix"
-  ]
+  }
 }
