@@ -1,11 +1,8 @@
-
 trigger:
 - dev
-pr: [ 'dev' ]
 
 pool:
   vmImage: 'ubuntu-latest'
-
 
 steps:
 - script: npm i --legacy-peer-deps
