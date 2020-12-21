@@ -1,7 +1,7 @@
 
 trigger:
 - dev
-pr: [ 'main', 'dev' ]
+pr: [ 'dev' ]
 
 pool:
   vmImage: 'ubuntu-latest'
