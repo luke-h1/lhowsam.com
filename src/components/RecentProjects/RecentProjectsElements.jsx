@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 
 export const ShowCaseWrapper = styled.div`
-  min-height: 100vh;
+  min-height: 400px;
   min-width: 100vw;
   background-color: ${(props) => props.theme.primaryBackgroundColor}; 
   color: ${(props) => props.theme.primaryColor}; 
@@ -12,8 +12,9 @@ export const ShowCaseWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 10rem;
   @media (max-width: 620px) {
-    min-height: 120vh;
+    min-height: 40vh;
   }
   @media (max-width: 375px) {
     min-height: 140vh;
