@@ -1,8 +1,6 @@
 trigger:
-  branches:
-    include:
-      - dev
-pr: [ 'dev' ]
+- main
+pr: [ 'main', 'dev' ]
 
 pool:
   vmImage: 'ubuntu-latest'
