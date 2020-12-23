@@ -8,7 +8,6 @@ const Automation = () => (
     <SEO title="Projects - Automation" />
     <ProjectPage
       title="Automation"
-      alt="City Traffic"
       desc="I am a huge advocate for infrastructure automation & continuous integration as this
         allows developers to focus on innovating new features and solving new
         problems rather than being backlogged with maintaining existing

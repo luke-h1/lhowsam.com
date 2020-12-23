@@ -10,7 +10,6 @@ const Automation = () => (
 
     <ProjectPage
       title="Breaking Bad Quotes App"
-      alt="Macbook in Dark room"
       desc=" In this project I built a quote app that uses React hooks to display random breaking bad quotes."
       github="https://github.com/luke-h1/breaking-bad-quotes-react"
       site="https://breaking-bad-quotes.vercel.app/"
