@@ -26,6 +26,7 @@ const RecentProjects = () => {
               text={project.title}
               label={project.label}
               path={project.slug}
+              alt={project.title}
               loading="lazy"
               key={project.slug}
             />

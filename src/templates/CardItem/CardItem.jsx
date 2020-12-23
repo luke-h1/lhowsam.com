@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -11,7 +12,7 @@ import {
 
 const CardItem = (props) => {
   const {
-    path, label, src, loading, text,
+    path, label, src, loading, text, alt
   } = props;
 
   return (
@@ -19,7 +20,7 @@ const CardItem = (props) => {
       <CardItem1>
         <CardLink className="cards__item__link" to={path}>
           <CardFigure data-category={label}>
-            <CardImage src={src} alt="Travel" loading={loading} />
+            {/* <CardImage src={src} alt={alt} loading={loading} /> */}
           </CardFigure>
           <CardItemInfo>
             <CardText>{text}</CardText>
