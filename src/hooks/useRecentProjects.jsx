@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 const useRecentProjects = () => {
   const data = useStaticQuery(graphql`
-  {
+  query {
     allProjectDataJson(limit: 3) {
       edges {
         node {
@@ -14,6 +14,7 @@ const useRecentProjects = () => {
             sharp: childImageSharp {
               fluid {
                 ...GatsbyImageSharpFluid_withWebp
+
               }
             }
           }
