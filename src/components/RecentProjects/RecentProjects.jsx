@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import useRecentProjects from '../../hooks/useRecentProjects';
 import {
@@ -21,7 +22,7 @@ const RecentProjects = () => {
         <ShowCaseContainer>
           {Recent && Recent.map((project) => (
             <CardItem
-              src={project.image.sharp.fluid.src}
+              // src={project.image.sharp.fluid.src}
               text={project.title}
               label={project.label}
               path={project.slug}
