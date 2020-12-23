@@ -1,8 +1,6 @@
+/* eslint-disable */
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import { ThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme } from '../../styles/Themes';
 
 import {
   Nav,
@@ -26,7 +24,6 @@ function Navbar({ theme, toggleTheme }) {
   const closeMobileMenu = () => setClick(false);
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
       <>
         <Nav>
           <NavbarContainer>
@@ -74,7 +71,6 @@ function Navbar({ theme, toggleTheme }) {
           </NavbarContainer>
         </Nav>
       </>
-    </ThemeProvider>
   );
 }
 

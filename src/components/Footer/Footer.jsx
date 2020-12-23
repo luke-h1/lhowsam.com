@@ -11,7 +11,7 @@ import {
   SocialIcons,
   SocialLogo,
 } from './FooterElements';
-import { CodeIcon } from '../../utils/Icons/CodeIcon';
+import { CodeIcon } from '../../helpers/Icon/CodeIcon';
 
 const Footer = () => (
   <FooterContainer>
