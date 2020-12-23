@@ -8,7 +8,7 @@ export const FooterContainer = styled.footer`
   bottom: 0px;
   width: 100%;
   margin: 0;
-  background-color: ${(props) => props.theme.primaryNavColor};
+  background-color: ${(props) => props.theme.primaryBackgroundColor};
   min-height: 50px;
   /* @media(min-width: 680px){
     height: 90px;
@@ -46,7 +46,7 @@ export const SocialMediaWrap = styled.div`
 `;
 
 export const SocialLogo = styled(Link)`
-  color: ${(props) => props.primaryColor}; 
+  color: ${(props) => props.theme.primaryColor}; 
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
@@ -68,7 +68,7 @@ export const SocialIconLink = styled.a`
   color: ${(props) => props.theme.primaryColor}; 
   font-size: 24px;
   &:hover {
-    color: ${(props) => props.theme.primaryHoverColor}; 
+    color: ${(props) => props.theme.textOnDisabled}; 
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }

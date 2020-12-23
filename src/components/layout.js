@@ -1,9 +1,11 @@
 /* eslint-disable */
 import React from "react"
 import { Link } from "gatsby"
+import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from "../styles/GlobalStyles"
+import { theme } from '../styles/Themes';
 import Navbar from "./Navbar/Navbar"
-import Footer from './Footer/Footer'
+import Footer from "./Footer/Footer"
 
 const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
@@ -25,13 +27,14 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <>
-      <GlobalStyle />
-      <Navbar theme={theme} toggleTheme={themeToggler} />
-      {children}
-      <Footer theme={theme} />
-    </>
-
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
+        <Navbar />
+        {children}
+        <Footer />
+      </>
+    </ThemeProvider>
     // <div className="global-wrapper" data-is-root-path={isRootPath}>
     //   <header className="global-header">{header}</header>
     //   <main>{children}</main>
@@ -43,5 +46,4 @@ const Layout = ({ location, title, children }) => {
     // </div>
   )
 }
-
 export default Layout

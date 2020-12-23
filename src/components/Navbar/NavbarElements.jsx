@@ -6,7 +6,7 @@ import { FiSun, FiMoon } from 'react-icons/fi';
 import { Container } from '../../helpers/Container/Container';
 
 export const Nav = styled.nav`
-  background: ${(props) => props.theme.primaryNavColor}; 
+  background: ${(props) => props.theme.primaryBackgroundColor}; 
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -33,8 +33,6 @@ export const NavLogo = styled(Link)`
   font-size: 1.2rem;
   display: flex;
   align-items: center;
-  font-family: ${(props) => props.theme.titleFont};
-
 `;
 
 export const NavIcon = styled(BiCodeBlock)`
@@ -74,7 +72,7 @@ export const NavMenu = styled.ul`
     left: ${({ click }) => (click ? 0 : '-200%')};
     opacity: 1;
     transition: all 0.2s ease;
-    background: ${(props) => props.theme.primaryNavColor}; 
+    background: ${(props) => props.theme.lightTextColor}; 
     font-size: 1.8rem;
     font-weight: 700;
     overflow-y: hidden; /* Hide vertical scrollbar */
@@ -88,7 +86,7 @@ export const NavItem = styled.li`
   height: 60px;
   border-bottom: 2px solid transparent;
   &:hover {
-    border-bottom: 1px solid ${(props) => props.theme.primaryHoverColor};
+    border-bottom: 1px solid ${(props) => props.theme.textOnDisabled};
   }
   @media screen and (max-width: 960px) {
     width: 100%;
@@ -130,7 +128,7 @@ export const NavLinks = styled(Link)`
     text-align: center;
     width: 100%;
     &:hover {
-      color: ${(props) => props.theme.primaryHoverColor}; 
+      color: ${(props) => props.theme.textOnDisabled}; 
       transition: all 0.3s ease;
     }
   }
@@ -148,32 +146,32 @@ export const NavBtnLink = styled(Link)`
   outline: none;
 `;
 
-export const Sun = styled(FiSun)`
-  color: ${(props) => props.theme.primaryColor}; 
-  font-size: 25px;
-  &:hover { 
-    cursor: pointer;
-    transform: scale(1.05);
-    transition: scale(1s);
-    color: ${(props) => props.theme.primaryHoverColorYellow};
-  }
+// export const Sun = styled(FiSun)`
+//   color: ${(props) => props.theme.primaryColor}; 
+//   font-size: 25px;
+//   &:hover { 
+//     cursor: pointer;
+//     transform: scale(1.05);
+//     transition: scale(1s);
+//     color: ${(props) => props.theme.primaryHoverColorYellow};
+//   }
 
-`;
+// `;
 
-export const Moon = styled(FiMoon)`
-  color: ${(props) => props.theme.primaryColor}; 
-  font-size: 25px;
-  &:hover { 
-    cursor: pointer;
-    transform: scale(1.05);
-    transition: scale(1s);
-    color: ${(props) => props.theme.primaryHoverColor};
-
-
-  }
+// export const Moon = styled(FiMoon)`
+//   color: ${(props) => props.theme.primaryColor}; 
+//   font-size: 25px;
+//   &:hover { 
+//     cursor: pointer;
+//     transform: scale(1.05);
+//     transition: scale(1s);
+//     color: ${(props) => props.theme.primaryHoverColor};
 
 
-`;
+//   }
+
+
+// `;
 
 
 export const IconContainer = styled.div`

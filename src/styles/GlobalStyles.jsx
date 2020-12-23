@@ -2,6 +2,7 @@
 import { createGlobalStyle } from "styled-components"
 import { normalize } from "polished"
 import { PrimaryFont } from "./Fonts"
+import { primaryBackgroundColor } from './Themes';
 import AvantGarde from "../fonts/ITCAvantGardeStd-XLt.woff2"
 
 export const GlobalStyle = createGlobalStyle`
@@ -35,10 +36,10 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${PrimaryFont};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: ${props => props.theme.primaryBackgroundColor};
+    background: ${primaryBackgroundColor};
     overflow-x: hidden;  
     @font-face {
-    font-family: ${primaryFont};
+    font-family: ${PrimaryFont};
     src: url(${AvantGarde}) format('truetype');
  }
   }

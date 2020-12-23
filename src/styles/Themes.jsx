@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { light, dark, blue, green, neutral } from './Colors';
+import { light, dark, blue, green, neutral} from './Colors';
 import { PrimaryFont } from './Fonts';
 
 export const theme = { 
@@ -9,5 +9,6 @@ export const theme = {
   BlueBackgroundColor: blue[100],
   textColor: dark[100],
   lightTextColor: light[100],
+  textOnDisabled: light[200],
   PrimaryFont, 
 }
