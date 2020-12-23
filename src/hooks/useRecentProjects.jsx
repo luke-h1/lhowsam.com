@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 const useRecentProjects = () => {
   const data = useStaticQuery(graphql`
   {
-    allProjectDataJson(skip: 3) {
+    allProjectDataJson(limit: 3) {
       edges {
         node {
           id
@@ -21,7 +21,6 @@ const useRecentProjects = () => {
       }
     }
   }
-  
   `);
   return data.allProjectDataJson.edges.map((project) => ({
     id: project.node.id,
