@@ -13,7 +13,7 @@ const useRecentProjects = () => {
           image {
             sharp: childImageSharp {
               fluid {
-                srcSet
+                ...GatsbyImageSharpFluid_withWebp
               }
             }
           }
