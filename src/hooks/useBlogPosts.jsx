@@ -20,7 +20,6 @@ const usePosts = () => {
       }
     }
   }
-  
 `);
 
   return data.allMdx.edges.map((post) => ({
