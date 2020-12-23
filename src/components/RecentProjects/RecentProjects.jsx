@@ -22,12 +22,10 @@ const RecentProjects = () => {
         <ShowCaseContainer>
           {Recent && Recent.map((project) => (
             <CardItem
-              // src={project.image.sharp.fluid.src}
               text={project.title}
               label={project.label}
               path={project.slug}
               alt={project.title}
-              loading="lazy"
               key={project.slug}
             />
           ))}

@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -7,12 +6,11 @@ import {
   CardFigure,
   CardItemInfo,
   CardText,
-  CardImage,
 } from './CardItemElements';
 
 const CardItem = (props) => {
   const {
-    path, label, src, loading, text, alt
+    path, label, text,
   } = props;
 
   return (
@@ -34,8 +32,6 @@ const CardItem = (props) => {
 CardItem.propTypes = {
   path: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
-  src: PropTypes.string.isRequired,
-  loading: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
 

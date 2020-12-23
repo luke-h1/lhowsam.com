@@ -10,14 +10,6 @@ const useProjectDetails = () => {
           title
           slug
           label
-          image {
-            sharp: childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid_withWebp
-
-              }
-            }
-          }
         }
       }
     }
@@ -28,7 +20,6 @@ const useProjectDetails = () => {
     title: project.node.title,
     slug: project.node.slug,
     label: project.node.label,
-    image: project.node.image,
   }));
 };
 export default useProjectDetails;

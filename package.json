@@ -79,7 +79,8 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "lint:fix": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
     "pre-commit": "npm run lint && npm run test",
     "start": "npm run develop",
     "serve": "gatsby serve",
@@ -90,8 +91,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run pre-commit",
-      "pre-push": "npm run pre-commit"
+      "pre-commit": "npm run lint:fix",
+      "pre-push": "npm run lint:fix"
     }
   }
 }

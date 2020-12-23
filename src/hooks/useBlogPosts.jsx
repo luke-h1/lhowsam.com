@@ -14,7 +14,6 @@ const usePosts = () => {
             title
             date
             slug 
-            
           }
         }
       }

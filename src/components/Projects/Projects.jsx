@@ -22,7 +22,6 @@ const Projects = () => {
             <CardWrap>
               {projects.map((project) => (
                 <CardItem
-                  src={project.image.sharp.fluid.src}
                   text={project.title}
                   label={project.label}
                   path={project.slug}
