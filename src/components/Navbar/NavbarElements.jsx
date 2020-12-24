@@ -10,7 +10,7 @@ export const Nav = styled.nav`
   height: 60px;
   display: flex;
   justify-content: space-between;
-  /* padding: 0.1rem calc((100vw - 1300px) / 2); */
+  padding: 0.1rem calc((100vw - 1300px) / 2);
   z-index: 999;
   position: relative;
   border-bottom: 1px solid ${(props) => props.theme.textOnDisabled}; 
@@ -58,6 +58,7 @@ export const NavMenu = styled.ul`
   align-items: center;
   list-style: none;
   text-align: center;
+  height: 70px;
   @media screen and (max-width: 960px) {
     display: flex;
     flex-direction: column;
@@ -67,7 +68,7 @@ export const NavMenu = styled.ul`
     min-width: 100vw;
     min-height: 100vh;
     position: absolute;
-    top: 80px;
+    top: 60px;
     overflow: hidden;
     left: ${({ click }) => (click ? 0 : '-200%')};
     opacity: 1;
@@ -83,7 +84,7 @@ export const NavMenu = styled.ul`
 `;
 
 export const NavItem = styled.li`
-  height: 60px;
+  height: 80px;
   border-bottom: 2px solid transparent;
   &:hover {
     border-bottom: 1px solid ${(props) => props.theme.textOnDisabled};
@@ -107,7 +108,7 @@ export const NavItemBtn = styled.li`
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 120px;
+    height: 70px;
   }
 `;
 
