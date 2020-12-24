@@ -10,5 +10,6 @@ export const theme = {
   textColor: dark[100],
   lightTextColor: light[100],
   textOnDisabled: light[200],
+  PrimaryHoverColor: blue[300],
   PrimaryFont, 
 }
