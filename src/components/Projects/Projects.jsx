@@ -10,6 +10,9 @@ import {
   ProjectIntro,
   ProjectCard,
   TechWrap,
+  Links,
+  GithubLink,
+  SiteLink,
 } from "./ProjectsElements"
 const Projects = ({ theme }) => {
   const projects = useProjects()
@@ -25,7 +28,7 @@ const Projects = ({ theme }) => {
         <ProjectFlex>
           <ProjectGrid>
             {projects.map(project => (
-              <ProjectCard>
+              <ProjectCard key={project.id}>
                 <h1>{project.title}</h1>
                 <p>{project.excerpt}</p>
                 <Button to={project.slug}>Go to project</Button>
@@ -34,8 +37,20 @@ const Projects = ({ theme }) => {
                   <span> {project.technology}</span>
                 </TechWrap>
                 <Links>
-                <GithubLink /> 
-                <SiteLink />
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    referrer="noreferrer noopener"
+                  >
+                    {project.githubLink ? <GithubLink /> : ""}
+                  </a>
+                  <a
+                    href={project.siteLink}
+                    target="_blank"
+                    referrer="noreferrer noopener"
+                  >
+                    {project.siteLink ? <SiteLink /> : ""}
+                  </a>
                 </Links>
               </ProjectCard>
             ))}

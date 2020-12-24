@@ -7,13 +7,12 @@ const useProjects = () => {
       edges {
         node {
           description
-          githbLink
+          githubLink
           id
           siteLink
           slug
           technology
           title
-          excerpt
         }
       }
     }
@@ -27,7 +26,6 @@ const useProjects = () => {
     slug: project.node.slug,
     technology: project.node.technology,
     title: project.node.title,
-    excerpt: project.node.excerpt,
   }))
 }
 export default useProjects;

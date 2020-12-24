@@ -4,64 +4,48 @@
     "title": "Personal Site",
     "slug": "/projects/personal-site",
     "description": "lorem ipsum",
-    "githbLink": "",
-    "siteLink": "",
-    "technology": "React, Gatsby, SCSS, styled-components",
-    "excerpt": "In this project I ...."
+    "githubLink": "https://github.com/luke-h1/lhowsam.com",
+    "siteLink": "https://lhowsam.com",
+    "technology": "React, Gatsby, SCSS, styled-components"
   },
   {
     "id": 2,
     "title": "Automation",
     "slug": "/projects/Automation",
     "description": "lorem ipsum",
-    "githbLink": "",
+    "githubLink": "https://github.com/luke-h1/Automation",
     "siteLink": "",
-    "technology": "Bash, Linux, Ansible, Azure",
-    "excerpt": "In this project I ...."
+    "technology": "Bash, Linux, Ansible, Azure"
 
   },
   {
     "id": 3,
-    "title": "Cocktail Recipe App",
-    "slug": "/projects/drink-app",
+    "title": "Express + nodejs API proxy",
+    "slug": "/projects/express-API",
     "description": "lorem ipsum",
-    "githbLink": "",
-    "siteLink": "",
-    "technology": "React Hooks, SASS",
-    "excerpt": "In this project I ...."
+    "githubLink": "https://github.com/luke-h1/weather-API-express-node",
+    "siteLink": "https://weather-api-express-node.herokuapp.com/",
+    "technology": "React, SCSS"
 
   },
   {
     "id": 4,
-    "title": "Quotes App",
-    "slug": "/projects/quotes-app",
-    "description": "lorem ipsum",
-    "githbLink": "",
-    "siteLink": "",
-    "technology": "React, SCSS",
-    "excerpt": "In this project I ...."
+    "title": "Form Validator",
+    "slug": "/projects/form-validator",
+    "description": "form validator",
+    "githubLink": "https://github.com/luke-h1/javascript-regex-validation-form",
+    "siteLink": "https://javascript-regex-validation-form.vercel.app/",
+    "technology": "Vanilla JS, Robot Framework"
 
   },
   {
     "id": 5,
-    "title": "Form Validator",
-    "slug": "/projects/form-validator",
-    "description": "form validator",
-    "githbLink": "",
-    "siteLink": "",
-    "technology": "Vanilla JS, Robot Framework",
-    "excerpt": "In this project I ...."
-
-  },
-  {
-    "id": 6,
     "title": "Dev notes",
     "slug": "/projects/dev-notes",
     "description": "developer notes",
-    "githbLink": "",
-    "siteLink": "",
-    "technology": "GatsbyJS",
-    "excerpt": "In this project I ...."
+    "githubLink": "https://github.com/luke-h1/developer-notes",
+    "siteLink": "https://dev-notes-mi.vercel.app/",
+    "technology": "GatsbyJS"
 
   }
 ]
