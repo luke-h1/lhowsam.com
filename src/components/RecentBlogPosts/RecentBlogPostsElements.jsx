@@ -14,6 +14,21 @@ export const BlogWrapper = styled.ol`
   min-height: 50vh;
 `
 
+export const BlogTitle = styled.h1`
+  font-size: clamp(1rem, 8vw, 2.7rem);
+  color: ${(props) => props.theme.textColor};
+  font-weight: 700;
+  text-align: left;
+  justify-content: left;
+`
+
+export const BlogTitleWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+`
+
 export const BlogList = styled.li`
   padding-left: 0;
   color: ${(props) => props.theme.textColor};

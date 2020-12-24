@@ -8,6 +8,8 @@ import {
   BlogHeader,
   BlogLink,
   BlogSection,
+  BlogTitle,
+  BlogTitleWrap,
 } from "./RecentBlogPostsElements"
 import { ThemeProvider } from 'styled-components';
 import usePosts from "../../hooks/usePosts";
@@ -18,6 +20,9 @@ const RecentBlogPosts = ({theme, data}) => {
     <ThemeProvider theme={theme}>
     <>
       <BlogWrapper>
+        <BlogTitleWrap>
+        <BlogTitle>Recent Blog posts</BlogTitle>
+        </BlogTitleWrap>
         {posts.map((post) =>  (
           <BlogList key={post.slug}>
             <BlogArticle>
