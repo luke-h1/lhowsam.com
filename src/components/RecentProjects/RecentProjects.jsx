@@ -7,6 +7,7 @@ ProjectCard,
 ProjectContainer,
 ProjectWrap,
 ProjectFlex,
+ProjectTitle,
 } from './RecentProjectsElements'; 
 
 
@@ -15,6 +16,7 @@ const RecentProjects = ({theme}) => {
     <ThemeProvider theme={theme}>
     <>
     <ProjectWrap>
+      <ProjectTitle>Recent Projects</ProjectTitle>
     <ProjectFlex>
       <ProjectContainer>
         <ProjectCard>
@@ -35,7 +37,6 @@ const RecentProjects = ({theme}) => {
           </p>
           <Button to='/project/slug'>Go to project</Button>
         </ProjectCard>
-        
       </ProjectContainer>
       </ProjectFlex>
     </ProjectWrap>

@@ -32,3 +32,9 @@ export const ProjectFlex = styled.div`
   align-items: center;
   margin: 0 auto;
 `
+
+export const ProjectTitle = styled.h1`
+  font-size: clamp(1rem, 8vw, 2.7rem);
+  text-align: left;
+  font-weight: 700;
+`

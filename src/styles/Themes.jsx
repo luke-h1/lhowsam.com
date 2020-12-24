@@ -1,7 +1,6 @@
 /* eslint-disable */
 import { light, dark, blue, green, neutral} from './Colors';
 import { PrimaryFont } from './Fonts';
-
 export const theme = { 
   primaryBackgroundColor: light[100],
   secondaryBackgroundColor: light[300],
