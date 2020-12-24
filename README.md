@@ -16,13 +16,6 @@ Unit tests & linting pipeline:
 <br /> 
 [![Build Status](https://dev.azure.com/lukehowsam/testing/_apis/build/status/luke-h1.lhowsam.com?branchName=dev)](https://dev.azure.com/lukehowsam/testing/_build/latest?definitionId=5&branchName=dev)
 
-## Project Structure 
-
-* Main - Represents what is currently on production (deployments are handled by Vercel)
-
-* Dev - Represents the features currently being worked on 
-
-
 
 ## Available NPM Commands
 
