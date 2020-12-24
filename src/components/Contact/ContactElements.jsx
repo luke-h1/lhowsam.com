@@ -4,11 +4,34 @@ import { AiOutlineMail } from 'react-icons/ai';
 import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 
+export const ContactContainer = styled.div`
+ flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  background: ${(props) => props.theme.BlueBackgroundColor};
+  min-height: 65vh;
+  h1 { 
+    margin-top: 10rem;
+    font-size: clamp(1rem, 8vw, 2.7rem);
+    color: ${(props) => props.theme.lightTextColor};
+    text-align: left;
+    font-weight: 700;
+  }`
+
+export const ContactIntro = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
+  /* margin-top: 10rem; */
+`
+
 export const ContactWrapper = styled.div`
   min-height: 25vh;
   min-width: 100vw;
-  background-color: ${(props) => props.theme.primaryBackgroundColor}; 
+  background-color: ${(props) => props.theme.secondaryBackgroundColor}; 
   display: flex;
+  padding-bottom: 2rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -17,7 +40,6 @@ export const ContactWrapper = styled.div`
   h1 { 
     color: ${(props) => props.theme.primaryTitleColor}; 
     font-family: ${(props) => props.theme.titleFont};
-
 
   }
 `;
