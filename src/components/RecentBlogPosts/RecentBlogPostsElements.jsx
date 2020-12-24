@@ -69,10 +69,17 @@ export const BlogArticle = styled.article`
 export const BlogHeader = styled.header`
   margin-bottom: 1rem;
   color: ${(props) => props.theme.primaryColor};
+  small { 
+    font-weight: 700;
+  }
 
 `
 
 export const BlogLink = styled(Link)`
 
 `
-export const BlogSection = styled.section``
+export const BlogSection = styled.section`
+p { 
+  font-weight: 700;
+}
+`

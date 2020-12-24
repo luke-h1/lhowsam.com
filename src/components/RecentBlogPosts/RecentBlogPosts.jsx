@@ -26,7 +26,6 @@ const RecentBlogPosts = ({theme, data}) => {
         {posts.map((post) =>  (
           <BlogList key={post.slug}>
             <BlogArticle>
-              {post.title}
               <BlogHeader>
                 <h2>
                   <BlogLink to={post.slug}>
