@@ -3,7 +3,7 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 export const BlogContainer = styled.div`
-display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: left;
   align-items: left;
