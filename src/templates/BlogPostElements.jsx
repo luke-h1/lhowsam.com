@@ -7,6 +7,7 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 margin: 0 auto;
+background: ${(props) => props.theme.primaryBackgroundColor};
 align-items: center;
 min-width: 70vw;
 max-width: 70vw;
