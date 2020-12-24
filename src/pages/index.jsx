@@ -8,7 +8,17 @@ import SEO from "../components/seo"
 import Hero from '../components/Hero/Hero';
 import { theme } from '../styles/Themes';
 import RecentBlogPosts from '../components/RecentBlogPosts/RecentBlogPosts';
-const index = ({ data, location }) => {
+const index = () => {
+  return (
+    <Layout >
+      <SEO title="Home" />
+      <Hero theme={theme} />
+      <RecentBlogPosts theme={theme} />
+    </Layout>
+  )
+}
+export default index
+// { data, location }
   // const siteTitle = data.site.siteMetadata?.title || `Title`
   // const posts = data.allMarkdownRemark.nodes
 
@@ -60,39 +70,3 @@ const index = ({ data, location }) => {
 //     )
 //   })}
 // </ol>
-
-
-
-  return (
-    <Layout >
-      <SEO title="Home" />
-      <Hero theme={theme} />
-      <RecentBlogPosts theme={theme} />
-    </Layout>
-  )
-}
-
-export default index
-
-// export const pageQuery = graphql`
-//   query {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-//       nodes {
-//         excerpt
-//         fields {
-//           slug
-//         }
-//         frontmatter {
-//           date(formatString: "MMMM DD, YYYY")
-//           title
-//           description
-//         }
-//       }
-//     }
-//   }
-// `

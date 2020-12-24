@@ -4,6 +4,7 @@ import { PrimaryFont } from './Fonts';
 
 export const theme = { 
   primaryBackgroundColor: light[100],
+  secondaryBackgroundColor: light[300],
   primaryColor: dark[100],
   darkTitleColor: light[100],
   BlueBackgroundColor: blue[100],

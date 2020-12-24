@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from "react"
-import usePosts from '../../hooks/RecentBlog';
+import { graphql, useStaticQuery } from 'gatsby';
 import {
   BlogWrapper,
   BlogList,
@@ -10,14 +10,16 @@ import {
   BlogSection,
 } from "./RecentBlogPostsElements"
 import { ThemeProvider } from 'styled-components';
+import usePosts from "../../hooks/usePosts";
 
-const RecentBlogPosts = ({theme}) => {
-  const post = usePosts();
+const RecentBlogPosts = ({theme, data}) => {
+  const posts = usePosts();
   return (
     <ThemeProvider theme={theme}>
     <>
       <BlogWrapper>
-           <BlogList key={post.slug}>
+        {posts.map((post) =>  (
+          <BlogList key={post.slug}>
             <BlogArticle>
               {post.title}
               <BlogHeader>
@@ -37,6 +39,8 @@ const RecentBlogPosts = ({theme}) => {
               </BlogSection>
             </BlogArticle>
            </BlogList>
+        ))}
+           
       </BlogWrapper>
       </>
     </ThemeProvider>
