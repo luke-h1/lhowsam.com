@@ -29,7 +29,6 @@ const Hero = ({theme}) => {
           bold='true'
         >More About Me</Button>
         </BlurbContainer>
-       
       </IntroContainer>
     </HeroContainer>
     </>

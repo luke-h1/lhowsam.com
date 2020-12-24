@@ -7,9 +7,9 @@ export const HeroContainer = styled.div`
   justify-content: left;
   align-items: center;
   background: ${(props) => props.theme.BlueBackgroundColor};
-  min-height: 50vh;
+  min-height: 65vh;
   h1 { 
-    font-size: clamp(1rem, 8vw, 2.2rem);
+    font-size: clamp(1rem, 8vw, 2.7rem);
 
   }
   h1,p { 
@@ -20,10 +20,9 @@ export const HeroContainer = styled.div`
     margin-top: 2rem;
     margin: 2rem 0 0 0.1rem;
     word-wrap: wrap;
-    width: 60%;
-    font-size: clamp(1rem, 8vw, 1rem);
+    width: 50%;
+    font-size: clamp(1rem, 8vw, 1.5rem);
     font-weight: bold;
-
   }
 `;
 
