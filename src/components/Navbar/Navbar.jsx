@@ -43,13 +43,18 @@ const Navbar = ({ theme, toggleTheme }) => {
               </NavLinks>
             </NavItem>
             <NavItem>
-              <NavLinks to="/projects" onClick={closeMobileMenu}>
-                Projects
+              <NavLinks to="/about" onClick={closeMobileMenu}>
+                About
               </NavLinks>
             </NavItem>
             <NavItem>
               <NavLinks to="/blog" onClick={closeMobileMenu}>
                 Blog
+              </NavLinks>
+            </NavItem>
+            <NavItem>
+              <NavLinks to="/projects" onClick={closeMobileMenu}>
+                projects
               </NavLinks>
             </NavItem>
             <NavItem>
