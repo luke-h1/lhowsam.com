@@ -73,41 +73,46 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 }
 
-/* Testing dynamic project creation */
-exports.createPages = async ({ graphql, actions, reporter }) => {
+/* 
+  For some reason the below makes the blog queries not work ? 
+  fuck knows why 
+  if this is an issue with using to `exports.createPages` then the only way to get pages for projects will me to create a template and manually add them to the pages directory 
 
-  const result = await graphql(`
-  query getProjects { 
-    allProjectDataJson {
-      edges {
-        node {
-          slug
-          id
-        }
-      }
-    }
-  }
+*/ 
+// exports.createPages = async ({ graphql, actions, reporter }) => {
 
-  `)
-  if (result.error) {
-    reporter.panic("Problem loading projects")
-    return
-  }
-  const projects = result.data.allProjectDataJson.edges
+//   const result = await graphql(`
+//   query getProjects { 
+//     allProjectDataJson {
+//       edges {
+//         node {
+//           slug
+//           id
+//         }
+//       }
+//     }
+//   }
 
-  projects.forEach(({ node: project }) => {
-    const { slug, id } = project
+//   `)
+//   if (result.error) {
+//     reporter.panic("Problem loading projects")
+//     return
+//   }
+//   const projects = result.data.allProjectDataJson.edges
 
-    actions.createPage({
-      path: `${slug}`,
-      component: require.resolve("./src/templates/project-post.js"),
-      context: {
-        slug,
-        id,
-      },
-    })
-  })
-}
+//   projects.forEach(({ node: project }) => {
+//     const { slug, id } = project
+
+//     actions.createPage({
+//       path: `${slug}`,
+//       component: require.resolve("./src/templates/project-post.js"),
+//       context: {
+//         slug,
+//         id,
+//       },
+//     })
+//   })
+// }
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
