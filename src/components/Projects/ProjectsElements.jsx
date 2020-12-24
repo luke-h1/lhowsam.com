@@ -81,5 +81,14 @@ export const ProjectCard = styled.div`
   text-align: center;
   h1 {
     font-weight: 500;
+    font-size: 25px;
   }
+`
+
+export const ButtonWrap = styled.div`
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `

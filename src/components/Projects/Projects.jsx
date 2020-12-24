@@ -13,6 +13,7 @@ import {
   Links,
   GithubLink,
   SiteLink,
+  ButtonWrap,
 } from "./ProjectsElements"
 const Projects = ({ theme }) => {
   const projects = useProjects()
@@ -31,7 +32,9 @@ const Projects = ({ theme }) => {
               <ProjectCard key={project.id}>
                 <h1>{project.title}</h1>
                 <p>{project.excerpt}</p>
+                <ButtonWrap>
                 <Button to={project.slug}>Go to project</Button>
+                </ButtonWrap>
                 <TechWrap>
                   <p>Technologies used: </p>
                   <span> {project.technology}</span>
