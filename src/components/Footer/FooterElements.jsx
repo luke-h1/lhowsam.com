@@ -4,20 +4,18 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 export const FooterContainer = styled.footer`
-  position: fixed;
+ position: sticky;
   bottom: 0px;
   width: 100%;
   margin: 0;
-  background-color: ${(props) => props.theme.primaryBackgroundColor};
-  min-height: 80px;
-  max-height: 80px;
+  min-height: 60px;
   @media(min-width: 680px){
-    height: 90px;
+    height: 80px;
   }
 
   @media (max-width: 500px) {
     display: none;
-  }
+  } 
 `;
 
 export const FooterWrap = styled.div`

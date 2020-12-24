@@ -23,6 +23,9 @@ export const ProjectCard = styled.div`
   margin-bottom: 1em;
   margin-top: 1em;
   text-align: center;
+  h1 {
+    font-weight: 500;
+  }
 `
 
 export const ProjectFlex = styled.div`
