@@ -20,6 +20,28 @@ export const ProjectIntro = styled.div`
   margin-top: 10rem;
 `
 
-export const ProjectFlex = styled.div``
+export const ProjectFlex = styled.div`
+background: ${(props) => props.theme.secondaryBackgroundColor};
+min-height: 50vh;
+padding: 2rem;
+`
 
-export const ProjectGrid = styled.div``
+export const ProjectGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+`
+
+export const ProjectCard = styled.div`
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  width: 350px;
+  height: 250px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  text-align: center;
+  h1 {
+    font-weight: 500;
+  }
+`
