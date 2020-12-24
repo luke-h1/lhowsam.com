@@ -76,7 +76,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 /* 
   For some reason the below makes the blog queries not work ? 
   fuck knows why 
-  if this is an issue with using two `exports.createPages` then the only way to get pages for projects will me to create a template and manually add them to the pages directory 
+  if this is an issue with using two `exports.createPages` then the only way to get pages for projects will be to create a template and manually add them to the pages directory 
 
 */ 
 // exports.createPages = async ({ graphql, actions, reporter }) => {
