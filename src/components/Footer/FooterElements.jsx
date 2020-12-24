@@ -9,19 +9,19 @@ export const FooterContainer = styled.footer`
   width: 100%;
   margin: 0;
   background-color: ${(props) => props.theme.primaryBackgroundColor};
-  min-height: 50px;
-  /* @media(min-width: 680px){
+  min-height: 80px;
+  max-height: 80px;
+  @media(min-width: 680px){
     height: 90px;
-  } */
+  }
 
   @media (max-width: 500px) {
     display: none;
   }
-  
 `;
 
 export const FooterWrap = styled.div`
-  padding: 16px 24px;
+  /* padding: 16px 24px; */
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -8,6 +8,7 @@ export const Button = styled(Link)`
   white-space: nowrap;
   padding: ${({ big }) => (big ? '16px 40px' : '10px 32px')};
   color: #fff;
+  font-weight: ${({ bold }) => (bold ? '700' : '300')};
   font-size: ${({ big }) => (big ? '20px' : '16px')};
   outline: 0;
   border: none;
@@ -21,6 +22,6 @@ export const Button = styled(Link)`
     transform: translateY(-2px);
   }
   @media (max-width: 900px) {
-    display: none;
+    /* display: none; */
   }
 `;

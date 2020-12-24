@@ -15,12 +15,9 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     font-size: 16px;
-    /* line-height: 1.4; */
     box-sizing: border-box;
 
   }
-
-  
 
   *, *:before, *:after { 
     box-sizing: inherit;
@@ -30,7 +27,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${PrimaryFont};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: ${primaryBackgroundColor};
+    background: #F6F7F8;
     overflow-x: hidden;  
     @font-face {
     font-family: ${PrimaryFont};
