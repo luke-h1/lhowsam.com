@@ -1,39 +1,48 @@
 /* eslint-disable */
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { Button } from '../../helpers/Button/Button';
+import React from "react"
+import { ThemeProvider } from "styled-components"
+import { Button } from "../../helpers/Button/Button"
+import useProjects from "../../hooks/useProjects"
 import {
   ProjectContainer,
   ProjectFlex,
   ProjectGrid,
   ProjectIntro,
   ProjectCard,
-} from './ProjectsElements'; 
-const Projects = ({theme}) => { 
-  return ( 
+  TechWrap,
+} from "./ProjectsElements"
+const Projects = ({ theme }) => {
+  const projects = useProjects()
+
+  return (
     <ThemeProvider theme={theme}>
-    <>
-    <ProjectContainer>
-      <ProjectIntro>
-        <h1>Projects</h1>
-      </ProjectIntro>
-     
-    </ProjectContainer>
-    <ProjectFlex>
-        <ProjectGrid>
-        <ProjectCard>
-          <h1>
-            Project title goes here
-          </h1>
-          <p>
-            Project short description goes here 
-          </p>
-          <Button to='/project/slug'>Go to project</Button>
-        </ProjectCard>
-        </ProjectGrid>
-      </ProjectFlex>
-    </>
+      <>
+        <ProjectContainer>
+          <ProjectIntro>
+            <h1>Projects</h1>
+          </ProjectIntro>
+        </ProjectContainer>
+        <ProjectFlex>
+          <ProjectGrid>
+            {projects.map(project => (
+              <ProjectCard>
+                <h1>{project.title}</h1>
+                <p>{project.excerpt}</p>
+                <Button to={project.slug}>Go to project</Button>
+                <TechWrap>
+                  <p>Technologies used: </p>
+                  <span> {project.technology}</span>
+                </TechWrap>
+                <Links>
+                <GithubLink /> 
+                <SiteLink />
+                </Links>
+              </ProjectCard>
+            ))}
+          </ProjectGrid>
+        </ProjectFlex>
+      </>
     </ThemeProvider>
   )
 }
-export default Projects;
+export default Projects

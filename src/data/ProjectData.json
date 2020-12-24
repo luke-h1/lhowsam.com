@@ -1,0 +1,67 @@
+[
+  {
+    "id": 1,
+    "title": "Personal Site",
+    "slug": "/projects/personal-site",
+    "description": "lorem ipsum",
+    "githbLink": "",
+    "siteLink": "",
+    "technology": "React, Gatsby, SCSS, styled-components",
+    "excerpt": "In this project I ...."
+  },
+  {
+    "id": 2,
+    "title": "Automation",
+    "slug": "/projects/Automation",
+    "description": "lorem ipsum",
+    "githbLink": "",
+    "siteLink": "",
+    "technology": "Bash, Linux, Ansible, Azure",
+    "excerpt": "In this project I ...."
+
+  },
+  {
+    "id": 3,
+    "title": "Cocktail Recipe App",
+    "slug": "/projects/drink-app",
+    "description": "lorem ipsum",
+    "githbLink": "",
+    "siteLink": "",
+    "technology": "React Hooks, SASS",
+    "excerpt": "In this project I ...."
+
+  },
+  {
+    "id": 4,
+    "title": "Quotes App",
+    "slug": "/projects/quotes-app",
+    "description": "lorem ipsum",
+    "githbLink": "",
+    "siteLink": "",
+    "technology": "React, SCSS",
+    "excerpt": "In this project I ...."
+
+  },
+  {
+    "id": 5,
+    "title": "Form Validator",
+    "slug": "/projects/form-validator",
+    "description": "form validator",
+    "githbLink": "",
+    "siteLink": "",
+    "technology": "Vanilla JS, Robot Framework",
+    "excerpt": "In this project I ...."
+
+  },
+  {
+    "id": 6,
+    "title": "Dev notes",
+    "slug": "/projects/dev-notes",
+    "description": "developer notes",
+    "githbLink": "",
+    "siteLink": "",
+    "technology": "GatsbyJS",
+    "excerpt": "In this project I ...."
+
+  }
+]

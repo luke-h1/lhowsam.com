@@ -16,6 +16,20 @@ export const ProjectContainer = styled.div`
   }
 `
 
+export const TechWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p { 
+    margin: 12px 0 8px 0 ;
+    border-bottom: 1px solid #000;
+  }
+  span { 
+    font-weight: 700;
+  }
+`
+
 export const ProjectIntro = styled.div`
   margin-top: 10rem;
 `
