@@ -11,7 +11,8 @@ export const BlogWrapper = styled.ol`
   color: ${(props) => props.theme.textColor};
   background: ${(props) => props.theme.secondaryBackgroundColor};
   min-width: 100vw;
-  min-height: 50vh;
+  min-height: 60vh;
+  padding-bottom: 2rem;
 `
 
 export const BlogTitle = styled.h1`
