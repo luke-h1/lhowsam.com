@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-
+import { ThemeProvider } from 'styled-components';
 import {
   Nav,
   NavbarContainer,
@@ -25,6 +25,7 @@ const Navbar = ({ theme, toggleTheme }) => {
   const closeMobileMenu = () => setClick(false);
 
   return (
+    <ThemeProvider theme={theme}>
     <>
       <Nav>
         <NavbarContainer>
@@ -72,6 +73,7 @@ const Navbar = ({ theme, toggleTheme }) => {
         </NavbarContainer>
       </Nav>
     </>
+    </ThemeProvider> 
   );
 };
 
