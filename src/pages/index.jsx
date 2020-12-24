@@ -9,7 +9,7 @@ import Hero from '../components/Hero/Hero';
 import { theme } from '../styles/Themes';
 import RecentBlogPosts from '../components/RecentBlogPosts/RecentBlogPosts';
 const index = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  // const siteTitle = data.site.siteMetadata?.title || `Title`
   // const posts = data.allMarkdownRemark.nodes
 
   // if (posts.length === 0) {
@@ -64,9 +64,9 @@ const index = ({ data, location }) => {
 
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout >
       <SEO title="Home" />
-      <Hero />
+      <Hero theme={theme} />
       <RecentBlogPosts theme={theme} />
     </Layout>
   )
