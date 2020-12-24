@@ -20,6 +20,7 @@ const Hero = ({theme}) => {
         <BlurbContainer>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit minima at nulla quis quam eaque maxime dignissimos rerum? Laudantium, sint vel? Soluta adipisci fugiat quas! Accusantium impedit ab quis enim?</p>
         <Button
+
         css={`
         width: 200px;
         margin-top: 1rem;
@@ -27,6 +28,7 @@ const Hero = ({theme}) => {
           round='true'
           primary='true'
           bold='true'
+          to='/about'
         >More About Me</Button>
         </BlurbContainer>
       </IntroContainer>

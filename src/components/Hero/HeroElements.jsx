@@ -48,5 +48,4 @@ export const ButtonWrapper = styled.div`
   justify-content: left;
   align-items: left;
   width: 200px;
-
 `

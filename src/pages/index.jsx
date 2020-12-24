@@ -8,12 +8,14 @@ import SEO from "../components/seo"
 import Hero from '../components/Hero/Hero';
 import { theme } from '../styles/Themes';
 import RecentBlogPosts from '../components/RecentBlogPosts/RecentBlogPosts';
+import RecentProjects from "../components/RecentProjects/RecentProjects"
 const index = () => {
   return (
     <Layout >
       <SEO title="Home" />
       <Hero theme={theme} />
       <RecentBlogPosts theme={theme} />
+      <RecentProjects theme={theme} />
     </Layout>
   )
 }
