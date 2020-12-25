@@ -1,56 +1,40 @@
+/* eslint-disable */
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
+import { Button } from '../../helpers/Button/Button';
+import { ThemeProvider, css } from 'styled-components/macro';
 import {
-  HomeHeroSection,
-  GridContainer,
-  IntroductionContainer,
-  List,
-  CollectionItem,
-  HeroImage,
+  HeroContainer,
+  IntroContainer,
+  ButtonWrapper,
+  BlurbContainer,
+
 } from './HeroElements';
 
-const Hero = () => {
-  const { image } = useStaticQuery(graphql`
-  query {
-    image: file(relativePath: {eq: "luke.jpeg"}) {
-      sharp: childImageSharp {
-        fluid {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
-    }
-  }
-  
-  `);
+const Hero = ({theme}) => {
   return (
+    <ThemeProvider theme={theme}>
     <>
-      <HomeHeroSection>
-        <GridContainer>
-          <h1>Hi I'm Luke 👋</h1>
-          <IntroductionContainer>
-            <p>
-              I'm passionate about various web technologies and making the web fast &
-              accesible to everyone. I strive to write clean, robust & reusable code.
-            </p>
-            <hr />
-            <List>
-              <h3>More About Me</h3>
-              <CollectionItem>
-                🌱 I’m currently learning ... Javascript & React
-              </CollectionItem>
-              <CollectionItem>
-                {' '}
-                💚 I enjoying working on ... React, Testing methodologies and
-                frameworks (following best practices, unit testing), Automation
-                technologies (Ansible, bash ) & OOS projects
-              </CollectionItem>
-            </List>
-          </IntroductionContainer>
-          <HeroImage src={image.sharp.fluid.src} alt="" />
-        </GridContainer>
-      </HomeHeroSection>
-    </>
-  );
-};
+    <HeroContainer>
+      <IntroContainer>
+        <h1>Hi, I'm Luke</h1>
+        <BlurbContainer>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit minima at nulla quis quam eaque maxime dignissimos rerum? Laudantium, sint vel? Soluta adipisci fugiat quas! Accusantium impedit ab quis enim?</p>
+        <Button
 
+        css={`
+        width: 200px;
+        margin-top: 1rem;
+        `}
+          round='true'
+          primary='true'
+          bold='true'
+          to='/about'
+        >More About Me</Button>
+        </BlurbContainer>
+      </IntroContainer>
+    </HeroContainer>
+    </>
+    </ThemeProvider>
+  )
+}
 export default Hero;

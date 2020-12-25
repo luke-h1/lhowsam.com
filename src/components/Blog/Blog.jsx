@@ -1,34 +1,53 @@
-import React from 'react';
-import BlogPostPreview from '../BlogPostPreview/BlogPostPreview';
-import {
-  Title,
+/* eslint-disable */
+import React from "react"
+import { ThemeProvider } from "styled-components";
+import usePosts from '../../hooks/usePosts';
+import { 
+  BlogArticle,
+  BlogContainer,
+  BlogFlex,
+  BlogHeader,
   BlogIntro,
-  Intro,
-  BlogSection,
-  BlogWrapper,
+  BlogList,
+  BlogLink,
+  BlogSection
 } from './BlogElements';
-import useBlogPosts from '../../hooks/useBlogPosts';
 
-const Blog = () => {
-  const posts = useBlogPosts();
+const Blog = ({theme}) => {
+  const posts = usePosts();
   return (
-    <>
-      <BlogSection>
-        <BlogIntro>
-          <Title>Blog</Title>
-          <Intro>
-            Candid thoughts about Javascript, React, Automation & other
-            interesting things
-          </Intro>
-        </BlogIntro>
-        <BlogWrapper>
-          {posts && posts.map((post) => (
-            <BlogPostPreview key={post.id} post={post} />
+    <ThemeProvider theme={theme}>
+      <>
+        <BlogContainer>
+          <BlogIntro>
+            <h1>Blog</h1>
+          </BlogIntro>
+        </BlogContainer>
+        <BlogFlex>
+          {posts.map(post => (
+            <BlogList key={post.slug}>
+              <BlogArticle>
+                <BlogHeader>
+                  <h2>
+                    <BlogLink to={post.slug}>
+                      <span>{post.title}</span>
+                    </BlogLink>
+                  </h2>
+                  <small>{post.date}</small>
+                </BlogHeader>
+                <BlogSection>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: post.description || post.excerpt,
+                    }}
+                  ></p>
+                </BlogSection>
+              </BlogArticle>
+            </BlogList>
           ))}
-
-        </BlogWrapper>
-      </BlogSection>
-    </>
-  );
-};
-export default Blog;
+        </BlogFlex>
+      </>
+    </ThemeProvider>
+  )
+}
+export default Blog

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
 import {
@@ -7,13 +8,19 @@ import {
   EmailIcon,
   LinkedIn,
   Github,
+  ContactContainer,
+  ContactIntro,
 } from './ContactElements';
 
 const Contact = () => (
   <IconContext.Provider value={{ color: '#fff', size: 64 }}>
     <>
+      <ContactContainer>
+        <ContactIntro>
+          <h1>Get In Touch</h1>
+        </ContactIntro>
+        </ContactContainer>
       <ContactWrapper>
-        <h1>Contact</h1>
         <Alternatives>
           <h3>You can reach me on:</h3>
           <br />

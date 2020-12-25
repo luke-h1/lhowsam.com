@@ -1,40 +1,66 @@
-import React from 'react';
-import { IconContext } from 'react-icons/lib';
-import useProjectDetails from '../../hooks/useProjectDetails';
-import CardItem from '../../templates/CardItem/CardItem';
-
+/* eslint-disable */
+import React from "react"
+import { ThemeProvider } from "styled-components"
+import { Button } from "../../helpers/Button/Button"
+import useProjects from "../../hooks/useProjects"
 import {
-  ProjectWrapper,
-  CardWrap,
-  ProjectTitle,
-  CardContainer,
-} from './ProjectsElements';
-
-const Projects = () => {
-  const projects = useProjectDetails();
+  ProjectContainer,
+  ProjectFlex,
+  ProjectGrid,
+  ProjectIntro,
+  ProjectCard,
+  TechWrap,
+  Links,
+  GithubLink,
+  SiteLink,
+  ButtonWrap,
+} from "./ProjectsElements"
+const Projects = ({ theme }) => {
+  const projects = useProjects()
 
   return (
-    <IconContext.Provider value={{ color: '#fff', size: 64 }}>
+    <ThemeProvider theme={theme}>
       <>
-        <ProjectWrapper>
-          <ProjectTitle>Projects</ProjectTitle>
-          <CardContainer>
-            <CardWrap>
-              {projects.map((project) => (
-                <CardItem
-                  text={project.title}
-                  label={project.label}
-                  path={project.slug}
-                  key={project.id}
-                  loading="lazy"
-                />
-              ))}
-            </CardWrap>
-          </CardContainer>
-        </ProjectWrapper>
+        <ProjectContainer>
+          <ProjectIntro>
+            <h1>Projects</h1>
+          </ProjectIntro>
+        </ProjectContainer>
+        <ProjectFlex>
+          <ProjectGrid>
+            {projects.map(project => (
+              <ProjectCard key={project.id}>
+                <h1>{project.title}</h1>
+                <p>{project.excerpt}</p>
+                <ButtonWrap>
+                <Button to={project.slug}>Go to project</Button>
+                </ButtonWrap>
+                <TechWrap>
+                  <p>Technologies used: </p>
+                  <span> {project.technology}</span>
+                </TechWrap>
+                <Links>
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    referrer="noreferrer noopener"
+                  >
+                    {project.githubLink ? <GithubLink /> : ""}
+                  </a>
+                  <a
+                    href={project.siteLink}
+                    target="_blank"
+                    referrer="noreferrer noopener"
+                  >
+                    {project.siteLink ? <SiteLink /> : ""}
+                  </a>
+                </Links>
+              </ProjectCard>
+            ))}
+          </ProjectGrid>
+        </ProjectFlex>
       </>
-    </IconContext.Provider>
-  );
-};
-
-export default Projects;
+    </ThemeProvider>
+  )
+}
+export default Projects
