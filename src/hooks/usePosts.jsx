@@ -12,6 +12,7 @@ const usePosts = () => {
             date
             description
             title
+            slug
           }
           fields {
             slug
