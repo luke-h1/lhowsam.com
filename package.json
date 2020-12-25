@@ -24,6 +24,7 @@
     "gatsby-remark-responsive-iframe": "^2.5.0",
     "gatsby-remark-smartypants": "^2.4.0",
     "gatsby-source-filesystem": "^2.5.0",
+    "gatsby-transformer-json": "^2.8.0",
     "gatsby-transformer-remark": "^2.10.0",
     "gatsby-transformer-sharp": "^2.6.0",
     "husky": "^4.3.6",
@@ -69,7 +70,6 @@
     "lint:fix": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
     "pre-commit": "npm run lint && npm run test",
     "deep-clean": "npm run clean && rm -rf node_modules package-lock.json && npm i --legacy-peer-deps"
-
   },
   "husky": {
     "hooks": {
