@@ -36,6 +36,7 @@ export const BlogFlex = styled.div`
 export const BlogList = styled.li`
   padding-left: 0;
   color: ${(props) => props.theme.textColor};
+  list-style-type: none;
   margin-bottom: calc((2rem) / 2 ); 
   p { 
     margin-bottom: calc((2rem) / 2); 
