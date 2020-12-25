@@ -18,7 +18,7 @@ Unit tests & linting pipeline:
 
 ## Project Structure 
 
-* Main - Represents what is currently on production (deployments are handled by Vercel)
+* Main - Represents what is currently on production 
 
 * Dev - Represents the features currently being worked on 
 
