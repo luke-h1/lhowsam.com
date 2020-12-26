@@ -2,9 +2,6 @@
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
 
-
-
-
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
@@ -60,6 +57,31 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+  const ProjectResult = await graphql(`
+    query {
+      allMdx {
+        nodes {
+          frontmatter {
+            slug
+          }
+        }
+      }
+    }
+  `)
+  if (ProjectResult.errors) {
+    reporter.panic("failed to create projects", ProjectResult.errors)
+  }
+  const projects = ProjectResult.data.allMdx.nodes
+
+  projects.forEach(project => {
+    actions.createPage({
+      path: project.frontmatter.slug,
+      component: require.resolve("./src/templates/project-post.js"),
+      context: {
+        slug: project.frontmatter.slug,
+      },
+    })
+  })
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -75,47 +97,6 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     })
   }
 }
-
-/* 
-  For some reason the below makes the blog queries not work ? 
-  fuck knows why 
-  if this is an issue with using two `exports.createPages` then the only way to get pages for projects will be to create a template and manually add them to the pages directory 
-
-*/ 
-// exports.createPages = async ({ graphql, actions, reporter }) => {
-
-//   const result = await graphql(`
-//   query getProjects { 
-//     allProjectDataJson {
-//       edges {
-//         node {
-//           slug
-//           id
-//         }
-//       }
-//     }
-//   }
-
-//   `)
-//   if (result.error) {
-//     reporter.panic("Problem loading projects")
-//     return
-//   }
-//   const projects = result.data.allProjectDataJson.edges
-
-//   projects.forEach(({ node: project }) => {
-//     const { slug, id } = project
-
-//     actions.createPage({
-//       path: `${slug}`,
-//       component: require.resolve("./src/templates/project-post.js"),
-//       context: {
-//         slug,
-//         id,
-//       },
-//     })
-//   })
-// }
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions

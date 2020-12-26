@@ -25,7 +25,7 @@
     "description": "lorem ipsum",
     "githubLink": "https://github.com/luke-h1/weather-API-express-node",
     "siteLink": "https://weather-api-express-node.herokuapp.com/",
-    "technology": "React, SCSS"
+    "technology": "Express, NodeJS, Heroku"
 
   },
   {
@@ -45,7 +45,7 @@
     "description": "developer notes",
     "githubLink": "https://github.com/luke-h1/developer-notes",
     "siteLink": "https://dev-notes-mi.vercel.app/",
-    "technology": "GatsbyJS"
+    "technology": "Gatsby"
 
   }
 ]

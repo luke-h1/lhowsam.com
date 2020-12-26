@@ -1,8 +1,9 @@
 /* eslint-disable */
 import React from "react"
-import { Link, graphql } from "gatsby"
+import {graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import styled from 'styled-components';
 
 import {
   StyledArticle,
@@ -11,28 +12,46 @@ import {
   StyledLink,
   
 } from './BlogPostElements.jsx';
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
-const ProjectTemplate = ({ data, location }) => {
-  const project = data.allProjectDataJson
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-  const { previous, next } = data
+export const query = graphql`
+  query($slug: String!){
+    mdx(frontmatter: { slug: { eq: $slug } }){
+      frontmatter { 
+        title 
+      }
+      body
+    }
+  }
+`
+
+
+
+
+const ProjectTemplate = ({ data: { mdx: project }}) => {
+  // const project = data.allProjectDataJson
+  // const { previous, next } = data
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location}>
       <SEO
-        title={project.edges.node.title}
+        title={project.frontmatter.title}
         // description={project.edges.node.description || project.excerpt}
       />
       <StyledArticle>
         <StyledHeader>
-          <h1 itemProp="headline">{project.edges.node.title}</h1>
-          <p>{project.edges.node.date}</p>
+          <h1 itemProp="headline">{project.frontmatter.title}</h1>
+          {/* <p>{project.edges.node.date}</p> */}
         </StyledHeader>
 
         <StyledSection
-          dangerouslySetInnerHTML={{ __html: project.html }}
+          // dangerouslySetInnerHTML={{ __html: project.body }}
           itemProp="articleBody"
-        />
+        >
+          <MDXRenderer>
+            {project.body}
+          </MDXRenderer>
+        </StyledSection>
         <hr />
         <footer></footer>
         <nav className="blog-post-nav">
