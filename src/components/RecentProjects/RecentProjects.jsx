@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React from "react"
+import useRecentProjects from '../../hooks/useRecentProjects';
 import { Button } from "../../helpers/Button/Button"
 import { ThemeProvider } from "styled-components"
 import {
@@ -15,10 +16,10 @@ import {
   ButtonWrap,
 
 } from "./RecentProjectsElements"
-import { useStaticQuery, graphql } from "gatsby"
 
 const RecentProjects = ({ theme }) => {
  
+  const project = useRecentProjects();
 
   return (
     <ThemeProvider theme={theme}>
@@ -27,34 +28,34 @@ const RecentProjects = ({ theme }) => {
           <ProjectTitle>Recent Projects</ProjectTitle>
           <ProjectFlex>
             <ProjectContainer>
-              {data.allProjectDataJson.edges.map(project => (
-                 <ProjectCard key={project.node.id}>
-                 <h1>{project.node.title}</h1>
-                 <p>{project.node.excerpt}</p>
-                 <ButtonWrap>
-                 <Button to={project.node.slug}>Go to project</Button>
-                 </ButtonWrap>
-                 <TechWrap>
-                   <p>Technologies used: </p>
-                   <span> {project.node.technology}</span>
-                 </TechWrap>
-                 <Links>
-                   <a
-                     href={project.node.githubLink}
-                     target="_blank"
-                     referrer="noreferrer noopener"
-                   >
-                     {project.node.githubLink ? <GithubLink /> : ""}
-                   </a>
-                   <a
-                     href={project.node.siteLink}
-                     target="_blank"
-                     referrer="noreferrer noopener"
-                   >
-                     {project.node.siteLink ? <SiteLink /> : ""}
-                   </a>
-                 </Links>
-               </ProjectCard>
+              {project.map((project) => ( 
+                  <ProjectCard key={project.id}>
+                  <h1>{project.title}</h1>
+                  <p>{project.excerpt}</p>
+                  <ButtonWrap>
+                  <Button to={project.slug}>Go to project</Button>
+                  </ButtonWrap>
+                  <TechWrap>
+                    <p>Technologies used: </p>
+                    <span> {project.technology}</span>
+                  </TechWrap>
+                  <Links>
+                    <a
+                      href={project.githubLink}
+                      target="_blank"
+                      referrer="noreferrer noopener"
+                    >
+                      {project.githubLink ? <GithubLink /> : ""}
+                    </a>
+                    <a
+                      href={project.siteLink}
+                      target="_blank"
+                      referrer="noreferrer noopener"
+                    >
+                      {project.siteLink ? <SiteLink /> : ""}
+                    </a>
+                  </Links>
+                </ProjectCard>
               ))}
             </ProjectContainer>
           </ProjectFlex>

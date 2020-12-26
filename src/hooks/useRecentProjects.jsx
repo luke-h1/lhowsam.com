@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 const useProjects = () => {
   const data = useStaticQuery(graphql`
   query  {
-    allMdx {
+    allMdx(limit: 3) {
       nodes {
         frontmatter {
           title

@@ -5,6 +5,6 @@ export default {
     secondary: 'indigo',
     muted: 'grey',
     text: 'purple',
-    background: 'white',
+    background: '#F6F7F8',
   },
 };
