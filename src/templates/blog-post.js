@@ -31,10 +31,10 @@ const BlogPostTemplate = ({ data, location }) => {
             {post.frontmatter.date}
           </StyledP>
         </StyledHeader>
-
         <StyledSection
           style={{
             color: "#000",
+            maxWidth: '80%',
           }}
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
