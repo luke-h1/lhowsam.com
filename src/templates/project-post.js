@@ -14,6 +14,7 @@ import {
   SiteLink,
   StyledA,
   StyledP,
+  StyledH1,
 } from "./BlogPostElements.jsx"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
@@ -40,7 +41,7 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
       />
       <StyledArticle>
         <StyledHeader>
-          <h1 itemProp="headline">{project.frontmatter.title}</h1>
+          <StyledH1 itemProp="headline">{project.frontmatter.title}</StyledH1>
           {/* <p>{project.edges.node.date}</p> */}
           <IconWrapper>
             {/* TODO: MAP THRU LINKS HERE
