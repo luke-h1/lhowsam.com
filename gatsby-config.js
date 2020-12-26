@@ -20,6 +20,7 @@ module.exports = {
         path: './src/data/',
       },
     },
+
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -35,6 +36,8 @@ module.exports = {
         },
       },
     },
+    'gatsby-plugin-theme-ui',
+
     {
       resolve: 'gatsby-source-filesystem',
       options: {
