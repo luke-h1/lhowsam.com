@@ -18,24 +18,7 @@ import {
 import { useStaticQuery, graphql } from "gatsby"
 
 const RecentProjects = ({ theme }) => {
-  const data = useStaticQuery(graphql`
-  query  {
-    allProjectDataJson(limit: 2, skip: 2) {
-      edges {
-        node {
-          description
-          githubLink
-          id
-          siteLink
-          slug
-          technology
-          title
-        }
-      }
-    }
-  }
-  
-  `)
+ 
 
   return (
     <ThemeProvider theme={theme}>

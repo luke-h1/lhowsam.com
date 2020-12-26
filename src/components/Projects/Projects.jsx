@@ -30,8 +30,7 @@ const Projects = ({ theme }) => {
           <ProjectGrid>
             {projects.map(project => (
               <ProjectCard key={project.id}>
-                <h1>{project.title}</h1>
-                <p>{project.excerpt}</p>
+                <h1 style={{ color: '#000' }}>{project.title}</h1>
                 <ButtonWrap>
                 <Button to={project.slug}>Go to project</Button>
                 </ButtonWrap>

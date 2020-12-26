@@ -3,29 +3,28 @@ import { graphql, useStaticQuery } from 'gatsby';
 const useProjects = () => {
   const data = useStaticQuery(graphql`
   query MyQuery {
-    allProjectDataJson {
-      edges {
-        node {
-          description
-          githubLink
-          id
-          siteLink
-          slug
-          technology
+    allMdx {
+      nodes {
+        frontmatter {
           title
+          technology
+          siteLink
+          githubLink
+          slug
         }
+        id
       }
     }
-  }  
+  }
   `)
-  return data.allProjectDataJson.edges.map((project) => ({
-    description: project.node.description,
-    githubLink: project.node.githubLink,
-    siteLink: project.node.siteLink,
-    id: project.node.id,
-    slug: project.node.slug,
-    technology: project.node.technology,
-    title: project.node.title,
+  return data.allMdx.nodes.map((project) => ({
+    title: project.frontmatter.title,
+    description: project.frontmatter.title,
+    githubLink: project.frontmatter.githubLink,
+    siteLink: project.frontmatter.siteLink,
+    id: project.id,
+    slug: project.frontmatter.slug,
+    technology: project.frontmatter.technology,
   }))
 }
 export default useProjects;
