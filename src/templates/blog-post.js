@@ -9,8 +9,9 @@ import {
   StyledHeader,
   StyledSection,
   StyledLink,
-  
-} from './BlogPostElements.jsx';
+  StyledH1,
+  StyledP,
+} from "./BlogPostElements.jsx"
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark
@@ -25,16 +26,23 @@ const BlogPostTemplate = ({ data, location }) => {
       />
       <StyledArticle>
         <StyledHeader>
-          <h1 itemProp="headline">{post.frontmatter.title}</h1>
-          <p>{post.frontmatter.date}</p>
+          <StyledH1 itemProp="headline">{post.frontmatter.title}</StyledH1>
+          <StyledP style={{ fontSize: "15px" }}>
+            {post.frontmatter.date}
+          </StyledP>
         </StyledHeader>
 
         <StyledSection
+          style={{
+            color: "#000",
+          }}
           dangerouslySetInnerHTML={{ __html: post.html }}
           itemProp="articleBody"
         />
         <hr />
-        <footer></footer>
+        <br />
+        <br />
+        <br />
         <nav className="blog-post-nav">
           <ul
             style={{
