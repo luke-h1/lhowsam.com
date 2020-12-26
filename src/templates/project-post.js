@@ -1,34 +1,34 @@
 /* eslint-disable */
 import React from "react"
-import {graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import styled from 'styled-components';
 
 import {
   StyledArticle,
   StyledHeader,
   StyledSection,
   StyledLink,
-  
-} from './BlogPostElements.jsx';
-import { MDXRenderer } from "gatsby-plugin-mdx";
+  IconWrapper,
+  GithubLink,
+  SiteLink,
+  StyledA,
+  StyledP,
+} from "./BlogPostElements.jsx"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
 export const query = graphql`
-  query($slug: String!){
-    mdx(frontmatter: { slug: { eq: $slug } }){
-      frontmatter { 
-        title 
+  query($slug: String!) {
+    mdx(frontmatter: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
       }
       body
     }
   }
 `
 
-
-
-
-const ProjectTemplate = ({ data: { mdx: project }}) => {
+const ProjectTemplate = ({ data: { mdx: project } }) => {
   // const project = data.allProjectDataJson
   // const { previous, next } = data
 
@@ -42,15 +42,23 @@ const ProjectTemplate = ({ data: { mdx: project }}) => {
         <StyledHeader>
           <h1 itemProp="headline">{project.frontmatter.title}</h1>
           {/* <p>{project.edges.node.date}</p> */}
+          <IconWrapper>
+            {/* TODO: MAP THRU LINKS HERE
+                TODO: FIGURE OUT WHY RETURNING UNDEFINED 
+            */}
+          </IconWrapper>
         </StyledHeader>
 
         <StyledSection
           // dangerouslySetInnerHTML={{ __html: project.body }}
           itemProp="articleBody"
         >
+          <StyledP
+          >
           <MDXRenderer>
             {project.body}
           </MDXRenderer>
+          </StyledP>
         </StyledSection>
         <hr />
         <footer></footer>
@@ -85,10 +93,7 @@ const ProjectTemplate = ({ data: { mdx: project }}) => {
   )
 }
 
-export default ProjectTemplate;
-
-
-
+export default ProjectTemplate
 
 // export const pageQuery = graphql`
 //   query BlogPostBySlug(
