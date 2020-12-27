@@ -1,8 +1,8 @@
-/* eslint-disable react/no-danger */
-/* eslint-disable react/prop-types */
+/* eslint-disable */
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import usePosts from '../../hooks/usePosts';
+import SEO from '../seo';
 import {
   BlogArticle,
   BlogContainer,
@@ -19,6 +19,8 @@ const Blog = ({ theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
+      <SEO title="Blog" />
+
         <BlogContainer>
           <BlogIntro>
             <h1>Blog</h1>

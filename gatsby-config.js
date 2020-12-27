@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
+    title: 'lhowsam',
     author: {
-      name: 'Kyle Mathews',
-      summary: 'who lives and works in San Francisco building useful things.',
+      name: 'Luke howsam',
+      summary: 'who lives and works in Sheffield.',
     },
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsby-starter-blog-demo.netlify.app/',
+    description: 'My personal portfolio built with Gatsby & styled components :) ',
+    siteUrl: 'https://lhowsam.com',
     social: {
-      twitter: 'kylemathews',
+      twitter: 'lukeH_1999',
     },
   },
   plugins: [
@@ -77,13 +77,13 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'Gatsby Starter Blog',
+        name: 'lhowsam.com',
         short_name: 'GatsbyJS',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'content/assets/gatsby-icon.png',
+        icon: 'content/assets/logo512.png',
       },
     },
     'gatsby-plugin-react-helmet',

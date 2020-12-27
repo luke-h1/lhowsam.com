@@ -2,6 +2,8 @@
 import React from 'react';
 import { ThemeProvider, css } from 'styled-components/macro';
 import { Button } from '../../helpers/Button/Button';
+import SEO from '../seo';
+
 import {
   HeroContainer,
   IntroContainer,
@@ -12,6 +14,8 @@ import {
 const Hero = ({ theme }) => (
   <ThemeProvider theme={theme}>
     <>
+    <SEO title="Home" />
+
       <HeroContainer>
         <IntroContainer>
           <h1>Hi, I'm Luke</h1>

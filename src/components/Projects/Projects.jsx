@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
+/* eslint-disable */
 import React from 'react';
+import SEO from '../seo';
 import { ThemeProvider } from 'styled-components';
 import { Button } from '../../helpers/Button/Button';
 import useProjects from '../../hooks/useProjects';
@@ -22,6 +23,8 @@ const Projects = ({ theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
+      <SEO title="Projects" />
+
         <ProjectContainer>
           <ProjectIntro>
             <h1>Projects</h1>

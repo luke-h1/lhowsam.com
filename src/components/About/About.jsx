@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-
+import SEO from '../seo';
 import { ThemeProvider } from 'styled-components';
 import {
   AboutContainer,
@@ -36,6 +36,8 @@ const About = ({ theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
+      <SEO title="About" />
+
         <AboutContainer>
           <AboutIntro>
             <h1>About</h1>

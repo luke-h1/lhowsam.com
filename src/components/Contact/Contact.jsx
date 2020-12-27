@@ -1,5 +1,8 @@
+/* eslint-disable */
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
+import SEO from '../seo';
+
 import {
   ContactWrapper,
   Alternatives,
@@ -14,6 +17,8 @@ import {
 const Contact = () => (
   <IconContext.Provider value={{ color: '#fff', size: 64 }}>
     <>
+    <SEO title="Contact" />
+
       <ContactContainer>
         <ContactIntro>
           <h1>Get In Touch</h1>
