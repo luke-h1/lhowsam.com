@@ -1,18 +1,18 @@
 /* eslint-disable */
-import styled from 'styled-components';
-import { DiGithubBadge } from 'react-icons/di';
-import { IoIosBrowsers } from 'react-icons/io';
+import styled from "styled-components"
+import { DiGithubBadge } from "react-icons/di"
+import { IoIosBrowsers } from "react-icons/io"
 
 export const ProjectContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: left;
   align-items: left;
-  background: ${(props) => props.theme.BlueBackgroundColor};
+  background: ${props => props.theme.BlueBackgroundColor};
   min-height: 65vh;
-  h1 { 
+  h1 {
     font-size: clamp(1rem, 8vw, 2.7rem);
-    color: ${(props) => props.theme.lightTextColor};
+    color: ${props => props.theme.lightTextColor};
     font-weight: 700;
     text-align: left;
   }
@@ -23,13 +23,16 @@ export const TechWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  p { 
-    margin: 1rem 0 12px 0 ;
-    border-bottom: 1px solid #000;
+  p {
+    margin: 1rem 0 12px 0;
+    border-bottom: 1px solid ${props => props.theme.textColor};
+
     font-weight: 700;
+    color: ${props => props.theme.textColor};
   }
-  span { 
+  span {
     font-weight: 700;
+    color: ${(props) => props.theme.textColor};
   }
 `
 
@@ -38,15 +41,14 @@ export const Links = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-   a { 
-     margin: 0 5px 0 5px;
-   }
+  a {
+    margin: 0 5px 0 5px;
+  }
 `
 
 export const GithubLink = styled(DiGithubBadge)`
   color: #000;
   font-size: 35px;
-
 `
 
 export const SiteLink = styled(IoIosBrowsers)`
@@ -59,9 +61,9 @@ export const ProjectIntro = styled.div`
 `
 
 export const ProjectFlex = styled.div`
-background: ${(props) => props.theme.secondaryBackgroundColor};
-min-height: 50vh;
-padding: 2rem;
+  background: ${props => props.theme.secondaryBackgroundColor};
+  min-height: 50vh;
+  padding: 2rem;
 `
 
 export const ProjectGrid = styled.div`

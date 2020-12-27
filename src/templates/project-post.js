@@ -25,6 +25,13 @@ export const query = graphql`
         title
         siteLink
         githubLink
+        image {
+           childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
       }
       body
     }
@@ -43,13 +50,9 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
       />
       <StyledArticle>
         <StyledHeader>
-          <StyledH1 itemProp="headline">{project.frontmatter.title}</StyledH1>
+          <StyledH1>{project.frontmatter.title}</StyledH1>
           {/* <p>{project.edges.node.date}</p> */}
-          <IconWrapper>
-            {/* TODO: MAP THRU LINKS HERE
-                TODO: FIGURE OUT WHY RETURNING UNDEFINED 
-            */}
-          </IconWrapper>
+            <img src={project.frontmatter.image.childImageSharp.fluid.src} /> 
         </StyledHeader>
 
         <StyledSection
