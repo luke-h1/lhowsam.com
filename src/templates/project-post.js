@@ -52,6 +52,22 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
       <StyledArticle>
         <StyledHeader>
           <StyledH1>{project.frontmatter.title}</StyledH1>
+          <IconWrapper>
+              {project.frontmatter.siteLink !== "" ? (
+                <a href={project.frontmatter.siteLink}>
+                  <SiteLink />
+                </a>
+              ) : (
+                ""
+              )}
+              {project.frontmatter.githubLink !== "" ? (
+                <a href={project.frontmatter.githubLink}>
+                  <GithubLink />
+                </a>
+              ) : (
+                ""
+              )}
+            </IconWrapper>
           {/* <p>{project.edges.node.date}</p> */}
           <WrapImage>
             <img src={project.frontmatter.image.childImageSharp.fluid.src} /> 
@@ -78,7 +94,7 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
               padding: 0,
             }}
           >
-            <IconWrapper>
+            {/* <IconWrapper>
               {project.frontmatter.siteLink !== "" ? (
                 <a href={project.frontmatter.siteLink}>
                   <SiteLink />
@@ -93,7 +109,7 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
               ) : (
                 ""
               )}
-            </IconWrapper>
+            </IconWrapper> */}
           </ul>
         </nav>
         
