@@ -15,6 +15,7 @@ import {
   StyledA,
   StyledP,
   StyledH1,
+  WrapImage,
 } from "./BlogPostElements.jsx"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
@@ -52,7 +53,9 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
         <StyledHeader>
           <StyledH1>{project.frontmatter.title}</StyledH1>
           {/* <p>{project.edges.node.date}</p> */}
+          <WrapImage>
             <img src={project.frontmatter.image.childImageSharp.fluid.src} /> 
+            </WrapImage>
         </StyledHeader>
 
         <StyledSection

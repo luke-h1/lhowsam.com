@@ -14,6 +14,10 @@ export const ProjectContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 15px;
   margin: 0 auto;
+  @media(max-width: 772px){
+    grid-template-columns: repeat(1, 1fr);
+
+  }
 `
 export const ProjectCard = styled.div`
   background-color: #fff;
@@ -29,6 +33,7 @@ export const ProjectCard = styled.div`
     font-size: 25px;
   }
 `
+// 772 
 
 export const ProjectFlex = styled.div`
   display: flex;

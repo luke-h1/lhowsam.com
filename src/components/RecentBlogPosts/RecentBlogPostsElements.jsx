@@ -29,7 +29,6 @@ export const BlogTitleWrap = styled.div`
   justify-content: left;
   align-items: left;
 `
-
 export const BlogList = styled.li`
   padding-left: 0;
   color: ${(props) => props.theme.textColor};
@@ -37,6 +36,7 @@ export const BlogList = styled.li`
   p { 
     margin-bottom: calc((2rem) / 2); 
     color: ${(props) => props.theme.textColor};
+    width: 70%;
 
   }
   *:last-child { 

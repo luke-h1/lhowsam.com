@@ -15,7 +15,6 @@ export const BlogContainer = styled.div`
     text-align: left;
     font-weight: 700;
   }
-
 `
 
 export const BlogIntro = styled.div`
@@ -70,13 +69,16 @@ export const BlogArticle = styled.article`
   }
 `
 
-
 export const BlogHeader = styled.header`
   margin-bottom: 1rem;
   color: ${(props) => props.theme.primaryColor};
 
 `
 
-export const BlogSection = styled.section``
+export const BlogSection = styled.section`
+p { 
+  width: 70%;
+}
+`
 
 export const BlogLink = styled(Link)``

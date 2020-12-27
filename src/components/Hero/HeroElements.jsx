@@ -23,6 +23,9 @@ export const HeroContainer = styled.div`
     width: 50%;
     font-size: clamp(1rem, 8vw, 1.5rem);
     font-weight: bold;
+    @media(max-width: 600px){
+      width: 60%;
+    }
   }
 `;
 
@@ -40,6 +43,9 @@ export const BlurbContainer = styled.div`
   justify-content: left;
   align-items: left;
   max-width: 100vw;
+  @media(max-width: 600px){
+    margin-bottom: 1rem;
+  }
 `
 
 export const ButtonWrapper = styled.div`

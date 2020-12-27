@@ -17,6 +17,8 @@ export const ProjectContainer = styled.div`
     text-align: left;
   }
 `
+// 1139
+
 
 export const TechWrap = styled.div`
   display: flex;
@@ -70,6 +72,17 @@ export const ProjectGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 10px;
+  @media(max-width: 1139px){
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media(max-width: 764px){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
 `
 
 export const ProjectCard = styled.div`

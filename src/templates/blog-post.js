@@ -11,6 +11,7 @@ import {
   StyledLink,
   StyledH1,
   StyledP,
+  BlogArticle,
 } from "./BlogPostElements.jsx"
 
 const BlogPostTemplate = ({ data, location }) => {
@@ -24,7 +25,7 @@ const BlogPostTemplate = ({ data, location }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <StyledArticle>
+      <BlogArticle>
         <StyledHeader>
           <StyledH1 itemProp="headline">{post.frontmatter.title}</StyledH1>
           <StyledP style={{ fontSize: "15px" }}>
@@ -69,7 +70,7 @@ const BlogPostTemplate = ({ data, location }) => {
             </li>
           </ul>
         </nav>
-      </StyledArticle>
+      </BlogArticle>
     </Layout>
   )
 }

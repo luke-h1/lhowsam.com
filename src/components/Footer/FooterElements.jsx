@@ -25,6 +25,7 @@ export const FooterWrap = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 100vw;
+  background: ${(props) => props.theme.secondaryBackgroundColor};
 `;
 
 export const SocialMedia = styled.section`
