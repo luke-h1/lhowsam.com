@@ -50,6 +50,8 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
+    "babel-jest": "^26.6.3",
+    "babel-preset-gatsby": "^0.9.1",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
@@ -57,6 +59,7 @@
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^1.7.0",
     "gatsby-plugin-eslint": "^2.0.8",
+    "jest": "^26.6.3",
     "prettier": "2.2.1"
   },
   "homepage": "",
@@ -76,11 +79,12 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "lint:fix": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
     "pre-commit": "npm run lint && npm run format && npm run test",
-    "deep-clean": "npm run clean && rm -rf node_modules package-lock.json && npm i --legacy-peer-deps"
+    "deep-clean": "npm run clean && rm -rf node_modules package-lock.json && npm i --legacy-peer-deps",
+    "test": "jest --silent",
+    "jest:update": "jest --silent -u"
   },
   "husky": {
     "hooks": {
