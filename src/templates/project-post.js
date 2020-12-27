@@ -19,6 +19,8 @@ import {
 } from "./BlogPostElements.jsx"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
+
+
 export const query = graphql`
   query($slug: String!) {
     mdx(frontmatter: { slug: { eq: $slug } }) {

@@ -1,6 +1,5 @@
 /* eslint-disable */
 import styled from "styled-components"
-
 export const AboutContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -116,3 +115,4 @@ export const Image = styled.img`
     display: inline-block;
   }
 `
+
