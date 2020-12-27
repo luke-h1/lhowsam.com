@@ -1,6 +1,8 @@
+/* eslint-disable import/no-extraneous-dependencies */
 require('dotenv').config({
-  path: `.env.${process.env.NODE_ENV}`
-})
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
     title: 'lhowsam',
