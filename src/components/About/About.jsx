@@ -25,7 +25,7 @@ const About = ({ theme }) => {
   query {
     image: file(relativePath: {eq: "luke.png"}) {
       sharp: childImageSharp {
-        fluid {
+        fluid(grayscale: true) {
           ...GatsbyImageSharpFluid_withWebp
         }
       }
