@@ -18,12 +18,13 @@ const Hero = ({theme}) => {
       <IntroContainer>
         <h1>Hi, I'm Luke</h1>
         <BlurbContainer>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit minima at nulla quis quam eaque maxime dignissimos rerum? Laudantium, sint vel? Soluta adipisci fugiat quas! Accusantium impedit ab quis enim?</p>
+        <p>I'm passionate about solving technical problems and coming up with creative solutions.I enjoy working with the JAMstack, React, Node, testing technologies + practices & various dev-ops technologies</p>
         <Button
-
         css={`
         width: 200px;
         margin-top: 1rem;
+        align-items: center;
+        text-align: center;
         `}
           round='true'
           primary='true'
