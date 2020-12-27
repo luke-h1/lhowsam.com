@@ -6,12 +6,12 @@ description: my favorite vscode themes
 ---
 
 
-
 ### 1 -  SynthWave 84 
 
 <a href="https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode" target="_blank" referrer="noopener norefferer">Link to theme</a> 
 
-![synthwave vscode theme]('./cyberpunk.jpeg')
+
+![synthwave vscode theme](./synthwave.jpg)
 
 
 
@@ -20,11 +20,11 @@ description: my favorite vscode themes
 <a href="https://marketplace.visualstudio.com/items?itemName=max-SS.cyberpunk" target="_blank" referrer="noopener norefferer">Link to theme</a> 
 
 
-![cyberpunk vs code theme](cyberpunk)
+![cyberpunk vs code theme](./cyberpunk.jpg)
 
 
 ### 3 - Tokyo Night 
 <a href="https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night" target="_blank" referrer="noopener norefferer">Link to theme</a> 
 
 
-![tokyo night vscode theme](tokyoNight)
+![tokyo night vscode theme](./tokyo-night.jpg)
