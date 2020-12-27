@@ -23,6 +23,8 @@ export const query = graphql`
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
+        siteLink
+        githubLink
       }
       body
     }
@@ -54,11 +56,8 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
           // dangerouslySetInnerHTML={{ __html: project.body }}
           itemProp="articleBody"
         >
-          <StyledP
-          >
-          <MDXRenderer>
-            {project.body}
-          </MDXRenderer>
+          <StyledP>
+            <MDXRenderer>{project.body}</MDXRenderer>
           </StyledP>
         </StyledSection>
         <hr />
@@ -73,22 +72,32 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
               padding: 0,
             }}
           >
-            {/* <li>
-              {previous && (
-                <StyledLink to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
-                </StyledLink>
+            <IconWrapper>
+              {project.frontmatter.siteLink !== "" ? (
+                <a href={project.frontmatter.siteLink}>
+                  <SiteLink />
+                </a>
+              ) : (
+                ""
               )}
-            </li>
-            <li>
-              {next && (
-                <StyledLink to={next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </StyledLink>
+              {project.frontmatter.githubLink !== "" ? (
+                <a href={project.frontmatter.githubLink}>
+                  <GithubLink />
+                </a>
+              ) : (
+                ""
               )}
-            </li> */}
+            </IconWrapper>
           </ul>
         </nav>
+        
+        <StyledLink to='/projects'
+          style={{ 
+              marginTop: '2.5rem',
+              fontSize: '19px'
+
+           }}
+        >Back to projects</StyledLink>
       </StyledArticle>
     </Layout>
   )

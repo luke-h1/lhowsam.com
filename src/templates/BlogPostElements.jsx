@@ -45,20 +45,28 @@ export const StyledLink = styled(Link)`
 
 export const IconWrapper = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: space-between;
   justify-content: center;
   align-items: center;
   color: ${props => props.theme.textColor};
+  a  { 
+    margin: 0 10px 0 10px;
+  }
 `
 
 export const GithubLink = styled(DiGithubBadge)`
   color: ${props => props.theme.textColor};
   font-size: 35px;
+  &:hover { 
+    color: ${props => props.theme.PrimaryHoverColor};
+  }
 `
 
 export const SiteLink = styled(IoIosBrowsers)`
   color: ${props => props.theme.textColor};
-
+  &:hover { 
+    color: ${props => props.theme.PrimaryHoverColor};
+  }
   font-size: 35px;
 `
 

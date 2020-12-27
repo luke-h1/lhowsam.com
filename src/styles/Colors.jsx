@@ -14,7 +14,7 @@ export const dark = {
 export const blue = {
   100: '#021986',
   200: "#0804b8",
-  300: '#2EC4B6',
+  300: '#6CCFF6',
 }
 
 export const green = { 
