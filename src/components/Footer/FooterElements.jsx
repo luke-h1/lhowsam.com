@@ -4,10 +4,11 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 export const FooterContainer = styled.footer`
- position: sticky;
+  position: relative;
   bottom: 0px;
   width: 100%;
   margin: 0;
+  background: ${(props) => props.theme.secondaryBackgroundColor};
   min-height: 60px;
   @media(min-width: 680px){
     height: 80px;
