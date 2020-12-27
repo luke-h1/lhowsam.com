@@ -52,7 +52,7 @@ npm run serve
 
 ### Lint
 
-Lint the code according to the Airbnb eslint config 
+Lint the code according to the Airbnb style guide
 
 ```shell
 npm run lint
