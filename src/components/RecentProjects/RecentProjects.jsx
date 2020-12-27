@@ -1,8 +1,9 @@
-/* eslint-disable */
-import React from "react"
+/* eslint-disable no-shadow */
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
 import useRecentProjects from '../../hooks/useRecentProjects';
-import { Button } from "../../helpers/Button/Button"
-import { ThemeProvider } from "styled-components"
+import { Button } from '../../helpers/Button/Button';
 import {
   ProjectCard,
   ProjectContainer,
@@ -15,10 +16,9 @@ import {
   SiteLink,
   ButtonWrap,
 
-} from "./RecentProjectsElements"
+} from './RecentProjectsElements';
 
 const RecentProjects = ({ theme }) => {
- 
   const project = useRecentProjects();
 
   return (
@@ -28,31 +28,34 @@ const RecentProjects = ({ theme }) => {
           <ProjectTitle>Recent Projects</ProjectTitle>
           <ProjectFlex>
             <ProjectContainer>
-              {project.map((project) => ( 
-                  <ProjectCard key={project.id}>
+              {project.map((project) => (
+                <ProjectCard key={project.id}>
                   <h1>{project.title}</h1>
                   <p>{project.excerpt}</p>
                   <ButtonWrap>
-                  <Button to={project.slug}>Go to project</Button>
+                    <Button to={project.slug}>Go to project</Button>
                   </ButtonWrap>
                   <TechWrap>
                     <p>Technologies used: </p>
-                    <span> {project.technology}</span>
+                    <span>
+                      {' '}
+                      {project.technology}
+                    </span>
                   </TechWrap>
                   <Links>
                     <a
                       href={project.githubLink}
                       target="_blank"
-                      referrer="noreferrer noopener"
+                      rel="noreferrer"
                     >
-                      {project.githubLink ? <GithubLink /> : ""}
+                      {project.githubLink ? <GithubLink /> : ''}
                     </a>
                     <a
                       href={project.siteLink}
                       target="_blank"
-                      referrer="noreferrer noopener"
+                      rel="noreferrer"
                     >
-                      {project.siteLink ? <SiteLink /> : ""}
+                      {project.siteLink ? <SiteLink /> : ''}
                     </a>
                   </Links>
                 </ProjectCard>
@@ -62,6 +65,6 @@ const RecentProjects = ({ theme }) => {
         </ProjectWrap>
       </>
     </ThemeProvider>
-  )
-}
-export default RecentProjects
+  );
+};
+export default RecentProjects;

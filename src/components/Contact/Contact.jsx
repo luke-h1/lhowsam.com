@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react';
 import { IconContext } from 'react-icons/lib';
 import {
@@ -19,7 +18,7 @@ const Contact = () => (
         <ContactIntro>
           <h1>Get In Touch</h1>
         </ContactIntro>
-        </ContactContainer>
+      </ContactContainer>
       <ContactWrapper>
         <Alternatives>
           <h3>You can reach me on:</h3>

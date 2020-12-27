@@ -1,9 +1,4 @@
-/**
- * Bio component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
+/* eslint-disable */
 
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"

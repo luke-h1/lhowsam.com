@@ -1,8 +1,8 @@
-/* eslint-disable */
-import React from "react"
-import { ThemeProvider } from "styled-components"
-import { Button } from "../../helpers/Button/Button"
-import useProjects from "../../hooks/useProjects"
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import { Button } from '../../helpers/Button/Button';
+import useProjects from '../../hooks/useProjects';
 import {
   ProjectContainer,
   ProjectFlex,
@@ -14,9 +14,10 @@ import {
   GithubLink,
   SiteLink,
   ButtonWrap,
-} from "./ProjectsElements"
+} from './ProjectsElements';
+
 const Projects = ({ theme }) => {
-  const projects = useProjects()
+  const projects = useProjects();
 
   return (
     <ThemeProvider theme={theme}>
@@ -28,30 +29,32 @@ const Projects = ({ theme }) => {
         </ProjectContainer>
         <ProjectFlex>
           <ProjectGrid>
-            {projects.map(project => (
+            {projects.map((project) => (
               <ProjectCard key={project.id}>
                 <h1 style={{ color: '#000' }}>{project.title}</h1>
                 <ButtonWrap>
-                <Button to={project.slug}>Go to project</Button>
+                  <Button to={project.slug}>Go to project</Button>
                 </ButtonWrap>
                 <TechWrap>
                   <p>Technologies used: </p>
-                  <span> {project.technology}</span>
+                  <span>
+                    {' '}
+                    {project.technology}
+                  </span>
                 </TechWrap>
                 <Links>
                   <a
                     href={project.githubLink}
                     target="_blank"
-                    referrer="noreferrer noopener"
+                    rel="noreferrer"
                   >
-                    {project.githubLink ? <GithubLink /> : ""}
+                    {project.githubLink ? <GithubLink /> : ''}
                   </a>
                   <a
                     href={project.siteLink}
-                    target="_blank"
-                    referrer="noreferrer noopener"
+                    rel="noreferrer"
                   >
-                    {project.siteLink ? <SiteLink /> : ""}
+                    {project.siteLink ? <SiteLink /> : ''}
                   </a>
                 </Links>
               </ProjectCard>
@@ -60,6 +63,6 @@ const Projects = ({ theme }) => {
         </ProjectFlex>
       </>
     </ThemeProvider>
-  )
-}
-export default Projects
+  );
+};
+export default Projects;

@@ -1,41 +1,40 @@
 /* eslint-disable */
 import React from 'react';
-import { Button } from '../../helpers/Button/Button';
 import { ThemeProvider, css } from 'styled-components/macro';
+import { Button } from '../../helpers/Button/Button';
 import {
   HeroContainer,
   IntroContainer,
-  ButtonWrapper,
   BlurbContainer,
 
 } from './HeroElements';
 
-const Hero = ({theme}) => {
-  return (
-    <ThemeProvider theme={theme}>
+const Hero = ({ theme }) => (
+  <ThemeProvider theme={theme}>
     <>
-    <HeroContainer>
-      <IntroContainer>
-        <h1>Hi, I'm Luke</h1>
-        <BlurbContainer>
-        <p>I'm passionate about solving technical problems and coming up with creative solutions.I enjoy working with the JAMstack, React, Node, testing technologies + practices & various dev-ops technologies</p>
-        <Button
-        css={`
-        width: 200px;
-        margin-top: 1rem;
-        align-items: center;
-        text-align: center;
-        `}
-          round='true'
-          primary='true'
-          bold='true'
-          to='/about'
-        >More About Me</Button>
-        </BlurbContainer>
-      </IntroContainer>
-    </HeroContainer>
+      <HeroContainer>
+        <IntroContainer>
+          <h1>Hi, I'm Luke</h1>
+          <BlurbContainer>
+            <p>I'm passionate about solving technical problems and coming up with creative solutions.I enjoy working with the JAMstack, React, Node, testing technologies + practices & various dev-ops technologies</p>
+            <Button
+              css={`
+              width: 200px;
+              margin-top: 1rem;
+              align-items: center;
+              text-align: center;
+              `}
+              round="true"
+              primary="true"
+              bold="true"
+              to="/about"
+            >
+              More About Me
+            </Button>
+          </BlurbContainer>
+        </IntroContainer>
+      </HeroContainer>
     </>
-    </ThemeProvider>
-  )
-}
+  </ThemeProvider>
+);
 export default Hero;

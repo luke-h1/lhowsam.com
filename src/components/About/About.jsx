@@ -1,8 +1,8 @@
 /* eslint-disable */
-import React from "react";
+import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import { ThemeProvider } from "styled-components"
+import { ThemeProvider } from 'styled-components';
 import {
   AboutContainer,
   AboutFlex,
@@ -18,7 +18,8 @@ import {
   SubTitle,
   ImgWrapper,
   Image,
-} from "./AboutElements"
+} from './AboutElements';
+
 const About = ({ theme }) => {
   const { image } = useStaticQuery(graphql`
   query {
@@ -39,33 +40,34 @@ const About = ({ theme }) => {
           <AboutIntro>
             <h1>About</h1>
           </AboutIntro>
-          </AboutContainer>
-          <AboutFlex>
-            <AboutSection>
-              <Container>
-                <Row>
-                  <Col>
-                    <TextWrapper>
-                      <TopLine></TopLine>
-                      <Heading>Hi, I'm luke. I enjoy working with React, Node & various testing technologies.
+        </AboutContainer>
+        <AboutFlex>
+          <AboutSection>
+            <Container>
+              <Row>
+                <Col>
+                  <TextWrapper>
+                    <TopLine />
+                    <Heading>
+                      Hi, I'm luke. I enjoy working with React, Node & various testing technologies.
                       <br />
-                      <br />  
+                      <br />
                       I'm passionate about various web technologies and making the web fast & accesible to everyone. I strive to write clean, robust & reusable code.
-                      </Heading>
-                      <SubTitle></SubTitle>
-                    </TextWrapper>
-                  </Col>
-                  <Col2>
-                    <ImgWrapper>
-                      <Image src={image.sharp.fluid.src} />
-                    </ImgWrapper>
-                  </Col2>
-                </Row>
-              </Container>
-            </AboutSection>
-          </AboutFlex>
+                    </Heading>
+                    <SubTitle />
+                  </TextWrapper>
+                </Col>
+                <Col2>
+                  <ImgWrapper>
+                    <Image src={image.sharp.fluid.src} />
+                  </ImgWrapper>
+                </Col2>
+              </Row>
+            </Container>
+          </AboutSection>
+        </AboutFlex>
       </>
     </ThemeProvider>
-  )
-}
-export default About
+  );
+};
+export default About;

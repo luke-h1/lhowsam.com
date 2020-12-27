@@ -1,8 +1,9 @@
-/* eslint-disable */
-import React from "react"
-import { ThemeProvider } from "styled-components";
+/* eslint-disable react/no-danger */
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
 import usePosts from '../../hooks/usePosts';
-import { 
+import {
   BlogArticle,
   BlogContainer,
   BlogFlex,
@@ -10,10 +11,10 @@ import {
   BlogIntro,
   BlogList,
   BlogLink,
-  BlogSection
+  BlogSection,
 } from './BlogElements';
 
-const Blog = ({theme}) => {
+const Blog = ({ theme }) => {
   const posts = usePosts();
   return (
     <ThemeProvider theme={theme}>
@@ -24,7 +25,7 @@ const Blog = ({theme}) => {
           </BlogIntro>
         </BlogContainer>
         <BlogFlex>
-          {posts.map(post => (
+          {posts.map((post) => (
             <BlogList key={post.slug}>
               <BlogArticle>
                 <BlogHeader>
@@ -40,7 +41,7 @@ const Blog = ({theme}) => {
                     dangerouslySetInnerHTML={{
                       __html: post.description || post.excerpt,
                     }}
-                  ></p>
+                  />
                 </BlogSection>
               </BlogArticle>
             </BlogList>
@@ -48,6 +49,6 @@ const Blog = ({theme}) => {
         </BlogFlex>
       </>
     </ThemeProvider>
-  )
-}
-export default Blog
+  );
+};
+export default Blog;
