@@ -5,7 +5,8 @@ module.exports = {
       name: 'Luke howsam',
       summary: 'who lives and works in Sheffield.',
     },
-    description: 'My personal portfolio built with Gatsby & styled components :) ',
+    description:
+      'My personal portfolio built with Gatsby & styled components :) ',
     siteUrl: 'https://lhowsam.com',
     social: {
       twitter: 'lukeH_1999',
@@ -69,7 +70,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        // trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: process.env.GOOGLE_ANALYTICS_KEY,
       },
     },
     'gatsby-plugin-feed',
