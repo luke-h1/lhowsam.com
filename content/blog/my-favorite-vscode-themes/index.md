@@ -12,9 +12,6 @@ description: my favorite vscode themes
 
 
 
-
-
-
 ### 2 - Cyberpunk 
 
 <a href="https://marketplace.visualstudio.com/items?itemName=max-SS.cyberpunk" target="_blank" referrer="noopener norefferer">Link to theme</a> 
