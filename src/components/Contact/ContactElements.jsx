@@ -27,11 +27,10 @@ export const ContactIntro = styled.div`
 `
 
 export const ContactWrapper = styled.div`
-  min-height: 25vh;
+  min-height: 40vh;
   min-width: 100vw;
   background-color: ${(props) => props.theme.secondaryBackgroundColor}; 
   display: flex;
-  padding-bottom: 2rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
