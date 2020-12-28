@@ -38,12 +38,9 @@ const BlogPostTemplate = ({ data, location }) => {
             maxWidth: '80%',
           }}
           dangerouslySetInnerHTML={{ __html: post.html }}
-          itemProp="articleBody"
         />
-        <hr />
-        <br />
-        <br />
-        <br />
+        {/* {/* <hr />
+        <br /> */}
         <nav className="blog-post-nav">
           <ul
             style={{

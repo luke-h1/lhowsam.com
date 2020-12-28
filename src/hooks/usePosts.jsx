@@ -3,8 +3,8 @@ import { graphql, useStaticQuery } from "gatsby"
 
 const usePosts = () => {
   const data = useStaticQuery(graphql`
-  query {
-    allMarkdownRemark {
+  {
+    allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
       edges {
         node {
           excerpt
@@ -18,6 +18,7 @@ const usePosts = () => {
       }
     }
   }
+  
   `)
 
   return data.allMarkdownRemark.edges.map(post => ({
