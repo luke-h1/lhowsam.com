@@ -8,6 +8,8 @@ export const ProjectContainer = styled.div`
   flex-direction: column;
   justify-content: left;
   align-items: left;
+  padding-left: 1.5rem;
+
   background: ${props => props.theme.BlueBackgroundColor};
   min-height: 65vh;
   h1 {

@@ -13,6 +13,8 @@ export const BlogWrapper = styled.ol`
   min-width: 100vw;
   min-height: 60vh;
   padding-bottom: 2rem;
+  padding-left: 1.5rem;
+
 `
 
 export const BlogTitle = styled.h1`

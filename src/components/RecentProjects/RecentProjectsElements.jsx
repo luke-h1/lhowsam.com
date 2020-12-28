@@ -7,6 +7,8 @@ export const ProjectWrap = styled.div`
   color: ${(props) => props.theme.textColor};
   min-height: 50vh;
   min-width: 100vw;
+  padding-left: 1.5rem;
+
 `
 
 export const ProjectContainer = styled.div`

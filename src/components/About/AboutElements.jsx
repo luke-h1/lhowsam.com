@@ -5,6 +5,8 @@ export const AboutContainer = styled.div`
   flex-direction: column;
   justify-content: left;
   align-items: left;
+  padding-left: 1.5rem;
+
   background: ${props => props.theme.BlueBackgroundColor};
   min-height: 65vh;
   h1 {
@@ -26,6 +28,7 @@ export const AboutIntro = styled.div`
 export const AboutFlex = styled.div`
   min-height: 55vh;
   background: ${props => props.theme.secondaryBackgroundColor};
+
 `
 
 export const AboutSection = styled.div`

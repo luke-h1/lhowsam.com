@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const HeroContainer = styled.div`
   display: flex;
   flex-direction: column;
+  padding-left: 1.5rem;
   justify-content: left;
   align-items: center;
   background: ${(props) => props.theme.BlueBackgroundColor};

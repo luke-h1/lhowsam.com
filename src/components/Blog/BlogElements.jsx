@@ -7,9 +7,12 @@ export const BlogContainer = styled.div`
   flex-direction: column;
   justify-content: left;
   align-items: left;
+  padding-left: 1.5rem;
+
   background: ${(props) => props.theme.BlueBackgroundColor};
   min-height: 65vh;
   h1 { 
+
     font-size: clamp(1rem, 8vw, 2.7rem);
     color: ${(props) => props.theme.lightTextColor};
     text-align: left;
@@ -28,7 +31,8 @@ export const BlogIntro = styled.div`
 export const BlogFlex = styled.div`
   min-width: 50vh;
   background: ${(props) => props.theme.primaryBackgroundColor};
-  padding: 1rem;
+  padding-left: 1.5rem;
+
 
 `
 
