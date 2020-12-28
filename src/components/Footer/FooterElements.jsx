@@ -8,7 +8,7 @@ export const FooterContainer = styled.footer`
   bottom: 0px;
   width: 100%;
   margin: 0;
-  background: ${(props) => props.theme.secondaryBackgroundColor};
+  background: ${(props) => props.theme.primaryBackgroundColor};
   min-height: 70px;
   max-height: 70px;
   @media(min-width: 680px){
@@ -26,7 +26,7 @@ export const FooterWrap = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 100vw;
-  background: ${(props) => props.theme.secondaryBackgroundColor};
+  background: ${(props) => props.theme.primaryBackgroundColor};
 `;
 
 export const SocialMedia = styled.section`

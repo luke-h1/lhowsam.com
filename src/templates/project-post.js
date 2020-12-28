@@ -72,7 +72,6 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
             </IconWrapper>
           {/* <p>{project.edges.node.date}</p> */}
           <WrapImage>
-            <img src={project.frontmatter.image.childImageSharp.fluid.src} /> 
             </WrapImage>
         </StyledHeader>
 
