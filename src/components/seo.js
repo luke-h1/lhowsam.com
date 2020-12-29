@@ -80,7 +80,7 @@ const SEO = ({ description, lang, meta, title }) => {
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
-  description: ``,
+  description: `Luke Howsam`,
 }
 
 SEO.propTypes = {
