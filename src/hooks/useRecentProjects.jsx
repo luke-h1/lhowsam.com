@@ -19,7 +19,7 @@ const useProjects = () => {
   `)
   return data.allMdx.nodes.map((project) => ({
     title: project.frontmatter.title,
-    description: project.frontmatter.title,
+    description: project.frontmatter.description,
     githubLink: project.frontmatter.githubLink,
     siteLink: project.frontmatter.siteLink,
     id: project.id,

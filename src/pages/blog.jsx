@@ -8,15 +8,15 @@ import SEO from "../components/seo"
 import Hero from '../components/Hero/Hero';
 import { theme } from '../styles/Themes';
 import Blog from "../components/Blog/Blog"
-const index = () => {
+const BlogPage = () => {
   return (
     <Layout >
-      <SEO title="Home" />
+      <SEO title="Blog" />
       <Blog theme={theme} />
     </Layout>
   )
 }
-export default index
+export default BlogPage
 // { data, location }
   // const siteTitle = data.site.siteMetadata?.title || `Title`
   // const posts = data.allMarkdownRemark.nodes

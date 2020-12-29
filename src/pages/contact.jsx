@@ -12,7 +12,7 @@ const ContactPage = ({ data, location }) => {
   const posts = data.allMarkdownRemark.nodes
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO title="Contact" />
      <Contact theme={theme} />
     </Layout>

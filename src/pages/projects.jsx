@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 import Hero from '../components/Hero/Hero';
 import { theme } from '../styles/Themes';
 import Projects from '../components/Projects/Projects';
-const index = () => {
+const ProjectPage = () => {
   return (
     <Layout >
       <SEO title="Home" />
@@ -16,7 +16,7 @@ const index = () => {
     </Layout>
   )
 }
-export default index
+export default ProjectPage
 // { data, location }
   // const siteTitle = data.site.siteMetadata?.title || `Title`
   // const posts = data.allMarkdownRemark.nodes

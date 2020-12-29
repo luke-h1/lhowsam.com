@@ -46,7 +46,7 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
   // const { previous, next } = data
 
   return (
-    <Layout location={location}>
+    <Layout>
       <SEO
         title={project.frontmatter.title}
         // description={project.edges.node.description || project.excerpt}
