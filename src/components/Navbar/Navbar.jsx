@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
+import NavData from '../../data/nav.json';
 import {
   Nav,
   NavbarContainer,
@@ -33,31 +34,13 @@ const Navbar = ({ theme }) => {
               {click ? <FaTimes /> : <FaBars />}
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
-              <NavItem>
-                <NavLinks to="/" onClick={closeMobileMenu}>
-                  Home
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks to="/about" onClick={closeMobileMenu}>
-                  About
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks to="/blog" onClick={closeMobileMenu}>
-                  Blog
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks to="/projects" onClick={closeMobileMenu}>
-                  projects
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks to="/contact" onClick={closeMobileMenu}>
-                  Contact
-                </NavLinks>
-              </NavItem>
+              {NavData.map((item) => (
+                <NavItem>
+                  <NavLinks to={item.slug} onClick={closeMobileMenu}>
+                    {item.title}
+                  </NavLinks>
+                </NavItem>
+              ))}
               <NavItemBtn>
                 <NavBtnLink />
               </NavItemBtn>
