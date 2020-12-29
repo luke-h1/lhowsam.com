@@ -50,6 +50,12 @@ const Footer = ({ theme }) => (
             </SocialIcons>
           </SocialMediaWrap>
         </SocialMedia>
+        {/* ©
+        {' '}
+        {new Date().getFullYear()}
+        , Built with
+        {' '}
+        <a href="https://www.gatsbyjs.com">Gatsby</a> */}
       </FooterWrap>
     </FooterContainer>
   </ThemeProvider>
