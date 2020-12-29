@@ -60,7 +60,7 @@ const About = ({ theme }) => {
                 </Col>
                 <Col2>
                   <ImgWrapper>
-                    <Image src={image.sharp.fluid.src} alt='My profile Image'/>
+                    <Image src={image.sharp.fluid.src} alt='My profile picture'/>
                   </ImgWrapper>
                 </Col2>
               </Row>

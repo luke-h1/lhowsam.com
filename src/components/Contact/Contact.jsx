@@ -40,6 +40,7 @@ const Contact = ({theme}) => (
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Linkedin"
+              
             >
               <LinkedIn />
             </a>

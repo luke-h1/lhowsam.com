@@ -42,7 +42,7 @@ const Navbar = ({ theme }) => {
                 </NavItem>
               ))}
               <NavItemBtn>
-                <NavBtnLink />
+                <NavBtnLink href="#" />
               </NavItemBtn>
               <NavItemBtn />
             </NavMenu>
