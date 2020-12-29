@@ -11,7 +11,7 @@ You can read about these technologies here:
 - [Styled Components](https://www.styled-components.com/)
 <br /> 
 
-Unit tests & linting pipeline: 
+Unit test pipeline: 
 <br /> 
 <br /> 
 [![Build Status](https://dev.azure.com/lukehowsam/testing/_apis/build/status/luke-h1.lhowsam.com?branchName=dev)](https://dev.azure.com/lukehowsam/testing/_build/latest?definitionId=5&branchName=dev)
