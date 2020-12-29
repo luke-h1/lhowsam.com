@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import { ThemeProvider, css } from 'styled-components/macro';
+import { ThemeProvider} from 'styled-components';
 import { Button } from '../../helpers/Button/Button';
 import SEO from '../seo';
 
@@ -22,12 +22,7 @@ const Hero = ({ theme }) => (
           <BlurbContainer>
             <p>I'm passionate about solving technical problems and coming up with creative solutions.I enjoy working with the JAMstack, React, Node, testing technologies + practices & various dev-ops technologies</p>
             <Button
-              css={`
-              width: 200px;
-              margin-top: 1rem;
-              align-items: center;
-              text-align: center;
-              `}
+              style={{ width: '200px', marginTop: '1rem', alignItems: 'center', textAlign: 'center' }}
               round="true"
               primary="true"
               bold="true"

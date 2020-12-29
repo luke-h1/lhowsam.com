@@ -1,6 +1,6 @@
 /* eslint-disable */
 import React from 'react';
-import { IconContext } from 'react-icons/lib';
+import { ThemeProvider } from 'styled-components';
 import SEO from '../seo';
 
 import {
@@ -14,8 +14,8 @@ import {
   ContactIntro,
 } from './ContactElements';
 
-const Contact = () => (
-  <IconContext.Provider value={{ color: '#fff', size: 64 }}>
+const Contact = ({theme}) => (
+  <ThemeProvider theme={theme}>
     <>
     <SEO title="Contact" />
 
@@ -56,7 +56,7 @@ const Contact = () => (
         </Alternatives>
       </ContactWrapper>
     </>
-  </IconContext.Provider>
+    </ThemeProvider>
 );
 
 export default Contact;

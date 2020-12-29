@@ -1,13 +1,12 @@
 /* eslint-disable */
 import React from "react"
-import { Link } from "gatsby"
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from "../styles/GlobalStyles"
 import { theme } from '../styles/Themes';
 import Navbar from "./Navbar/Navbar"
 import Footer from "./Footer/Footer"
 
-const Layout = ({ title, children }) => {
+const Layout = ({  children }) => {
  
   return (
     <ThemeProvider theme={theme}>
@@ -15,7 +14,7 @@ const Layout = ({ title, children }) => {
         <GlobalStyle />
         <Navbar theme={theme} />
         {children}
-        <Footer />
+        <Footer theme={theme} />
       </>
     </ThemeProvider>
     // <div className="global-wrapper" data-is-root-path={isRootPath}>

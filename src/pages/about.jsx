@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import { theme } from '../styles/Themes';
 import About from "../components/About/About"
 
-const ContactPage = ({ data, location }) => {
+const AboutPage = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
 
 
@@ -19,7 +19,7 @@ const ContactPage = ({ data, location }) => {
   )
 }
 
-export default ContactPage
+export default AboutPage
 
 export const pageQuery = graphql`
   query {
