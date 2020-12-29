@@ -2,7 +2,7 @@
   "name": "lhowsam.com",
   "private": true,
   "description": "Personal portfolio",
-  "version": "0.1.0",
+  "version": "1.0",
   "author": "Luke Howsam <luke-h1>",
   "bugs": {
     "url": "https://github.com/luke-h1/lhowsam.com/issues"
@@ -62,7 +62,8 @@
   },
   "homepage": "",
   "keywords": [
-    "lhowsam"
+    "luke howsam",
+    "lhowsam.com"
   ],
   "license": "MIT",
   "main": "n/a",

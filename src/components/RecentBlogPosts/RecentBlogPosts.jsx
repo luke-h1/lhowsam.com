@@ -38,6 +38,7 @@ const RecentBlogPosts = ({ theme, data }) => {
                 </BlogHeader>
                 <BlogSection>
                   <p
+                    style={{ color: '#000' }}
                     dangerouslySetInnerHTML={{
                       __html: post.description || post.excerpt,
                     }}

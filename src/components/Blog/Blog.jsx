@@ -40,6 +40,7 @@ const Blog = ({ theme }) => {
                 </BlogHeader>
                 <BlogSection>
                   <p
+                    style={{ color: '#000' }}
                     dangerouslySetInnerHTML={{
                       __html: post.description || post.excerpt,
                     }}

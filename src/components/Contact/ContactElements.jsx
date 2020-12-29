@@ -62,6 +62,7 @@ export const Alternatives = styled.div`
 
   h3 {
     word-wrap: wrap;
+    font-size: clamp(1rem, 8vw, 2.7rem);
   }
   a {
     text-align: center;
@@ -82,7 +83,7 @@ export const IconWrapper = styled.div`
 `;
 
 export const EmailIcon = styled(AiOutlineMail)`
-  font-size: 20px;
+  font-size: 35px;
   fill: ${(props) => props.theme.primaryColor}; 
   margin: 0 1em 5px 1em;
   &:hover {
@@ -92,7 +93,7 @@ export const EmailIcon = styled(AiOutlineMail)`
 `;
 
 export const LinkedIn = styled(FaLinkedin)`
-  font-size: 20px;
+  font-size: 35px;
   fill: ${(props) => props.theme.primaryColor}; 
   margin: 0 1em 0 1em;
   &:hover {
@@ -102,7 +103,7 @@ export const LinkedIn = styled(FaLinkedin)`
 `;
 
 export const Github = styled(FaGithub)`
-  font-size: 20px;
+  font-size: 35px;
   fill: ${(props) => props.theme.primaryColor}; 
   margin: 0 1em 0 1em;
   &:hover {
