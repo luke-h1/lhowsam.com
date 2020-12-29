@@ -1,90 +1,88 @@
 /* eslint-disable */
-import styled from 'styled-components';
 import { Link } from 'gatsby';
+import styled from 'styled-components';
 
-export const BlogSection = styled.div`
-  min-width: 100vw;
-  max-width: 100vh;
-  margin: 0px auto;
-  padding-left: 16px;
-  padding-right: 16px;
-  min-height: 100vh;
-  background-color: ${(props) => props.theme.primaryBackgroundColor};
-`;
-
-export const Title = styled.h1`
-  text-align: center;
-  color: ${(props) => props.theme.primaryTitleColor};
-  margin-top: 4rem;
-`;
-
-export const Intro = styled.p`
-  color: ${(props) => props.theme.primaryColor};
-  font-size: 18px;
-  text-align: center;
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-`;
-
-export const PostedAt = styled.div`
-
-  margin-top: 1.4rem;
-  p {
-    font-weight: bold;
-    color: #000;
-  }
-`;
-
-export const BlogWrapper = styled.div`
-  color: ${(props) => props.theme.primaryColor};
+export const BlogContainer = styled.div`
   display: flex;
-  text-align: center;
-  grid-gap: 15px;
   flex-direction: column;
-  width: 50%;
-  margin: 0 auto;
-`;
+  justify-content: left;
+  align-items: left;
+  padding-left: 1.5rem;
+
+  background: ${(props) => props.theme.BlueBackgroundColor};
+  min-height: 65vh;
+  h1 { 
+
+    font-size: clamp(1rem, 8vw, 2.7rem);
+    color: ${(props) => props.theme.lightTextColor};
+    text-align: left;
+    font-weight: 700;
+  }
+`
 
 export const BlogIntro = styled.div`
-
-  margin-bottom: 32px;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  -webkit-box-pack: center;
-  justify-content: center;
-  align-items: center;
-`;
+  justify-content: left;
+  align-items: left;
+  margin-top: 10rem;
+`
 
-export const BlogPost = styled(Link)`
-
-  margin-top: 32px;
-  padding-bottom: 32px;
-  color: rgb(56, 103, 214);
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  display: block;
-  border-bottom: 2px solid ${(props) => props.theme.primaryBorderBottom}
-`;
+export const BlogFlex = styled.div`
+  min-width: 50vh;
+  background: ${(props) => props.theme.primaryBackgroundColor};
+  padding-left: 1.5rem;
 
 
+`
 
-export const BlogDate = styled.p`
+export const BlogList = styled.li`
+  padding-left: 0;
+  color: ${(props) => props.theme.textColor};
+  list-style-type: none;
+  margin-bottom: calc((2rem) / 2 ); 
+  p { 
+    margin-bottom: calc((2rem) / 2); 
+    color: ${(props) => props.theme.textColor};
+
+  }
+  *:last-child { 
+    margin-bottom: 0;
+  }
+  > ul  {
+    margin-left: 2rem; 
+    margin-top: calc((2rem) / 2); 
+    color: ${(props) => props.theme.textColor};
+
+  }
+`
+
+export const BlogArticle = styled.article`
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  p { 
+    margin-bottom: 0;
+    color: ${(props) => props.theme.textColor};
+
+  }
+  h2 {
+    margin-bottom: 2rem;
+    color: ${(props) => props.theme.textColor};
+
+    margin-top: 0;
+  }
+`
+
+export const BlogHeader = styled.header`
+  margin-bottom: 1rem;
   color: ${(props) => props.theme.primaryColor};
-  margin: 0px;
-  padding: 0px;
-  border: 0px;
-  vertical-align: baseline;
-  font-size: 15px;
-`;
 
-export const BlogExcerpt = styled.p`
-  text-align: center;
-  margin-top: 1.2rem;
-  font-weight: 500;
-  color: ${(props) => props.theme.primaryColor};
-`;
+`
+
+export const BlogSection = styled.section`
+p { 
+  width: 70%;
+}
+`
+
+export const BlogLink = styled(Link)``

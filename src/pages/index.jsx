@@ -1,34 +1,74 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-unused-expressions */
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import { useDarkTheme } from '../hooks/useDarkMode';
-import { lightTheme, darkTheme } from '../styles/Themes';
+/* eslint-disable */
+
+import React from "react"
+import { Link, graphql } from "gatsby"
+import Bio from "../components/bio"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import Hero from '../components/Hero/Hero';
-import RecentProjects from '../components/RecentProjects/RecentProjects';
-import Skills from '../components/Skills/Skills';
-
-const index = ({ data, location }) => {
-  const [theme, setTheme] = useDarkTheme(
-    (typeof window !== 'undefined' && window.localStorage.getItem('theme')) || 'light',
-  );
-
-  const themeToggler = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
-
+import { theme } from '../styles/Themes';
+import RecentBlogPosts from '../components/RecentBlogPosts/RecentBlogPosts';
+import RecentProjects from "../components/RecentProjects/RecentProjects"
+const index = () => {
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-      <Layout>
-        <SEO title="Home" />
-        <Hero theme={theme} />
-        <Skills theme={theme} />
-        <RecentProjects />
-      </Layout>
-    </ThemeProvider>
+    <Layout >
+      <SEO title="Home" />
+      <Hero theme={theme} />
+      <RecentBlogPosts theme={theme} />
+      <RecentProjects theme={theme} />
+    </Layout>
+  )
+}
+export default index
+// { data, location }
+  // const siteTitle = data.site.siteMetadata?.title || `Title`
+  // const posts = data.allMarkdownRemark.nodes
 
-  );
-};
-export default index;
+  // if (posts.length === 0) {
+  //   return (
+  //     <Layout location={location} title={siteTitle}>
+  //       <SEO title="All posts" />
+  //       <Hero theme={theme} />
+  //       <RecentBlogPosts theme={theme} />
+  //       {/* <Bio /> */}
+  //       <p>
+  //         No blog posts found. Add markdown posts to "content/blog" (or the
+  //         directory you specified for the "gatsby-source-filesystem" plugin in
+  //         gatsby-config.js).
+  //       </p>
+  //     </Layout>
+  //   )
+
+
+//   <ol style={{ listStyle: `none` }}>
+//   {posts.map(post => {
+//     const title = post.frontmatter.title || post.fields.slug
+
+//     return (
+//       <li key={post.fields.slug}>
+//         <article
+//           className="post-list-item"
+//           itemScope
+//           itemType="http://schema.org/Article"
+//         >
+//           <header>
+//             <h2>
+//               <Link to={post.fields.slug} itemProp="url">
+//                 <span itemProp="headline">{title}</span>
+//               </Link>
+//             </h2>
+//             <small>{post.frontmatter.date}</small>
+//           </header>
+//           <section>
+//             <p
+//               dangerouslySetInnerHTML={{
+//                 __html: post.frontmatter.description || post.excerpt,
+//               }}
+//               itemProp="description"
+//             />
+//           </section>
+//         </article>
+//       </li>
+//     )
+//   })}
+// </ol>

@@ -4,29 +4,29 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 export const FooterContainer = styled.footer`
-  position: fixed;
+  position: sticky;
   bottom: 0px;
   width: 100%;
   margin: 0;
-  background-color: ${(props) => props.theme.primaryNavColor};
-  min-height: 50px;
-  /* @media(min-width: 680px){
-    height: 90px;
-  } */
+  background: ${(props) => props.theme.primaryBackgroundColor};
+  min-height: 70px;
+  max-height: 70px;
+  @media(min-width: 680px){
+    height: 80px;
+  }
 
   @media (max-width: 500px) {
     display: none;
-  }
-  
+  } 
 `;
 
 export const FooterWrap = styled.div`
-  padding: 16px 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   max-width: 100vw;
+  background: ${(props) => props.theme.primaryBackgroundColor};
 `;
 
 export const SocialMedia = styled.section`
@@ -46,7 +46,7 @@ export const SocialMediaWrap = styled.div`
 `;
 
 export const SocialLogo = styled(Link)`
-  color: ${(props) => props.primaryColor}; 
+  color: ${(props) => props.theme.primaryColor}; 
   justify-self: start;
   cursor: pointer;
   text-decoration: none;
@@ -68,7 +68,7 @@ export const SocialIconLink = styled.a`
   color: ${(props) => props.theme.primaryColor}; 
   font-size: 24px;
   &:hover {
-    color: ${(props) => props.theme.primaryHoverColor}; 
+    color: ${(props) => props.theme.PrimaryHoverColor}; 
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }

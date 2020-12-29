@@ -1,26 +1,30 @@
 /* eslint-disable */
 import { graphql, useStaticQuery } from 'gatsby';
-
-const useRecentProjects = () => {
+const useProjects = () => {
   const data = useStaticQuery(graphql`
-  query {
-    allProjectDataJson {
-      edges {
-        node {
-          id
+  query  {
+    allMdx(limit: 3) {
+      nodes {
+        frontmatter {
           title
+          technology
+          siteLink
+          githubLink
           slug
-          label
         }
+        id
       }
     }
   }
-  `);
-  return data.allProjectDataJson.edges.map((project) => ({
-    id: project.node.id,
-    title: project.node.title,
-    slug: project.node.slug,
-    label: project.node.label,
-  }));
-};
-export default useRecentProjects;
+  `)
+  return data.allMdx.nodes.map((project) => ({
+    title: project.frontmatter.title,
+    description: project.frontmatter.description,
+    githubLink: project.frontmatter.githubLink,
+    siteLink: project.frontmatter.siteLink,
+    id: project.id,
+    slug: project.frontmatter.slug,
+    technology: project.frontmatter.technology,
+  }))
+}
+export default useProjects;

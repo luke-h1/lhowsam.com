@@ -6,7 +6,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: npm i --legacy-peer-deps
+- script: npm i 
   displayName: 'Install dependencies'
 
 - script: npm run lint

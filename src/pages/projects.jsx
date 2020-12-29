@@ -1,33 +1,71 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-unused-expressions */
-import React from 'react';
-import { Link, graphql } from 'gatsby';
+/* eslint-disable */
 
-import { ThemeProvider } from 'styled-components';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import { useDarkTheme } from '../hooks/useDarkMode';
-import { lightTheme, darkTheme } from '../styles/Themes';
+import React from "react"
+import { Link, graphql } from "gatsby"
+import Bio from "../components/bio"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import Hero from '../components/Hero/Hero';
+import { theme } from '../styles/Themes';
 import Projects from '../components/Projects/Projects';
-
-const projects = ({ data, location }) => {
-  const [theme, setTheme] = useDarkTheme(
-    (typeof window !== 'undefined' && window.localStorage.getItem('theme')) || 'light',
-  );
-
-  const themeToggler = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
-
+const ProjectPage = () => {
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <Layout >
+      <SEO title="Home" />
+      <Projects theme={theme} />
+    </Layout>
+  )
+}
+export default ProjectPage
+// { data, location }
+  // const siteTitle = data.site.siteMetadata?.title || `Title`
+  // const posts = data.allMarkdownRemark.nodes
 
-      <Layout>
-        <SEO title="Projects" />
-        <Projects theme={theme} />
-      </Layout>
-    </ThemeProvider>
+  // if (posts.length === 0) {
+  //   return (
+  //     <Layout location={location} title={siteTitle}>
+  //       <SEO title="All posts" />
+  //       <Hero theme={theme} />
+  //       <RecentBlogPosts theme={theme} />
+  //       {/* <Bio /> */}
+  //       <p>
+  //         No blog posts found. Add markdown posts to "content/blog" (or the
+  //         directory you specified for the "gatsby-source-filesystem" plugin in
+  //         gatsby-config.js).
+  //       </p>
+  //     </Layout>
+  //   )
 
-  );
-};
-export default projects;
+
+//   <ol style={{ listStyle: `none` }}>
+//   {posts.map(post => {
+//     const title = post.frontmatter.title || post.fields.slug
+
+//     return (
+//       <li key={post.fields.slug}>
+//         <article
+//           className="post-list-item"
+//           itemScope
+//           itemType="http://schema.org/Article"
+//         >
+//           <header>
+//             <h2>
+//               <Link to={post.fields.slug} itemProp="url">
+//                 <span itemProp="headline">{title}</span>
+//               </Link>
+//             </h2>
+//             <small>{post.frontmatter.date}</small>
+//           </header>
+//           <section>
+//             <p
+//               dangerouslySetInnerHTML={{
+//                 __html: post.frontmatter.description || post.excerpt,
+//               }}
+//               itemProp="description"
+//             />
+//           </section>
+//         </article>
+//       </li>
+//     )
+//   })}
+// </ol>

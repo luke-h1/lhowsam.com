@@ -1,4 +1,5 @@
 #!/bin/bash
+cd .. 
 if ! npm run lint; then
     echo ''
     echo ''

@@ -1,33 +1,45 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-unused-expressions */
-import React from 'react';
-import { Link, graphql } from 'gatsby';
+import React from "react"
+import { Link, graphql } from "gatsby"
 
-import { ThemeProvider } from 'styled-components';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
-import { useDarkTheme } from '../hooks/useDarkMode';
-import { lightTheme, darkTheme } from '../styles/Themes';
-import Contact from '../components/Contact/Contact';
+import Bio from "../components/bio"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
+import Contact from "../components/Contact/Contact"
+import { theme } from '../styles/Themes';
 
-const index = ({ data, location }) => {
-  const [theme, setTheme] = useDarkTheme(
-    (typeof window !== 'undefined' && window.localStorage.getItem('theme')) || 'light',
-  );
-
-  const themeToggler = () => {
-    theme === 'light' ? setTheme('dark') : setTheme('light');
-  };
+const ContactPage = ({ data, location }) => {
+  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const posts = data.allMarkdownRemark.nodes
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <Layout title={siteTitle}>
+      <SEO title="Contact" />
+     <Contact theme={theme} />
+    </Layout>
+  )
+}
 
-      <Layout>
-        <SEO title="Contact" />
-        <Contact theme={theme} />
-      </Layout>
-    </ThemeProvider>
+export default ContactPage
 
-  );
-};
-export default index;
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+      nodes {
+        excerpt
+        fields {
+          slug
+        }
+        frontmatter {
+          date(formatString: "MMMM DD, YYYY")
+          title
+          description
+        }
+      }
+    }
+  }
+`

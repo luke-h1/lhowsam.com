@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme } from '../../styles/Themes';
-
 import {
   Nav,
   NavbarContainer,
@@ -15,18 +13,15 @@ import {
   NavItemBtn,
   NavLinks,
   NavBtnLink,
-  IconContainer,
-  Sun,
-  Moon,
 } from './NavbarElements';
 
-function Navbar({ theme, toggleTheme }) {
+const Navbar = ({ theme }) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
 
   return (
-    <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <ThemeProvider theme={theme}>
       <>
         <Nav>
           <NavbarContainer>
@@ -44,8 +39,8 @@ function Navbar({ theme, toggleTheme }) {
                 </NavLinks>
               </NavItem>
               <NavItem>
-                <NavLinks to="/projects" onClick={closeMobileMenu}>
-                  Projects
+                <NavLinks to="/about" onClick={closeMobileMenu}>
+                  About
                 </NavLinks>
               </NavItem>
               <NavItem>
@@ -54,20 +49,17 @@ function Navbar({ theme, toggleTheme }) {
                 </NavLinks>
               </NavItem>
               <NavItem>
+                <NavLinks to="/projects" onClick={closeMobileMenu}>
+                  projects
+                </NavLinks>
+              </NavItem>
+              <NavItem>
                 <NavLinks to="/contact" onClick={closeMobileMenu}>
                   Contact
                 </NavLinks>
               </NavItem>
               <NavItemBtn>
-                <NavBtnLink>
-                  <IconContainer>
-                    {theme === 'light' ? (
-                      <Moon onClick={toggleTheme} />
-                    ) : (
-                      <Sun onClick={toggleTheme} />
-                    )}
-                  </IconContainer>
-                </NavBtnLink>
+                <NavBtnLink />
               </NavItemBtn>
               <NavItemBtn />
             </NavMenu>
@@ -76,11 +68,10 @@ function Navbar({ theme, toggleTheme }) {
       </>
     </ThemeProvider>
   );
-}
+};
 
 Navbar.propTypes = {
   theme: PropTypes.string.isRequired,
-  toggleTheme: PropTypes.func.isRequired,
 };
 
 export default Navbar;

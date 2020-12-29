@@ -1,56 +1,44 @@
+/* eslint-disable import/no-extraneous-dependencies */
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+
 module.exports = {
   siteMetadata: {
-    title: 'Luke H',
+    title: 'lhowsam',
     author: {
-      name: 'Luke Howsam',
-      summary:
-        'My personal portfolio made with Gatsby, React & styled-components',
+      name: 'Luke howsam',
+      summary: 'who lives and works in Sheffield.',
     },
-    description: 'My personal portfolio & Blog',
+    description:
+      'My personal portfolio built with Gatsby & styled components :) ',
     siteUrl: 'https://lhowsam.com',
     social: {
-      twitter: 'LukeH_1999',
+      twitter: 'lukeH_1999',
     },
   },
   plugins: [
-    'gatsby-transformer-json',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: './src/data/',
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'projects',
-        path: './src/data/',
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_KEY,
-        head: true,
-        // enable ip anonymization
-        anonymize: true,
+        path: `${__dirname}/content/blog`,
+        name: 'blog',
       },
     },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: {
-          default: require.resolve('./src/components/layout.jsx'),
+          default: require.resolve('./src/components/layout.js'),
         },
-        gatsbyRemarkPlugins: ['gatsby-remark-images'],
-        plugins: ['gatsby-remark-images'],
       },
     },
+    'gatsby-plugin-theme-ui',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/blog`,
-        name: 'blog',
+        name: 'projects',
+        path: './content/project',
       },
     },
     {
@@ -67,8 +55,7 @@ module.exports = {
           {
             resolve: 'gatsby-remark-images',
             options: {
-              maxWidth: 500,
-              quality: 100,
+              maxWidth: 630,
             },
           },
           {
@@ -83,61 +70,30 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-prismjs',
-            options: {
-              classPrefix: 'language-js',
-              inlineCodeMarker: { js: 'javascript' },
-              aliases: {},
-              showLineNumbers: true,
-              noInlineHighlight: true,
-              languageExtensions: [
-                {
-                  language: 'superscript',
-                  extend: 'javascript',
-                  definition: {
-                    superscript_types: /(SuperType)/,
-                  },
-                  insertBefore: {
-                    function: {
-                      superscript_keywords: /(superif|superelse)/,
-                    },
-                  },
-                },
-              ],
-              prompt: {
-                user: 'root',
-                host: 'localhost',
-                global: false,
-              },
-              escapeEntities: {},
-            },
-          },
-        ],
-      },
-    },
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-styled-components',
-
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_KEY,
+      },
+    },
     'gatsby-plugin-feed',
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'luke howsam',
-        short_name: 'lhowsam.com',
+        name: 'lhowsam.com',
+        short_name: 'GatsbyJS',
         start_url: '/',
         background_color: '#ffffff',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'content/assets/logo192.png',
+        icon: 'content/assets/logo512.png',
       },
     },
     'gatsby-plugin-react-helmet',
+    // this (optional) plugin enables Progressive Web App + Offline functionality
+    // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
 };
