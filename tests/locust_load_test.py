@@ -6,7 +6,7 @@ class QuickstartUser(HttpUser):
     def hello_world(self):
         self.client.get("/")
         self.client.get("/projects")
-        self.client.get("/client")
+        self.client.get("/contact")
         self.client.get("/blog")
         self.client.get("/about")
 
