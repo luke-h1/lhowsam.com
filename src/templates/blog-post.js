@@ -28,7 +28,7 @@ const BlogPostTemplate = ({ data, location }) => {
       <BlogArticle>
         <StyledHeader>
           <StyledH1 itemProp="headline">{post.frontmatter.title}</StyledH1>
-          <StyledP style={{ fontSize: "15px" }}>
+          <StyledP style={{ fontSize: "15px", textAlign: 'center' }}>
             {post.frontmatter.date}
           </StyledP>
         </StyledHeader>

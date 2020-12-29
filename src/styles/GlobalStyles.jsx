@@ -35,4 +35,13 @@ export const GlobalStyle = createGlobalStyle`
  }
   }
 
+  /* pre { 
+    background:#141424;
+    color: #fff;
+    padding: 0.5rem;
+    margin: 10px 0 10px 0;
+    font-size: 1em; /* 2 */
+
+  } */
+
 `
