@@ -79,6 +79,10 @@ export const BlogHeader = styled.header`
 `
 
 export const BlogLink = styled(Link)`
+  color: ${(props) => props.theme.primaryColor};
+text-decoration: none;
+font-size: clamp(1rem, 8vw, 1.9rem);
+
 
 `
 export const BlogSection = styled.section`

@@ -2,7 +2,7 @@
   "name": "lhowsam.com",
   "private": true,
   "description": "Personal portfolio",
-  "version": "1.0",
+  "version": "1.0.0",
   "author": "Luke Howsam <luke-h1>",
   "bugs": {
     "url": "https://github.com/luke-h1/lhowsam.com/issues"
@@ -73,6 +73,7 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "install-deps": "npm i --legacy-peer-deps",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{json,md}\"",
     "start": "npm run develop",
