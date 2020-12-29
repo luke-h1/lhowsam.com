@@ -37,7 +37,6 @@ const About = ({ theme }) => {
     <ThemeProvider theme={theme}>
       <>
       <SEO title="About" />
-
         <AboutContainer>
           <AboutIntro>
             <h1>About</h1>

@@ -34,40 +34,46 @@ git fetch && git status
 ```
 
 
-<br />
-If anything shows up here move it to your desktop or stash it
-<br />
-<br /> 
+ If anything shows up here move it to your desktop or stash it
 
 
-### 2 - Prepare master / your main branch
+
+# 2 - Prepare master / your main branch
 
 
 ```js
 git checkout master && git pull 
 ```
+<br />
+<br />
  
 
-### 3 - Dress up your feature branch
+# 3 - Dress up your feature branch
 
 
 ```js
 git checkout feature-branch
 ```
+<br />
 
 
 ```js
 git merge --strategy=ours master
 ```
+<br />
 
 
-```shell
+```
 # quit out of the editor when it asks you if you
 # want to merge into your current branch
 ``` 
 
+<br />
+<br />
 
-### 4 - Go in for the kill 
+
+# 4 - Go in for the kill 
+<br />
 
 
 ```js
@@ -78,6 +84,7 @@ git checkout master
 ```js
 git merge --no-ff feature-branch
 ```
+<br />
 
 
 This merge approach will add one commit on top of your master / main branch which pastes in whatever is in your feature branch without complaining about conflicts.
