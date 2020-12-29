@@ -1,8 +1,8 @@
 ---
-title: git merge strategies
+title: Forcing git merges
 date: "2020-12-06"
-description: "git merge strategies"
-slug: '/blog/git-merge-strategies'
+description: "Isolating features into seperate branches is a really common practice for most developers. By seperating features, bug fixes or working on experiments you can avoid a lot of problems and keep your master / development branches clean...."
+slug: '/blog/force-git-merge'
 ---
 
 Isolating features into seperate branches is a really common practice for most developers. By seperating features, bug fixes or working on experiments you can avoid a lot of problems and keep your master / development branches clean. 
