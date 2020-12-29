@@ -11,10 +11,10 @@ You can read about these technologies here:
 - [Styled Components](https://www.styled-components.com/)
 <br /> 
 
-Unit test pipeline: 
+Unit testing pipeline: 
 <br /> 
 <br /> 
-[![Build Status](https://dev.azure.com/lukehowsam/testing/_apis/build/status/luke-h1.lhowsam.com?branchName=dev)](https://dev.azure.com/lukehowsam/testing/_build/latest?definitionId=5&branchName=dev)
+[![Build Status](https://dev.azure.com/lukehowsam/testing/_apis/build/status/unit%20testing%20pipeline?branchName=refs%2Fpull%2F335%2Fmerge)](https://dev.azure.com/lukehowsam/testing/_build/latest?definitionId=5&branchName=refs%2Fpull%2F335%2Fmerge)
 
 ## Project Structure 
 
