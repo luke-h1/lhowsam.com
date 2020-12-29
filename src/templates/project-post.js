@@ -70,14 +70,11 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
                 ""
               )}
             </IconWrapper>
-          {/* <p>{project.edges.node.date}</p> */}
           <WrapImage>
             </WrapImage>
         </StyledHeader>
 
         <StyledSection
-          // dangerouslySetInnerHTML={{ __html: project.body }}
-          itemProp="articleBody"
         >
           <StyledP>
             <MDXRenderer>{project.body}</MDXRenderer>
@@ -95,22 +92,6 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
               padding: 0,
             }}
           >
-            {/* <IconWrapper>
-              {project.frontmatter.siteLink !== "" ? (
-                <a href={project.frontmatter.siteLink}>
-                  <SiteLink />
-                </a>
-              ) : (
-                ""
-              )}
-              {project.frontmatter.githubLink !== "" ? (
-                <a href={project.frontmatter.githubLink}>
-                  <GithubLink />
-                </a>
-              ) : (
-                ""
-              )}
-            </IconWrapper> */}
           </ul>
         </nav>
         
@@ -127,43 +108,3 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
 }
 
 export default ProjectTemplate
-
-// export const pageQuery = graphql`
-//   query BlogPostBySlug(
-//     $id: String!
-//     $previousPostId: String
-//     $nextPostId: String
-//   ) {
-//     site {
-//       siteMetadata {
-//         title
-//       }
-//     }
-//     markdownRemark(id: { eq: $id }) {
-//       id
-//       excerpt(pruneLength: 160)
-//       html
-//       frontmatter {
-//         title
-//         date(formatString: "MMMM DD, YYYY")
-//         description
-//       }
-//     }
-//     previous: markdownRemark(id: { eq: $previousPostId }) {
-//       fields {
-//         slug
-//       }
-//       frontmatter {
-//         title
-//       }
-//     }
-//     next: markdownRemark(id: { eq: $nextPostId }) {
-//       fields {
-//         slug
-//       }
-//       frontmatter {
-//         title
-//       }
-//     }
-//   }
-// `

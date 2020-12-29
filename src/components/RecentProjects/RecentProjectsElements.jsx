@@ -81,12 +81,24 @@ export const Links = styled.div`
 export const GithubLink = styled(DiGithubBadge)`
   color: #000;
   font-size: 35px;
+  &:hover {
+    color: ${(props) => props.theme.PrimaryHoverColor}; 
+    transform: scale(1.15);
+    transition: scale ease 0.5s;
+  }
+
 
 `
 
 export const SiteLink = styled(IoIosBrowsers)`
   color: #000;
   font-size: 35px;
+  &:hover {
+    color: ${(props) => props.theme.PrimaryHoverColor}; 
+    transform: scale(1.15);
+    transition: scale ease 0.5s;
+  }
+
 `
 
 export const ButtonWrap = styled.div`

@@ -68,7 +68,7 @@ export const SocialIconLink = styled.a`
   color: ${(props) => props.theme.primaryColor}; 
   font-size: 24px;
   &:hover {
-    color: ${(props) => props.theme.textOnDisabled}; 
+    color: ${(props) => props.theme.PrimaryHoverColor}; 
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
