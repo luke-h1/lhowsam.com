@@ -1,15 +1,13 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
-import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { theme } from '../styles/Themes';
 import About from "../components/About/About"
 
 const AboutPage = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
-
+  const siteTitle = data.site.siteMetadata?.title || `About`
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -22,24 +20,11 @@ const AboutPage = ({ data, location }) => {
 export default AboutPage
 
 export const pageQuery = graphql`
-  query {
-    site {
-      siteMetadata {
+  query { 
+    site { 
+      siteMetadata { 
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
-      nodes {
-        excerpt
-        fields {
-          slug
-        }
-        frontmatter {
-          date(formatString: "MMMM DD, YYYY")
-          title
-          description
-        }
-      }
-    }
   }
-`
+`;
