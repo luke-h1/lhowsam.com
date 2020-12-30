@@ -2,7 +2,6 @@
 import { createGlobalStyle } from "styled-components"
 import { normalize } from "polished"
 import { PrimaryFont } from "./Fonts"
-import { primaryBackgroundColor } from './Themes';
 import AvantGarde from "../fonts/ITCAvantGardeStd-XLt.woff2"
 
 export const GlobalStyle = createGlobalStyle`
@@ -34,14 +33,5 @@ export const GlobalStyle = createGlobalStyle`
     src: url(${AvantGarde}) format('truetype');
  }
   }
+`;
 
-  /* pre { 
-    background:#141424;
-    color: #fff;
-    padding: 0.5rem;
-    margin: 10px 0 10px 0;
-    font-size: 1em; /* 2 */
-
-  } */
-
-`
