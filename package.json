@@ -81,7 +81,7 @@
     "clean": "gatsby clean",
     "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "lint:fix": "eslint \"src/**/*.{js,jsx}\" --quiet --fix",
-    "pre-commit": "npm run lint && npm run format && npm run test",
+    "pre-commit": "npm run format && npm run test",
     "deep-clean": "npm run clean && rm -rf node_modules package-lock.json && npm i --legacy-peer-deps",
     "test": "jest --silent",
     "jest:update": "jest --silent -u"

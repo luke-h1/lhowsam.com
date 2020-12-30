@@ -37,7 +37,6 @@ git checkout master && git pull
 <br />
 <br />
 
-
 # 3 - Dress up your feature branch
 
 ```js
