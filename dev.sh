@@ -19,8 +19,8 @@ echo "removing .cache, public/ for a scratch compile"
 rm -rf .cache public/
 echo ""
 echo ""
+echo "✨ starting deploy to dev ✨"
 npm run build
-echo "starting deploy"
 echo ""
 echo ""
 vc 
