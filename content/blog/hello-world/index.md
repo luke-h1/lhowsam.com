@@ -2,8 +2,7 @@
 title: First blog post
 date: "2020-12-04"
 description: First blog post
-slug: '/blog/hello-world'
-
+slug: "/blog/hello-world"
 ---
 
 Welcome to my new blog. This is about the 4th time I've attempted to create a decent looking blog page. I've only created this one blog post even after all of those attempts

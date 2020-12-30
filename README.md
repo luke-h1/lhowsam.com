@@ -9,20 +9,18 @@ You can read about these technologies here:
 - [Gatsby](https://www.gatsbyjs.org/)
 - [GraphQL](https://graphql.org/)
 - [Styled Components](https://www.styled-components.com/)
-<br /> 
+  <br />
 
-Unit testing pipeline: 
-<br /> 
-<br /> 
+Unit testing pipeline:
+<br />
+<br />
 [![Build Status](https://dev.azure.com/lukehowsam/testing/_apis/build/status/unit%20testing%20pipeline?branchName=refs%2Fpull%2F335%2Fmerge)](https://dev.azure.com/lukehowsam/testing/_build/latest?definitionId=5&branchName=refs%2Fpull%2F335%2Fmerge)
 
-## Project Structure 
+## Project Structure
 
-* Main - Represents what is currently on production 
+- Main - Represents what is currently on production
 
-* Dev - Represents the features currently being worked on 
-
-
+- Dev - Represents the features currently being worked on
 
 ## Available NPM Commands
 
@@ -36,7 +34,7 @@ npm start
 
 ### Build
 
-Get an optimized production build 
+Get an optimized production build
 
 ```shell
 npm run build
@@ -71,14 +69,13 @@ npm run test
 Remove the .cache & public directory for a scratch compile.
 
 ```shell
-gatsby clean 
+gatsby clean
 ```
-
 
 ### Deep Clean
 
 Remove the .cache, public, package-lock.json and node_modules for a scratch compile.
 
 ```shell
-npm run deep-clean 
+npm run deep-clean
 ```
