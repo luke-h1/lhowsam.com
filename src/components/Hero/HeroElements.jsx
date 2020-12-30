@@ -13,22 +13,22 @@ export const HeroContainer = styled.div`
     font-size: clamp(1rem, 8vw, 2.7rem);
 
   }
-  h1,p { 
+  h1 { 
     color: ${(props) => props.theme.lightTextColor};
     font-weight: 700;
   }
-  p { 
-    margin-top: 2rem;
-    margin: 2rem 0 0 0.1rem;
-    word-wrap: wrap;
-    width: 50%;
-    font-size: clamp(1rem, 8vw, 1.5rem);
-    font-weight: bold;
-    @media(max-width: 600px){
-      width: 60%;
-    }
-  }
 `;
+
+export const Intro = styled.p`
+  font-size: clamp(1rem, 8vw, 1.5rem);
+  color: ${(props) => props.theme.lightTextColor}; 
+  font-weight: bold;
+  line-height: 1.6;
+  width: 50%;
+  @media(max-width: 600px){
+      width: 90%;
+    }
+`
 
 export const IntroContainer = styled.div`
   display: flex;
