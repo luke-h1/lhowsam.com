@@ -37,6 +37,7 @@ export const AboutFlex = styled.div`
 export const AboutSection = styled.div`
   color: ${props => props.theme.textColor};
   padding: 160px 0;
+  margin-left: 1rem;
 `
 
 export const Container = styled.div`
