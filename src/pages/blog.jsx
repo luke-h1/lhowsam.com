@@ -9,7 +9,8 @@ import Hero from '../components/Hero/Hero';
 import { theme } from '../styles/Themes';
 import Blog from "../components/Blog/Blog"
 const BlogPage = ({ data, location } ) => {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+  const siteTitle = data.site.siteMetadata.title || `Title`
+  // const siteTitle = data.site.siteMetadata?.title || `Title`
 
   return (
     <Layout location={location} title={siteTitle}>
