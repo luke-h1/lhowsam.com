@@ -6,7 +6,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   // Define a template for blog post
-  const blogPost = path.resolve("./src/templates/blog-post.js")
+  const blogPost = path.resolve("./src/templates/blog-post.jsx")
 
   // Get all markdown blog posts sorted by date
   const result = await graphql(
@@ -77,7 +77,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   projects.forEach(project => {
     actions.createPage({
       path: project.frontmatter.slug,
-      component: require.resolve("./src/templates/project-post.js"),
+      component: require.resolve("./src/templates/project-post.jsx"),
       context: {
         slug: project.frontmatter.slug,
       },
