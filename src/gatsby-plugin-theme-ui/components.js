@@ -1,5 +1,5 @@
 /* eslint-disable */
-import Code from '../templates/Code/Code.js';
+import Code from '../templates/Code/Code.jsx';
 
 export default {
   pre: Code,

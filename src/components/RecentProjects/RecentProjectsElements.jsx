@@ -35,7 +35,6 @@ export const ProjectCard = styled.div`
     font-size: 25px;
   }
 `
-// 772 
 
 export const ProjectFlex = styled.div`
   display: flex;
@@ -66,8 +65,6 @@ export const TechWrap = styled.div`
   }
 
 `
-
-
 export const Links = styled.div`
   margin-top: 1.5rem;
   display: flex;

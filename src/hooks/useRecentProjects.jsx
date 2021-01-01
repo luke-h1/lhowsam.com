@@ -1,5 +1,5 @@
-/* eslint-disable */
 import { graphql, useStaticQuery } from 'gatsby';
+
 const useProjects = () => {
   const data = useStaticQuery(graphql`
   query  {
@@ -16,7 +16,7 @@ const useProjects = () => {
       }
     }
   }
-  `)
+  `);
   return data.allMdx.nodes.map((project) => ({
     title: project.frontmatter.title,
     description: project.frontmatter.description,
@@ -25,6 +25,6 @@ const useProjects = () => {
     id: project.id,
     slug: project.frontmatter.slug,
     technology: project.frontmatter.technology,
-  }))
-}
+  }));
+};
 export default useProjects;

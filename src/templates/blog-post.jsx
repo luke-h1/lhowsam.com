@@ -1,22 +1,21 @@
-/* eslint-disable */
-import React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+/* eslint-disable react/prop-types */
+import React from 'react';
+import { graphql } from 'gatsby';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 import {
-  StyledArticle,
   StyledHeader,
   StyledSection,
   StyledLink,
   StyledH1,
   StyledP,
   BlogArticle,
-} from "./BlogPostElements.jsx"
+} from './BlogPostElements';
 
-const BlogPostTemplate = ({ data, location }) => {
-  const post = data.markdownRemark
-  const { previous, next } = data
+const BlogPostTemplate = ({ data }) => {
+  const post = data.markdownRemark;
+  const { previous, next } = data;
 
   return (
     <Layout>
@@ -27,40 +26,42 @@ const BlogPostTemplate = ({ data, location }) => {
       <BlogArticle>
         <StyledHeader>
           <StyledH1 itemProp="headline">{post.frontmatter.title}</StyledH1>
-          <StyledP style={{ fontSize: "15px", textAlign: 'center' }}>
+          <StyledP style={{ fontSize: '15px', textAlign: 'center' }}>
             {post.frontmatter.date}
           </StyledP>
         </StyledHeader>
         <StyledSection
           style={{
-            color: "#000",
+            color: '#000',
             maxWidth: '80%',
           }}
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
-        {/* {/* <hr />
-        <br /> */}
         <nav className="blog-post-nav">
           <ul
             style={{
-              display: `flex`,
-              flexWrap: `wrap`,
-              justifyContent: `space-between`,
-              listStyle: `none`,
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+              listStyle: 'none',
               padding: 0,
             }}
           >
             <li>
               {previous && (
                 <StyledLink to={`${previous.frontmatter.slug}`} rel="prev">
-                  ← {previous.frontmatter.title}
+                  ←
+                  {' '}
+                  {previous.frontmatter.title}
                 </StyledLink>
               )}
             </li>
             <li>
               {next && (
                 <StyledLink to={`${next.frontmatter.slug}`} rel="next">
-                  {next.frontmatter.title} →
+                  {next.frontmatter.title}
+                  {' '}
+                  →
                 </StyledLink>
               )}
             </li>
@@ -68,10 +69,10 @@ const BlogPostTemplate = ({ data, location }) => {
         </nav>
       </BlogArticle>
     </Layout>
-  )
-}
+  );
+};
 
-export default BlogPostTemplate
+export default BlogPostTemplate;
 
 export const pageQuery = graphql`
   query BlogPostBySlug(
@@ -107,4 +108,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
