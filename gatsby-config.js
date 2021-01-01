@@ -1,3 +1,5 @@
+const { GOOGLE_ANALYTICS_KEY } = process.env;
+
 module.exports = {
   siteMetadata: {
     title: 'lhowsam',
@@ -69,13 +71,11 @@ module.exports = {
                   },
                 },
               ],
-
               prompt: {
                 user: 'root',
                 host: 'localhost',
                 global: false,
               },
-
               escapeEntities: {},
             },
           },
@@ -111,7 +111,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: process.env.GOOGLE_ANALYTICS_KEY,
+        trackingId: `${GOOGLE_ANALYTICS_KEY}`,
       },
     },
     'gatsby-plugin-feed',
@@ -119,17 +119,15 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'lhowsam.com',
-        short_name: 'GatsbyJS',
+        short_name: 'lhowsam.com',
         start_url: '/',
         background_color: '#ffffff',
-        theme_color: '#663399',
+        theme_color: '#000',
         display: 'minimal-ui',
         icon: 'content/assets/logo512.png',
       },
     },
     'gatsby-plugin-react-helmet',
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
 };
