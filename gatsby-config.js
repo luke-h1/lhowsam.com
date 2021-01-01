@@ -83,6 +83,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://lhowsam.com',
+        stripQueryString: true,
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
