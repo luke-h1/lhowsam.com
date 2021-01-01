@@ -1,9 +1,6 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/no-danger */
-/* eslint-disable no-unused-vars */
-
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import PropTypes from 'prop-types';
 import {
   BlogWrapper,
   BlogList,
@@ -16,7 +13,7 @@ import {
 } from './RecentBlogPostsElements';
 import usePosts from '../../hooks/usePosts';
 
-const RecentBlogPosts = ({ theme, data }) => {
+const RecentBlogPosts = ({ theme }) => {
   const posts = usePosts();
   return (
     <ThemeProvider theme={theme}>
@@ -39,6 +36,7 @@ const RecentBlogPosts = ({ theme, data }) => {
                 <BlogSection>
                   <p
                     style={{ color: '#000' }}
+                    // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{
                       __html: post.description || post.excerpt,
                     }}
@@ -53,4 +51,9 @@ const RecentBlogPosts = ({ theme, data }) => {
     </ThemeProvider>
   );
 };
+
+RecentBlogPosts.propTypes = {
+  theme: PropTypes.string.isRequired,
+};
+
 export default RecentBlogPosts;

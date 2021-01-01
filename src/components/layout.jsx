@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../styles/GlobalStyles';
 import { theme } from '../styles/Themes';
@@ -16,4 +16,9 @@ const Layout = ({ children }) => (
     </>
   </ThemeProvider>
 );
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
 export default Layout;

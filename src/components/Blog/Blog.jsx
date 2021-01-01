@@ -1,6 +1,6 @@
-/* eslint-disable */
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import PropTypes from 'prop-types';
 import usePosts from '../../hooks/usePosts';
 import SEO from '../seo';
 import {
@@ -19,7 +19,7 @@ const Blog = ({ theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
-      <SEO title="Blog" />
+        <SEO title="Blog" />
 
         <BlogContainer>
           <BlogIntro>
@@ -41,6 +41,7 @@ const Blog = ({ theme }) => {
                 <BlogSection>
                   <p
                     style={{ color: '#000' }}
+                    // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{
                       __html: post.description || post.excerpt,
                     }}
@@ -54,4 +55,9 @@ const Blog = ({ theme }) => {
     </ThemeProvider>
   );
 };
+
+Blog.propTypes = {
+  theme: PropTypes.string.isRequired,
+};
+
 export default Blog;

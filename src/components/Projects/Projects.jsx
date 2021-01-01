@@ -1,7 +1,7 @@
-/* eslint-disable */
 import React from 'react';
-import SEO from '../seo';
+import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
+import SEO from '../seo';
 import { Button } from '../../helpers/Button/Button';
 import useProjects from '../../hooks/useProjects';
 import {
@@ -23,7 +23,7 @@ const Projects = ({ theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
-      <SEO title="Projects" />
+        <SEO title="Projects" />
 
         <ProjectContainer>
           <ProjectIntro>
@@ -68,4 +68,9 @@ const Projects = ({ theme }) => {
     </ThemeProvider>
   );
 };
+
+Projects.propTypes = {
+  theme: PropTypes.string.isRequired,
+};
+
 export default Projects;

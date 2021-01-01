@@ -4,6 +4,7 @@ import { SiGithub } from 'react-icons/si';
 import { AiOutlineMail } from 'react-icons/ai';
 import { ImLinkedin2 } from 'react-icons/im';
 import { ThemeProvider } from 'theme-ui';
+import PropTypes from 'prop-types';
 import {
   FooterContainer,
   FooterWrap,
@@ -60,4 +61,9 @@ const Footer = ({ theme }) => (
     </FooterContainer>
   </ThemeProvider>
 );
+
+Footer.propTypes = {
+  theme: PropTypes.string.isRequired,
+};
+
 export default Footer;

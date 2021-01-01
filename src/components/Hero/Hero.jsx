@@ -1,6 +1,7 @@
-/* eslint-disable */
+/* eslint-disable max-len */
 import React from 'react';
-import { ThemeProvider} from 'styled-components';
+import PropTypes from 'prop-types';
+import { ThemeProvider } from 'styled-components';
 import { Button } from '../../helpers/Button/Button';
 import SEO from '../seo';
 
@@ -15,7 +16,7 @@ import {
 const Hero = ({ theme }) => (
   <ThemeProvider theme={theme}>
     <>
-    <SEO title="Home" />
+      <SEO title="Home" />
 
       <HeroContainer>
         <IntroContainer>
@@ -23,7 +24,9 @@ const Hero = ({ theme }) => (
           <BlurbContainer>
             <Intro>I'm passionate about solving technical problems and coming up with creative solutions.I enjoy working with the JAMstack, React, Node, testing technologies + practices & various dev-ops technologies</Intro>
             <Button
-              style={{ width: '200px', marginTop: '1rem', alignItems: 'center', textAlign: 'center' }}
+              style={{
+                width: '200px', marginTop: '1rem', alignItems: 'center', textAlign: 'center',
+              }}
               round="true"
               primary="true"
               bold="true"
@@ -37,4 +40,9 @@ const Hero = ({ theme }) => (
     </>
   </ThemeProvider>
 );
+
+Hero.propTypes = {
+  theme: PropTypes.string.isRequired,
+};
+
 export default Hero;

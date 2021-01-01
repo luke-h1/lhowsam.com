@@ -1,5 +1,5 @@
-/* eslint-disable */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import SEO from '../seo';
 
@@ -14,10 +14,10 @@ import {
   ContactIntro,
 } from './ContactElements';
 
-const Contact = ({theme}) => (
+const Contact = ({ theme }) => (
   <ThemeProvider theme={theme}>
     <>
-    <SEO title="Contact" />
+      <SEO title="Contact" />
 
       <ContactContainer>
         <ContactIntro>
@@ -40,7 +40,7 @@ const Contact = ({theme}) => (
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Linkedin"
-              
+
             >
               <LinkedIn />
             </a>
@@ -57,7 +57,10 @@ const Contact = ({theme}) => (
         </Alternatives>
       </ContactWrapper>
     </>
-    </ThemeProvider>
+  </ThemeProvider>
 );
+Contact.propTypes = {
+  theme: PropTypes.string.isRequired,
+};
 
 export default Contact;

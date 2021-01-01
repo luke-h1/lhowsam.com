@@ -1,8 +1,9 @@
-/* eslint-disable */
+/* eslint-disable max-len */
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import SEO from '../seo';
+import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
+import SEO from '../seo';
 import {
   AboutContainer,
   AboutFlex,
@@ -36,7 +37,7 @@ const About = ({ theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
-      <SEO title="About" />
+        <SEO title="About" />
         <AboutContainer>
           <AboutIntro>
             <h1>About</h1>
@@ -60,7 +61,7 @@ const About = ({ theme }) => {
                 </Col>
                 <Col2>
                   <ImgWrapper>
-                    <Image src={image.sharp.fluid.src} alt='My profile picture'/>
+                    <Image src={image.sharp.fluid.src} alt="My profile picture" />
                   </ImgWrapper>
                 </Col2>
               </Row>
@@ -71,4 +72,9 @@ const About = ({ theme }) => {
     </ThemeProvider>
   );
 };
+
+About.propTypes = {
+  theme: PropTypes.string.isRequired,
+};
+
 export default About;

@@ -1,6 +1,6 @@
 /* eslint-disable no-shadow */
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import useRecentProjects from '../../hooks/useRecentProjects';
 import { Button } from '../../helpers/Button/Button';
@@ -67,4 +67,9 @@ const RecentProjects = ({ theme }) => {
     </ThemeProvider>
   );
 };
+
+RecentProjects.propTypes = {
+  theme: PropTypes.string.isRequired,
+};
+
 export default RecentProjects;
