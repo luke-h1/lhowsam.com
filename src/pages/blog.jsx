@@ -1,11 +1,9 @@
 /* eslint-disable */
 
 import React from "react"
-import { Link, graphql } from "gatsby"
-import Bio from "../components/bio"
+import {  graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Hero from '../components/Hero/Hero';
 import { theme } from '../styles/Themes';
 import Blog from "../components/Blog/Blog"
 const BlogPage = ({ data, location } ) => {
@@ -20,7 +18,6 @@ const BlogPage = ({ data, location } ) => {
   )
 }
 export default BlogPage
-  // const posts = data.allMarkdownRemark.nodes
 
   export const pageQuery = graphql`
   query { 

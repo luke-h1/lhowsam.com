@@ -20,7 +20,6 @@ import {
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 
-
 export const query = graphql`
   query($slug: String!) {
     mdx(frontmatter: { slug: { eq: $slug } }) {
@@ -42,14 +41,12 @@ export const query = graphql`
 `
 
 const ProjectTemplate = ({ data: { mdx: project } }) => {
-  // const project = data.allProjectDataJson
-  // const { previous, next } = data
 
   return (
     <Layout>
       <SEO
         title={project.frontmatter.title}
-        // description={project.edges.node.description || project.excerpt}
+        description={project.frontmatter.description || project.excerpt}
       />
       <StyledArticle>
         <StyledHeader>
@@ -73,7 +70,6 @@ const ProjectTemplate = ({ data: { mdx: project } }) => {
           <WrapImage>
             </WrapImage>
         </StyledHeader>
-
         <StyledSection
         >
           <StyledP>

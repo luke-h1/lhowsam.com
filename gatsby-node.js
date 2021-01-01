@@ -58,6 +58,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       })
     })
   }
+  // Create project MDX pages
   const ProjectResult = await graphql(`
     query {
       allMdx {
