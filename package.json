@@ -56,6 +56,7 @@
     "@types/node": "^14.14.16",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.7",
     "babel-jest": "^26.6.3",
     "babel-preset-gatsby": "^0.9.1",
     "eslint": "^7.16.0",
@@ -100,10 +101,5 @@
     "jest:update": "jest --silent -u",
     "type-check": "tsc --noEmit",
     "lint": "tslint --project ."
-  },
-  "husky": {
-    "hooks": {
-      "pre-push": "npm run test && npm run lint:fix"
-    }
   }
 }
