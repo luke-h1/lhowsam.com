@@ -16,7 +16,7 @@ import {
   StyledP,
   StyledH1,
   WrapImage,
-} from "./BlogPostElements.jsx"
+} from "./BlogPostElements"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 
