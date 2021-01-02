@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Installing testing deps"
-pip3 install locust
+python3 -m pip install locust
 echo ""
 echo ""
 echo "done"
