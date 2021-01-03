@@ -90,12 +90,13 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --quiet --fix",
+    "lint": "eslint \"src/**/*.{js, jsx,ts,tsx}\" --quiet",
+    "lint:fix": "eslint \"src/**/*.{js, jsx,ts,tsx}\" --quiet --fix",
     "type-check": "tsc --pretty --noEmit",
     "pre-commit": "npm run format && npm run test",
     "deep-clean": "npm run clean && rm -rf node_modules package-lock.json && npm i --legacy-peer-deps",
     "test": "jest --silent",
-    "jest:update": "jest --silent -u",
-    "lint": "tslint --project ."
+    "jest:update": "jest --silent -u"
+
   }
 }
