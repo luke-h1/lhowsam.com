@@ -18,7 +18,8 @@ import {
 
 } from './RecentProjectsElements';
 
-const RecentProjects = ({ theme }) => {
+const RecentProjects: React.FC<{theme: String}> = (props) => {
+  const theme = props;
   const project = useRecentProjects();
 
   return (

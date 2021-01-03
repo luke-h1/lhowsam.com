@@ -16,7 +16,10 @@ import {
 } from './FooterElements';
 import { CodeIcon } from '../../helpers/Icon/CodeIcon';
 
-const Footer = ({ theme }) => (
+const Footer: React.FC<{theme: String}> = (props) => {
+  const theme = props;
+
+return (
   <ThemeProvider theme={theme}>
     <FooterContainer>
       <FooterWrap>
@@ -61,7 +64,7 @@ const Footer = ({ theme }) => (
     </FooterContainer>
   </ThemeProvider>
 );
-
+      } 
 Footer.propTypes = {
   theme: PropTypes.string.isRequired,
 };

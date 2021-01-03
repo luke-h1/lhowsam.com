@@ -14,7 +14,8 @@ import {
   BlogSection,
 } from './BlogElements';
 
-const Blog = ({ theme }) => {
+const Blog: React.FC<{theme: String}> = (props) => {
+  const theme = props;
   const posts = usePosts();
   return (
     <ThemeProvider theme={theme}>

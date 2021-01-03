@@ -17,7 +17,8 @@ import {
   ButtonWrap,
 } from './ProjectsElements';
 
-const Projects = ({ theme }) => {
+const Projects: React.FC<{theme: String}> = (props) => {
+  const theme = props;
   const projects = useProjects();
 
   return (

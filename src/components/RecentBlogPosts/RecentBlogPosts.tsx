@@ -13,7 +13,8 @@ import {
 } from './RecentBlogPostsElements';
 import usePosts from '../../hooks/usePosts';
 
-const RecentBlogPosts = ({ theme }) => {
+const RecentBlogPosts: React.FC<{theme: String}> = (props) => {
+  const theme = props;
   const posts = usePosts();
   return (
     <ThemeProvider theme={theme}>

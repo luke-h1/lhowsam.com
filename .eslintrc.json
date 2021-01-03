@@ -9,13 +9,7 @@
     "no-unused-vars": "off",
     "no-undef": "off",
     "no-redeclare": "off",
-    "prefer-const": "off",
-    "react/jsx-filename-extension": {
-      "extensions": [
-        // ".jsx",
-        ".tsx"
-      ]
-    }
+    "prefer-const": "off"
   },
   "env": {
     "shared-node-browser": true,

@@ -16,7 +16,8 @@ import {
   NavBtnLink,
 } from './NavbarElements';
 
-const Navbar = ({ theme }) => {
+const Navbar: React.FC<{theme: String}> = (props) => {
+  const theme = props;
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);

@@ -6,16 +6,19 @@ import { theme } from '../styles/Themes';
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer/Footer';
 
-const Layout = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <>
-      <GlobalStyle />
-      <Navbar theme={theme} />
-      {children}
-      <Footer theme={theme} />
-    </>
-  </ThemeProvider>
-);
+const Layout: React.FC<{children: Node}> = (props) => {
+  const children = props;
+  return (
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
+        <Navbar theme={theme} />
+        {children}
+        <Footer theme={theme} />
+      </>
+    </ThemeProvider>
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

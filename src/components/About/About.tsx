@@ -21,7 +21,8 @@ import {
   Image,
 } from './AboutElements';
 
-const About = ({ theme }) => {
+const About: React.FC<{theme: String}> = (props) => {
+  const theme = props;
   const { image } = useStaticQuery(graphql`
   query {
     image: file(relativePath: {eq: "luke.png"}) {

@@ -13,7 +13,9 @@ import {
 
 } from './HeroElements';
 
-const Hero = ({ theme }) => (
+const Hero: React.FC<{theme: String}> = (props) => {
+  const theme = props;
+return (
   <ThemeProvider theme={theme}>
     <>
       <SEO title="Home" />
@@ -40,7 +42,7 @@ const Hero = ({ theme }) => (
     </>
   </ThemeProvider>
 );
-
+}
 Hero.propTypes = {
   theme: PropTypes.string.isRequired,
 };
