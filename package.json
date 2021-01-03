@@ -91,7 +91,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "install-deps": "npm i --legacy-peer-deps",
+    "install-deps": "npm i",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{json,md}\"",
     "start": "npm run develop",
@@ -101,7 +101,7 @@
     "lint:fix": "eslint \"src/**/*.{js, jsx,ts,tsx}\" --quiet --fix",
     "type-check": "tsc --pretty --noEmit",
     "pre-commit": "npm run format && npm run test",
-    "deep-clean": "npm run clean && rm -rf node_modules package-lock.json && npm i --legacy-peer-deps",
+    "deep-clean": "npm run clean && rm -rf node_modules package-lock.json && npm i",
     "test": "NODE_ENV=testing  jest --silent",
     "jest:update": " NODE_ENV=testing jest --silent -u"
   }
