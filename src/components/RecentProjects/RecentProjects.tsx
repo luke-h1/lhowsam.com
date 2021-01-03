@@ -24,7 +24,7 @@ interface ProjectItem {
   slug: number;
   technology: number;
   githubLink: string;
-  siteLink?: string; 
+  siteLink?: string;
 }
 
 const RecentProjects: React.FC<{theme: String}> = (props) => {

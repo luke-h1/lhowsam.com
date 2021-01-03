@@ -79,5 +79,4 @@ const Projects: React.FC<{theme: String}> = (props) => {
   );
 };
 
-
 export default Projects;

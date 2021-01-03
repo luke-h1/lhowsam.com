@@ -61,5 +61,4 @@ const Contact: React.FC<{theme: String}> = (props) => {
   );
 };
 
-
 export default Contact;

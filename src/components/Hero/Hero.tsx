@@ -42,5 +42,4 @@ const Hero: React.FC<{theme: String}> = (props) => {
   );
 };
 
-
 export default Hero;

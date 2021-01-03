@@ -60,6 +60,4 @@ const RecentBlogPosts: React.FC<{theme: String}> = (props) => {
   );
 };
 
-
-
 export default RecentBlogPosts;
