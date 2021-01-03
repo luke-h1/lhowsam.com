@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import NavData from '../../data/nav.json';
 import {
@@ -16,11 +15,16 @@ import {
   NavBtnLink,
 } from './NavbarElements';
 
+interface NavInt {
+  title: string;
+  slug: Number;
+}
+
 const Navbar: React.FC<{theme: String}> = (props) => {
   const theme = props;
   const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+  const handleClick: Object = () => setClick(!click);
+  const closeMobileMenu: Object = () => setClick(false);
 
   return (
     <ThemeProvider theme={theme}>
@@ -35,7 +39,7 @@ const Navbar: React.FC<{theme: String}> = (props) => {
               {click ? <FaTimes /> : <FaBars />}
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
-              {NavData.map((item) => (
+              {NavData.map((item: NavInt) => (
                 <NavItem>
                   <NavLinks to={item.slug} onClick={closeMobileMenu}>
                     {item.title}
@@ -43,7 +47,7 @@ const Navbar: React.FC<{theme: String}> = (props) => {
                 </NavItem>
               ))}
               <NavItemBtn>
-                <NavBtnLink href="#" />
+                <NavBtnLink />
               </NavItemBtn>
               <NavItemBtn />
             </NavMenu>
@@ -54,8 +58,5 @@ const Navbar: React.FC<{theme: String}> = (props) => {
   );
 };
 
-Navbar.propTypes = {
-  theme: PropTypes.string.isRequired,
-};
 
 export default Navbar;

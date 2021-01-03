@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import SEO from '../seo';
 
@@ -61,8 +60,6 @@ const Contact: React.FC<{theme: String}> = (props) => {
     </ThemeProvider>
   );
 };
-Contact.propTypes = {
-  theme: PropTypes.string.isRequired,
-};
+
 
 export default Contact;

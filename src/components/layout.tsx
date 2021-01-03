@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../styles/GlobalStyles';
 import { theme } from '../styles/Themes';
@@ -20,8 +19,6 @@ const Layout: React.FC<{children: Node}> = (props) => {
   );
 };
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
+
 
 export default Layout;

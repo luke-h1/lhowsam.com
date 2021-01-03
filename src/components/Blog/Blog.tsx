@@ -1,6 +1,5 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import PropTypes from 'prop-types';
 import usePosts from '../../hooks/usePosts';
 import SEO from '../seo';
 import {
@@ -14,7 +13,16 @@ import {
   BlogSection,
 } from './BlogElements';
 
-const Blog: React.FC<{theme: String}> = (props) => {
+interface Post {
+  slug: Number;
+  date: Number;
+  title: string;
+  description: string;
+  excerpt: string
+
+}
+
+const Blog: React.FC<{theme: string}> = (props) => {
   const theme = props;
   const posts = usePosts();
   return (
@@ -28,7 +36,7 @@ const Blog: React.FC<{theme: String}> = (props) => {
           </BlogIntro>
         </BlogContainer>
         <BlogFlex>
-          {posts.map((post) => (
+          {posts.map((post: Post) => (
             <BlogList key={post.slug}>
               <BlogArticle>
                 <BlogHeader>
@@ -55,10 +63,6 @@ const Blog: React.FC<{theme: String}> = (props) => {
       </>
     </ThemeProvider>
   );
-};
-
-Blog.propTypes = {
-  theme: PropTypes.string.isRequired,
 };
 
 export default Blog;

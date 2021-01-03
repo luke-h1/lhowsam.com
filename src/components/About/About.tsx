@@ -1,6 +1,5 @@
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import SEO from '../seo';
 import {
@@ -71,10 +70,6 @@ const About: React.FC<{theme: String}> = (props) => {
       </>
     </ThemeProvider>
   );
-};
-
-About.propTypes = {
-  theme: PropTypes.string.isRequired,
 };
 
 export default About;

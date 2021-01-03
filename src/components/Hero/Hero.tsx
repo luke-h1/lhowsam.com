@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import { Button } from '../../helpers/Button/Button';
 import SEO from '../seo';
@@ -10,7 +9,6 @@ import {
   IntroContainer,
   BlurbContainer,
   Intro,
-
 } from './HeroElements';
 
 const Hero: React.FC<{theme: String}> = (props) => {
@@ -43,8 +41,6 @@ const Hero: React.FC<{theme: String}> = (props) => {
     </ThemeProvider>
   );
 };
-Hero.propTypes = {
-  theme: PropTypes.string.isRequired,
-};
+
 
 export default Hero;
