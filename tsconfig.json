@@ -6,6 +6,7 @@
       }
     ],
     "module": "commonjs",
+    "resolveJsonModule": true,
     "target": "esnext",
     "jsx": "react",
     "lib": ["dom", "esnext"],

@@ -1,16 +1,15 @@
 module.exports = {
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json'],
   transform: {
-    '^.+\\.jsx?$': '<rootDir>/jest-preprocess.js',
+    '^.+\\.(ts|tsx)$': 'ts-jest',
   },
-  moduleNameMapper: {
-    '.+\\.(css|styl|less|sass|scss)$': 'identity-obj-proxy',
-    '.+\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/__mocks__/file-mock.js',
-  },
-  testPathIgnorePatterns: ['node_modules', '\\.cache', '<rootDir>.*/public'],
-  transformIgnorePatterns: ['node_modules/(?!(gatsby)/)'],
   globals: {
-    __PATH_PREFIX__: '',
+    'ts-jest': {
+      tsConfigFile: 'tsconfig.json',
+    },
   },
-  testURL: 'http://localhost:8000',
-  setupFiles: ['<rootDir>/loadershim.js'],
+  testMatch: ['**/**/*.test.+(ts|tsx|js)'],
+  testPathIgnorePatterns: ['/node_modules/', '/dist/', '/lib/', '/public/', '.cache'],
+  verbose: true,
+  testURL: 'http://localhost/',
 };

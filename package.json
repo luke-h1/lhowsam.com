@@ -11,6 +11,7 @@
     "@emotion/react": "^11.1.4",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
+    "@types/jest": "^26.0.19",
     "babel-plugin-styled-components": "^1.12.0",
     "events": "^3.2.0",
     "gatsby": "^2.26.1",
@@ -48,9 +49,11 @@
     "react-icons": "^4.1.0",
     "react-live": "^2.2.3",
     "styled-components": "^5.2.1",
-    "theme-ui": "^0.3.5"
+    "theme-ui": "^0.3.5",
+    "ts-jest": "^26.4.4"
   },
   "devDependencies": {
+    "@babel/preset-typescript": "^7.12.7",
     "@testing-library/react": "^11.2.2",
     "@types/events": "^3.0.0",
     "@types/node": "^14.14.16",
@@ -98,7 +101,7 @@
     "type-check": "tsc --pretty --noEmit",
     "pre-commit": "npm run format && npm run test",
     "deep-clean": "npm run clean && rm -rf node_modules package-lock.json && npm i --legacy-peer-deps",
-    "test": "jest --silent",
-    "jest:update": "jest --silent -u"
+    "test": "NODE_ENV=testing  jest --silent",
+    "jest:update": " NODE_ENV=testing jest --silent -u"
   }
 }
