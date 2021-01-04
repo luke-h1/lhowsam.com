@@ -21,7 +21,7 @@ interface ProjectItem {
   title: string;
   slug: Number;
   technology: string;
-  githubLink?: string;
+  githubLink: string;
   siteLink?: string;
 
 }
