@@ -83,9 +83,7 @@ export const GithubLink = styled(DiGithubBadge)`
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
-
-
-`
+`;
 
 export const SiteLink = styled(IoIosBrowsers)`
   color: #000;

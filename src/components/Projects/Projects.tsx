@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import SEO from '../seo';
 import { Button } from '../../helpers/Button/Button';
@@ -17,7 +16,18 @@ import {
   ButtonWrap,
 } from './ProjectsElements';
 
-const Projects = ({ theme }) => {
+interface ProjectItem {
+  id: Number;
+  title: string;
+  slug: Number;
+  technology: string;
+  githubLink: string;
+  siteLink?: string;
+
+}
+
+const Projects: React.FC<{theme: String}> = (props) => {
+  const theme = props;
   const projects = useProjects();
 
   return (
@@ -32,7 +42,7 @@ const Projects = ({ theme }) => {
         </ProjectContainer>
         <ProjectFlex>
           <ProjectGrid>
-            {projects.map((project) => (
+            {projects.map((project: ProjectItem) => (
               <ProjectCard key={project.id}>
                 <h1 style={{ color: '#000' }}>{project.title}</h1>
                 <ButtonWrap>
@@ -67,10 +77,6 @@ const Projects = ({ theme }) => {
       </>
     </ThemeProvider>
   );
-};
-
-Projects.propTypes = {
-  theme: PropTypes.string.isRequired,
 };
 
 export default Projects;

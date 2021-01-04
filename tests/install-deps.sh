@@ -1,6 +1,9 @@
 #!/bin/bash
 echo "Installing testing deps"
-pip3 install locust
+python3 -m venv ./venv
+brew install pipenv
+source ./venv/bin/activate
+pipenv install locust
 echo ""
 echo ""
 echo "done"

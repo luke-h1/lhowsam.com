@@ -1,6 +1,5 @@
 /* eslint-disable no-shadow */
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import useRecentProjects from '../../hooks/useRecentProjects';
 import { Button } from '../../helpers/Button/Button';
@@ -18,7 +17,18 @@ import {
 
 } from './RecentProjectsElements';
 
-const RecentProjects = ({ theme }) => {
+interface ProjectItem {
+  id: number;
+  title: string;
+  excerpt?: string
+  slug: number;
+  technology: number;
+  githubLink: string;
+  siteLink?: string;
+}
+
+const RecentProjects: React.FC<{theme: String}> = (props) => {
+  const theme = props;
   const project = useRecentProjects();
 
   return (
@@ -28,7 +38,7 @@ const RecentProjects = ({ theme }) => {
           <ProjectTitle>Recent Projects</ProjectTitle>
           <ProjectFlex>
             <ProjectContainer>
-              {project.map((project) => (
+              {project.map((project: ProjectItem) => (
                 <ProjectCard key={project.id}>
                   <h1>{project.title}</h1>
                   <p>{project.excerpt}</p>
@@ -66,10 +76,6 @@ const RecentProjects = ({ theme }) => {
       </>
     </ThemeProvider>
   );
-};
-
-RecentProjects.propTypes = {
-  theme: PropTypes.string.isRequired,
 };
 
 export default RecentProjects;

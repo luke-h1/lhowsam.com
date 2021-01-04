@@ -1,7 +1,5 @@
-/* eslint-disable max-len */
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
-import PropTypes from 'prop-types';
 import { ThemeProvider } from 'styled-components';
 import SEO from '../seo';
 import {
@@ -21,7 +19,8 @@ import {
   Image,
 } from './AboutElements';
 
-const About = ({ theme }) => {
+const About: React.FC<{theme: String}> = (props) => {
+  const theme = props;
   const { image } = useStaticQuery(graphql`
   query {
     image: file(relativePath: {eq: "luke.png"}) {
@@ -71,10 +70,6 @@ const About = ({ theme }) => {
       </>
     </ThemeProvider>
   );
-};
-
-About.propTypes = {
-  theme: PropTypes.string.isRequired,
 };
 
 export default About;

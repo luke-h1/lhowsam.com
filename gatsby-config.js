@@ -26,7 +26,7 @@ module.exports = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: {
-          default: require.resolve('./src/components/layout.jsx'),
+          default: require.resolve('./src/components/layout.tsx'),
         },
       },
     },
@@ -88,6 +88,9 @@ module.exports = {
         siteUrl: 'https://lhowsam.com',
         stripQueryString: true,
       },
+    },
+    {
+      resolve: 'gatsby-plugin-typescript',
     },
     {
       resolve: 'gatsby-transformer-remark',

@@ -1,6 +1,5 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import PropTypes from 'prop-types';
 import {
   BlogWrapper,
   BlogList,
@@ -13,7 +12,16 @@ import {
 } from './RecentBlogPostsElements';
 import usePosts from '../../hooks/usePosts';
 
-const RecentBlogPosts = ({ theme }) => {
+interface PostItem {
+  slug: Number;
+  date: Number;
+  title: string;
+  description?: string;
+  excerpt?: string;
+}
+
+const RecentBlogPosts: React.FC<{theme: String}> = (props) => {
+  const theme = props;
   const posts = usePosts();
   return (
     <ThemeProvider theme={theme}>
@@ -22,7 +30,7 @@ const RecentBlogPosts = ({ theme }) => {
           <BlogTitleWrap>
             <BlogTitle>Recent Blog posts</BlogTitle>
           </BlogTitleWrap>
-          {posts.map((post) => (
+          {posts.map((post: PostItem) => (
             <BlogList key={post.slug}>
               <BlogArticle>
                 <BlogHeader>
@@ -50,10 +58,6 @@ const RecentBlogPosts = ({ theme }) => {
       </>
     </ThemeProvider>
   );
-};
-
-RecentBlogPosts.propTypes = {
-  theme: PropTypes.string.isRequired,
 };
 
 export default RecentBlogPosts;
