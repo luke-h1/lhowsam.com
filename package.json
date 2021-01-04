@@ -82,7 +82,8 @@
   "homepage": "",
   "keywords": [
     "luke howsam",
-    "lhowsam.com"
+    "lhowsam.com",
+    "portfolio"
   ],
   "license": "MIT",
   "main": "n/a",
@@ -92,8 +93,7 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "install-deps": "npm i",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
