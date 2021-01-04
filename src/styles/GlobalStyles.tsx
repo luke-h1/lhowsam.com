@@ -15,7 +15,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     font-size: 16px;
     box-sizing: border-box;
-
+    scroll-behavior: smooth;
   }
 
   *, *:before, *:after { 
@@ -27,6 +27,7 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background: #F6F7F8;
+
     overflow-x: hidden;  
     @font-face {
     font-family: ${PrimaryFont};
