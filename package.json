@@ -104,6 +104,7 @@
     "pre-commit": "npm run format && npm run test",
     "deep-clean": "npm run clean && rm -rf node_modules package-lock.json && npm i",
     "test": "NODE_ENV=testing  jest --silent",
-    "jest:update": " NODE_ENV=testing jest --silent -u"
+    "jest:update": " NODE_ENV=testing jest --silent -u",
+    "tsc": "tsc --watch --preserveWatchOutput"
   }
 }
