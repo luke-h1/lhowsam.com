@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { ThemeProvider } from 'styled-components';
