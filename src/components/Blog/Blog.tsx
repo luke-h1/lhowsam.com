@@ -14,8 +14,8 @@ import {
 } from './BlogElements';
 
 interface Post {
-  slug: Number;
-  date: Number;
+  slug: number;
+  date: number;
   title: string;
   description: string;
   excerpt: string
