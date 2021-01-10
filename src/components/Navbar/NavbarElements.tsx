@@ -2,7 +2,6 @@
 import styled from 'styled-components';
 import { BiCodeBlock } from 'react-icons/bi';
 import { Link } from 'gatsby';
-import { FiSun, FiMoon } from 'react-icons/fi';
 import { Container } from '../../helpers/Container/Container';
 
 export const Nav = styled.nav`
@@ -70,7 +69,7 @@ export const NavMenu = styled.ul`
     position: absolute;
     top: 60px;
     overflow: hidden;
-    left: ${({ click }) => (click ? 0 : '-200%')};
+    left: ${({ click }: any) => (click ? 0 : '-200%')};
     opacity: 1;
     transition: all 0.2s ease;
     background: ${(props) => props.theme.lightTextColor}; 
