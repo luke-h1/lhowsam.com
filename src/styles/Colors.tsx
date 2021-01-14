@@ -3,7 +3,7 @@
 export const light = {
   100: '#F6F7F8',
   200: '#eee',
-  300: '#FDEEE5',
+  300: '#fff',
 };
 
 export const dark = {
