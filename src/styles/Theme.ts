@@ -6,5 +6,6 @@ export const theme = {
   textColor: light[100],
   darkTextColor: dark[100],
   blueTextColor: blue[100],
+  greyTextColor: light[300],
   PrimaryFont,
 };

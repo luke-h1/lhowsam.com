@@ -1,7 +1,7 @@
 export const light = { 
     100: '#4B5663',
     200: '#fff',
-    300: '#E4E7EB'
+    300: '#7A7A7A'
 }
 
 export const dark = { 
