@@ -2,6 +2,7 @@ require('dotenv').config({
   path: `.env`,
 });
 const { GOOGLE_ANALYTICS_KEY } = process.env;
+const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
 
 module.exports = {
   siteMetadata: {
@@ -37,6 +38,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-mdx',
       options: {
+        plugins: [`gatsby-remark-prismjs`, `gatsby-remark-copy-linked-files`, `gatsby-remark-smartypants`],
         defaultLayouts: {
           default: require.resolve('./src/templates/Post.tsx'),
         },
@@ -74,10 +76,10 @@ module.exports = {
         name: `luke-howsam-portfolio`,
         short_name: `luke-howsam-portfolio`,
         start_url: `/`,
-        background_color: `#fff`,
-        theme_color: `#000`,
+        theme_color: '#ffffff',
+        background_color: '#000',
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+      
       },
     },
     {
@@ -146,6 +148,14 @@ module.exports = {
         stripQueryString: true,
       },
     },
+    shouldAnalyseBundle && {
+      resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
+      options: {
+        analyzerMode: `static`,
+        reportFilename: `_bundle.html`,
+        openAnalyzer: false,
+      },
+    },
     // `gatsby-plugin-offline`,
-  ],
+  ].filter(Boolean),
 };
