@@ -4,20 +4,12 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 export const FooterContainer = styled.footer`
-  position: sticky;
-  bottom: 0px;
-  width: 100%;
-  margin: 0;
-  background: ${(props) => props.theme.primaryBackgroundColor};
-  min-height: 70px;
-  max-height: 70px;
-  @media(min-width: 680px){
-    height: 80px;
+  @media (min-width: 680px) {
+    height: 60px;
   }
-
   @media (max-width: 500px) {
     display: none;
-  } 
+  }
 `;
 
 export const FooterWrap = styled.div`
@@ -26,7 +18,7 @@ export const FooterWrap = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 100vw;
-  background: ${(props) => props.theme.primaryBackgroundColor};
+  background: ${props => props.theme.backgroundColor};
 `;
 
 export const SocialMedia = styled.section`
@@ -36,40 +28,43 @@ export const SocialMedia = styled.section`
 
 export const SocialMediaWrap = styled.div`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  max-width: 1100px;
+  max-width: 900px;
   margin: 13px auto 0 auto;
   @media (max-width: 820px) {
     flex-direction: column;
   }
 `;
 
-export const SocialLogo = styled(Link)`
-  color: ${(props) => props.theme.primaryColor}; 
-  justify-self: start;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 1.5rem;
-  display: flex;
-  align-items: center;
-  margin-bottom: 16px;
-  font-weight: 700;
-`;
-
 export const SocialIcons = styled.div`
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  width: 240px;
+  width: 340px;
 `;
 
 export const SocialIconLink = styled.a`
-  color: ${(props) => props.theme.primaryColor}; 
-  font-size: 24px;
+  color: ${props => props.theme.darkTextColor};
+  margin: 0 25px 0 25px;
+  font-size: 25px;
   &:hover {
-    color: ${(props) => props.theme.PrimaryHoverColor}; 
+    color: ${props => props.theme.blueTextColor};
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
+`;
+
+export const LinkWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+`;
+
+export const LinkItem = styled(Link)`
+  color: ${props => props.theme.darkTextColor} !important;
+  margin: 7px;
 `;
