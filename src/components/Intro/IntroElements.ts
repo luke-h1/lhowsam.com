@@ -6,7 +6,7 @@ export const IntroWrapper = styled.div`
   justify-content: center;
   align-items: center;
   /* margin: 0 auto; */
-  margin: 0 0 2rem 0;
+  margin: 0 0 5rem 0;
 `;
 
 export const HighLight = styled.strong`

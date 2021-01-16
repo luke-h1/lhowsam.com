@@ -5,5 +5,11 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: left;
-  padding-left: 2rem;
+  margin: 0 auto;
+  padding-left: 5rem;
+  padding-right: 5rem;
+`;
+
+export const Title = styled.h1`
+  text-align: left;
 `;

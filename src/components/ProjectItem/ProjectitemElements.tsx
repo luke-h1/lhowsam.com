@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Card = styled.div`
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
   width: 750px;
   height: 150px;
   margin-bottom: 1em;
@@ -15,6 +15,8 @@ export const ProjectTitle = styled.h3`
   text-align: left;
   margin-left: 1rem;
   font-size: clamp(1rem, 8vw, 1.6rem);
+  margin-top: 1rem;
+
 `;
 
 export const ProjectExcerpt = styled.p`
