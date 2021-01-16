@@ -1,7 +1,7 @@
 import React from "react"
 import { MDXProvider } from "@mdx-js/react"
 import { preToCodeBlock } from "mdx-utils"
-import Code from "./index.tsx"
+import Code from "./index"
 
 // components is its own object outside of render so that the references to
 // components are stable
