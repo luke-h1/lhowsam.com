@@ -1,12 +1,15 @@
 import React from 'react';
 import BlogItem from '../BlogItem/BlogItem';
-import { BlogWrapper } from './ShowCaseBlogElements';
+import { BlogWrapper, Title, TitleWrap } from './ShowCaseBlogElements';
 import { ThemeProvider } from 'styled-components';
 
 const ShowCaseBlog = ({ theme }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
+        <TitleWrap>
+          <Title>Blog</Title>
+        </TitleWrap>
         <BlogWrapper>
           <BlogItem />
           <BlogItem />
