@@ -1,10 +1,10 @@
 {
-  "name": "gatsby-blog-mdx",
-  "author": "Ellis Min <ellismin.dev@gmail.com>",
+  "name": "lhowsam.com",
+  "author": "luke howsam <luke-h1>",
   "license": "MIT",
   "private": true,
-  "description": "A simple starter for blog posts built with Gatsby js",
-  "version": "0.1.0",
+  "description": "My portfolio made With Gatsby JS",
+  "version": "1.0.0",
   "dependencies": {
     "@emotion/react": "^11.1.4",
     "@mdx-js/mdx": "^1.6.22",
@@ -97,9 +97,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/EllisMin/gatsby-blog-mdx"
+    "url": "https://github.com/luke-h1/lhowsam.com"
   },
   "bugs": {
-    "url": "https://github.com/EllisMin/gatsby-blog-mdx/issues"
+    "url": "https://github.com/luke-h1/lhowsam.com/issues"
   }
 }

@@ -25,10 +25,6 @@ exports.createPages = ({ actions, graphql }) => {
     {
       allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
         edges {
-          node {
-            fields {
-              slug
-            }
             frontmatter {
               title
               tags
@@ -36,7 +32,6 @@ exports.createPages = ({ actions, graphql }) => {
               excerpt
               draft
             }
-          }
         }
       }
     }
