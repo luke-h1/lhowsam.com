@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
     <>
       <GlobalStyle />
       <Nav theme={theme} />
-      <Wrapper>{children}</Wrapper>
+      {children}
       <Footer theme={theme} />
     </>
   );

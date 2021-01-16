@@ -14,8 +14,7 @@ export const Title = styled.h1`
 
 export const TitleWrap = styled.div`
   display: flex;
-  width: 650px;
   flex-direction: column;
-  justify-content: left;
-  align-items: left;
+  justify-content: center;
+  align-items: center;
 `;

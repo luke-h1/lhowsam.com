@@ -22,7 +22,7 @@ export const DescWrap = styled.div`
   align-items: center;
   p {
     text-align: center;
-    width: 60%;
+    width: 40%;
     font-size: 20px;
     line-height: 1.4;
     color: ${(props) => props.theme.greyTextColor}

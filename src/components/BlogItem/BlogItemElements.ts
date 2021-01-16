@@ -11,11 +11,14 @@ export const BlogCard = styled.div`
   width: 750px;
   margin-bottom: 2.5rem;
   margin-top: 0.3rem;
+  /* @media(max-width: ) */
 `;
 
 export const CardTitle = styled.h1`
   text-align: left;
   font-size: clamp(1rem, 8vw, 1.6rem);
+  margin: 0 0 1rem 0;
+
 `;
 
 export const CardBody = styled.div`
@@ -37,6 +40,5 @@ export const TitleWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 700px;
-  margin: 0;
+
 `;
