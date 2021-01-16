@@ -4,6 +4,7 @@ import Nav from './Nav/Nav';
 import { theme } from '../styles/Theme';
 import { GlobalStyle } from '../styles/GlobalStyles';
 import { Wrapper } from '../templates/Wrapper';
+import Footer from './Footer/Foooter';
 
 const Layout = ({ children }) => {
   return (
@@ -11,6 +12,7 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <Nav theme={theme} />
       <Wrapper>{children}</Wrapper>
+      <Footer theme={theme} />
     </>
   );
 };
