@@ -28,6 +28,7 @@
     "gatsby-remark-images": "^3.9.0",
     "gatsby-remark-smartypants": "^2.8.0",
     "gatsby-source-filesystem": "^2.5.0",
+    "gatsby-source-strapi": "0.0.12",
     "gatsby-transformer-sharp": "^2.6.0",
     "husky": "^4.3.8",
     "polished": "^4.0.5",
