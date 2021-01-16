@@ -9,5 +9,13 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.h1`
-  text-align: left;
+  text-align: center;
+`;
+
+export const TitleWrap = styled.div`
+  display: flex;
+  width: 650px;
+  flex-direction: column;
+  justify-content: left;
+  align-items: left;
 `;
