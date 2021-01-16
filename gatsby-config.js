@@ -1,13 +1,29 @@
+require("dotenv").config({
+  path: `.env`,
+})
+const { GOOGLE_ANALYTICS_KEY } = process.env
+const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 const rss = require("./gatsby-rss")
 
 module.exports = {
+  siteMetadata: {
+    title: `lhowsam`,
+    author: {
+      name: "Luke Howsam",
+      summary: "Who lives & works in Sheffield, UK",
+    },
+    description: `My personal portfolio made with Gatsby, Graphql, styled-components & MDX`,
+    social: {
+      twitter: "lukeH_1999",
+    },
+  },
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-offline`,
-    'gatsby-plugin-sass',
+    "gatsby-plugin-sass",
     `gatsby-transformer-remark`,
     `gatsby-plugin-sharp`,
     `gatsby-remark-emoji`,
@@ -27,16 +43,6 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
-
-    // Read images
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `assets`,
-        path: `${__dirname}/_assets`,
-      },
-    },
-
     // mdx support
     {
       resolve: `gatsby-plugin-mdx`,
@@ -50,17 +56,15 @@ module.exports = {
               className: "code-title-custom",
             },
           },
-
           // Process images in markdown
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: '768',
+              maxWidth: "768",
               backgroundColor: `transparent`,
               linkImagesToOriginal: false,
             },
           },
-
           {
             resolve: `gatsby-remark-autolink-headers`,
             options: {
@@ -107,11 +111,10 @@ module.exports = {
               className: `anchor-heading`,
             },
           },
-
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: '768',
+              maxWidth: "768",
               backgroundColor: `transparent`,
               linkImagesToOriginal: false,
             },
@@ -119,19 +122,25 @@ module.exports = {
         ],
       },
     },
-
+    {
+      resolve: "gatsby-plugin-canonical-urls",
+      options: {
+        siteUrl: "https://lhowsam.com",
+        stripQueryString: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-blog-mdx`,
-        short_name: `blog`,
+        name: `luke-howsam-portfolio`,
+        short_name: `luke-howsam`,
         start_url: `/`,
         display: `minimal-ui`,
-        icon: 'src/images/logo512.png',
-
+        theme_color: "#ffffff",
+        background_color: "#000",
+        icon: "src/images/logo512.png",
       },
     },
-
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -139,5 +148,14 @@ module.exports = {
         path: `${__dirname}/src/z_`,
       },
     },
-  ],
+    shouldAnalyseBundle && {
+      resolve: `gatsby-plugin-webpack-bundle-analyser-v2`,
+      options: {
+        analyzerMode: `static`,
+        reportFilename: `_bundle.html`,
+        openAnalyzer: false,
+      },
+    },
+    // `gatsby-plugin-offline`
+  ].filter(Boolean),
 }
