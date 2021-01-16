@@ -12,8 +12,7 @@ const IndexPage = () => (
     <SEO title='Home' />
     <Intro theme={theme} />
     <ShowCaseProject theme={theme} />
-    {/* <ShowCaseBlog theme={theme} /> */}
-    <BlogItem theme={theme} />
+    <ShowCaseBlog theme={theme} />
   </Layout>
 );
 

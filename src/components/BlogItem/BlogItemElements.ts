@@ -9,7 +9,7 @@ export const BlogCard = styled.div`
   align-items: center;
   margin: 0 auto;
   width: 750px;
-  margin-bottom: 1rem;
+  margin-bottom: 2.5rem;
   margin-top: 0.3rem;
 `;
 
@@ -28,7 +28,7 @@ export const CardBody = styled.div`
 
 export const CardFinePrint = styled.p`
   color: ${props => props.theme.greyTextColor};
-  text-align: left;
+  text-align: center;
   margin-left: 1rem;
 `;
 
@@ -37,6 +37,6 @@ export const TitleWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 600px;
+  width: 700px;
   margin: 0;
 `;
