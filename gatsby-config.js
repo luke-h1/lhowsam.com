@@ -43,6 +43,13 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `post-images`,
+        path: `${__dirname}/_posts/images`,
+      },
+    },
     // mdx support
     {
       resolve: `gatsby-plugin-mdx`,
