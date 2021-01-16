@@ -38,6 +38,10 @@ const ContentWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  p { 
+    font-size: 18px;
+    margin: 15px 0 15px 0;
+  }
 `;
 
 const Small = styled.p`

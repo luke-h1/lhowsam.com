@@ -37,6 +37,7 @@
     "gatsby-source-filesystem": "^2.9.1",
     "gatsby-source-strapi": "0.0.12",
     "gatsby-transformer-json": "^2.9.0",
+    "gatsby-transformer-rehype": "^1.9.8",
     "gatsby-transformer-remark": "^2.14.0",
     "gatsby-transformer-sharp": "^2.10.1",
     "husky": "^4.3.8",
@@ -47,6 +48,8 @@
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.1.0",
+    "rehype-autolink-headings": "^5.0.1",
+    "rehype-slug": "^4.0.1",
     "styled-components": "^5.2.1",
     "theme-ui": "^0.3.5",
     "ts-jest": "^26.4.4"

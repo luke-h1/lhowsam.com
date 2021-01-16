@@ -38,8 +38,27 @@ module.exports = {
       resolve: 'gatsby-plugin-mdx',
       options: {
         defaultLayouts: {
-          default: require.resolve('./src/components/layout.js'),
+          default: require.resolve('./src/templates/Post.tsx'),
         },
+        rehypePlugins: [
+          require('rehype-slug'),
+          // To pass options, use a 2-element array with the
+          // configuration in an object in the second element
+          [require('rehype-autolink-headings'), { behavior: 'wrap' }],
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-transformer-rehype`,
+      options: {
+        filter: node => node.internal.type === `Mdx`,
+        source: node => node.html,
+        contextFields: [],
+        fragment: true,
+        space: `html`,
+        emitParseErrors: false,
+        verbose: false,
+        plugins: [],
       },
     },
     {
