@@ -8,7 +8,7 @@ slug: "/blog/force-git-merge"
 Isolating features into seperate branches is a really common practice for most developers. By seperating features, bug fixes or working on experiments you can avoid a lot of problems and keep your master / development branches clean.
 
 
-At some point you may reach a state where you want to integrate your feature branch with the rest of your project. This is where the <strong>git merge</strong> command comes into play
+At some point you may reach a state where you want to integrate your feature branch with the rest of your project. This is where the git merge</strong> command comes into play
 
 
 
@@ -16,13 +16,13 @@ I recently ran into an issue where my feature branch conflicted with the dev bra
 
 
 
-<strong>WARNING: ⚠️ Do not do this if you are working on a project with other people. </strong>
+WARNING: ⚠️ Do not do this if you are working on a project with other people. 
 
 
 <h1>Preparing to force the merge</h1>
 
 
-Let's assume you want to merge branch <strong>hotfix</strong> into your <strong>master</strong> branch but the changes made in hotfix conflict with master. You know the changes in <strong>hotfix</strong> won't overwrite any important code in <strong>master</strong> and you need to get this fix deployed.
+Let's assume you want to merge branch hotfix into your master branch but the changes made in hotfix conflict with master. You know the changes in hotfix won't overwrite any important code in master and you need to get this fix deployed.
 
 
 ### 1 - Preparing to merge
@@ -43,8 +43,7 @@ If anything shows up here move it to your desktop or stash it
 git checkout master && git pull
 ```
 
-<br />
-<br />
+
 
 # 3 - Dress up your feature branch
 
@@ -52,25 +51,22 @@ git checkout master && git pull
 git checkout feature-branch
 ```
 
-<br />
 
 ```js
 git merge --strategy=ours master
 ```
 
-<br />
 
 ```
 # quit out of the editor when it asks you if you
 # want to merge into your current branch
 ```
 
-<br />
-<br />
+
 
 # 4 - Go in for the kill
 
-<br />
+
 
 ```js
 git checkout master
@@ -79,7 +75,5 @@ git checkout master
 ```js
 git merge --no-ff feature-branch
 ```
-
-<br />
 
 This merge approach will add one commit on top of your master / main branch which pastes in whatever is in your feature branch without complaining about conflicts.

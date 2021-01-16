@@ -17,6 +17,7 @@ module.exports = {
     },
   },
   plugins: [
+
     'gatsby-plugin-styled-components',
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
@@ -61,13 +62,6 @@ module.exports = {
         emitParseErrors: false,
         verbose: false,
         plugins: [],
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/assets`,
-        name: 'assets',
       },
     },
     {
