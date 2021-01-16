@@ -58,12 +58,16 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
+    "develop": "NODE_ENV=development gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
+    "start": "NODE_ENV=production npm run develop",
     "serve": "gatsby serve",
+    "lint": "eslint \"src/**/*.{js, jsx,ts,tsx}\" --quiet",
+    "lint:fix": "eslint \"src/**/*.{js, jsx,ts,tsx}\" --quiet --fix",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "NODE_ENV=testing jest --silent",
+    "test:update": " NODE_ENV=testing jest --silent -u",
+    "deep-clean": "npm run clean && rm -rf node_modules package-lock.json && npm i"
   },
   "repository": {
     "type": "git",
