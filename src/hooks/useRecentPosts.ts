@@ -1,9 +1,9 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-const usePosts = () => {
+const useRecentPosts = () => {
   const data = useStaticQuery(graphql`
-    query getPosts {
-      allMdx {
+    query getRecentPosts {
+      allMdx(limit: 3) {
         edges {
           node {
             frontmatter {
@@ -12,6 +12,7 @@ const usePosts = () => {
               slug
               title
             }
+            body
           }
         }
       }
@@ -24,4 +25,4 @@ const usePosts = () => {
     title: post.node.frontmatter.title,
   }));
 };
-export default usePosts;
+export default useRecentPosts;

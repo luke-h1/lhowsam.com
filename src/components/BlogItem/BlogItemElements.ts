@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-// BlogCard, CardTitle, CardBody, CardFinePrint
+import { Link } from 'gatsby';
 
 export const BlogCard = styled.div`
   display: flex;
@@ -18,7 +17,6 @@ export const CardTitle = styled.h1`
   text-align: left;
   font-size: clamp(1rem, 8vw, 1.6rem);
   margin: 0 0 1rem 0;
-
 `;
 
 export const CardBody = styled.div`
@@ -40,5 +38,9 @@ export const TitleWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
 
+export const BlogLink = styled(Link)`
+  color: ${props => props.theme.darkTextColor};
+  text-decoration: none;
 `;

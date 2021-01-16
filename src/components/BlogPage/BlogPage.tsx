@@ -11,9 +11,9 @@ const BlogPage = ({ theme }) => {
         <Wrapper>
           <Title>Blog</Title>
           <Intro></Intro>
-          {posts.map(post => {
-            <h1>{post.title}</h1>
-          })}
+          {posts.map(post => (
+            <BlogItem title={post.title} date={post.date} description={post.description} slug={post.slug}/>
+          ))}
         </Wrapper>
       </>
     </ThemeProvider>
