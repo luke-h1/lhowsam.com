@@ -21,6 +21,8 @@ export const CardTitle = styled.h1`
 export const CardBody = styled.div`
   p {
     line-height: 1.6;
+    color: ${props => props.theme.greyTextColor};
+    font-size: 18px;
   }
 `;
 
