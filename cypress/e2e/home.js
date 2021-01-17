@@ -2,20 +2,23 @@
 
 describe('home', () => {
   beforeEach(() => {
-    cy.visit('/').waitForRouteChange();
+   cy.visit('/');
+   cy.wait(600)
   });
 
   it('should have hero content', () => {
-    cy.findAllByText(/I'm Luke/i);
+    cy.findAllByText("Hi,I'm Luke");
     cy.findAllByText(
-      /I'm passionate about solving technical problems and coming up with creative solutions.I enjoy working with the JAMstack, React, Node, testing technologies + practices & various dev-ops technologies/i,
+      "Hi, I'm Luke.I'm passionate about solving technical problems and coming up with creative solutions.I enjoy working with the JAMstack, React, Node, testing technologies + practices & various dev-ops technologies",
     );
+
   });
   it('should have recent projects', () => {
-    cy.findByText(/Projects/i);
+    cy.findAllByText(/Projects/i);
   });
 
+
   it('should have recent blog posts', () => {
-    cy.findByText(/forcing git merges/i);
+    cy.findAllByText(/forcing git merges/i);
   });
 });
