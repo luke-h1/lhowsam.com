@@ -1,6 +1,6 @@
 import React from 'react';
 import { EmailShareButton, RedditShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share';
-import { EmailIcon, RedditIcon, TwitterIcon, LinkedinIcon } from 'react-share';
+import { EmailIcon, TwitterIcon, LinkedinIcon } from 'react-share';
 import styled from 'styled-components';
 
 const ShareBtnWrap = styled.div`
@@ -24,10 +24,6 @@ const ShareButtons = ({ location }) => {
       <TwitterShareButton url={location}>
         <TwitterIcon round size={30} />
       </TwitterShareButton>
-
-      <RedditShareButton url={location}>
-        <RedditIcon round size={30} />
-      </RedditShareButton>
 
       <LinkedinShareButton url={location}>
         <LinkedinIcon round size={30} />

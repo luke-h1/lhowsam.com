@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 const usePosts = () => {
   const data = useStaticQuery(graphql`
 query getPosts {
-  allMdx {
+  allMdx(filter: {fields: {slug: {ne: "/__do-not-remove/"}}}) {
     nodes {
       fields {
         slug
@@ -18,6 +18,7 @@ query getPosts {
     }
   }
 }
+
 
   `);
   return data.allMdx.nodes.map((post) => ({
