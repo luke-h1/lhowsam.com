@@ -7,8 +7,6 @@ module.exports = {
   url: 'https://lhowsam.com',
   siteLanguage: 'en',
   logo: '/src/images/logo512.png',
-  disqusShortname: 'https://lhowsam.com', // Disqus shortname.
-
   ogLanguage: 'en',
   // JSONLD / MANIFEST
   favicon: '/src/images/favicon.ico',
