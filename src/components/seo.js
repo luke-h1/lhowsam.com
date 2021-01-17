@@ -1,3 +1,4 @@
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
@@ -13,9 +14,7 @@ const SEO = ({
           siteMetadata {
             title
             description
-            social {
               twitter
-            }
           }
         }
       }
@@ -55,7 +54,7 @@ const SEO = ({
         },
         {
           name: 'twitter:creator',
-          content: site.siteMetadata.social.twitter || '',
+          content: site.siteMetadata.twitter || '',
         },
         {
           name: 'twitter:title',

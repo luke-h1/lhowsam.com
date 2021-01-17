@@ -4,18 +4,22 @@ require("dotenv").config({
 const { GOOGLE_ANALYTICS_KEY } = process.env
 const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 const rss = require("./gatsby-rss")
+const website = require('./config/website')
 
 module.exports = {
+
   siteMetadata: {
-    title: `lhowsam`,
-    author: {
-      name: "Luke Howsam",
-      summary: "Who lives & works in Sheffield, UK",
-    },
-    description: `My personal portfolio made with Gatsby, Graphql, styled-components & MDX`,
-    social: {
-      twitter: "lukeH_1999",
-    },
+    siteUrl: website.url + website.pathPrefix,
+    pathPrefix: website.pathPrefix,
+    title: website.title,
+    titleAlt: website.titleAlt,
+    description: website.description,
+    banner: './src/images/banner.png',
+    headline: website.headline,
+    siteLanguage: website.siteLanguage,
+    ogLanguage: website.ogLanguage,
+    author: website.author,
+    twitter: website.twitter,
   },
   plugins: [
     `gatsby-transformer-json`,
@@ -147,13 +151,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `luke-howsam-portfolio`,
-        short_name: `luke-howsam`,
-        start_url: `/`,
-        display: `minimal-ui`,
-        theme_color: "#ffffff",
-        background_color: "#000",
-        icon: "src/images/logo512.png",
+        name: website.title,
+        short_name: website.titleAlt,
+        start_url: website.pathPrefix,
+        display: `standalone`,
+        theme_color: website.themeColor,
+        background_color: website.backgroundColor,
+        icon: './src/images/logo512.png',
       },
     },
     {
