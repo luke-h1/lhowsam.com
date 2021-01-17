@@ -3,13 +3,12 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../../styles/Theme';
 import { Card, ProjectTitle, ProjectExcerpt } from './ProjectitemElements';
 
-const ProjectItem = () => (
+const ProjectItem = (props) => (
   <ThemeProvider theme={theme}>
     <Card>
-      <ProjectTitle>Hello</ProjectTitle>
+      <ProjectTitle>{props.title}</ProjectTitle>
       <ProjectExcerpt>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, atque blanditiis adipisci ipsum dolor odit quas fugit
-        reiciendis
+        {props.excerpt}
       </ProjectExcerpt>
     </Card>
   </ThemeProvider>
