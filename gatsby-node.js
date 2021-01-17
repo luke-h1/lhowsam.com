@@ -44,7 +44,8 @@ exports.createPages = async ({ actions, graphql }) => {
     if (res.errors) {
       return Promise.reject(res.errors);
     }
-    // console.log(JSON.stringify(res, null, 4)) ///
+    // eslint-disable-next-line
+    console.log(JSON.stringify(res, null, 4));
 
     // Create pages & register paths
     const { edges } = res.data.allMdx;
@@ -76,42 +77,3 @@ exports.createPages = async ({ actions, graphql }) => {
   //   }
   // }
 };
-
-// // Get next available prev node that's not about, draft, and dummy post
-// const getPrevAvailableNode = (edges, index) => {
-//   let retVal;
-
-//   for (let i = index; i < edges.length - 1; i++) {
-//     if (!skipNode(edges[i].node)) {
-//       retVal = edges[i].node;
-//       break;
-//     }
-//   }
-//   return retVal;
-// };
-
-// const getNextAvailableNode = (edges, index) => {
-//   let retVal;
-
-//   for (let i = index; i > 0; i--) {
-//     if (!skipNode(edges[i].node)) {
-//       retVal = edges[i].node;
-//       break;
-//     }
-//   }
-//   return retVal;
-// };
-
-// Skip node if it's about, draft, or dummy post
-
-// const isAboutPage = node => {
-//   return node.fields.slug === '/about/';
-// };
-
-// const isDraft = node => {
-//   return node.frontmatter.draft === true;
-// };
-
-// const isDummy = node => {
-//   return node.frontmatter.tags && node.frontmatter.tags.includes('___dummy*');
-// };
