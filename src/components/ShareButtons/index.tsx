@@ -18,15 +18,15 @@ const ShareBtnWrap = styled.div`
 const ShareButtons = ({ location }) => (
   <ShareBtnWrap>
       <EmailShareButton url={location}>
-        <EmailIcon round size={30} />
+        <EmailIcon round size={35} />
       </EmailShareButton>
 
       <TwitterShareButton url={location}>
-        <TwitterIcon round size={30} />
+        <TwitterIcon round size={35} />
       </TwitterShareButton>
 
       <LinkedinShareButton url={location}>
-        <LinkedinIcon round size={30} />
+        <LinkedinIcon round size={35} />
       </LinkedinShareButton>
     </ShareBtnWrap>
 );

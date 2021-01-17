@@ -69,7 +69,7 @@ const ShareWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 4rem;
 `;
 
 const Post = ({ data: { mdx: post } }) => (
