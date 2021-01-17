@@ -11,17 +11,23 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       value: slug,
     });
+  }else if (node.internal.type === 'Json'){
+    // create slug 
+    const slug = createFilePath({ node, getNode, basePath: `` });
+    createNodeField({
+      node,
+      name: `slug`,
+      value: slug
+    })
   }
 };
 
-exports.createPages = ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
-
   const postTemplate = path.resolve('src/templates/Post.tsx');
-
   const projectTemplate = path.resolve('src/templates/Project.tsx');
 
-  return graphql(`
+  const blog = await graphql(`
     query MyQuery {
       allMdx(sort: { fields: frontmatter___date }) {
         edges {
