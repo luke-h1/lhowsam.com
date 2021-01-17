@@ -12,7 +12,7 @@ export const query = graphql`
       body
       slug
       frontmatter {
-        date
+        date(formatString: "DD/MM/YYYY")
         draft
         excerpt
         tags
