@@ -3,24 +3,28 @@
     "id": "1",
     "title": "test-project",
     "excerpt": "this is an excerpt",
-    "body": "this is the project body"
+    "body": "this is the project body",
+    "slug": "test-slug"
   },
   {
     "id": "2",
     "title": "test-project",
     "excerpt": "this is an excerpt",
-    "body": "this is the project body"
+    "body": "this is the project body",
+    "slug": "test-slug-123"
   },
   {
     "id": "3",
     "title": "test-project",
     "excerpt": "this is an excerpt",
-    "body": "this is the project body"
+    "body": "this is the project body",
+    "slug": "test-again"
   },
   {
     "id": "4",
     "title": "test-project",
     "excerpt": "this is an excerpt",
-    "body": "this is the project body"
-  } 
+    "body": "this is the project body",
+    "slug": "test-again-123"
+  }
 ]
