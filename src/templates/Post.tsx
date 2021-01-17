@@ -28,10 +28,11 @@ const PostWrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 25vh;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  /* padding-left: 2rem;
+  padding-right: 2rem; */
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1000px;
+  text-align: center;
   p { 
     font-size: 19px;
     color: #000;

@@ -6,7 +6,6 @@ excerpt: easy way to force git merges
 --- 
 
 
-
 Isolating features into seperate branches is a really common practice for most developers. By seperating features, bug fixes or working on experiments you can avoid a lot of problems and keep your master / development branches clean.
 At some point you may reach a state where you want to integrate your feature branch with the rest of your project. This is where the git merge command comes into play
 
@@ -17,8 +16,7 @@ I recently ran into an issue where my feature branch conflicted with the dev bra
 
 
 
-
-## 1 - Preparing to merge
+### 1 - Preparing to merge
 
 Let's assume you want to merge branch hotfix into your master branch but the changes made in hotfix conflict with master. You know the changes in hotfix won't overwrite any important code in master and you need to get this fix deployed.
 
@@ -27,28 +25,28 @@ Let's assume you want to merge branch hotfix into your master branch but the cha
 Before you touch anything ensure that your local repository (feature branch) is up to date with the latest changes from your remote origin with a:
 
 
-```js
+```shell
 git fetch && git status
 # If anything shows up here move it to your desktop or stash it
 ```
 
-## 2 - Prepare master / your main branch
+### 2 - Prepare master / your main branch
 
-```js
+```shell
 git checkout master && git pull
 ```
 
 
 
-## 3 - Dress up your feature branch
+### 3 - Dress up your feature branch
 
-```js
+```shell
 git checkout feature-branch
 ```
 
 
 
-```js
+```shell
 git merge --strategy=ours master
 # quit out of the editor when it asks you if you
 # want to merge into your current branch
@@ -58,18 +56,16 @@ git merge --strategy=ours master
 
 
 
-## 4 - Go in for the kill
+### 4 - Go in for the kill :) 
 
 
-
-
-```js
+```shell
 git checkout master
 ```
 
 
 
-```js
+```shell
 git merge --no-ff feature-branch
 ```
 
