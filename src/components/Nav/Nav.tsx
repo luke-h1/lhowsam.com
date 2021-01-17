@@ -20,8 +20,7 @@ interface NavInt {
   slug: string;
 }
 
-const Nav: React.FC<{theme: String}> = (props) => {
-  const theme = props;
+const Nav: React.FC<{theme: String}> = ({theme}) => {
   const [click, setClick] = useState(false);
   const handleClick: Object = () => setClick(!click);
   const closeMobileMenu: Object = () => setClick(false);
@@ -33,7 +32,6 @@ const Nav: React.FC<{theme: String}> = (props) => {
           <NavbarContainer>
             <NavLogo to="/" onClick={closeMobileMenu}>
               <NavIcon />
-              lhowsam
             </NavLogo>
             <MobileIcon onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}

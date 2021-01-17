@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider } from 'styled-components';
 import React from 'react';
 import ProjectItem from '../ProjectItem/ProjectItem';
 import { Wrapper, Title, TitleWrap } from './ShowCaseProjectElements';
