@@ -124,8 +124,6 @@
     "develop": "gatsby develop",
     "deploy:dev": "gatsby clean && gatsby build && vc",
     "deploy:prod": "gatsby clean && gatsby build && vc --prod",
-    "build:pp": "gatsby build --prefix-paths",
-    "deploy:gh": "npm run clean && npm run build:pp && gh-pages -d public",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "format:styles": "prettier '**/*.{css,scss}' --write",
     "start": "NODE_ENV=production npm run develop",
