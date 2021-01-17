@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-  EmailShareButton, RedditShareButton, TwitterShareButton, LinkedinShareButton, 
-, EmailIcon, TwitterIcon, LinkedinIcon } from 'react-share';
+  EmailShareButton,TwitterShareButton, LinkedinShareButton, EmailIcon, TwitterIcon, LinkedinIcon } from 'react-share';
 
 import styled from 'styled-components';
 

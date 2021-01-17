@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+  - '10'
+install:
+  - npm install -g codecov
+script:
+  - npm install
+  - npm lint
+  - npm test:coverage --runInBand --no-cache
+  - npm test --runInBand --no-cache
+  - codecov
+cache:
+  directories:
+    - node_modules
