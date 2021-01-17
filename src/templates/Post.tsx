@@ -6,16 +6,20 @@ import SEO from '../components/seo';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 export const query = graphql`
-  query($slug: String!) {
-    mdx(frontmatter: { slug: { eq: $slug } }) {
-      frontmatter {
-        date
-        description
-        title
-      }
-      body
+query getPostsBlogPage($slug: String!) {
+  mdx(fields: {slug: {eq: $slug}}) {
+    body
+    slug
+    frontmatter {
+      date
+      draft
+      excerpt
+      tags
+      title
     }
   }
+}
+
 `;
 
 const PostWrapper = styled.div`
@@ -52,11 +56,11 @@ const Small = styled.p`
 const Post = ({ data: { mdx: post } }) => {
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
+      <SEO title={post.title} description={post.description || post.excerpt} />
       <PostWrapper>
-        <PostTitle>{post.frontmatter.title}</PostTitle>
-        <Small>{post.frontmatter.date}</Small>
-        <ContentWrapper><MDXRenderer>{post.body}</MDXRenderer></ContentWrapper>
+        <PostTitle>{post.title}</PostTitle>
+        <Small>{post.date}</Small>
+    <MDXRenderer>{post.body}</MDXRenderer>
       </PostWrapper>
     </Layout>
   );

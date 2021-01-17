@@ -1,28 +1,30 @@
 import { graphql, useStaticQuery } from 'gatsby';
 
-const useRecentPosts = () => {
-  const data = useStaticQuery(graphql`
-    query getRecentPosts {
-      allMdx(limit: 3) {
-        edges {
-          node {
-            frontmatter {
-              date
-              description
-              slug
-              title
-            }
-            body
-          }
-        }
+const usePosts = () => {
+const data = useStaticQuery(graphql`
+query getRecentPosts {
+  allMdx {
+    nodes {
+      fields {
+        slug
+      }
+      frontmatter {
+        date
+        excerpt
+        tags
+        title
       }
     }
+  }
+}
+
   `);
-  return data.allMdx.edges.map(post => ({
-    date: post.node.frontmatter.date,
-    description: post.node.frontmatter.description,
-    slug: post.node.frontmatter.slug,
-    title: post.node.frontmatter.title,
-  }));
+  return data.allMdx.nodes.map((post) => ({
+    slug: post.fields.slug,
+    date: post.frontmatter.date,
+    excerpt: post.frontmatter.excerpt,
+    tags: post.frontmatter.tags,
+    title: post.frontmatter.title
+  }))
 };
-export default useRecentPosts;
+export default usePosts;

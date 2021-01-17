@@ -22,19 +22,25 @@ exports.createPages = ({ actions, graphql }) => {
   )
 
   return graphql(`
-    {
-      allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
-        edges {
-            frontmatter {
-              title
-              tags
-              date
-              excerpt
-              draft
-            }
+  query MyQuery {
+    allMdx(sort: {fields: frontmatter___date}) {
+      edges {
+        node {
+          fields {
+            slug
+          }
+          frontmatter {
+            date
+            draft
+            excerpt
+            tags
+            title
+          }
         }
       }
     }
+  }
+  
   `).then(res => {
     if (res.errors) {
       return Promise.reject(res.errors)

@@ -2,26 +2,29 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 const usePosts = () => {
   const data = useStaticQuery(graphql`
-    query getPosts {
-      allMdx {
-        edges {
-          node {
-            frontmatter {
-              date
-              description
-              slug
-              title
-            }
-          }
-        }
+query getPosts {
+  allMdx {
+    nodes {
+      fields {
+        slug
+      }
+      frontmatter {
+        date
+        excerpt
+        tags
+        title
       }
     }
+  }
+}
+
   `);
-  return data.allMdx.edges.map(post => ({
-    date: post.node.frontmatter.date,
-    description: post.node.frontmatter.description,
-    slug: post.node.frontmatter.slug,
-    title: post.node.frontmatter.title,
-  }));
+  return data.allMdx.nodes.map((post) => ({
+    slug: post.fields.slug,
+    date: post.frontmatter.date,
+    excerpt: post.frontmatter.excerpt,
+    tags: post.frontmatter.tags,
+    title: post.frontmatter.title
+  }))
 };
 export default usePosts;
