@@ -82,7 +82,7 @@
   ],
   "scripts": {
     "build": "gatsby build",
-    "develop": "NODE_ENV=development gatsby develop",
+    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "NODE_ENV=production npm run develop",
     "serve": "gatsby serve",
