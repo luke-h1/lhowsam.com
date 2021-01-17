@@ -1,5 +1,5 @@
-@import "./lang-badges.scss";
-@import "./in-line.scss";
+@import './lang-badges.scss';
+@import './in-line.scss';
 
 /* Code blocks styles with prism.js */
 
@@ -61,7 +61,7 @@ $base6: #e48080;
   @if $error == 1 {
     color: #ee5252;
   }
-  @media(max-width: 500px){
+  @media (max-width: 500px) {
     font-size: 0.8rem;
   }
 }
@@ -103,7 +103,7 @@ $base6: #e48080;
   }
 
   &:before {
-    @include cornerText("Live");
+    @include cornerText('Live');
   }
 }
 
@@ -111,14 +111,14 @@ $base6: #e48080;
 .live-preview {
   @include preview;
   &:before {
-    @include cornerText("Result");
+    @include cornerText('Result');
   }
 }
 .live-error {
   font-size: 0.8rem;
   @include preview;
   &:before {
-    @include cornerText("Error", 1);
+    @include cornerText('Error', 1);
   }
 }
 
@@ -149,7 +149,7 @@ $base6: #e48080;
   }
 }
 
-.gatsby-highlight pre[class*="language-"] {
+.gatsby-highlight pre[class*='language-'] {
   position: relative;
   background-color: transparent;
   margin: 0;
@@ -158,34 +158,34 @@ $base6: #e48080;
 }
 
 /* Adjust the position of the line numbers */
-.gatsby-highlight pre[class*="language-"].line-numbers {
+.gatsby-highlight pre[class*='language-'].line-numbers {
   padding-left: 2.5rem;
 }
 
 // Custom shell prompt
 .command-line-prompt > span:before {
   color: #999;
-  content: " ";
+  content: ' ';
   display: block;
   padding-right: 0.8em;
 }
 
 /* Prompt for all users */
 .command-line-prompt > span[data-user]:before {
-  content: "[" attr(data-user) "@" attr(data-host) "] $";
+  content: '[' attr(data-user) '@' attr(data-host) '] $';
 }
 
 /* Prompt for root */
-.command-line-prompt > span[data-user="root"]:before {
-  content: "[" attr(data-user) "@" attr(data-host) "] #";
+.command-line-prompt > span[data-user='root']:before {
+  content: '[' attr(data-user) '@' attr(data-host) '] #';
 }
 
 .command-line-prompt > span[data-prompt]:before {
   content: attr(data-prompt);
 }
 
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*='language-'],
+pre[class*='language-'] {
   color: $base0;
   font-size: 0.8rem;
   text-align: left;
@@ -207,22 +207,22 @@ pre[class*="language-"] {
   -ms-hyphens: none;
 }
 
-pre[class*="language-"]::-moz-selection,
-pre[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection,
-code[class*="language-"] ::-moz-selection {
+pre[class*='language-']::-moz-selection,
+pre[class*='language-'] ::-moz-selection,
+code[class*='language-']::-moz-selection,
+code[class*='language-'] ::-moz-selection {
   background: #073642;
 }
 
-pre[class*="language-"]::selection,
-pre[class*="language-"] ::selection,
-code[class*="language-"]::selection,
-code[class*="language-"] ::selection {
+pre[class*='language-']::selection,
+pre[class*='language-'] ::selection,
+code[class*='language-']::selection,
+code[class*='language-'] ::selection {
   background: #073642;
 }
 
 /* Code blocks */
-pre[class*="language-"] {
+pre[class*='language-'] {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
@@ -310,8 +310,8 @@ pre[class*="language-"] {
 
 @media (max-width: 500px) {
   // Decrease font size
-  code[class*="language-"],
-  pre[class*="language-"],
+  code[class*='language-'],
+  pre[class*='language-'],
   .code-title-custom {
     font-size: 0.7rem;
     .token {
