@@ -12,7 +12,7 @@ export const IntroWrapper = styled.div`
 export const HighLight = styled.strong`
   font-weight: 700;
   text-align: center;
-  color: ${props => props.theme.blueTextColor};
+  color: ${(props) => props.theme.blueTextColor};
 `;
 
 export const DescWrap = styled.div`
@@ -31,6 +31,6 @@ export const DescWrap = styled.div`
 
 export const Title = styled.h1`
   font-size: clamp(1rem, 8vw, 2.7rem);
-  color: ${props => props.theme.darkTextColor};
+  color: ${(props) => props.theme.darkTextColor};
   text-align: center;
 `;

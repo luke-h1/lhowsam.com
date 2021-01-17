@@ -18,6 +18,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-transformer-json`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
@@ -34,6 +35,13 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/_posts`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'projects',
+        path: `./src/data/projects/`,
       },
     },
     {

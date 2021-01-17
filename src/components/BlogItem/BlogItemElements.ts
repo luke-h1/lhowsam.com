@@ -39,13 +39,13 @@ export const CardTitle = styled.h1`
 export const CardBody = styled.div`
   p {
     line-height: 1.6;
-    color: ${props => props.theme.greyTextColor};
+    color: ${(props) => props.theme.greyTextColor};
     font-size: 18px;
   }
 `;
 
 export const CardFinePrint = styled.p`
-  color: ${props => props.theme.greyTextColor};
+  color: ${(props) => props.theme.greyTextColor};
   text-align: center;
   margin-left: 1rem;
 `;
@@ -58,6 +58,6 @@ export const TitleWrap = styled.div`
 `;
 
 export const BlogLink = styled(Link)`
-  color: ${props => props.theme.darkTextColor};
+  color: ${(props) => props.theme.darkTextColor};
   text-decoration: none;
 `;

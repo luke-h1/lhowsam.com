@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -8,8 +7,8 @@ export const Wrapper = styled.div`
   align-items: center;
   min-height: 70vh;
   min-width: 100vw;
-`
+`;
 
-export const Title = styled.h1``
+export const Title = styled.h1``;
 
-export const Intro = styled.p``
+export const Intro = styled.p``;

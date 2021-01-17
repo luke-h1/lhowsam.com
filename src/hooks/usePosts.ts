@@ -18,7 +18,7 @@ const usePosts = () => {
       }
     }
   `);
-  return data.allMdx.nodes.map(post => ({
+  return data.allMdx.nodes.map((post) => ({
     slug: post.fields.slug,
     date: post.frontmatter.date,
     excerpt: post.frontmatter.excerpt,

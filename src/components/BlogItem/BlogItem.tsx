@@ -1,7 +1,10 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import { BlogCard, CardTitle, CardBody, CardFinePrint, TitleWrap, BlogLink, BlogItemWrapper,Excerpt } from './BlogItemElements';
-const BlogItem = props => {
+import {
+  BlogCard, CardTitle, CardBody, CardFinePrint, TitleWrap, BlogLink, BlogItemWrapper, Excerpt,
+} from './BlogItemElements';
+
+const BlogItem = (props) => {
   const theme = props;
   return (
     <ThemeProvider theme={theme}>

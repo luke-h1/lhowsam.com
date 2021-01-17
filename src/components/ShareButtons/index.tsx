@@ -1,6 +1,8 @@
 import React from 'react';
-import { EmailShareButton, RedditShareButton, TwitterShareButton, LinkedinShareButton } from 'react-share';
-import { EmailIcon, TwitterIcon, LinkedinIcon } from 'react-share';
+import {
+  EmailShareButton, RedditShareButton, TwitterShareButton, LinkedinShareButton, 
+, EmailIcon, TwitterIcon, LinkedinIcon } from 'react-share';
+
 import styled from 'styled-components';
 
 const ShareBtnWrap = styled.div`
@@ -14,9 +16,8 @@ const ShareBtnWrap = styled.div`
   }
 `;
 
-const ShareButtons = ({ location }) => {
-  return (
-    <ShareBtnWrap>
+const ShareButtons = ({ location }) => (
+  <ShareBtnWrap>
       <EmailShareButton url={location}>
         <EmailIcon round size={30} />
       </EmailShareButton>
@@ -29,7 +30,6 @@ const ShareButtons = ({ location }) => {
         <LinkedinIcon round size={30} />
       </LinkedinShareButton>
     </ShareBtnWrap>
-  );
-};
+);
 
 export default ShareButtons;

@@ -7,9 +7,10 @@ import ProjectItem from '../components/ProjectItem/ProjectItem';
 import ShowCaseProject from '../components/ShowCaseProject/ShowCaseProject';
 import ShowCaseBlog from '../components/ShowCaseBlog/ShowCaseBlog';
 import BlogItem from '../components/BlogItem/BlogItem';
+
 const IndexPage = () => (
   <Layout>
-    <SEO title='Home' />
+    <SEO title="Home" />
     <Intro theme={theme} />
     <ShowCaseProject theme={theme} />
     <ShowCaseBlog theme={theme} />

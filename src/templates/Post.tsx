@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import ShareButtons from '../components/ShareButtons';
 
 export const query = graphql`
@@ -52,7 +52,7 @@ const PostWrapper = styled.div`
 `;
 
 const PostTitle = styled.h1`
-  color: ${props => props.theme.darkTextColor};
+  color: ${(props) => props.theme.darkTextColor};
 `;
 
 const Small = styled.p`
@@ -72,19 +72,17 @@ const ShareWrapper = styled.div`
   margin-bottom: 2rem;
 `;
 
-const Post = ({ data: { mdx: post } }) => {
-  return (
-    <Layout>
-      <SEO title={post.title} description={post.description || post.excerpt} />
-      <PostWrapper>
-        <PostTitle>{post.frontmatter.title}</PostTitle>
-        <Small>{post.frontmatter.date}</Small>
-        <MDXRenderer>{post.body}</MDXRenderer>
-      </PostWrapper>
-      <ShareWrapper>
-        <ShareButtons location={url} />
-      </ShareWrapper>
-    </Layout>
-  );
-};
+const Post = ({ data: { mdx: post } }) => (
+  <Layout>
+    <SEO title={post.title} description={post.description || post.excerpt} />
+    <PostWrapper>
+      <PostTitle>{post.frontmatter.title}</PostTitle>
+      <Small>{post.frontmatter.date}</Small>
+      <MDXRenderer>{post.body}</MDXRenderer>
+    </PostWrapper>
+    <ShareWrapper>
+      <ShareButtons location={url} />
+    </ShareWrapper>
+  </Layout>
+);
 export default Post;

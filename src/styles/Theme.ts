@@ -1,5 +1,5 @@
-import { light, dark, blue } from "./Colors";
-import { PrimaryFont } from "./Fonts";
+import { light, dark, blue } from './Colors';
+import { PrimaryFont } from './Fonts';
 
 export const theme = {
   backgroundColor: light[200],
