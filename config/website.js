@@ -1,7 +1,7 @@
 module.exports = {
   pathPrefix: '/',
-  title: 'luke howsam - personal portfolio',
-  titleAlt: 'luke howsam personal portfolio',
+  title: 'lhowsam',
+  titleAlt: 'lhowsam',
   description: 'My personal portfolio made with Gatsby, Graphql, jest, cypress, styled-components & MDX',
   headline: '',
   url: 'https://lhowsam.com',
