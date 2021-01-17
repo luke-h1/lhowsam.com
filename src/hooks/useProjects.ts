@@ -9,6 +9,7 @@ const useProjects = () => {
           id
           title
           body
+          slug
         }
       }
     }
@@ -18,6 +19,7 @@ const useProjects = () => {
     id: project.id,
     title: project.title,
     body: project.body,
+    slug: project.slug,
   }));
 };
 export default useProjects;

@@ -1,16 +1,16 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../styles/Theme';
-import { Card, ProjectTitle, ProjectExcerpt } from './ProjectitemElements';
+import { Card, ProjectTitle, ProjectExcerpt,CardLink } from './ProjectitemElements';
 
-const ProjectItem = (props) => (
+const ProjectItem = props => (
   <ThemeProvider theme={theme}>
-    <Card>
-      <ProjectTitle>{props.title}</ProjectTitle>
-      <ProjectExcerpt>
-        {props.excerpt}
-      </ProjectExcerpt>
-    </Card>
+    <CardLink to={props.slug}>
+      <Card>
+        <ProjectTitle>{props.title}</ProjectTitle>
+        <ProjectExcerpt>{props.excerpt}</ProjectExcerpt>
+      </Card>
+    </CardLink>
   </ThemeProvider>
 );
 export default ProjectItem;

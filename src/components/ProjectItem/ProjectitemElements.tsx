@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'gatsby';
 
 export const Card = styled.div`
   background-color: #fff;
@@ -16,14 +17,18 @@ export const ProjectTitle = styled.h3`
   margin-left: 1rem;
   font-size: clamp(1rem, 8vw, 1.6rem);
   margin-top: 1rem;
-
 `;
 
 export const ProjectExcerpt = styled.p`
   text-align: left;
-  color: ${(props) => props.theme.greyTextColor};
+  color: ${props => props.theme.greyTextColor};
   margin-top: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
   font-size: 18px;
+`;
+
+export const CardLink = styled(Link)`
+  color: #000;
+  text-decoration: none;
 `;

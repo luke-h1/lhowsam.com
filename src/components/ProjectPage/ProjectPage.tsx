@@ -13,7 +13,7 @@ const ProjectPage = ({ theme }) => {
           <Title>Projects</Title>
           <Intro />
           {projects.map(project => (
-            <ProjectItem title={project.title} excerpt={project.excerpt} />
+            <ProjectItem title={project.title} excerpt={project.excerpt} slug={project.slug}/>
           ))}
         </Wrapper>
       </ThemeProvider>
