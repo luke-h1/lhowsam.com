@@ -28,29 +28,39 @@ const PostWrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 25vh;
-  margin-bottom: 4rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  p { 
+    font-size: 19px;
+    color: #000;
+    margin: 20px 0 20px 0;
+
+  }
+  h1 { 
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  h2,
+  h3,
+  h4,
+  h5 { 
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
 `;
 
 const PostTitle = styled.h1`
   color: ${props => props.theme.darkTextColor};
 `;
 
-const ContentWrapper = styled.div`
-  width: 800px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  p { 
-    font-size: 18px;
-    margin: 15px 0 15px 0;
-  }
-`;
-
 const Small = styled.p`
-  color: ${(props) => props.theme.greyTextColor};
+  color: #7A7A7A !important;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
 `
 
 const Post = ({ data: { mdx: post } }) => {
@@ -58,9 +68,9 @@ const Post = ({ data: { mdx: post } }) => {
     <Layout>
       <SEO title={post.title} description={post.description || post.excerpt} />
       <PostWrapper>
-        <PostTitle>{post.title}</PostTitle>
-        <Small>{post.date}</Small>
-    <MDXRenderer>{post.body}</MDXRenderer>
+        <PostTitle>{post.frontmatter.title}</PostTitle>
+        <Small>{post.frontmatter.date}</Small>
+       <MDXRenderer>{post.body}</MDXRenderer>
       </PostWrapper>
     </Layout>
   );
