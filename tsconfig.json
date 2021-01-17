@@ -6,6 +6,7 @@
         }
       ],
       "allowJs": true,
+      "baseUrl": "/",
       "alwaysStrict": false,
       "allowSyntheticDefaultImports": true,
       "module": "esnext",
