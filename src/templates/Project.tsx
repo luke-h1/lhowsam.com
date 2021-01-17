@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import SiteLink from '../components/Icons/SiteLink';
 import GithubLink from '../components/Icons/GithubLink';
+import SEO from '../components/seo';
 
 const ProjectWrapper = styled.div`
   display: flex;
@@ -28,6 +29,7 @@ const ProjectBody = styled.p`
 
 const Project = () => (
   <>
+    {/* <SEO title={project.title} description={project.description || project.excerpt} /> */}
     <ProjectWrapper>
       <ProjectTitle>title of project</ProjectTitle>
       <ProjectLinks>

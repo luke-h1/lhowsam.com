@@ -74,7 +74,7 @@ const ShareWrapper = styled.div`
 
 const Post = ({ data: { mdx: post } }) => (
   <Layout>
-    <SEO title={post.title} description={post.description || post.excerpt} />
+    <SEO title={post.frontmatter.title} description={post.description || post.excerpt} />
     <PostWrapper>
       <PostTitle>{post.frontmatter.title}</PostTitle>
       <Small>{post.frontmatter.date}</Small>
