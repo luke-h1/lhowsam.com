@@ -1,24 +1,18 @@
+/* eslint-disable arrow-parens */
+/* eslint-disable arrow-body-style */
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === `Mdx`) {
+  if (node.internal.type === 'Mdx') {
     // Create slug
-    const slug = createFilePath({ node, getNode, basePath: `` });
+    const slug = createFilePath({ node, getNode, basePath: '' });
     createNodeField({
       node,
-      name: `slug`,
+      name: 'slug',
       value: slug,
     });
-  }else if (node.internal.type === 'Json'){
-    // create slug 
-    const slug = createFilePath({ node, getNode, basePath: `` });
-    createNodeField({
-      node,
-      name: `slug`,
-      value: slug
-    })
   }
 };
 
@@ -53,12 +47,9 @@ exports.createPages = async ({ actions, graphql }) => {
     // console.log(JSON.stringify(res, null, 4)) ///
 
     // Create pages & register paths
-    const edges = res.data.allMdx.edges;
+    const { edges } = res.data.allMdx;
     edges.forEach((edge, i) => {
-      const node = edge.node;
-
-      const prev = getPrevAvailableNode(edges, i + 1);
-      const next = getNextAvailableNode(edges, i - 1);
+      const { node } = edge;
 
       if (node.fields.slug !== '/__do-not-remove/') {
         createPage({
@@ -66,8 +57,6 @@ exports.createPages = async ({ actions, graphql }) => {
           component: postTemplate,
           context: {
             slug: node.fields.slug,
-            next,
-            prev,
           },
         });
       }
@@ -86,47 +75,43 @@ exports.createPages = async ({ actions, graphql }) => {
   //     }
   //   }
   // }
-  
 };
 
-// Get next available prev node that's not about, draft, and dummy post
-const getPrevAvailableNode = (edges, index) => {
-  let retVal;
+// // Get next available prev node that's not about, draft, and dummy post
+// const getPrevAvailableNode = (edges, index) => {
+//   let retVal;
 
-  for (let i = index; i < edges.length - 1; i++) {
-    if (!skipNode(edges[i].node)) {
-      retVal = edges[i].node;
-      break;
-    }
-  }
-  return retVal;
-};
+//   for (let i = index; i < edges.length - 1; i++) {
+//     if (!skipNode(edges[i].node)) {
+//       retVal = edges[i].node;
+//       break;
+//     }
+//   }
+//   return retVal;
+// };
 
-const getNextAvailableNode = (edges, index) => {
-  let retVal;
+// const getNextAvailableNode = (edges, index) => {
+//   let retVal;
 
-  for (let i = index; i > 0; i--) {
-    if (!skipNode(edges[i].node)) {
-      retVal = edges[i].node;
-      break;
-    }
-  }
-  return retVal;
-};
+//   for (let i = index; i > 0; i--) {
+//     if (!skipNode(edges[i].node)) {
+//       retVal = edges[i].node;
+//       break;
+//     }
+//   }
+//   return retVal;
+// };
 
 // Skip node if it's about, draft, or dummy post
-const skipNode = node => {
-  return isAboutPage(node) || isDraft(node) || isDummy(node);
-};
 
-const isAboutPage = node => {
-  return node.fields.slug === '/about/';
-};
+// const isAboutPage = node => {
+//   return node.fields.slug === '/about/';
+// };
 
-const isDraft = node => {
-  return node.frontmatter.draft === true;
-};
+// const isDraft = node => {
+//   return node.frontmatter.draft === true;
+// };
 
-const isDummy = node => {
-  return node.frontmatter.tags && node.frontmatter.tags.includes('___dummy*');
-};
+// const isDummy = node => {
+//   return node.frontmatter.tags && node.frontmatter.tags.includes('___dummy*');
+// };
