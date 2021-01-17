@@ -8,13 +8,11 @@ const GhIcon = styled(FiGithub)`
   margin: 0 15px 0 15px;
 `;
 
-const GithubLink = ({ link }) => {
-  return (
-    <>
-      <a href={link}>
-        <GhIcon />
-      </a>
-    </>
-  );
-};
+const GithubLink = ({ link }) => (
+  <>
+    <a href={link}>
+      <GhIcon />
+    </a>
+  </>
+);
 export default GithubLink;

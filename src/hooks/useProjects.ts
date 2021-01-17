@@ -14,7 +14,7 @@ const useProjects = () => {
       }
     }
   `);
-  return data.allProjectsJson.nodes.map(project => ({
+  return data.allProjectsJson.nodes.map((project) => ({
     excerpt: project.excerpt,
     id: project.id,
     title: project.title,

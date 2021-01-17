@@ -8,13 +8,11 @@ const Site = styled(GoBrowser)`
   margin: 0 15px 0 15px;
 `;
 
-const SiteLink = ({ link }) => {
-  return (
-    <>
-      <a href={link}>
-        <Site />
-      </a>
-    </>
-  );
-};
+const SiteLink = ({ link }) => (
+  <>
+    <a href={link}>
+      <Site />
+    </a>
+  </>
+);
 export default SiteLink;

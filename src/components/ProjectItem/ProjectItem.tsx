@@ -1,9 +1,11 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../styles/Theme';
-import { Card, ProjectTitle, ProjectExcerpt,CardLink } from './ProjectitemElements';
+import {
+  Card, ProjectTitle, ProjectExcerpt, CardLink,
+} from './ProjectitemElements';
 
-const ProjectItem = props => (
+const ProjectItem = (props) => (
   <ThemeProvider theme={theme}>
     <CardLink to={props.slug}>
       <Card>

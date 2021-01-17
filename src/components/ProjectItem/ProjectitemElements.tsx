@@ -21,7 +21,7 @@ export const ProjectTitle = styled.h3`
 
 export const ProjectExcerpt = styled.p`
   text-align: left;
-  color: ${props => props.theme.greyTextColor};
+  color: ${(props) => props.theme.greyTextColor};
   margin-top: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;

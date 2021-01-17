@@ -26,29 +26,27 @@ const ProjectBody = styled.p`
   font-size: 19px;
 `;
 
-const Project = () => {
-  return (
-    <>
-      <ProjectWrapper>
-        <ProjectTitle>title of project</ProjectTitle>
-        <ProjectLinks>
-          <GithubLink link='https://github.com' />
-          <SiteLink link='http://localhost:3000' />
-        </ProjectLinks>
-        <ProjectBody>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam laborum obcaecati perferendis harum iure, eaque similique eius
-          quam eveniet accusantium reprehenderit laudantium et voluptas esse ea, minima odio veniam aliquam.
-        </ProjectBody>
-        <ProjectBody>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam laborum obcaecati perferendis harum iure, eaque similique eius
-          quam eveniet accusantium reprehenderit laudantium et voluptas esse ea, minima odio veniam aliquam.
-        </ProjectBody>
-        <ProjectBody>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam laborum obcaecati perferendis harum iure, eaque similique eius
-          quam eveniet accusantium reprehenderit laudantium et voluptas esse ea, minima odio veniam aliquam.
-        </ProjectBody>
-      </ProjectWrapper>
-    </>
-  );
-};
+const Project = () => (
+  <>
+    <ProjectWrapper>
+      <ProjectTitle>title of project</ProjectTitle>
+      <ProjectLinks>
+        <GithubLink link="https://github.com" />
+        <SiteLink link="http://localhost:3000" />
+      </ProjectLinks>
+      <ProjectBody>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam laborum obcaecati perferendis harum iure, eaque similique eius
+        quam eveniet accusantium reprehenderit laudantium et voluptas esse ea, minima odio veniam aliquam.
+      </ProjectBody>
+      <ProjectBody>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam laborum obcaecati perferendis harum iure, eaque similique eius
+        quam eveniet accusantium reprehenderit laudantium et voluptas esse ea, minima odio veniam aliquam.
+      </ProjectBody>
+      <ProjectBody>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam laborum obcaecati perferendis harum iure, eaque similique eius
+        quam eveniet accusantium reprehenderit laudantium et voluptas esse ea, minima odio veniam aliquam.
+      </ProjectBody>
+    </ProjectWrapper>
+  </>
+);
 export default Project;

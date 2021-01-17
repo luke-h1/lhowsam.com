@@ -13,7 +13,7 @@ const ShowCaseProject = ({ theme }) => {
           <Title>Projects</Title>
         </TitleWrap>
         <Wrapper>
-          {projects.map(project => (
+          {projects.map((project) => (
             <ProjectItem title={project.title} excerpt={project.excerpt} slug={project.slug} />
           ))}
         </Wrapper>

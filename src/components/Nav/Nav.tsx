@@ -20,7 +20,7 @@ interface NavInt {
   slug: string;
 }
 
-const Nav: React.FC<{theme: String}> = ({theme}) => {
+const Nav: React.FC<{theme: String}> = ({ theme }) => {
   const [click, setClick] = useState(false);
   const handleClick: Object = () => setClick(!click);
   const closeMobileMenu: Object = () => setClick(false);
