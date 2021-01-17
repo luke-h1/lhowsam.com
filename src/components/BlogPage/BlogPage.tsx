@@ -12,7 +12,7 @@ const BlogPage = ({ theme }) => {
           <Title>Blog</Title>
           <Intro></Intro>
           {posts.map(post => (
-            <BlogItem title={post.title} date={post.date} description={post.description} slug={post.slug}/>
+            <BlogItem title={post.title} date={post.date} description={post.description} slug={post.slug} excerpt={post.excerpt} theme={theme}/>
           ))}
         </Wrapper>
       </>

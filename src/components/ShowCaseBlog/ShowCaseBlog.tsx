@@ -14,7 +14,7 @@ const ShowCaseBlog = ({ theme }) => {
         </TitleWrap>
         <BlogWrapper>
           {recentPosts.map(post => (
-            <BlogItem title={post.title} date={post.date} description={post.description} slug={post.slug}/>
+            <BlogItem title={post.title} date={post.date} excerpt={post.excerpt} slug={post.slug} theme={theme} />
           ))}
         </BlogWrapper>
       </>

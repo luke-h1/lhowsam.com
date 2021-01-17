@@ -1,22 +1,25 @@
 import React from 'react';
-import { theme } from '../../styles/Theme';
 import { ThemeProvider } from 'styled-components';
-import { BlogCard, CardTitle, CardBody, CardFinePrint, TitleWrap,BlogLink } from './BlogItemElements';
+import { BlogCard, CardTitle, CardBody, CardFinePrint, TitleWrap, BlogLink, BlogItemWrapper,Excerpt } from './BlogItemElements';
 const BlogItem = props => {
+  const theme = props;
   return (
     <ThemeProvider theme={theme}>
       <>
-        <BlogLink to={props.slug}>
-          <TitleWrap>
-            <CardTitle>{props.title}</CardTitle>
-            <CardFinePrint>{props.date}</CardFinePrint>
-          </TitleWrap>
-          <BlogCard>
-            <CardBody>
-              <p>{props.description}</p>
-            </CardBody>
-          </BlogCard>
-        </BlogLink>
+        <BlogItemWrapper>
+          <BlogLink to={props.slug}>
+            <TitleWrap>
+              <CardTitle>{props.title}</CardTitle>
+              <CardFinePrint>{props.date}</CardFinePrint>
+
+            </TitleWrap>
+            <BlogCard>
+              <CardBody>
+                <Excerpt>{props.excerpt}</Excerpt>
+              </CardBody>
+            </BlogCard>
+          </BlogLink>
+        </BlogItemWrapper>
       </>
     </ThemeProvider>
   );
