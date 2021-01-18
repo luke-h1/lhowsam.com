@@ -39,7 +39,7 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: build§
+      - name: build
         run: npm run build 
 
       - name: Run jest tests
