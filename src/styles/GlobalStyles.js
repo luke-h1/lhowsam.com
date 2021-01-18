@@ -1,7 +1,8 @@
+/* eslint-disable import/prefer-default-export */
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'polished';
 import { PrimaryFont } from './Fonts';
-import NotoSans from '../Fonts/NotoSansJP-Regular.otf';
+import NotoSans from '../fonts/NotoSansJP-Regular.otf';
 
 export const GlobalStyle = createGlobalStyle`
     ${normalize()}
