@@ -39,8 +39,8 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: Install dependencies
+      - name: build§
         run: npm run build 
 
-      - name: Run tests
+      - name: Run jest tests
         run: npm run test
