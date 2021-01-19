@@ -5,11 +5,9 @@ require('dotenv').config({
 
 const { GOOGLE_ANALYTICS_KEY } = process.env;
 const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
-const rss = require('./gatsby-rss');
 const website = require('./config/website');
 
 module.exports = {
-
   siteMetadata: {
     siteUrl: website.url + website.pathPrefix,
     pathPrefix: website.pathPrefix,
@@ -69,14 +67,12 @@ module.exports = {
       options: {
         extensions: ['.mdx', '.md'],
         gatsbyRemarkPlugins: [
-          // Adding title to code blocks. Usage: ```js:title=example.js
           {
             resolve: 'gatsby-remark-code-titles',
             options: {
               className: 'code-title-custom',
             },
           },
-          // Process images in markdown
           {
             resolve: 'gatsby-remark-images',
             options: {
@@ -112,7 +108,6 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-sharp',
       options: {
-        // Removes warnings trying to use non-gatsby image in markdown
         checkSupportedExtensions: false,
       },
     },
