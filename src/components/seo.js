@@ -13,7 +13,7 @@ const SEO = ({
           siteMetadata {
             title
             description
-              twitter
+              
           }
         }
       }
@@ -47,10 +47,10 @@ const SEO = ({
           property: 'og:type',
           content: 'website',
         },
-        {
-          name: 'twitter:card',
-          content: 'summary',
-        },
+        // {
+        //   name: 'twitter:card',
+        //   content: 'summary',
+        // },
         {
           name: 'twitter:creator',
           content: site.siteMetadata.twitter || '',

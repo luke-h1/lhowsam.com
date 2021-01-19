@@ -5,21 +5,17 @@ require('dotenv').config({
 
 const { GOOGLE_ANALYTICS_KEY } = process.env;
 const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
-const website = require('./config/website');
 
 module.exports = {
   siteMetadata: {
-    siteUrl: website.url + website.pathPrefix,
-    pathPrefix: website.pathPrefix,
-    title: website.title,
-    titleAlt: website.titleAlt,
-    description: website.description,
-    banner: './src/images/banner.png',
-    headline: website.headline,
-    siteLanguage: website.siteLanguage,
-    ogLanguage: website.ogLanguage,
-    author: website.author,
-    twitter: website.twitter,
+    title: 'lhowsam',
+    author: {
+      name: 'Luke howsam',
+      summary: 'who lives and works in Sheffield.',
+    },
+    description:
+      'My personal portfolio built with Gatsby & styled components :) ',
+    siteUrl: 'https://lhowsam.com',
   },
   plugins: [
     'gatsby-transformer-json',
@@ -143,12 +139,12 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: website.title,
-        short_name: website.titleAlt,
-        start_url: website.pathPrefix,
-        display: 'standalone',
-        theme_color: website.themeColor,
-        background_color: website.backgroundColor,
+        name: 'lhowsam.com',
+        short_name: 'lhowsam.com',
+        start_url: '/',
+        background_color: '#ffffff',
+        theme_color: '#000',
+        display: 'minimal-ui',
         icon: './src/images/logo512.png',
       },
     },
