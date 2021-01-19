@@ -1,16 +1,6 @@
-'use strict';
-
+/* eslint-disable */
 const babelOptions = {
-  presets: [
-    '@babel/react',
-    '@babel/env',
-    'babel-preset-gatsby'
-  ],
-  plugins: [
-    '@babel/plugin-proposal-optional-chaining',
-    '@babel/plugin-proposal-class-properties',
-    '@babel/plugin-transform-flow-strip-types',
-  ],
+  presets: ['babel-preset-gatsby'],
 };
 
 module.exports = require('babel-jest').createTransformer(babelOptions);

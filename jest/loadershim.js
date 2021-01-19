@@ -1,5 +1,4 @@
-'use strict';
-
+/* eslint-disable */
 global.___loader = {
   enqueue: jest.fn(),
 };
