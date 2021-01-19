@@ -1,31 +1,33 @@
 {
-  "compilerOptions": {
-    "plugins": [
-      {
-        "name": "typescript-styled-plugin"
-      }
-    ],
-    "allowJs": true,
-    "alwaysStrict": true,
-    "allowSyntheticDefaultImports": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true,
-    "noImplicitAny": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "jsx": "preserve",
-    "target": "ES2020",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-  },
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules", "public", ".cache"]
-}
+    "compilerOptions": {
+      "plugins": [
+        {
+          "name": "typescript-styled-plugin"
+        }
+      ],
+      "allowJs": true,
+      "baseUrl": "/",
+      "alwaysStrict": false,
+      "allowSyntheticDefaultImports": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "noEmit": true,
+      "noImplicitAny": false,
+      "strict": false,
+      "strictNullChecks": true,
+      "jsx": "preserve",
+      "target": "ES2020",
+      "lib": [
+        "dom",
+        "dom.iterable",
+        "esnext"
+      ],
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "resolveJsonModule": true,
+    },
+    "include": ["./src/**/*", "tsconfig.eslint.json"],
+    
+    "exclude": ["node_modules", "public", ".cache"]
+  }

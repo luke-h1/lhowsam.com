@@ -11,71 +11,10 @@ You can read about these technologies here:
 - [Styled Components](https://www.styled-components.com/)
   <br />
 
-Unit testing pipeline:
-<br />
-<br />
-[![Build Status](https://dev.azure.com/lukehowsam/testing/_apis/build/status/unit%20testing%20pipeline?branchName=refs%2Fpull%2F335%2Fmerge)](https://dev.azure.com/lukehowsam/testing/_build/latest?definitionId=5&branchName=refs%2Fpull%2F335%2Fmerge)
 
-## Project Structure
+<!-- ![Node.js CI tests](https://github.com/luke-h1/lhowsam.com/workflows/Node.js%20CI/badge.svg) -->
 
-- Main - Represents what is currently on production
+<!-- ![Nightly unit tests](https://github.com/luke-h1/lhowsam.com/workflows/tests/badge.svg) -->
 
-- Dev - Represents the features currently being worked on
+<!-- ![CodeQL](https://github.com/luke-h1/lhowsam.com/workflows/CodeQL/badge.svg) -->
 
-## Available NPM Commands
-
-### Develop
-
-Start a hot-reloading development environment accessible at `localhost:8000`
-
-```shell
-npm start
-```
-
-### Build
-
-Get an optimized production build
-
-```shell
-npm run build
-```
-
-### Serve
-
-start a local server for testing your built site.
-
-```shell
-npm run serve
-```
-
-### Lint
-
-Lint the code according to the Airbnb style guide
-
-```shell
-npm run lint
-```
-
-### test
-
-Run jest unit tests
-
-```shell
-npm run test
-```
-
-### Clean
-
-Remove the .cache & public directory for a scratch compile.
-
-```shell
-gatsby clean
-```
-
-### Deep Clean
-
-Remove the .cache, public, package-lock.json and node_modules for a scratch compile.
-
-```shell
-npm run deep-clean
-```

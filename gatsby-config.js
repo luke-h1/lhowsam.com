@@ -1,4 +1,10 @@
+/* eslint-disable max-len */
+require('dotenv').config({
+  path: '.env',
+});
+
 const { GOOGLE_ANALYTICS_KEY } = process.env;
+const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE;
 
 module.exports = {
   siteMetadata: {
@@ -10,73 +16,114 @@ module.exports = {
     description:
       'My personal portfolio built with Gatsby & styled components :) ',
     siteUrl: 'https://lhowsam.com',
-    social: {
-      twitter: 'lukeH_1999',
-    },
   },
   plugins: [
+    'gatsby-transformer-json',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sitemap',
+    'gatsby-plugin-styled-components',
+    'gatsby-plugin-catch-links',
+    'gatsby-plugin-offline',
+    'gatsby-plugin-sass',
+    'gatsby-transformer-remark',
+    'gatsby-plugin-sharp',
+    'gatsby-remark-emoji',
+
+    // Read markdown/mdx files
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/blog`,
-        name: 'blog',
+        path: `${__dirname}/_posts`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        defaultLayouts: {
-          default: require.resolve('./src/components/layout.tsx'),
-        },
-      },
-    },
-    'gatsby-plugin-theme-ui',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'projects',
-        path: './content/project',
+        path: './src/data/projects/',
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/content/assets`,
-        name: 'assets',
+        name: 'images',
+        path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'post-images',
+        path: `${__dirname}/_posts/images`,
+      },
+    },
+    // mdx support
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.mdx', '.md'],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-code-titles',
+            options: {
+              className: 'code-title-custom',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: '768',
+              backgroundColor: 'transparent',
+              linkImagesToOriginal: false,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-autolink-headers',
+            options: {
+              className: 'anchor-heading',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: `${__dirname}/_posts`,
+              ignoreFileExtensions: ['png', 'jpg', 'jpeg', 'bmp', 'tiff'],
+            },
+          },
+        ],
+      },
+    },
+
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: `${GOOGLE_ANALYTICS_KEY}`,
+      },
+    },
+
+    {
+      resolve: 'gatsby-transformer-sharp',
+      options: {
+        checkSupportedExtensions: false,
+      },
+    },
+
     {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-prismjs',
+            resolve: 'gatsby-remark-autolink-headers',
             options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: false,
-              noInlineHighlight: false,
-              languageExtensions: [
-                {
-                  language: 'superscript',
-                  extend: 'javascript',
-                  definition: {
-                    superscript_types: /(SuperType)/,
-                  },
-                  insertBefore: {
-                    function: {
-                      superscript_keywords: /(superif|superelse)/,
-                    },
-                  },
-                },
-              ],
-              prompt: {
-                user: 'root',
-                host: 'localhost',
-                global: false,
-              },
-              escapeEntities: {},
+              className: 'anchor-heading',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: '768',
+              backgroundColor: 'transparent',
+              linkImagesToOriginal: false,
             },
           },
         ],
@@ -90,42 +137,6 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-typescript',
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 630,
-            },
-          },
-          {
-            resolve: 'gatsby-remark-responsive-iframe',
-            options: {
-              wrapperStyle: 'margin-bottom: 1.0725rem',
-            },
-          },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
-        ],
-      },
-    },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-styled-components',
-
-    {
-      resolve: 'gatsby-plugin-google-analytics',
-      options: {
-        trackingId: `${GOOGLE_ANALYTICS_KEY}`,
-      },
-    },
-    'gatsby-plugin-feed',
-    {
       resolve: 'gatsby-plugin-manifest',
       options: {
         name: 'lhowsam.com',
@@ -134,10 +145,24 @@ module.exports = {
         background_color: '#ffffff',
         theme_color: '#000',
         display: 'minimal-ui',
-        icon: 'content/assets/logo512.png',
+        icon: './src/images/logo512.png',
       },
     },
-    'gatsby-plugin-react-helmet',
-    // `gatsby-plugin-offline`,
-  ],
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'dummy',
+        path: `${__dirname}/src/z_`,
+      },
+    },
+    shouldAnalyseBundle && {
+      resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+      options: {
+        analyzerMode: 'static',
+        reportFilename: '_bundle.html',
+        openAnalyzer: false,
+      },
+    },
+    // `gatsby-plugin-offline`
+  ].filter(Boolean),
 };
