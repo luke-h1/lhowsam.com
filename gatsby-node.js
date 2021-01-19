@@ -1,5 +1,4 @@
-/* eslint-disable arrow-parens */
-/* eslint-disable arrow-body-style */
+/* eslint-disable */
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
