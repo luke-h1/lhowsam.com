@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 import styled from 'styled-components';
 import SiteLink from '../components/Icons/SiteLink';
@@ -27,27 +28,17 @@ const ProjectBody = styled.p`
   font-size: 19px;
 `;
 
-const Project = () => (
+const Project = props => (
   <>
-    {/* <SEO title={project.title} description={project.description || project.excerpt} /> */}
+    <SEO title={props.title} description={props.descriptionOne} />
     <ProjectWrapper>
-      <ProjectTitle>title of project</ProjectTitle>
+      <ProjectTitle>{props.title}</ProjectTitle>
       <ProjectLinks>
-        <GithubLink link="https://github.com" />
-        <SiteLink link="http://localhost:3000" />
+        <GithubLink link={props.ghLink} />
+        {props.siteLink ? <SiteLink link={props.siteLink} /> : ''}
       </ProjectLinks>
-      <ProjectBody>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam laborum obcaecati perferendis harum iure, eaque similique eius
-        quam eveniet accusantium reprehenderit laudantium et voluptas esse ea, minima odio veniam aliquam.
-      </ProjectBody>
-      <ProjectBody>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam laborum obcaecati perferendis harum iure, eaque similique eius
-        quam eveniet accusantium reprehenderit laudantium et voluptas esse ea, minima odio veniam aliquam.
-      </ProjectBody>
-      <ProjectBody>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam laborum obcaecati perferendis harum iure, eaque similique eius
-        quam eveniet accusantium reprehenderit laudantium et voluptas esse ea, minima odio veniam aliquam.
-      </ProjectBody>
+      <ProjectBody>{props.descriptionOne}</ProjectBody>
+      <ProjectBody>{props.descriptionTwo}</ProjectBody>
     </ProjectWrapper>
   </>
 );
