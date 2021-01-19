@@ -63,17 +63,4 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     });
   });
-  // query MyQuery {
-  //   allProjectsJson {
-  //     edges {
-  //       node {
-  //         body
-  //         excerpt
-  //         id
-  //         slug
-  //         title
-  //       }
-  //     }
-  //   }
-  // }
 };

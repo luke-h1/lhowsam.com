@@ -34,7 +34,6 @@ module.exports = {
     'gatsby-transformer-remark',
     'gatsby-plugin-sharp',
     'gatsby-remark-emoji',
-    rss,
 
     // Read markdown/mdx files
     {
@@ -103,15 +102,6 @@ module.exports = {
       },
     },
 
-    // Using svg as component
-    {
-      resolve: 'gatsby-plugin-react-svg',
-      options: {
-        rule: {
-          include: /_assets/,
-        },
-      },
-    },
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
@@ -131,7 +121,6 @@ module.exports = {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [
-          // Somehow need to be defined under both gatsby-plugin-mdx & gatsby-transformer-remark to work
           {
             resolve: 'gatsby-remark-autolink-headers',
             options: {

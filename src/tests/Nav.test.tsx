@@ -1,16 +1,14 @@
 /* eslint-disable */
-import NavData from '../../data/nav.json';
-
+import NavData from '../data/nav.json';
 
 test('Navbar data is correct', () => { 
   expect(NavData).toMatchSnapshot();
-  expect(NavData).toHaveLength(5);
+  expect(NavData).toHaveLength(4);
   expect(NavData.map((i) => i.title)).toEqual([
     'Home',
     'About',
     'Blog',
     'Projects',
-    'Contact'
 
   ]); 
 }); 
@@ -34,5 +32,5 @@ test('NavData returns Contact as last item', () => {
   name(Item2); // about 
   name(Item3); // blog 
   name(Item4); // projects
-  expect(name).toHaveLastReturnedWith('Contact')
+  expect(name).toHaveLastReturnedWith('Projects')
 })

@@ -27,6 +27,7 @@
       "forceConsistentCasingInFileNames": true,
       "resolveJsonModule": true,
     },
-    "include": ["./src/**/*"],
+    "include": ["./src/**/*", "tsconfig.eslint.json"],
+    
     "exclude": ["node_modules", "public", ".cache"]
   }
