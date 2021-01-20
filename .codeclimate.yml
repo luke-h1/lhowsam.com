@@ -1,0 +1,35 @@
+version: "2"
+
+plugins:
+  eslint:
+    enabled: true
+    channel: "eslint-7"
+    config:
+      config: .eslintrc.json
+
+checks:
+  method-complexity:
+    enabled: false
+  method-lines:
+    config:
+      threshold: 150
+  similar-code:
+    enabled: false
+  identical-code:
+    enabled: false
+
+ratings:
+  paths:
+    - "**.js"
+    - "**.jsx"
+    - "**.css"
+    - "**.less"
+    - "**.scss"
+    - "**.sss"
+    - "**.ts"
+    - "**.tsx"
+
+exclude_paths:
+  - static/**/*
+  - src/tests/
+  - src/templates 
