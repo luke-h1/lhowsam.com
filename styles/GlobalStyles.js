@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import { normalize } from "polished";
 import { PrimaryFont } from "./Fonts";
-import NotoSans from "../fonts/NotoSansJP-Regular.otf";
 
 export const GlobalStyle = createGlobalStyle`
     ${normalize()}
@@ -23,9 +22,5 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background: #fff;
-        @font-face {
-            font-family: ${PrimaryFont};
-            src: url(${NotoSans}) format('truetype');
-        }
     }
 `;
