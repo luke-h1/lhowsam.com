@@ -11,5 +11,9 @@
     "next": "10.0.5",
     "react": "17.0.1",
     "react-dom": "17.0.1"
+  },
+  "devDependencies": {
+    "@emotion/babel-plugin": "^11.1.2",
+    "babel-plugin-macros": "^3.0.1"
   }
 }
