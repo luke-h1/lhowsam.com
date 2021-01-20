@@ -62,9 +62,15 @@ export const LinkWrapper = styled.div`
   margin-top: 15px;
   a { 
     margin: 0 8px 0 8px;
+    &:hover {
+    color: ${props => props.theme.blueTextColor};
+    transform: scale(1.15);
+    transition: scale ease 0.5s;
+  }
   }
 `;
 
 export const LinkItem = styled(Link)`
   color: ${props => props.theme.darkTextColor} !important;
+  
 `;
