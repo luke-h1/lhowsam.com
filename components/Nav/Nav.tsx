@@ -46,17 +46,17 @@ const Nav: React.FC<{ theme: String }> = ({ theme }) => {
               </NavItem>
               <NavItem>
                 <NavLinks href="/about" onClick={closeMobileMenu}>
-                  <a>Home</a>
+                  <a>About</a>
                 </NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks href="/projects" onClick={closeMobileMenu}>
-                  <a>Home</a>
+                  <a>Projects</a>
                 </NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks href="/blog" onClick={closeMobileMenu}>
-                  <a>Home</a>
+                  <a>Blog</a>
                 </NavLinks>
               </NavItem>
               <NavItemBtn>{/* <NavBtnLink href='test'/> */}</NavItemBtn>
