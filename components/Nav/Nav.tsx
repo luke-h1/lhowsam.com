@@ -13,6 +13,7 @@ import {
   NavItemBtn,
   NavLinks,
   NavBtnLink,
+  StyledA,
 } from "./NavStyles";
 
 interface NavInt {
@@ -41,22 +42,22 @@ const Nav: React.FC<{ theme: String }> = ({ theme }) => {
             <NavMenu onClick={handleClick} click={click}>
               <NavItem>
                 <NavLinks href="/" onClick={closeMobileMenu}>
-                  <a>Home</a>
+                  <StyledA>Home</StyledA>
                 </NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks href="/about" onClick={closeMobileMenu}>
-                  <a>About</a>
+                  <StyledA>About</StyledA>
                 </NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks href="/projects" onClick={closeMobileMenu}>
-                  <a>Projects</a>
+                  <StyledA>Projects</StyledA>
                 </NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks href="/blog" onClick={closeMobileMenu}>
-                  <a>Blog</a>
+                  <StyledA>Blog</StyledA>
                 </NavLinks>
               </NavItem>
               <NavItemBtn>{/* <NavBtnLink href='test'/> */}</NavItemBtn>

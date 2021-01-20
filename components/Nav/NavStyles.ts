@@ -1,14 +1,14 @@
 /* eslint-disable */
-import styled from "styled-components";
-import { FiCode } from "react-icons/fi";
-import Link from "next/link";
-import { Container } from "../../templates/Container";
+import styled from 'styled-components';
+import { FiCode } from 'react-icons/fi';
+import Link from 'next/link';
+import { Container } from '../../templates/Container';
 
 export const NavWrapper = styled.nav`
-  background: ${(props) => props.theme.backgroundColor};
+  background: ${props => props.theme.backgroundColor};
   height: 60px;
   display: flex;
-  color: ${(props) => props.theme.darkTextColor};
+  color: ${props => props.theme.darkTextColor};
   justify-content: space-between;
   padding: 0.1rem calc((100vw - 1000px) / 2);
   z-index: 999;
@@ -21,11 +21,11 @@ export const NavbarContainer = styled(Container)`
   justify-content: space-between;
   height: 60px;
   ${Container}
-  color: ${(props) => props.theme.darkTextColor};
+  color: ${props => props.theme.darkTextColor};
 `;
 
 export const NavLogo = styled(Link)`
-  color: ${(props) => props.theme.primaryColor};
+  color: ${props => props.theme.primaryColor};
   justify-self: flex-start;
   cursor: pointer;
   text-decoration: none;
@@ -36,12 +36,12 @@ export const NavLogo = styled(Link)`
 
 export const NavIcon = styled(FiCode)`
   font-size: 1.6rem;
-  color: ${(props) => props.theme.darkTextColor};
+  color: ${props => props.theme.darkTextColor};
 `;
 
 export const MobileIcon = styled.div`
   display: none;
-  color: ${(props) => props.theme.darkTextColor};
+  color: ${props => props.theme.darkTextColor};
 
   @media screen and (max-width: 960px) {
     display: block;
@@ -51,7 +51,7 @@ export const MobileIcon = styled.div`
     transform: translate(-100%, 60%);
     font-size: 1.6rem;
     cursor: pointer;
-    color: ${(props) => props.theme.darkTextColor};
+    color: ${props => props.theme.darkTextColor};
   }
 `;
 
@@ -61,7 +61,7 @@ export const NavMenu = styled.ul`
   list-style: none;
   text-align: center;
   height: 70px;
-  color: ${(props) => props.theme.darkTextColor};
+  color: ${props => props.theme.darkTextColor};
 
   @media screen and (max-width: 960px) {
     display: flex;
@@ -74,10 +74,10 @@ export const NavMenu = styled.ul`
     position: absolute;
     top: 60px;
     overflow: hidden;
-    left: ${({ click }: any) => (click ? 0 : "-200%")};
+    left: ${({ click }: any) => (click ? 0 : '-200%')};
     opacity: 1;
     transition: all 0.2s ease;
-    background: ${(props) => props.theme.backgroundColor};
+    background: ${props => props.theme.backgroundColor};
     font-size: 1.8rem;
     font-weight: 700;
     overflow-y: hidden; /* Hide vertical scrollbar */
@@ -89,7 +89,7 @@ export const NavMenu = styled.ul`
 
 export const NavItem = styled.li`
   height: 60px;
-  color: ${(props) => props.theme.darkTextColor};
+  color: ${props => props.theme.darkTextColor};
   border-bottom: 2px solid transparent;
   margin: 0 1rem 0 1rem;
   @media screen and (max-width: 960px) {
@@ -98,15 +98,11 @@ export const NavItem = styled.li`
     &:hover {
       border: none;
     }
-    &:hover {
-      transition: scale 0.2s ease;
-      transform: scale(1.11);
-    }
   }
 `;
 
 export const NavItemBtn = styled.li`
-  color: ${(props) => props.theme.darkTextColor};
+  color: ${props => props.theme.darkTextColor};
   @media screen and (max-width: 960px) {
     display: flex;
     justify-content: center;
@@ -116,8 +112,18 @@ export const NavItemBtn = styled.li`
   }
 `;
 
+export const StyledA = styled.a`
+  margin: 0 0.3rem 0 0.3rem;
+  cursor: pointer;
+  &:hover { 
+    border-bottom: 1px solid #000;
+    transform: scale(1.15) !important;
+    transition: scale ease 0.1s !important;
+  }
+`;
+
 export const NavLinks = styled(Link)`
-  color: ${(props) => props.theme.darkTextColor};
+  color: ${props => props.theme.darkTextColor};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -125,13 +131,6 @@ export const NavLinks = styled(Link)`
   padding: 0.5rem 1rem;
   height: 100%;
   font-size: 1.2rem;
-  &:hover {
-    transform: scale(1.1);
-    transition: all 0.1s ease;
-  }
-  a { 
-    margin: 0 1rem 0 1rem !important;
-  }
 
   @media screen and (max-width: 960px) {
     display: flex;
@@ -154,7 +153,9 @@ export const NavBtnLink = styled(Link)`
   border: none;
   outline: none;
   &:hover {
-    transform: scale(1.1);
+    color: ${props => props.theme.blueTextColor};
+    transform: scale(1.15);
+    transition: scale ease 0.5s;
   }
 `;
 
