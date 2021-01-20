@@ -39,10 +39,10 @@ export const NavIcon = styled(FiCode)`
   color: ${props => props.theme.darkTextColor};
 `;
 
+
 export const MobileIcon = styled.div`
   display: none;
   color: ${props => props.theme.darkTextColor};
-
   @media screen and (max-width: 960px) {
     display: block;
     position: absolute;
@@ -78,8 +78,8 @@ export const NavMenu = styled.ul`
     opacity: 1;
     transition: all 0.2s ease;
     background: ${props => props.theme.backgroundColor};
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: 1.4rem;
+    font-weight: 500;
     overflow-y: hidden; /* Hide vertical scrollbar */
     overflow-x: hidden; /* Hide horizontal scrollbar */
     -ms-overflow-style: none; /* IE and Edge */
@@ -117,8 +117,6 @@ export const StyledA = styled.a`
   cursor: pointer;
   &:hover { 
     border-bottom: 1px solid #000;
-    transform: scale(1.15) !important;
-    transition: scale ease 0.1s !important;
   }
 `;
 
@@ -131,7 +129,6 @@ export const NavLinks = styled(Link)`
   padding: 0.5rem 1rem;
   height: 100%;
   font-size: 1.2rem;
-
   @media screen and (max-width: 960px) {
     display: flex;
     flex-direction: column;
@@ -152,11 +149,6 @@ export const NavBtnLink = styled(Link)`
   width: 100%;
   border: none;
   outline: none;
-  &:hover {
-    color: ${props => props.theme.blueTextColor};
-    transform: scale(1.15);
-    transition: scale ease 0.5s;
-  }
 `;
 
 export const IconContainer = styled.div`
