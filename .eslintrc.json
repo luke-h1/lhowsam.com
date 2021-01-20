@@ -32,6 +32,7 @@
     "react/jsx-props-no-spreading": "off",
     "react/state-in-constructor": "off",
     "no-unsafe-finally": "off",
+    "react/react-in-jsx-scope": "off",
     "react/no-unescaped-entities": [
       "error",
       {
@@ -49,3 +50,4 @@
     ]
   }
 }
+//   'React' must be in scope when using JSXeslintreact/react-in-jsx-scope
