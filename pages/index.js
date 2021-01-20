@@ -1,13 +1,10 @@
-import styled from 'styled-components';
-
-const Title = styled.h1`
-  color: red;
-`
+import { theme } from '../styles/Theme';
+import Intro from '../components/Intro/Intro';
 
 export default function Home() {
   return (
     <>
-      <Title>Hello world ! </Title>
+      <Intro theme={theme} />
     </>
   );
 }
