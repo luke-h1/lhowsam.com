@@ -1,0 +1,12 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.19.0
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - gatsby-plugin-ts > gatsby-plugin-graphql-codegen > @graphql-toolkit/core > lodash:
+        patched: '2021-01-21T19:34:57.453Z'
+    - gatsby-plugin-ts > gatsby-plugin-graphql-codegen > @graphql-toolkit/url-loader > @graphql-toolkit/common > lodash:
+        patched: '2021-01-21T19:34:57.453Z'
+    - gatsby-plugin-ts > gatsby-plugin-graphql-codegen > @graphql-toolkit/core > @graphql-toolkit/schema-merging > @graphql-toolkit/common > lodash:
+        patched: '2021-01-21T19:34:57.453Z'
