@@ -1,19 +1,19 @@
 /* eslint-disable */
 import styled from 'styled-components';
-import { FiCode } from 'react-icons/fi';
+import { BiCodeBlock } from 'react-icons/bi';
 import { Link } from 'gatsby';
 import { Container } from '../../templates/Container';
 
-export const NavWrapper = styled.nav`
-  background: ${props => props.theme.backgroundColor};
+export const Nav = styled.nav`
+  background: ${(props) => props.theme.primaryBackgroundColor}; 
   height: 60px;
   display: flex;
-  color: ${props => props.theme.darkTextColor};
   justify-content: space-between;
-  padding: 0.1rem calc((100vw - 1000px) / 2);
+  padding: 0.1rem calc((100vw - 1600px) / 2);
   z-index: 999;
   position: relative;
-  min-width: 100vw;
+  min-width: 60vw;
+  margin: 0 auto;
 `;
 
 export const NavbarContainer = styled(Container)`
@@ -21,11 +21,11 @@ export const NavbarContainer = styled(Container)`
   justify-content: space-between;
   height: 60px;
   ${Container}
-  color: ${props => props.theme.darkTextColor};
+  color: ${(props) => props.theme.primaryColor}; 
 `;
 
 export const NavLogo = styled(Link)`
-  color: ${props => props.theme.primaryColor};
+  color: ${(props) => props.theme.primaryColor}; 
   justify-self: flex-start;
   cursor: pointer;
   text-decoration: none;
@@ -34,15 +34,12 @@ export const NavLogo = styled(Link)`
   align-items: center;
 `;
 
-export const NavIcon = styled(FiCode)`
-  font-size: 1.6rem;
-  color: ${props => props.theme.darkTextColor};
+export const NavIcon = styled(BiCodeBlock)`
+  margin-right: 0.5rem;
 `;
-
 
 export const MobileIcon = styled.div`
   display: none;
-  color: ${props => props.theme.darkTextColor};
   @media screen and (max-width: 960px) {
     display: block;
     position: absolute;
@@ -51,7 +48,7 @@ export const MobileIcon = styled.div`
     transform: translate(-100%, 60%);
     font-size: 1.6rem;
     cursor: pointer;
-    color: ${props => props.theme.darkTextColor};
+    color: ${(props) => props.theme.primaryColor}; 
   }
 `;
 
@@ -60,8 +57,7 @@ export const NavMenu = styled.ul`
   align-items: center;
   list-style: none;
   text-align: center;
-  height: 70px;
-  color: ${props => props.theme.darkTextColor};
+  height: 40px;
   @media screen and (max-width: 960px) {
     display: flex;
     flex-direction: column;
@@ -76,9 +72,9 @@ export const NavMenu = styled.ul`
     left: ${({ click }: any) => (click ? 0 : '-200%')};
     opacity: 1;
     transition: all 0.2s ease;
-    background: ${props => props.theme.backgroundColor};
-    font-size: 1.4rem;
-    font-weight: 500;
+    background: ${(props) => props.theme.lightTextColor}; 
+    font-size: 1.8rem;
+    font-weight: 700;
     overflow-y: hidden; /* Hide vertical scrollbar */
     overflow-x: hidden; /* Hide horizontal scrollbar */
     -ms-overflow-style: none; /* IE and Edge */
@@ -88,20 +84,24 @@ export const NavMenu = styled.ul`
 
 export const NavItem = styled.li`
   height: 60px;
-  color: ${props => props.theme.darkTextColor};
   border-bottom: 2px solid transparent;
-  margin: 0 1rem 0 1rem;
+  &:hover {
+    border-bottom: 1px solid ${(props) => props.theme.textOnDisabled};
+  }
   @media screen and (max-width: 960px) {
     width: 100%;
     text-align: center;
     &:hover {
       border: none;
     }
+    &:hover {
+      transition: scale 0.2s ease;
+      transform: scale(1.11);
+    }
   }
 `;
 
 export const NavItemBtn = styled.li`
-  color: ${props => props.theme.darkTextColor};
   @media screen and (max-width: 960px) {
     display: flex;
     justify-content: center;
@@ -111,16 +111,8 @@ export const NavItemBtn = styled.li`
   }
 `;
 
-export const StyledA = styled.a`
-  margin: 0 0.3rem 0 0.3rem;
-  cursor: pointer;
-  &:hover { 
-    border-bottom: 1px solid #000;
-  }
-`;
-
 export const NavLinks = styled(Link)`
-  color: ${props => props.theme.darkTextColor};
+  color: ${(props) => props.theme.primaryColor};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -135,6 +127,10 @@ export const NavLinks = styled(Link)`
     align-items: center;
     text-align: center;
     width: 100%;
+    &:hover {
+      color: ${(props) => props.theme.textOnDisabled}; 
+      transition: all 0.3s ease;
+    }
   }
 `;
 
@@ -150,6 +146,9 @@ export const NavBtnLink = styled(Link)`
   outline: none;
 `;
 
+
+
+
 export const IconContainer = styled.div`
   margin-left: 10px;
-`;
+`

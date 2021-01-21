@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../../styles/Theme';
-import { Card, ProjectTitle, ProjectExcerpt } from './ProjectitemElements';
+import { Card, ProjectTitle, ProjectExcerpt } from './ProjectItemStyles';
 
 const ProjectItem = () => (
   <ThemeProvider theme={theme}>

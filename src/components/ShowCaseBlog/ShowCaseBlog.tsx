@@ -1,11 +1,10 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import BlogItem from '../BlogItem/BlogItem';
-import { BlogWrapper, Title, TitleWrap } from './ShowCaseBlogElements';
-import usePosts from '../../hooks/usePosts';
+import { BlogWrapper, Title, TitleWrap } from './ShowCaseBlogStyles';
+
 
 const ShowCaseBlog = ({ theme }) => {
-  const recentPosts = usePosts();
   return (
     <ThemeProvider theme={theme}>
       <>
@@ -13,9 +12,6 @@ const ShowCaseBlog = ({ theme }) => {
           <Title>Blog</Title>
         </TitleWrap>
         <BlogWrapper>
-          {recentPosts.map((post) => (
-            <BlogItem title={post.title} date={post.date} excerpt={post.excerpt} slug={post.slug} theme={theme} />
-          ))}
         </BlogWrapper>
       </>
     </ThemeProvider>

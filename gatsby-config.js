@@ -1,129 +1,76 @@
 module.exports = {
   siteMetadata: {
-    title: 'lhowsam',
-    description: 'My personal portfolio built with Gatsby & styled components :) ',
+    title: `Gatsby Starter Blog`,
     author: {
-      name: 'luke howsam',
-      summary: 'who lives and works in Sheffield.',
-
+      name: `Kyle Mathews`,
+      summary: `who lives and works in San Francisco building useful things.`,
     },
-    siteUrl: 'https://lhowsam.com',
+    description: `A starter blog demonstrating what Gatsby can do.`,
+    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
     social: {
-      twitter: 'lukeH_1999',
+      twitter: `kylemathews`,
     },
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-
-        name: 'images',
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/content/blog`,
+        name: `blog`,
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: 'pages',
-        path: `${__dirname}/posts/`,
+        path: `${__dirname}/content/assets`,
+        name: `assets`,
       },
     },
     {
-      resolve: 'gatsby-plugin-canonical-urls',
-      options: {
-        siteUrl: 'https://lhowsam.com',
-        stripQueryString: true,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-typescript',
-    },
-    {
-      resolve: 'gatsby-transformer-remark',
+      resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           {
-            resolve: 'gatsby-remark-images',
+            resolve: `gatsby-remark-images`,
             options: {
               maxWidth: 630,
             },
           },
           {
-            resolve: 'gatsby-remark-responsive-iframe',
+            resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: 'margin-bottom: 1.0725rem',
+              wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-          'gatsby-remark-smartypants',
+          `gatsby-remark-prismjs`,
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
         ],
       },
     },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     'gatsby-plugin-styled-components',
-
     {
-      resolve: 'gatsby-plugin-google-analytics',
+      resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `${process.env.GOOGLE_ANALYTICS_KEY}`,
+        //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
-    'gatsby-plugin-feed',
+    `gatsby-plugin-feed`,
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'lhowsam.com',
-        short_name: 'lhowsam.com',
-        start_url: '/',
-        background_color: '#ffffff',
-        theme_color: '#000',
-        display: 'minimal-ui',
-        icon: './assets/logo512.png',
+        name: `Gatsby Starter Blog`,
+        short_name: `GatsbyJS`,
+        start_url: `/`,
+        background_color: `#ffffff`,
+        theme_color: `#663399`,
+        display: `minimal-ui`,
+        icon: `content/assets/gatsby-icon.png`,
       },
     },
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          {
-            resolve: 'gatsby-remark-prismjs',
-            options: {
-              classPrefix: 'language-',
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: false,
-              noInlineHighlight: false,
-              languageExtensions: [
-                {
-                  language: 'superscript',
-                  extend: 'javascript',
-                  definition: {
-                    superscript_types: /(SuperType)/,
-                  },
-                  insertBefore: {
-                    function: {
-                      superscript_keywords: /(superif|superelse)/,
-                    },
-                  },
-                },
-              ],
-              prompt: {
-                user: 'root',
-                host: 'localhost',
-                global: false,
-              },
-              escapeEntities: {},
-            },
-          },
-        ],
-      },
-    },
-    'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    'gatsby-plugin-ts',
+    `gatsby-plugin-react-helmet`,
     // `gatsby-plugin-offline`,
   ],
-};
+}

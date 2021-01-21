@@ -1,21 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
-import Nav from './Nav/Nav';
-import { theme } from '../styles/Theme';
-import { GlobalStyle } from '../styles/GlobalStyles';
-import Footer from './Footer/Footer';
+/* eslint-disable */
+import React from "react"
+import { ThemeProvider } from "styled-components"
+import { GlobalStyle } from "../styles/GlobalStyles"
+import { theme } from "../styles/Theme"
+import Nav from "./Nav/Nav"
+import Footer from "./Footer/Footer"
 
-const Layout = ({ children }) => (
-  <>
-    <GlobalStyle />
-    <Nav theme={theme} />
-    {children}
-    <Footer theme={theme} />
-  </>
-);
+const Layout: React.FC<{ children: Node }> = ({ children }) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <>
+        <GlobalStyle />
+        <Nav theme={theme} />
+        {children}
+        <Footer theme={theme} />
+      </>
+    </ThemeProvider>
+  )
+}
 
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
-
-export default Layout;
+export default Layout

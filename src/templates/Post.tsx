@@ -1,26 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/layout';
 import SEO from '../components/seo';
 import ShareButtons from '../components/ShareButtons';
 
-export const query = graphql`
-  query getPostsBlogPage($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
-      body
-      slug
-      frontmatter {
-        date(formatString: "DD/MM/YYYY")
-        draft
-        excerpt
-        tags
-        title
-      }
-    }
-  }
-`;
 
 const PostWrapper = styled.div`
   display: flex;
@@ -78,7 +62,7 @@ const Post = ({ data: { mdx: post } }) => (
     <PostWrapper>
       <PostTitle>{post.frontmatter.title}</PostTitle>
       <Small>{post.frontmatter.date}</Small>
-      <MDXRenderer>{post.body}</MDXRenderer>
+      <p>{post.body}</p>
     </PostWrapper>
     <ShareWrapper>
       <ShareButtons location={url} />

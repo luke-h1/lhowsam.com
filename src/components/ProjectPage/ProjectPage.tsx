@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import ProjectItem from '../ProjectItem/ProjectItem';
-import { Wrapper, Title, Intro } from './ProjectPageElements';
+import { Wrapper, Title, Intro } from './ProjectPageStyles';
 
 const ProjectPage = ({ theme }) => (
   <>
