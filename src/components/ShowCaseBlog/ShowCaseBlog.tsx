@@ -3,18 +3,14 @@ import { ThemeProvider } from 'styled-components';
 import BlogItem from '../BlogItem/BlogItem';
 import { BlogWrapper, Title, TitleWrap } from './ShowCaseBlogStyles';
 
-
-const ShowCaseBlog = ({ theme }) => {
-  return (
-    <ThemeProvider theme={theme}>
-      <>
-        <TitleWrap>
-          <Title>Blog</Title>
-        </TitleWrap>
-        <BlogWrapper>
-        </BlogWrapper>
-      </>
-    </ThemeProvider>
-  );
-};
+const ShowCaseBlog = ({ theme }) => (
+  <ThemeProvider theme={theme}>
+    <>
+      <TitleWrap>
+        <Title>Blog</Title>
+      </TitleWrap>
+      <BlogWrapper />
+    </>
+  </ThemeProvider>
+);
 export default ShowCaseBlog;

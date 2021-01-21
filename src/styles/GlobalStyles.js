@@ -2,7 +2,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'polished';
 import { PrimaryFont } from './Fonts';
-import NotoSans from '../Fonts/NotoSansJP-Regular.otf';
+import NotoSans from '../fonts/NotoSansJP-Regular.otf';
 
 export const GlobalStyle = createGlobalStyle`
     ${normalize()}
@@ -11,13 +11,11 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         margin: 0;
     }
-
     html { 
         font-size: 16px;
         box-sizing: border-box;
         scroll-behavior: smooth;
     }
-
     *, *:before, *:after { 
         box-sizing: inherit;
     }

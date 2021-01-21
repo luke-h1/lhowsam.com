@@ -1,4 +1,3 @@
-  
 /* eslint-disable */
 import NavData from '../../data/nav.json';
 

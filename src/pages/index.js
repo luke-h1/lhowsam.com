@@ -1,18 +1,23 @@
-import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { theme } from '../styles/Theme';
-import ShowCaseProject from "../components/ShowCaseProject/ShowCaseProject"
-import ShowCaseBlog from "../components/ShowCaseBlog/ShowCaseBlog"
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
+import ShowCaseProject from '../components/ShowCaseProject/ShowCaseProject';
+import ShowCaseBlog from '../components/ShowCaseBlog/ShowCaseBlog';
 import Intro from '../components/Intro/Intro';
+import { theme } from '../styles/Theme';
 
 const IndexPage = () => (
-  <Layout>
+  <>
     <SEO title="Home" />
-    <Intro theme={theme} />
-    <ShowCaseProject theme={theme} />
-    <ShowCaseBlog theme={theme} />
-  </Layout>
-)
+    <ThemeProvider theme={theme}>
+      <Layout theme={theme}>
+        <Intro theme={theme} />
+        <ShowCaseProject theme={theme} />
+        <ShowCaseBlog theme={theme} />
+      </Layout>
+    </ThemeProvider>
+  </>
+);
 
-export default IndexPage
+export default IndexPage;

@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../../styles/Theme';
 import { Card, ProjectTitle, ProjectExcerpt } from './ProjectItemStyles';
 
-const ProjectItem = () => (
+const ProjectItem = ({ theme }) => (
   <ThemeProvider theme={theme}>
     <Card>
       <ProjectTitle>Hello</ProjectTitle>

@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import { FiGithub, FiMail, FiLinkedin } from "react-icons/fi";
+import React from 'react';
+import { FiGithub, FiMail, FiLinkedin } from 'react-icons/fi';
 
-import { ThemeProvider } from "styled-components";
+import { ThemeProvider } from 'styled-components';
 import {
   FooterContainer,
   FooterWrap,
@@ -12,7 +12,7 @@ import {
   SocialIcons,
   LinkWrapper,
   LinkItem,
-} from "./FooterStyles";
+} from './FooterStyles';
 
 const Footer: React.FC<{ theme: String }> = (props) => {
   const theme = props;

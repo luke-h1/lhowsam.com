@@ -5,7 +5,6 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import ShareButtons from '../components/ShareButtons';
 
-
 const PostWrapper = styled.div`
   display: flex;
   flex-direction: column;

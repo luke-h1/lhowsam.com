@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { Link } from 'gatsby'
+import { Link } from 'gatsby';
 
 export const FooterContainer = styled.footer`
+  margin-bottom: 0.5rem;
   @media (min-width: 680px) {
     height: 60px;
   }
@@ -16,7 +17,7 @@ export const FooterWrap = styled.div`
   justify-content: center;
   align-items: center;
   max-width: 100vw;
-  background: ${props => props.theme.backgroundColor};
+  background: ${(props) => props.theme.backgroundColor};
 `;
 
 export const SocialMedia = styled.section`
@@ -44,11 +45,11 @@ export const SocialIcons = styled.div`
 `;
 
 export const SocialIconLink = styled.a`
-  color: ${props => props.theme.darkTextColor};
+  color: ${(props) => props.theme.darkTextColor};
   margin: 0 25px 0 25px;
   font-size: 25px;
   &:hover {
-    color: ${props => props.theme.blueTextColor};
+    color: ${(props) => props.theme.blueTextColor};
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
@@ -60,17 +61,16 @@ export const LinkWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin-top: 15px;
-  a { 
+  a {
     margin: 0 8px 0 8px;
     &:hover {
-    color: ${props => props.theme.blueTextColor};
-    transform: scale(1.15);
-    transition: scale ease 0.5s;
-  }
+      color: ${(props) => props.theme.blueTextColor};
+      transform: scale(1.15);
+      transition: scale ease 0.5s;
+    }
   }
 `;
 
 export const LinkItem = styled(Link)`
-  color: ${props => props.theme.darkTextColor} !important;
-  
+  color: ${(props) => props.theme.darkTextColor} !important;
 `;
