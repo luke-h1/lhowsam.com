@@ -1,5 +1,6 @@
+/* eslint-disable global-require */
 const withMDX = require('@next/mdx')({
-  extension: /\.mdx?$/u
+  extension: /\.mdx?$/u,
 });
 
 module.exports = withMDX({
@@ -10,5 +11,5 @@ module.exports = withMDX({
     }
 
     return config;
-  }
+  },
 });
