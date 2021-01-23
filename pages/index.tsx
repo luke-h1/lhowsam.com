@@ -1,12 +1,12 @@
 import React from "react";
-import { Heading } from "../components/Heading";
+import Intro from "../components/Intro/Intro";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../styles/Theme";
 export default function Home() {
   return (
     <>
       <ThemeProvider theme={theme}>
-        <Heading>Hello</Heading>
+        <Intro theme={theme} />
       </ThemeProvider>
     </>
   );
