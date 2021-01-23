@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-import { FiGithub, FiMail, FiLinkedin } from "react-icons/fi";
-
+import { FiGithub, FiTwitter, FiMail, FiLinkedin } from "react-icons/fi";
 import { ThemeProvider } from "styled-components";
 import {
   FooterContainer,
@@ -46,6 +45,13 @@ const Footer: React.FC<{ theme: String }> = (props) => {
                     rel="noopener noreferrer"
                   >
                     <FiMail />
+                  </SocialIconLink>
+                  <SocialIconLink
+                    href="https://twitter.com/LukeH_1999"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <FiTwitter />
                   </SocialIconLink>
                 </SocialIcons>
               </SocialMediaWrap>

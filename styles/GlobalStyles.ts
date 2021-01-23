@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background: #fff;
+        overflow-x: hidden;
     }
     a { 
         color: #000;

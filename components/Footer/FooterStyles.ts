@@ -15,6 +15,8 @@ export const FooterWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-bottom: 2rem;
+
   max-width: 100vw;
   background: ${props => props.theme.backgroundColor};
 `;
