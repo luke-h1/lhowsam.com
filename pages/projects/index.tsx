@@ -1,8 +1,25 @@
 import React from "react";
 import { NextSeo } from "next-seo";
-import ProjectPage from "../../layout/ProjectPage/ProjectPage";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styles/Theme";
+
+import styled from "styled-components";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 40vh;
+  min-width: 100vw;
+`;
+
+const Title = styled.h1`
+  margin-bottom: 5rem;
+`;
+
+const Intro = styled.p``;
 
 export default function Index() {
   return (
@@ -16,7 +33,11 @@ export default function Index() {
         }}
       />
       <ThemeProvider theme={theme}>
-        <ProjectPage theme={theme} />
+        <Wrapper>
+          <Title>Projects</Title>
+          <Intro />
+          <ProjectCard /> 
+        </Wrapper>
       </ThemeProvider>
     </>
   );
