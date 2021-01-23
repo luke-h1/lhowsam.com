@@ -2,9 +2,8 @@ import React, { JSXElementConstructor } from "react";
 import { NextSeo } from "next-seo";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styles/Theme";
-import data from "../../data/projects/projects.json";
 import styled from "styled-components";
-import ProjectCard from "../../components/ProjectCard/ProjectCard";
+
 
 type ProjectType = {
   title: string;
