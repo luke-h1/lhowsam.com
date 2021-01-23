@@ -1,11 +1,10 @@
-import React, { JSXElementConstructor } from "react";
+import React from "react";
 import { NextSeo } from "next-seo";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styles/Theme";
 import styled from "styled-components";
-
-
-
+import { getAllFilesFrontmatter } from "../../lib/mdx";
+import ProjectCard from "../../components/ProjectCard/ProjectCard";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,7 +25,7 @@ const Flex = styled.div`
   flex-direction: column;
 `;
 
-export default function Index() {
+export default function Index({ projects }) {
   return (
     <>
       <NextSeo
@@ -42,10 +41,17 @@ export default function Index() {
           <Title>Projects</Title>
           <Intro />
           <Flex>
-           {/* map thru projects here */}
+            {projects.map((frontMatter) => (
+              <ProjectCard key={frontMatter.title} {...frontMatter} />
+            ))}
           </Flex>
         </Wrapper>
       </ThemeProvider>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const projects = await getAllFilesFrontmatter("project");
+  return { props: { projects } };
 }

@@ -26,6 +26,7 @@ const PostWrapper = styled.div`
     width: 80%;
   }
 
+
   pre {
     color: #fff;
     background: #000;
@@ -48,6 +49,7 @@ const ContentWrap = styled.div`
     color: #000;
     margin: 40px 0 40px 0;
     text-align: center;
+    
   }
 `;
 
