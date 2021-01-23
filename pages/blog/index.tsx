@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styles/Theme";
-
+import { getAllFilesFrontmatter } from "../../lib/mdx";
 import styled from "styled-components";
-
+import BlogPost from "../../components/BlogPost/BlogPost";
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 40vh;
+  min-height: 20vh;
   min-width: 100vw;
+  margin: 1rem 0 1rem 0;
+`;
+
+const Search = styled.input`
+  padding: 1.25rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 1px solid #000;
+  border-radius: 10px;
 `;
 
 const Intro = styled.p``;
@@ -20,16 +30,46 @@ const Title = styled.h1`
   margin-bottom: 5rem;
 `;
 
-export default function Index() {
+const Heading = styled.h1`
+  text-align: center;
+  margin-bottom: 2rem;
+`;
+
+const SearchWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4rem;
+`;
+
+const url = "https://lhowsam.com/blog";
+const title = "blog";
+const description = "Thoughts on React, Node, testing & tech";
+
+export default function Index({ posts }) {
+  const filterPosts = posts.sort(
+    (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+  );
+
   return (
     <>
       <ThemeProvider theme={theme}>
         <Wrapper>
-          <Title>Blog root page</Title>
           <Intro />
-          {/* map thru blog posts here */}
+          <>
+            <Heading>All blog posts</Heading>
+            {filterPosts.map((frontMatter) => (
+              <BlogPost key={frontMatter.title} {...frontMatter} />
+            ))}
+          </>
         </Wrapper>
       </ThemeProvider>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const posts = await getAllFilesFrontmatter("blog");
+  return { props: { posts } };
 }

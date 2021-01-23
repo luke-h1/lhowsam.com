@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const FooterContainer = styled.footer`
   @media (min-width: 680px) {
-    height: 60px;
+    height: 70px;
   }
   @media (max-width: 500px) {
     display: none;
