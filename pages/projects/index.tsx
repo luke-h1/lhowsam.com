@@ -2,7 +2,7 @@ import React from "react";
 import { NextSeo } from "next-seo";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styles/Theme";
-
+import data from "../../data/projects/projects.json";
 import styled from "styled-components";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 
@@ -21,6 +21,11 @@ const Title = styled.h1`
 
 const Intro = styled.p``;
 
+const Flex = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
 export default function Index() {
   return (
     <>
@@ -36,7 +41,11 @@ export default function Index() {
         <Wrapper>
           <Title>Projects</Title>
           <Intro />
-          <ProjectCard /> 
+          <Flex>
+            {data.map((p) => (
+              <ProjectCard title={p.title} excerpt={p.excerpt} />
+            ))}
+          </Flex>
         </Wrapper>
       </ThemeProvider>
     </>

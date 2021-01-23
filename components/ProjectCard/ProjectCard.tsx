@@ -2,8 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const Card = styled.div`
-  padding: 0.4rem;
+  padding: 0.75rem;
   width: 500px;
+
+  margin: 1rem 0 1rem 0;
   text-align: left;
   color: inherit;
   text-decoration: none;
@@ -32,12 +34,9 @@ const ProjectCard = ({ title, excerpt }) => {
   return (
     <>
       <Card>
-        <h3>title</h3>
+        <h3>{title}</h3>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quo
-          veniam minima aliquid qui, ipsam, quaerat quibusdam delectus nostrum,
-          minus a nobis perferendis eos dicta dolorum. Illum ratione nam
-          possimus.
+            {excerpt}
         </p>
       </Card>
     </>
