@@ -3,24 +3,31 @@
     "id": 1,
     "title": "Automation",
     "excerpt": "Automating my development setup with Ansible & bash",
-    "body": "I am a huge advocate for infrastructure automation & continuous integration as this allows developers to focus on innovating new features and solving new problems rather than being backlogged with maintaining existing infrastructure. In this project I made Ansible playbooks & Bash scripts that automate the setup of Linux & Mac OS X workstations + servers. In addition to this I also setup an azure pipeline to run on pull requests made to the repository to ensure that any features added to the playbooks have no errors."
+    "body": "I am a huge advocate for infrastructure automation & continuous integration as this allows developers to focus on innovating new features and solving new problems rather than being backlogged with maintaining existing infrastructure. In this project I made Ansible playbooks & Bash scripts that automate the setup of Linux & Mac OS X workstations + servers. In addition to this I also setup an azure pipeline to run on pull requests made to the repository to ensure that any features added to the playbooks have no errors.",
+    "slug": "/automation"
   },
   {
-    "id": 1,
+    "id": 2,
     "title": "Express API",
     "excerpt": "In this project I build an Express / Node API proxy in order to hide my API keys + secrets on the frontend. This API fetches whether based on city. Try it below !",
-    "body": "example body"
+    "body": "example body",
+    "slug": "/express-api"
+
   },
   {
-    "id": 1,
+    "id": 3,
     "title": "personal site",
     "excerpt": "this website ! A project that has proved challenging & interesting to work on",
-    "body": "This is a project I've worked on since I started learning web development. It has been through many iterations (Vanilla javascript to React, React to Gatsby, CSS to SASS and SASS to styled components to name a few...) and it has helped me challenge myself and learn a lot about web development in general. I've really enjoyed spending time improving this site and thinking of new features I can add to this site."
+    "body": "This is a project I've worked on since I started learning web development. It has been through many iterations (Vanilla javascript to React, React to Gatsby, CSS to SASS and SASS to styled components to name a few...) and it has helped me challenge myself and learn a lot about web development in general. I've really enjoyed spending time improving this site and thinking of new features I can add to this site.",
+    "slug": "/personal-site"
+
   },
   {
-    "id": 1,
+    "id": 4,
     "title": "example title",
     "excerpt": "example excerpt",
-    "body": "example body"
+    "body": "example body",
+    "slug": "/example-title"
+
   }
 ]

@@ -1,10 +1,16 @@
-import React from "react";
+import React, { JSXElementConstructor } from "react";
 import { NextSeo } from "next-seo";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styles/Theme";
 import data from "../../data/projects/projects.json";
 import styled from "styled-components";
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
+
+type ProjectType = {
+  title: string;
+  excerpt: string;
+  slug: string 
+};
 
 const Wrapper = styled.div`
   display: flex;
@@ -42,9 +48,7 @@ export default function Index() {
           <Title>Projects</Title>
           <Intro />
           <Flex>
-            {data.map((p) => (
-              <ProjectCard title={p.title} excerpt={p.excerpt} id={p.id} />
-            ))}
+           {/* map thru projects here */}
           </Flex>
         </Wrapper>
       </ThemeProvider>
