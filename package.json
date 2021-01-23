@@ -1,5 +1,5 @@
 {
-  "name": "testing-next",
+  "name": "lhowsam.com",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "lint": "eslint \"src/**/*.{js, jsx,ts,tsx}\" --quiet --fix",
+    "lint": "eslint --ext .ts,.tsx --quiet --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "deploy:dev": "vc"
   },
@@ -47,10 +47,8 @@
     "babel-plugin-styled-components": "^1.12.0",
     "eslint": "^7.18.0",
     "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "image-size": "^0.9.3",
