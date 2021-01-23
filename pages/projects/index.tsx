@@ -5,11 +5,6 @@ import { theme } from "../../styles/Theme";
 import styled from "styled-components";
 
 
-type ProjectType = {
-  title: string;
-  excerpt: string;
-  slug: string 
-};
 
 const Wrapper = styled.div`
   display: flex;

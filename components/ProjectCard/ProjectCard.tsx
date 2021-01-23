@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Link from 'next/link';
 
 const Card = styled.div`
   padding: 0.75rem;
@@ -30,15 +31,17 @@ const Card = styled.div`
   }
 `;
 
-const ProjectCard = ({ title, excerpt, id }) => {
+const ProjectCard = ({ title, summary, slug }) => {
   return (
     <>
-      <Card key={id}>
-        <h3>{title}</h3>
-        <p>
-            {excerpt}
-        </p>
-      </Card>
+      <Link href={`/projects/${slug}`}>
+        <a>
+          <Card>
+            <h3>{title}</h3>
+            <p>{summary}</p>
+          </Card>
+        </a>
+      </Link>
     </>
   );
 };

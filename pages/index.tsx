@@ -5,7 +5,6 @@ import { ThemeProvider } from "styled-components";
 import styled from "styled-components";
 import { theme } from "../styles/Theme";
 import ProjectCard from "../components/ProjectCard/ProjectCard";
-import data from "../data/projects/projects.json";
 import { getAllFilesFrontmatter } from "../lib/mdx";
 import BlogPost from "../components/BlogPost/BlogPost";
 
@@ -30,7 +29,7 @@ const Title = styled.h1`
   margin: 1rem 0 1rem 0;
 `;
 
-export default function Home({ posts }) {
+export default function Home({ posts, projects }) {
   const filterPosts = posts.sort(
     (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
   );
@@ -48,12 +47,12 @@ export default function Home({ posts }) {
         <Intro theme={theme} />
         <Flex>
           <Title>Recent Projects</Title>
-          {data.map((p) => (
-            <ProjectCard title={p.title} excerpt={p.excerpt} id={p.id} />
+          {projects.map((frontMatter) => (
+            <ProjectCard key={frontMatter.title} {...frontMatter} />
           ))}
         </Flex>
         <Container>
-        <Title>Recent Blog Posts</Title>
+          <Title>Recent Blog Posts</Title>
           {filterPosts.map((frontMatter) => (
             <BlogPost key={frontMatter.title} {...frontMatter} />
           ))}
@@ -64,5 +63,6 @@ export default function Home({ posts }) {
 }
 export async function getStaticProps() {
   const posts = await getAllFilesFrontmatter("blog");
-  return { props: { posts } };
+  const projects = await getAllFilesFrontmatter("project");
+  return { props: { posts, projects } };
 }
