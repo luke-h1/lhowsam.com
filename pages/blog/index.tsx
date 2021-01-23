@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NextSeo } from 'next-seo';
 import { ThemeProvider } from "styled-components";
 import { theme } from "../../styles/Theme";
 import { getAllFilesFrontmatter } from "../../lib/mdx";
@@ -56,6 +57,14 @@ export default function Index({ posts }) {
   );
   return (
     <>
+    <NextSeo
+        title="Blog | lhowsam.com"
+        canonical="https://lhowsam.com/blog"
+        openGraph={{
+          url: "https://lhowsam.com/blog",
+          title: "Blog | lhowsam.com",
+        }}
+      />
       <ThemeProvider theme={theme}>
         <Wrapper>
           <>

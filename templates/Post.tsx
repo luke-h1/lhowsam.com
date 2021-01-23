@@ -1,4 +1,5 @@
 import React from "react";
+import { NextSeo } from 'next-seo';
 import styled from "styled-components";
 import ShareButtons from "../components/ShareButtons/";
 const PostWrapper = styled.div`
@@ -16,7 +17,7 @@ const PostWrapper = styled.div`
     width: 80%;
   }
 
-  pre { 
+  pre {
     color: #fff;
     background: #000;
     padding: 1rem;
@@ -24,7 +25,6 @@ const PostWrapper = styled.div`
     /* margin: 0 20px; */
     margin: 2.1rem 2.1rem;
     text-align: center;
-    
   }
 `;
 
@@ -67,6 +67,14 @@ const ShareWrapper = styled.div`
 const Post = ({ children, frontMatter }) => {
   return (
     <>
+      <NextSeo
+        title={`${frontMatter.title} | lhowsam.com`}
+        canonical={`https://lhowsam.com/blog/${frontMatter.slug}`}
+        openGraph={{
+          url: `https://lhowsam.com/blog/${frontMatter.slug}`,
+          title: `${frontMatter.title} | lhowsam.com`,
+        }}
+      />
       <PostWrapper>
         <PostTitle>{frontMatter.title}</PostTitle>
         <Small>{frontMatter.slug}</Small>
