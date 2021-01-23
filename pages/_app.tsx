@@ -1,4 +1,6 @@
 import React from "react";
+import Nav from "../components/Nav/Nav";
+import Footer from "../components/Footer/Footer";
 import { GlobalStyle } from "../styles/GlobalStyles";
 import { ThemeProvider } from "styled-components";
 import { theme } from "../styles/Theme";
@@ -15,7 +17,9 @@ function MyApp({ Component, pageProps }) {
             rel="stylesheet"
           />
         </Head>
-        <Component {...pageProps} />
+        <Nav theme={theme} />
+        <Component {...pageProps} {...theme}  />
+        <Footer theme={theme} />
       </ThemeProvider>
     </>
   );

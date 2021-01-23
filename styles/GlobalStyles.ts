@@ -23,4 +23,10 @@ export const GlobalStyle = createGlobalStyle`
         -moz-osx-font-smoothing: grayscale;
         background: #fff;
     }
+    a { 
+        color: #000;
+        text-decoration: none;
+        padding: 0;
+        margin: 0;
+    }
 `;
