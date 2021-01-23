@@ -23,8 +23,6 @@ const Search = styled.input`
   border-radius: 10px;
 `;
 
-const Intro = styled.p``;
-
 const Title = styled.h1`
   text-align: center;
   margin-bottom: 5rem;
@@ -43,22 +41,26 @@ const SearchWrapper = styled.div`
   margin-bottom: 4rem;
 `;
 
+const Intro = styled.p`
+  text-align: center;
+  margin-bottom: 2.5rem;
+`;
+
 const url = "https://lhowsam.com/blog";
 const title = "blog";
-const description = "Thoughts on React, Node, testing & tech";
+const description = "Thoughts on React, Node, testing & tech in general";
 
 export default function Index({ posts }) {
   const filterPosts = posts.sort(
     (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
   );
-
   return (
     <>
       <ThemeProvider theme={theme}>
         <Wrapper>
-          <Intro />
           <>
-            <Heading>All blog posts</Heading>
+            <Heading>{title}</Heading>
+            <Intro>{description}</Intro>
             {filterPosts.map((frontMatter) => (
               <BlogPost key={frontMatter.title} {...frontMatter} />
             ))}
