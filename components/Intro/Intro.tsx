@@ -9,7 +9,6 @@ const Intro = ({ theme }) => (
         <Title>
           Hi, I'm <HighLight>Luke</HighLight>
         </Title>
-
         <DescWrap>
           <p>
             I'm passionate about solving technical problems and coming up with
