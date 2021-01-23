@@ -28,3 +28,13 @@ export const Colors = {
   lightTitleColor: defaultColors.light,
   primaryHoverColor: defaultColors.blue3,
 };
+
+export const Fonts = {
+  body: "Noto Sans JP",
+};
+
+export const FontWeights = {
+  bold: 700,
+  regular: 400,
+  light: 300,
+};
