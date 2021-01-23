@@ -92,7 +92,6 @@ const Project: React.FC<{ title; id; body: ProjectType }> = ({
         <Link href={`/projects/${id}`}>
           <a>
             <PostTitle>{title}</PostTitle>
-            <Small>{id}</Small>
             <ContentWrap>
               <p>{body}</p>
             </ContentWrap>
