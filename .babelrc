@@ -1,6 +1,4 @@
 {
-  "presets": [
-      ["@babel/preset-env", { "targets": {"node": 14} }], 
-      "@babel/preset-typescript"
-  ]
+  "presets": ["next/babel"],
+  "plugins": [["styled-components", { "ssr": true }]]
 }
