@@ -28,5 +28,8 @@ export const GlobalStyle = createGlobalStyle`
         text-decoration: none;
         padding: 0;
         margin: 0;
+        &:hover {
+            text-decoration: underline ;
+        }
     }
 `;
