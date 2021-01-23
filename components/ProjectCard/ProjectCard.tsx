@@ -30,10 +30,10 @@ const Card = styled.div`
   }
 `;
 
-const ProjectCard = ({ title, excerpt }) => {
+const ProjectCard = ({ title, excerpt, id }) => {
   return (
     <>
-      <Card>
+      <Card key={id}>
         <h3>{title}</h3>
         <p>
             {excerpt}

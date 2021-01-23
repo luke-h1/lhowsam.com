@@ -43,7 +43,7 @@ export default function Index() {
           <Intro />
           <Flex>
             {data.map((p) => (
-              <ProjectCard title={p.title} excerpt={p.excerpt} />
+              <ProjectCard title={p.title} excerpt={p.excerpt} id={p.id} />
             ))}
           </Flex>
         </Wrapper>
