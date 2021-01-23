@@ -1,73 +1,15 @@
 {
-  "name": "lhowsam.com",
-  "private": true,
-  "description": "My portfolio made With Gatsby JS",
+  "name": "testing-next",
   "version": "0.1.0",
-  "author": "Luke Howsam <luke-h1>",
-  "bugs": {
-    "url": "https://github.com/luke-h1/lhowsam.com/issues"
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
   },
   "dependencies": {
-    "babel-plugin-styled-components": "^1.12.0",
-    "gatsby": "^2.30.0",
-    "gatsby-image": "^2.5.0",
-    "gatsby-plugin-feed": "^2.7.0",
-    "gatsby-plugin-google-analytics": "^2.5.0",
-    "gatsby-plugin-manifest": "^2.6.1",
-    "gatsby-plugin-offline": "^3.4.0",
-    "gatsby-plugin-react-helmet": "^3.4.0",
-    "gatsby-plugin-sharp": "^2.8.0",
-    "gatsby-plugin-styled-components": "^3.9.0",
-    "gatsby-remark-copy-linked-files": "^2.4.0",
-    "gatsby-remark-images": "^3.5.1",
-    "gatsby-remark-prismjs": "^3.7.0",
-    "gatsby-remark-responsive-iframe": "^2.5.0",
-    "gatsby-remark-smartypants": "^2.4.0",
-    "gatsby-source-filesystem": "^2.5.0",
-    "gatsby-transformer-remark": "^2.10.0",
-    "gatsby-transformer-sharp": "^2.6.0",
-    "polished": "^4.0.5",
-    "prismjs": "^1.22.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-helmet": "^5.2.1",
-    "react-icons": "^4.1.0",
-    "react-share": "^4.3.1",
-    "styled-components": "^5.2.1",
-    "typescript": "^4.1.3"
-  },
-  "devDependencies": {
-    "@types/jest": "^26.0.20",
-    "@typescript-eslint/eslint-plugin": "^4.14.0",
-    "@typescript-eslint/parser": "^4.14.0",
-    "eslint": "^7.18.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "gatsby-plugin-eslint": "^2.0.8",
-    "prettier": "2.2.1"
-  },
-  "homepage": "https:/lhowsam.com",
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/luke-h1/lhowsam.com"
-  },
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop --verbose",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "rm -rf package-lock.json node_modules && npm i && gatsby clean && npm run develop",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "lint:fix": "eslint \"src/**/*.{js, jsx,ts,tsx}\" --quiet --fix"
+    "next": "10.0.5",
+    "react": "17.0.1",
+    "react-dom": "17.0.1"
   }
 }

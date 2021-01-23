@@ -1,81 +1,34 @@
-# lhowsam.com
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Source code for my personal portfolio.
+## Getting Started
 
-This project uses Gatsby (React), GraphQL and Styled Components
+First, run the development server:
 
-You can read about these technologies here:
-
-- [Gatsby](https://www.gatsbyjs.org/)
-- [GraphQL](https://graphql.org/)
-- [Styled Components](https://www.styled-components.com/)
-  <br />
-
-Unit testing pipeline:
-<br />
-<br />
-[![Build Status](https://dev.azure.com/lukehowsam/testing/_apis/build/status/unit%20testing%20pipeline?branchName=refs%2Fpull%2F335%2Fmerge)](https://dev.azure.com/lukehowsam/testing/_build/latest?definitionId=5&branchName=refs%2Fpull%2F335%2Fmerge)
-
-## Project Structure
-
-- Main - Represents what is currently on production
-
-- Dev - Represents the features currently being worked on
-
-## Available NPM Commands
-
-### Develop
-
-Start a hot-reloading development environment accessible at `localhost:8000`
-
-```shell
-npm start
+```bash
+npm run dev
+# or
+yarn dev
 ```
 
-### Build
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Get an optimized production build
+You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-```shell
-npm run build
-```
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-### Serve
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-start a local server for testing your built site.
+## Learn More
 
-```shell
-npm run serve
-```
+To learn more about Next.js, take a look at the following resources:
 
-### Lint
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Lint the code according to the Airbnb style guide
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-```shell
-npm run lint
-```
+## Deploy on Vercel
 
-### test
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Run jest unit tests
-
-```shell
-npm run test
-```
-
-### Clean
-
-Remove the .cache & public directory for a scratch compile.
-
-```shell
-gatsby clean
-```
-
-### Deep Clean
-
-Remove the .cache, public, package-lock.json and node_modules for a scratch compile.
-
-```shell
-npm run deep-clean
-```
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
