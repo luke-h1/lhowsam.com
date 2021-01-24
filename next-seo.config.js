@@ -1,6 +1,5 @@
 const title = 'Luke Howsam – Developer, tester ';
-const description =
-  'Javascript + Typescript enthusiast and software tester';
+const description = 'Javascript + Typescript enthusiast and software tester';
 
 const SEO = {
   title,
@@ -16,8 +15,8 @@ const SEO = {
   twitter: {
     handle: '@lukeH_1999',
     site: '@lukeH_1999',
-    cardType: 'summary_large_image'
-  }
+    cardType: 'summary_large_image',
+  },
 };
 
 export default SEO;

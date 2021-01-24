@@ -1,12 +1,11 @@
-import React from "react";
-import Intro from "../components/Intro/Intro";
-import { NextSeo } from "next-seo";
-import { ThemeProvider } from "styled-components";
-import styled from "styled-components";
-import { theme } from "../styles/Theme";
-import ProjectCard from "../components/ProjectCard/ProjectCard";
-import { getAllFilesFrontmatter } from "../lib/mdx";
-import BlogPost from "../components/BlogPost/BlogPost";
+import React from 'react';
+import { NextSeo } from 'next-seo';
+import styled, { ThemeProvider } from 'styled-components';
+import Intro from '../components/Intro/Intro';
+import { theme } from '../styles/Theme';
+import ProjectCard from '../components/ProjectCard/ProjectCard';
+import { getAllFilesFrontmatter } from '../lib/mdx';
+import BlogPost from '../components/BlogPost/BlogPost';
 
 const Flex = styled.div`
   display: flex;
@@ -31,7 +30,7 @@ const Title = styled.h1`
 
 export default function Home({ posts, projects }) {
   const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+    (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)),
   );
   return (
     <>
@@ -39,8 +38,8 @@ export default function Home({ posts, projects }) {
         title="Home | lhowsam.com"
         canonical="https://lhowsam.com/"
         openGraph={{
-          url: "https://lhowsam.com",
-          title: "Home | lhowsam.com",
+          url: 'https://lhowsam.com',
+          title: 'Home | lhowsam.com',
         }}
       />
       <ThemeProvider theme={theme}>
@@ -62,7 +61,7 @@ export default function Home({ posts, projects }) {
   );
 }
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontmatter("blog");
-  const projects = await getAllFilesFrontmatter("project");
+  const posts = await getAllFilesFrontmatter('blog');
+  const projects = await getAllFilesFrontmatter('project');
   return { props: { posts, projects } };
 }

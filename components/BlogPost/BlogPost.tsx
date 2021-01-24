@@ -1,11 +1,10 @@
-import React from "react";
-import Link from "next/link";
-import styled from "styled-components";
+import React from 'react';
+import Link from 'next/link';
+import styled from 'styled-components';
 
 const Article = styled.article`
   width: 500px;
-  margin: 
-  1.5rem 0 1.5rem 0;
+  margin: 2rem 0 2rem 0;
 `;
 
 const Header = styled.header`
@@ -19,7 +18,7 @@ const Header = styled.header`
   }
 `;
 
-const BlogPost = ({ title, summary, slug }) => {
+const BlogPost = ({ title, summary, slug, date }) => {
   return (
     <>
       <Link href={`/blog/${slug}`}>
@@ -28,8 +27,9 @@ const BlogPost = ({ title, summary, slug }) => {
             <Header>
               <h1>{title}</h1>
               <p>{summary}</p>
+              <p>{date}</p>
             </Header>
-            <hr style={{ color: "#eaeaea" }} />
+            <hr style={{ color: '#eaeaea' }} />
           </Article>
         </a>
       </Link>
