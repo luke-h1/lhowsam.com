@@ -1,4 +1,5 @@
-import React, { MouseEventHandler, useState } from 'react';
+// @ts-ignore
+import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
@@ -16,7 +17,6 @@ import {
 } from './NavStyles';
 
 interface Navigation {
-  onClick: () => void;
   click: Boolean[];
   handleClick: Boolean[];
   closeMobileMenu: Boolean[];
