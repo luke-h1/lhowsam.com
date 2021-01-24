@@ -16,11 +16,11 @@ import {
 } from './NavStyles';
 
 interface Navigation {
-  onClick: MouseEventHandler<HTMLLinkElement>;
+  onClick: () => void;
   click: Boolean[];
   handleClick: Boolean[];
   closeMobileMenu: Boolean[];
-  theme: any;
+  theme: void;
 }
 
 const Nav: Navigation = ({ theme }) => {

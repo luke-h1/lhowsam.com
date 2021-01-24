@@ -4,7 +4,8 @@ import styled from "styled-components";
 
 const Article = styled.article`
   width: 500px;
-  margin: 1.5rem 0 1.5rem 0;
+  margin: 
+  1.5rem 0 1.5rem 0;
 `;
 
 const Header = styled.header`
