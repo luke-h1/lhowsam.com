@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { MouseEventHandler, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 
@@ -15,10 +15,18 @@ import {
   NavLinks,
 } from './NavStyles';
 
-const Nav: React.FC<{ theme: String }> = ({ theme }) => {
-  const [click, setClick]: any = useState(false);
-  const handleClick: any = () => setClick(!click);
-  const closeMobileMenu: any = () => setClick(false);
+interface Navigation {
+  onClick: MouseEventHandler<HTMLLinkElement>;
+  click: Boolean[];
+  handleClick: Boolean[];
+  closeMobileMenu: Boolean[];
+  theme: any;
+}
+
+const Nav: Navigation = ({ theme }) => {
+  const [click, setClick] = useState(false);
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
 
   return (
     <>
@@ -65,7 +73,7 @@ const Nav: React.FC<{ theme: String }> = ({ theme }) => {
 };
 
 Nav.propTypes = {
-  theme: PropTypes.string.isRequired,
+  theme: PropTypes.object.isRequired,
 };
 
 export default Nav;
