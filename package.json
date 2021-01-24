@@ -10,7 +10,6 @@
     "lint": "eslint \"./*.{js, jsx,ts,tsx}\" --quiet --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "type-check": "tsc --noEmit",
-
     "deploy:dev": "vc"
   },
   "dependencies": {
