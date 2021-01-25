@@ -68,7 +68,6 @@ const ShareWrapper = styled.div`
 interface Iprops {
   frontMatter: any;
   children: any;
-
 }
 
 const Post: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
@@ -84,7 +83,7 @@ const Post: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
       />
       <PostWrapper>
         <PostTitle>{frontMatter.title}</PostTitle>
-        <Small>{frontMatter.slug}</Small>
+        <Small>{frontMatter.date}</Small>
         <ContentWrap>
           <p>{children}</p>
         </ContentWrap>

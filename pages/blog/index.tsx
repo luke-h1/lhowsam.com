@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import { NextSeo } from 'next-seo';
-import { ThemeProvider } from "styled-components";
-import { theme } from "../../styles/Theme";
-import { getAllFilesFrontmatter } from "../../lib/mdx";
-import styled from "styled-components";
-import BlogPost from "../../components/BlogPost/BlogPost";
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../../styles/Theme';
+import { getAllFilesFrontmatter } from '../../lib/mdx';
+import styled from 'styled-components';
+import BlogPost from '../../components/BlogPost/BlogPost';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -47,22 +47,23 @@ const Intro = styled.p`
   margin-bottom: 2.5rem;
 `;
 
-const url = "https://lhowsam.com/blog";
-const title = "blog";
-const description = "Thoughts on React, Node, testing & tech in general";
+const url = 'https://lhowsam.com/blog';
+const title = 'blog';
+const description = 'Thoughts on React, Node, testing & tech in general';
 
 export default function Index({ posts }) {
   const filterPosts = posts.sort(
     (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
   );
+
   return (
     <>
-    <NextSeo
+      <NextSeo
         title="Blog | lhowsam.com"
         canonical="https://lhowsam.com/blog"
         openGraph={{
-          url: "https://lhowsam.com/blog",
-          title: "Blog | lhowsam.com",
+          url: 'https://lhowsam.com/blog',
+          title: 'Blog | lhowsam.com',
         }}
       />
       <ThemeProvider theme={theme}>
@@ -70,6 +71,8 @@ export default function Index({ posts }) {
           <>
             <Heading>{title}</Heading>
             <Intro>{description}</Intro>
+            {console.log(filterPosts)}
+            {!filterPosts.length && 'No blog posts found'}
             {filterPosts.map((frontMatter) => (
               <BlogPost key={frontMatter.title} {...frontMatter} />
             ))}
@@ -81,6 +84,6 @@ export default function Index({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontmatter("blog");
+  const posts = await getAllFilesFrontmatter('blog');
   return { props: { posts } };
 }

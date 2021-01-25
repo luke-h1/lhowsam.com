@@ -96,7 +96,6 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           {frontMatter.github ? <Github url={frontMatter.github} /> : null}
           {frontMatter.site ? <Site url={frontMatter.site} /> : null}
         </Social>
-        <Small>{frontMatter.slug}</Small>
         <ContentWrap>
           <p>{children}</p>
         </ContentWrap>
