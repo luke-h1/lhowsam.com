@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
 import styled, { ThemeProvider } from 'styled-components';
 import Intro from '../components/Intro/Intro';

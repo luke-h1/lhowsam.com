@@ -1,9 +1,9 @@
-import React from "react";
-import { NextSeo } from "next-seo";
-import styled from "styled-components";
-import ShareButtons from "../components/ShareButtons";
-import Github from "../Icons/Github";
-import Site from "../Icons/Site";
+import React, { FunctionComponent } from 'react';
+import { NextSeo } from 'next-seo';
+import styled from 'styled-components';
+import ShareButtons from '../components/ShareButtons';
+import Github from '../Icons/Github';
+import Site from '../Icons/Site';
 
 const PostWrapper = styled.div`
   display: flex;
@@ -62,7 +62,7 @@ const Small = styled.p`
   margin-top: 1.5rem;
   margin-bottom: 2rem;
 `;
-const url = typeof window !== "undefined" ? window.location.href : "";
+const url = typeof window !== 'undefined' ? window.location.href : '';
 
 const ShareWrapper = styled.div`
   display: flex;
@@ -73,7 +73,13 @@ const ShareWrapper = styled.div`
   margin-bottom: 4rem;
 `;
 
-const ProjectPost = ({ children, frontMatter }) => {
+interface Iprops {
+  children: any;
+  frontMatter: any;
+
+}
+
+const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
   return (
     <>
       <NextSeo

@@ -1,11 +1,10 @@
 import styled from 'styled-components';
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { FiGithub } from 'react-icons/fi';
-
 
 const External = styled.a`
     color: #000;
-`
+`;
 
 const GithubIcon = styled(FiGithub)`
   color: #000;
@@ -17,16 +16,20 @@ const GithubIcon = styled(FiGithub)`
       transform: scale(1.10);
       transition: scale 0.3s;
   }
-`
+`;
 
-const Github = ({url}) => { 
-    return (
-        <>
-        <External href={url}>
-            <GithubIcon /> 
-        </External>
-        </>
-
-    )
+interface Iprops {
+    url: string;
 }
+
+const Github: FunctionComponent<Iprops> = ({ url }) => {
+  return (
+    <>
+      <External href={url}>
+        <GithubIcon />
+      </External>
+    </>
+
+  );
+};
 export default Github;

@@ -1,9 +1,14 @@
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
+import { FunctionComponent } from 'react';
 
-const CustomLink = (props) => {
-  const href = props.href;
-  const isInternalLink = href && (href.startsWith("/") || href.startsWith("#"));
+interface Iprops {
+  href: string;
+}
+
+const CustomLink: FunctionComponent<Iprops> = (props) => {
+  const { href } = props;
+  const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
 
   if (isInternalLink) {
     return (

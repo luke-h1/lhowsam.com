@@ -18,7 +18,11 @@ const Header = styled.header`
   }
 `;
 
-const BlogPost = ({ title, summary, slug, date }) => {
+
+
+const BlogPost = ({
+  title, summary, slug, date,
+}) => {
   return (
     <>
       <Link href={`/blog/${slug}`}>

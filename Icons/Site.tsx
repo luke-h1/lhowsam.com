@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import React from "react";
-import { GoBrowser } from "react-icons/go";
+import styled from 'styled-components';
+import React, { FunctionComponent } from 'react';
+import { GoBrowser } from 'react-icons/go';
 
 const SiteIcon = styled(GoBrowser)`
   color: #000;
@@ -15,7 +15,11 @@ const SiteIcon = styled(GoBrowser)`
 
 `;
 
-const Site = ({ url }) => {
+interface Iprops {
+  url: string;
+}
+
+const Site: FunctionComponent<Iprops> = ({ url }) => {
   return (
     <>
       <a href={url}>

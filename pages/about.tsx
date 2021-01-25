@@ -1,10 +1,10 @@
-import React from "react";
-import { NextSeo } from "next-seo";
-import Image from "next/image";
-import { ThemeProvider } from "styled-components";
-import { theme } from "../styles/Theme";
-import styled from "styled-components";
-import { HighLight } from "../components/Intro/IntroStyles";
+import React from 'react';
+import { NextSeo } from 'next-seo';
+import Image from 'next/image';
+import styled, { ThemeProvider } from 'styled-components';
+import { theme } from '../styles/Theme';
+
+import { HighLight } from '../components/Intro/IntroStyles';
 
 const Title = styled.h1`
   text-align: center;
@@ -60,8 +60,8 @@ export default function Home() {
         title="About | lhowsam.com"
         canonical="https://lhowsam.com/about"
         openGraph={{
-          url: "https://lhowsam.com/about",
-          title: "About | lhowsam.com",
+          url: 'https://lhowsam.com/about',
+          title: 'About | lhowsam.com',
         }}
       />
       <ThemeProvider theme={theme}>
@@ -70,7 +70,9 @@ export default function Home() {
           <Grid>
             <SectionOne>
               <Intro>
-                Hey, I'm <HighLight>Luke</HighLight>
+                Hey, I'm
+                {' '}
+                <HighLight>Luke</HighLight>
               </Intro>
               <p>
                 I'm passionate about solving technical problems and coming up
@@ -78,7 +80,7 @@ export default function Home() {
                 React, Node, testing technologies + practices & various dev-ops
                 technologies
               </p>
-              <p style={{ marginBottom: "4rem" }}>
+              <p style={{ marginBottom: '4rem' }}>
                 I am currently Learning Typescript, React, Next JS & various
                 testing technologies.
               </p>

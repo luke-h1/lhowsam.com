@@ -1,7 +1,8 @@
-import React from "react";
+import React, { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
-import styled from "styled-components";
-import ShareButtons from "../components/ShareButtons/";
+import styled from 'styled-components';
+import ShareButtons from '../components/ShareButtons';
+
 const PostWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -53,7 +54,7 @@ const Small = styled.p`
   margin-top: 1.5rem;
   margin-bottom: 2rem;
 `;
-const url = typeof window !== "undefined" ? window.location.href : "";
+const url = typeof window !== 'undefined' ? window.location.href : '';
 
 const ShareWrapper = styled.div`
   display: flex;
@@ -64,7 +65,13 @@ const ShareWrapper = styled.div`
   margin-bottom: 4rem;
 `;
 
-const Post = ({ children, frontMatter }) => {
+interface Iprops {
+  frontMatter: any;
+  children: any;
+
+}
+
+const Post: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
   return (
     <>
       <NextSeo

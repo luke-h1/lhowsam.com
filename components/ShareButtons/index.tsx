@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import {
   EmailShareButton, TwitterShareButton, LinkedinShareButton, EmailIcon, TwitterIcon, LinkedinIcon,
 } from 'react-share';
@@ -16,7 +16,11 @@ const ShareBtnWrap = styled.div`
   }
 `;
 
-const ShareButtons = ({ location }) => (
+interface Iprops {
+  location: string;
+}
+
+const ShareButtons: FunctionComponent<Iprops> = ({ location }) => (
   <ShareBtnWrap>
     <EmailShareButton url={location}>
       <EmailIcon round size={35} />
