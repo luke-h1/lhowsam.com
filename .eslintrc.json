@@ -27,7 +27,8 @@
     "jsx-a11y/anchor-is-valid": "off",
     "import/no-unresolved": "off",
     "arrow-body-style": "off",
-    "jsx-no-lambda": "off"
+    "jsx-no-lambda": "off",
+    "react/prop-types": "off"
   },
   "globals": {
     "React": "writable"

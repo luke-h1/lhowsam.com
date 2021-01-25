@@ -1,7 +1,6 @@
 // @ts-ignore
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import PropTypes from 'prop-types';
 
 import { ThemeProvider } from 'styled-components';
 import {
@@ -16,14 +15,7 @@ import {
   NavLinks,
 } from './NavStyles';
 
-interface Navigation {
-  click: Boolean[];
-  handleClick: Boolean[];
-  closeMobileMenu: Boolean[];
-  theme: void;
-}
-
-const Nav: Navigation = ({ theme }) => {
+const Nav = ({ theme }) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -43,7 +35,7 @@ const Nav: Navigation = ({ theme }) => {
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
               <NavItem>
-                <NavLinks href="/" onClick={closeMobileMenu}>
+                <NavLinks href="/" onClick={() => closeMobileMenu()}>
                   <a>Home</a>
                 </NavLinks>
               </NavItem>
@@ -70,10 +62,6 @@ const Nav: Navigation = ({ theme }) => {
       </ThemeProvider>
     </>
   );
-};
-
-Nav.propTypes = {
-  theme: PropTypes.object.isRequired,
 };
 
 export default Nav;
