@@ -30,7 +30,7 @@ const Title = styled.h1`
 
 export default function Home({ posts, projects }) {
   const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt)),
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
   return (
     <>

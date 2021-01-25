@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
+import { parseISO, format } from 'date-fns';
 
 const Article = styled.article`
   width: 500px;
@@ -31,7 +32,7 @@ const BlogPost = ({
             <Header>
               <h1>{title}</h1>
               <p>{summary}</p>
-              <p>{date}</p>
+              <p>{format(parseISO(date), 'MMMM dd, yyyy')}</p>
             </Header>
             <hr style={{ color: '#eaeaea' }} />
           </Article>

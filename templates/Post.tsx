@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 import ShareButtons from '../components/ShareButtons';
+import { parseISO, format } from 'date-fns';
 
 const PostWrapper = styled.div`
   display: flex;
@@ -83,7 +84,8 @@ const Post: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
       />
       <PostWrapper>
         <PostTitle>{frontMatter.title}</PostTitle>
-        <Small>{frontMatter.date}</Small>
+        <Small>{format(parseISO(frontMatter.date), 'MMMM dd, yyyy')}</Small>
+
         <ContentWrap>
           <p>{children}</p>
         </ContentWrap>
