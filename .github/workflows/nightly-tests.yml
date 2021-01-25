@@ -1,43 +1,13 @@
-
-name: tests
-
-on:
+name: Nightly unit tests
+on: 
   schedule:
-    # * is a special character in YAML so you have to quote this string
-    - cron:  '0 19 * * *'
-
+    - cron: '0 19 * * *'
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
-    - name: Checkout
-      uses: luke-h1/checkout@v2
-    # - name: Cache Setup
-    #   uses: luke-h1/cache@v2
-    #   with:
-    #     path: |
-    #       ~/cache
-    #       ~/.dts/
-    #       !~/cache/exclude
-    #       **/node_modules
-    #     key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-      
-    - name: Use (Volta) Node.js ${{ matrix.node-version }}
-      uses: luke-h1/action@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-
-    - name: Install dependencies
+    - uses: actions/checkout@v2
+    - name: Install modules
       run: npm i 
-
-    - name: Build
-      run: npm run build
-      
-    - name: Run unit tests
-      run: npm run test
+    - name: Run tests
+      run: npx jest 
