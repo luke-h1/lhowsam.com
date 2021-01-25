@@ -4,12 +4,12 @@ on:
     branches: [dev]
   pull_request:
     branches: [dev]
-    
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: luke-h1/checkout@v2.3.4
     - name: Install modules
       run: npm i 
     - name: Run tests
