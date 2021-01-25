@@ -9,5 +9,5 @@
 
 ![CodeQL](https://github.com/luke-h1/lhowsam.com/workflows/CodeQL/badge.svg)
 
-![Nightly unit tests](https://github.com/luke-h1/lhowsam.com/workflows/tests/badge.svg)
+
 
