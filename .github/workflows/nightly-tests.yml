@@ -18,15 +18,15 @@ jobs:
     steps:
     - name: Checkout
       uses: luke-h1/checkout@v2
-    - name: Cache Setup
-      uses: luke-h1/cache@v2
-      with:
-        path: |
-          ~/cache
-          ~/.dts/
-          !~/cache/exclude
-          **/node_modules
-        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+    # - name: Cache Setup
+    #   uses: luke-h1/cache@v2
+    #   with:
+    #     path: |
+    #       ~/cache
+    #       ~/.dts/
+    #       !~/cache/exclude
+    #       **/node_modules
+    #     key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
       
     - name: Use (Volta) Node.js ${{ matrix.node-version }}
       uses: luke-h1/action@v1
@@ -38,5 +38,6 @@ jobs:
 
     - name: Build
       run: npm run build
+      
     - name: Run tests
       run: npm run test
