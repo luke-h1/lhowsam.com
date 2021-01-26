@@ -21,6 +21,10 @@ const PostWrapper = styled.div`
   }
   pre { 
     white-space: pre-wrap;
+    tab-size: 6;
+    background: #000;
+    color: #fff;
+    padding: 1.2rem;
   }
 `;
 
