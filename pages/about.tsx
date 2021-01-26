@@ -52,7 +52,7 @@ const Intro = styled.h1`
   font-size: 38px;
 `;
 
-export default function Home() {
+export default function About() {
   return (
     <>
       <NextSeo
@@ -69,15 +69,22 @@ export default function Home() {
           <Grid>
             <SectionOne>
               <Intro>
-                Hey, I'm <HighLight>Luke</HighLight>
+                Hey, I'm
+                {' '}
+                <HighLight>Luke</HighLight>
               </Intro>
-              <p>
+              <p
+                data-testid="about-intro1"
+              >
                 I'm passionate about solving technical problems and coming up
                 with creative solutions.I enjoy working with the JAMstack,
                 React, Node, testing technologies + practices & various dev-ops
                 technologies
               </p>
-              <p style={{ marginBottom: '4rem' }}>
+              <p
+                style={{ marginBottom: '4rem' }}
+                data-testid="about-intro2"
+              >
                 I am currently Learning Typescript, React, Next JS & various
                 testing technologies.
               </p>
@@ -87,6 +94,7 @@ export default function Home() {
                 src="/static/images/luke.png"
                 width={400}
                 height={500}
+                data-testid="photo"
               />
             </SectionTwo>
           </Grid>
