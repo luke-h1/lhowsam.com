@@ -31,7 +31,7 @@ const Card = styled.div`
   }
 `;
 
-const ProjectCard = ({ title, summary, slug }) => {
+const ProjectCard = ({ title, summary, slug, date }) => {
   return (
     <>
       <Link href={`/projects/${slug}`}>

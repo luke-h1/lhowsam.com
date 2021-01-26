@@ -66,6 +66,11 @@ const ShareWrapper = styled.div`
   margin-bottom: 4rem;
 `;
 
+const ReadingTime = styled.p`
+  color: #000;
+  margin-bottom: 1.5rem;
+`
+
 interface Iprops {
   frontMatter: any;
   children: any;
@@ -85,7 +90,7 @@ const Post: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
       <PostWrapper>
         <PostTitle>{frontMatter.title}</PostTitle>
         <Small>{format(parseISO(frontMatter.date), 'MMMM dd, yyyy')}</Small>
-
+        <ReadingTime>{frontMatter.readingTime.text}</ReadingTime>
         <ContentWrap>
           <p>{children}</p>
         </ContentWrap>

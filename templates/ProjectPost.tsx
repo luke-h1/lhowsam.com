@@ -73,6 +73,11 @@ const ShareWrapper = styled.div`
   margin-bottom: 4rem;
 `;
 
+const ReadingTime = styled.p`
+  color: #000;
+  margin-bottom: 1.5rem;
+`
+
 interface Iprops {
   children: any;
   frontMatter: any;
@@ -92,9 +97,11 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
       />
       <PostWrapper>
         <PostTitle>{frontMatter.title}</PostTitle>
+        <ReadingTime>{frontMatter.readingTime.text}</ReadingTime>
         <Social>
           {frontMatter.github ? <Github url={frontMatter.github} /> : null}
           {frontMatter.site ? <Site url={frontMatter.site} /> : null}
+
         </Social>
         <ContentWrap>
           <p>{children}</p>
