@@ -6,10 +6,14 @@ import { theme } from '../styles/Theme';
 afterEach(cleanup);
 
 test('navbar renders correctly', () => {
-  const { container, getByTestId, getByText } = render(<Nav theme={theme} />);
+  const { getByTestId } = render(<Nav theme={theme} />);
   const home = getByTestId('home');
   const about = getByTestId('about');
   const project = getByTestId('project');
   const blog = getByTestId('blog');
+
   expect(home.textContent).toEqual('Home');
+  expect(about.textContent).toEqual('About');
+  expect(project.textContent).toEqual('Projects');
+  expect(blog.textContent).toEqual('Blog');
 });

@@ -46,7 +46,7 @@ const Nav = ({ theme }) => {
               </NavItem>
               <NavItem>
                 <NavLinks href="/projects" onClick={closeMobileMenu}>
-                  <a data-testid="projects">Projects</a>
+                  <a data-testid="project">Projects</a>
                 </NavLinks>
               </NavItem>
               <NavItem>
