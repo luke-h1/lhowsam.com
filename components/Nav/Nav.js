@@ -36,22 +36,22 @@ const Nav = ({ theme }) => {
             <NavMenu onClick={handleClick} click={click}>
               <NavItem>
                 <NavLinks href="/" onClick={() => closeMobileMenu()}>
-                  <a>Home</a>
+                  <a data-testid="home">Home</a>
                 </NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks href="/about" onClick={closeMobileMenu}>
-                  <a>About</a>
+                  <a data-testid="about">About</a>
                 </NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks href="/projects" onClick={closeMobileMenu}>
-                  <a>Projects</a>
+                  <a data-testid="projects">Projects</a>
                 </NavLinks>
               </NavItem>
               <NavItem>
                 <NavLinks href="/blog" onClick={closeMobileMenu}>
-                  <a>Blog</a>
+                  <a data-testid="blog">Blog</a>
                 </NavLinks>
               </NavItem>
               <NavItemBtn>{/* <NavBtnLink href='test'/> */}</NavItemBtn>

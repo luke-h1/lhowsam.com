@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -16,7 +12,10 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "paths": {
+      "@tests/*": ["./__tests__/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
@@ -26,7 +25,5 @@
     "components/Nav/Nav.js",
     "__tests__/test.test.tsx"
   ],
-  "exclude": [
-    "node_modules, __tests__"
-  ]
+  "exclude": ["node_modules, __tests__"]
 }
