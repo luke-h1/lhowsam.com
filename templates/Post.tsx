@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
+import { parseISO, format } from 'date-fns';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 import ShareButtons from '../components/ShareButtons';
-import { parseISO, format } from 'date-fns';
 
 const PostWrapper = styled.div`
   display: flex;
@@ -17,8 +17,11 @@ const PostWrapper = styled.div`
   h1 {
     text-align: left;
     width: 80%;
+    @media(max-width: 860px){
+      text-align: center;
+      width: 100%;
+    }
   }
-
   pre {
     color: #fff;
     background: #000;
@@ -33,7 +36,6 @@ const PostWrapper = styled.div`
 const ContentWrap = styled.div`
   h1 {
     margin-bottom: 1rem;
-
     font-size: 30px;
   }
   p {
@@ -41,6 +43,16 @@ const ContentWrap = styled.div`
     color: #000;
     margin: 40px 0 40px 0;
     text-align: center;
+    @media(max-width: 860px){
+      text-align: center;
+      width: 700px;
+    }
+    @media(max-width: 730px){
+      width: 550px;
+    }
+    @media(max-width: 600px){
+      width: 450px;
+    }
   }
 `;
 
