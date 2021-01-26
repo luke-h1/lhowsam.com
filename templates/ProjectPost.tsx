@@ -19,15 +19,8 @@ const PostWrapper = styled.div`
     text-align: left;
     width: 80%;
   }
-
-  pre {
-    color: #fff;
-    background: #000;
-    padding: 1rem;
-    max-width: 1200px;
-    /* margin: 0 20px; */
-    margin: 2.1rem 2.1rem;
-    text-align: center;
+  pre { 
+    white-space: pre-wrap;
   }
 `;
 

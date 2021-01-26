@@ -22,14 +22,12 @@ const PostWrapper = styled.div`
       width: 100%;
     }
   }
-  pre {
-    color: #fff;
+  pre { 
+    white-space: pre-wrap;
+    tab-size: 6;
     background: #000;
-    padding: 1rem;
-    max-width: 1200px;
-    /* margin: 0 20px; */
-    margin: 2.1rem 2.1rem;
-    text-align: center;
+    color: #fff;
+    padding: 1.2rem;
   }
 `;
 
