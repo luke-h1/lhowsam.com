@@ -25,8 +25,8 @@ const PostWrapper = styled.div`
   pre { 
     white-space: pre-wrap;
     tab-size: 6;
-    background: #000;
-    color: #fff;
+    background: #F2F2F2;
+    color: #000;
     padding: 1.2rem;
   }
 `;
