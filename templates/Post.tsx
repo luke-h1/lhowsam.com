@@ -69,7 +69,7 @@ const ShareWrapper = styled.div`
 const ReadingTime = styled.p`
   color: #000;
   margin-bottom: 1.5rem;
-`
+`;
 
 interface Iprops {
   frontMatter: any;

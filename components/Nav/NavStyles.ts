@@ -1,8 +1,8 @@
 /* eslint-disable */
-import styled from "styled-components";
-import { FiCode } from "react-icons/fi";
-import Link from "next/link";
-import { Container } from "../../templates/Container";
+import styled from 'styled-components';
+import { FiCode } from 'react-icons/fi';
+import Link from 'next/link';
+import { Container } from '../../templates/Container';
 
 export const NavWrapper = styled.nav`
   background: ${(props) => props.theme.backgroundColor};
@@ -72,7 +72,7 @@ export const NavMenu = styled.ul`
     position: absolute;
     top: 60px;
     overflow: hidden;
-    left: ${({ click }: any) => (click ? 0 : "-200%")};
+    left: ${({ click }: any) => (click ? 0 : '-200%')};
     opacity: 1;
     transition: all 0.2s ease;
     background: ${(props) => props.theme.backgroundColor};
@@ -127,7 +127,7 @@ export const NavLinks = styled(Link)`
     transform: scale(1.1);
     transition: all 0.1s ease;
   }
-  a { 
+  a {
     margin: 0 1rem 0 1rem !important;
     color: ${(props) => props.theme.textColor};
     text-decoration: none;

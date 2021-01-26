@@ -76,12 +76,11 @@ const ShareWrapper = styled.div`
 const ReadingTime = styled.p`
   color: #000;
   margin-bottom: 1.5rem;
-`
+`;
 
 interface Iprops {
   children: any;
   frontMatter: any;
-
 }
 
 const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
@@ -101,7 +100,6 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
         <Social>
           {frontMatter.github ? <Github url={frontMatter.github} /> : null}
           {frontMatter.site ? <Site url={frontMatter.site} /> : null}
-
         </Social>
         <ContentWrap>
           <p>{children}</p>

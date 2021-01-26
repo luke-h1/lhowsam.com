@@ -1,2 +1,2 @@
 /* eslint-disable */
-export const PrimaryFont = '"Noto Sans JP"' 
+export const PrimaryFont = '"Noto Sans JP"';

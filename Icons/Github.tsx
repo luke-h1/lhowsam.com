@@ -3,23 +3,23 @@ import React, { FunctionComponent } from 'react';
 import { FiGithub } from 'react-icons/fi';
 
 const External = styled.a`
-    color: #000;
+  color: #000;
 `;
 
 const GithubIcon = styled(FiGithub)`
   color: #000;
   margin: 0 15px 0 15px;
   font-size: 22px;
-  &:hover { 
-      cursor: pointer;
-      color: '#6CCFF6';
-      transform: scale(1.10);
-      transition: scale 0.3s;
+  &:hover {
+    cursor: pointer;
+    color: '#6CCFF6';
+    transform: scale(1.1);
+    transition: scale 0.3s;
   }
 `;
 
 interface Iprops {
-    url: string;
+  url: string;
 }
 
 const Github: FunctionComponent<Iprops> = ({ url }) => {
@@ -29,7 +29,6 @@ const Github: FunctionComponent<Iprops> = ({ url }) => {
         <GithubIcon />
       </External>
     </>
-
   );
 };
 export default Github;

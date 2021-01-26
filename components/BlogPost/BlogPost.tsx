@@ -6,6 +6,9 @@ import { parseISO, format } from 'date-fns';
 const Article = styled.article`
   width: 500px;
   margin: 2rem 0 2rem 0;
+  @media (max-width: 550px) {
+    width: 400px;
+  }
 `;
 
 const Header = styled.header`
@@ -19,11 +22,7 @@ const Header = styled.header`
   }
 `;
 
-
-
-const BlogPost = ({
-  title, summary, slug, date,
-}) => {
+const BlogPost = ({ title, summary, slug, date }) => {
   return (
     <>
       <Link href={`/blog/${slug}`}>

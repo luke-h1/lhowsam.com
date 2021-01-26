@@ -1,12 +1,12 @@
-import React from "react";
-import Nav from "../components/Nav/Nav";
-import { MDXProvider } from "@mdx-js/react";
-import MDXComponents from "../components/MDXComponents/MDXComponents";
-import Footer from "../components/Footer/Footer";
-import { GlobalStyle } from "../styles/GlobalStyles";
-import { ThemeProvider } from "styled-components";
-import { theme } from "../styles/Theme";
-import Head from "next/head";
+import React from 'react';
+import Nav from '../components/Nav/Nav';
+import { MDXProvider } from '@mdx-js/react';
+import MDXComponents from '../components/MDXComponents/MDXComponents';
+import Footer from '../components/Footer/Footer';
+import { GlobalStyle } from '../styles/GlobalStyles';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../styles/Theme';
+import Head from 'next/head';
 function MyApp({ Component, pageProps }) {
   return (
     <>

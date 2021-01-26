@@ -1,6 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import {
-  EmailShareButton, TwitterShareButton, LinkedinShareButton, EmailIcon, TwitterIcon, LinkedinIcon,
+  EmailShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  EmailIcon,
+  TwitterIcon,
+  LinkedinIcon,
 } from 'react-share';
 
 import styled from 'styled-components';

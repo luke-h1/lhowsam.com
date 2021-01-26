@@ -6,13 +6,11 @@ const SiteIcon = styled(GoBrowser)`
   color: #000;
   font-size: 22px;
   margin: 0 15px 0 15px;
-  &:hover { 
-      cursor: pointer;
-      transform: scale(1.10);
-      transition: scale 0.3s;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: scale 0.3s;
   }
-
-
 `;
 
 interface Iprops {

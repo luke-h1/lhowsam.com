@@ -1,10 +1,10 @@
-import React from "react";
-import { NextSeo } from "next-seo";
-import { ThemeProvider } from "styled-components";
-import { theme } from "../../styles/Theme";
-import styled from "styled-components";
-import { getAllFilesFrontmatter } from "../../lib/mdx";
-import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import React from 'react';
+import { NextSeo } from 'next-seo';
+import { ThemeProvider } from 'styled-components';
+import { theme } from '../../styles/Theme';
+import styled from 'styled-components';
+import { getAllFilesFrontmatter } from '../../lib/mdx';
+import ProjectCard from '../../components/ProjectCard/ProjectCard';
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -32,8 +32,8 @@ export default function Index({ projects }) {
         title="Projects | lhowsam.com"
         canonical="https://lhowsam.com/projects"
         openGraph={{
-          url: "https://lhowsam.com/blog",
-          title: "Projects | lhowsam.com",
+          url: 'https://lhowsam.com/blog',
+          title: 'Projects | lhowsam.com',
         }}
       />
       <ThemeProvider theme={theme}>
@@ -52,6 +52,6 @@ export default function Index({ projects }) {
 }
 
 export async function getStaticProps() {
-  const projects = await getAllFilesFrontmatter("project");
+  const projects = await getAllFilesFrontmatter('project');
   return { props: { projects } };
 }

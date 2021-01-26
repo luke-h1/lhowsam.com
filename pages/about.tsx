@@ -14,9 +14,8 @@ const Title = styled.h1`
 const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  @media(max-width:632px){
+  @media (max-width: 632px) {
     grid-template-columns: repeat(1, 1fr);
-    
   }
 `;
 
@@ -70,9 +69,7 @@ export default function Home() {
           <Grid>
             <SectionOne>
               <Intro>
-                Hey, I'm
-                {' '}
-                <HighLight>Luke</HighLight>
+                Hey, I'm <HighLight>Luke</HighLight>
               </Intro>
               <p>
                 I'm passionate about solving technical problems and coming up

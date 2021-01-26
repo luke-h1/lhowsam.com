@@ -25,7 +25,10 @@ export const DescWrap = styled.div`
     width: 40%;
     font-size: 20px;
     line-height: 1.4;
-    color: ${(props) => props.theme.greyTextColor}
+    color: ${(props) => props.theme.greyTextColor};
+    @media (max-width: 550px) {
+      width: 70%;
+    }
   }
 `;
 

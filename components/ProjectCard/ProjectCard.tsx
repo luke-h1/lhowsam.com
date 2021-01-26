@@ -5,7 +5,6 @@ import Link from 'next/link';
 const Card = styled.div`
   padding: 0.75rem;
   width: 500px;
-
   margin: 1rem 0 1rem 0;
   text-align: left;
   color: inherit;
@@ -28,6 +27,9 @@ const Card = styled.div`
     margin: 0;
     font-size: 1.25rem;
     line-height: 1.6;
+  }
+  @media (max-width: 550px) {
+    width: 450px;
   }
 `;
 
