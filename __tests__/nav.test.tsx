@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, cleanup, fireEvent } from '@testing-library/react';
+import { render, cleanup } from '@testing-library/react';
 import Nav from '../components/Nav/Nav';
 import { theme } from '../styles/Theme';
 
