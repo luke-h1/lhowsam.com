@@ -28,7 +28,14 @@ const PostWrapper = styled.div`
     background: #F2F2F2;
     color: #000;
     padding: 1.2rem;
+    text-align: left;
   }
+  ul { 
+    text-align: left;
+    width: 50%;
+    margin: 0 auto;
+  }
+
 `;
 
 const ContentWrap = styled.div`
