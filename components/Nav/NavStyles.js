@@ -73,7 +73,7 @@ export const NavMenu = styled.ul`
     left: ${({ click }) => (click ? 0 : '-200%')};
     opacity: 1;
     transition: all 0.2s ease;
-    background: ${(props) => props.theme.backgroundColor}; 
+    background: ${(props) => props.theme.backgroundColor};
     font-size: 1.8rem;
     font-weight: 700;
     overflow-y: hidden; /* Hide vertical scrollbar */
@@ -145,7 +145,7 @@ export const NavBtnLink = styled(Link)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  color: ${(props) => props.theme.textColor}
+  color: ${(props) => props.theme.textColor};
   padding: 8px 16px;
   height: 100%;
   width: 100%;

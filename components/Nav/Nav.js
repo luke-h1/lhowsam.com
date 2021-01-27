@@ -26,7 +26,9 @@ const Nav = ({ theme }) => {
         <NavWrapper>
           <NavbarContainer>
             <NavLogo href="/" onClick={closeMobileMenu}>
-              <NavIcon />
+              <a style={{ cursor: 'pointer' }}>
+                <NavIcon />
+              </a>
             </NavLogo>
             <MobileIcon onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
