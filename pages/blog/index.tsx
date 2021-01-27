@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { NextSeo } from 'next-seo';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import { theme } from '../../styles/Theme';
 import { getAllFilesFrontmatter } from '../../lib/mdx';
-import styled from 'styled-components';
+
 import BlogPost from '../../components/BlogPost/BlogPost';
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -53,7 +54,7 @@ const description = 'Thoughts on React, Node, testing & tech in general';
 
 export default function Index({ posts }) {
   const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
 
   return (
@@ -71,7 +72,6 @@ export default function Index({ posts }) {
           <>
             <Heading>{title}</Heading>
             <Intro>{description}</Intro>
-            {console.log(filterPosts)}
             {!filterPosts.length && 'No blog posts found'}
             {filterPosts.map((frontMatter) => (
               <BlogPost key={frontMatter.title} {...frontMatter} />
