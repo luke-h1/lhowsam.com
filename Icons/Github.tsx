@@ -25,7 +25,7 @@ interface Iprops {
 const Github: FunctionComponent<Iprops> = ({ url }) => {
   return (
     <>
-      <External href={url} target="_blank" rel="noreferrer-noopener">
+      <External href={url} target="_blank" rel="noreferrer">
         <GithubIcon />
       </External>
     </>

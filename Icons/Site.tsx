@@ -20,7 +20,7 @@ interface Iprops {
 const Site: FunctionComponent<Iprops> = ({ url }) => {
   return (
     <>
-      <a href={url}>
+      <a href={url} target="_blank" rel="noreferrer">
         <SiteIcon />
       </a>
     </>
