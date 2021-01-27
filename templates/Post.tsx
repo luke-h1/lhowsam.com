@@ -13,7 +13,7 @@ const PostWrapper = styled.div`
   padding-left: 4rem;
   padding-right: 4rem;
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 900px;
   h1 {
     text-align: left;
     width: 80%;
