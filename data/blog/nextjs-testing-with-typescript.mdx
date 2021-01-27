@@ -5,11 +5,10 @@ summary: Sharing my thoughts on how to get setup with jest + typescript on Next 
 ---
 
 
-Recently I tried Next js and started to really enjoying developing sites with it. I've found next js to have a really smooth development process. The file structure is organized and beautiful and I've found the fast refresh dev server to be blazingly fast. In addition to this you will get <a href='https://dev.to/prateekvijayvergiya/server-side-rendering-with-next-js-1896' target='_blank'>server side rendering out the box'</a> which means you are able to update content without re building your project and your site can be crawled easily due to next sending down pre-rendered HTML for each page that a user visits
+Recently I tried Next js and started to really enjoying developing sites with it. I've found next js to have a really smooth development process, the file structure to be well organised & the fast refresh dev server to be blazingly fast. In addition to this you will get <a href='https://dev.to/prateekvijayvergiya/server-side-rendering-with-next-js-1896' target='_blank'>server side rendering out the box</a> which means you are able to update content without re building your project and your site can be crawled easily due to next sending down pre-rendered HTML for each page that a user visits
 
 
 # What we'll cover
-
 * 1 - Install Next JS 
 * 2 - Typescript: install + configure 
 * 3 - Eslint: Install + configure 
@@ -154,7 +153,7 @@ Which style guide do you want to follow?
 ```
 
 
-After the above is done your project will be configured with the base airbnb config. In order for eslint to not get angry about certain conventions that Next follows (such as how Links work) we will have to make a few modification to the eslintrc file: 
+After the above is done your project will be configured with the base airbnb config. In order for eslint to not get angry about certain conventions that Next follows (such as how Links work) we will have to make a few modifications to the eslintrc file: 
 
 
 ```
@@ -236,7 +235,7 @@ We will then need to create a directory in the root of the project which will be
 mkdir jest 
 ```
 
-Now we will create two config files: 
+Now we will create two config files inside of the jest directory: 
 
 ### jest.config.js 
 
@@ -254,8 +253,6 @@ module.exports = {
 ClearMocks will help prevent issues with persistence of mock data between tset runs. the setupFilesAfterEnv will run before each test 
 
 
-
-
 ### jest.setup.js 
 
 ```
@@ -266,7 +263,7 @@ import '@testing-library/jest-dom';
 This enables access to the addition assertions provided by the `@testing-library/jest-dom` package
 
 
-Only one more config file (I promise) 🎉
+Only one more config file 🎉
 
 The last config file you will need is called .babelrc (create this at the root of your project). You won't need any package for babel to run - it's handled automatically via Next. Jest however will need this file to auto-detect how to transform the code before running tests. 
 Add this to the file: 
