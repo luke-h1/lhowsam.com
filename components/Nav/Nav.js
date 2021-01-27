@@ -1,8 +1,8 @@
 // @ts-ignore
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
+import data from './nav.json';
 import {
   NavWrapper,
   NavbarContainer,
@@ -14,10 +14,6 @@ import {
   NavItemBtn,
   NavLinks,
 } from './NavStyles';
-
-const NavBtnLink = styled.a`
-  color: #000;
-`;
 
 const Nav = ({ theme }) => {
   const [click, setClick] = useState(false);
@@ -36,30 +32,14 @@ const Nav = ({ theme }) => {
               {click ? <FaTimes /> : <FaBars />}
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
-              <NavItem>
-                <NavLinks href="/" onClick={closeMobileMenu}>
-                  <a data-testid="home">Home</a>
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks href="/about" onClick={closeMobileMenu}>
-                  <a data-testid="about">About</a>
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks href="/projects" onClick={closeMobileMenu}>
-                  <a data-testid="project">Projects</a>
-                </NavLinks>
-              </NavItem>
-              <NavItem>
-                <NavLinks href="/blog" onClick={closeMobileMenu}>
-                  <a data-testid="blog">Blog</a>
-                </NavLinks>
-              </NavItem>
-              <NavItemBtn>
-                {' '}
-                <NavBtnLink href="test" />
-              </NavItemBtn>
+              {data.map((item) => (
+                <NavItem key={item.id}>
+                  <NavLinks href={item.slug} onClick={closeMobileMenu}>
+                    <a>{item.name}</a>
+                  </NavLinks>
+                </NavItem>
+              ))}
+              <NavItemBtn> </NavItemBtn>
               <NavItemBtn />
             </NavMenu>
           </NavbarContainer>
