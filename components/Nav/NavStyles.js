@@ -39,9 +39,8 @@ export const NavIcon = styled(FiCode)`
   color: ${(props) => props.theme.textColor};
 `;
 
-export const MobileIcon = styled.div`
+export const MobileIcon = styled.a`
   display: none;
-  color: ${(props) => props.theme.textColor};
   @media screen and (max-width: 960px) {
     display: block;
     position: absolute;
@@ -60,7 +59,6 @@ export const NavMenu = styled.ul`
   list-style: none;
   text-align: center;
   height: 70px;
-  color: ${(props) => props.theme.textColor};
   @media screen and (max-width: 960px) {
     display: flex;
     flex-direction: column;
@@ -72,10 +70,10 @@ export const NavMenu = styled.ul`
     position: absolute;
     top: 60px;
     overflow: hidden;
-    left: ${({ click }: any) => (click ? 0 : '-200%')};
+    left: ${({ click }) => (click ? 0 : '-200%')};
     opacity: 1;
     transition: all 0.2s ease;
-    background: ${(props) => props.theme.backgroundColor};
+    background: ${(props) => props.theme.backgroundColor}; 
     font-size: 1.8rem;
     font-weight: 700;
     overflow-y: hidden; /* Hide vertical scrollbar */

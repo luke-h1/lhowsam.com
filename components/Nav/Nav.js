@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 import {
   NavWrapper,
   NavbarContainer,
@@ -15,6 +15,10 @@ import {
   NavLinks,
 } from './NavStyles';
 
+const NavBtnLink = styled.a`
+  color: #000;
+`;
+
 const Nav = ({ theme }) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -26,16 +30,14 @@ const Nav = ({ theme }) => {
         <NavWrapper>
           <NavbarContainer>
             <NavLogo href="/" onClick={closeMobileMenu}>
-              <a>
-                <NavIcon />
-              </a>
+              <NavIcon />
             </NavLogo>
             <MobileIcon onClick={handleClick}>
               {click ? <FaTimes /> : <FaBars />}
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
               <NavItem>
-                <NavLinks href="/" onClick={() => closeMobileMenu()}>
+                <NavLinks href="/" onClick={closeMobileMenu}>
                   <a data-testid="home">Home</a>
                 </NavLinks>
               </NavItem>
@@ -54,7 +56,10 @@ const Nav = ({ theme }) => {
                   <a data-testid="blog">Blog</a>
                 </NavLinks>
               </NavItem>
-              <NavItemBtn>{/* <NavBtnLink href='test'/> */}</NavItemBtn>
+              <NavItemBtn>
+                {' '}
+                <NavBtnLink href="test" />
+              </NavItemBtn>
               <NavItemBtn />
             </NavMenu>
           </NavbarContainer>
