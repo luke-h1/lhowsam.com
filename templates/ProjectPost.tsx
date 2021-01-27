@@ -104,7 +104,7 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
       </PostWrapper>
 
       <ShareWrapper>
-        <ShareButtons location={url} />
+        <ShareButtons location={`https://lhowsam.com/projects/${frontMatter.slug}`} />
       </ShareWrapper>
     </>
   );
