@@ -3,7 +3,6 @@ import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import styled, { ThemeProvider } from 'styled-components';
 import { theme } from '../styles/Theme';
-
 import { HighLight } from '../components/Intro/IntroStyles';
 
 const Title = styled.h1`
