@@ -1,8 +1,5 @@
 /* eslint-disable react/prop-types */
-import { FunctionComponent } from 'react';
-import {
-  FiGithub, FiTwitter, FiMail, FiLinkedin,
-} from 'react-icons/fi';
+import { FiGithub, FiTwitter, FiMail, FiLinkedin } from 'react-icons/fi';
 import { ThemeProvider } from 'styled-components';
 import {
   FooterContainer,
@@ -15,11 +12,7 @@ import {
   LinkItem,
 } from './FooterStyles';
 
-interface Iprops {
-  theme: string;
-}
-
-const Footer: FunctionComponent<{ theme: Iprops }> = ({ theme }) => {
+const Footer = ({ theme }) => {
   return (
     <>
       <ThemeProvider theme={theme}>
