@@ -1,5 +1,5 @@
 // @ts-ignore
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { ThemeProvider } from 'styled-components';
 import data from './nav.json';
@@ -41,7 +41,6 @@ const Nav = ({ theme }) => {
                   </NavLinks>
                 </NavItem>
               ))}
-              <NavItemBtn> </NavItemBtn>
               <NavItemBtn />
             </NavMenu>
           </NavbarContainer>
