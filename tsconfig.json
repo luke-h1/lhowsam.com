@@ -24,6 +24,6 @@
     "components/Footer/Footer.js",
     "components/Nav/Nav.js",
     "__tests__/test.test.tsx"
-, "components/Nav/NavStyles.js"  ],
+, "components/Nav/NavStyles.ts"  ],
   "exclude": ["node_modules, __tests__"]
 }

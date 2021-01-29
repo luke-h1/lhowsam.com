@@ -70,7 +70,7 @@ export const NavMenu = styled.ul`
     position: absolute;
     top: 60px;
     overflow: hidden;
-    left: ${({ click }) => (click ? '0' : '-200%')};
+    left: ${({ click }: any) => (click ? 0 : '-200%')};
     opacity: 1;
     transition: all 0.2s ease;
     background: ${(props) => props.theme.backgroundColor};

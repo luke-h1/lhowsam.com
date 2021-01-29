@@ -1,5 +1,5 @@
 // @ts-ignore
-import { useState } from 'react';
+import React, { useState, FunctionComponent } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { ThemeProvider } from 'styled-components';
 import data from './nav.json';
@@ -15,10 +15,16 @@ import {
   NavLinks,
 } from './NavStyles';
 
-const Nav = ({ theme }) => {
+interface Iprops {
+  onClick: () => any;
+  click: () => any;
+  theme: String;
+}
+
+const Nav: FunctionComponent <{ theme: Iprops }> = (theme) => {
   const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+  const handleClick: Object = () => setClick(!click);
+  const closeMobileMenu: Object = () => setClick(false);
 
   return (
     <>
@@ -31,7 +37,7 @@ const Nav = ({ theme }) => {
               </a>
             </NavLogo>
             <MobileIcon onClick={handleClick}>
-              {click ? <FaTimes /> : <FaBars />}
+              {click ?  <FaTimes /> : <FaBars />}
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
               {data.map((item) => (
@@ -41,6 +47,7 @@ const Nav = ({ theme }) => {
                   </NavLinks>
                 </NavItem>
               ))}
+              <NavItemBtn> </NavItemBtn>
               <NavItemBtn />
             </NavMenu>
           </NavbarContainer>
