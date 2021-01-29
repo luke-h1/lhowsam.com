@@ -22,7 +22,7 @@
     "**/*.ts",
     "**/*.tsx",
     "components/Footer/Footer.tsx",
-    "components/Nav/Nav.tsx",
+    "components/Nav/Nav.js",
     "__tests__/test.test.tsx"
 , "components/Nav/NavStyles.ts"  ],
   "exclude": ["node_modules, __tests__"]
