@@ -21,8 +21,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/Footer/Footer.js",
-    "components/Nav/Nav.js",
+    "components/Footer/Footer.tsx",
+    "components/Nav/Nav.tsx",
     "__tests__/test.test.tsx"
 , "components/Nav/NavStyles.ts"  ],
   "exclude": ["node_modules, __tests__"]

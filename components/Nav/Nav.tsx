@@ -16,15 +16,21 @@ import {
 } from './NavStyles';
 
 interface Iprops {
-  onClick: () => any;
-  click: () => any;
+  onClick: boolean;
+  click: boolean;
   theme: String;
+}
+
+interface itemInt {
+  id: number;
+  name: string;
+  slug: string;
 }
 
 const Nav: FunctionComponent <{ theme: Iprops }> = (theme) => {
   const [click, setClick] = useState(false);
-  const handleClick: Object = () => setClick(!click);
-  const closeMobileMenu: Object = () => setClick(false);
+  const handleClick = () => setClick(!click);
+  const closeMobileMenu = () => setClick(false);
 
   return (
     <>
@@ -37,10 +43,10 @@ const Nav: FunctionComponent <{ theme: Iprops }> = (theme) => {
               </a>
             </NavLogo>
             <MobileIcon onClick={handleClick}>
-              {click ?  <FaTimes /> : <FaBars />}
+              {click ? <FaTimes /> : <FaBars />}
             </MobileIcon>
             <NavMenu onClick={handleClick} click={click}>
-              {data.map((item) => (
+              {data.map((item: itemInt) => (
                 <NavItem key={item.id}>
                   <NavLinks href={item.slug} onClick={closeMobileMenu}>
                     <a>{item.name}</a>
