@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { parseISO, format } from 'date-fns';
@@ -14,6 +14,7 @@ const Article = styled.article`
 const Header = styled.header`
   h1 {
     margin: 0 0 1rem 0;
+    font-size: 25px;
   }
   p {
     font-size: 16px;
@@ -22,7 +23,16 @@ const Header = styled.header`
   }
 `;
 
-const BlogPost = ({ title, summary, slug, date }) => {
+interface Iprops {
+  title: string;
+  summary: string;
+  slug: string;
+  date: string;
+}
+
+const BlogPost: FC<Iprops> = ({
+  title, summary, slug, date,
+}) => {
   return (
     <>
       <Link href={`/blog/${slug}`}>
@@ -30,8 +40,8 @@ const BlogPost = ({ title, summary, slug, date }) => {
           <Article>
             <Header>
               <h1>{title}</h1>
-              <p>{summary}</p>
               <p>{format(parseISO(date), 'MMMM dd, yyyy')}</p>
+              <p>{summary}</p>
             </Header>
             <hr style={{ color: '#eaeaea' }} />
           </Article>

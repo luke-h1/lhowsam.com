@@ -1,7 +1,6 @@
 // @ts-ignore
 import { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-/* eslint-disable */
 import { ThemeProvider } from 'styled-components';
 import data from './nav.json';
 import {
@@ -16,7 +15,7 @@ import {
   NavLinks,
 } from './NavStyles';
 
-const Nav = (theme) => {
+const Nav = ({ theme }) => {
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);

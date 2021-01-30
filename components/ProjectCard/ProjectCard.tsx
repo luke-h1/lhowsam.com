@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
@@ -21,11 +21,11 @@ const Card = styled.div`
   }
   h3 {
     margin: 0 0 1rem 0;
-    font-size: 1.5rem;
+    font-size: 27px;
   }
   p {
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 16px;
     line-height: 1.6;
   }
   @media (max-width: 550px) {
@@ -33,7 +33,15 @@ const Card = styled.div`
   }
 `;
 
-const ProjectCard = ({ title, summary, slug, date }) => {
+interface Iprops {
+  title: string;
+  summary: string;
+  slug: string;
+}
+
+const ProjectCard: FC<Iprops> = ({
+  title, summary, slug,
+}) => {
   return (
     <>
       <Link href={`/projects/${slug}`}>
