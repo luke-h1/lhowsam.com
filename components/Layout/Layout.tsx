@@ -20,7 +20,7 @@ const Layout = ({ children }) => {
               rel="stylesheet"
             />
           </Head>
-          <Nav theme={theme} />
+          <Nav />
           {children}
           <Footer theme={theme} />
         </MDXProvider>
