@@ -22,7 +22,7 @@
     "**/*.ts",
     "**/*.tsx",
     "components/Footer/Footer.js",
-    "components/Nav/Nav.js",
+    "components/Nav/Nav.tsx",
     "__tests__/test.test.tsx"
 , "components/Nav/NavStyles.ts", "lib/gtag.ts"  ],
   "exclude": ["node_modules, __tests__"]
