@@ -1,3 +1,4 @@
+import { FC } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import data from './nav.json';
@@ -17,11 +18,17 @@ const StyledLink = styled.a`
   color: #000;
 `;
 
-const Navbar = () => {
+interface NavProps {
+ slug: string;
+ name: string;
+ id: number;
+}
+
+const Navbar: FC = () => {
   return (
     <Nav>
       <div>
-        {data.map((item) => (
+        {data.map((item: NavProps) => (
           <Link href={item.slug} passHref key={item.id}>
             <StyledLink>{item.name}</StyledLink>
           </Link>
