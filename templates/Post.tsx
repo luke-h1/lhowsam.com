@@ -3,6 +3,7 @@ import { parseISO, format } from 'date-fns';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
 import ShareButtons from '../components/ShareButtons';
+import Layout from '../components/Layout/Layout';
 
 const PostWrapper = styled.div`
   display: flex;
@@ -34,6 +35,13 @@ const PostWrapper = styled.div`
     text-align: left;
     width: 50%;
     margin: 0 auto;
+    @media(max-width: 450px){
+      li { 
+        margin: 1.2rem 0 1.2rem 1.2rem;
+      }
+      text-align: center;
+      width: 100%;
+    }
   }
 
 `;
@@ -58,6 +66,12 @@ const ContentWrap = styled.div`
     @media(max-width: 600px){
       width: 450px;
     }
+    @media(max-width: 450px){
+      width: 350px;
+      margin: 0 auto;
+      text-align: center !important;
+    }
+
   }
 `;
 
@@ -72,7 +86,6 @@ const Small = styled.p`
   margin-top: 1.5rem;
   margin-bottom: 2rem;
 `;
-const url = typeof window !== 'undefined' ? window.location.href : '';
 
 const ShareWrapper = styled.div`
   display: flex;
