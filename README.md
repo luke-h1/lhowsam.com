@@ -12,3 +12,4 @@
 ![Nightly unit tests](https://github.com/luke-h1/lhowsam.com/workflows/Nightly%20unit%20tests/badge.svg)
 
 
+![Type check](https://github.com/luke-h1/lhowsam.com/workflows/Type%20check/badge.svg)
