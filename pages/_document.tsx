@@ -30,13 +30,7 @@ export default class MyDocument extends Document {
           `,
             }}
           />
-          <link
-            rel="preload"
-            href="/fonts/NotoSansJP-Regular.otf"
-            as="font"
-            type="font/otf"
-            crossOrigin="anonymous"
-          />
+
           <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
           <link href="/static/favicons/site.webmanifest" rel="manifest" />
           <link
