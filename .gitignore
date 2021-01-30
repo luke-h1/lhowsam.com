@@ -37,6 +37,8 @@ jspm_packages
 
 # testing
 /coverage
+.env
+env
 
 # next.js
 /.next/
