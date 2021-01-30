@@ -1,10 +1,11 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { ThemeProvider } from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
+import { NextPage } from 'next';
 import { theme } from '../../styles/Theme';
-import styled from 'styled-components';
 import { getAllFilesFrontmatter } from '../../lib/mdx';
 import ProjectCard from '../../components/ProjectCard/ProjectCard';
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -25,7 +26,7 @@ const Flex = styled.div`
   flex-direction: column;
 `;
 
-export default function Index({ projects }) {
+const Index: NextPage = ({ projects }: any) => {
   return (
     <>
       <NextSeo
@@ -49,9 +50,10 @@ export default function Index({ projects }) {
       </ThemeProvider>
     </>
   );
-}
+};
 
 export async function getStaticProps() {
   const projects = await getAllFilesFrontmatter('project');
   return { props: { projects } };
 }
+export default Index;

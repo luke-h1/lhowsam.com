@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { NextSeo } from 'next-seo';
 import styled, { ThemeProvider } from 'styled-components';
+import { NextPage } from 'next';
 import { theme } from '../../styles/Theme';
 import { getAllFilesFrontmatter } from '../../lib/mdx';
 
@@ -16,43 +17,42 @@ const Wrapper = styled.div`
   margin: 1rem 0 1rem 0;
 `;
 
-const Search = styled.input`
-  padding: 1.25rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #000;
-  border-radius: 10px;
-`;
+// const Search = styled.input`
+//   padding: 1.25rem;
+//   text-align: left;
+//   color: inherit;
+//   text-decoration: none;
+//   border: 1px solid #000;
+//   border-radius: 10px;
+// `;
 
-const Title = styled.h1`
-  text-align: center;
-  margin-bottom: 5rem;
-`;
+// const Title = styled.h1`
+//   text-align: center;
+//   margin-bottom: 5rem;
+// `;
 
 const Heading = styled.h1`
   text-align: center;
   margin-bottom: 2rem;
 `;
 
-const SearchWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 4rem;
-`;
+// const SearchWrapper = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   margin-bottom: 4rem;
+// `;
 
 const Intro = styled.p`
   text-align: center;
   margin-bottom: 2.5rem;
 `;
 
-const url = 'https://lhowsam.com/blog';
 const title = 'blog';
 const description = 'Thoughts on React, Node, testing & tech in general';
 
-export default function Index({ posts }) {
+const Index: NextPage = ({ posts }: any) => {
   const filterPosts = posts.sort(
     (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
@@ -81,9 +81,10 @@ export default function Index({ posts }) {
       </ThemeProvider>
     </>
   );
-}
+};
 
 export async function getStaticProps() {
   const posts = await getAllFilesFrontmatter('blog');
   return { props: { posts } };
 }
+export default Index;

@@ -1,11 +1,14 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import styled, { ThemeProvider } from 'styled-components';
+import { NextPage } from 'next';
 import Intro from '../components/Intro/Intro';
 import { theme } from '../styles/Theme';
 import ProjectCard from '../components/ProjectCard/ProjectCard';
 import { getAllFilesFrontmatter } from '../lib/mdx';
 import BlogPost from '../components/BlogPost/BlogPost';
+import Project from '../types/Project';
+import Blog from '../types/Blog';
 
 const Flex = styled.div`
   display: flex;
@@ -28,9 +31,14 @@ const Title = styled.h1`
   margin: 1rem 0 1rem 0;
 `;
 
-export default function Home({ posts, projects }) {
+interface Iprops {
+  posts: Blog;
+  projects: Project
+}
+
+const Home: NextPage<Iprops> = ({ posts, projects }) => {
   const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
   return (
     <>
@@ -59,9 +67,10 @@ export default function Home({ posts, projects }) {
       </ThemeProvider>
     </>
   );
-}
+};
 export async function getStaticProps() {
   const posts = await getAllFilesFrontmatter('blog');
   const projects = await getAllFilesFrontmatter('project');
   return { props: { posts, projects } };
 }
+export default Home;

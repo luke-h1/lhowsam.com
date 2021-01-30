@@ -2,6 +2,7 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import styled, { ThemeProvider } from 'styled-components';
+import { NextPage } from 'next';
 import { theme } from '../styles/Theme';
 import { HighLight } from '../components/Intro/IntroStyles';
 
@@ -50,8 +51,7 @@ const Intro = styled.h1`
   text-align: left;
   font-size: 38px;
 `;
-
-export default function About() {
+const About: NextPage = () => {
   return (
     <>
       <NextSeo
@@ -101,4 +101,5 @@ export default function About() {
       </ThemeProvider>
     </>
   );
-}
+};
+export default About;
