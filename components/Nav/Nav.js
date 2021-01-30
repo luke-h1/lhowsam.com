@@ -1,53 +1,34 @@
-// @ts-ignore
-import { useState } from 'react';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
+import Link from 'next/link';
 import data from './nav.json';
-import {
-  NavWrapper,
-  NavbarContainer,
-  NavLogo,
-  NavIcon,
-  MobileIcon,
-  NavMenu,
-  NavItem,
-  NavItemBtn,
-  NavLinks,
-} from './NavStyles';
 
-const Nav = ({ theme }) => {
-  const [click, setClick] = useState(false);
-  const handleClick = () => setClick(!click);
-  const closeMobileMenu = () => setClick(false);
+const Nav = styled.nav`
+  height: 80px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #000;
+`;
 
+const StyledLink = styled.a`
+  padding: 0rem 2rem;
+  color: #000;
+`;
+
+const Navbar = () => {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <NavWrapper>
-          <NavbarContainer>
-            <NavLogo href="/" onClick={closeMobileMenu}>
-              <a style={{ cursor: 'pointer' }}>
-                <NavIcon />
-              </a>
-            </NavLogo>
-            <MobileIcon onClick={handleClick}>
-              {click ? <FaTimes /> : <FaBars />}
-            </MobileIcon>
-            <NavMenu onClick={handleClick} click={click}>
-              {data.map((item) => (
-                <NavItem key={item.id}>
-                  <NavLinks href={item.slug} onClick={closeMobileMenu}>
-                    <a>{item.name}</a>
-                  </NavLinks>
-                </NavItem>
-              ))}
-              <NavItemBtn />
-            </NavMenu>
-          </NavbarContainer>
-        </NavWrapper>
-      </ThemeProvider>
-    </>
+    <Nav>
+      <div>
+        {data.map((item) => (
+          <Link href={item.slug} passHref key={item.id}>
+            <StyledLink>{item.name}</StyledLink>
+          </Link>
+        ))}
+      </div>
+    </Nav>
   );
 };
 
-export default Nav;
+export default Navbar;
