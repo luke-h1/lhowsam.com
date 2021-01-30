@@ -11,6 +11,11 @@ const Nav = styled.nav`
   flex-direction: column;
   align-items: center;
   color: #000;
+  @media(max-width: 420px){
+    div {
+      margin-left: 2.5rem;
+    }
+  }
 `;
 
 const StyledLink = styled.a`

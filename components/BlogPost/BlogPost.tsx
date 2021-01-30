@@ -6,8 +6,8 @@ import { parseISO, format } from 'date-fns';
 const Article = styled.article`
   width: 500px;
   margin: 2rem 0 2rem 0;
-  @media (max-width: 550px) {
-    width: 400px;
+  @media (max-width: 450px) {
+    width: 350px;
   }
 `;
 
