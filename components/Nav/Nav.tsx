@@ -6,16 +6,12 @@ import data from './nav.json';
 const Nav = styled.nav`
   height: 80px;
   background: #fff;
+  width: 100vw;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
   align-items: center;
   color: #000;
-  @media(max-width: 420px){
-    div {
-      margin-left: 2.5rem;
-    }
-  }
 `;
 
 const StyledLink = styled.a`
@@ -23,6 +19,13 @@ const StyledLink = styled.a`
   color: #000;
 `;
 
+const Wrap = styled.div`
+  max-width: 800px;
+  @media(max-width: 400px){
+    max-width: 600px;
+    margin: 0 auto;
+  }
+`;
 interface NavProps {
  slug: string;
  name: string;
@@ -32,13 +35,13 @@ interface NavProps {
 const Navbar: FC = () => {
   return (
     <Nav>
-      <div>
+      <Wrap>
         {data.map((item: NavProps) => (
           <Link href={item.slug} passHref key={item.id}>
             <StyledLink>{item.name}</StyledLink>
           </Link>
         ))}
-      </div>
+      </Wrap>
     </Nav>
   );
 };

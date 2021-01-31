@@ -57,16 +57,16 @@ const ContentWrap = styled.div`
     text-align: center;
     @media(max-width: 860px){
       text-align: center;
-      width: 700px;
+      width: 720px;
     }
     @media(max-width: 730px){
-      width: 550px;
+      width: 700px;
     }
     @media(max-width: 600px){
-      width: 450px;
+      width: 650px;
     }
     @media(max-width: 450px){
-      width: 350px;
+      width: 400px;
       margin: 0 auto;
       text-align: center !important;
     }
