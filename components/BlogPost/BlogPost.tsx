@@ -14,12 +14,13 @@ const Article = styled.article`
 const Header = styled.header`
   h1 {
     margin: 0 0 1rem 0;
-    font-size: 25px;
+    font-size: 22px;
   }
   p {
     font-size: 16px;
     margin-top: 15px;
     margin-bottom: 15px;
+    line-height: 1.6;
   }
 `;
 
@@ -43,7 +44,7 @@ const BlogPost: FC<Iprops> = ({
               <p>{format(parseISO(date), 'MMMM dd, yyyy')}</p>
               <p>{summary}</p>
             </Header>
-            <hr style={{ color: '#eaeaea' }} />
+            <hr style={{ color: '#DDDEDF' }} />
           </Article>
         </a>
       </Link>

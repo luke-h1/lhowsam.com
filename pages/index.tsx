@@ -27,8 +27,9 @@ const Container = styled.div`
 `;
 
 const Title = styled.h1`
-  text-align: center;
-  margin: 1rem 0 1rem 0;
+   margin: 1rem 0 1rem 0;
+   text-align: center;
+   font-weight: 700;
 `;
 
 interface Iprops {
@@ -52,14 +53,14 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
       />
       <ThemeProvider theme={theme}>
         <Intro theme={theme} />
+        <Title>Recent Projects</Title>
         <Flex>
-          <Title>Recent Projects</Title>
           {projects.map((frontMatter) => (
             <ProjectCard key={frontMatter.title} {...frontMatter} />
           ))}
         </Flex>
+        <Title>Recent Blog Posts</Title>
         <Container>
-          <Title>Recent Blog Posts</Title>
           {filterPosts.map((frontMatter) => (
             <BlogPost key={frontMatter.title} {...frontMatter} />
           ))}

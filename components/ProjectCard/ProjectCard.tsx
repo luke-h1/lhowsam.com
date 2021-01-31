@@ -21,7 +21,7 @@ const Card = styled.div`
   }
   h3 {
     margin: 0 0 1rem 0;
-    font-size: 27px;
+    font-size: 22px;
   }
   p {
     margin: 0;
