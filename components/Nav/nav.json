@@ -5,17 +5,17 @@
     "slug": "/"
   },
   {
-    "id": 1,
+    "id": 2,
     "name": "About",
     "slug": "/about"
   },
   {
-    "id": 1,
+    "id": 3,
     "name": "Projects",
     "slug": "/projects"
   },
   {
-    "id": 1,
+    "id": 4,
     "name": "Blog",
     "slug": "/blog"
   }
