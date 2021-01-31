@@ -15,7 +15,8 @@
     "jsx": "preserve",
     "baseUrl": "./",
     "paths": {
-      "@tests/*": ["./__tests__/*"],
+      "@tests/*": ["__tests__/*"],
+      "@pages/*": ["pages/*"],
       "@components/*": ["components/*"],
       "@icons/*": ["Icons/*"],
       "@templates/*": ["templates/*"],
