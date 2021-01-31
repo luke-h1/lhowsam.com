@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { parseISO, format } from 'date-fns';
 
 const Article = styled.article`
+  height: 80px;
   width: 500px;
   margin: 2rem 0 2rem 0;
   @media (max-width: 450px) {
@@ -32,7 +33,7 @@ interface Iprops {
 }
 
 const BlogPost: FC<Iprops> = ({
-  title, summary, slug, date,
+  title, slug, date,
 }) => {
   return (
     <>
@@ -42,7 +43,6 @@ const BlogPost: FC<Iprops> = ({
             <Header>
               <h1>{title}</h1>
               <p>{format(parseISO(date), 'MMMM dd, yyyy')}</p>
-              <p>{summary}</p>
             </Header>
             <hr style={{ color: '#DDDEDF' }} />
           </Article>
