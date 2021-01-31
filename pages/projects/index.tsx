@@ -24,6 +24,9 @@ const Intro = styled.p``;
 const Flex = styled.div`
   display: flex;
   flex-direction: column;
+  @media(max-width: 600px){
+    margin-left: 4rem;
+  }
 `;
 
 const Index: NextPage = ({ projects }: any) => {

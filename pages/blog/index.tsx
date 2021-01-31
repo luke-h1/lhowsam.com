@@ -15,6 +15,7 @@ const Wrapper = styled.div`
   min-height: 20vh;
   min-width: 100vw;
   margin: 1rem 0 1rem 0;
+  
 `;
 
 // const Search = styled.input`

@@ -5,8 +5,7 @@ export const IntroWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* margin: 0 auto; */
-  margin: 0 0 5rem 0;
+  margin-bottom: 4rem;
 `;
 
 export const HighLight = styled.strong`
@@ -22,12 +21,13 @@ export const DescWrap = styled.div`
   align-items: center;
   p {
     text-align: center;
-    width: 40%;
+    width: 50%;
     font-size: 20px;
     line-height: 1.4;
     color: ${(props) => props.theme.greyTextColor};
-    @media (max-width: 550px) {
-      width: 70%;
+    @media (max-width: 600px) {
+      width: 100%;
+      margin-left: 2rem;
     }
   }
 `;
@@ -36,4 +36,7 @@ export const Title = styled.h1`
   font-size: clamp(1rem, 8vw, 2.7rem);
   color: ${(props) => props.theme.darkTextColor};
   text-align: center;
+  @media(max-width: 600px){
+    margin-left: 2rem;
+  }
 `;

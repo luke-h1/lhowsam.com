@@ -16,6 +16,9 @@ const Flex = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 4rem;
+  @media(max-width: 600px){
+    margin-left: 4rem;
+  }
 `;
 
 const Container = styled.div`
@@ -24,6 +27,9 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   margin-bottom: 4rem;
+  @media(max-width: 600px){
+    margin-left: 2rem;
+  }
 `;
 
 const Title = styled.h1`
