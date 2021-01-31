@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
-import ShareButtons from '../components/ShareButtons';
-import Github from '../Icons/Github';
-import Site from '../Icons/Site';
+import ShareButtons from '@components/ShareButtons';
+import Github from '@icons/Github';
+import Site from '@icons/Site';
 
 const PostWrapper = styled.div`
   display: flex;

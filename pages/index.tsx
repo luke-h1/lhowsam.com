@@ -1,12 +1,12 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import styled, { ThemeProvider } from 'styled-components';
-import { NextPage } from 'next';
-import Intro from '../components/Intro/Intro';
-import { theme } from '../styles/Theme';
-import ProjectCard from '../components/ProjectCard/ProjectCard';
-import { getAllFilesFrontmatter } from '../lib/mdx';
-import BlogPost from '../components/BlogPost/BlogPost';
+import { GetStaticProps, NextPage } from 'next';
+import Intro from '@components/Intro/Intro';
+import { theme } from '@styles/Theme';
+import ProjectCard from '@components/ProjectCard/ProjectCard';
+import { getAllFilesFrontmatter } from '@lib/mdx';
+import BlogPost from '@components/BlogPost/BlogPost';
 import Project from '../types/Project';
 import Blog from '../types/Blog';
 
@@ -69,9 +69,9 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
     </>
   );
 };
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllFilesFrontmatter('blog');
   const projects = await getAllFilesFrontmatter('project');
   return { props: { posts, projects } };
-}
+};
 export default Home;

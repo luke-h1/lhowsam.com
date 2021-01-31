@@ -13,8 +13,14 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "baseUrl": "./",
     "paths": {
-      "@tests/*": ["./__tests__/*"]
+      "@tests/*": ["./__tests__/*"],
+      "@components/*": ["components/*"],
+      "@icons/*": ["Icons/*"],
+      "@templates/*": ["templates/*"],
+      "@lib/*": ["lib/*"],
+      "@styles/*": ["styles/*"]
     }
   },
   "include": [
@@ -23,7 +29,9 @@
     "**/*.tsx",
     "components/Footer/Footer.js",
     "components/Nav/Nav.tsx",
-    "__tests__/test.test.tsx"
-, "components/Nav/NavStyles.ts", "lib/gtag.ts"  ],
+    "__tests__/test.test.tsx",
+    "components/Nav/NavStyles.ts",
+    "lib/gtag.ts"
+  ],
   "exclude": ["node_modules, __tests__"]
 }

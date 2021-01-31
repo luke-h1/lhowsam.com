@@ -2,8 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { parseISO, format } from 'date-fns';
 import { NextSeo } from 'next-seo';
 import styled from 'styled-components';
-import ShareButtons from '../components/ShareButtons';
-import Layout from '../components/Layout/Layout';
+import ShareButtons from '@components/ShareButtons';
 
 const PostWrapper = styled.div`
   display: flex;

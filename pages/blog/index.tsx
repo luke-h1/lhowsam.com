@@ -2,10 +2,10 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import styled, { ThemeProvider } from 'styled-components';
 import { NextPage } from 'next';
-import { theme } from '../../styles/Theme';
-import { getAllFilesFrontmatter } from '../../lib/mdx';
+import { getAllFilesFrontmatter } from '@lib/mdx';
+import { theme } from '@styles/Theme';
 
-import BlogPost from '../../components/BlogPost/BlogPost';
+import BlogPost from '@components/BlogPost/BlogPost';
 
 const Wrapper = styled.div`
   display: flex;

@@ -1,11 +1,11 @@
 import { MDXProvider } from '@mdx-js/react';
 import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
-import Nav from '../Nav/Nav';
-import MDXComponents from '../MDXComponents/MDXComponents';
-import Footer from '../Footer/Footer';
-import { GlobalStyle } from '../../styles/GlobalStyles';
-import { theme } from '../../styles/Theme';
+import { GlobalStyle } from '@styles/GlobalStyles';
+import { theme } from '@styles/Theme';
+import MDXComponents from '@components/MDXComponents/MDXComponents';
+import Footer from '@components/Footer/Footer';
+import Nav from '@components/Nav/Nav';
 
 const Layout = ({ children }) => {
   return (
