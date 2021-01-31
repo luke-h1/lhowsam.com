@@ -48,6 +48,7 @@ const Heading = styled.h1`
 const Intro = styled.p`
   text-align: center;
   margin-bottom: 2.5rem;
+  font-size: 18px;
 `;
 
 const title = 'blog';
