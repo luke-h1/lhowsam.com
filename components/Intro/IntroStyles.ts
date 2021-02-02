@@ -25,9 +25,8 @@ export const DescWrap = styled.div`
     font-size: 20px;
     line-height: 1.4;
     color: ${(props) => props.theme.greyTextColor};
-    @media (max-width: 600px) {
-      width: 100%;
-      margin-left: 2rem;
+    @media (max-width: 450px) {
+      width: 80%;
     }
   }
 `;
@@ -36,7 +35,4 @@ export const Title = styled.h1`
   font-size: clamp(1rem, 8vw, 2.7rem);
   color: ${(props) => props.theme.darkTextColor};
   text-align: center;
-  @media(max-width: 600px){
-    margin-left: 2rem;
-  }
 `;

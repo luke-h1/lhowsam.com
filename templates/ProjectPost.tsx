@@ -53,14 +53,6 @@ const PostTitle = styled.h1`
   text-align: center !important;
 `;
 
-const Small = styled.p`
-  color: #000 !important;
-  text-align: center;
-  margin-top: 1.5rem;
-  margin-bottom: 2rem;
-`;
-const url = typeof window !== 'undefined' ? window.location.href : '';
-
 const ShareWrapper = styled.div`
   display: flex;
   flex-direction: column;
