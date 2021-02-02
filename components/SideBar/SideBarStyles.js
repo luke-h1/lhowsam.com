@@ -1,6 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import styled from 'styled-components';
-import { FiMenu } from 'react-icons/fi';
 import Link from 'next/link';
 
 export const SidebarContainer = styled.aside`

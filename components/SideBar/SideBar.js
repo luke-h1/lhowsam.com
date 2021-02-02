@@ -12,16 +12,11 @@ import {
 } from './SideBarStyles';
 import data from '../NavBar/data.json';
 
-// const CloseIcon = styled(FiMenu)`
-//   color: #000 !important;
-//   font-size: 25px;
-// `;
-
 const SideBar = ({ toggle, isOpen }) => {
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
       <Icon onClick={toggle}>
-        <FiMenu style={{ fill: '#000 !important' }} />
+        <FiMenu style={{ fill: '#000' }} />
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
@@ -32,7 +27,7 @@ const SideBar = ({ toggle, isOpen }) => {
           ))}
         </SidebarMenu>
         <SideBtnWrap>
-          <SidebarRoute href="/testing">testing</SidebarRoute>
+          <SidebarRoute href="/projects">projects</SidebarRoute>
         </SideBtnWrap>
       </SidebarWrapper>
     </SidebarContainer>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const Nav = styled.nav`
   background: #fff;
-  height: 100px;
+  height: 80px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +21,7 @@ export const Nav = styled.nav`
 export const NavbarContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 50px;
+  height: 80px;
   z-index: 1;
   width: 100%;
   padding: 0 24px;
@@ -66,7 +66,7 @@ export const NavMenu = styled.ul`
 `;
 
 export const NavItem = styled.li`
-  height: 50px;
+  height: 30px;
   margin: 0 1rem 0 1rem;
 `;
 
