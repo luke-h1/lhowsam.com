@@ -55,7 +55,6 @@ const ContentWrap = styled.div`
     margin: 40px 0 40px 0;
     text-align: center;
     @media (max-width: 860px) {
-      text-align: center;
       width: 720px;
     }
     @media (max-width: 730px) {
@@ -67,7 +66,6 @@ const ContentWrap = styled.div`
     @media (max-width: 450px) {
       width: 300px;
       margin: 0 auto;
-      text-align: center !important;
     }
   }
 `;
