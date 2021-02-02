@@ -6,7 +6,7 @@ const {
 const { ANALYZE } = process.env;
 
 module.exports = {
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, dev }) => {
     if (ANALYZE) {
       config.plugins.push(new WebpackBundleSizeAnalyzerPlugin('stats.txt'));
     }
