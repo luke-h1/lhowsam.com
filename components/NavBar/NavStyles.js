@@ -10,7 +10,7 @@ export const Nav = styled.nav`
   align-items: center;
   font-size: 1rem;
   position: sticky;
-  top: 0;
+  top: ${({ isScrolled }) => (isScrolled ? '-100%' : '0')};
   z-index: 10;
 
   @media screen and (max-width: 960px) {
@@ -50,7 +50,7 @@ export const MobileIcon = styled.div`
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-    color: #000; 
+    color: #000;
   }
 `;
 

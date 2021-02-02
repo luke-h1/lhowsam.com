@@ -7,8 +7,8 @@ import {
   SidebarWrapper,
   SidebarMenu,
   SideBarLink,
-  SideBtnWrap,
-  SidebarRoute,
+  // SideBtnWrap,
+  // SidebarRoute,
 } from './SideBarStyles';
 import data from '../NavBar/data.json';
 
@@ -26,9 +26,9 @@ const SideBar = ({ toggle, isOpen }) => {
             </SideBarLink>
           ))}
         </SidebarMenu>
-        <SideBtnWrap>
+        {/* <SideBtnWrap>
           <SidebarRoute href="/projects">projects</SidebarRoute>
-        </SideBtnWrap>
+        </SideBtnWrap> */}
       </SidebarWrapper>
     </SidebarContainer>
   );

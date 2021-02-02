@@ -11,14 +11,14 @@ import {
   NavItem,
   NavLinks,
   NavBtn,
-  NavBtnLink,
+  // NavBtnLink,
 } from './NavStyles';
 import data from './data.json';
 
-const NavBar = ({ toggle }) => {
+const NavBar = ({ toggle, isScrolled }) => {
   return (
     <>
-      <Nav>
+      <Nav isScrolled={isScrolled}>
         <NavbarContainer>
           <NavLogo href="/">
             <Logo />
@@ -36,9 +36,9 @@ const NavBar = ({ toggle }) => {
             ))}
           </NavMenu>
           <NavBtn>
-            <NavBtnLink href="/testing">
+            {/* <NavBtnLink href="/testing">
               <a>testing</a>
-            </NavBtnLink>
+            </NavBtnLink> */}
           </NavBtn>
         </NavbarContainer>
       </Nav>
