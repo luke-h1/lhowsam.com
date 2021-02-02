@@ -14,6 +14,9 @@ const PostWrapper = styled.div`
   padding-right: 4rem;
   margin: 0 auto;
   max-width: 900px;
+  @media(max-width: 450px){
+    max-width: 100vw;
+  }
   h1 {
     text-align: left;
     width: 80%;
@@ -34,13 +37,9 @@ const PostWrapper = styled.div`
     text-align: left;
     width: 50%;
     margin: 0 auto;
-    @media(max-width: 450px){
-      li { 
-        margin: 1.2rem 0 1.2rem 1.2rem;
-      }
-      text-align: center;
-      width: 100%;
-    }
+    text-align: center;
+    width: 100%;
+    
   }
 
 `;
@@ -55,22 +54,21 @@ const ContentWrap = styled.div`
     color: #000;
     margin: 40px 0 40px 0;
     text-align: center;
-    @media(max-width: 860px){
+    @media (max-width: 860px) {
       text-align: center;
       width: 720px;
     }
-    @media(max-width: 730px){
+    @media (max-width: 730px) {
       width: 700px;
     }
-    @media(max-width: 600px){
+    @media (max-width: 600px) {
       width: 650px;
     }
-    @media(max-width: 450px){
-      width: 400px;
+    @media (max-width: 450px) {
+      width: 300px;
       margin: 0 auto;
       text-align: center !important;
     }
-
   }
 `;
 
@@ -126,7 +124,9 @@ const Post: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
       </PostWrapper>
 
       <ShareWrapper>
-        <ShareButtons location={`https://lhowsam.com/blog/${frontMatter.slug}`} />
+        <ShareButtons
+          location={`https://lhowsam.com/blog/${frontMatter.slug}`}
+        />
       </ShareWrapper>
     </>
   );
