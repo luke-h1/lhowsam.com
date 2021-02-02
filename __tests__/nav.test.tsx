@@ -1,5 +1,5 @@
 /* eslint-disable */
-import NavData from '@components/NavBar/data';
+import NavData from '../components/NavBar/data.json';
 
 
 test('Navbar data is correct', () => { 
