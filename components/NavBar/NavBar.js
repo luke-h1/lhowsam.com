@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaBars } from 'react-icons/fa';
-import Logo from '@icons/Logo';
+import { NavIcon } from '@icons/NavIcon';
 
 import {
   Nav,
@@ -21,7 +21,9 @@ const NavBar = ({ toggle, isScrolled }) => {
       <Nav isScrolled={isScrolled}>
         <NavbarContainer>
           <NavLogo href="/">
-            <Logo />
+            <a>
+              <NavIcon />
+            </a>
           </NavLogo>
           <MobileIcon onClick={toggle}>
             <FaBars />
@@ -35,11 +37,7 @@ const NavBar = ({ toggle, isScrolled }) => {
               </NavItem>
             ))}
           </NavMenu>
-          <NavBtn>
-            {/* <NavBtnLink href="/testing">
-              <a>testing</a>
-            </NavBtnLink> */}
-          </NavBtn>
+          <NavBtn />
         </NavbarContainer>
       </Nav>
     </>

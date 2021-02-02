@@ -38,6 +38,9 @@ export const NavLogo = styled(Link)`
   margin-left: 24px;
   font-weight: 700;
   text-decoration: none;
+  &:hover { 
+    cursor: pointer;
+  }
 `;
 
 export const MobileIcon = styled.div`
