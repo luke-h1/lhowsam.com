@@ -1,9 +1,20 @@
-## Source code for my portfolio 
+# [lhowsam.com](https://lhowsam.com)
 
+Source code for my personal website & blog.
 
+## Tech Stack: 
+- [React](https://github.com/facebook/react)
+- [Next](https://github.com/vercel/next.js)
+- [styled-components](https://github.com/styled-components)
+- [polished](https://github.com/styled-components/polished)
+- [react-icons](https://github.com/react-icons/react-icons)
+- [mdx](https://github.com/mdx-js/mdx)
+- [typescript](https://github.com/Microsoft/TypeScript)
+- [vercel](https://vercel.com/)
 
-### CI: 
-<br />
+<hr />
+
+## tests: 
 
 ![Node.js Builds (10, 12, 14)](https://github.com/luke-h1/lhowsam.com/workflows/Node.js%20CI/badge.svg)
 
