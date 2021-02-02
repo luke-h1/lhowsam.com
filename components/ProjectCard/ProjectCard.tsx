@@ -29,7 +29,7 @@ const Card = styled.div`
     line-height: 1.6;
   }
   @media (max-width: 550px) {
-    width: 400px;
+    width: 350px;
   }
 `;
 
