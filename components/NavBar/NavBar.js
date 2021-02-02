@@ -28,7 +28,7 @@ const NavBar = ({ toggle, isScrolled }) => {
           </MobileIcon>
           <NavMenu>
             {data.map((i) => (
-              <NavItem>
+              <NavItem key={i.id}>
                 <NavLinks href={i.slug}>
                   <a>{i.name}</a>
                 </NavLinks>

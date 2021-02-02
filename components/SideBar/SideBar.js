@@ -21,7 +21,7 @@ const SideBar = ({ toggle, isOpen }) => {
       <SidebarWrapper>
         <SidebarMenu>
           {data.map((i) => (
-            <SideBarLink onClick={toggle} href={i.slug}>
+            <SideBarLink onClick={toggle} href={i.slug} key={i.id}>
               <a>{i.name}</a>
             </SideBarLink>
           ))}
