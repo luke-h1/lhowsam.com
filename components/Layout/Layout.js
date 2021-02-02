@@ -11,7 +11,6 @@ import NavBar from '@components/NavBar/NavBar';
 
 const Layout = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  // const [isScrolled, setIsScrolled] = useState(false);
   const toggle = () => {
     setIsOpen(!isOpen);
   };
@@ -29,7 +28,7 @@ const Layout = ({ children }) => {
             />
           </Head>
           <Sidebar isOpen={isOpen} toggle={toggle} />
-          <NavBar isOpen={isOpen} toggle={toggle} isScrolled={isScrolled} />
+          <NavBar isOpen={isOpen} toggle={toggle} />
           {children}
           <Footer theme={theme} />
         </MDXProvider>
