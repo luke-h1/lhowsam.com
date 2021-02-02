@@ -10,6 +10,9 @@ const Article = styled.article`
   @media (max-width: 450px) {
     width: 350px;
   }
+  @media (min-width: 350px) {
+    width: 350px;
+  }
 `;
 
 const Header = styled.header`
