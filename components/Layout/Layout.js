@@ -3,25 +3,19 @@ import { ThemeProvider } from 'styled-components';
 import Head from 'next/head';
 import { GlobalStyle } from '@styles/GlobalStyles';
 import { theme } from '@styles/Theme';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import MDXComponents from '@components/MDXComponents/MDXComponents';
 import Footer from '@components/Footer/Footer';
 import Sidebar from '@components/SideBar/SideBar';
 import NavBar from '@components/NavBar/NavBar';
 
 const Layout = ({ children }) => {
-  useEffect(() => {
-    if (window) {
-      if (window.scrollY >= 10) {
-        setIsScrolled(true);
-      }
-    }
-  }, []);
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  // const [isScrolled, setIsScrolled] = useState(false);
   const toggle = () => {
     setIsOpen(!isOpen);
   };
+
   return (
     <>
       <GlobalStyle />
