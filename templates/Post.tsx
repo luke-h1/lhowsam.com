@@ -41,6 +41,10 @@ const PostWrapper = styled.div`
     width: 100%;
     
   }
+  li { 
+    list-style-type: none;
+    text-align: center;
+  }
 
 `;
 
