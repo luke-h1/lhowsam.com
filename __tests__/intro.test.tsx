@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, cleanup } from '@testing-library/react';
-import Intro from '../components/Intro/Intro';
-import { theme } from '../styles/Theme';
+import Intro from '@components/Intro/Intro';
+import { theme } from '@styles/Theme';
 
 afterEach(cleanup);
 
