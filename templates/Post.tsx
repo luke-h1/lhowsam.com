@@ -15,7 +15,7 @@ const PostWrapper = styled.div`
   margin: 0 auto;
   max-width: 900px;
   @media(max-width: 450px){
-    max-width: 100vw;
+    max-width: 300px;
   }
   h1 {
     text-align: left;

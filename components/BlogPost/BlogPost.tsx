@@ -7,11 +7,8 @@ const Article = styled.article`
   height: 80px;
   width: 500px;
   margin: 2rem 0 2rem 0;
-  @media (max-width: 450px) {
+  @media (max-width: 550px) {
     width: 350px;
-  }
-  @media (min-width: 350px) {
-    width: 450px;
   }
 `;
 
