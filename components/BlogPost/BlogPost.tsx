@@ -11,7 +11,7 @@ const Article = styled.article`
     width: 350px;
   }
   @media (min-width: 350px) {
-    width: 350px;
+    width: 450px;
   }
 `;
 
