@@ -20,13 +20,6 @@ const Layout = ({ children }) => {
       <GlobalStyle />
       <ThemeProvider theme={theme}>
         <MDXProvider components={MDXComponents}>
-          <Head>
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link
-              href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
-              rel="stylesheet"
-            />
-          </Head>
           <Sidebar isOpen={isOpen} toggle={toggle} />
           <NavBar isOpen={isOpen} toggle={toggle} />
           {children}
