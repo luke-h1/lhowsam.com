@@ -10,16 +10,12 @@ const PostWrapper = styled.div`
   justify-content: center;
   align-items: center;
   min-height: 25vh;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding: 0 4rem 0 4rem;
   margin: 0 auto;
   max-width: 900px;
-  @media(max-width: 450px){
-    max-width: 300px;
-  }
   h1 {
     text-align: left;
-    width: 80%;
+    margin: 3rem 0 3rem 0;
     @media(max-width: 860px){
       text-align: center;
       width: 100%;
@@ -27,50 +23,38 @@ const PostWrapper = styled.div`
   }
   pre { 
     white-space: pre-wrap;
-    tab-size: 6;
+    tab-size: 2;
     background: #F2F2F2;
     color: #000;
     padding: 1.2rem;
     text-align: left;
   }
-  ul { 
-    text-align: left;
-    width: 50%;
-    margin: 0 auto;
-    text-align: center;
-    width: 100%;
-    
-  }
   li { 
     list-style-type: none;
-    text-align: center;
+    text-align: left;
+    margin: 0 auto; 
   }
 
 `;
 
 const ContentWrap = styled.div`
   h1 {
-    margin-bottom: 1rem;
     font-size: 30px;
+    @media(max-width: 650px){
+      font-size: 20px;
+    }
   }
   p {
     font-size: 19px;
     color: #000;
-    margin: 40px 0 40px 0;
+    margin: 2rem 0 2rem 0;
     text-align: center;
-    @media (max-width: 860px) {
-      width: 720px;
+    @media(max-width: 650px){
+      width: 100%;
+      font-size: 16px;
+      word-break: break-all;
     }
-    @media (max-width: 730px) {
-      width: 700px;
-    }
-    @media (max-width: 600px) {
-      width: 650px;
-    }
-    @media (max-width: 450px) {
-      width: 300px;
-      margin: 0 auto;
-    }
+
   }
 `;
 
@@ -96,8 +80,10 @@ const ShareWrapper = styled.div`
 `;
 
 const ReadingTime = styled.p`
-  color: #000;
+  color: #A09EA9;
+  font-size: 17px;
   margin-bottom: 1.5rem;
+
 `;
 
 interface Iprops {
@@ -124,7 +110,6 @@ const Post: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           <p>{children}</p>
         </ContentWrap>
       </PostWrapper>
-
       <ShareWrapper>
         <ShareButtons
           location={`https://lhowsam.com/blog/${frontMatter.slug}`}
