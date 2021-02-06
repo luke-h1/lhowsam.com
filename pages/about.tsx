@@ -85,7 +85,7 @@ const About: NextPage = () => {
                 style={{ marginBottom: '4rem' }}
                 data-testid="about-intro2"
               >
-                I am currently Learning Typescript, React, Next JS & various
+                I am currently learning Typescript, React, Next JS & various
                 testing technologies.
               </p>
             </SectionOne>
