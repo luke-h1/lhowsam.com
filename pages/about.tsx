@@ -5,6 +5,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import { NextPage } from 'next';
 import { theme } from '@styles/Theme';
 import { HighLight } from '@components/Intro/IntroStyles';
+import TimeLine from '@components/Timeline/Timeline';
 
 const Title = styled.h1`
   text-align: center;
@@ -97,6 +98,7 @@ const About: NextPage = () => {
               />
             </SectionTwo>
           </Grid>
+          <TimeLine />
         </Flex>
       </ThemeProvider>
     </>
