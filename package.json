@@ -69,6 +69,7 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "globby": "^11.0.2",
+    "husky": "^4.3.8",
     "identity-obj-proxy": "^3.0.0",
     "image-size": "^0.9.3",
     "jest": "^26.6.3",
@@ -90,6 +91,11 @@
       "^@templates/(.*)$": "<rootDir>/templates/$1",
       "^@lib/(.*)$": "<rootDir>/lib/$1",
       "^@styles/(.*)$": "<rootDir>/styles/$1"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
     }
   }
 }
