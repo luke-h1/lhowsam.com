@@ -87,8 +87,8 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
         <PostTitle>{frontMatter.title}</PostTitle>
         <ReadingTime>{frontMatter.readingTime.text}</ReadingTime>
         <Social>
-          {frontMatter.github ? <Github url={frontMatter.github} /> : null}
-          {frontMatter.site ? <Site url={frontMatter.site} /> : null}
+          {frontMatter.github && <Github url={frontMatter.github} />}
+          {frontMatter.site && <Site url={frontMatter.site} />}
         </Social>
         <ContentWrap>
           <p>{children}</p>
