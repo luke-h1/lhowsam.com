@@ -98,7 +98,6 @@ const About: NextPage = () => {
               />
             </SectionTwo>
           </Grid>
-          <TimeLine />
         </Flex>
       </ThemeProvider>
     </>
