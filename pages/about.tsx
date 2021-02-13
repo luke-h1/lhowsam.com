@@ -11,14 +11,6 @@ const Title = styled.h1`
   margin-bottom: 4rem;
 `;
 
-const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  @media (max-width: 632px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-`;
-
 const SectionOne = styled.section`
   width: 100%;
   p {
@@ -35,16 +27,6 @@ const SectionTwo = styled.section`
 
 const StyledImage = styled(Image)`
   border-radius: 10px;
-`;
-
-const Flex = styled.div`
-  margin: 0 auto;
-  max-width: 1000px;
-  min-height: 50vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `;
 
 const Intro = styled.h1`
@@ -64,8 +46,8 @@ const About: NextPage = () => {
       />
       <ThemeProvider theme={theme}>
         <Title>About</Title>
-        <Flex>
-          <Grid>
+        <div className="flex flex-col align-center justify-center items-center">
+          <div className="grid grid-flow-col mw-1000 max-w-screen-lg">
             <SectionOne>
               <Intro>
                 Hey, I'm
@@ -74,16 +56,14 @@ const About: NextPage = () => {
               </Intro>
               <p
                 data-testid="about-intro1"
+                className="mt-2.5 pl-2 text-base w-5"
               >
                 I'm passionate about solving technical problems and coming up
                 with creative solutions.I enjoy working with the JAMstack,
                 React, Node, testing technologies + practices & various dev-ops
                 technologies
               </p>
-              <p
-                style={{ marginBottom: '4rem' }}
-                data-testid="about-intro2"
-              >
+              <p style={{ marginBottom: '4rem' }} data-testid="about-intro2">
                 I am currently learning Typescript, React, Next JS & various
                 testing technologies.
               </p>
@@ -96,8 +76,8 @@ const About: NextPage = () => {
                 data-testid="photo"
               />
             </SectionTwo>
-          </Grid>
-        </Flex>
+          </div>
+        </div>
       </ThemeProvider>
     </>
   );
