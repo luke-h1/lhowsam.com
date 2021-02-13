@@ -8,7 +8,7 @@ module.exports = {
     },
     minWidth: {
       sm: '500px',
-
+      '1/4': '25%',
     },
     extend: {},
   },

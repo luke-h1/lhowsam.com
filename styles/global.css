@@ -2,14 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-code[class*='language-'],
-pre[class*='language-'] {
+code[class*="language-"],
+pre[class*="language-"] {
   @apply text-gray-800 text-gray-50;
 }
 
 pre::-webkit-scrollbar {
   display: none;
 }
+
 
 pre {
   -ms-overflow-style: none; /* IE and Edge */
@@ -32,8 +33,8 @@ pre {
   @apply bg-gray-50 border  bg-gray-900;
 }
 
-.prose pre > p { 
-  @apply mt-4 mb-4 leading-3	;
+.prose pre > p {
+  @apply mt-4 mb-4 leading-3;
 }
 
 .prose code {
@@ -44,4 +45,3 @@ pre {
   /* Don't apply styles to next/image */
   @apply m-0;
 }
-
