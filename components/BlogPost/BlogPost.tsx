@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import Link from 'next/link';
 import { parseISO, format } from 'date-fns';
 
-
 interface Iprops {
   title: string;
   summary: string;

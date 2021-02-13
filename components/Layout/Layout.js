@@ -1,7 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
-import { ThemeProvider } from 'styled-components';
-import Head from 'next/head';
-import { GlobalStyle } from '@styles/GlobalStyles';
+import { ThemeProvider } from '@emotion/react';
+import { Reset } from '@styles/reset';
 import { theme } from '@styles/Theme';
 import { useState } from 'react';
 import MDXComponents from '@components/MDXComponents/MDXComponents';
@@ -17,7 +16,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <GlobalStyle />
+      {Reset}
       <ThemeProvider theme={theme}>
         <MDXProvider components={MDXComponents}>
           <Sidebar isOpen={isOpen} toggle={toggle} />

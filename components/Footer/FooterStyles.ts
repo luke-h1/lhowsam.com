@@ -18,7 +18,7 @@ export const FooterWrap = styled.div`
   padding-bottom: 2rem;
 
   max-width: 100vw;
-  background: ${(props) => props.theme.backgroundColor};
+  background: ${(props) => props.theme.colors.backgroundColor};
 `;
 
 export const SocialMedia = styled.section`
@@ -46,11 +46,11 @@ export const SocialIcons = styled.div`
 `;
 
 export const SocialIconLink = styled.a`
-  color: ${(props) => props.theme.darkTextColor};
+  color: ${(props) => props.theme.colors.darkTextColor};
   margin: 0 25px 0 25px;
   font-size: 25px;
   &:hover {
-    color: ${(props) => props.theme.blueTextColor};
+    color: ${(props) => props.theme.colors.blueTextColor};
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
@@ -65,7 +65,7 @@ export const LinkWrapper = styled.div`
   a {
     margin: 0 8px 0 8px;
     &:hover {
-      color: ${(props) => props.theme.blueTextColor};
+      color: ${(props) => props.theme.colors.blueTextColor};
       transform: scale(1.15);
       transition: scale ease 0.5s;
     }
@@ -73,5 +73,5 @@ export const LinkWrapper = styled.div`
 `;
 
 export const LinkItem = styled(Link)`
-  color: ${(props) => props.theme.darkTextColor} !important;
+  color: ${(props) => props.theme.colors.darkTextColor} !important;
 `;
