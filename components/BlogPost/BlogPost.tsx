@@ -3,14 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { parseISO, format } from 'date-fns';
 
-const Article = styled.article`
-  height: 80px;
-  width: 500px;
-  margin: 2rem 0 2rem 0;
-  @media (max-width: 550px) {
-    width: 350px;
-  }
-`;
+
 
 const Header = styled.header`
   h1 {
@@ -37,7 +30,7 @@ const BlogPost: FC<Iprops> = ({ title, slug, date }) => {
     <>
       <Link href={`/blog/${slug}`}>
         <a>
-          <article className="min-h-sm min-w-sm	 mt-2 mb-2 ">
+          <article className="min-h-sm min-w-sm	 mt-4 mb-4 ">
             <Header>
               <h1>{title}</h1>
               <p>{format(parseISO(date), 'MMMM dd, yyyy')}</p>

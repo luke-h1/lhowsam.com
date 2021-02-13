@@ -2,36 +2,10 @@ import React, { FC } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 
-const Card = styled.div`
-  padding: 0.75rem;
-  width: 500px;
-  margin: 1rem 0 1rem 0;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  &:hover,
-  &:focus,
-  &:active {
-    transition: all 0.5s;
-    border-color: #0070f3; // do other stuff here
-    cursor: pointer;
-  }
-  h3 {
-    margin: 0 0 1rem 0;
-    font-size: 22px;
-  }
-  p {
-    margin: 0;
-    font-size: 16px;
-    line-height: 1.6;
-  }
-  @media (max-width: 550px) {
-    width: 350px;
-  }
-`;
+//   @media (max-width: 550px) {
+//     width: 350px;
+//   }
+// `;
 
 interface Iprops {
   title: string;
@@ -39,17 +13,15 @@ interface Iprops {
   slug: string;
 }
 
-const ProjectCard: FC<Iprops> = ({
-  title, summary, slug,
-}) => {
+const ProjectCard: FC<Iprops> = ({ title, summary, slug }) => {
   return (
     <>
       <Link href={`/projects/${slug}`}>
         <a>
-          <Card>
-            <h3>{title}</h3>
+          <div className="justify-center align-center p-3 mb-4 mt-4  min-w-sm min-h-md max-w-sm  text-left border-black-500 border-opacity-500  rounded-md border-2 ">
+            <h3 className="text-left mb-1 ">{title}</h3>
             <p>{summary}</p>
-          </Card>
+          </div>
         </a>
       </Link>
     </>

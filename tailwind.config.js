@@ -4,9 +4,11 @@ module.exports = {
   theme: {
     minHeight: {
       sm: '80px',
+      md: '100px',
     },
     minWidth: {
       sm: '500px',
+      
     },
     extend: {},
   },
