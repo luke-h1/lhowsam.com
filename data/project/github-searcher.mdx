@@ -3,7 +3,6 @@ title: 'Github Searcher'
 summary: 'React github search'
 image: '/static/images/express-api/code.png'
 github: 'https://github.com/luke-h1/github-search'
-site: 'https://gh-search.xyz/'
 ---
 
 
@@ -13,6 +12,7 @@ This was my first medium sized react project that I took on. At first taking on 
 The application is very simple (it just pulls data from the github api about a user and displays that to you based on search term) however it proved to be extremely useful in reinforcing React concepts which I didn't feel too confident with. 
 
 
+# Express / Node.JS implementation 
 
 When I finished the Frontend for this I ran into a major problem. As you may be aware the github API requires authentication in order to access it's API (if you want a higher request limit)
 
@@ -21,15 +21,8 @@ In order to avoid this risk I decided to build an Express API which would act as
 
 
 
+# takeaways 
+
 I learnt how to build this API (and follow some best practices such as setting up rate limiting) by taking <a href="https://twitter.com/scotups">Scott Moss's </a> API design in Node v3 Frontend masters course. 
 While I knew how to build a basic express server I wanted to gain some experience on how to build a robust & reliable API 
 
-Picture of API: 
-
-<Image 
-  alt={`Picture of express code`}
-  src={`/static/images/express-api/code.png`}
-  width={1200}
-  height={900}
-  priority 
-  /> 

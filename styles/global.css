@@ -33,7 +33,7 @@ pre {
 }
 
 .prose pre > p { 
-  @apply mt-4 mb-4;
+  @apply mt-4 mb-4 leading-3	;
 }
 
 .prose code {
@@ -44,3 +44,4 @@ pre {
   /* Don't apply styles to next/image */
   @apply m-0;
 }
+
