@@ -1,6 +1,8 @@
 /* eslint-disable react/prop-types */
-import { FiGithub, FiTwitter, FiMail, FiLinkedin } from 'react-icons/fi';
-import { ThemeProvider } from 'styled-components';
+import {
+  FiGithub, FiTwitter, FiMail, FiLinkedin,
+} from 'react-icons/fi';
+import { ThemeProvider } from '@emotion/react';
 import {
   FooterContainer,
   FooterWrap,

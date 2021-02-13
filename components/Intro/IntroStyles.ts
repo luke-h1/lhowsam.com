@@ -24,7 +24,6 @@ export const DescWrap = styled.div`
     width: 50%;
     font-size: 20px;
     line-height: 1.4;
-    color: ${(props) => props.theme.colors.greyTextColor};
     @media (max-width: 450px) {
       width: 80%;
     }
@@ -33,6 +32,6 @@ export const DescWrap = styled.div`
 
 export const Title = styled.h1`
   font-size: clamp(1rem, 8vw, 2.7rem);
-  color: ${(props) => props.theme.colors.darkTextColor};
+  color: ${(props) => props.theme.colors.darkTitleColor};
   text-align: center;
 `;

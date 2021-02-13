@@ -1,8 +1,9 @@
 /* eslint-disable */
+import { Theme } from "@emotion/react";
 import { light, dark, blue, green, neutral } from "./Colors";
 import { PrimaryFont } from "./Fonts";
 
-export const theme = {
+export const theme: Theme = {
   colors: {
     primaryBackgroundColor: light[100],
     backgroundColor: "#fff",
