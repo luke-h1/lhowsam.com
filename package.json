@@ -102,10 +102,9 @@
   },
   "husky": {
     "hooks": {
-      "applypatch-msg": "echo \"[Husky] applypatch-msg\"",
-      "pre-applypatch": "echo \"[Husky] pre-applypatch\"",
-      "post-applypatch": "echo \"[Husky] post-applypatch\"",
-      "pre-commit": "echo \"[Husky] pre-commit\" cross-env npm run lint && cross-env npm run type-check"
+      "pre-commit": "npm run lint && npm run type-check"
     }
   }
+
+  
 }
