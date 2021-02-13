@@ -9,4 +9,5 @@ export const Container = styled.div`
   margin: 0 auto;
   padding-right: 50px;
   padding-left: 50px;
+  
 `;
