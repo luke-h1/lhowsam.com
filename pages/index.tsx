@@ -31,13 +31,13 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
       />
       <ThemeProvider theme={theme}>
         <Intro theme={theme} />
-        <h1 className="mt-1 ml-0 mb-1 mr-0 text-center font-bold">Recent Projects</h1>
-        <div className="flex flex-col justify-center items-center mb-4 ml-0 mr-0 mt-0">
+        <h1 className="mt-1 ml-0 mb-6 mr-0 text-center font-bold">Recent Projects</h1>
+        <div className="flex flex-col justify-center items-center mb-8 ml-0 mr-0 mt-0">
           {projects.map((frontMatter) => (
             <ProjectCard key={frontMatter.title} {...frontMatter} />
           ))}
         </div>
-        <h1 className="mt-1 ml-0 mb-1 mr-0 text-center font-bold">Recent Blog Posts</h1>
+        <h1 className="mt-1 ml-0 mb-6 mr-0 text-center font-bold">Recent Blog Posts</h1>
         <div className="flex flex-col justify-center items-center mb-4 ml-0 mr-0 mt-0">
           {filterPosts.map((frontMatter) => (
             <BlogPost key={frontMatter.title} {...frontMatter} />
