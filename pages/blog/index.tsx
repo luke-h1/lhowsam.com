@@ -1,6 +1,7 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@emotion/react';
+import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { getAllFilesFrontmatter } from '@lib/mdx';
 import { theme } from '@styles/Theme';
@@ -18,32 +19,10 @@ const Wrapper = styled.div`
   
 `;
 
-// const Search = styled.input`
-//   padding: 1.25rem;
-//   text-align: left;
-//   color: inherit;
-//   text-decoration: none;
-//   border: 1px solid #000;
-//   border-radius: 10px;
-// `;
-
-// const Title = styled.h1`
-//   text-align: center;
-//   margin-bottom: 5rem;
-// `;
-
 const Heading = styled.h1`
   text-align: center;
   margin-bottom: 2rem;
 `;
-
-// const SearchWrapper = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   margin-bottom: 4rem;
-// `;
 
 const Intro = styled.p`
   text-align: center;
@@ -61,15 +40,15 @@ const Index: NextPage = ({ posts }: any) => {
 
   return (
     <>
-      <NextSeo
-        title="Blog | lhowsam.com"
-        canonical="https://lhowsam.com/blog"
-        openGraph={{
-          url: 'https://lhowsam.com/blog',
-          title: 'Blog | lhowsam.com',
-        }}
-      />
       <ThemeProvider theme={theme}>
+        <NextSeo
+          title="Blog | lhowsam.com"
+          canonical="https://lhowsam.com/blog"
+          openGraph={{
+            url: 'https://lhowsam.com/blog',
+            title: 'Blog | lhowsam.com',
+          }}
+        />
         <Wrapper>
           <>
             <Heading>{title}</Heading>

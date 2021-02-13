@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import Link from 'next/link';
 
 export const SidebarContainer = styled.aside`

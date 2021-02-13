@@ -8,7 +8,7 @@ import {
   LinkedinIcon,
 } from 'react-share';
 
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const ShareBtnWrap = styled.div`
   display: flex;

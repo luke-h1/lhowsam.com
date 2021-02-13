@@ -1,6 +1,7 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@emotion/react';
+import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { theme } from '@styles/Theme';
 import { getAllFilesFrontmatter } from '@lib/mdx';
@@ -30,15 +31,15 @@ const Flex = styled.div`
 const Index: NextPage = ({ projects }: any) => {
   return (
     <>
-      <NextSeo
-        title="Projects | lhowsam.com"
-        canonical="https://lhowsam.com/projects"
-        openGraph={{
-          url: 'https://lhowsam.com/blog',
-          title: 'Projects | lhowsam.com',
-        }}
-      />
       <ThemeProvider theme={theme}>
+        <NextSeo
+          title="Projects | lhowsam.com"
+          canonical="https://lhowsam.com/projects"
+          openGraph={{
+            url: 'https://lhowsam.com/blog',
+            title: 'Projects | lhowsam.com',
+          }}
+        />
         <Wrapper>
           <Title>Projects</Title>
           <Intro />

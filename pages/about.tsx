@@ -1,7 +1,8 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@emotion/react';
+import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { theme } from '@styles/Theme';
 import { HighLight } from '@components/Intro/IntroStyles';
@@ -26,15 +27,15 @@ const Intro = styled.h1`
 const About: NextPage = () => {
   return (
     <>
-      <NextSeo
-        title="About | lhowsam.com"
-        canonical="https://lhowsam.com/about"
-        openGraph={{
-          url: 'https://lhowsam.com/about',
-          title: 'About | lhowsam.com',
-        }}
-      />
       <ThemeProvider theme={theme}>
+        <NextSeo
+          title="About | lhowsam.com"
+          canonical="https://lhowsam.com/about"
+          openGraph={{
+            url: 'https://lhowsam.com/about',
+            title: 'About | lhowsam.com',
+          }}
+        />
         <Title>About</Title>
         <div className="flex flex-col align-center justify-center items-center">
           <div className="grid grid-flow-col mw-1000 max-w-screen-lg">
