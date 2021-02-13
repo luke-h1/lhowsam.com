@@ -5,8 +5,8 @@ Source code for my personal website & blog.
 ## Tech Stack: 
 - [React](https://github.com/facebook/react)
 - [Next](https://github.com/vercel/next.js)
-- [tailwindcss](https://tailwindcss.com/)
-- [styled-components](https://github.com/styled-components)
+- [tailwindcss](https://github.com/tailwindlabs/tailwindcss)
+- [emotion](https://github.com/emotion-js/emotion)
 - [polished](https://github.com/styled-components/polished)
 - [react-icons](https://github.com/react-icons/react-icons)
 - [mdx](https://github.com/mdx-js/mdx)
