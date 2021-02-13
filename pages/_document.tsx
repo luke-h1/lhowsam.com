@@ -1,8 +1,5 @@
 import Document, {
-  Html,
-  Head,
-  Main,
-  NextScript,
+  Html, Head, Main, NextScript,
 } from 'next/document';
 import { GA_TRACKING_ID } from '@lib/gtag';
 
@@ -11,12 +8,10 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            rel="preload"
-            href="/fonts/NotoSansJP-Regular.woff2"
-            as="font"
-            type="font/woff2"
-            crossOrigin="anonymous"
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap"
+            rel="stylesheet"
           />
           <script
             async
