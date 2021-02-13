@@ -14,7 +14,7 @@ export const Card = styled.div`
   &:focus,
   &:active {
     transition: all 0.5s;
-    border-color: #0070f3; // do other stuff here
+    border-color: #0070f3;
     cursor: pointer;
   }
   h3 {
