@@ -5,6 +5,7 @@ Source code for my personal website & blog.
 ## Tech Stack: 
 - [React](https://github.com/facebook/react)
 - [Next](https://github.com/vercel/next.js)
+- [tailwindcss](https://tailwindcss.com/)
 - [styled-components](https://github.com/styled-components)
 - [polished](https://github.com/styled-components/polished)
 - [react-icons](https://github.com/react-icons/react-icons)
@@ -12,11 +13,12 @@ Source code for my personal website & blog.
 - [typescript](https://github.com/Microsoft/TypeScript)
 - [vercel](https://vercel.com/)
 
+
 <hr />
 
 ## tests: 
 
-![Node.js Builds (10, 12, 14)](https://github.com/luke-h1/lhowsam.com/workflows/Node.js%20CI/badge.svg)
+![Node.js Builds](https://github.com/luke-h1/lhowsam.com/workflows/Node.js%20CI/badge.svg)
 
 ![CodeQL](https://github.com/luke-h1/lhowsam.com/workflows/CodeQL/badge.svg)
 
@@ -25,3 +27,4 @@ Source code for my personal website & blog.
 ![Type check](https://github.com/luke-h1/lhowsam.com/workflows/Type%20check/badge.svg)
 
 ![unit tests](https://github.com/luke-h1/lhowsam.com/workflows/unit%20tests/badge.svg)
+
