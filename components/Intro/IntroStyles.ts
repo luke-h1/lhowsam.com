@@ -32,6 +32,6 @@ export const DescWrap = styled.div`
 
 export const Title = styled.h1`
   font-size: clamp(1rem, 8vw, 2.7rem);
-  color: ${(props) => props.theme.colors.darkTitleColor};
+  color: ${(props) => props.theme.colors.primaryColor};
   text-align: center;
 `;
