@@ -99,12 +99,5 @@
       "^@lib/(.*)$": "<rootDir>/lib/$1",
       "^@styles/(.*)$": "<rootDir>/styles/$1"
     }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint && npm run type-check"
-    }
   }
-
-  
 }

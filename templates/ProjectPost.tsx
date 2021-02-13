@@ -21,7 +21,7 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
         }}
       />
       <article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
-        <h1 className="text-2xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+        <h1 className="text-2xl md:text-5xl leading-4	 mb-4 text-black dark:text-white">
           {frontMatter.title}
         </h1>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-8">
@@ -34,7 +34,7 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
             {frontMatter.readingTime.text}
           </p>
         </div>
-        <div className="prose  max-w-none w-full mt-4 mb-4">{children}</div>
+        <div className="prose  max-w-none w-full mt-4 mb-4 leading-8">{children}</div>
 
         <div className="text-sm text-gray-700 dark:text-gray-300 flex flex-col align-center justify-center mx-auto py-5">
           <ShareButtons

@@ -18,7 +18,7 @@ pre {
 }
 
 .remark-code-title {
-  @apply text-gray-400 text-gray-200 px-5 py-3 rounded-t bg-gray-200 bg-gray-800 text-sm font-mono font-bold;
+  @apply text-gray-400 text-gray-200 px-5 py-5 rounded-t bg-gray-200 bg-gray-800 text-sm font-mono font-bold;
 }
 
 .remark-code-title + pre {
@@ -34,7 +34,7 @@ pre {
 }
 
 .prose pre > p {
-  @apply mt-4 mb-4 leading-3;
+  @apply mt-4 mb-4 leading-4;
 }
 
 .prose code {
