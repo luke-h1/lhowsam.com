@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import styled from '@emotion/styled';
 import Link from 'next/link';
 import { parseISO, format } from 'date-fns';
 
@@ -9,18 +10,40 @@ interface Iprops {
   date: string;
 }
 
+const Article = styled.article`
+  min-width: 500px;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0 1rem 0;
+  @media(max-width: 500px){
+    min-width: 350px;
+  }
+  header {
+    min-width: 500px;
+    h2 {
+      font-weight: 300;
+      margin-bottom: 2rem;
+      font-size: 26px;
+    }
+    p {
+      margin: 1rem 0 1rem 0;
+      line-height: 1.6;
+    }
+  }
+`;
+
 const BlogPost: FC<Iprops> = ({ title, slug, date }) => {
   return (
     <>
       <Link href={`/blog/${slug}`}>
         <a>
-          <article className="min-h-sm min-w-sm	 mt-6 mb-6 ">
+          <Article>
             <header>
-              <h1 className="mb-7 text-2xl text-bold">{title}</h1>
-              <p className="text-1xl mt-1 mb-1 line-height-2">{format(parseISO(date), 'MMMM dd, yyyy')}</p>
+              <h2>{title}</h2>
+              <p>{format(parseISO(date), 'MMMM dd, yyyy')}</p>
             </header>
             <hr style={{ color: '#DDDEDF' }} />
-          </article>
+          </Article>
         </a>
       </Link>
     </>
