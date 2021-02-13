@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import styled, { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { GetStaticProps, NextPage } from 'next';
 import Intro from '@components/Intro/Intro';
 import { theme } from '@styles/Theme';
@@ -9,31 +9,6 @@ import { getAllFilesFrontmatter } from '@lib/mdx';
 import BlogPost from '@components/BlogPost/BlogPost';
 import Project from '../types/Project';
 import Blog from '../types/Blog';
-
-const Flex = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 4rem;
-`;
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 4rem;
-  @media(max-width: 600px){
-    /* margin-left: 2rem; */
-  }
-`;
-
-const Title = styled.h1`
-   margin: 1rem 0 1rem 0;
-   text-align: center;
-   font-weight: 700;
-`;
 
 interface Iprops {
   posts: Blog;
@@ -56,18 +31,18 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
       />
       <ThemeProvider theme={theme}>
         <Intro theme={theme} />
-        <Title>Recent Projects</Title>
-        <Flex>
+        <h1 className="mt-1 ml-0 mb-1 mr-0 text-center font-bold">Recent Projects</h1>
+        <div className="flex flex-col justify-center items-center mb-4 ml-0 mr-0 mt-0">
           {projects.map((frontMatter) => (
             <ProjectCard key={frontMatter.title} {...frontMatter} />
           ))}
-        </Flex>
-        <Title>Recent Blog Posts</Title>
-        <Container>
+        </div>
+        <h1 className="mt-1 ml-0 mb-1 mr-0 text-center font-bold">Recent Blog Posts</h1>
+        <div className="flex flex-col justify-center items-center mb-4 ml-0 mr-0 mt-0">
           {filterPosts.map((frontMatter) => (
             <BlogPost key={frontMatter.title} {...frontMatter} />
           ))}
-        </Container>
+        </div>
       </ThemeProvider>
     </>
   );
