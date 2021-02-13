@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { FunctionComponent } from 'react';
 import { parseISO, format } from 'date-fns';
 import { NextSeo } from 'next-seo';
@@ -16,31 +17,30 @@ const PostWrapper = styled.div`
   h1 {
     text-align: left;
     margin: 3rem 0 3rem 0;
-    @media(max-width: 860px){
+    @media (max-width: 860px) {
       text-align: center;
       width: 100%;
     }
   }
-  pre { 
+  pre {
     white-space: pre-wrap;
     tab-size: 2;
-    background: #F2F2F2;
+    background: #f2f2f2;
     color: #000;
     padding: 1.2rem;
     text-align: left;
   }
-  li { 
+  li {
     list-style-type: none;
     text-align: left;
-    margin: 0 auto; 
+    margin: 0 auto;
   }
-
 `;
 
 const ContentWrap = styled.div`
   h1 {
     font-size: 30px;
-    @media(max-width: 650px){
+    @media (max-width: 650px) {
       font-size: 20px;
     }
   }
@@ -49,12 +49,11 @@ const ContentWrap = styled.div`
     color: #000;
     margin: 2rem 0 2rem 0;
     text-align: center;
-    @media(max-width: 650px){
+    @media (max-width: 650px) {
       width: 100%;
       font-size: 16px;
       word-break: break-all;
     }
-
   }
 `;
 
@@ -80,10 +79,9 @@ const ShareWrapper = styled.div`
 `;
 
 const ReadingTime = styled.p`
-  color: #A09EA9;
+  color: #a09ea9;
   font-size: 17px;
   margin-bottom: 1.5rem;
-
 `;
 
 interface Iprops {
@@ -102,19 +100,20 @@ const Post: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           title: `${frontMatter.title} | lhowsam.com`,
         }}
       />
-      <PostWrapper>
-        <PostTitle>{frontMatter.title}</PostTitle>
-        <Small>{format(parseISO(frontMatter.date), 'MMMM dd, yyyy')}</Small>
-        <ReadingTime>{frontMatter.readingTime.text}</ReadingTime>
-        <ContentWrap>
-          <p>{children}</p>
-        </ContentWrap>
-      </PostWrapper>
-      <ShareWrapper>
-        <ShareButtons
-          location={`https://lhowsam.com/blog/${frontMatter.slug}`}
-        />
-      </ShareWrapper>
+      <div className="container-lg">
+        <div className="mb-8 w-full">
+          <div className="flex-col  px-8 py-8 flex-wrap md:flex-row justify-center">
+            <h1 className="text-lg md:text-xl font-medium mb-2 text-center w-full text-gray-900 dark:text-gray-100">
+              {frontMatter.title}
+            </h1>
+            <div className="flex-col justify-center align-center max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm justify-items-center m-auto">
+              <p className="text-gray-600 dark:text-gray-400 mb-4 mt-4 text-lg">
+                {children}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };
