@@ -46,11 +46,11 @@ export const SocialIcons = styled.div`
 `;
 
 export const SocialIconLink = styled.a`
-  color: ${(props) => props.theme.colors.darkTextColor};
+  color: ${(props) => props.theme.colors.darkTitleColor};
   margin: 0 25px 0 25px;
   font-size: 25px;
   &:hover {
-    color: ${(props) => props.theme.colors.blueTextColor};
+    color: ${(props) => props.theme.colors.darkTitleColor};
     transform: scale(1.15);
     transition: scale ease 0.5s;
   }
@@ -65,7 +65,7 @@ export const LinkWrapper = styled.div`
   a {
     margin: 0 8px 0 8px;
     &:hover {
-      color: ${(props) => props.theme.colors.blueTextColor};
+      color: ${(props) => props.theme.colors.PrimaryHoverColor};
       transform: scale(1.15);
       transition: scale ease 0.5s;
     }
@@ -73,5 +73,5 @@ export const LinkWrapper = styled.div`
 `;
 
 export const LinkItem = styled(Link)`
-  color: ${(props) => props.theme.colors.darkTextColor} !important;
+  color: ${(props) => props.theme.colors.PrimaryHoverColor};
 `;
