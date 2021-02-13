@@ -5,7 +5,6 @@ import mdxPrism from 'mdx-prism';
 import path from 'path';
 import readingTime from 'reading-time';
 import renderToString from 'next-mdx-remote/render-to-string';
-import { FaCode } from 'react-icons/fa';
 import MDXComponents from '../components/MDXComponents/MDXComponents';
 
 const root = process.cwd();

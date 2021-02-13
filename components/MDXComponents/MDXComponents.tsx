@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { FunctionComponent } from 'react';
-import styled from 'styled-components';
 
 interface Iprops {
   href: string;
@@ -14,14 +13,12 @@ const CustomLink: FunctionComponent<Iprops> = (props) => {
   if (isInternalLink) {
     return (
       <Link href={href}>
-        <a {...props} />
+        <a {...props} style={{ color: 'blue' }} />
       </Link>
     );
   }
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 };
-
-
 
 const MDXComponents = {
   Image,
