@@ -33,6 +33,10 @@ pre {
   @apply bg-gray-50 border  bg-gray-900;
 }
 
+.prose p {
+  @apply mt-4 mb-4;
+}
+
 .prose pre > p {
   @apply mt-4 mb-4 leading-4;
 }
