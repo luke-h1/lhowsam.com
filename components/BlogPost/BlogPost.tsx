@@ -32,20 +32,18 @@ interface Iprops {
   date: string;
 }
 
-const BlogPost: FC<Iprops> = ({
-  title, slug, date,
-}) => {
+const BlogPost: FC<Iprops> = ({ title, slug, date }) => {
   return (
     <>
       <Link href={`/blog/${slug}`}>
         <a>
-          <Article>
+          <article className="min-h-sm min-w-sm	 mt-2 mb-2 ">
             <Header>
               <h1>{title}</h1>
               <p>{format(parseISO(date), 'MMMM dd, yyyy')}</p>
             </Header>
             <hr style={{ color: '#DDDEDF' }} />
-          </Article>
+          </article>
         </a>
       </Link>
     </>
