@@ -5,7 +5,6 @@ import {
 } from './IntroStyles';
 
 const Intro = ({ theme }) => {
-  console.log(theme);
   return (
     <ThemeProvider theme={theme}>
       <>
