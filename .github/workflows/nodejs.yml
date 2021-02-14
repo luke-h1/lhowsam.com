@@ -1,4 +1,4 @@
-name: CI /Node.js builds
+name: CI /Node.js builds (push / pull)
 
 on:
   push:
