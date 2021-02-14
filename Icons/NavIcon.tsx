@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { FiCode } from 'react-icons/fi';
 
 export const NavIcon = styled(FiCode)`

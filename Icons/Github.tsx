@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import React, { FunctionComponent } from 'react';
+import styled from '@emotion/styled';
+import { FunctionComponent } from 'react';
 import { FiGithub } from 'react-icons/fi';
 
 const External = styled.a`
