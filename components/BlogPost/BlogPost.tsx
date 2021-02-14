@@ -15,15 +15,28 @@ const Article = styled.article`
   display: flex;
   flex-direction: column;
   margin: 1rem 0 1rem 0;
-  @media(max-width: 500px){
-    min-width: 350px;
+  @media (max-width: 550px) {
+    max-width: 350px !important;
+    text-align: center;
   }
   header {
     min-width: 500px;
+    @media (max-width: 550px) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
     h2 {
       font-weight: 300;
       margin-bottom: 2rem;
-      font-size: 26px;
+      font-size: clamp(16px, 7vw, 26px);
+      @media (max-width: 550px) {
+        max-width: 70%;
+        text-align: center;
+        margin: 0 auto;
+      }
     }
     p {
       margin: 1rem 0 1rem 0;

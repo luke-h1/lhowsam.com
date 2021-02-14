@@ -1,5 +1,4 @@
-import React from 'react';
-import { FaBars } from 'react-icons/fa';
+import React, { FunctionComponent } from 'react';
 import { NavIcon } from '@icons/NavIcon';
 
 import {
@@ -11,9 +10,11 @@ import {
   NavItem,
   NavLinks,
   NavBtn,
+  Icon,
   // NavBtnLink,
 } from './NavStyles';
 import data from './data.json';
+
 
 const NavBar = ({ toggle, isScrolled }) => {
   return (
@@ -26,7 +27,7 @@ const NavBar = ({ toggle, isScrolled }) => {
             </a>
           </NavLogo>
           <MobileIcon onClick={toggle}>
-            <FaBars />
+            <Icon/>
           </MobileIcon>
           <NavMenu>
             {data.map((i) => (

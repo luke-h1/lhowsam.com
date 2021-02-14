@@ -13,25 +13,28 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 20vh;
-  min-width: 100vw;
-  margin: 1rem 0 1rem 0;
-  
+  text-align: center;  
 `;
 
 const Heading = styled.h1`
-  text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 5rem;
 `;
 
 const Intro = styled.p`
-  text-align: center;
-  margin-bottom: 2.5rem;
-  font-size: 18px;
+  font-size: 20px;
+  margin-bottom: 2rem;
 `;
 
-const title = 'blog';
-const description = 'Thoughts on React, Node, testing & tech in general';
+const Flex = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;  
+`;
+
+const title: string = 'blog';
+const description: string = 'Thoughts on React, Node, testing & tech in general';
 
 const Index: NextPage = ({ posts }: any) => {
   const filterPosts = posts.sort(
@@ -39,7 +42,7 @@ const Index: NextPage = ({ posts }: any) => {
   );
 
   return (
-    <>
+    <Wrapper>
       <ThemeProvider theme={theme}>
         <NextSeo
           title="Blog | lhowsam.com"
@@ -49,18 +52,16 @@ const Index: NextPage = ({ posts }: any) => {
             title: 'Blog | lhowsam.com',
           }}
         />
-        <Wrapper>
-          <>
-            <Heading>{title}</Heading>
-            <Intro>{description}</Intro>
-            {!filterPosts.length && 'No blog posts found'}
-            {filterPosts.map((frontMatter) => (
-              <BlogPost key={frontMatter.title} {...frontMatter} />
-            ))}
-          </>
-        </Wrapper>
+        <Heading>{title}</Heading>
+        <Intro>{description}</Intro>
+        <Flex>
+          {!filterPosts.length && 'No blog posts found'}
+          {filterPosts.map((frontMatter) => (
+            <BlogPost key={frontMatter.title} {...frontMatter} />
+          ))}
+        </Flex>
       </ThemeProvider>
-    </>
+    </Wrapper>
   );
 };
 

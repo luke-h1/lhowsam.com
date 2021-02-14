@@ -1,16 +1,17 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import styled from '@emotion/styled';
 import Link from 'next/link';
+import { FaBars } from 'react-icons/fa';
 
 export const Nav = styled.nav`
   background: #fff;
   height: 80px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   font-size: 1rem;
   position: sticky;
-  top: ${({ isScrolled }) => (isScrolled ? '-100%' : '0')};
+  top: ${({ isScrolled }: any) => (isScrolled ? '-100%' : '0')};
   z-index: 10;
 
   @media screen and (max-width: 960px) {
@@ -32,7 +33,7 @@ export const NavLogo = styled(Link)`
   color: #000;
   justify-self: flex-start;
   cursor: pointer;
-  font-size: 1.5rem;
+  font-size: 25px;
   display: flex;
   align-items: center;
   margin-left: 24px;
@@ -51,10 +52,15 @@ export const MobileIcon = styled.div`
     top: 0;
     right: 0;
     transform: translate(-100%, 60%);
-    font-size: 1.8rem;
+    font-size: 25px;
     cursor: pointer;
     color: #000;
   }
+`;
+
+export const Icon = styled(FaBars)`
+  font-size: 25px;
+  color: #000;
 `;
 
 export const NavMenu = styled.ul`

@@ -20,8 +20,6 @@ const Title = styled.h1`
   margin-bottom: 5rem;
 `;
 
-const Intro = styled.p``;
-
 const Flex = styled.div`
   display: flex;
   flex-direction: column;
@@ -42,7 +40,6 @@ const Index: NextPage = ({ projects }: any) => {
         />
         <Wrapper>
           <Title>Projects</Title>
-          <Intro />
           <Flex>
             {projects.map((frontMatter) => (
               <ProjectCard key={frontMatter.title} {...frontMatter} />
