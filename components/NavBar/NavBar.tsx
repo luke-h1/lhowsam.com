@@ -15,11 +15,15 @@ import {
 } from './NavStyles';
 import data from './data.json';
 
+interface Iprops {
+  toggle: any;
+}
 
-const NavBar = ({ toggle, isScrolled }) => {
+
+const NavBar: FunctionComponent<Iprops> = ({ toggle }) => {
   return (
     <>
-      <Nav isScrolled={isScrolled}>
+      <Nav>
         <NavbarContainer>
           <NavLogo href="/">
             <a>

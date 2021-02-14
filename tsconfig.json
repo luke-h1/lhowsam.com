@@ -34,6 +34,6 @@
     "__tests__/test.test.tsx",
     "components/Nav/NavStyles.ts",
     "lib/gtag.ts"
-, "components/Layout/Layout.js", "components/SideBar/SideBarStyles.js", "Icons/Logo.js", "styles/reset.js", "components/NavBar/NavBar.js"  ],
+, "components/Layout/Layout.tsx", "components/SideBar/SideBarStyles.tsx", "Icons/Logo.js", "styles/reset.js", "components/NavBar/NavBar.tsx", "components/SideBar/SideBar.js", "components/SideBar/SideBar.js"  ],
   "exclude": ["node_modules, __tests__"]
 }
