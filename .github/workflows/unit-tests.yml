@@ -1,4 +1,4 @@
-name: unit tests
+name: CI / Lint & typecheck
 
 on:
   push:
@@ -36,5 +36,5 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: Run unit tests
-        run: npm run test
+      - name: Run unit tests & type check
+        run: npm run test && npm run type-check 
