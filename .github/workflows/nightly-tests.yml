@@ -1,4 +1,4 @@
-name: Nightly unit tests
+name: CI / Nightly unit tests
 on: 
   schedule:
     - cron: '0 19 * * *'
