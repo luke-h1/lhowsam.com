@@ -18,13 +18,8 @@ Source code for my personal website & blog.
 
 ## tests: 
 
-![Node.js Builds](https://github.com/luke-h1/lhowsam.com/workflows/Node.js%20CI/badge.svg)
+![CI /Node.js builds](https://github.com/luke-h1/lhowsam.com/workflows/CI%20/Node.js%20builds/badge.svg)
 
-![CodeQL](https://github.com/luke-h1/lhowsam.com/workflows/CodeQL/badge.svg)
+![CI / Lint & typecheck](https://github.com/luke-h1/lhowsam.com/workflows/CI%20/%20Lint%20&%20typecheck/badge.svg)
 
 ![Nightly unit tests](https://github.com/luke-h1/lhowsam.com/workflows/Nightly%20unit%20tests/badge.svg)
-
-![Type check](https://github.com/luke-h1/lhowsam.com/workflows/Type%20check/badge.svg)
-
-![unit tests](https://github.com/luke-h1/lhowsam.com/workflows/unit%20tests/badge.svg)
-
