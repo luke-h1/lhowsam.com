@@ -19,7 +19,7 @@ pre {
 }
 
 .remark-code-title {
-  @apply text-gray-400 text-gray-200 px-5 py-5 rounded-t bg-gray-200 bg-gray-800 text-sm font-mono font-bold;
+  @apply text-gray-400 text-gray-200 px-5 py-5 rounded-t bg-gray-200 bg-gray-800 text-sm font-mono font-bold max-w-max;
 }
 
 .remark-code-title + pre {
@@ -49,4 +49,37 @@ pre {
 .prose img {
   /* Don't apply styles to next/image */
   @apply m-0;
+}
+
+/* Project & blog post styles */ 
+.markdown {
+	@apply mt-7 text-xl leading-8;
+}
+
+.markdown p,
+.markdown ul,
+.markdown ol,
+.markdown li,
+.markdown blockquote {
+  @apply mt-4 mb-4;
+}
+
+.markdown ul {
+	@apply list-inside list-disc;
+}
+
+.markdown ol {
+	@apply list-inside list-decimal;
+}
+
+.markdown blockquote {
+	@apply mb-5 -ml-5 pl-5 border-solid border-l-4 text-2xl italic leading-9;
+}
+
+.markdown a {
+	@apply underline;
+}
+
+.markdown h2 {
+	@apply text-3xl mb-7 font-black;
 }

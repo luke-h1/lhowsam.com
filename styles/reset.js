@@ -1,5 +1,5 @@
-import { css, Global } from "@emotion/react";
-import { normalize } from "polished";
+import { css, Global } from '@emotion/react';
+import { normalize } from 'polished';
 
 export const Reset = (
   <Global
