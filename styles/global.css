@@ -15,23 +15,23 @@ pre::-webkit-scrollbar {
 
 pre {
   -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; /* Firefox */ 
 }
 
 .remark-code-title {
-  @apply text-gray-400 text-gray-200 px-5 py-5 rounded-t bg-gray-200 bg-gray-800 text-sm font-mono font-bold max-w-max;
+  @apply text-gray-400 text-gray-200 px-5 py-5 rounded-t bg-gray-200 bg-gray-800 text-sm font-mono font-bold max-w-xs ;
 }
 
 .remark-code-title + pre {
-  @apply mt-0 rounded-t-none;
+  @apply mt-0 rounded-t-none ;
 }
 
 .mdx-marker {
-  @apply block -mx-4 px-4 bg-gray-100 bg-gray-800 border-l-4 border-blue-500;
+  @apply block -mx-1 px-4 bg-gray-100 bg-gray-800 border-l-4 border-blue-500 ;
 }
 
 .prose pre {
-  @apply bg-gray-50 border  bg-gray-900;
+  @apply bg-gray-50 border  bg-gray-900  sm:w-auto break-all ;
 }
 
 .prose p {
@@ -39,11 +39,11 @@ pre {
 }
 
 .prose pre > p {
-  @apply mt-4 mb-4 leading-4;
+  @apply mt-4 mb-4 leading-4 ;
 }
 
 .prose code {
-  @apply text-gray-400 text-gray-200 px-1 py-0.5 rounded-md bg-gray-100 bg-gray-900;
+  @apply text-gray-400 text-gray-200 px-1 py-0.5 rounded-md bg-gray-100 bg-gray-900 ;
 }
 
 .prose img {
@@ -61,7 +61,8 @@ pre {
 .markdown ol,
 .markdown li,
 .markdown blockquote {
-  @apply mt-4 mb-4;
+  @apply mt-4 mb-4 ;
+  
 }
 
 .markdown ul {
@@ -73,7 +74,7 @@ pre {
 }
 
 .markdown blockquote {
-	@apply mb-5 -ml-5 pl-5 border-solid border-l-4 text-2xl italic leading-9;
+	@apply mb-5 -ml-5 pl-5 border-solid border-l-4 text-2xl italic leading-9 ;
 }
 
 .markdown a {
