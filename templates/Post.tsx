@@ -27,7 +27,7 @@ const Post: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
               {frontMatter.title}
             </h1>
 
-            <p className="leading-7 mb-7 -mt-6">{frontMatter.date}</p>
+            <p className="leading-7 mb-7 -mt-1">{frontMatter.date}</p>
 
             {frontMatter.readingTime.text}
             <br />
