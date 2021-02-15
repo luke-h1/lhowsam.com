@@ -3,6 +3,7 @@ import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
 import Github from '@icons/Github';
 import Site from '@icons/Site';
+import { css } from '@emotion/react';
 import StyledContainer from './StyledContainer';
 
 interface Iprops {
@@ -22,28 +23,36 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
         }}
       />
       <StyledContainer>
-        <main>
-          <header>
-            <h1 className="mb-7 mt-14 text-5xl font-black">
-              {frontMatter.title}
-            </h1>
-
-            <p className="leading-7 mb-7 -mt-1">{frontMatter.date}</p>
-
-            {frontMatter.readingTime.text}
-            <br />
-            <br />
+        <article className="flex flex-col justify-center items-start max-w-2xl mx-auto mb-16 w-full">
+          <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+            {frontMatter.title}
+          </h1>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-">
             <ShareButtons
               location={`https://lhowsam.com/projects/${frontMatter.slug}`}
             />
-            <div className="flex flex-row align-left items-left mb-2">
-              {frontMatter.github && <Github url={frontMatter.github} />}
-              {frontMatter.site && <Site url={frontMatter.site} />}
+
+            <div className="flex items-center">
+              <p className="text-sm text-gray-700 dark:text-gray-300 flex mt-5">
+                {frontMatter.github && <Github url={frontMatter.github} />}
+                {frontMatter.site && <Site url={frontMatter.site} />}
+              </p>
             </div>
+
+            <p className="text-sm text-gray-500 min-w-32 mb-4 mt-2 md:mt-0">
+              {' • '}
+              {frontMatter.readingTime.text}
+            </p>
             <hr />
-          </header>
-          <article className="markdown prose">{children}</article>
-        </main>
+          </div>
+          <div className=" max-w-none w-full">
+            {children}
+          </div>
+          <div className="mt-8" />
+          <div className="text-sm text-gray-700 dark:text-gray-300">
+            {/* edit url goes here */}
+          </div>
+        </article>
       </StyledContainer>
 
     </>

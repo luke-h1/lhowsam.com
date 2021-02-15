@@ -30,11 +30,15 @@ const Post: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
               <p className="text-sm text-gray-700 dark:text-gray-300 ml-2">
                 {format(parseISO(frontMatter.date), 'MMMM dd, yyyy')}
               </p>
+              <ShareButtons
+                location={`https://lhowsam.com/blog/${frontMatter.slug}`}
+              />
             </div>
             <p className="text-sm text-gray-500 min-w-32 mt-2 md:mt-0">
               {frontMatter.readingTime.text}
               {' • '}
             </p>
+            <hr />
           </div>
           <div className=" max-w-none w-full">
             {children}
@@ -44,27 +48,6 @@ const Post: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
             {/* edit url goes here */}
           </div>
         </article>
-
-        {/* <main>
-          <header>
-            <h1 className="mb-7 mt-14 text-5xl font-black">
-              {frontMatter.title}
-            </h1>
-
-            <p className="leading-7 mb-7 -mt-1">{frontMatter.date}</p>
-
-            {frontMatter.readingTime.text}
-            <br />
-            <br />
-
-            {format(parseISO(frontMatter.date), 'MMMM dd, yyyy')}
-            <ShareButtons
-              location={`https://lhowsam.com/blog/${frontMatter.slug}`}
-            />
-            <hr />
-          </header>
-          <article className="markdown prose">{children}</article>
-        </main> */}
       </StyledContainer>
     </>
   );
