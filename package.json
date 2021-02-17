@@ -22,7 +22,7 @@
     "@emotion/styled": "^11.1.5",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@next/mdx": "^10.0.5",
+    "@next/mdx": "^10.0.7",
     "@tailwindcss/typography": "^0.4.0",
     "autoprefixer": "^10.2.4",
     "cross-env": "^7.0.3",
