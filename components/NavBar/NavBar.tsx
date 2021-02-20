@@ -16,9 +16,8 @@ import {
 import data from './data.json';
 
 interface Iprops {
-  toggle: any;
+  toggle: () => void;
 }
-
 
 const NavBar: FunctionComponent<Iprops> = ({ toggle }) => {
   return (
@@ -31,7 +30,7 @@ const NavBar: FunctionComponent<Iprops> = ({ toggle }) => {
             </a>
           </NavLogo>
           <MobileIcon onClick={toggle}>
-            <Icon/>
+            <Icon />
           </MobileIcon>
           <NavMenu>
             {data.map((i) => (

@@ -1,13 +1,15 @@
 import { useEffect } from 'react';
+import type { AppProps } from 'next/app';
+
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout/Layout';
 import * as gtag from '../lib/gtag';
-import '../styles/global.css';
+import '../styles/tailwind.css';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   useEffect(() => {
-    const handleRouteChange = (url) => {
+    const handleRouteChange = (url: string) => {
       gtag.pageview(url);
     };
     router.events.on('routeChangeComplete', handleRouteChange);

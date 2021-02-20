@@ -14,12 +14,10 @@ const generateSitemap = async () => {
     .map((page) => {
       const path = page
         .replace('pages', '')
-        .replace('_content', '')
+        .replace('data', '')
         .replace(/(.tsx|.ts)/, '')
         .replace('.mdx', '');
-      // Remove the word index from route
       const route = path === '/index' ? '' : path;
-      // Build url portion of sitemap.xml
       return `<url><loc>https://lhowsam.com${route}</loc></url>`;
     })
     .join('');
