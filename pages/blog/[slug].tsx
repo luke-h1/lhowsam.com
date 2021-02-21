@@ -25,7 +25,7 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = async ({ params } => {
+export const getStaticProps = async ({ params }) => {
   const post = await getFileBySlug('blog', params.slug);
   return { props: post };
 };
