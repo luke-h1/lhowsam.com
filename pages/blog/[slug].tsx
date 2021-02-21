@@ -2,7 +2,7 @@ import hydrate from 'next-mdx-remote/hydrate';
 import { NextPage } from 'next';
 import { getFiles, getFileBySlug } from '@lib/mdx';
 import Post from '@templates/Post';
-import MDXComponents from '@components/MDXComponents/MDXComponents';
+import MDXComponents from '@components/MDXComponents';
 
 const Blog: NextPage = ({ mdxSource, frontMatter }: any) => {
   const content = hydrate(mdxSource, {
@@ -25,7 +25,7 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps = async ({ params } => {
   const post = await getFileBySlug('blog', params.slug);
   return { props: post };
 };

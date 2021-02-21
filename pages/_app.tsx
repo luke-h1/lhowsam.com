@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 
 import { useRouter } from 'next/router';
-import Layout from '../components/Layout/Layout';
+import Layout from '../components/Layout';
 import * as gtag from '../lib/gtag';
 import '../styles/tailwind.css';
 
