@@ -17,6 +17,12 @@ const SEO = {
     site: '@lukeH_1999',
     cardType: 'summary_large_image',
   },
+  images: [
+    {
+      url: 'https://lhowsam.com/static/images/logo.png',
+      alt: title,
+    },
+  ],
 };
 
 export default SEO;
