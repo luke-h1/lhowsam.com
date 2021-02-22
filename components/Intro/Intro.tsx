@@ -4,6 +4,7 @@ import {
   HighLight, DescWrap, Title,
 } from './IntroStyles';
 
+
 const Intro = ({ theme }) => {
   return (
     <ThemeProvider theme={theme}>

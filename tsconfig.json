@@ -5,7 +5,7 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -22,7 +22,8 @@
       "@icons/*": ["Icons/*"],
       "@templates/*": ["templates/*"],
       "@lib/*": ["lib/*"],
-      "@styles/*": ["styles/*"]
+      "@styles/*": ["styles/*"],
+      "@types/*": ["types/*"]
     }
   },
   "include": [
@@ -33,7 +34,15 @@
     "components/Nav/Nav.tsx",
     "__tests__/test.test.tsx",
     "components/Nav/NavStyles.ts",
-    "lib/gtag.ts"
-, "components/Layout/Layout.tsx", "components/SideBar/SideBarStyles.tsx", "Icons/Logo.js", "styles/reset.tsx", "components/NavBar/NavBar.tsx", "components/SideBar/SideBar.tsx", "components/SideBar/SideBar.tsx", "scripts/generate-sitemap.js"  ],
+    "lib/gtag.ts",
+    "components/Layout/Layout.tsx",
+    "components/SideBar/SideBarStyles.tsx",
+    "Icons/Logo.js",
+    "styles/reset.tsx",
+    "components/NavBar/NavBar.tsx",
+    "components/SideBar/SideBar.tsx",
+    "components/SideBar/SideBar.tsx",
+    "scripts/generate-sitemap.js"
+, "components/Layout.js"  ],
   "exclude": ["node_modules, __tests__"]
 }

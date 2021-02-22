@@ -3,7 +3,7 @@ import '@emotion/react';
 declare module '@emotion/react' {
   export interface Theme {
     colors: {
-      primaryBackgroundColor;
+      primaryBackgroundColor: string;
       backgroundColor: string;
       secondaryBackgroundColor: string;
       primaryColor: string;
