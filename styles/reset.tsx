@@ -21,7 +21,7 @@ export const Reset = (
       }
 
       body {
-        font-family: "Noto Sans JP";
+        font-family: 'Noto Sans JP';
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background: #fff;

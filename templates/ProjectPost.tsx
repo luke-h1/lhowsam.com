@@ -34,7 +34,6 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
 
             <div className="flex items-center">
               <p className="text-sm text-gray-700 dark:text-gray-300 flex mt-5">
-
                 {frontMatter.github && <Github url={frontMatter.github} />}
                 {frontMatter.site && <Site url={frontMatter.site} />}
               </p>
@@ -46,16 +45,13 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
             </p>
             <hr />
           </div>
-          <div className=" max-w-none w-full">
-            {children}
-          </div>
+          <div className=" max-w-none w-full">{children}</div>
           <div className="mt-8" />
           <div className="text-sm text-gray-700 dark:text-gray-300">
             {/* edit url goes here */}
           </div>
         </article>
       </StyledContainer>
-
     </>
   );
 };

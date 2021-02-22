@@ -41,9 +41,7 @@ const About: NextPage = () => {
           <div className="grid grid-flow-col mw-1000 max-w-screen-lg">
             <div className="w-full">
               <Intro>
-                Hey, I'm
-                {' '}
-                <HighLight>Luke</HighLight>
+                Hey, I'm <HighLight>Luke</HighLight>
               </Intro>
               <p
                 data-testid="about-intro1"

@@ -1,12 +1,12 @@
 /* eslint-disable */
-import { Theme } from "@emotion/react";
-import { light, dark, blue, green, neutral } from "./Colors";
-import { PrimaryFont } from "./Fonts";
+import { Theme } from '@emotion/react';
+import { light, dark, blue, green, neutral } from './Colors';
+import { PrimaryFont } from './Fonts';
 
 export const theme: Theme = {
   colors: {
     primaryBackgroundColor: light[100],
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     secondaryBackgroundColor: light[300],
     primaryColor: dark[100],
     darkTitleColor: light[100],
@@ -18,6 +18,3 @@ export const theme: Theme = {
     PrimaryFont,
   },
 };
-
-
-

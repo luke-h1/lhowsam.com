@@ -1,9 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from '@emotion/react';
-import {
-  HighLight, DescWrap, Title,
-} from './IntroStyles';
-
+import { HighLight, DescWrap, Title } from './IntroStyles';
 
 const Intro = ({ theme }) => {
   return (
@@ -11,9 +8,7 @@ const Intro = ({ theme }) => {
       <>
         <div className="flex flex-col justify-center items-center mb-8">
           <Title>
-            Hi, I'm
-            {' '}
-            <HighLight>Luke</HighLight>
+            Hi, I'm <HighLight>Luke</HighLight>
           </Title>
           <DescWrap>
             <p

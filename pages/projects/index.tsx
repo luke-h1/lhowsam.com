@@ -23,7 +23,6 @@ const Title = styled.h1`
 const Flex = styled.div`
   display: flex;
   flex-direction: column;
-
 `;
 
 const Index: NextPage = ({ projects }: any) => {

@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;  
+  text-align: center;
 `;
 
 const Heading = styled.h1`
@@ -30,15 +30,16 @@ const Flex = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2rem;  
+  margin-bottom: 2rem;
 `;
 
 const title: string = 'blog';
-const description: string = 'Thoughts on React, Node, testing & tech in general';
+const description: string =
+  'Thoughts on React, Node, testing & tech in general';
 
 const Index: NextPage = ({ posts }: any) => {
   const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
   );
 
   return (

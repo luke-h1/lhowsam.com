@@ -8,9 +8,7 @@ interface Iprops {
   slug: string;
 }
 
-const ProjectCard: FC<Iprops> = ({
-  title, summary, slug,
-}) => {
+const ProjectCard: FC<Iprops> = ({ title, summary, slug }) => {
   return (
     <>
       <Link href={`/projects/${slug}`}>

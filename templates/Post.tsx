@@ -40,9 +40,7 @@ const Post: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
             </p>
             <hr />
           </div>
-          <div className=" max-w-none w-full">
-            {children}
-          </div>
+          <div className=" max-w-none w-full">{children}</div>
           <div className="mt-8" />
           <div className="text-sm text-gray-700 dark:text-gray-300">
             {/* edit url goes here */}
