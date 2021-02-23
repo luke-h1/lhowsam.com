@@ -4,10 +4,11 @@ import { NextPage } from 'next';
 import { getAllFilesFrontmatter } from '@utils/mdx';
 import { Container, Flex, Text } from '@chakra-ui/react';
 import BlogCard from '@components/BlogCard';
+import BlogMatter from '../../types/BlogMatter';
 
 const Index: NextPage = ({ posts }: any) => {
   const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date));
+    (a: any, b: any) => Number(new Date(b.date)) - Number(new Date(a.date));
   );
 
   return (
@@ -42,7 +43,7 @@ const Index: NextPage = ({ posts }: any) => {
             maxW="700px"
           >
             {!filterPosts.length && 'No blog posts found'}
-            {filterPosts.map((frontMatter) => (
+            {filterPosts.map((frontMatter: BlogMatter) => (
               <BlogCard key={frontMatter.title} {...frontMatter} />
             ))}
           </Flex>
