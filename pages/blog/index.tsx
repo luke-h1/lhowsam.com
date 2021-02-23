@@ -32,7 +32,7 @@ const Index: NextPage = ({ posts }: any) => {
           <Text as="h1" fontSize="40px" mb={4}>
             Blog
           </Text>
-          <Text align="center" as="h1" fontSize="25px">
+          <Text align="center" as="h1" fontSize="25px" mb={4}>
             Thoughts on React, Node, testing & tech in general
           </Text>
           <Flex direction="column" justify="center" align="center" mb="8" maxW="700px">
