@@ -28,12 +28,13 @@ const About: NextPage = () => {
               <Text
                 as="h3"
                 fontSize="21px"
-                data-testid="intro"
+                data-testid="about-intro"
                 align="left"
               >
                 I'm passionate about solving technical problems and coming up with
                 creative solutions.I enjoy working with the JAMstack, React, Node,
-                testing technologies + practices & various dev-ops technologies
+                testing technologies + practices & various dev-ops technologies.
+                I am currently learning Typescript, React, Next JS & various testing technologies.
               </Text>
             </Box>
             <Box height="120px">

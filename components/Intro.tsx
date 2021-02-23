@@ -21,9 +21,7 @@ const Intro = () => {
             data-testid="intro"
             align="center"
           >
-            I'm passionate about solving technical problems and coming up with
-            creative solutions.I enjoy working with the JAMstack, React, Node,
-            testing technologies + practices & various dev-ops technologies
+            I'm passionate about solving technical problems and coming up with creative solutions.I enjoy working with the JAMstack, React, Node, testing technologies + practices & various dev-ops technologies
           </Text>
         </Flex>
       </Flex>
