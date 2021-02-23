@@ -34,7 +34,7 @@
     "components/Nav/Nav.tsx",
     "__tests__/test.test.tsx",
     "components/Nav/NavStyles.ts",
-    "lib/gtag.ts",
+    "utils/gtag.ts",
     "components/Layout/Layout.tsx",
     "components/SideBar/SideBarStyles.tsx",
     "Icons/Logo.js",
