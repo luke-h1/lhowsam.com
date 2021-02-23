@@ -4,7 +4,6 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
 import * as gtag from '../utils/gtag';
-import '../styles/tailwind.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
