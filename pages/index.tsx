@@ -5,7 +5,8 @@ import Intro from '@components/Intro/Intro';
 import { getAllFilesFrontmatter } from '@lib/mdx';
 import { theme } from '@styles/Theme';
 import { ThemeProvider } from '@emotion/react';
-import Card from '@components/Card';
+import ProjectCard from '@components/ProjectCard';
+import BlogCard from '@components/BlogCard';
 import Project from '../types/Project';
 import Blog from '../types/Blog';
 
@@ -37,7 +38,7 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
 
         <div className="flex flex-col justify-center items-center mb-8 ml-0 mr-0 mt-0">
           {projects.map((frontMatter) => (
-            <Card key={frontMatter.title} {...frontMatter} />
+            <ProjectCard key={frontMatter.title} {...frontMatter} />
           ))}
         </div>
         <h1 className="mt-1 ml-0 mb-6 mr-0 text-center font-bold">
