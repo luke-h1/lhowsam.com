@@ -42,7 +42,10 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           {frontMatter.readingTime.text}
         </Text>
         <hr />
-        <Text mb={4}>{children}</Text>
+        <Text as="p" fontSize="20px" mt={2} mb={2} lineHeight='1.5'>
+          {children}
+
+        </Text>
       </Container>
     </>
   );

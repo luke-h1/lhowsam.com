@@ -42,7 +42,7 @@
     "components/NavBar/NavBar.tsx",
     "components/SideBar/SideBar.tsx",
     "components/SideBar/SideBar.tsx",
-    "scripts/generate-sitemap.js"
+    "scripts/generate-sitemap.ts"
 , "components/Layout.tsx"  ],
   "exclude": ["node_modules, __tests__"]
 }
