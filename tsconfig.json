@@ -30,7 +30,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/Footer/Footer.tsx",
+    "components/Footer.tsx",
     "components/Nav/Nav.tsx",
     "__tests__/test.test.tsx",
     "components/Nav/NavStyles.ts",

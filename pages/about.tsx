@@ -1,16 +1,10 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
-import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import {
-  Flex, SimpleGrid, Box, Text,
+  Flex, SimpleGrid, Box, Text, Container,
 } from '@chakra-ui/react';
-
-const Title = styled.h1`
-  text-align: center;
-  margin-bottom: 4rem;
-`;
 
 const About: NextPage = () => {
   return (
@@ -23,8 +17,8 @@ const About: NextPage = () => {
           title: 'About | lhowsam.com',
         }}
       />
-      <div>
-        <Title>About</Title>
+      <Container maxW="1200px" minH="80vh">
+        <Text as="h1" fontSize="30px" align="center" mb={4}>About</Text>
         <Flex direction="column" align="center" justify="center" m={4}>
           <SimpleGrid columns={2} spacingX="40px" spacingY="20px">
             <Box height="120px">
@@ -53,7 +47,7 @@ const About: NextPage = () => {
           </SimpleGrid>
 
         </Flex>
-      </div>
+      </Container>
     </>
   );
 };
