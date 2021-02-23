@@ -43,6 +43,6 @@
     "components/SideBar/SideBar.tsx",
     "components/SideBar/SideBar.tsx",
     "scripts/generate-sitemap.js"
-, "components/Layout.js"  ],
+, "components/Layout.tsx"  ],
   "exclude": ["node_modules, __tests__"]
 }
