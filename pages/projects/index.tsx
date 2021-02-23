@@ -1,33 +1,14 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { ThemeProvider } from '@emotion/react';
-import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { theme } from '@styles/Theme';
 import { getAllFilesFrontmatter } from '@lib/mdx';
 import ProjectCard from '@components/ProjectCard';
-
-const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 40vh;
-  min-width: 100vw;
-`;
-
-const Title = styled.h1`
-  margin-bottom: 5rem;
-`;
-
-const Flex = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
+import { Container, Flex, Text } from '@chakra-ui/react';
 
 const Index: NextPage = ({ projects }: any) => {
   return (
     <>
+      <Container>
         <NextSeo
           title="Projects | lhowsam.com"
           canonical="https://lhowsam.com/projects"
@@ -36,14 +17,15 @@ const Index: NextPage = ({ projects }: any) => {
             title: 'Projects | lhowsam.com',
           }}
         />
-        <Wrapper>
-          <Title>Projects</Title>
-          <Flex>
+        <Flex direction="column" justify="center" align="center" mb="8" maxW="700px">
+          <Text as="h1" fontSize="40px" mb={4}>Projects</Text>
+          <Flex direction="column" justify="center" align="center" mb="8" maxW="700px">
             {projects.map((frontMatter) => (
               <ProjectCard key={frontMatter.title} {...frontMatter} />
             ))}
           </Flex>
-        </Wrapper>
+        </Flex>
+      </Container>
     </>
   );
 };
