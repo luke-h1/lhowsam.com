@@ -15,34 +15,18 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": "./",
+
     "paths": {
       "@tests/*": ["__tests__/*"],
       "@pages/*": ["pages/*"],
       "@components/*": ["components/*"],
       "@icons/*": ["Icons/*"],
       "@templates/*": ["templates/*"],
-      "@lib/*": ["lib/*"],
+      "@utils/*": ["utils/*"],
       "@styles/*": ["styles/*"],
       "@types/*": ["types/*"]
     }
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "components/Footer.tsx",
-    "components/Nav/Nav.tsx",
-    "__tests__/test.test.tsx",
-    "components/Nav/NavStyles.ts",
-    "lib/gtag.ts",
-    "components/Layout/Layout.tsx",
-    "components/SideBar/SideBarStyles.tsx",
-    "Icons/Logo.js",
-    "styles/reset.tsx",
-    "components/NavBar/NavBar.tsx",
-    "components/SideBar/SideBar.tsx",
-    "components/SideBar/SideBar.tsx",
-    "scripts/generate-sitemap.js"
-, "components/Layout.tsx"  ],
-  "exclude": ["node_modules, __tests__"]
+  "exclude": ["node_modules, __tests__"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

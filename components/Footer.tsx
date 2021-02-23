@@ -1,15 +1,16 @@
 /* eslint-disable react/prop-types */
-import {
-  FiGithub, FiTwitter, FiMail, FiLinkedin,
-} from 'react-icons/fi';
-import {
-  Flex, IconButton,
-} from '@chakra-ui/react';
+import { FiGithub, FiTwitter, FiMail, FiLinkedin } from 'react-icons/fi';
+import { Flex, IconButton } from '@chakra-ui/react';
 
 const Footer = () => {
   return (
     <>
-      <Flex align="center" mb={4} direction="column" display={['none', 'flex', 'flex']}>
+      <Flex
+        align="center"
+        mb={4}
+        direction="column"
+        display={['none', 'flex', 'flex']}
+      >
         <div>
           <a
             href="https://twitter.com/lukeH_1999"

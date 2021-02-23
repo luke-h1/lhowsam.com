@@ -8,9 +8,7 @@ interface Iprops {
   href: string;
 }
 
-const MenuItem: React.FC<Iprops> = ({
-  children, isLast, href, ...rest
-}) => {
+const MenuItem: React.FC<Iprops> = ({ children, isLast, href, ...rest }) => {
   return (
     <Text
       mb={{ base: isLast ? 0 : 8, sm: 0 }}
@@ -18,7 +16,9 @@ const MenuItem: React.FC<Iprops> = ({
       display="block"
       {...rest}
     >
-      <Link href={href}><a>{children}</a></Link>
+      <Link href={href}>
+        <a>{children}</a>
+      </Link>
     </Text>
   );
 };

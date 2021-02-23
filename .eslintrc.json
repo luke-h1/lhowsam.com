@@ -34,7 +34,7 @@
     "import/prefer-default-export": "off",
     "react/no-unescaped-entities": "off",
     "no-multi-str": "off",
-    "max-len": "off",
+    "max-len": "off"
   },
   "globals": {
     "React": "writable"
