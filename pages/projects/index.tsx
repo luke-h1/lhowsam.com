@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import { NextPage } from 'next';
 import { theme } from '@styles/Theme';
 import { getAllFilesFrontmatter } from '@lib/mdx';
-import ProjectCard from '@components/ProjectCard/ProjectCard';
+import ProjectCard from '@components/ProjectCard';
 
 const Wrapper = styled.div`
   display: flex;
@@ -28,7 +28,6 @@ const Flex = styled.div`
 const Index: NextPage = ({ projects }: any) => {
   return (
     <>
-      <ThemeProvider theme={theme}>
         <NextSeo
           title="Projects | lhowsam.com"
           canonical="https://lhowsam.com/projects"
@@ -45,7 +44,6 @@ const Index: NextPage = ({ projects }: any) => {
             ))}
           </Flex>
         </Wrapper>
-      </ThemeProvider>
     </>
   );
 };
