@@ -6,7 +6,7 @@ import { NextPage } from 'next';
 import { getAllFilesFrontmatter } from '@lib/mdx';
 import { theme } from '@styles/Theme';
 
-import BlogPost from '@components/BlogPost/BlogPost';
+import BlogCard from '@components/BlogCard';
 
 const Wrapper = styled.div`
   display: flex;
@@ -34,12 +34,11 @@ const Flex = styled.div`
 `;
 
 const title: string = 'blog';
-const description: string =
-  'Thoughts on React, Node, testing & tech in general';
+const description: string = 'Thoughts on React, Node, testing & tech in general';
 
 const Index: NextPage = ({ posts }: any) => {
   const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
 
   return (
@@ -58,7 +57,7 @@ const Index: NextPage = ({ posts }: any) => {
         <Flex>
           {!filterPosts.length && 'No blog posts found'}
           {filterPosts.map((frontMatter) => (
-            <BlogPost key={frontMatter.title} {...frontMatter} />
+            <BlogCard key={frontMatter.title} {...frontMatter} />
           ))}
         </Flex>
       </ThemeProvider>

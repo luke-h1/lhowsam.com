@@ -1,7 +1,7 @@
 import hydrate from 'next-mdx-remote/hydrate';
 import { NextPage } from 'next';
 import { getFiles, getFileBySlug } from '@lib/mdx';
-import Post from '@templates/Post';
+import Post from '@templates/BlogPost';
 import MDXComponents from '@components/MDXComponents';
 
 const Blog: NextPage = ({ mdxSource, frontMatter }: any) => {
