@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import {
-  Box, Flex, Text, Button,
+  Box, Flex, Text,
 } from '@chakra-ui/react';
 import Logo from '../../Icons/Logo';
 
