@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import {
-  Box, Flex, Text,
-} from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import Logo from '../../Icons/Logo';
 
 import { CloseIcon, MenuIcon } from '../../Icons/HeaderIcons';
@@ -14,9 +12,7 @@ interface MenuProps {
 }
 
 const MenuItems: React.FC<MenuProps> = (props) => {
-  const {
-    children, isLast, href, ...rest
-  } = props;
+  const { children, isLast, href, ...rest } = props;
   return (
     <Text
       mb={{ base: isLast ? 0 : 8, sm: 0 }}
@@ -24,7 +20,9 @@ const MenuItems: React.FC<MenuProps> = (props) => {
       display="block"
       {...rest}
     >
-      <Link href={href}><a>{children}</a></Link>
+      <Link href={href}>
+        <a>{children}</a>
+      </Link>
     </Text>
   );
 };
@@ -50,8 +48,11 @@ const Header: React.FC<HeaderProps> = (props) => {
       {...props}
     >
       <Flex align="center">
-        <Link href="/"><a><Logo /></a></Link>
-
+        <Link href="/">
+          <a>
+            <Logo />
+          </a>
+        </Link>
       </Flex>
 
       <Box display={{ base: 'block', md: 'none' }} onClick={toggleMenu}>

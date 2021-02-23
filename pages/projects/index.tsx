@@ -17,9 +17,23 @@ const Index: NextPage = ({ projects }: any) => {
             title: 'Projects | lhowsam.com',
           }}
         />
-        <Flex direction="column" justify="center" align="center" mb="8" maxW="700px">
-          <Text as="h1" fontSize="40px" mb={4}>Projects</Text>
-          <Flex direction="column" justify="center" align="center" mb="8" maxW="700px">
+        <Flex
+          direction="column"
+          justify="center"
+          align="center"
+          mb="8"
+          maxW="700px"
+        >
+          <Text as="h1" fontSize="40px" mb={4}>
+            Projects
+          </Text>
+          <Flex
+            direction="column"
+            justify="center"
+            align="center"
+            mb="8"
+            maxW="700px"
+          >
             {projects.map((frontMatter) => (
               <ProjectCard key={frontMatter.title} {...frontMatter} />
             ))}

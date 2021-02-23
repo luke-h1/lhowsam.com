@@ -23,7 +23,14 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           }}
         />
 
-        <Flex as="article" direction="column" justify="center" maxW="1000px" mx="auto" mb={5}>
+        <Flex
+          as="article"
+          direction="column"
+          justify="center"
+          maxW="1000px"
+          mx="auto"
+          mb={5}
+        >
           <Text as="h1" fontSize="40px" mb={2}>
             {frontMatter.title}
           </Text>
@@ -42,9 +49,8 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           {frontMatter.readingTime.text}
         </Text>
         <hr />
-        <Text as="p" fontSize="20px" mt={2} mb={2} lineHeight='1.5'>
+        <Text as="p" fontSize="20px" mt={2} mb={2} lineHeight="1.5">
           {children}
-
         </Text>
       </Container>
     </>

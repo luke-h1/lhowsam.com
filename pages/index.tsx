@@ -16,7 +16,7 @@ interface Iprops {
 
 const Home: NextPage<Iprops> = ({ posts, projects }) => {
   const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
   );
   return (
     <>
