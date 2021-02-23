@@ -1,28 +1,34 @@
 import React from 'react';
-import { ThemeProvider } from '@emotion/react';
-import { HighLight, DescWrap, Title } from './IntroStyles';
+import {
+  Flex, Heading, Text, Box,
+} from '@chakra-ui/react';
 
-const Intro = ({ theme }) => {
+const Intro = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <>
-        <div className="flex flex-col justify-center items-center mb-8">
-          <Title>
-            Hi, I'm <HighLight>Luke</HighLight>
-          </Title>
-          <DescWrap>
-            <p
-              data-testid="intro"
-              className="text-center items-center max-w-7xl min-w-1/4"
-            >
-              I'm passionate about solving technical problems and coming up with
-              creative solutions.I enjoy working with the JAMstack, React, Node,
-              testing technologies + practices & various dev-ops technologies
-            </p>
-          </DescWrap>
-        </div>
-      </>
-    </ThemeProvider>
+    <>
+      <Flex direction="column" justify="center" align="center" mb="8">
+        <Box>
+          <Heading as="h1" fontSize="40px" mb={8}>
+            Hi, I'm Luke 👋
+            {' '}
+          </Heading>
+        </Box>
+
+        <Flex direction="column" justify="center" align="center" mb="8" maxW="700px">
+          <Text
+            as="h3"
+            fontSize="21px"
+            data-testid="intro"
+            align="center"
+          >
+            I'm passionate about solving technical problems and coming up with
+            creative solutions.I enjoy working with the JAMstack, React, Node,
+            testing technologies + practices & various dev-ops technologies
+          </Text>
+        </Flex>
+      </Flex>
+
+    </>
   );
 };
 export default Intro;
