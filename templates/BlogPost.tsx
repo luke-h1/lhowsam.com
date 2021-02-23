@@ -3,6 +3,7 @@ import { parseISO, format } from 'date-fns';
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
 import { Container, Flex, Text } from '@chakra-ui/react';
+import styled from '@emotion/styled';
 
 interface Iprops {
   frontMatter: any;
@@ -41,7 +42,11 @@ const BlogPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           {frontMatter.readingTime.text}
         </Text>
         <hr />
-        <div style={{ marginBottom: '2rem' }}>{children}</div>
+        <Text as="p" fontSize="20px" mt={2} mb={2}>
+          {children}
+
+        </Text>
+
       </Container>
     </>
   );
