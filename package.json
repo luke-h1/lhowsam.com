@@ -14,8 +14,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "type-check": "tsc --noEmit",
     "analyze": "cross-env ANALYZE=1 next build && cat .next/stats.txt",
-    "deploy:dev": "vc",
-    "deploy:prod": "vc --prod"
+    "deploy": "sh deploy.sh"
   },
   "dependencies": {
     "@chakra-ui/react": "^1.3.3",
