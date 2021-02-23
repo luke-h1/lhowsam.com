@@ -30,7 +30,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "components/Footer/Footer.tsx",
+    "components/Footer.tsx",
     "components/Nav/Nav.tsx",
     "__tests__/test.test.tsx",
     "components/Nav/NavStyles.ts",
@@ -43,6 +43,6 @@
     "components/SideBar/SideBar.tsx",
     "components/SideBar/SideBar.tsx",
     "scripts/generate-sitemap.js"
-, "components/Layout.js"  ],
+, "components/Layout.tsx"  ],
   "exclude": ["node_modules, __tests__"]
 }

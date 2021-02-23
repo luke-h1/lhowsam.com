@@ -1,38 +1,38 @@
-import { FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react';
+import { parseISO, format } from 'date-fns';
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
-import Github from '@icons/Github';
-import Site from '@icons/Site';
 import { Container, Flex, Text } from '@chakra-ui/react';
+import styled from '@emotion/styled';
 
 interface Iprops {
-  children: any;
   frontMatter: any;
+  children: any;
 }
 
-const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
+const BlogPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
   return (
     <>
       <Container mb={4}>
         <NextSeo
           title={`${frontMatter.title} | lhowsam.com`}
-          canonical={`https://lhowsam.com/projects/${frontMatter.slug}`}
+          canonical={`https://lhowsam.com/blog/${frontMatter.slug}`}
           openGraph={{
-            url: `https://lhowsam.com/projects/${frontMatter.slug}`,
+            url: `https://lhowsam.com/blog/${frontMatter.slug}`,
             title: `${frontMatter.title} | lhowsam.com`,
           }}
         />
 
         <Flex as="article" direction="column" justify="center" maxW="1000px" mx="auto" mb={5}>
-          <Text as="h1" fontSize="40px" mb={2}>
+          <Text as="h1" fontSize="40px">
             {frontMatter.title}
           </Text>
-          <Flex direction="row" justify="left">
-            {frontMatter.github && <Github url={frontMatter.github} />}
-            {frontMatter.site && <Site url={frontMatter.site} />}
-          </Flex>
         </Flex>
+
         <Flex direction="column" justify="between" mt={2} mb={5}>
+          <p className="text-sm text-gray-700 dark:text-gray-300 ml-2">
+            {format(parseISO(frontMatter.date), 'MMMM dd, yyyy')}
+          </p>
           <ShareButtons
             location={`https://lhowsam.com/blog/${frontMatter.slug}`}
           />
@@ -42,9 +42,13 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           {frontMatter.readingTime.text}
         </Text>
         <hr />
-        <Text mb={4}>{children}</Text>
+        <Text as="p" fontSize="20px" mt={2} mb={2}>
+          {children}
+
+        </Text>
+
       </Container>
     </>
   );
 };
-export default ProjectPost;
+export default BlogPost;

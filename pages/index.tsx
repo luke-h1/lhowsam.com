@@ -1,54 +1,50 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import { GetStaticProps, NextPage } from 'next';
-import Intro from '@components/Intro/Intro';
-import ProjectCard from '@components/ProjectCard/ProjectCard';
+import Intro from '@components/Intro';
 import { getAllFilesFrontmatter } from '@lib/mdx';
-import BlogPost from '@components/BlogPost/BlogPost';
-import { theme } from '@styles/Theme';
-import { ThemeProvider } from '@emotion/react';
+import ProjectCard from '@components/ProjectCard';
+import BlogCard from '@components/BlogCard';
+import { Text, Flex } from '@chakra-ui/react';
 import Project from '../types/Project';
 import Blog from '../types/Blog';
 
 interface Iprops {
   posts: Blog;
   projects: Project;
-  theme: any;
 }
 
 const Home: NextPage<Iprops> = ({ posts, projects }) => {
   const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <NextSeo
-          title="Home | lhowsam.com"
-          canonical="https://lhowsam.com/"
-          openGraph={{
-            url: 'https://lhowsam.com',
-            title: 'Home | lhowsam.com',
-          }}
-        />
-        <Intro theme={theme} />
-        <h1 className="mt-1 ml-0 mb-6 mr-0 text-center font-bold">
-          Recent Projects
-        </h1>
-        <div className="flex flex-col justify-center items-center mb-8 ml-0 mr-0 mt-0">
-          {projects.map((frontMatter) => (
-            <ProjectCard key={frontMatter.title} {...frontMatter} />
-          ))}
-        </div>
-        <h1 className="mt-1 ml-0 mb-6 mr-0 text-center font-bold">
-          Recent Blog Posts
-        </h1>
-        <div className="flex flex-col justify-center items-center mb-4 ml-0 mr-0 mt-0">
-          {filterPosts.map((frontMatter) => (
-            <BlogPost key={frontMatter.title} {...frontMatter} />
-          ))}
-        </div>
-      </ThemeProvider>
+      <NextSeo
+        title="Home | lhowsam.com"
+        canonical="https://lhowsam.com/"
+        openGraph={{
+          url: 'https://lhowsam.com',
+          title: 'Home | lhowsam.com',
+        }}
+      />
+      <Intro />
+      <Text as="h1" fontSize="40px" mt={1} mb={6} align="center">
+        Projects
+      </Text>
+      <Flex direction="column" justify="center" align="center" mb={6}>
+        {projects.map((frontMatter) => (
+          <ProjectCard key={frontMatter.title} {...frontMatter} />
+        ))}
+      </Flex>
+      <Text as="h1" fontSize="40px" mt={1} mb={6} align="center">
+        Blog Posts
+      </Text>
+      <Flex direction="column" justify="center" align="center" mb={6}>
+        {filterPosts.map((frontMatter) => (
+          <BlogCard key={frontMatter.title} {...frontMatter} />
+        ))}
+      </Flex>
     </>
   );
 };

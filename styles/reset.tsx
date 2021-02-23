@@ -37,7 +37,7 @@ export const Reset = (
         background: #000;
         padding: 1rem;
         border-radius: 10px;
-        margin: 1rem 0 1rem 0;
+        margin: 1rem 0 1rem 0 !important;
         color: #fff;
         /* DO NOT REMOVE THE BELOW STYLING FOR PRE TAGS */
         white-space: pre-wrap;
