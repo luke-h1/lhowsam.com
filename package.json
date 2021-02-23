@@ -91,7 +91,7 @@
       "^@components/(.*)$": "<rootDir>/components/$1",
       "^@icons/(.*)$": "<rootDir>/Icons/$1",
       "^@templates/(.*)$": "<rootDir>/templates/$1",
-      "^@lib/(.*)$": "<rootDir>/lib/$1",
+      "^@utils/(.*)$": "<rootDir>/utils/$1",
       "^@styles/(.*)$": "<rootDir>/styles/$1",
       "^@types/(.*)$": "<rootDir>/types/$1"
     }
