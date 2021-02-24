@@ -4,7 +4,6 @@ import { NextPage } from 'next';
 import { getAllFilesFrontmatter } from '@utils/mdx';
 import ProjectCard from '@components/ProjectCard';
 import { Container, Flex, Text } from '@chakra-ui/react';
-import ProjectMatter from '../../types/ProjectMatter';
 
 const Index: NextPage = ({ projects }: any) => {
   return (
@@ -36,7 +35,7 @@ const Index: NextPage = ({ projects }: any) => {
             maxW="700px"
           >
             {projects.map(
-              (frontMatter): ProjectMatter => (
+              (frontMatter) => (
                 <ProjectCard key={frontMatter.title} {...frontMatter} />
               )
             )}

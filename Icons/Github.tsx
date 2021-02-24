@@ -9,7 +9,7 @@ const SiteIcon = (url) => {
   };
   return (
     <Text color={Colors[colorMode]}>
-      <a href={url} target="_blank" rel="noreferrer">
+      <a href={url} target="_blank" rel="noreferrer" style={{ marginRight: '35px' }}>
         <FiGithub />
       </a>
     </Text>
