@@ -1,8 +1,17 @@
 /* eslint-disable react/prop-types */
-import { FiGithub, FiTwitter, FiMail, FiLinkedin } from 'react-icons/fi';
-import { Flex, IconButton } from '@chakra-ui/react';
+import {
+  FiGithub, FiTwitter, FiMail, FiLinkedin,
+} from 'react-icons/fi';
+import { Flex, IconButton, useColorMode } from '@chakra-ui/react';
 
 const Footer = () => {
+  const { colorMode } = useColorMode();
+
+  const footerIcon = {
+    light: '#000',
+    dark: '#fff',
+  };
+
   return (
     <>
       <Flex
@@ -22,7 +31,7 @@ const Footer = () => {
               aria-label="Twitter"
               icon={<FiTwitter />}
               size="lg"
-              color="black"
+              color={footerIcon[colorMode]}
               variant="ghost"
               _hover={{ color: 'blue' }}
             />
@@ -37,7 +46,7 @@ const Footer = () => {
               aria-label="GitHub"
               icon={<FiGithub />}
               size="lg"
-              color="black"
+              color={footerIcon[colorMode]}
               variant="ghost"
               _hover={{ color: 'blue' }}
             />
@@ -52,7 +61,7 @@ const Footer = () => {
               aria-label="Email"
               icon={<FiMail />}
               size="lg"
-              color="black"
+              color={footerIcon[colorMode]}
               variant="ghost"
               _hover={{ color: 'blue' }}
             />
@@ -67,7 +76,7 @@ const Footer = () => {
               aria-label="Linkedin"
               icon={<FiLinkedin />}
               size="lg"
-              color="black"
+              color={footerIcon[colorMode]}
               variant="ghost"
               _hover={{ color: 'blue' }}
             />

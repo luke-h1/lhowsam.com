@@ -1,25 +1,38 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Box, Flex, Text } from '@chakra-ui/react';
-import Logo from '../../Icons/Logo';
+import {
+  Box, Flex, Text, useColorMode,
+} from '@chakra-ui/react';
+import CloseIcon from '@icons/CloseIcon';
+import MenuIcon from '@icons/MenuIcon';
+import Logo from '@icons/Logo';
 import { ThemeSwitcher } from '../ThemeSwitcher';
-
-import { CloseIcon, MenuIcon } from '../../Icons/HeaderIcons';
 
 interface MenuProps {
   children: string;
   isLast?: Boolean;
   href: string;
+
 }
 
 const MenuItems: React.FC<MenuProps> = (props) => {
-  const { children, isLast, href, ...rest } = props;
+  const { colorMode } = useColorMode();
+
+  const logoIcon = {
+    light: '#000',
+    dark: '#fff',
+  };
+
+  const {
+    children, isLast, href, ...rest
+  } = props;
   return (
     <Text
       mb={{ base: isLast ? 0 : 8, sm: 0 }}
       mr={{ base: 0, sm: isLast ? 0 : 8 }}
       display="block"
       {...rest}
+      color={logoIcon[colorMode]}
     >
       <Link href={href}>
         <a>{children}</a>
@@ -48,10 +61,16 @@ const Header: React.FC<HeaderProps> = (props) => {
       bg={['primary.500', 'primary.500', 'transparent', 'transparent']}
       {...props}
     >
-      <Flex align="center">
+      <Flex
+        align="center"
+      >
         <Link href="/">
           <a>
-            <Logo />
+            <Text>
+              <Logo />
+
+            </Text>
+
           </a>
         </Link>
       </Flex>

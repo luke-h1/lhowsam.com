@@ -3,7 +3,6 @@ import { parseISO, format } from 'date-fns';
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
 import { Container, Flex, Text } from '@chakra-ui/react';
-import styled from '@emotion/styled';
 
 interface Iprops {
   frontMatter: any;

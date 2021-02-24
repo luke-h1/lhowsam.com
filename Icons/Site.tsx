@@ -1,29 +1,18 @@
-import styled from '@emotion/styled';
-import { FunctionComponent } from 'react';
+import { useColorMode, Text } from '@chakra-ui/react';
 import { GoBrowser } from 'react-icons/go';
 
-const SiteIcon = styled(GoBrowser)`
-  color: #000;
-  font-size: 22px;
-  margin: 0 15px 0 15px;
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-    transition: scale 0.3s;
-  }
-`;
-
-interface Iprops {
-  url: string;
-}
-
-const Site: FunctionComponent<Iprops> = ({ url }) => {
+const SiteIcon = (url) => {
+  const { colorMode } = useColorMode();
+  const Colors = {
+    light: '#000',
+    dark: '#fff',
+  };
   return (
-    <>
+    <Text color={Colors[colorMode]}>
       <a href={url} target="_blank" rel="noreferrer">
-        <SiteIcon />
+        <GoBrowser />
       </a>
-    </>
+    </Text>
   );
 };
-export default Site;
+export default SiteIcon;

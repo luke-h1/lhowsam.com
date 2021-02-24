@@ -1,7 +1,7 @@
 import { useColorMode, Text } from '@chakra-ui/react';
-import { FiGithub } from 'react-icons/fi';
+import { AiOutlineClose } from 'react-icons/ai';
 
-const SiteIcon = (url) => {
+const Logo = () => {
   const { colorMode } = useColorMode();
   const Colors = {
     light: '#000',
@@ -9,10 +9,8 @@ const SiteIcon = (url) => {
   };
   return (
     <Text color={Colors[colorMode]}>
-      <a href={url} target="_blank" rel="noreferrer">
-        <FiGithub />
-      </a>
+      <AiOutlineClose />
     </Text>
   );
 };
-export default SiteIcon;
+export default Logo;
