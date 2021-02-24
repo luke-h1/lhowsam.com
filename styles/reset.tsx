@@ -18,7 +18,6 @@ export const Reset = (
       *:before,
       *:after {
         box-sizing: inherit;
-      }
 
       body {
         font-family: 'Noto Sans JP';
@@ -27,12 +26,7 @@ export const Reset = (
         background: #fff;
         overflow-x: hidden;
       }
-      a {
-        color: #000 !important;
-        text-decoration: none;
-        padding: 0;
-        margin: 0;
-      }
+
       pre {
         background: #000;
         padding: 1rem;

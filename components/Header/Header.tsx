@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Box, Flex, Text } from '@chakra-ui/react';
+import {
+  Box, Flex, Text, useColorMode,
+} from '@chakra-ui/react';
 import Logo from '../../Icons/Logo';
 import { ThemeSwitcher } from '../ThemeSwitcher';
-
 import { CloseIcon, MenuIcon } from '../../Icons/HeaderIcons';
 
 interface MenuProps {
@@ -13,13 +14,23 @@ interface MenuProps {
 }
 
 const MenuItems: React.FC<MenuProps> = (props) => {
-  const { children, isLast, href, ...rest } = props;
+  const { colorMode } = useColorMode();
+
+  const logoIcon = {
+    light: '#000',
+    dark: '#fff',
+  };
+
+  const {
+    children, isLast, href, ...rest
+  } = props;
   return (
     <Text
       mb={{ base: isLast ? 0 : 8, sm: 0 }}
       mr={{ base: 0, sm: isLast ? 0 : 8 }}
       display="block"
       {...rest}
+      color={logoIcon[colorMode]}
     >
       <Link href={href}>
         <a>{children}</a>
