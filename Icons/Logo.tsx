@@ -8,10 +8,7 @@ const Logo = (url) => {
     dark: '#fff',
   };
   return (
-    <Text
-      color={Colors[colorMode]}
-      _hover={{ color: '#2EC0F9' }}
-    >
+    <Text color={Colors[colorMode]} _hover={{ color: '#2EC0F9' }}>
       <a href={url} target="_blank" rel="noreferrer">
         <FiCode />
       </a>

@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
-import {
-  FiGithub, FiTwitter, FiMail, FiLinkedin,
-} from 'react-icons/fi';
+import { FiGithub, FiTwitter, FiMail, FiLinkedin } from 'react-icons/fi';
 import { Flex, IconButton, useColorMode } from '@chakra-ui/react';
 
 const Footer = () => {

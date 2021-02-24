@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import {
-  Box, Flex, Text, useColorMode,
-} from '@chakra-ui/react';
+import { Box, Flex, Text, useColorMode } from '@chakra-ui/react';
 import CloseIcon from '@icons/CloseIcon';
 import MenuIcon from '@icons/MenuIcon';
 import Logo from '@icons/Logo';
@@ -12,7 +10,6 @@ interface MenuProps {
   children: string;
   isLast?: Boolean;
   href: string;
-
 }
 
 const MenuItems: React.FC<MenuProps> = (props) => {
@@ -23,9 +20,7 @@ const MenuItems: React.FC<MenuProps> = (props) => {
     dark: '#fff',
   };
 
-  const {
-    children, isLast, href, ...rest
-  } = props;
+  const { children, isLast, href, ...rest } = props;
   return (
     <Text
       mb={{ base: isLast ? 0 : 8, sm: 0 }}
@@ -34,7 +29,6 @@ const MenuItems: React.FC<MenuProps> = (props) => {
       {...rest}
       color={logoIcon[colorMode]}
       _hover={{ color: '#2EC0F9' }}
-
     >
       <Link href={href}>
         <a>{children}</a>
@@ -63,16 +57,12 @@ const Header: React.FC<HeaderProps> = (props) => {
       bg={['primary.500', 'primary.500', 'transparent', 'transparent']}
       {...props}
     >
-      <Flex
-        align="center"
-      >
+      <Flex align="center">
         <Link href="/">
           <a>
             <Text>
               <Logo />
-
             </Text>
-
           </a>
         </Link>
       </Flex>

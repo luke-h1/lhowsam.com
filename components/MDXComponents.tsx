@@ -86,22 +86,22 @@ const DocsHeading = (props) => (
     <Box pointerEvents="auto">
       {props.children}
       {props.id && (
-      <Box
-        aria-label="anchor"
-        as="a"
-        color="blue.500"
-        fontWeight="normal"
-        outline="none"
-        _focus={{
-          opacity: 1,
-          boxShadow: 'outline',
-        }}
-        opacity="0"
-        ml="0.375rem"
-        href={`#${props.id}`}
-      >
-        #
-      </Box>
+        <Box
+          aria-label="anchor"
+          as="a"
+          color="blue.500"
+          fontWeight="normal"
+          outline="none"
+          _focus={{
+            opacity: 1,
+            boxShadow: 'outline',
+          }}
+          opacity="0"
+          ml="0.375rem"
+          href={`#${props.id}`}
+        >
+          #
+        </Box>
       )}
     </Box>
   </Heading>

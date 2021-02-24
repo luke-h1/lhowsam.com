@@ -34,11 +34,9 @@ const Index: NextPage = ({ projects }: any) => {
             mb="8"
             maxW="700px"
           >
-            {projects.map(
-              (frontMatter) => (
-                <ProjectCard key={frontMatter.title} {...frontMatter} />
-              )
-            )}
+            {projects.map((frontMatter) => (
+              <ProjectCard key={frontMatter.title} {...frontMatter} />
+            ))}
           </Flex>
         </Flex>
       </Container>
