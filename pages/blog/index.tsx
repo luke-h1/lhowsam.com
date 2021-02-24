@@ -8,7 +8,7 @@ import BlogMatter from '../../types/BlogMatter';
 
 const Index: NextPage = ({ posts }: any) => {
   const filterPosts = posts.sort(
-    (a: any, b: any) => Number(new Date(b.date)) - Number(new Date(a.date));
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
   );
 
   return (

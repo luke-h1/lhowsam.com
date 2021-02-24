@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
-type ColorModeSwitcherProps = Omit<IconButtonProps, 'aria-label'>
+type ColorModeSwitcherProps = Omit<IconButtonProps, 'aria-label'>;
 
 export const ThemeSwitcher: React.FC<ColorModeSwitcherProps> = (props) => {
   const { toggleColorMode } = useColorMode();

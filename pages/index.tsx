@@ -6,8 +6,7 @@ import { getAllFilesFrontmatter } from '@utils/mdx';
 import ProjectCard from '@components/ProjectCard';
 import BlogCard from '@components/BlogCard';
 import { Text, Flex } from '@chakra-ui/react';
-import ProjectMatter from '@types/ProjectMatter';
-import BlogMatter from '@types/BlogMatter';
+
 import Project from '../types/Project';
 import Blog from '../types/Blog';
 
@@ -18,7 +17,7 @@ interface Iprops {
 
 const Home: NextPage<Iprops> = ({ posts, projects }) => {
   const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
   );
   return (
     <>
@@ -35,7 +34,7 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
         Projects
       </Text>
       <Flex direction="column" justify="center" align="center" mb={6}>
-        {projects.map((frontMatter: ProjectMatter) => (
+        {projects.map((frontMatter) => (
           <ProjectCard key={frontMatter.title} {...frontMatter} />
         ))}
       </Flex>
@@ -43,7 +42,7 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
         Blog Posts
       </Text>
       <Flex direction="column" justify="center" align="center" mb={6}>
-        {filterPosts.map((frontMatter: BlogMatter) => (
+        {filterPosts.map((frontMatter) => (
           <BlogCard key={frontMatter.title} {...frontMatter} />
         ))}
       </Flex>

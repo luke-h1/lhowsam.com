@@ -1,7 +1,7 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import { NextPage } from 'next';
-import { getAllFilesFrontmatter } from '@lib/mdx';
+import { getAllFilesFrontmatter } from '@utils/mdx';
 import ProjectCard from '@components/ProjectCard';
 import { Container, Flex, Text } from '@chakra-ui/react';
 import ProjectMatter from '../../types/ProjectMatter';

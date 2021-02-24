@@ -13,9 +13,7 @@ interface MenuProps {
 }
 
 const MenuItems: React.FC<MenuProps> = (props) => {
-  const {
-    children, isLast, href, ...rest
-  } = props;
+  const { children, isLast, href, ...rest } = props;
   return (
     <Text
       mb={{ base: isLast ? 0 : 8, sm: 0 }}

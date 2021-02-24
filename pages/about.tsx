@@ -2,9 +2,7 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import { NextPage } from 'next';
-import {
-  Flex, SimpleGrid, Box, Text, Container,
-} from '@chakra-ui/react';
+import { Flex, SimpleGrid, Box, Text, Container } from '@chakra-ui/react';
 
 const About: NextPage = () => {
   return (

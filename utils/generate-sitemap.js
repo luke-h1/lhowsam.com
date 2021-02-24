@@ -16,22 +16,22 @@ const prettier = require('prettier');
         <?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
             ${pages
-    .map((page) => {
-      const path = page
-        .replace('pages', '')
-        .replace('data', '')
-        .replace('.js', '')
-        .replace('.ts', '')
-        .replace('.tsx', '')
-        .replace('.mdx', '');
-      const route = path === '/index' ? '' : path;
-      return `
+              .map((page) => {
+                const path = page
+                  .replace('pages', '')
+                  .replace('data', '')
+                  .replace('.js', '')
+                  .replace('.ts', '')
+                  .replace('.tsx', '')
+                  .replace('.mdx', '');
+                const route = path === '/index' ? '' : path;
+                return `
                         <url>
                             <loc>${`https://lhowsam.com${route}`}</loc>
                         </url>
                     `;
-    })
-    .join('')}
+              })
+              .join('')}
         </urlset>
     `;
 
