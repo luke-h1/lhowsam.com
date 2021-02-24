@@ -1,7 +1,6 @@
 /* eslint-disable global-require */
 import fs from 'fs';
 import matter from 'gray-matter';
-import mdxPrism from 'mdx-prism';
 import path from 'path';
 import readingTime from 'reading-time';
 import renderToString from 'next-mdx-remote/render-to-string';
@@ -28,7 +27,6 @@ export async function getFileBySlug(type: string, slug: string) {
         require('remark-slug'),
         require('remark-code-titles'),
       ],
-      rehypePlugins: [mdxPrism],
     },
   });
   return {
@@ -42,10 +40,10 @@ export async function getFileBySlug(type: string, slug: string) {
   };
 }
 
-export async function getAllFilesFrontmatter(type) {
+export async function getAllFilesFrontmatter(type: string) {
   const files = fs.readdirSync(path.join(root, 'data', type));
 
-  return files.reduce((allPosts, postSlug) => {
+  return files.reduce((allPosts, postSlug): any => {
     const source = fs.readFileSync(
       path.join(root, 'data', type, postSlug),
       'utf-8'

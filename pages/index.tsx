@@ -2,10 +2,11 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import { GetStaticProps, NextPage } from 'next';
 import Intro from '@components/Intro';
-import { getAllFilesFrontmatter } from '@lib/mdx';
+import { getAllFilesFrontmatter } from '@utils/mdx';
 import ProjectCard from '@components/ProjectCard';
 import BlogCard from '@components/BlogCard';
 import { Text, Flex } from '@chakra-ui/react';
+
 import Project from '../types/Project';
 import Blog from '../types/Blog';
 

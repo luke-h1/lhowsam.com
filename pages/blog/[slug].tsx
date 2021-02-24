@@ -1,6 +1,6 @@
 import hydrate from 'next-mdx-remote/hydrate';
 import { NextPage } from 'next';
-import { getFiles, getFileBySlug } from '@lib/mdx';
+import { getFiles, getFileBySlug } from '@utils/mdx';
 import BlogPost from '@templates/BlogPost';
 import MDXComponents from '@components/MDXComponents';
 
