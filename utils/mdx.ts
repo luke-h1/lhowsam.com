@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import path from 'path';
 import readingTime from 'reading-time';
 import renderToString from 'next-mdx-remote/render-to-string';
+import mdxPrism from 'mdx-prism';
 import MDXComponents from '../components/MDXComponents';
 
 const root = process.cwd();
@@ -26,6 +27,7 @@ export async function getFileBySlug(type: string, slug: string) {
         require('remark-autolink-headings'),
         require('remark-slug'),
         require('remark-code-titles'),
+        require('mdx-prism'),
       ],
     },
   });
@@ -46,7 +48,7 @@ export async function getAllFilesFrontmatter(type: string) {
   return files.reduce((allPosts, postSlug): any => {
     const source = fs.readFileSync(
       path.join(root, 'data', type, postSlug),
-      'utf-8'
+      'utf-8',
     );
     const { data } = matter(source);
     return [

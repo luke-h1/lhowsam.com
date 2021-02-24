@@ -11,7 +11,6 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import NextLink from 'next/link';
-import styled from '@emotion/styled';
 
 interface Iprops {
   href: string;
