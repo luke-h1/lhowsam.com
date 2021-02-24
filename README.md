@@ -5,13 +5,13 @@ Source code for my personal website & blog.
 ## Tech Stack: 
 - [React](https://github.com/facebook/react)
 - [Next](https://github.com/vercel/next.js)
-- [tailwindcss](https://github.com/tailwindlabs/tailwindcss)
-- [emotion](https://github.com/emotion-js/emotion)
-- [polished](https://github.com/styled-components/polished)
-- [react-icons](https://github.com/react-icons/react-icons)
-- [mdx](https://github.com/mdx-js/mdx)
-- [typescript](https://github.com/Microsoft/TypeScript)
-- [vercel](https://vercel.com/)
+- [ChakraUI](https://chakra-ui.com/)
+- [Emotion](https://github.com/emotion-js/emotion)
+- [Polished](https://github.com/styled-components/polished)
+- [React-icons](https://github.com/react-icons/react-icons)
+- [MDX](https://github.com/mdx-js/mdx)
+- [Typescript](https://github.com/Microsoft/TypeScript)
+- [Vercel](https://vercel.com/)
 
 
 <hr />
