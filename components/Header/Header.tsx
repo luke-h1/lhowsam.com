@@ -59,10 +59,16 @@ const Header: React.FC<HeaderProps> = (props) => {
       bg={['primary.500', 'primary.500', 'transparent', 'transparent']}
       {...props}
     >
-      <Flex align="center">
+      <Flex
+        align="center"
+      >
         <Link href="/">
           <a>
-            <Logo />
+            <Text>
+              <Logo />
+
+            </Text>
+
           </a>
         </Link>
       </Flex>

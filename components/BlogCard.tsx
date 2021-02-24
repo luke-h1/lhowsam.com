@@ -1,4 +1,6 @@
-import { Box, Text, Heading } from '@chakra-ui/react';
+import {
+  Box, Text, Heading, useColorMode,
+} from '@chakra-ui/react';
 import Link from 'next/link';
 import { parseISO, format } from 'date-fns';
 
@@ -9,13 +11,21 @@ interface Iprops {
   date: string;
 }
 
-const BlogCard = ({ title, summary, slug, date }: Iprops) => {
+const BlogCard = ({
+  title, summary, slug, date,
+}: Iprops) => {
+  const { colorMode } = useColorMode();
+
+  const blogCard = {
+    light: '#000',
+    dark: '#fff',
+  };
   return (
     <>
       <Link href={`/blog/${slug}`}>
         <a>
           <Box
-            color="black"
+            color={blogCard[colorMode]}
             shadow="sm"
             rounded="md"
             data-testid="card"
