@@ -1,8 +1,15 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
+import styled from '@emotion/styled';
 import { NextPage } from 'next';
-import { Flex, SimpleGrid, Box, Text, Container } from '@chakra-ui/react';
+import {
+  Flex, SimpleGrid, Box, Text, Container,
+} from '@chakra-ui/react';
+
+const NextImage = styled(Image)`
+  border-radius: 18px;
+`;
 
 const About: NextPage = () => {
   return (
@@ -39,10 +46,11 @@ const About: NextPage = () => {
               </Text>
             </Box>
             <Box height="120px">
-              <Image
+              <NextImage
                 src="/static/images/luke.png"
                 width={400}
                 height={500}
+                quality="100"
                 data-testid="photo"
               />
             </Box>
