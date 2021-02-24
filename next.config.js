@@ -11,7 +11,7 @@ module.exports = {
       config.plugins.push(new WebpackBundleSizeAnalyzerPlugin('stats.txt'));
     }
     if (isServer) {
-      require('./scripts/generate-sitemap');
+      require('./utils/generate-sitemap');
     }
 
     return config;

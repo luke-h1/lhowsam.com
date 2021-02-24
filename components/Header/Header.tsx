@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Box, Flex, Text } from '@chakra-ui/react';
 import Logo from '../../Icons/Logo';
+import { ThemeSwitcher } from '../ThemeSwitcher';
 
 import { CloseIcon, MenuIcon } from '../../Icons/HeaderIcons';
 
@@ -12,7 +13,9 @@ interface MenuProps {
 }
 
 const MenuItems: React.FC<MenuProps> = (props) => {
-  const { children, isLast, href, ...rest } = props;
+  const {
+    children, isLast, href, ...rest
+  } = props;
   return (
     <Text
       mb={{ base: isLast ? 0 : 8, sm: 0 }}
@@ -73,6 +76,7 @@ const Header: React.FC<HeaderProps> = (props) => {
           <MenuItems href="/about">About</MenuItems>
           <MenuItems href="/projects">Projects</MenuItems>
           <MenuItems href="/blog">Blog</MenuItems>
+          <ThemeSwitcher />
         </Flex>
       </Box>
     </Flex>
