@@ -27,7 +27,7 @@
     "cross-env": "^7.0.3",
     "date-fns": "^2.17.0",
     "express-async-handler": "^1.1.4",
-    "framer-motion": "^3.6.7",
+    "framer-motion": "^3.7.0",
     "globby": "^11.0.2",
     "gray-matter": "^4.0.2",
     "mdx-prism": "^0.3.1",
