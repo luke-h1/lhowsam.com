@@ -3,6 +3,9 @@ import Link from 'next/link';
 import {
   Box, Flex, Text, useColorMode,
 } from '@chakra-ui/react';
+import CloseIcon from '@icons/CloseIcon';
+import MenuIcon from '@icons/MenuIcon';
+import Logo from '@icons/Logo';
 import { ThemeSwitcher } from '../ThemeSwitcher';
 
 interface MenuProps {
@@ -11,32 +14,6 @@ interface MenuProps {
   href: string;
 
 }
-
-const CloseIcon = () => {
-  const { colorMode } = useColorMode();
-
-  const IconColors = {
-    light: '#000',
-    dark: '#fff',
-  };
-  return (
-    <AiOutlineClose fontSize="20px" color={IconColors[colorMode]} />
-
-  );
-};
-
-const MenuIcon = () => {
-  const { colorMode } = useColorMode();
-
-  const IconColors = {
-    light: '#000',
-    dark: '#fff',
-  };
-  return (
-    <AiOutlineBars fontSize="20px" color={IconColors[colorMode]} />
-
-  );
-};
 
 const MenuItems: React.FC<MenuProps> = (props) => {
   const { colorMode } = useColorMode();
