@@ -3,15 +3,40 @@ import Link from 'next/link';
 import {
   Box, Flex, Text, useColorMode,
 } from '@chakra-ui/react';
-import Logo from '../../Icons/Logo';
 import { ThemeSwitcher } from '../ThemeSwitcher';
-import { CloseIcon, MenuIcon } from '../../Icons/HeaderIcons';
 
 interface MenuProps {
   children: string;
   isLast?: Boolean;
   href: string;
+
 }
+
+const CloseIcon = () => {
+  const { colorMode } = useColorMode();
+
+  const IconColors = {
+    light: '#000',
+    dark: '#fff',
+  };
+  return (
+    <AiOutlineClose fontSize="20px" color={IconColors[colorMode]} />
+
+  );
+};
+
+const MenuIcon = () => {
+  const { colorMode } = useColorMode();
+
+  const IconColors = {
+    light: '#000',
+    dark: '#fff',
+  };
+  return (
+    <AiOutlineBars fontSize="20px" color={IconColors[colorMode]} />
+
+  );
+};
 
 const MenuItems: React.FC<MenuProps> = (props) => {
   const { colorMode } = useColorMode();

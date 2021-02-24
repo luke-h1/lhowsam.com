@@ -1,8 +1,7 @@
 import { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
-import Github from '@icons/Github';
-import Site from '@icons/Site';
+import { Github, Site } from '@icons/CustomIcons';
 import { Container, Flex, Text } from '@chakra-ui/react';
 
 interface Iprops {
