@@ -67,7 +67,7 @@ const Footer = () => {
             />
           </a>
           <a
-            href="linkedin"
+            href="https://www.linkedin.com/in/lukehowsam/"
             title="Linkedin"
             target="_blank"
             rel="noopener noreferrer"
