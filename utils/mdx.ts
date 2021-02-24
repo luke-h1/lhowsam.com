@@ -26,7 +26,6 @@ export async function getFileBySlug(type: string, slug: string) {
         require('remark-autolink-headings'),
         require('remark-slug'),
         require('remark-code-titles'),
-        require('mdx-prism'),
       ],
     },
   });
