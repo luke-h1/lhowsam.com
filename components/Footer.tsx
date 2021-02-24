@@ -33,7 +33,7 @@ const Footer = () => {
               size="lg"
               color={footerIcon[colorMode]}
               variant="ghost"
-              _hover={{ color: 'blue' }}
+              _hover={{ color: '#2EC0F9' }}
             />
           </a>
           <a
@@ -48,7 +48,7 @@ const Footer = () => {
               size="lg"
               color={footerIcon[colorMode]}
               variant="ghost"
-              _hover={{ color: 'blue' }}
+              _hover={{ color: '#2EC0F9' }}
             />
           </a>
           <a
@@ -63,7 +63,7 @@ const Footer = () => {
               size="lg"
               color={footerIcon[colorMode]}
               variant="ghost"
-              _hover={{ color: 'blue' }}
+              _hover={{ color: '#2EC0F9' }}
             />
           </a>
           <a
@@ -78,7 +78,7 @@ const Footer = () => {
               size="lg"
               color={footerIcon[colorMode]}
               variant="ghost"
-              _hover={{ color: 'blue' }}
+              _hover={{ color: '#2EC0F9' }}
             />
           </a>
         </div>

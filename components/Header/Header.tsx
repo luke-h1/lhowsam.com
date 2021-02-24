@@ -33,6 +33,8 @@ const MenuItems: React.FC<MenuProps> = (props) => {
       display="block"
       {...rest}
       color={logoIcon[colorMode]}
+      _hover={{ color: '#2EC0F9' }}
+
     >
       <Link href={href}>
         <a>{children}</a>

@@ -34,6 +34,8 @@ const BlogCard = ({
             borderWidth="1px"
             borderRadius="md"
             overflow="hidden"
+            _hover={{ color: '#2EC0F9' }}
+
           >
             <Heading m="5" mb="2" as="h1" size="lg">
               {title}

@@ -19,6 +19,8 @@ const ProjectCard = ({ title, summary, slug }: Iprops) => {
             overflow="hidden"
             mb={4}
             minW="md"
+            _hover={{ color: '#2EC0F9' }}
+
           >
             <Box m="5" as="div">
               <Heading m="5" mb="0" as="h4" size="md">
