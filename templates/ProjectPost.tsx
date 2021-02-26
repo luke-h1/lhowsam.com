@@ -4,8 +4,6 @@ import ShareButtons from '@components/ShareButtons';
 import {
   Container, Flex, Text, useColorMode,
 } from '@chakra-ui/react';
-import Site from '@icons/Site';
-import Github from '@icons/Github';
 import { FiGithub } from 'react-icons/fi';
 import { GoBrowser } from 'react-icons/go';
 
@@ -54,15 +52,15 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
               <FiGithub />
             </a>
             {frontMatter.site && (
-            <a
-              href={frontMatter.site}
-              target="_blank"
-              rel="noreferrer"
-              style={{ marginRight: '35px' }}
-              color={Colors[colorMode]}
-            >
-              <GoBrowser />
-            </a>
+              <a
+                href={frontMatter.site}
+                target="_blank"
+                rel="noreferrer"
+                style={{ marginRight: '35px' }}
+                color={Colors[colorMode]}
+              >
+                <GoBrowser />
+              </a>
             )}
           </Flex>
         </Flex>

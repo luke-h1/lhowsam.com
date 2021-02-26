@@ -130,7 +130,6 @@ const Hr = () => {
   return <Divider borderColor={borderColor[colorMode]} my={4} w="100%" />;
 };
 
-
 const MDXComponents = {
   Image,
   a: CustomLink,
