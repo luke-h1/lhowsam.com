@@ -1,9 +1,13 @@
 import { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
-import { Container, Flex, Text } from '@chakra-ui/react';
+import {
+  Container, Flex, Text, useColorMode,
+} from '@chakra-ui/react';
 import Site from '@icons/Site';
 import Github from '@icons/Github';
+import { FiGithub } from 'react-icons/fi';
+import { GoBrowser } from 'react-icons/go';
 
 interface Iprops {
   children: any;
@@ -11,6 +15,11 @@ interface Iprops {
 }
 
 const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
+  const { colorMode } = useColorMode();
+  const Colors = {
+    light: '#000',
+    dark: '#fff',
+  };
   return (
     <>
       <Container mb={4}>
@@ -35,8 +44,26 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
             {frontMatter.title}
           </Text>
           <Flex direction="row" justify="left">
-            {frontMatter.github && <Github url={frontMatter.github} />}
-            {frontMatter.site && <Site url={frontMatter.site} />}
+            <a
+              href={frontMatter.github}
+              target="_blank"
+              rel="noreferrer"
+              style={{ marginRight: '35px' }}
+              color={Colors[colorMode]}
+            >
+              <FiGithub />
+            </a>
+            {frontMatter.site && (
+            <a
+              href={frontMatter.site}
+              target="_blank"
+              rel="noreferrer"
+              style={{ marginRight: '35px' }}
+              color={Colors[colorMode]}
+            >
+              <GoBrowser />
+            </a>
+            )}
           </Flex>
         </Flex>
         <Flex direction="column" justify="between" mt={2} mb={5}>
