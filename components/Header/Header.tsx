@@ -80,6 +80,7 @@ const Header: React.FC<HeaderProps> = (props) => {
           justify={['center', 'space-between', 'flex-end', 'flex-end']}
           direction={['column', 'row', 'row', 'row']}
           pt={[4, 4, 0, 0]}
+          onClick={toggleMenu}
         >
           <MenuItems href="/">Home</MenuItems>
           <MenuItems href="/about">About</MenuItems>
