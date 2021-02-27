@@ -1,9 +1,7 @@
 import { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
-import {
-  Container, Flex, Text, useColorMode,
-} from '@chakra-ui/react';
+import { Container, Flex, Text, useColorMode } from '@chakra-ui/react';
 import { FiGithub } from 'react-icons/fi';
 import { GoBrowser } from 'react-icons/go';
 
