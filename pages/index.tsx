@@ -5,8 +5,10 @@ import Intro from '@components/Intro';
 import { getAllFilesFrontmatter } from '@utils/mdx';
 import ProjectCard from '@components/ProjectCard';
 import BlogCard from '@components/BlogCard';
-import { Text, Flex } from '@chakra-ui/react';
-
+import {
+  Text, Flex, Box, SimpleGrid,
+} from '@chakra-ui/react';
+import { Skills } from 'data/skills';
 import Project from '../types/Project';
 import Blog from '../types/Blog';
 
@@ -17,8 +19,9 @@ interface Iprops {
 
 const Home: NextPage<Iprops> = ({ posts, projects }) => {
   const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
+
   return (
     <>
       <NextSeo
@@ -30,7 +33,7 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
         }}
       />
       <Intro />
-      <Text as="h1" fontSize="40px" mt={1} mb={6} align="center">
+      <Text as="h2" fontSize="40px" mt={1} mb={6} align="center">
         Projects
       </Text>
       <Flex direction="column" justify="center" align="center" mb={6}>
@@ -38,13 +41,33 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
           <ProjectCard key={frontMatter.title} {...frontMatter} />
         ))}
       </Flex>
-      <Text as="h1" fontSize="40px" mt={1} mb={6} align="center">
+      <Text as="h2" fontSize="40px" mt={1} mb={6} align="center">
         Blog Posts
       </Text>
       <Flex direction="column" justify="center" align="center" mb={6}>
         {filterPosts.map((frontMatter) => (
           <BlogCard key={frontMatter.title} {...frontMatter} />
         ))}
+      </Flex>
+      <Flex direction="column" justify="center" align="center" mb={6}>
+        <Text as="h2" fontSize="40px" mt={1} mb={6} align="center">
+          Skills
+        </Text>
+        <SimpleGrid columns={[2, null, 3]} spacing="40px">
+          {Skills
+            && Skills.map((s) => (
+              <Box
+                as="button"
+                borderRadius="md"
+                bg="tomato"
+                color="white"
+                px={2}
+                h={8}
+              >
+                {s.name}
+              </Box>
+            ))}
+        </SimpleGrid>
       </Flex>
     </>
   );
