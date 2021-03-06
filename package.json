@@ -84,7 +84,7 @@
     "remark-parse": "^9.0.0",
     "remark-stringify": "^9.0.1",
     "ts-jest": "^26.5.3",
-    "typescript": "^4.1.5"
+    "typescript": "^4.2.3"
   },
   "jest": {
     "moduleNameMapper": {
