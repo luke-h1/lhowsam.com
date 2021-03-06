@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import {
-  Box, Flex, Text, useColorMode,
-} from '@chakra-ui/react';
+import { Box, Flex, Text, useColorMode } from '@chakra-ui/react';
 import CloseIcon from '@icons/CloseIcon';
 import MenuIcon from '@icons/MenuIcon';
 import Logo from '@icons/Logo';
@@ -22,9 +20,7 @@ const MenuItems: React.FC<MenuProps> = (props) => {
     dark: '#fff',
   };
 
-  const {
-    children, isLast, href, ...rest
-  } = props;
+  const { children, isLast, href, ...rest } = props;
   return (
     <Text
       mb={{ base: isLast ? 0 : 8, sm: 0 }}
