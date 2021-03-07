@@ -28,5 +28,5 @@
     }
   },
   "exclude": ["node_modules, __tests__"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "mdx.d.ts"]
 }
