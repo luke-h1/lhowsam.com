@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import NextLink from 'next/link';
+import styled from '@emotion/styled';
 
 interface Iprops {
   href: string;
@@ -37,18 +38,18 @@ const CustomLink = (props) => {
   return <Link color={color[colorMode]} isExternal {...props} />;
 };
 
-// const CustomPre = styled.pre`
-//     background: #000;
-//     color: #fff;
-//     padding: 1rem;
-//     border-radius: 10px;
-//     margin: 1rem 0 1rem 0 !important;
-//     color: #fff;
-//     /* DO NOT REMOVE THE BELOW STYLING FOR PRE TAGS */
-//     white-space: pre-wrap;
-//     word-wrap: break-word;
-//     text-align: justify;
-// `;
+const CustomPre = styled.pre`
+  background: #000;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 1rem 0 1rem 0 !important;
+  color: #fff;
+  /* DO NOT REMOVE THE BELOW STYLING FOR PRE TAGS */
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  text-align: justify;
+`;
 
 const Quote = (props) => {
   const { colorMode } = useColorMode();
@@ -148,6 +149,7 @@ const MDXComponents = {
   ul: (props) => <Box as="ul" pt={2} pl={4} ml={2} {...props} />,
   ol: (props) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />,
   li: (props) => <Box as="li" pb={1} {...props} />,
+  pre: (props) => <CustomPre>{props.children}</CustomPre>,
   blockquote: Quote,
 };
 export default MDXComponents;
