@@ -42,7 +42,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = (props) => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState<Boolean>(false);
   const toggleMenu = () => setShow(!show);
 
   return (

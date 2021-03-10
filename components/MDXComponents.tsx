@@ -17,7 +17,7 @@ interface Iprops {
   href: string;
 }
 
-const CustomLink = (props) => {
+const CustomLink = (props): any => {
   const { colorMode } = useColorMode();
   const color = {
     light: 'blue.500',
@@ -76,7 +76,7 @@ const Quote = (props) => {
   );
 };
 
-const DocsHeading = (props) => (
+const DocsHeading = (props): any => (
   <Heading
     css={{
       scrollMarginTop: '100px',
