@@ -67,7 +67,11 @@ const Header: React.FC<HeaderProps> = (props) => {
         </Link>
       </Flex>
 
-      <Box display={{ base: 'block', md: 'none' }} onClick={toggleMenu}>
+      <Box
+        display={{ base: 'block', md: 'none' }}
+        onClick={toggleMenu}
+        _hover={{ cursor: 'pointer' }}
+      >
         {show ? <CloseIcon /> : <MenuIcon />}
       </Box>
 
