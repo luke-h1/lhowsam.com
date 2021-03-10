@@ -17,6 +17,18 @@
   </url>
 
   <url>
+    <loc>https://lhowsam.com/blog/forcing-git-merges</loc>
+  </url>
+
+  <url>
+    <loc>https://lhowsam.com/blog/hello-world</loc>
+  </url>
+
+  <url>
+    <loc>https://lhowsam.com/blog/nextjs-testing-with-typescript</loc>
+  </url>
+
+  <url>
     <loc>https://lhowsam.com/project/automation</loc>
   </url>
 
@@ -30,17 +42,5 @@
 
   <url>
     <loc>https://lhowsam.com/project/personal-site</loc>
-  </url>
-
-  <url>
-    <loc>https://lhowsam.com/blog/forcing-git-merges</loc>
-  </url>
-
-  <url>
-    <loc>https://lhowsam.com/blog/hello-world</loc>
-  </url>
-
-  <url>
-    <loc>https://lhowsam.com/blog/nextjs-testing-with-typescript</loc>
   </url>
 </urlset>
