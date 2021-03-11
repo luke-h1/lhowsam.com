@@ -61,6 +61,7 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
                 color="white"
                 px={2}
                 h={8}
+                key={s.id}
               >
                 {s.name}
               </Box>
