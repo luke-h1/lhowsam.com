@@ -12,7 +12,7 @@ const Layout: React.FC = ({ children }) => {
       {Reset}
       <ChakraProvider resetCSS theme={theme}>
         <MDXProvider components={MDXComponents}>
-          <Header props={null} />
+          <Header />
           {children}
           <Footer />
         </MDXProvider>

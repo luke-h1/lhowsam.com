@@ -1,7 +1,7 @@
 import { useColorMode, Text } from '@chakra-ui/react';
 import { AiOutlineBars } from 'react-icons/ai';
 
-const Logo = () => {
+export const MenuIcon = () => {
   const { colorMode } = useColorMode();
   const Colors = {
     light: '#000',
@@ -13,4 +13,3 @@ const Logo = () => {
     </Text>
   );
 };
-export default Logo;

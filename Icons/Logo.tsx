@@ -1,7 +1,7 @@
 import { useColorMode, Text } from '@chakra-ui/react';
 import { FiCode } from 'react-icons/fi';
 
-const Logo = (url) => {
+export const Logo = (url: any) => {
   const { colorMode } = useColorMode();
   const Colors = {
     light: '#000',
@@ -15,4 +15,3 @@ const Logo = (url) => {
     </Text>
   );
 };
-export default Logo;
