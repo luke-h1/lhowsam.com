@@ -51,7 +51,7 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
         <Text as="h2" fontSize="40px" mt={1} mb={6} align="center">
           Skills
         </Text>
-        <SimpleGrid columns={[2, null, 4]} spacing="40px">
+        <SimpleGrid columns={[2, null, 3]} spacing="40px">
           {Skills
             && Skills.map((s) => (
               <Box
