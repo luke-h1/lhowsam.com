@@ -13,10 +13,6 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 import styled from '@emotion/styled';
 
-interface Iprops {
-  href: string;
-}
-
 const CustomLink = (props): any => {
   const { colorMode } = useColorMode();
   const color = {
