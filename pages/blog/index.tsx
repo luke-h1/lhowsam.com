@@ -1,59 +1,47 @@
-import React from 'react';
-import { NextSeo } from 'next-seo';
-import { NextPage } from 'next';
-import { getAllFilesFrontmatter } from '@utils/mdx';
-import { Container, Flex, Text } from '@chakra-ui/react';
-import BlogCard from '@components/BlogCard';
+import React from "react";
+import { Box, Stack, Text } from "@chakra-ui/react";
+import { useState } from "react";
+import { BLOG_CONTENT_PATH } from "../../src/constants/constants";
+import { getMdxContent } from "../../src/utils/get-mdx-content";
+import { Search } from "../../src/components/Search";
+import BlogCard from "@components/BlogCard";
+interface indexProps {}
 
-const Index: NextPage = ({ posts }: any) => {
-  const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
-  );
-
+const index: React.FC<indexProps> = ({ allMdx }) => {
+  const [filteredBlogs, setFilteredBlogs] = useState(allMdx);
+  const handleFilter = (data) => {
+    setFilteredBlogs(data);
+  };
   return (
-    <>
-      <Container>
-        <NextSeo
-          title="Blog | lhowsam.com"
-          canonical="https://lhowsam.com/blog"
-          openGraph={{
-            url: 'https://lhowsam.com/blog',
-            title: 'Blog | lhowsam.com',
-          }}
-        />
-        <Flex
-          direction="column"
-          justify="center"
-          align="center"
-          mb="8"
-          maxW="700px"
-        >
-          <Text as="h1" fontSize="40px" mb={4}>
-            Blog
-          </Text>
-          <Text align="center" as="h1" fontSize="25px" mb={4}>
-            Thoughts on React, Node, testing & tech in general
-          </Text>
-          <Flex
-            direction="column"
-            justify="center"
-            align="center"
-            mb="8"
-            maxW="700px"
-          >
-            {!filterPosts.length && 'No blog posts found'}
-            {filterPosts.map((frontMatter) => (
-              <BlogCard key={frontMatter.title} {...frontMatter} />
-            ))}
-          </Flex>
-        </Flex>
-      </Container>
-    </>
+    <Box pb={3}>
+      <Text as="h1" fontSize="40px" align="center" mb={4}>
+        Blog
+      </Text>
+      {/* Content Area + Input + Tag filter */}
+
+      <Stack spacing={[4, 8, 12]} justify="center" alignItems="center">
+        <Search blogs={allMdx} handleFilter={handleFilter} />
+        <Stack spacing={[2, 6, 12]}>
+          {filteredBlogs?.map((blog) => (
+            <BlogCard key={blog.slug} blog={blog} />
+          ))}
+        </Stack>
+      </Stack>
+    </Box>
   );
 };
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontmatter('blog');
-  return { props: { posts } };
+  const posts = await getMdxContent(BLOG_CONTENT_PATH);
+  const allMdx = posts.map((post) => ({
+    slug: post.slug,
+    ...post.data,
+  }));
+
+  return {
+    props: {
+      allMdx,
+    },
+  };
 }
-export default Index;
+export default index;

@@ -1,24 +1,22 @@
-import React from 'react';
-import { NextSeo } from 'next-seo';
-import { GetStaticProps, NextPage } from 'next';
-import Intro from '@components/Intro';
-import { getAllFilesFrontmatter } from '@utils/mdx';
-import ProjectCard from '@components/ProjectCard';
-import BlogCard from '@components/BlogCard';
-import { Text, Flex, Box, SimpleGrid } from '@chakra-ui/react';
-import { Skills } from 'data/skills';
-import Project from '../types/Project';
-import Blog from '../types/Blog';
+import { Text, Flex, Box, SimpleGrid, Stack } from "@chakra-ui/react";
+import { getMdxContent } from "../src/utils/get-mdx-content";
+import {
+  BLOG_CONTENT_PATH,
+  PROJECT_CONTENT_PATH,
+} from "../src/constants/constants";
+import { NextSeo } from "next-seo";
+import Intro from "@components/Intro";
+import React, { useEffect } from "react";
+import { Skills } from "@components/Skills";
+import ProjectCard from "@components/ProjectCard";
+import BlogCard from "@components/BlogCard";
 
-interface Iprops {
-  posts: Blog;
-  projects: Project;
-}
+export default function Home({ blogMdx, projectMdx }) {
+  useEffect(() => {
+    console.log(blogMdx);
+    console.log(projectMdx);
 
-const Home: NextPage<Iprops> = ({ posts, projects }) => {
-  const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
-  );
+  }, []);
 
   return (
     <>
@@ -26,8 +24,8 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
         title="Home | lhowsam.com"
         canonical="https://lhowsam.com/"
         openGraph={{
-          url: 'https://lhowsam.com',
-          title: 'Home | lhowsam.com',
+          url: "https://lhowsam.com",
+          title: "Home | lhowsam.com",
         }}
       />
       <Intro />
@@ -35,25 +33,33 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
         Projects
       </Text>
       <Flex direction="column" justify="center" align="center" mb={6}>
-        {projects.map((frontMatter) => (
-          <ProjectCard key={frontMatter.title} {...frontMatter} />
+        {projectMdx?.map((blog) => (
+          <ProjectCard key={blog.slug} blog={blog} />
         ))}
+        {/* {projects.map((frontMatter) => (
+          <ProjectCard key={frontMatter.title} {...frontMatter} />
+        ))} */}
       </Flex>
       <Text as="h2" fontSize="40px" mt={1} mb={6} align="center">
-        Blog Posts
+        Blog
       </Text>
       <Flex direction="column" justify="center" align="center" mb={6}>
-        {filterPosts.map((frontMatter) => (
+        <Stack spacing={[2, 6, 12]}>
+          {blogMdx?.map((blog) => (
+            <BlogCard key={blog.slug} blog={blog} />
+          ))}
+        </Stack>
+        {/* {filterPosts.map((frontMatter) => (
           <BlogCard key={frontMatter.title} {...frontMatter} />
-        ))}
+        ))} */}
       </Flex>
       <Flex direction="column" justify="center" align="center" mb={6}>
         <Text as="h2" fontSize="40px" mt={1} mb={6} align="center">
           Skills
         </Text>
         <SimpleGrid columns={[2, null, 3]} spacing="40px">
-          {Skills
-            && Skills.map((s) => (
+          {Skills &&
+            Skills.map((s) => (
               <Box
                 as="button"
                 borderRadius="md"
@@ -70,10 +76,24 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
       </Flex>
     </>
   );
-};
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllFilesFrontmatter('blog');
-  const projects = await getAllFilesFrontmatter('project');
-  return { props: { posts, projects } };
-};
-export default Home;
+}
+export async function getStaticProps() {
+  const blogPosts = await getMdxContent(BLOG_CONTENT_PATH);
+  const projectPosts = await getMdxContent(PROJECT_CONTENT_PATH);
+
+  const projectMdx = projectPosts.map((project) => ({
+    slug: project.slug,
+    ...project.data,
+  }));
+  const blogMdx = blogPosts.map((post) => ({
+    slug: post.slug,
+    ...post.data,
+  }));
+
+  return {
+    props: {
+      blogMdx,
+      projectMdx,
+    },
+  };
+}

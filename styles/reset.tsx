@@ -1,7 +1,7 @@
-import { css, Global } from '@emotion/react';
-import { normalize } from 'polished';
-import { prismLightTheme, prismDarkTheme } from '@styles/prism';
-import { useColorMode } from '@chakra-ui/react';
+import { css, Global } from "@emotion/react";
+import { normalize } from "polished";
+import { prismLightTheme, prismDarkTheme } from "./prism";
+import { useColorMode } from "@chakra-ui/react";
 
 export const Reset = () => {
   const { colorMode } = useColorMode();
@@ -9,7 +9,7 @@ export const Reset = () => {
     <Global
       styles={css`
         ${normalize()}
-        ${colorMode === 'light' ? prismLightTheme : prismDarkTheme}
+        ${colorMode === "light" ? prismLightTheme : prismDarkTheme}
         * {
           box-sizing: border-box;
           padding: 0;
@@ -26,7 +26,7 @@ export const Reset = () => {
         }
 
         body {
-          font-family: 'Noto Sans JP';
+          font-family: "Noto Sans JP";
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
           background: #fff;

@@ -21,7 +21,7 @@ const About: NextPage = () => {
         }}
       />
       <Container maxW="1200px" minH="80vh">
-        <Text as="h1" fontSize="30px" align="center" mb={4}>
+        <Text as="h1" fontSize="40px" align="center" mb={4}>
           About
         </Text>
         <Flex direction="column" align="center" justify="center" m={4}>
