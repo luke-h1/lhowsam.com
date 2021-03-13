@@ -7,7 +7,7 @@ import readingTime from 'reading-time';
 
 import components from '../components/MDXComponents';
 
-export async function getMdxContent(source) {
+export async function getMdxContent(source: string) {
   const contentGlob = `${source}/**/*.mdx`;
   const files = glob.sync(contentGlob);
 

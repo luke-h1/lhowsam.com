@@ -4,8 +4,13 @@ import Fuse from "fuse.js";
 import { Flex, Stack, Input } from "@chakra-ui/react";
 
 import { TagList } from "./TagList";
+import { BlogPost, ProjectPost } from "@src/types";
 
-interface SearchProps {}
+interface SearchProps {
+  // ts is very angry with this type 😝
+  blogs: BlogPost[] & ProjectPost[];
+}
+
 
 const fuseOptions = {
   threshold: 0.35,
@@ -19,6 +24,9 @@ const fuseOptions = {
 };
 
 export const Search: React.FC<SearchProps> = ({ blogs, handleFilter }) => {
+  useEffect(() => { 
+    console.log('blogs for search > ', blogs)
+  },[[]])
   const [searchValue, setSearchValue] = React.useState("");
   const [searchTags, setSearchTags] = React.useState([]);
   const fuse = new Fuse(blogs, fuseOptions);

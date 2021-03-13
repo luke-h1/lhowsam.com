@@ -5,11 +5,17 @@ import components from "../../src/components/MDXComponents";
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
 import { Container, Flex, Text } from '@chakra-ui/react';
-import { parseISO, format } from 'date-fns';
+import { MdxRemote } from "next-mdx-remote/types";
+import { ProjectPost } from "@src/types";
+interface ProjectProps { 
+  mdxSource: MdxRemote.Source;
+  frontMatter: ProjectPost
 
-export default function BlogPost({ mdxSource, frontMatter }) {
+}
+
+export default function BlogPost({ mdxSource, frontMatter }: ProjectProps) {
   const content = hydrate(mdxSource, { components });
-  const { title, description, author, tags } = frontMatter;
+  const { title } = frontMatter;
   return (
     <>
     <Container maxW="700px" mb={4}>

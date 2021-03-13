@@ -1,4 +1,4 @@
-import Code from "../components/Code";
+import { Code } from "../components/Code";
 import { H1, H2, H3, H4, H5, H6, P } from '../components/Typography';
 import Image from 'next/image';
 

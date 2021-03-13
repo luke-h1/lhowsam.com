@@ -7,7 +7,6 @@ import {
   useStyleConfig,
 } from "@chakra-ui/react";
 
-interface TagListProps {}
 
 function TagButton(props) {
   const { getCheckboxProps, getInputProps } = useCheckbox(props);
@@ -25,6 +24,11 @@ function TagButton(props) {
     </Box>
   );
 }
+
+interface TagListProps {
+  tags: string[]
+}
+
 
 export const TagList: React.FC<TagListProps> = ({ tags, value, onChange }) => {
   const { getCheckboxProps } = useCheckboxGroup({

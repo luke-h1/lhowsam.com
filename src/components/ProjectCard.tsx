@@ -1,11 +1,14 @@
 import { Box, Text, Heading, Stack, Tag } from "@chakra-ui/react";
+import { ProjectPost } from "@src/types";
 import Link from "next/link";
 import React from "react";
 
-interface Iprops {}
+interface ProjectProps {
+  blog: ProjectPost;
+}
 
-const ProjectCard = ({ blog }: any) => {
-  const { title, author, description, tags } = blog;
+const ProjectCard = ({ blog }: ProjectProps) => {
+  const { title, description, tags } = blog;
 
   return (
     <>

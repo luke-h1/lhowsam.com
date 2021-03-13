@@ -7,6 +7,7 @@
       "esnext"
     ],
     "paths": {
+      "@src/*": ["src/*"],
       "@tests/*": ["__tests__/*"],
       "@pages/*": ["pages/*"],
       "@components/*": ["src/components/*"],

@@ -1,12 +1,14 @@
 import { Box, Text, Heading, Stack, Tag } from "@chakra-ui/react";
+import { BlogPost } from "@src/types";
 import Link from "next/link";
 import React from "react";
 
-interface Iprops {}
+interface Iprops {
+  blog: BlogPost;
+}
 
-const BlogCard = ({ blog }: any) => {
-  const { title, author, description, tags } = blog;
-
+const BlogCard: React.FC<Iprops> = ({ blog }) => {
+  const { title, description, tags } = blog;
   return (
     <>
       <Link href={`/blog/${blog.slug}`}>

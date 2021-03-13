@@ -1,13 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { BLOG_CONTENT_PATH } from "../../src/constants/constants";
 import { getMdxContent } from "../../src/utils/get-mdx-content";
 import { Search } from "../../src/components/Search";
 import BlogCard from "@components/BlogCard";
-interface indexProps {}
+import { BlogPost } from "@src/types";
+interface indexProps {
+  allMdx: BlogPost[]
+}
 
 const index: React.FC<indexProps> = ({ allMdx }) => {
+// useeffect to get the shape
+  // useEffect(() => {console.log(allMdx)}, [])
+
   const [filteredBlogs, setFilteredBlogs] = useState(allMdx);
   const handleFilter = (data) => {
     setFilteredBlogs(data);

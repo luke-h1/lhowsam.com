@@ -6,10 +6,18 @@ import { NextSeo } from "next-seo";
 import ShareButtons from "@components/ShareButtons";
 import { Container, Flex, Text } from "@chakra-ui/react";
 import { parseISO, format } from "date-fns";
+import { MdxRemote } from "next-mdx-remote/types";
+import { BlogPost } from "@src/types";
 
-export default function BlogPost({ mdxSource, frontMatter }) {
+
+interface BlogProps {
+  mdxSource: MdxRemote.Source;
+  frontMatter: BlogPost;
+}
+
+export default function BlogPost({ mdxSource, frontMatter }: BlogProps) {
   const content = hydrate(mdxSource, { components });
-  const { title, author, tags, readingTime } = frontMatter;
+  const { title  } = frontMatter;
   return (
     <>
       <Container maxW="700px" mb={4}>
@@ -32,7 +40,6 @@ export default function BlogPost({ mdxSource, frontMatter }) {
             {format(parseISO(frontMatter.date), "MMMM dd, yyyy")}
           </Text>
           <Text as="p" fontSize="20px" mt={2} mb={2} color="#fff">
-           {readingTime}
           </Text>
         </Flex>
         {/* <Text as="p" fontSize="20px" mt={2} mb={2} color="gray.500">

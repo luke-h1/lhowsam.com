@@ -3,7 +3,7 @@ import {
   Flex, Heading, Text, Box,
 } from '@chakra-ui/react';
 
-const Intro = () => {
+const Intro: React.FC<{}> = () => {
   return (
     <>
       <Flex direction="column" justify="center" align="center" mb="8">

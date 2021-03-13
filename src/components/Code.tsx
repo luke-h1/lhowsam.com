@@ -3,7 +3,8 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/vsDark';
 import { Button, useClipboard } from '@chakra-ui/react';
 
-function CopyButton({ value }) {
+
+export const CopyButton = (value: string) => {
   const { onCopy, hasCopied } = useClipboard(value);
   return (
     <Button aria-label="Copy text" role="button" onClick={onCopy}>
@@ -12,7 +13,11 @@ function CopyButton({ value }) {
   );
 }
 
-export default function Code({ children, className }) {
+interface CodeProps { 
+  // fuck knows what these are ? 
+}
+
+export const Code: React.FC<CodeProps> = ({ children , className }) => {
   const language = className.replace(/language-/, '');
   return (
     <Highlight
