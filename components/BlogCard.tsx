@@ -1,4 +1,6 @@
-import { Box, Text, Heading, useColorMode } from '@chakra-ui/react';
+import {
+  Box, Text, Heading, useColorMode,
+} from '@chakra-ui/react';
 import Link from 'next/link';
 import { parseISO, format } from 'date-fns';
 
@@ -9,7 +11,9 @@ interface Iprops {
   date: string;
 }
 
-const BlogCard = ({ title, summary, slug, date }: Iprops) => {
+const BlogCard = ({
+  title, summary, slug, date,
+}: Iprops) => {
   const { colorMode } = useColorMode();
 
   const blogCard = {

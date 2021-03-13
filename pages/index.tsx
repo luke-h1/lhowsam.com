@@ -5,9 +5,7 @@ import Intro from '@components/Intro';
 import { getAllFilesFrontmatter } from '@utils/mdx';
 import ProjectCard from '@components/ProjectCard';
 import BlogCard from '@components/BlogCard';
-import {
-  Text, Flex, Box, SimpleGrid,
-} from '@chakra-ui/react';
+import { Text, Flex, Box, SimpleGrid } from '@chakra-ui/react';
 import { Skills } from 'data/skills';
 import Project from '../types/Project';
 import Blog from '../types/Blog';
@@ -19,7 +17,7 @@ interface Iprops {
 
 const Home: NextPage<Iprops> = ({ posts, projects }) => {
   const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
   );
 
   return (
@@ -63,6 +61,7 @@ const Home: NextPage<Iprops> = ({ posts, projects }) => {
                 color="white"
                 px={2}
                 h={8}
+                key={s.id}
               >
                 {s.name}
               </Box>

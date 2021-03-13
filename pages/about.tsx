@@ -25,7 +25,7 @@ const About: NextPage = () => {
           About
         </Text>
         <Flex direction="column" align="center" justify="center" m={4}>
-          <SimpleGrid columns={2} spacingX="40px" spacingY="20px">
+          <SimpleGrid columns={[1, null, 2]} spacingX="40px" spacingY="250px">
             <Box height="120px">
               <Text as="h1" fontSize="40px" align="left">
                 Hey I'm Luke 👋

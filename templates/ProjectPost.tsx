@@ -62,19 +62,13 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
             )}
           </Flex>
         </Flex>
-        <Flex direction="column" justify="between" mt={2} mb={5}>
-          <ShareButtons
-            location={`https://lhowsam.com/blog/${frontMatter.slug}`}
-          />
-        </Flex>
-        <Text as="p" fontSize="20px" mt={2} mb={2}>
-          {' • '}
-          {frontMatter.readingTime.text}
-        </Text>
         <hr />
         <Text as="p" fontSize="20px" mt={2} mb={2} lineHeight="1.5">
           {children}
         </Text>
+        <ShareButtons
+          location={`https://lhowsam.com/blog/${frontMatter.slug}`}
+        />
       </Container>
     </>
   );

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Flex, Heading, Text, Box } from '@chakra-ui/react';
+import {
+  Flex, Heading, Text, Box,
+} from '@chakra-ui/react';
 
 const Intro = () => {
   return (
@@ -7,7 +9,8 @@ const Intro = () => {
       <Flex direction="column" justify="center" align="center" mb="8">
         <Box>
           <Heading as="h1" fontSize="40px" mb={8}>
-            Hi, I'm Luke 👋{' '}
+            Hi, I'm Luke 👋
+            {' '}
           </Heading>
         </Box>
 
