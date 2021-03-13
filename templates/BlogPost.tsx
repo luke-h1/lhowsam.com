@@ -12,7 +12,7 @@ interface Iprops {
 const BlogPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
   return (
     <>
-      <Container mb={4}>
+      <Container maxW="700px" mb={4}>
         <NextSeo
           title={`${frontMatter.title} | lhowsam.com`}
           canonical={`https://lhowsam.com/blog/${frontMatter.slug}`}
@@ -22,35 +22,27 @@ const BlogPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           }}
         />
 
-        <Flex
-          as="article"
-          direction="column"
-          justify="center"
-          maxW="1000px"
-          mx="auto"
-          mb={5}
-        >
+        <Flex as="article" direction="column" justify="center" mb={5}>
           <Text as="h1" fontSize="40px">
             {frontMatter.title}
           </Text>
         </Flex>
 
         <Flex direction="column" justify="between" mt={2} mb={5}>
-          <p className="text-sm text-gray-700 dark:text-gray-300 ml-2">
+          <Text as="p" fontSize="20px" mt={2} mb={2} color="gray.500">
             {format(parseISO(frontMatter.date), 'MMMM dd, yyyy')}
-          </p>
-          <ShareButtons
-            location={`https://lhowsam.com/blog/${frontMatter.slug}`}
-          />
+          </Text>
         </Flex>
-        <Text as="p" fontSize="20px" mt={2} mb={2}>
-          {' • '}
+        <Text as="p" fontSize="20px" mt={2} mb={2} color="gray.500">
           {frontMatter.readingTime.text}
         </Text>
         <hr />
         <Text as="p" fontSize="20px" mt={2} mb={2} lineHeight="1.5">
           {children}
         </Text>
+        <ShareButtons
+          location={`https://lhowsam.com/blog/${frontMatter.slug}`}
+        />
       </Container>
     </>
   );
