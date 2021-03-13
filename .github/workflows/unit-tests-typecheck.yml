@@ -1,4 +1,4 @@
-name: CI / unit tests & typecheck (push / pull)
+name: CI / unit tests (push / pull)
 
 on:
   push:
