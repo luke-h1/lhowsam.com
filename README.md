@@ -21,7 +21,7 @@ Source code for my personal website & blog.
 
 ![CI / Node.js builds (push / pull)](https://github.com/luke-h1/lhowsam.com/workflows/CI%20/%20Node.js%20builds%20(push%20/%20pull)/badge.svg)
 
-![CI / unit tests & typecheck (push / pull)](https://github.com/luke-h1/lhowsam.com/workflows/CI%20/%20unit%20tests%20&%20typecheck%20(push%20/%20pull)/badge.svg)
+![CI / unit tests (push / pull)](https://github.com/luke-h1/lhowsam.com/workflows/CI%20/%20unit%20tests%20&%20typecheck%20(push%20/%20pull)/badge.svg)
 
 ![Nightly unit tests](https://github.com/luke-h1/lhowsam.com/workflows/Nightly%20unit%20tests/badge.svg)
 
