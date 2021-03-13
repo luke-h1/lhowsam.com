@@ -11,10 +11,6 @@
 # next.js
 /.next/
 /out/
-.env.*
-.env.development
-.env.production
-!.env.example
 
 # production
 /build
@@ -29,10 +25,33 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
+.env.*
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+!.env.example
 
 # vercel
 .vercel
+
+# Created by https://www.toptal.com/developers/gitignore/api/react
+# Edit at https://www.toptal.com/developers/gitignore?templates=react
+
+### react ###
+.DS_*
+*.log
+logs
+**/*.backup.*
+**/*.back.*
+
+node_modules
+bower_components
+
+*.sublime*
+
+psd
+thumb
+sketch
+
+# End of https://www.toptal.com/developers/gitignore/api/react
