@@ -1,55 +1,57 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "jest": true
-  },
-  "extends": ["plugin:react/recommended", "airbnb"],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "jest": true
     },
-    "ecmaVersion": 12
-  },
-  "plugins": ["react", "@typescript-eslint"],
-  "rules": {
-    "react/react-in-jsx-scope": "off",
-    "no-console": "warn",
-    "no-use-before-define": "off",
-    "import/extensions": "off",
-    "react/jsx-filename-extension": [
-      0,
-      { "extensions": [".tsx, .ts, .js, .jsx"] }
-    ],
-    "react/jsx-props-no-spreading": "off",
-    "react/state-in-constructor": "off",
-    "no-unsafe-finally": "off",
-    "jsx-a11y/anchor-is-valid": "off",
-    "import/no-unresolved": "off",
-    "arrow-body-style": "off",
-    "jsx-no-lambda": "off",
-    "react/prop-types": "off",
-    "jsx-a11y/anchor-has-content": "off",
-    "import/prefer-default-export": "off",
-    "react/no-unescaped-entities": "off",
-    "no-multi-str": "off",
-    "max-len": "off"
-  },
-  "globals": {
-    "React": "writable"
-  },
-  "ignorePatterns": ["node_modules/", ".next/"],
-  "settings": {
-    "import/resolver": {
-      "alias": [
-        ["@components", "./src/components"],
-        ["@pages", "./pages"],
-        ["@tests", "./src/__tests__"],
-        ["@icons", "./src/Icons"],
-        ["@utils", "./src/utils"],
-        ["@styles", "./src/styles"]
-      ]
+    "extends": ["plugin:react/recommended", "airbnb"],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "jsx": true
+      },
+      "ecmaVersion": 12
+    },
+    "plugins": ["react", "@typescript-eslint"],
+    "rules": {
+      "react/react-in-jsx-scope": "off",
+      "no-console": "warn",
+      "no-use-before-define": "off",
+      "import/extensions": "off",
+      "react/jsx-filename-extension": [
+        0,
+        { "extensions": [".tsx, .ts, .js, .jsx"] }
+      ],
+      "react/jsx-props-no-spreading": "off",
+      "react/state-in-constructor": "off",
+      "no-unsafe-finally": "off",
+      "jsx-a11y/anchor-is-valid": "off",
+      "import/no-unresolved": "off",
+      "arrow-body-style": "off",
+      "jsx-no-lambda": "off",
+      "react/prop-types": "off",
+      "jsx-a11y/anchor-has-content": "off",
+      "import/prefer-default-export": "off",
+      "react/no-unescaped-entities": "off",
+      "no-multi-str": "off",
+      "max-len": "off"
+    },
+    "globals": {
+      "React": "writable"
+    },
+    "ignorePatterns": ["node_modules/", ".next/"],
+    "settings": {
+      "import/resolver": {
+        "alias": [
+          ["@src/*", "src/*"],
+          ["@tests/*", "__tests__/*"],
+          ["@pages/*", "pages/*"],
+          ["@components/*", "src/components/*"],
+          ["@icons/*", "src/Icons/*"],
+          ["@utils/*", "src/utils/*"],
+          ["@styles/*", "src/styles/*"],
+          ["@types/*", "src/types/*"]
+        ]
+      }
     }
   }
-}

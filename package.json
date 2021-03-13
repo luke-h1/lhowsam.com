@@ -60,5 +60,17 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "typescript": "^4.2.3"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "@src/(.*)$": "src/$1",
+      "@tests/(.*)$": "__tests__/$1",
+      "@pages/(.*)$": "pages/$1",
+      "@components/(.*)$": "src/components/$1",
+      "@icons/(.*)$": "src/Icons/$1",
+      "@utils/(.*)$": "src/utils/$1",
+      "@styles/(.*)$": "src/styles/$1",
+      "@types/(.*)$": "src/types/$1"
+    }
   }
 }
