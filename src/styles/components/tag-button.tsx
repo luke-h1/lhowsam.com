@@ -1,3 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import { ColorMode } from '@chakra-ui/color-mode';
+
 const colorModeTheme = {
   dark: {
     bg: 'whiteAlpha.200',
@@ -25,7 +28,7 @@ const colorModeTheme = {
   },
 };
 const TagButton = {
-  baseStyle: ({ colorMode }) => {
+  baseStyle: ({ colorMode }: {colorMode: ColorMode}) => {
     const colorModeStyles = colorMode === 'light' ? colorModeTheme.light : colorModeTheme.dark;
 
     return {

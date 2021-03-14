@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { CustomCode } from '../components/CustomCode';
 import { H1, H2, H3, H4, H5, H6, P } from '../components/Typography';
 
-const Quote = (props) => {
+const Quote = (props: any) => {
   const { colorMode } = useColorMode();
   const bgColor = {
     light: 'blue.50',
@@ -41,21 +41,21 @@ const Hr = () => {
 
 const MDXComponents = {
   Image,
-  h1: (props) => <H1 {...props} />,
-  h2: (props) => <H2 {...props} />,
-  h3: (props) => <H3 {...props} />,
-  h4: (props) => <H4 {...props} />,
-  h5: (props) => <H5 {...props} />,
-  h6: (props) => <H6 {...props} />,
-  br: (props) => <Box height="24px" {...props}/>,
-  hr: (props) => <Hr {...props} />,
-  ul: (props) => <Box as="ul" pt={2} pl={4} ml={2} {...props} />,
-  ol: (props) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />,
-  li: (props) => <Box as="li" pb={1} {...props} />,
-  P: (props) =>  <P {...props} />, 
+  h1: (props: any) => <H1 {...props} />,
+  h2: (props: any) => <H2 {...props} />,
+  h3: (props: any) => <H3 {...props} />,
+  h4: (props: any) => <H4 {...props} />,
+  h5: (props: any) => <H5 {...props} />,
+  h6: (props: any) => <H6 {...props} />,
+  br: (props: any) => <Box height="24px" {...props}/>,
+  hr: (props: any) => <Hr {...props} />,
+  ul: (props: any) => <Box as="ul" pt={2} pl={4} ml={2} {...props} />,
+  ol: (props: any) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />,
+  li: (props: any) => <Box as="li" pb={1} {...props} />,
+  P: (props: any) =>  <P {...props} />, 
   code: CustomCode,
   blockquote: Quote,
-  inlineCode: (props) => (
+  inlineCode: (props: any) => (
     <Code colorScheme="yellow" fontSize="0.84em" {...props} />
   ),
 }

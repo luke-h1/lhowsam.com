@@ -1,44 +1,44 @@
-/* eslint-disable react/destructuring-assignment */
 import { Heading, Text } from '@chakra-ui/react';
+import React from 'react';
 
-export const H1 = (props) => (
+export const H1 = ({ children }: { children: React.ReactNode }) => (
   <Heading as="h1" size="xl" pb="1rem">
-    {props.children}
+    {children}
   </Heading>
 );
 
-export const H2 = (props) => (
+export const H2 = ({ children }: { children: React.ReactNode }) => (
   <Heading as="h2" size="lg" pb="1rem">
-    {props.children}
+    {children}
   </Heading>
 );
 
-export const H3 = (props) => (
+export const H3 = ({ children }: { children: React.ReactNode }) => (
   <Heading as="h3" size="lg" pb="1rem">
-    {props.children}
+    {children}
   </Heading>
 );
 
-export const H4 = (props) => (
+export const H4 = ({ children }: { children: React.ReactNode }) => (
   <Heading as="h4" size="md" pb="1rem">
-    {props.children}
+    {children}
   </Heading>
 );
 
-export const H5 = (props) => (
+export const H5 = ({ children }: { children: React.ReactNode }) => (
   <Heading as="h5" size="md" pb="1rem">
-    {props.children}
+    {children}
   </Heading>
 );
 
-export const H6 = (props) => (
+export const H6 = ({ children }: { children: React.ReactNode }) => (
   <Heading as="h6" size="xl" pb="1rem">
-    {props.children}
+    {children}
   </Heading>
 );
 
-export const P = (props) => (
+export const P = ({ children }: { children: React.ReactNode }) => (
   <Text as="p" pb="1rem">
-    {props.children}
+    {children}
   </Text>
 );
