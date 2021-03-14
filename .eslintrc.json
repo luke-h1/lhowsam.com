@@ -43,12 +43,15 @@
   "settings": {
     "import/resolver": {
       "alias": [
-        ["@components", "./components"],
-        ["@pages", "./pages"],
-        ["@tests", "./__tests__"],
-        ["@icons", "./Icons"],
-        ["@lib", "./lib"],
-        ["@styles", "./styles"]
+        ["@src/*", "src/*"],
+        ["@tests/*", "__tests__/*"],
+        ["@pages/*", "pages/*"],
+        ["@components/*", "src/components/*"],
+        ["@icons/*", "src/Icons/*"],
+        ["@utils/*", "src/utils/*"],
+        ["@styles/*", "src/styles/*"],
+        ["@types/*", "src/types/*"],
+        ["@data/*", "src/data/*"]
       ]
     }
   }

@@ -1,20 +1,22 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
     "paths": {
+      "@src/*": ["src/*"],
       "@tests/*": ["__tests__/*"],
       "@pages/*": ["pages/*"],
-      "@components/*": ["components/*"],
-      "@icons/*": ["Icons/*"],
-      "@templates/*": ["templates/*"],
-      "@utils/*": ["utils/*"],
-      "@styles/*": ["styles/*"],
-      "@types/*": ["types/*"]
+      "@components/*": ["src/components/*"],
+      "@icons/*": ["src/Icons/*"],
+      "@utils/*": ["src/utils/*"],
+      "@styles/*": ["src/styles/*"],
+      "@types/*": ["src/types/*"],
+      "@templates/*": ["src/templates/*"],
+      "@data/*": ["src/data/*"],
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -35,7 +37,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "./",
+    "baseUrl": ".",
   },
   "include": [
     "next-env.d.ts",

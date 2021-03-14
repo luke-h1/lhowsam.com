@@ -7,13 +7,13 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "storybook": "start-storybook -p 6006 -c .storybook",
+    "watch": "tsc --watch",
+    "type-check": "tsc --noEmit",
     "test:update": "jest -u",
     "jest:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "lint": "eslint \"./*.{js, jsx,ts,tsx}\" --quiet --fix",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
-    "type-check": "tsc --noEmit",
+    "lint": "eslint \"./src/**/*.{js, jsx,ts,tsx}\" --quiet --fix && eslint \"./**/*.{js, jsx,ts,tsx}\" --quiet --fix",
+      "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "analyze": "cross-env ANALYZE=1 next build && cat .next/stats.txt",
     "deploy": "sh deploy.sh"
   },
@@ -27,8 +27,9 @@
     "axios": "^0.21.1",
     "cross-env": "^7.0.3",
     "date-fns": "^2.19.0",
-    "express-async-handler": "^1.1.4",
+    "fast-glob": "^3.2.5",
     "framer-motion": "^3.10.3",
+    "fuse.js": "^3.6.1",
     "globby": "^11.0.2",
     "gray-matter": "^4.0.2",
     "next": "10.0.8",
@@ -37,6 +38,7 @@
     "polished": "^4.1.1",
     "postcss": "^8.2.8",
     "prettier": "^2.2.1",
+    "prism-react-renderer": "^1.2.0",
     "prop-types": "^15.7.2",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -53,7 +55,6 @@
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/plugin-proposal-optional-chaining": "^7.13.8",
     "@babel/plugin-transform-flow-strip-types": "^7.13.0",
-    "@storybook/react": "^6.1.21",
     "@testing-library/dom": "^7.30.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
@@ -93,14 +94,17 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "^@tests/(.*)$": "<rootDir>/__tests__/$1",
-      "^@pages/(.*)$": "<rootDir>/pages/$1",
-      "^@components/(.*)$": "<rootDir>/components/$1",
-      "^@icons/(.*)$": "<rootDir>/Icons/$1",
-      "^@templates/(.*)$": "<rootDir>/templates/$1",
-      "^@utils/(.*)$": "<rootDir>/utils/$1",
-      "^@styles/(.*)$": "<rootDir>/styles/$1",
-      "^@types/(.*)$": "<rootDir>/types/$1"
+      "@src/(.*)$": "src/$1",
+      "@tests/(.*)$": "__tests__/$1",
+      "@pages/(.*)$": "pages/$1",
+      "@components/(.*)$": "src/components/$1",
+      "@icons/(.*)$": "src/Icons/$1",
+      "@utils/(.*)$": "src/utils/$1",
+      "@styles/(.*)$": "src/styles/$1",
+      "@types/(.*)$": "src/types/$1",
+      "@templates/(.*)$": "src/templates/$1",
+      "@data/(.*)$": "src/data/$1"
+
     }
   }
 }

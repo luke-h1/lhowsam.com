@@ -1,9 +1,13 @@
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
-
+import { MDXProvider } from '@mdx-js/react';
+import { ChakraProvider, theme } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import Layout from '../components/Layout';
-import * as gtag from '../utils/gtag';
+import * as gtag from '@utils/gtag';
+import Footer from '@src/components/Footer';
+import { Reset } from '@src/styles/reset';
+import Header from '@src/components/Header/Header';
+import MDXComponents from '@src/components/MDXComponents';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -18,9 +22,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
   return (
     <>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      {Reset}
+      <MDXProvider components={MDXComponents}>
+        <ChakraProvider resetCSS theme={theme}>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </ChakraProvider>
+      </MDXProvider>
     </>
   );
 }
