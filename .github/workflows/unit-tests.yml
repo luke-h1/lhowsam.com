@@ -1,10 +1,10 @@
-name: CI / unit tests & typecheck (push / pull)
+name: CI / unit tests (push / pull)
 
 on:
   push:
     branches: [dev]
   pull_request:
-    branches: [main]
+    branches: [dev]
 
 jobs:
   build:
@@ -37,4 +37,4 @@ jobs:
         run: npm i
 
       - name: Run unit tests & type check
-        run: npm run test && npm run type-check 
+        run: npm run test
