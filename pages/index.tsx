@@ -6,7 +6,7 @@ import { getAllFilesFrontmatter } from '@utils/mdx';
 import ProjectCard from '@components/ProjectCard';
 import BlogCard from '@components/BlogCard';
 import {
-  Text, Flex, Box, SimpleGrid, useColorMode,
+  Text, Flex, Box, SimpleGrid,
 } from '@chakra-ui/react';
 import { Skills } from '@data/skills';
 import { BlogPost, ProjectPost } from '@src/types';
@@ -16,12 +16,6 @@ const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] 
   const filterPosts = posts.sort(
     (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
-  const { colorMode } = useColorMode();
-
-  const SkillsCard = {
-    light: '#000',
-    dark: '#fff',
-  };
 
   return (
     <>
