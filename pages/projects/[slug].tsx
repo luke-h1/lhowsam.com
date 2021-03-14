@@ -30,7 +30,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: { params: { slug: string } }) {
   const project = await getFileBySlug('project', params.slug);
   return { props: project };
 }
