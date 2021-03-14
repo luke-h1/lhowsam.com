@@ -48,7 +48,7 @@ export const CustomCode: React.FC<CodeProps> = ({ children, className }) => {
               ))}
             </div>
           ))}
-          <CopyButton value={children.trim()} />
+          {/* <CopyButton value={children.trim().toString()} /> */}
         </pre>
       )}
     </Highlight>
