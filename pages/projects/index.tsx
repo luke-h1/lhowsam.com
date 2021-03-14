@@ -1,12 +1,11 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { NextPage } from 'next';
 import { getAllFilesFrontmatter } from '@utils/mdx';
 import { Container, Flex, Text } from '@chakra-ui/react';
 import ProjectCard from '@src/components/ProjectCard';
 import { ProjectPost } from '@src/types';
 
-const Index: NextPage = ({ projects }: { projects: ProjectPost[] }) => {
+const Index = ({ projects }: { projects: ProjectPost[] }) => {
   return (
     <>
       <Container>

@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import { Heading, Text } from '@chakra-ui/react';
 
 export const H1 = (props) => (

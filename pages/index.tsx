@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { GetStaticProps, NextPage } from 'next';
+import { GetStaticProps } from 'next';
 import Intro from '@components/Intro';
 import { getAllFilesFrontmatter } from '@utils/mdx';
 import ProjectCard from '@components/ProjectCard';
@@ -11,7 +11,7 @@ import {
 import { Skills } from '@data/skills';
 import { BlogPost, ProjectPost } from '@src/types';
 
-const Home: NextPage = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] }) => {
+const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] }) => {
   const filterPosts = posts.sort(
     (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );

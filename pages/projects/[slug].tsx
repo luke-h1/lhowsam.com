@@ -1,16 +1,16 @@
 import hydrate from 'next-mdx-remote/hydrate';
-import { NextPage } from 'next';
 import MDXComponents from '@components/MDXComponents';
 import { getFiles, getFileBySlug } from '@utils/mdx';
 import { ProjectPost } from '@src/types';
 import ProjectLayout from '@src/layouts/ProjectLayout';
+import { MdxRemote } from 'next-mdx-remote/types';
 
 interface ProjectProps {
   mdxSource: MdxRemote.Source;
   frontMatter: ProjectPost;
 }
 
-const Project: NextPage = ({ mdxSource, frontMatter }: ProjectProps) => {
+const Project = ({ mdxSource, frontMatter }: ProjectProps) => {
   const content = hydrate(mdxSource, {
     components: MDXComponents,
   });

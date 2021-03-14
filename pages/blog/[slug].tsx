@@ -1,18 +1,16 @@
 import hydrate from 'next-mdx-remote/hydrate';
-import { NextPage } from 'next';
 import { getFiles, getFileBySlug } from '@utils/mdx';
 import MDXComponents from '@components/MDXComponents';
-// import { BlogPost } from '@src/types';
+import { BlogPost } from '@src/types';
 import { MdxRemote } from 'next-mdx-remote/types';
 import BlogLayout from '@src/layouts/BlogLayout';
-import { BlogPost } from '@src/types';
 
 interface BlogProps {
   mdxSource: MdxRemote.Source;
   frontMatter: BlogPost;
 }
 
-const Blog: NextPage = ({ mdxSource, frontMatter }: BlogProps) => {
+const Blog = ({ mdxSource, frontMatter }: BlogProps) => {
   const content = hydrate(mdxSource, {
     components: MDXComponents,
   });

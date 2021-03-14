@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NextSeo } from 'next-seo';
-import { NextPage } from 'next';
 import { getAllFilesFrontmatter } from '@utils/mdx';
 import { Container, Flex, Text } from '@chakra-ui/react';
 import BlogCard from '@components/BlogCard';
-import { BlogPost, ProjectPost } from '@src/types';
+import { BlogPost } from '@src/types';
 
-const Index: NextPage = ({ posts }: { posts: BlogPost[]}) => {
+const Index = ({ posts }: { posts: BlogPost[]}) => {
   const filterPosts = posts.sort(
     (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );

@@ -52,6 +52,7 @@ const MDXComponents = {
   ul: (props) => <Box as="ul" pt={2} pl={4} ml={2} {...props} />,
   ol: (props) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />,
   li: (props) => <Box as="li" pb={1} {...props} />,
+  P: (props) =>  <P {...props} />, 
   code: CustomCode,
   blockquote: Quote,
   inlineCode: (props) => (

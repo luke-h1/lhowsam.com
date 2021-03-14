@@ -2,14 +2,15 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import styled from '@emotion/styled';
-import { NextPage } from 'next';
-import { Flex, SimpleGrid, Box, Text, Container } from '@chakra-ui/react';
+import {
+  Flex, SimpleGrid, Box, Text, Container,
+} from '@chakra-ui/react';
 
 const NextImage = styled(Image)`
   border-radius: 18px;
 `;
 
-const About: NextPage = () => {
+const About = () => {
   return (
     <>
       <NextSeo
