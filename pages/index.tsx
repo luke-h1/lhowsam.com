@@ -6,15 +6,22 @@ import { getAllFilesFrontmatter } from '@utils/mdx';
 import ProjectCard from '@components/ProjectCard';
 import BlogCard from '@components/BlogCard';
 import {
-  Text, Flex, Box, SimpleGrid,
+  Text, Flex, Box, SimpleGrid, useColorMode,
 } from '@chakra-ui/react';
 import { Skills } from '@data/skills';
 import { BlogPost, ProjectPost } from '@src/types';
+import { Wrapper } from '@src/components/Wrapper';
 
 const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] }) => {
   const filterPosts = posts.sort(
     (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
+  const { colorMode } = useColorMode();
+
+  const SkillsCard = {
+    light: '#000',
+    dark: '#fff',
+  };
 
   return (
     <>
@@ -47,7 +54,12 @@ const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] 
         <Text as="h2" fontSize="40px" mt={1} mb={6} align="center">
           Skills
         </Text>
-        <SimpleGrid columns={[2, null, 3]} spacing="40px">
+        <Wrapper variant="small">
+          <Text as="p" fontSize="18px" mt={1} mb={6} align="center">
+            I'm always expanding my technical skills by learning new tech. The following is a list technology I'm interested in / what I'm actively working with!
+          </Text>
+        </Wrapper>
+        <SimpleGrid columns={[2, null, 3]} spacing="40px" mb={4}>
           {Skills
             && Skills.map((s) => (
               <Box
@@ -56,6 +68,7 @@ const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] 
                 bg="tomato"
                 color="white"
                 px={2}
+                maxW="300px"
                 h={8}
                 key={s.id}
               >
