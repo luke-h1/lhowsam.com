@@ -7,14 +7,14 @@
       "esnext"
     ],
     "paths": {
+      "@src/*": ["src/*"],
       "@tests/*": ["__tests__/*"],
       "@pages/*": ["pages/*"],
-      "@components/*": ["components/*"],
-      "@icons/*": ["Icons/*"],
-      "@templates/*": ["templates/*"],
-      "@utils/*": ["utils/*"],
-      "@styles/*": ["styles/*"],
-      "@types/*": ["types/*"]
+      "@components/*": ["src/components/*"],
+      "@icons/*": ["src/Icons/*"],
+      "@utils/*": ["src/utils/*"],
+      "@styles/*": ["src/styles/*"],
+      "@types/*": ["src/types/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,

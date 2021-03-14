@@ -1,6 +1,8 @@
+// Jest.config.js
 module.exports = {
   clearMocks: true,
   coverageDirectory: '.coverage',
-  testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$',
+  testRegex: '(.*|(\\.|/)(test|spec))\\.tsx?$',
+
   setupFilesAfterEnv: ['./jest.setup.js'],
 };

@@ -1,9 +1,12 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import Layout from '../components/Layout';
-import * as gtag from '../utils/gtag';
+import { ChakraProvider, theme } from '@chakra-ui/react';
+import Header from '@components/Header/Header';
+import Footer from '@components/Footer';
+import * as gtag from '@utils/gtag';
+import { Reset } from 'styles/reset';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -18,6 +21,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
   return (
     <>
+      <ChakraProvider resetCSS theme={theme}>
+        <Header />
+        {Reset}
       <DefaultSeo
         openGraph={{
           type: 'website',
@@ -31,9 +37,10 @@ function MyApp({ Component, pageProps }: AppProps) {
           cardType: 'summary_large_image',
         }}
       />
-      <Layout>
+
         <Component {...pageProps} />
-      </Layout>
+        <Footer />
+      </ChakraProvider>
     </>
   );
 }
