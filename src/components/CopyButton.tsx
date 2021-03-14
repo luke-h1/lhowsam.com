@@ -1,5 +1,5 @@
-import React from "react";
-import { Button, useClipboard } from "@chakra-ui/react";
+import React from 'react';
+import { Button, useClipboard } from '@chakra-ui/react';
 
 interface CopyButtonProps {
   value: string;
@@ -10,7 +10,7 @@ export const CopyButton: React.FC<CopyButtonProps> = ({ value }) => {
 
   return (
     <Button aria-label="Copy text" role="button" onClick={onCopy}>
-      {hasCopied ? "Copied" : "Copy"}
+      {hasCopied ? 'Copied' : 'Copy'}
     </Button>
   );
 };

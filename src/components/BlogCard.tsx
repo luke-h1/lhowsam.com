@@ -1,40 +1,53 @@
-import { Box, Text, Heading, Stack, Tag } from "@chakra-ui/react";
-import { BlogPost } from "@src/types";
-import Link from "next/link";
-import React from "react";
+import {
+  Box, Text, Heading, useColorMode, Stack, Tag,
+} from '@chakra-ui/react';
+import Link from 'next/link';
+import { parseISO, format } from 'date-fns';
+import { BlogPost } from '@src/types';
 
-interface Iprops {
-  blog: BlogPost;
-}
+const BlogCard = ({
+  title, summary, slug, date, tags,
+}: BlogPost) => {
+  const { colorMode } = useColorMode();
 
-const BlogCard: React.FC<Iprops> = ({ blog }) => {
-  const { title, description, tags } = blog;
+  const blogCard = {
+    light: '#000',
+    dark: '#fff',
+  };
   return (
     <>
-      <Link href={`/blog/${blog.slug}`}>
+      <Link href={`/blog/${slug}`}>
         <a>
           <Box
+            color={blogCard[colorMode]}
+            shadow="sm"
+            rounded="md"
+            data-testid="card"
             maxW="md"
+            mt={4}
             borderWidth="1px"
-            borderRadius="lg"
+            borderRadius="md"
             overflow="hidden"
-            mb={4}
-            minW="md"
-            _hover={{ color: "#2EC0F9" }}
+            _hover={{ color: '#2EC0F9' }}
           >
-            <Box m="5" as="div">
-              <Heading m="5" mb="0" as="h4" size="md">
-                {title && title}
-              </Heading>
-              <Text m="5" mt="0">
-                {description}
-              </Text>
-              <Stack direction="row" spacing={3}>
-                {tags.map((tag) => (
-                  <Tag key={tag}>#{tag}</Tag>
-                ))}
-              </Stack>
-            </Box>
+            <Heading m="5" mb="2" as="h1" size="lg">
+              {title}
+            </Heading>
+            <Text m="5" mt="2" mb="4">
+              {summary}
+            </Text>
+
+            <Text m="5" mt="2" mb="4">
+              {format(parseISO(date), 'MMMM dd, yyyy')}
+            </Text>
+            <Stack direction="row" spacing={3} mb={4} ml={4}>
+              {tags.map((tag) => (
+                <Tag key={tag}>
+                  #
+                  {tag}
+                </Tag>
+              ))}
+            </Stack>
           </Box>
         </a>
       </Link>

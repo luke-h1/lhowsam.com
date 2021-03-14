@@ -1,24 +1,26 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable no-shadow */
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/vsDark';
 import { Button, useClipboard } from '@chakra-ui/react';
 
-
-export const CopyButton = (value: string) => {
+export const CopyButton = (value: any) => {
   const { onCopy, hasCopied } = useClipboard(value);
   return (
     <Button aria-label="Copy text" role="button" onClick={onCopy}>
       {hasCopied ? 'Copied' : 'Copy'}
     </Button>
   );
+};
+
+interface CodeProps {
+  children: String & React.ReactNode;
+  className: String;
 }
 
-interface CodeProps { 
-  // fuck knows what these are ? 
-}
-
-export const Code: React.FC<CodeProps> = ({ children , className }) => {
-  const language = className.replace(/language-/, '');
+export const CustomCode: React.FC<CodeProps> = ({ children, className }) => {
+  const language: any = className.replace(/language-/, '');
   return (
     <Highlight
       {...defaultProps}
@@ -26,7 +28,9 @@ export const Code: React.FC<CodeProps> = ({ children , className }) => {
       code={children.trim()}
       language={language}
     >
-      {({ className, style, tokens, getLineProps, getTokenProps }) => (
+      {({
+        className, style, tokens, getLineProps, getTokenProps,
+      }) => (
         <pre
           className={className}
           style={{
@@ -49,4 +53,4 @@ export const Code: React.FC<CodeProps> = ({ children , className }) => {
       )}
     </Highlight>
   );
-}
+};

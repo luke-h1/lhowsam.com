@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
-import { DefaultSeo } from 'next-seo';
-import { useRouter } from 'next/router';
+import { MDXProvider } from '@mdx-js/react';
 import { ChakraProvider, theme } from '@chakra-ui/react';
-import Header from '@components/Header/Header';
-import Footer from '@components/Footer';
+import { useRouter } from 'next/router';
 import * as gtag from '@utils/gtag';
-import { Reset } from 'styles/reset';
+import Footer from '@src/components/Footer';
+import { Reset } from '@src/styles/reset';
+import Header from '@src/components/Header/Header';
+import MDXComponents from '@src/components/MDXComponents';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -21,26 +22,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
   return (
     <>
-      <ChakraProvider resetCSS theme={theme}>
-        <Header />
-        {Reset}
-      <DefaultSeo
-        openGraph={{
-          type: 'website',
-          locale: 'en_gb',
-          url: 'https://lhowsam.com',
-          site_name: 'lhowsam',
-        }}
-        twitter={{
-          handle: '@lukeH_1999',
-          site: '@twitter',
-          cardType: 'summary_large_image',
-        }}
-      />
-
-        <Component {...pageProps} />
-        <Footer />
-      </ChakraProvider>
+      {Reset}
+      <MDXProvider components={MDXComponents}>
+        <ChakraProvider resetCSS theme={theme}>
+          <Header />
+          <Component {...pageProps} />
+          <Footer />
+        </ChakraProvider>
+      </MDXProvider>
     </>
   );
 }

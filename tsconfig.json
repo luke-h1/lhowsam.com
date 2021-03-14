@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "lib": [
       "dom",
       "dom.iterable",
@@ -14,7 +14,9 @@
       "@icons/*": ["src/Icons/*"],
       "@utils/*": ["src/utils/*"],
       "@styles/*": ["src/styles/*"],
-      "@types/*": ["src/types/*"]
+      "@types/*": ["src/types/*"],
+      "@templates/*": ["src/layouts/*"],
+      "@data/*": ["src/data/*"],
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -35,7 +37,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "./",
+    "baseUrl": ".",
   },
   "include": [
     "next-env.d.ts",

@@ -1,53 +1,50 @@
-import React, { useEffect } from "react";
-import { Box, Stack, Text } from "@chakra-ui/react";
-import { useState } from "react";
-import { PROJECT_CONTENT_PATH } from "../../src/constants/constants";
-import { getMdxContent } from "../../src/utils/get-mdx-content";
+import React from 'react';
+import { NextSeo } from 'next-seo';
+import { getAllFilesFrontmatter } from '@utils/mdx';
+import { Container, Flex, Text } from '@chakra-ui/react';
+import ProjectCard from '@src/components/ProjectCard';
+import { ProjectPost } from '@src/types';
 
-import { Search } from "../../src/components/Search";
-import ProjectCard from "@components/ProjectCard";
-import { ProjectPost } from "@src/types";
-interface indexProps {
-  allMdx: ProjectPost[];
-}
-
-const index: React.FC<indexProps> = ({ allMdx }) => {
-  // useeffect to get the shape
-  useEffect(() => {console.log('all MDX >', allMdx)}, [])
-
-  const [filteredBlogs, setFilteredBlogs] = useState(allMdx);
-  const handleFilter = (data) => {
-    setFilteredBlogs(data);
-  };
+const Index = ({ projects }: { projects: ProjectPost[] }) => {
   return (
-    <Box pb={3}>
-      <Text as="h1" fontSize="40px" align="center" mb={4}>
-        Projects
-      </Text>
-      {/* Content Area + Input + Tag filter */}
-      <Stack spacing={[4, 8, 12]} justify="center" alignItems="center">
-        <Search blogs={allMdx} handleFilter={handleFilter} />
-        <Stack spacing={[2, 6, 12]}>
-          {filteredBlogs?.map((blog) => (
-            <ProjectCard key={blog.slug} blog={blog} />
-          ))}
-        </Stack>
-      </Stack>
-    </Box>
+    <>
+      <Container>
+        <NextSeo
+          title="Projects | lhowsam.com"
+          canonical="https://lhowsam.com/projects"
+          openGraph={{
+            url: 'https://lhowsam.com/blog',
+            title: 'Projects | lhowsam.com',
+          }}
+        />
+        <Flex
+          direction="column"
+          justify="center"
+          align="center"
+          mb="8"
+          maxW="700px"
+        >
+          <Text as="h1" fontSize="40px" mb={4}>
+            Projects
+          </Text>
+          <Flex
+            direction="column"
+            justify="center"
+            align="center"
+            mb="8"
+            maxW="700px"
+          >
+            {projects.map((project) => (
+              <ProjectCard title={project.title} summary={project.summary} slug={project.slug} tags={project.tags} github={project.github} site={project.site} />
+            ))}
+          </Flex>
+        </Flex>
+      </Container>
+    </>
   );
 };
-
 export async function getStaticProps() {
-  const posts = await getMdxContent(PROJECT_CONTENT_PATH);
-  const allMdx = posts.map((post) => ({
-    slug: post.slug,
-    ...post.data,
-  }));
-
-  return {
-    props: {
-      allMdx,
-    },
-  };
+  const projects = await getAllFilesFrontmatter('project');
+  return { props: { projects } };
 }
-export default index;
+export default Index;

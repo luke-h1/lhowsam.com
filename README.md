@@ -7,6 +7,7 @@ Source code for my personal website & blog.
 - [Next](https://github.com/vercel/next.js)
 - [Chakra-UI](https://chakra-ui.com/)
 - [Emotion](https://github.com/emotion-js/emotion)
+- [Storybook](https://github.com/storybookjs/storybook)
 - [Polished](https://github.com/styled-components/polished)
 - [React-icons](https://github.com/react-icons/react-icons)
 - [MDX](https://github.com/mdx-js/mdx)
@@ -20,12 +21,9 @@ Source code for my personal website & blog.
 
 ![CI / Node.js builds (push / pull)](https://github.com/luke-h1/lhowsam.com/workflows/CI%20/%20Node.js%20builds%20(push%20/%20pull)/badge.svg)
 
-[![CI / unit tests (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-tests-typecheck.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-tests-typecheck.yml)
-
-[![CI / typecheck (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml)
+![CI / unit tests & typecheck (push / pull)](https://github.com/luke-h1/lhowsam.com/workflows/CI%20/%20unit%20tests%20&%20typecheck%20(push%20/%20pull)/badge.svg)
 
 ![Nightly unit tests](https://github.com/luke-h1/lhowsam.com/workflows/Nightly%20unit%20tests/badge.svg)
-
 
 
 ## Inspirations
