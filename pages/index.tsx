@@ -50,7 +50,7 @@ const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] 
         </Text>
         <Wrapper variant="small">
           <Text as="p" fontSize="18px" mt={1} mb={6} align="center">
-            I'm always expanding my technical skills by learning new tech. The following is a list of technology I'm interested in / what I'm actively working with!
+            I'm always expanding my technical skills by learning new tech. The following is a list of technology I'm interested in / what I'm actively working with !
           </Text>
         </Wrapper>
         <SimpleGrid columns={[2, null, 3]} spacing="40px" mb={4}>
