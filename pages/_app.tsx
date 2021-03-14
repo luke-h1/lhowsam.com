@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import type { AppProps } from 'next/app';
+import { DefaultSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 import Header from '@components/Header/Header';
@@ -23,6 +24,20 @@ function MyApp({ Component, pageProps }: AppProps) {
       <ChakraProvider resetCSS theme={theme}>
         <Header />
         {Reset}
+      <DefaultSeo
+        openGraph={{
+          type: 'website',
+          locale: 'en_gb',
+          url: 'https://lhowsam.com',
+          site_name: 'lhowsam',
+        }}
+        twitter={{
+          handle: '@lukeH_1999',
+          site: '@twitter',
+          cardType: 'summary_large_image',
+        }}
+      />
+
         <Component {...pageProps} />
         <Footer />
       </ChakraProvider>
