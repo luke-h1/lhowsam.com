@@ -14,8 +14,8 @@ export async function getFiles(type: string) {
 
 export async function getFileBySlug(type: string, slug: string) {
   const source = slug
-    ? fs.readFileSync(path.join(root, 'src', 'data', type, `${slug}.mdx`), 'utf8')
-    : fs.readFileSync(path.join(root, 'src', 'data', `${type}.mdx`), 'utf8');
+    ? fs.readFileSync(path.join(root, 'data', type, `${slug}.mdx`), 'utf8')
+    : fs.readFileSync(path.join(root, 'data', `${type}.mdx`), 'utf8');
 
   const { data, content } = matter(source);
 

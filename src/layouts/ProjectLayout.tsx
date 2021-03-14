@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useEffect } from 'react';
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
 import {
@@ -12,12 +12,33 @@ interface Iprops {
   frontMatter: any;
 }
 
-const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
+const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
+  useEffect(() => {
+    console.log('children > ', children);
+    console.log('frontMatter > ', frontMatter);
+  }, []);
   const { colorMode } = useColorMode();
   const Colors = {
     light: '#000',
     dark: '#fff',
   };
+  if (!children || !frontMatter) {
+    return (
+      <div>
+        <p>
+          Frontmatter is:
+          {typeof frontMatter}
+        </p>
+        <div>
+          <p>
+            children is
+            {' '}
+            {typeof children}
+          </p>
+        </div>
+      </div>
+    );
+  }
   return (
     <>
       <Container mb={4}>
@@ -75,4 +96,4 @@ const ProjectPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
     </>
   );
 };
-export default ProjectPost;
+export default ProjectLayout;

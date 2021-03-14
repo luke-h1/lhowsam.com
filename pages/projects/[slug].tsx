@@ -2,23 +2,28 @@ import hydrate from 'next-mdx-remote/hydrate';
 import { NextPage } from 'next';
 import MDXComponents from '@components/MDXComponents';
 import { getFiles, getFileBySlug } from '@utils/mdx';
-import ProjectPost from '@templates/ProjectPost';
+import { ProjectPost } from '@src/types';
+import ProjectLayout from '@src/layouts/ProjectLayout';
 
-const Project: NextPage = ({ mdxSource, frontMatter }: any) => {
+interface ProjectProps {
+  mdxSource: MdxRemote.Source;
+  frontMatter: ProjectPost;
+}
+
+const Project: NextPage = ({ mdxSource, frontMatter }: ProjectProps) => {
   const content = hydrate(mdxSource, {
     components: MDXComponents,
   });
-
-  return <ProjectPost frontMatter={frontMatter}>{content}</ProjectPost>;
+  return <ProjectLayout frontMatter={frontMatter}>{content}</ProjectLayout>;
 };
 
 export async function getStaticPaths() {
-  const posts = await getFiles('project');
+  const projectMdxFiles = await getFiles('project');
 
   return {
-    paths: posts.map((post) => ({
+    paths: projectMdxFiles.map((project) => ({
       params: {
-        slug: post.replace(/\.mdx/, ''),
+        slug: project.replace(/\.mdx/, ''),
       },
     })),
     fallback: false,
@@ -26,7 +31,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const post = await getFileBySlug('project', params.slug);
-  return { props: post };
+  const project = await getFileBySlug('project', params.slug);
+  return { props: project };
 }
 export default Project;

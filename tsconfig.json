@@ -15,7 +15,7 @@
       "@utils/*": ["src/utils/*"],
       "@styles/*": ["src/styles/*"],
       "@types/*": ["src/types/*"],
-      "@templates/*": ["src/templates/*"],
+      "@templates/*": ["src/layouts/*"],
       "@data/*": ["src/data/*"],
     },
     "allowJs": true,

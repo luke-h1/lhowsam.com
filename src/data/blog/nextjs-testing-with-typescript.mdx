@@ -22,7 +22,7 @@ Recently I tried Next js and started to really enjoying developing sites with it
 
 To start, open up a terminal and cd into a folder where you want to start this project. For this we are going to use the create-next-app which will create a basic next app to get started with.
 
-```
+```shell
 npx create-next-app .
 ```
 
@@ -35,7 +35,7 @@ To start off a basic typescript project I am going to leave the tsconfig in a lo
 
 
 
-``` 
+```shell
 npm i -D typescript @types/react @types/node 
 ```
 
@@ -52,7 +52,7 @@ priority
 
 Now that typescript and the relevant types are installed you can now go ahead and run the following command in order for next to generate a tsconfig.json file (next will automatically detect that you're running a typescript project)
 
-```
+```shell
 npm run dev 
 ```
 
@@ -60,7 +60,7 @@ npm run dev
 You should now have a tsconfig.json that looks like the following: 
 
 
-````
+````json
 {
   "compilerOptions": {
     "target": "es5",
@@ -98,13 +98,13 @@ You should now have a tsconfig.json that looks like the following:
 In order to configure eslint we're going to use npx to use the airbnb eslint config. Some things will needed to be altered in order for this configuration to play nice with Next JS 
 
 
-```
+```shell
 npx eslint --init 
 ```
 
 This command will walk you through a series of options. Pick the following options: 
 
-``` 
+```shell
 How would you like to use ESlint ? :
 * To check syntax, find problems, and enforce code style
 
@@ -145,7 +145,7 @@ Which style guide do you want to follow?
 After the above is done your project will be configured with the base airbnb config. In order for eslint to not get angry about certain conventions that Next follows (such as how Links work) we will have to make a few modifications to the eslintrc file: 
 
 
-```
+```shell
 
 {
   "env": {
@@ -203,7 +203,7 @@ To Explain: Here we are telling eslint not to complaing about the following:
 * import/prefer-default-export - don't complain when we use `export const` instead of `export default`
 
 Lastly we will add two new scripts to the project's package.json: 
-```
+```shell
  "lint": "eslint \"./*.{js, jsx,ts,tsx}\" --quiet",
  "lint:fix": "eslint \"./*.{js, jsx,ts,tsx}\" --quiet --fix",
 ```
@@ -214,7 +214,7 @@ Lastly we will add two new scripts to the project's package.json:
 In order to setup jest and react testing library we will run the following commands: 
 
 
-``` 
+```shell
 npm i -D @types/jest @types/testing-library__jest-dom babel-jest 
 jest 
 ts-jest @testing-library/react @testing-library/jest-dom
@@ -222,7 +222,7 @@ ts-jest @testing-library/react @testing-library/jest-dom
 
 We will then need to create a directory in the root of the project which will be responsible for holding the needed jest config files: 
 
-```
+```shell
 mkdir jest 
 ```
 
@@ -230,7 +230,7 @@ Now we will create two config files inside of the jest directory:
 
 ### jest.config.js 
 
-```
+```shell
 // Jest.config.js
 module.exports = {
   clearMocks: true,
@@ -246,7 +246,7 @@ ClearMocks will help prevent issues with persistence of mock data between test r
 
 ### jest.setup.js 
 
-```
+```shell
 // Jest.setup.js
 import '@testing-library/jest-dom';
 ```
@@ -259,7 +259,7 @@ Only one more config file 🎉
 The last config file you will need is called .babelrc (create this at the root of your project). You won't need any package for babel to run - it's handled automatically via Next. Jest however will need this file to auto-detect how to transform the code before running tests. 
 Add this to the file: 
 
-````
+````shell
 {
   "presets": ["next/babel"]
 }
@@ -272,7 +272,7 @@ Write your test file
 
 Create a file `index.test.tsx` in the root of the project and add some tests ! 
 
-```
+```javascript
 import React from 'react';
 
 const sum = (a: number, b: number) => {

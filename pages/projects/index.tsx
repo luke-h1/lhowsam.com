@@ -2,10 +2,11 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import { NextPage } from 'next';
 import { getAllFilesFrontmatter } from '@utils/mdx';
-import ProjectCard from '@components/ProjectCard';
 import { Container, Flex, Text } from '@chakra-ui/react';
+import ProjectCard from '@src/components/ProjectCard';
+import { ProjectPost } from '@src/types';
 
-const Index: NextPage = ({ projects }: any) => {
+const Index: NextPage = ({ projects }: { projects: ProjectPost[] }) => {
   return (
     <>
       <Container>
@@ -34,8 +35,8 @@ const Index: NextPage = ({ projects }: any) => {
             mb="8"
             maxW="700px"
           >
-            {projects.map((frontMatter) => (
-              <ProjectCard key={frontMatter.title} {...frontMatter} />
+            {projects.map((project) => (
+              <ProjectCard title={project.title} summary={project.summary} slug={project.slug} tags={project.tags} github={project.github} site={project.site} />
             ))}
           </Flex>
         </Flex>
@@ -43,7 +44,6 @@ const Index: NextPage = ({ projects }: any) => {
     </>
   );
 };
-
 export async function getStaticProps() {
   const projects = await getAllFilesFrontmatter('project');
   return { props: { projects } };

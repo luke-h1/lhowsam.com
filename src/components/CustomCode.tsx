@@ -16,7 +16,7 @@ interface CodeProps {
   // fuck knows what these are ?
 }
 
-export const Code: React.FC<CodeProps> = ({ children, className }) => {
+export const CustomCode: React.FC<CodeProps> = ({ children, className }) => {
   const language = className.replace(/language-/, '');
   return (
     <Highlight

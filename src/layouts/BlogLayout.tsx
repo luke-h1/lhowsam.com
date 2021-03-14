@@ -9,7 +9,7 @@ interface Iprops {
   children: any;
 }
 
-const BlogPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
+const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
   return (
     <>
       <Container maxW="700px" mb={4}>
@@ -47,4 +47,4 @@ const BlogPost: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
     </>
   );
 };
-export default BlogPost;
+export default BlogLayout;

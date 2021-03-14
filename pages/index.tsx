@@ -5,12 +5,15 @@ import Intro from '@components/Intro';
 import { getAllFilesFrontmatter } from '@utils/mdx';
 import ProjectCard from '@components/ProjectCard';
 import BlogCard from '@components/BlogCard';
-import { Text, Flex, Box, SimpleGrid } from '@chakra-ui/react';
+import {
+  Text, Flex, Box, SimpleGrid,
+} from '@chakra-ui/react';
 import { Skills } from '@data/skills';
+import { BlogPost, ProjectPost } from '@src/types';
 
-const Home: NextPage = ({ posts, projects }) => {
+const Home: NextPage = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] }) => {
   const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
 
   return (
@@ -45,8 +48,8 @@ const Home: NextPage = ({ posts, projects }) => {
           Skills
         </Text>
         <SimpleGrid columns={[2, null, 3]} spacing="40px">
-          {Skills &&
-            Skills.map((s) => (
+          {Skills
+            && Skills.map((s) => (
               <Box
                 as="button"
                 borderRadius="md"
