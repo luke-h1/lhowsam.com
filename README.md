@@ -18,6 +18,10 @@ Source code for my personal website & blog.
 
 ## tests 
 
+[![CI / typecheck (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml)
+[![CI / unit tests (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-tests.yml)
+[![CI / Node.js builds (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nodejs.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nodejs.yml)
+[![CI / Nightly unit tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml)
 ## Inspirations
 
  - [leerob](https://github.com/leerob)
