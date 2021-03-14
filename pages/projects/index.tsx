@@ -35,7 +35,7 @@ const Index = ({ projects }: { projects: ProjectPost[] }) => {
             maxW="700px"
           >
             {projects.map((project) => (
-              <ProjectCard title={project.title} summary={project.summary} slug={project.slug} tags={project.tags} github={project.github} site={project.site} />
+              <ProjectCard title={project.title} summary={project.summary} slug={project.slug} tags={project.tags} github={project.github} site={project.site} key={project.title} />
             ))}
           </Flex>
         </Flex>
