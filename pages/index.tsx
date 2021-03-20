@@ -4,11 +4,10 @@ import { GetStaticProps } from 'next';
 import { Intro } from '@components/Intro';
 import { getAllFilesFrontmatter } from '@utils/mdx';
 import {
-  Text, Flex, Box, SimpleGrid,
+  Text, Flex,
 } from '@chakra-ui/react';
 import { Skills } from '@data/skills';
 import { BlogPost, ProjectPost } from '@src/types';
-import { Wrapper } from '@src/components/Wrapper';
 import ProjectCard from '@src/components/ProjectCard';
 import BlogCard from '@src/components/BlogCard';
 
@@ -44,33 +43,25 @@ const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] 
           <BlogCard key={frontMatter.title} {...frontMatter} />
         ))}
       </Flex>
-      <Flex direction="column" justify="center" align="center" mb={6}>
-        <Text as="h2" fontSize="40px" mt={1} mb={6} align="center">
+      <div className="flex flex-col items-center justify-center">
+        {/* <Text as="h2" fontSize="40px" mt={1} mb={6} align="center">
           Skills
-        </Text>
-        <Wrapper variant="small">
-          <Text as="p" fontSize="18px" mt={1} mb={6} align="center">
+        </Text> */}
+        <div className="flex flex-col items-center max-w-md w-full">
+          <p className="text-5xl mb-4">
+            {' '}
+            skills
+          </p>
+          <p className="text-2xl mb-4 text-left">
             I'm always expanding my technical skills by learning new tech. The following is a list of technology I'm interested in / what I'm actively working with !
-          </Text>
-        </Wrapper>
-        <SimpleGrid columns={[2, null, 3]} spacing="40px" mb={4}>
-          {Skills
-            && Skills.map((s) => (
-              <Box
-                as="button"
-                borderRadius="md"
-                bg="tomato"
-                color="white"
-                px={2}
-                maxW="300px"
-                h={8}
-                key={s.id}
-              >
-                {s.name}
-              </Box>
-            ))}
-        </SimpleGrid>
-      </Flex>
+          </p>
+        </div>
+        <div className="h-64 w-50 grid grid-rows-5 grid-flow-col gap-10 ml-4 mr-4 mb-14 mt-10">
+          {Skills && Skills.map((s) => (
+            <span>{s.name}</span>
+          ))}
+        </div>
+      </div>
     </>
   );
 };
