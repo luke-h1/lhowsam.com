@@ -1,9 +1,8 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
-import Intro from '@components/Intro';
+import { Intro } from '@components/Intro';
 import { getAllFilesFrontmatter } from '@utils/mdx';
-import ProjectCard from '@components/ProjectCard';
 import BlogCard from '@components/BlogCard';
 import {
   Text, Flex, Box, SimpleGrid,
@@ -11,6 +10,7 @@ import {
 import { Skills } from '@data/skills';
 import { BlogPost, ProjectPost } from '@src/types';
 import { Wrapper } from '@src/components/Wrapper';
+import ProjectCard from '@src/components/ProjectCard';
 
 const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] }) => {
   const filterPosts = posts.sort(

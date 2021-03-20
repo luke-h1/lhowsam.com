@@ -8,6 +8,8 @@ import Footer from '@src/components/Footer';
 import { Reset } from '@src/styles/reset';
 import Header from '@src/components/Header/Header';
 import MDXComponents from '@src/components/MDXComponents';
+import '../src/styles/index.css';
+import { WrapperDesign } from '@src/components/WrapperRedesign';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -21,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
   return (
-    <>
+    <WrapperDesign>
       {Reset}
       <MDXProvider components={MDXComponents}>
         <ChakraProvider resetCSS theme={theme}>
@@ -30,7 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Footer />
         </ChakraProvider>
       </MDXProvider>
-    </>
+    </WrapperDesign>
   );
 }
 

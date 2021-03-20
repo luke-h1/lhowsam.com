@@ -1,34 +1,21 @@
 import React from 'react';
-import {
-  Flex, Heading, Text, Box,
-} from '@chakra-ui/react';
 
-const Intro: React.FC<{}> = () => {
+export const Intro: React.FC<{}> = () => {
   return (
     <>
-      <Flex direction="column" justify="center" align="center" mb="8">
-        <Box>
-          <Heading as="h1" fontSize="40px" mb={8}>
-            Hi, I'm Luke 👋
-            {' '}
-          </Heading>
-        </Box>
-
-        <Flex
-          direction="column"
-          justify="center"
-          align="center"
-          mb="8"
-          maxW="700px"
-        >
-          <Text as="h3" fontSize="21px" data-testid="intro" align="center">
+      <div className="flex flex-col">
+        <h1 className="text-center text-4xl	mb-8">
+          Hi, I'm Luke 👋
+        </h1>
+        <div className="max-w-lg mx-auto">
+          <h3 className="text-2xl mb-4 text-left" data-testid="intro">
             I'm passionate about solving technical problems and coming up with
             creative solutions.I enjoy working with the JAMstack, React, Node,
             testing technologies + practices & various dev-ops technologies
-          </Text>
-        </Flex>
-      </Flex>
+          </h3>
+          <hr />
+        </div>
+      </div>
     </>
   );
 };
-export default Intro;
