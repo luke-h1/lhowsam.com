@@ -11,6 +11,7 @@ import { Skills } from '@data/skills';
 import { BlogPost, ProjectPost } from '@src/types';
 import { Wrapper } from '@src/components/Wrapper';
 import ProjectCard from '@src/components/ProjectCard';
+import BlogCardRedesign from '@src/components/BlogCardRedesign';
 
 const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] }) => {
   const filterPosts = posts.sort(
@@ -41,7 +42,7 @@ const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] 
       </Text>
       <Flex direction="column" justify="center" align="center" mb={6}>
         {filterPosts.map((frontMatter) => (
-          <BlogCard key={frontMatter.title} {...frontMatter} />
+          <BlogCardRedesign key={frontMatter.title} {...frontMatter} />
         ))}
       </Flex>
       <Flex direction="column" justify="center" align="center" mb={6}>

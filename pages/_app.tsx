@@ -22,16 +22,18 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
   return (
-    <div className="flex flex-col align-center items-center">
+    <>
       {Reset}
       <MDXProvider components={MDXComponents}>
         <ChakraProvider resetCSS theme={theme}>
           <Header />
-          <Component {...pageProps} />
+          <div className="flex flex-col align-center items-center">
+            <Component {...pageProps} />
+          </div>
           <Footer />
         </ChakraProvider>
       </MDXProvider>
-    </div>
+    </>
   );
 }
 
