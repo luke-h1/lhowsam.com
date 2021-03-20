@@ -3,7 +3,6 @@ import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
 import { Intro } from '@components/Intro';
 import { getAllFilesFrontmatter } from '@utils/mdx';
-import BlogCard from '@components/BlogCard';
 import {
   Text, Flex, Box, SimpleGrid,
 } from '@chakra-ui/react';
@@ -11,7 +10,7 @@ import { Skills } from '@data/skills';
 import { BlogPost, ProjectPost } from '@src/types';
 import { Wrapper } from '@src/components/Wrapper';
 import ProjectCard from '@src/components/ProjectCard';
-import BlogCardRedesign from '@src/components/BlogCardRedesign';
+import BlogCard from '@src/components/BlogCard';
 
 const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] }) => {
   const filterPosts = posts.sort(
@@ -42,7 +41,7 @@ const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] 
       </Text>
       <Flex direction="column" justify="center" align="center" mb={6}>
         {filterPosts.map((frontMatter) => (
-          <BlogCardRedesign key={frontMatter.title} {...frontMatter} />
+          <BlogCard key={frontMatter.title} {...frontMatter} />
         ))}
       </Flex>
       <Flex direction="column" justify="center" align="center" mb={6}>

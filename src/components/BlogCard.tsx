@@ -1,57 +1,28 @@
-import {
-  Box, Text, Heading, useColorMode, Stack, Tag,
-} from '@chakra-ui/react';
-import Link from 'next/link';
-import { parseISO, format } from 'date-fns';
 import { BlogPost } from '@src/types';
+import Link from 'next/link';
+import React from 'react';
 
-const BlogCard = ({
+const BlogCardRedesign = ({
   title, summary, slug, date, tags,
 }: BlogPost) => {
-  const { colorMode } = useColorMode();
-
-  const blogCard = {
-    light: '#000',
-    dark: '#fff',
-  };
   return (
-    <>
+    <div className="w-full max-w-xl mx-auto">
       <Link href={`/blog/${slug}`}>
-        <a>
-          <Box
-            color={blogCard[colorMode]}
-            shadow="sm"
-            rounded="md"
-            data-testid="card"
-            maxW="md"
-            mt={4}
-            borderWidth="1px"
-            borderRadius="md"
-            overflow="hidden"
-            _hover={{ color: '#2EC0F9' }}
-          >
-            <Heading m="5" mb="2" as="h1" size="lg">
-              {title}
-            </Heading>
-            <Text m="5" mt="2" mb="4">
-              {summary}
-            </Text>
-
-            <Text m="5" mt="2" mb="4">
-              {format(parseISO(date), 'MMMM dd, yyyy')}
-            </Text>
-            <Stack direction="row" spacing={3} mb={4} ml={4}>
-              {tags.map((tag) => (
-                <Tag key={tag}>
-                  #
-                  {tag}
-                </Tag>
-              ))}
-            </Stack>
-          </Box>
+        <a className="p-2 w-full mb-4">
+          <div className="mb-8 w-full">
+            <div className="flex flex-col md:flex-row justify-between">
+              <h4 className="text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-100">
+                {title}
+              </h4>
+              <p className="text-gray-500 text-left md:text-right w-32 mb-4 md:mb-0">
+                {date}
+              </p>
+            </div>
+            <p className="text-gray-600 dark:text-gray-400">{summary}</p>
+          </div>
         </a>
       </Link>
-    </>
+    </div>
   );
 };
-export default BlogCard;
+export default BlogCardRedesign;
