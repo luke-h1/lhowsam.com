@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import * as gtag from '@utils/gtag';
 import Footer from '@src/components/Footer';
 import { Reset } from '@src/styles/reset';
-import Header from '@src/components/Header/Header';
+import { Header } from '@src/components/Header';
 import MDXComponents from '@src/components/MDXComponents';
 import '../src/styles/index.css';
 
