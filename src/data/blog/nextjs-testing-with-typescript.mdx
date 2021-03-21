@@ -190,7 +190,9 @@ To Explain: Here we are telling eslint not to complaing about the following:
 
 * import/extensions - don't tell us to import files with their filenames included. i.e:
 
-`import Component from './Component.tsx'`
+`
+import Component from './Component.tsx'
+`
 
 
 
@@ -200,7 +202,14 @@ To Explain: Here we are telling eslint not to complaing about the following:
 
 * jsx-a11y/anchor-has-content - same as above 
 
-* import/prefer-default-export - don't complain when we use `export const` instead of `export default`
+* import/prefer-default-export - don't complain when we use 
+` 
+export const
+` instead of 
+
+` 
+export default
+`
 
 Lastly we will add two new scripts to the project's package.json: 
 ```shell
@@ -251,7 +260,8 @@ ClearMocks will help prevent issues with persistence of mock data between test r
 import '@testing-library/jest-dom';
 ```
 
-This enables access to the addition assertions provided by the `@testing-library/jest-dom` package
+This enables access to the addition assertions provided by the ` 
+@testing-library/jest-dom` package
 
 
 Only one more config file 🎉
@@ -266,11 +276,11 @@ Add this to the file:
 
 ````
 
-
 Write your test file 
 
+Create a file called `index.test.tsx` in the root of the project and add some tests ! 
 
-Create a file `index.test.tsx` in the root of the project and add some tests ! 
+
 
 ```javascript
 import React from 'react';
