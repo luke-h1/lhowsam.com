@@ -8,7 +8,7 @@
     ],
     "paths": {
       "@src/*": ["src/*"],
-      "@tests/*": ["__tests__/*"],
+      "@tests/*": ["./src/__tests__/*"],
       "@pages/*": ["pages/*"],
       "@components/*": ["src/components/*"],
       "@icons/*": ["src/Icons/*"],

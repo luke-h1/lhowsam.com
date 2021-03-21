@@ -36,5 +36,5 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: Run unit tests & type check
+      - name: Run type check
         run: npm run type-check
