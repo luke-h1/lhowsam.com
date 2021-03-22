@@ -28,7 +28,7 @@
     "cross-env": "^7.0.3",
     "date-fns": "^2.19.0",
     "framer-motion": "^3.10.5",
-    "globby": "^11.0.2",
+    "globby": "^11.0.3",
     "gray-matter": "^4.0.2",
     "next": "10.0.9",
     "next-mdx-remote": "^2.1.3",
