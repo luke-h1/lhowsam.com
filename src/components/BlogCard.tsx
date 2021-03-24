@@ -2,7 +2,7 @@ import { BlogPost } from '@src/types';
 import Link from 'next/link';
 import React from 'react';
 
-const BlogCardRedesign = ({
+const BlogCard = ({
   title, summary, slug, date, tags,
 }: BlogPost) => {
   return (
@@ -19,10 +19,12 @@ const BlogCardRedesign = ({
               </p>
             </div>
             <p className="text-gray-600 dark:text-gray-400">{summary}</p>
+            {/* <p className="text-gray-600 dark:text-gray-400">{tags}</p> */}
+
           </div>
         </a>
       </Link>
     </div>
   );
 };
-export default BlogCardRedesign;
+export default BlogCard;

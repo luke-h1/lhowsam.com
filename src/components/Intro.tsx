@@ -7,7 +7,7 @@ export const Intro: React.FC<{}> = () => {
         <h1 className="text-center text-4xl	mb-8">
           Hi, I'm Luke 👋
         </h1>
-        <div className="max-w-sm mx-auto">
+        <div className="max-w-lg mx-auto">
           <h3 className="text-2xl mb-4 text-left" data-testid="intro">
             I'm passionate about solving technical problems and coming up with
             creative solutions.I enjoy working with the JAMstack, React, Node,
