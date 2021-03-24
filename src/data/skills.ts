@@ -4,7 +4,7 @@ export const Skills: { name: string; id: number }[] = [
     id: 1,
   },
   {
-    name: 'Next.js',
+    name: 'Next',
     id: 2,
   },
   {
@@ -12,19 +12,19 @@ export const Skills: { name: string; id: number }[] = [
     id: 3,
   },
   {
-    name: 'basic Typescript',
+    name: 'Basic Typescript',
     id: 4,
   },
   {
-    name: 'intermediate Javascript',
+    name: 'Intermediate Javascript',
     id: 5,
   },
   {
-    name: 'basic Python',
+    name: 'Basic Python',
     id: 6,
   },
   {
-    name: 'basic GraphQL',
+    name: 'Basic GraphQL',
     id: 7,
   },
   {
@@ -32,7 +32,7 @@ export const Skills: { name: string; id: number }[] = [
     id: 8,
   },
   {
-    name: 'Node JS',
+    name: 'Node',
     id: 9,
   },
   {
@@ -52,7 +52,7 @@ export const Skills: { name: string; id: number }[] = [
     id: 13,
   },
   {
-    name: 'tailwind css',
+    name: 'Tailwind css',
     id: 14,
   },
 ];

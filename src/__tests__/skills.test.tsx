@@ -4,19 +4,19 @@ test('Skills data is correct', () => {
   expect(Skills).toHaveLength(14);
   expect(Skills.map((skill) => skill.name)).toEqual([
     'React',
-    'Next.js',
+    'Next',
     'Gatsby',
-    'basic Typescript',
-    'intermediate Javascript',
-    'basic Python',
-    'basic GraphQL',
+    'Basic Typescript',
+    'Intermediate Javascript',
+    'Basic Python',
+    'Basic GraphQL',
     'Express',
-    'Node JS',
+    'Node',
     'Automated Testing',
     'Manual Testing',
     'Git / Github',
     'Styled components',
-    'tailwind css',
+    'Tailwind css',
   ]);
 });
 
@@ -45,19 +45,19 @@ test('data returns styled components as last item', () => {
 
   const i = jest.fn((s) => s.name);
   i(Skill1); // React
-  i(Skill2); // Next.js
+  i(Skill2); // Next
   i(Skill3); // Gatsby
-  i(Skill4); // basic typescript
-  i(Skill5); // intermediate Javascript
-  i(Skill6); // basic Python
-  i(Skill7); // basic Grahpql
+  i(Skill4); // Basic Typescript
+  i(Skill5); // Intermediate Javascript
+  i(Skill6); // Basic Python
+  i(Skill7); // Basic Grahpql
   i(Skill8); // Express
-  i(Skill9); // Node JS
+  i(Skill9); // Node
   i(Skill10); // Automated Testing
   i(Skill11); // Manual Testing
   i(Skill12); // Git / Github
   i(Skill13); // Styled components
-  i(Skill14); // tailwind css
+  i(Skill14); // Tailwind css
 
-  expect(i).toHaveLastReturnedWith('tailwind css');
+  expect(i).toHaveLastReturnedWith('Tailwind css');
 });

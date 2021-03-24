@@ -56,7 +56,7 @@ const Home = ({
             {Skills
               && Skills.map((s) => (
                 <div className="w-1/3 mb-4 h-12" key={s.id}>
-                  <p className="mr-4 ml-4 text-left capitalize">{s.name}</p>
+                  <p className="mr-4 ml-4 text-left">{s.name}</p>
                 </div>
               ))}
           </div>
