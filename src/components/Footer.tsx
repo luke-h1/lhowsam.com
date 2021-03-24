@@ -9,16 +9,24 @@ const Footer: React.FC<{}> = () => {
       <div className="flex flex-col">
         <div className="flex mt-24 mb-8 flex-row justify-center">
           <Link href="/">
-            <a className="md:block cursor-pointer text-gray-600 hover:text-black uppercase ml-2 mr-2">Home</a>
+            <a className="md:block cursor-pointer text-gray-600 hover:text-black uppercase ml-2 mr-2">
+              Home
+            </a>
           </Link>
           <Link href="/about">
-            <a className="md:block cursor-pointer text-gray-600 hover:text-black uppercase ml-2 mr-2">About</a>
+            <a className="md:block cursor-pointer text-gray-600 hover:text-black uppercase ml-2 mr-2">
+              About
+            </a>
           </Link>
           <Link href="/projects">
-            <a className="md:block cursor-pointer text-gray-600 hover:text-black uppercase ml-2 mr-2">Projects</a>
+            <a className="md:block cursor-pointer text-gray-600 hover:text-black uppercase ml-2 mr-2">
+              Projects
+            </a>
           </Link>
           <Link href="/blog">
-            <a className="md:block cursor-pointer text-gray-600 hover:text-black uppercase ml-2 mr-2">Blog</a>
+            <a className="md:block cursor-pointer text-gray-600 hover:text-black uppercase ml-2 mr-2">
+              Blog
+            </a>
           </Link>
         </div>
         <div className="flex mb-12 flex-row justify-center">
@@ -59,7 +67,6 @@ const Footer: React.FC<{}> = () => {
           </a>
         </div>
       </div>
-
     </>
   );
 };

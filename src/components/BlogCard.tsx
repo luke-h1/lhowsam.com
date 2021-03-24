@@ -17,9 +17,7 @@ const BlogCard = ({
             </div>
             <p className="text-gray-600 dark:text-gray-400 mb-3">{summary}</p>
             <div className="flex flex-col">
-              <p className="text-left text-gray-400 w-32 mb-4">
-                {date}
-              </p>
+              <p className="text-left text-gray-400 w-32 mb-4">{date}</p>
             </div>
             <div className="flex">
               {tags

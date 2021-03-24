@@ -31,7 +31,11 @@ export async function getStaticPaths() {
   };
 }
 
-export const getStaticProps = async ({ params }: { params: { slug: string } }) => {
+export const getStaticProps = async ({
+  params,
+}: {
+  params: { slug: string };
+}) => {
   const post = await getFileBySlug('blog', params.slug);
   return { props: post };
 };

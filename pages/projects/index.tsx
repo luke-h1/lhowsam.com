@@ -17,12 +17,18 @@ const Index = ({ projects }: { projects: ProjectPost[] }) => {
           }}
         />
         <div className="flex flex-col align-center mb-8 max-w-lg w-full">
-          <h1 className="text-4xl text-center mb-6">
-            Projects
-          </h1>
+          <h1 className="text-4xl text-center mb-6">Projects</h1>
           <div className="flex flex-col align-center mb-8 max-w-lg w-full">
             {projects.map((project) => (
-              <ProjectCard title={project.title} summary={project.summary} slug={project.slug} tags={project.tags} github={project.github} site={project.site} key={project.title} />
+              <ProjectCard
+                title={project.title}
+                summary={project.summary}
+                slug={project.slug}
+                tags={project.tags}
+                github={project.github}
+                site={project.site}
+                key={project.title}
+              />
             ))}
           </div>
         </div>

@@ -16,7 +16,6 @@ test('Skills data is correct', () => {
     'Manual Testing',
     'Git / Github',
     'Styled components',
-
   ]);
 });
 

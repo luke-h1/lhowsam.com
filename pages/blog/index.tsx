@@ -4,7 +4,7 @@ import { getAllFilesFrontmatter } from '@utils/mdx';
 import BlogCard from '@components/BlogCard';
 import { BlogPost } from '@src/types';
 
-const Index = ({ posts }: { posts: BlogPost[]}) => {
+const Index = ({ posts }: { posts: BlogPost[] }) => {
   const filterPosts = posts.sort(
     (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
@@ -21,9 +21,7 @@ const Index = ({ posts }: { posts: BlogPost[]}) => {
           }}
         />
         <div className="flex flex-col align-center mb-8 max-w-lg w-full">
-          <h1 className="text-4xl text-center mb-6">
-            Blog
-          </h1>
+          <h1 className="text-4xl text-center mb-6">Blog</h1>
           <h2 className="text-left text-2xl mb-6 text-gray-400">
             Thoughts on React, Node, testing & tech in general
           </h2>

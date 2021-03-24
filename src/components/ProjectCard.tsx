@@ -21,8 +21,6 @@ const ProjectCard = ({
                 <div className="text-md inline-flex items-left leading-sm  px-1 py-0.5 bg-orange-200 text-orange-700 rounded-full">
                   <p className="text-gray-700 ml-1 mr-1">
                     #
-                    {' '}
-                    {' '}
                     {tag}
                   </p>
                 </div>

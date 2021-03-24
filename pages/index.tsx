@@ -30,20 +30,14 @@ const Home = ({
         }}
       />
       <Intro />
-      <h2 className="text-center mt-1 mb-6 text-4xl">
-        {' '}
-        Projects
-      </h2>
+      <h2 className="text-center mt-1 mb-6 text-4xl"> Projects</h2>
 
       <div className="flex flex-col mb-6">
         {projects.map((frontMatter) => (
           <ProjectCard key={frontMatter.title} {...frontMatter} />
         ))}
       </div>
-      <h2 className="text-center mt-1 mb-6 text-4xl">
-        {' '}
-        Blog
-      </h2>
+      <h2 className="text-center mt-1 mb-6 text-4xl"> Blog</h2>
       <div className="flex flex-col mb-6">
         {filterPosts.map((frontMatter) => (
           <BlogCard key={frontMatter.title} {...frontMatter} />
@@ -60,9 +54,12 @@ const Home = ({
         </div>
         <div className="max-w-xl w-full">
           <div className="flex flex-wrap  -mb-5 pb-8">
-            {Skills && Skills.map((s) => (
-              <div className="w-1/3 mb-4 h-12"><p className="mr-4 ml-4 text-left capitalize">{s.name}</p></div>
-            ))}
+            {Skills
+              && Skills.map((s) => (
+                <div className="w-1/3 mb-4 h-12">
+                  <p className="mr-4 ml-4 text-left capitalize">{s.name}</p>
+                </div>
+              ))}
           </div>
         </div>
       </div>

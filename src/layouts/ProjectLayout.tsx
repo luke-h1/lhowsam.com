@@ -10,7 +10,10 @@ interface Iprops {
   frontMatter: ProjectPost;
 }
 
-const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
+const ProjectLayout: FunctionComponent<Iprops> = ({
+  children,
+  frontMatter,
+}) => {
   if (!children || !frontMatter) {
     return (
       <div>
@@ -21,7 +24,6 @@ const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => 
         <div>
           <p>
             children is
-            {' '}
             {typeof children}
           </p>
         </div>
@@ -40,15 +42,17 @@ const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => 
           }}
         />
         <article className="flex flex-col max-w-lg w-full mx-0 mb-5">
-          <h1 className="text-3xl">
-            {frontMatter.title}
-          </h1>
+          <h1 className="text-3xl">{frontMatter.title}</h1>
           <div className="flex flex-row mt-5">
             <a
               href={frontMatter.github}
               target="_blank"
               rel="noreferrer"
-              style={{ marginRight: '35px', marginTop: '35px', marginBottom: '35px' }}
+              style={{
+                marginRight: '35px',
+                marginTop: '35px',
+                marginBottom: '35px',
+              }}
             >
               <FiGithub />
             </a>
@@ -57,7 +61,11 @@ const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => 
                 href={frontMatter.site}
                 target="_blank"
                 rel="noreferrer"
-                style={{ marginRight: '35px', marginTop: '35px', marginBottom: '35px' }}
+                style={{
+                  marginRight: '35px',
+                  marginTop: '35px',
+                  marginBottom: '35px',
+                }}
               >
                 <GoBrowser />
               </a>
@@ -65,9 +73,7 @@ const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => 
           </div>
         </article>
         <hr />
-        <p className="text-lg mt-4 mb-4 leading-10">
-          {children}
-        </p>
+        <p className="text-lg mt-4 mb-4 leading-10">{children}</p>
         <ShareButtons
           location={`https://lhowsam.com/blog/${frontMatter.slug}`}
         />
