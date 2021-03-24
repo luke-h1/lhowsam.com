@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect } from 'react';
+import { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
 import {
@@ -6,17 +6,14 @@ import {
 } from '@chakra-ui/react';
 import { FiGithub } from 'react-icons/fi';
 import { GoBrowser } from 'react-icons/go';
+import { ProjectPost } from '@src/types';
 
 interface Iprops {
-  children: any;
-  frontMatter: any;
+  children: React.ReactNode;
+  frontMatter: ProjectPost;
 }
 
 const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
-  useEffect(() => {
-    console.log('children > ', children);
-    console.log('frontMatter > ', frontMatter);
-  }, []);
   const { colorMode } = useColorMode();
   const Colors = {
     light: '#000',
@@ -50,24 +47,16 @@ const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => 
             title: `${frontMatter.title} | lhowsam.com`,
           }}
         />
-
-        <Flex
-          as="article"
-          direction="column"
-          justify="center"
-          maxW="1000px"
-          mx="auto"
-          mb={5}
-        >
-          <Text as="h1" fontSize="40px" mb={2}>
+        <article className="flex flex-col max-w-lg w-full mx-0 mb-5">
+          <h1 className="text-3xl">
             {frontMatter.title}
-          </Text>
-          <Flex direction="row" justify="left">
+          </h1>
+          <div className="flex flex-row mt-5">
             <a
               href={frontMatter.github}
               target="_blank"
               rel="noreferrer"
-              style={{ marginRight: '35px' }}
+              style={{ marginRight: '35px', marginTop: '35px', marginBottom: '35px' }}
               color={Colors[colorMode]}
             >
               <FiGithub />
@@ -77,18 +66,18 @@ const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => 
                 href={frontMatter.site}
                 target="_blank"
                 rel="noreferrer"
-                style={{ marginRight: '35px' }}
+                style={{ marginRight: '35px', marginTop: '35px', marginBottom: '35px' }}
                 color={Colors[colorMode]}
               >
                 <GoBrowser />
               </a>
             )}
-          </Flex>
-        </Flex>
+          </div>
+        </article>
         <hr />
-        <Text as="p" fontSize="20px" mt={2} mb={2} lineHeight="1.5">
+        <p className="text-lg mt-4 mb-4 leading-10">
           {children}
-        </Text>
+        </p>
         <ShareButtons
           location={`https://lhowsam.com/blog/${frontMatter.slug}`}
         />

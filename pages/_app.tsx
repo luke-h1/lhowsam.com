@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import * as gtag from '@utils/gtag';
 import Footer from '@src/components/Footer';
 import { Reset } from '@src/styles/reset';
-import { Header } from '@src/components/Header';
+import { Nav } from '@src/components/Nav/NavBar';
 import MDXComponents from '@src/components/MDXComponents';
 import '../src/styles/index.css';
 
@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       {Reset}
       <MDXProvider components={MDXComponents}>
         <ChakraProvider resetCSS theme={theme}>
-          <Header />
+          <Nav />
           <div className="flex flex-col align-center items-center">
             <Component {...pageProps} />
           </div>

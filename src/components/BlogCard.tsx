@@ -17,19 +17,16 @@ const BlogCard = ({
             </div>
             <p className="text-gray-600 dark:text-gray-400 mb-3">{summary}</p>
             <div className="flex flex-col">
-              <p className="text-gray-700 text-left w-32 mb-4">
+              <p className="text-gray-700 text-left text-gray-400 w-32 mb-4">
                 {date}
               </p>
-
             </div>
             <div className="flex">
               {tags
                 && tags.map((tag) => (
                   <div className="text-md inline-flex items-left leading-sm  px-1 py-0.5 bg-orange-200 text-orange-700 rounded-full">
-                    <p className="text-gray-700">
+                    <p className="text-gray-700 ml-1 mr-1">
                       #
-                      {' '}
-                      {' '}
                       {tag}
                     </p>
                   </div>

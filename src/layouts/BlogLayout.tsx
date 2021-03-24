@@ -21,25 +21,22 @@ const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
             title: `${frontMatter.title} | lhowsam.com`,
           }}
         />
-
-        <Flex as="article" direction="column" justify="center" mb={5}>
-          <Text as="h1" fontSize="40px">
-            {frontMatter.title}
-          </Text>
-        </Flex>
-
-        <Flex direction="column" justify="between" mt={2} mb={5}>
-          <Text as="p" fontSize="20px" mt={2} mb={2} color="gray.500">
+        <div className="flex flex-col justify-center mb-5">
+          <h1 className="text-3xl">{frontMatter.title}</h1>
+        </div>
+        <div className="flex flex-col justify-between mt-2 mb-5">
+          <p className="text-sm	text-gray-500 mt-2 mb-2">
             {format(parseISO(frontMatter.date), 'MMMM dd, yyyy')}
-          </Text>
-        </Flex>
-        <Text as="p" fontSize="20px" mt={2} mb={2} color="gray.500">
+          </p>
+        </div>
+        <p className="text-sm	text-gray-500 mt-2 mb-2">
           {frontMatter.readingTime.text}
-        </Text>
+        </p>
         <hr />
-        <Text as="p" fontSize="20px" mt={2} mb={2} lineHeight="1.5">
+        {/* Text as="p" fontSize="20px" mt={2} mb={2} lineHeight="1.5" */}
+        <p className="text-lg mt-4 mb-4 leading-10 tracking-wider">
           {children}
-        </Text>
+        </p>
         <ShareButtons
           location={`https://lhowsam.com/blog/${frontMatter.slug}`}
         />
