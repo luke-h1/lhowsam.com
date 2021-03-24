@@ -1,7 +1,7 @@
 import { Skills } from '../data/skills';
 
 test('Skills data is correct', () => {
-  expect(Skills).toHaveLength(13);
+  expect(Skills).toHaveLength(14);
   expect(Skills.map((skill) => skill.name)).toEqual([
     'React',
     'Next.js',
@@ -16,6 +16,7 @@ test('Skills data is correct', () => {
     'Manual Testing',
     'Git / Github',
     'Styled components',
+    'tailwind css',
   ]);
 });
 
@@ -40,6 +41,8 @@ test('data returns styled components as last item', () => {
   const Skill11 = Skills[10];
   const Skill12 = Skills[11];
   const Skill13 = Skills[12];
+  const Skill14 = Skills[13];
+
   const i = jest.fn((s) => s.name);
   i(Skill1); // React
   i(Skill2); // Next.js
@@ -54,6 +57,7 @@ test('data returns styled components as last item', () => {
   i(Skill11); // Manual Testing
   i(Skill12); // Git / Github
   i(Skill13); // Styled components
+  i(Skill14); // tailwind css
 
-  expect(i).toHaveLastReturnedWith('Styled components');
+  expect(i).toHaveLastReturnedWith('tailwind css');
 });
