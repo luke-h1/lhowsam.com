@@ -51,4 +51,8 @@ export const Skills: { name: string; id: number }[] = [
     name: 'Styled components',
     id: 13,
   },
+  {
+    name: 'tailwind css',
+    id: 14,
+  },
 ];
