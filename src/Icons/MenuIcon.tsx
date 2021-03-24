@@ -1,15 +1,6 @@
-import { useColorMode, Text } from '@chakra-ui/react';
+import styled from '@emotion/styled';
 import { AiOutlineBars } from 'react-icons/ai';
 
-export const MenuIcon = () => {
-  const { colorMode } = useColorMode();
-  const Colors = {
-    light: '#000',
-    dark: '#fff',
-  };
-  return (
-    <Text color={Colors[colorMode]}>
-      <AiOutlineBars />
-    </Text>
-  );
-};
+export const MenuIcon = styled(AiOutlineBars)`
+  font-size: 20px;
+`;

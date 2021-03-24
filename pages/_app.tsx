@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { MDXProvider } from '@mdx-js/react';
-import { ChakraProvider, theme } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import * as gtag from '@utils/gtag';
 import Footer from '@src/components/Footer';
@@ -25,13 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       {Reset}
       <MDXProvider components={MDXComponents}>
-        <ChakraProvider resetCSS theme={theme}>
-          <Nav />
-          <div className="flex flex-col align-center items-center">
-            <Component {...pageProps} />
-          </div>
-          <Footer />
-        </ChakraProvider>
+        <Nav />
+        <div className="flex flex-col align-center items-center">
+          <Component {...pageProps} />
+        </div>
+        <Footer />
       </MDXProvider>
     </>
   );

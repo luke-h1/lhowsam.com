@@ -2,7 +2,6 @@ import React, { FunctionComponent } from 'react';
 import { parseISO, format } from 'date-fns';
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
-import { Container, Flex, Text } from '@chakra-ui/react';
 
 interface Iprops {
   frontMatter: any;
@@ -12,7 +11,7 @@ interface Iprops {
 const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
   return (
     <>
-      <Container maxW="700px" mb={4}>
+      <div className="mb-4 max-w-xl w-full p-2">
         <NextSeo
           title={`${frontMatter.title} | lhowsam.com`}
           canonical={`https://lhowsam.com/blog/${frontMatter.slug}`}
@@ -25,7 +24,7 @@ const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           <h1 className="text-3xl">{frontMatter.title}</h1>
         </div>
         <div className="flex flex-col justify-between mt-2 mb-5">
-          <p className="text-sm	text-gray-500 mt-2 mb-2">
+          <p className="text-sm text-gray-500 mt-2 mb-2">
             {format(parseISO(frontMatter.date), 'MMMM dd, yyyy')}
           </p>
         </div>
@@ -37,10 +36,12 @@ const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
         <p className="text-lg mt-4 mb-4 leading-10 tracking-wider">
           {children}
         </p>
+        <div className='flex flex-col'>
         <ShareButtons
           location={`https://lhowsam.com/blog/${frontMatter.slug}`}
         />
-      </Container>
+        </div>
+      </div>
     </>
   );
 };

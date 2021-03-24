@@ -1,9 +1,6 @@
 import { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
-import {
-  Container, Flex, Text, useColorMode,
-} from '@chakra-ui/react';
 import { FiGithub } from 'react-icons/fi';
 import { GoBrowser } from 'react-icons/go';
 import { ProjectPost } from '@src/types';
@@ -14,11 +11,6 @@ interface Iprops {
 }
 
 const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
-  const { colorMode } = useColorMode();
-  const Colors = {
-    light: '#000',
-    dark: '#fff',
-  };
   if (!children || !frontMatter) {
     return (
       <div>
@@ -38,7 +30,7 @@ const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => 
   }
   return (
     <>
-      <Container mb={4}>
+      <div className="mb-4 max-w-xl w-full">
         <NextSeo
           title={`${frontMatter.title} | lhowsam.com`}
           canonical={`https://lhowsam.com/projects/${frontMatter.slug}`}
@@ -57,7 +49,6 @@ const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => 
               target="_blank"
               rel="noreferrer"
               style={{ marginRight: '35px', marginTop: '35px', marginBottom: '35px' }}
-              color={Colors[colorMode]}
             >
               <FiGithub />
             </a>
@@ -67,7 +58,6 @@ const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => 
                 target="_blank"
                 rel="noreferrer"
                 style={{ marginRight: '35px', marginTop: '35px', marginBottom: '35px' }}
-                color={Colors[colorMode]}
               >
                 <GoBrowser />
               </a>
@@ -81,7 +71,7 @@ const ProjectLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => 
         <ShareButtons
           location={`https://lhowsam.com/blog/${frontMatter.slug}`}
         />
-      </Container>
+      </div>
     </>
   );
 };

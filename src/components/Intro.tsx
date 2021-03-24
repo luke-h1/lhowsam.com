@@ -13,7 +13,7 @@ export const Intro: React.FC<{}> = () => {
             creative solutions.I enjoy working with the JAMstack, React, Node,
             testing technologies + practices & various dev-ops technologies
           </h3>
-          <hr />
+          <hr className="mb-8" />
         </div>
       </div>
     </>

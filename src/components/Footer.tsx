@@ -1,88 +1,65 @@
-/* eslint-disable react/prop-types */
 import {
-  FiGithub, FiTwitter, FiMail, FiLinkedin,
-} from 'react-icons/fi';
-import { Flex, IconButton, useColorMode } from '@chakra-ui/react';
+  Email, Github, LinkedIn, Twitter,
+} from '@src/Icons/Social';
+import Link from 'next/link';
 
-const Footer = () => {
-  const { colorMode } = useColorMode();
-
-  const footerIcon = {
-    light: '#000',
-    dark: '#fff',
-  };
-
+const Footer: React.FC<{}> = () => {
   return (
     <>
-      <Flex
-        align="center"
-        mb={4}
-        direction="column"
-        display={['none', 'flex', 'flex']}
-      >
-        <div>
+      <div className="flex flex-col">
+        <div className="flex mt-24 mb-8 flex-row justify-center">
+          <Link href="/">
+            <a className="md:block cursor-pointer text-gray-600 hover:text-black uppercase ml-2 mr-2">Home</a>
+          </Link>
+          <Link href="/about">
+            <a className="md:block cursor-pointer text-gray-600 hover:text-black uppercase ml-2 mr-2">About</a>
+          </Link>
+          <Link href="/projects">
+            <a className="md:block cursor-pointer text-gray-600 hover:text-black uppercase ml-2 mr-2">Projects</a>
+          </Link>
+          <Link href="/blog">
+            <a className="md:block cursor-pointer text-gray-600 hover:text-black uppercase ml-2 mr-2">Blog</a>
+          </Link>
+        </div>
+        <div className="flex mb-12 flex-row justify-center">
           <a
-            href="https://twitter.com/lukeH_1999"
-            title="Twitter"
+            className="md:block cursor-pointer text-gray-600 hover:text-blue-300 uppercase ml-2 mr-2"
+            href="https://twitter.com/LukeH_1999"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IconButton
-              aria-label="Twitter"
-              icon={<FiTwitter />}
-              size="lg"
-              color={footerIcon[colorMode]}
-              variant="ghost"
-              _hover={{ color: '#2EC0F9' }}
-            />
+            <Twitter />
           </a>
           <a
+            className="md:block cursor-pointer text-gray-600 hover:text-blue-300 uppercase ml-2 mr-2"
+            href="https://www.linkedin.com/in/lukehowsam"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <LinkedIn />
+          </a>
+          <a
+            className="md:block cursor-pointer text-gray-600 hover:text-blue-300 uppercase ml-2 mr-2"
             href="https://github.com/luke-h1"
-            title="GitHub"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IconButton
-              aria-label="GitHub"
-              icon={<FiGithub />}
-              size="lg"
-              color={footerIcon[colorMode]}
-              variant="ghost"
-              _hover={{ color: '#2EC0F9' }}
-            />
+            <Github />
+            {' '}
           </a>
           <a
+            className="md:block cursor-pointer text-gray-600 hover:text-blue-300 uppercase ml-2 mr-2"
             href="mailto:luke.howsam@yahoo.com?subject=Get In Touch"
             title="Email"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <IconButton
-              aria-label="Email"
-              icon={<FiMail />}
-              size="lg"
-              color={footerIcon[colorMode]}
-              variant="ghost"
-              _hover={{ color: '#2EC0F9' }}
-            />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/lukehowsam/"
-            title="Linkedin"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <IconButton
-              aria-label="Linkedin"
-              icon={<FiLinkedin />}
-              size="lg"
-              color={footerIcon[colorMode]}
-              variant="ghost"
-              _hover={{ color: '#2EC0F9' }}
-            />
+            <Email />
+            {' '}
           </a>
         </div>
-      </Flex>
+      </div>
+
     </>
   );
 };

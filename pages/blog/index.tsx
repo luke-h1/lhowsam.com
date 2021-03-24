@@ -1,7 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import { getAllFilesFrontmatter } from '@utils/mdx';
-import { Container, Flex, Text } from '@chakra-ui/react';
 import BlogCard from '@components/BlogCard';
 import { BlogPost } from '@src/types';
 
@@ -12,7 +11,7 @@ const Index = ({ posts }: { posts: BlogPost[]}) => {
 
   return (
     <>
-      <Container>
+      <>
         <NextSeo
           title="Blog | lhowsam.com"
           canonical="https://lhowsam.com/blog"
@@ -21,33 +20,21 @@ const Index = ({ posts }: { posts: BlogPost[]}) => {
             title: 'Blog | lhowsam.com',
           }}
         />
-        <Flex
-          direction="column"
-          justify="center"
-          align="center"
-          mb="8"
-          maxW="700px"
-        >
-          <Text as="h1" fontSize="40px" mb={4}>
+        <div className="flex flex-col align-center mb-8 max-w-lg w-full">
+          <h1 className="text-4xl text-center mb-6">
             Blog
-          </Text>
-          <Text align="center" as="h1" fontSize="25px" mb={4}>
+          </h1>
+          <h2 className="text-left text-2xl mb-6 text-gray-400">
             Thoughts on React, Node, testing & tech in general
-          </Text>
-          <Flex
-            direction="column"
-            justify="center"
-            align="center"
-            mb="8"
-            maxW="700px"
-          >
+          </h2>
+          <div className="flex flex-col align-center mb-8 max-w-lg w-full">
             {!filterPosts.length && 'No blog posts found'}
             {filterPosts.map((frontMatter) => (
               <BlogCard key={frontMatter.title} {...frontMatter} />
             ))}
-          </Flex>
-        </Flex>
-      </Container>
+          </div>
+        </div>
+      </>
     </>
   );
 };

@@ -6,7 +6,7 @@ const BlogCard = ({
   title, summary, slug, date, tags,
 }: BlogPost) => {
   return (
-    <div className="w-full max-w-xl mx-auto border border-grey-200 dark:border-gray-900 rounded p-4 w-full mb-4">
+    <div className="max-w-xl mx-auto  dark:border-gray-900 rounded p-4 w-full mb-4">
       <Link href={`/blog/${slug}`}>
         <a className="p-2 w-full mb-4">
           <div className="mb-8 w-full">
@@ -17,7 +17,7 @@ const BlogCard = ({
             </div>
             <p className="text-gray-600 dark:text-gray-400 mb-3">{summary}</p>
             <div className="flex flex-col">
-              <p className="text-gray-700 text-left text-gray-400 w-32 mb-4">
+              <p className="text-left text-gray-400 w-32 mb-4">
                 {date}
               </p>
             </div>
