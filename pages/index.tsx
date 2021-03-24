@@ -3,15 +3,19 @@ import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
 import { Intro } from '@components/Intro';
 import { getAllFilesFrontmatter } from '@utils/mdx';
-import {
-  Text, Flex,
-} from '@chakra-ui/react';
+import { Text, Flex } from '@chakra-ui/react';
 import { Skills } from '@data/skills';
 import { BlogPost, ProjectPost } from '@src/types';
 import ProjectCard from '@src/components/ProjectCard';
 import BlogCard from '@src/components/BlogCard';
 
-const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] }) => {
+const Home = ({
+  posts,
+  projects,
+}: {
+  posts: BlogPost[];
+  projects: ProjectPost[];
+}) => {
   const filterPosts = posts.sort(
     (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
@@ -36,7 +40,7 @@ const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] 
         ))}
       </Flex>
       <Text as="h2" fontSize="40px" mt={1} mb={6} align="center">
-        Blog Posts
+        Blog
       </Text>
       <Flex direction="column" justify="center" align="center" mb={6}>
         {filterPosts.map((frontMatter) => (
@@ -48,18 +52,22 @@ const Home = ({ posts, projects }: { posts: BlogPost[], projects: ProjectPost[] 
           Skills
         </Text> */}
         <div className="flex flex-col items-center max-w-md w-full">
-          <p className="text-5xl mb-4">
-            {' '}
-            skills
-          </p>
-          <p className="text-2xl mb-4 text-left">
-            I'm always expanding my technical skills by learning new tech. The following is a list of technology I'm interested in / what I'm actively working with !
+          <p className="text-4xl mb-4">Skills</p>
+          <p className="md:text-2xl mb-12 text-left sm:text-md text-left ml-2">
+            I'm always expanding my technical skills by learning new tech. The
+            following is a list of technology I'm interested in / what I'm
+            actively working with !
           </p>
         </div>
-        <div className="h-64 w-50 grid grid-rows-5 grid-flow-col gap-10 ml-4 mr-4 mb-14 mt-10">
-          {Skills && Skills.map((s) => (
-            <span>{s.name}</span>
-          ))}
+        {/* map thru skills here */}
+        <div className="max-w-xl w-full">
+          <div className="flex flex-wrap  -mb-5 pb-8">
+            {Skills && Skills.map((s) => (
+              <div className="w-1/3 mb-4 h-12"><p className="mr-4 ml-4 text-left capitalize">{s.name}</p></div>
+
+            ))}
+
+          </div>
         </div>
       </div>
     </>
