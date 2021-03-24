@@ -27,7 +27,7 @@ for (let i = 0; i < Skills.length; i += 1) {
   });
 }
 
-test('data returns Git / Github as last item', () => {
+test('data returns styled components as last item', () => {
   const Skill1 = Skills[0];
   const Skill2 = Skills[1];
   const Skill3 = Skills[2];
@@ -41,7 +41,7 @@ test('data returns Git / Github as last item', () => {
   const Skill11 = Skills[10];
   const Skill12 = Skills[11];
   const Skill13 = Skills[12];
-  const i = jest.fn((skillName) => skillName.name);
+  const i = jest.fn((s) => s.name);
   i(Skill1); // React
   i(Skill2); // Next.js
   i(Skill3); // Gatsby

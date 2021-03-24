@@ -13,13 +13,9 @@ import styled from '@emotion/styled';
 const ShareBtnWrap = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
   align-items: center;
-  padding: 0.2rem 0.4rem;
-
-  * {
-    margin: 0 0.2rem;
+  > * { 
+    margin: 0 1rem 0 1rem;
   }
 `;
 
@@ -33,11 +29,9 @@ const ShareButtons: FunctionComponent<Iprops> = ({ location }) => (
       <EmailShareButton url={location}>
         <EmailIcon round size={35} />
       </EmailShareButton>
-
       <TwitterShareButton url={location}>
         <TwitterIcon round size={35} />
       </TwitterShareButton>
-
       <LinkedinShareButton url={location}>
         <LinkedinIcon round size={35} />
       </LinkedinShareButton>

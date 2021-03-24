@@ -1,15 +1,11 @@
 import { css, Global } from '@emotion/react';
 import { normalize } from 'polished';
-import { prismLightTheme, prismDarkTheme } from '@styles/prism';
-import { useColorMode } from '@chakra-ui/react';
 
 export const Reset = () => {
-  const { colorMode } = useColorMode();
   return (
     <Global
       styles={css`
         ${normalize()}
-        ${colorMode === 'light' ? prismLightTheme : prismDarkTheme}
         * {
           box-sizing: border-box;
           padding: 0;

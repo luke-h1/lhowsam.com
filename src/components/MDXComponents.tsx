@@ -1,63 +1,32 @@
 /* eslint-disable */
-import { Box, Alert, Divider, useColorMode, Code } from '@chakra-ui/react';
 import Image from 'next/image';
+import React from 'react';
 import { CustomCode } from '../components/CustomCode';
-import { H1, H2, H3, H4, H5, H6, P } from '../components/Typography';
+import { H1, H2, H3, H4, H5, H6, P } from '@src/components/Typography'
+import { MdxRemote } from 'next-mdx-remote/types';
 
-const Quote = (props: any) => {
-  const { colorMode } = useColorMode();
-  const bgColor = {
-    light: 'blue.50',
-    dark: 'blue.900',
-  };
-
+const Quote = (props: MdxRemote.Source) => { 
   return (
-    <Alert
-      mt={4}
-      w="98%"
-      bg={bgColor[colorMode]}
-      variant="left-accent"
-      status="info"
-      css={{
-        '> *:first-of-type': {
-          marginTop: 0,
-          marginLeft: 8,
-        },
-      }}
-      {...props}
-    />
-  );
-};
-
-const Hr = () => {
-  const { colorMode } = useColorMode();
-  const borderColor = {
-    light: 'gray.200',
-    dark: 'gray.600',
-  };
-
-  return <Divider borderColor={borderColor[colorMode]} my={4} w="100%" />;
-};
-
+    <p className='text-red-500' {...props}/>
+  )
+}
 const MDXComponents = {
   Image,
-  h1: (props: any) => <H1 {...props} />,
-  h2: (props: any) => <H2 {...props} />,
-  h3: (props: any) => <H3 {...props} />,
-  h4: (props: any) => <H4 {...props} />,
-  h5: (props: any) => <H5 {...props} />,
-  h6: (props: any) => <H6 {...props} />,
-  br: (props: any) => <Box height="24px" {...props}/>,
-  hr: (props: any) => <Hr {...props} />,
-  ul: (props: any) => <Box as="ul" pt={2} pl={4} ml={2} {...props} />,
-  ol: (props: any) => <Box as="ol" pt={2} pl={4} ml={2} {...props} />,
-  li: (props: any) => <Box as="li" pb={1} {...props} />,
-  P: (props: any) =>  <P {...props} />, 
+  h1: (props: MdxRemote.Source) => <H1 {...props} />,
+  h2: (props: MdxRemote.Source) => <H2 {...props} />,
+  h3: (props: MdxRemote.Source) => <H3 {...props} />,
+  h4: (props: MdxRemote.Source) => <H4 {...props} />,
+  h5: (props: MdxRemote.Source) => <H5 {...props} />,
+  h6: (props: MdxRemote.Source) => <H6 {...props} />,
+  br: (props: MdxRemote.Source) => <br {...props} className='mb-4'/>,
+  hr: (props: MdxRemote.Source) => <hr {...props} className='text-gray-600'/>,
+  ul: (props: string | null) => <ul {...props} className='list-disc mt-4 mb-4' />,
+  ol: (props: MdxRemote.Components) => <ol {...props} />,
+  li: (props: MdxRemote.Components) => <li className='mt-4 mb-4'  {...props}/>,
+  P: (props: MdxRemote.Source) =>  <P {...props} />, 
   code: CustomCode,
   blockquote: Quote,
-  inlineCode: (props: any) => (
-    <Code colorScheme="yellow" fontSize="0.84em" {...props} />
-  ),
+  inlineCode: (props: MdxRemote.Source) => <p className='text-purple-600 m-0 p-0' {...props} />,
 }
 
 export default MDXComponents;

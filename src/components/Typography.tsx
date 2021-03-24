@@ -1,44 +1,44 @@
-import { Heading, Text } from '@chakra-ui/react';
+import { MdxRemote } from 'next-mdx-remote/types';
 import React from 'react';
 
-export const H1 = ({ children }: { children: React.ReactNode }) => (
-  <Heading as="h1" size="xl" pb="1rem" pt="1rem" mt="1rem" mb="1rem">
+export const H1 = ({ children }: MdxRemote.Components) => (
+  <h1 className="text-4xl py-1 px-1 mt-4 mb-4">
     {children}
-  </Heading>
+  </h1>
 );
 
-export const H2 = ({ children }: { children: React.ReactNode }) => (
-  <Heading as="h2" size="lg" pb="1rem" pt="1rem" mt="1rem" mb="1rem">
+export const H2 = ({ children }: MdxRemote.Components) => (
+  <h2 className="text-3xl py-1 px-1 mt-1 mb-1">
     {children}
-  </Heading>
+  </h2>
 );
 
-export const H3 = ({ children }: { children: React.ReactNode }) => (
-  <Heading as="h3" size="lg" pb="1rem" pt="1rem" mt="1rem" mb="1rem">
+export const H3 = ({ children }: MdxRemote.Components) => (
+  <h3 className="text-3xl py-1 px-1 mt-1 mb-1">
     {children}
-  </Heading>
+  </h3>
 );
 
-export const H4 = ({ children }: { children: React.ReactNode }) => (
-  <Heading as="h4" size="md" pb="1rem" pt="1rem" mt="1rem" mb="1rem">
+export const H4 = ({ children }: MdxRemote.Components) => (
+  <h4 className="text-3xl py-1 px-1 mt-1 mb-1">
     {children}
-  </Heading>
+  </h4>
 );
 
-export const H5 = ({ children }: { children: React.ReactNode }) => (
-  <Heading as="h5" size="md" pb="1rem" pt="1rem" mt="1rem" mb="1rem">
+export const H5 = ({ children }: MdxRemote.Components) => (
+  <h5 className="text-3xl py-1 px-1 mt-1 mb-1">
     {children}
-  </Heading>
+  </h5>
 );
 
-export const H6 = ({ children }: { children: React.ReactNode }) => (
-  <Heading as="h6" size="xl" pb="1rem" pt="1rem" mt="1rem" mb="1rem">
+export const H6 = ({ children }: MdxRemote.Components) => (
+  <h6 className="text-3xl py-1 px-1 mt-1 mb-1">
     {children}
-  </Heading>
+  </h6>
 );
 
-export const P = ({ children }: { children: React.ReactNode }) => (
-  <Text as="p" pb="1rem" pt="1rem" mt="1rem" mb="1rem">
+export const P = ({ children }: MdxRemote.Components) => (
+  <p className="text-3xl leading-4 py-1 px-1 mt-1 mb-1">
     {children}
-  </Text>
+  </p>
 );

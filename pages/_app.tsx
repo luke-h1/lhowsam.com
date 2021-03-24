@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { MDXProvider } from '@mdx-js/react';
-import { ChakraProvider, theme } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import * as gtag from '@utils/gtag';
 import Footer from '@src/components/Footer';
 import { Reset } from '@src/styles/reset';
-import Header from '@src/components/Header/Header';
+import { Nav } from '@src/components/Nav/NavBar';
 import MDXComponents from '@src/components/MDXComponents';
+import '../src/styles/index.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -24,11 +24,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       {Reset}
       <MDXProvider components={MDXComponents}>
-        <ChakraProvider resetCSS theme={theme}>
-          <Header />
+        <Nav />
+        <div className="flex flex-col align-center items-center">
           <Component {...pageProps} />
-          <Footer />
-        </ChakraProvider>
+        </div>
+        <Footer />
       </MDXProvider>
     </>
   );
