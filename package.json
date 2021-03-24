@@ -38,7 +38,7 @@
     "prettier": "^2.2.1",
     "prism-react-renderer": "^1.2.0",
     "prop-types": "^15.7.2",
-    "react": "17.0.1",
+    "react": "17.0.2",
     "react-dom": "17.0.1",
     "react-icons": "^4.2.0",
     "react-share": "^4.4.0",
