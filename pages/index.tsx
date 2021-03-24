@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
 import { Intro } from '@components/Intro';
@@ -18,11 +18,6 @@ const Home = ({
   const filterPosts = posts.sort(
     (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
-
-  useEffect(() => {
-    console.log('posts >', posts);
-    console.log('projects >', projects);
-  });
 
   return (
     <>
