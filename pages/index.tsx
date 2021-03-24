@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
 import { Intro } from '@components/Intro';
@@ -19,6 +19,11 @@ const Home = ({
     (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
   );
 
+  useEffect(() => {
+    console.log('posts >', posts);
+    console.log('projects >', projects);
+  });
+
   return (
     <>
       <NextSeo
@@ -31,7 +36,6 @@ const Home = ({
       />
       <Intro />
       <h2 className="text-center mt-1 mb-6 text-4xl"> Projects</h2>
-
       <div className="flex flex-col mb-6">
         {projects.map((frontMatter) => (
           <ProjectCard key={frontMatter.title} {...frontMatter} />
@@ -56,7 +60,7 @@ const Home = ({
           <div className="flex flex-wrap  -mb-5 pb-8">
             {Skills
               && Skills.map((s) => (
-                <div className="w-1/3 mb-4 h-12">
+                <div className="w-1/3 mb-4 h-12" key={s.id}>
                   <p className="mr-4 ml-4 text-left capitalize">{s.name}</p>
                 </div>
               ))}

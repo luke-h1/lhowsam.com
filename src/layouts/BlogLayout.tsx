@@ -2,10 +2,11 @@ import React, { FunctionComponent } from 'react';
 import { parseISO, format } from 'date-fns';
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
+import { BlogPost } from '@src/types';
 
 interface Iprops {
-  frontMatter: any;
-  children: any;
+  children: React.ReactNode;
+  frontMatter: BlogPost;
 }
 
 const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
@@ -32,7 +33,6 @@ const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           {frontMatter.readingTime.text}
         </p>
         <hr />
-        {/* Text as="p" fontSize="20px" mt={2} mb={2} lineHeight="1.5" */}
         <p className="text-lg mt-4 mb-4 leading-10 tracking-wider">
           {children}
         </p>
