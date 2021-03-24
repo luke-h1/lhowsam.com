@@ -36,10 +36,10 @@ const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
         <p className="text-lg mt-4 mb-4 leading-10 tracking-wider">
           {children}
         </p>
-        <div className='flex flex-col'>
-        <ShareButtons
-          location={`https://lhowsam.com/blog/${frontMatter.slug}`}
-        />
+        <div className="flex flex-col">
+          <ShareButtons
+            location={`https://lhowsam.com/blog/${frontMatter.slug}`}
+          />
         </div>
       </div>
     </>

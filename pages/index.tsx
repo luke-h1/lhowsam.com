@@ -3,7 +3,6 @@ import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
 import { Intro } from '@components/Intro';
 import { getAllFilesFrontmatter } from '@utils/mdx';
-import { Text, Flex } from '@chakra-ui/react';
 import { Skills } from '@data/skills';
 import { BlogPost, ProjectPost } from '@src/types';
 import ProjectCard from '@src/components/ProjectCard';
@@ -31,42 +30,39 @@ const Home = ({
         }}
       />
       <Intro />
-      <Text as="h2" fontSize="40px" mt={1} mb={6} align="center">
+      <h2 className="text-center mt-1 mb-6 text-4xl">
+        {' '}
         Projects
-      </Text>
-      <Flex direction="column" justify="center" align="center" mb={6}>
+      </h2>
+
+      <div className="flex flex-col mb-6">
         {projects.map((frontMatter) => (
           <ProjectCard key={frontMatter.title} {...frontMatter} />
         ))}
-      </Flex>
-      <Text as="h2" fontSize="40px" mt={1} mb={6} align="center">
+      </div>
+      <h2 className="text-center mt-1 mb-6 text-4xl">
+        {' '}
         Blog
-      </Text>
-      <Flex direction="column" justify="center" align="center" mb={6}>
+      </h2>
+      <div className="flex flex-col mb-6">
         {filterPosts.map((frontMatter) => (
           <BlogCard key={frontMatter.title} {...frontMatter} />
         ))}
-      </Flex>
+      </div>
       <div className="flex flex-col items-center justify-center">
-        {/* <Text as="h2" fontSize="40px" mt={1} mb={6} align="center">
-          Skills
-        </Text> */}
         <div className="flex flex-col items-center max-w-md w-full">
           <p className="text-4xl mb-4">Skills</p>
-          <p className="md:text-2xl mb-12 text-left sm:text-md text-left ml-2">
+          <p className="md:text-2xl mb-12 sm:text-md text-left ml-2">
             I'm always expanding my technical skills by learning new tech. The
             following is a list of technology I'm interested in / what I'm
             actively working with !
           </p>
         </div>
-        {/* map thru skills here */}
         <div className="max-w-xl w-full">
           <div className="flex flex-wrap  -mb-5 pb-8">
             {Skills && Skills.map((s) => (
               <div className="w-1/3 mb-4 h-12"><p className="mr-4 ml-4 text-left capitalize">{s.name}</p></div>
-
             ))}
-
           </div>
         </div>
       </div>
