@@ -15,6 +15,14 @@ Source code for my personal website & blog.
 
 <hr />
 
+## Structure: 
+
+* Dev - Represents the latest code merged via PRs with succesful CI builds  
+
+* Main - Represents the code currently deployed on production. This branch will only get updated when a production deploy happens
+
+<br />
+
 ## tests 
 
 [![CI / typecheck (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml)
