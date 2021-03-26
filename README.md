@@ -21,9 +21,9 @@ Source code for my personal website & blog.
 
 * Main - Represents the code currently deployed on production. This branch will only get updated when a production deploy happens
 
-<br />
 
-## tests 
+
+## Tests 
 
 [![CI / typecheck (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml)
 
