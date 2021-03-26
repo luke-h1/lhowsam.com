@@ -14,9 +14,8 @@
     "test:coverage": "jest --coverage",
     "lint": "eslint \"./src/**/*.{js, jsx,ts,tsx}\" --quiet --fix && eslint \"./**/*.{js, jsx,ts,tsx}\" --quiet --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
-    "analyze": "cross-env ANALYZE=1 next build && cat .next/stats.txt",
-    "deploy": "sh deploy.sh",
-    "export": "npm run build && next export -o _static"
+    "stats": "cross-env ANALYZE=1 next build && cat .next/stats.txt",
+    "deploy": "sh deploy.sh"
   },
   "dependencies": {
     "@emotion/react": "^11.1.5",
