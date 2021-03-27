@@ -24,35 +24,31 @@ export const Skills: { name: string; id: number }[] = [
     id: 6,
   },
   {
-    name: 'Basic GraphQL',
+    name: 'Express',
     id: 7,
   },
   {
-    name: 'Express',
+    name: 'Node',
     id: 8,
   },
   {
-    name: 'Node',
+    name: 'Automated Testing',
     id: 9,
   },
   {
-    name: 'Automated Testing',
+    name: 'Manual Testing',
     id: 10,
   },
   {
-    name: 'Manual Testing',
+    name: 'Git / Github',
     id: 11,
   },
   {
-    name: 'Git / Github',
+    name: 'Styled components',
     id: 12,
   },
   {
-    name: 'Styled components',
-    id: 13,
-  },
-  {
     name: 'Tailwind css',
-    id: 14,
+    id: 13,
   },
 ];
