@@ -1,6 +1,7 @@
 # [lhowsam.com](https://lhowsam.com)
 
-Source code for my personal website & blog.
+![lhowsam.com](https://socialify.git.ci/luke-h1/lhowsam.com/image?font=Inter&language=1&owner=1&pattern=Signal&pulls=1&stargazers=1&theme=Dark)
+
 
 ## Tech Stack: 
 - [React](https://github.com/facebook/react)
