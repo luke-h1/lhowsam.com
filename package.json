@@ -14,7 +14,7 @@
     "test:coverage": "jest --coverage",
     "lint": "eslint \"./src/**/*.{js, jsx,ts,tsx}\" --quiet --fix && eslint \"./**/*.{js, jsx,ts,tsx}\" --quiet --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
-    "stats": "cross-env ANALYZE=1 next build && cat .next/stats.txt",
+    "stats": "ANALYZE=1 next build && cat .next/stats.txt",
     "deploy": "sh deploy.sh"
   },
   "dependencies": {
@@ -24,7 +24,6 @@
     "@mdx-js/react": "^1.6.22",
     "@next/mdx": "^10.1.1",
     "axios": "^0.21.1",
-    "cross-env": "^7.0.3",
     "date-fns": "^2.19.0",
     "framer-motion": "^4.0.3",
     "globby": "^11.0.3",
