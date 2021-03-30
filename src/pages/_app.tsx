@@ -7,7 +7,7 @@ import Footer from '@src/components/Footer';
 import { Reset } from '@src/styles/reset';
 import { Nav } from '@src/components/Nav/NavBar';
 import MDXComponents from '@src/components/MDXComponents';
-import '../src/styles/index.css';
+import '../styles/index.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

@@ -93,7 +93,7 @@
     "moduleNameMapper": {
       "@src/(.*)$": "src/$1",
       "@tests/(.*)$": "./src/__tests__/$1",
-      "@pages/(.*)$": "pages/$1",
+      "@pages/(.*)$": "src/pages/$1",
       "@components/(.*)$": "src/components/$1",
       "@icons/(.*)$": "src/Icons/$1",
       "@utils/(.*)$": "src/utils/$1",

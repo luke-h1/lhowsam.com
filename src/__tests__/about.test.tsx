@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-expressions */
 import { render, cleanup } from '@testing-library/react';
-import About from '../../pages/about';
+import About from '../pages/about';
 
 afterEach(cleanup);
 
