@@ -75,7 +75,7 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
         <hr />
         <p className="text-lg mt-4 mb-4 leading-10">{children}</p>
         <ShareButtons
-          location={`https://lhowsam.com/blog/${frontMatter.slug}`}
+          location={`https://lhowsam.com/projects/${frontMatter.slug}`}
         />
       </div>
     </>
