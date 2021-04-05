@@ -1,7 +1,7 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
-import { SkillsSection } from '@src/components/Skills';
+import { SkillsSection } from '../src/components/Skills';
 
 const About = () => {
   return (
@@ -28,7 +28,7 @@ const About = () => {
             </p>
             <p
               className="md:leading-10 text-1xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4"
-              data-testid="about-intro"
+              data-testid="about-intro-2"
             >
               I am currently working with React, Next, Node, Python, Express & Typescript.
             </p>
