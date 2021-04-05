@@ -15,7 +15,9 @@ const About = () => {
         }}
       />
       <div className="max-w-4xl	w-full mb-4">
-        <h1 className="md:leading-10 text-4xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-6">About</h1>
+        <h1 className="md:leading-10 text-4xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-6">
+          About
+        </h1>
         <h1 className="lg:grid grid-cols-2 gap-20">
           <div>
             <h2 className="md:leading-10 text-2xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4">
