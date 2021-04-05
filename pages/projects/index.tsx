@@ -17,7 +17,7 @@ const Index = ({ projects }: { projects: ProjectPost[] }) => {
             title: 'Projects | lhowsam.com',
           }}
         />
-        <div className="flex flex-col align-center mb-8 max-w-lg w-full">
+        <div className="flex flex-col align-center items-center mb-8 max-w-lg w-full">
           <Title>Projects</Title>
           {projects.map((project) => (
             <ProjectCard
