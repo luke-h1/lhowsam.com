@@ -8,9 +8,14 @@ test('intro component has correct text + renders correctly', () => {
   const { getByTestId } = render(<About />);
   const photo = getByTestId('photo');
   const text1 = getByTestId('about-intro');
+  const text2 = getByTestId('about-intro-2');
 
   expect(text1.textContent).toBe(
-    "I'm passionate about solving technical problems and coming up with creative solutions.I enjoy working with the JAMstack, React, Node, testing technologies + practices & various dev-ops technologies. I am currently learning Typescript, React, Next JS & various testing technologies.",
+    'I enjoy working with React, Node, testing tech + practices, dev-ops / cloud services & various backend languages',
+  );
+
+  expect(text2.textContent).toBe(
+    'I am currently working with React, Next, Node, Python, Express & Typescript.',
   );
 
   // test headshot is visible
