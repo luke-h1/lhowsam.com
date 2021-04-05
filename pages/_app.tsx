@@ -4,7 +4,6 @@ import { MDXProvider } from '@mdx-js/react';
 import { useRouter } from 'next/router';
 import * as gtag from '@utils/gtag';
 import Footer from '@src/components/Footer';
-import { Reset } from '@src/styles/reset';
 import { Nav } from '@src/components/Nav/NavBar';
 import MDXComponents from '@src/components/MDXComponents';
 import '../src/styles/index.css';
@@ -22,7 +21,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
   return (
     <>
-      {Reset}
       <MDXProvider components={MDXComponents}>
         <Nav />
         <div className="flex flex-col align-center items-center">
