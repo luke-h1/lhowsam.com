@@ -15,22 +15,25 @@ const About = () => {
         }}
       />
       <div className="max-w-4xl	w-full mb-4">
-        <h1 className="text-4xl align-center text-center mb-10">About</h1>
-        <div className="lg:grid grid-cols-2 gap-20">
+        <h1 className="md:leading-10 text-4xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-6">About</h1>
+        <h1 className="lg:grid grid-cols-2 gap-20">
           <div>
-            <h2 className="md:leading-10 text-2xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4">Hey, I'm Luke 👋,</h2>
+            <h2 className="md:leading-10 text-2xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4">
+              Hey, I'm Luke 👋,
+            </h2>
             <p
               className="md:leading-10 text-1xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4"
               data-testid="about-intro"
             >
-
-              I enjoy working with React, Node, testing tech + practices, dev-ops / cloud services & various backend languages
+              I enjoy working with React, Node, testing tech + practices,
+              dev-ops / cloud services & various backend languages
             </p>
             <p
               className="md:leading-10 text-1xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4"
               data-testid="about-intro-2"
             >
-              I am currently working with React, Next, Node, Python, Express & Typescript.
+              I am currently working with React, Next, Node, Python, Express &
+              Typescript.
             </p>
           </div>
           <div className="mb-6">
@@ -42,7 +45,7 @@ const About = () => {
               data-testid="photo"
             />
           </div>
-        </div>
+        </h1>
         <SkillsSection />
       </div>
     </>

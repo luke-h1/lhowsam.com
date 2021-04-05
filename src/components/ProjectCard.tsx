@@ -7,7 +7,7 @@ const ProjectCard = ({
 }: ProjectPost) => {
   return (
     <>
-      <Link href={`/projects/${slug}`}>
+      <Link href={`/projects/${slug}`} key={slug}>
         <a className="border border-grey-200 dark:border-gray-900 rounded p-4 w-full mb-4">
           <h3 className="text-lg font-bold text-left mt-2 text-gray-900 dark:text-gray-100">
             {title}

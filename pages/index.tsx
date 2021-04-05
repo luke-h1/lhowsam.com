@@ -1,11 +1,11 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
-// import { Intro } from '@components/Intro';
 import { getAllFilesFrontmatter } from '@utils/mdx';
 import { BlogPost, ProjectPost } from '@src/types';
 import ProjectCard from '@src/components/ProjectCard';
 import BlogCard from '@src/components/BlogCard';
+import { Title } from '@src/components/Title';
 
 const Home = ({
   posts,
@@ -28,17 +28,16 @@ const Home = ({
           title: 'Home | lhowsam.com',
         }}
       />
-      {/* <Intro /> */}
-      <h2 className="text-center mt-1 mb-6 text-4xl"> Projects</h2>
       <div className="flex flex-col mb-6">
+        <Title>Projects</Title>
         {projects.map((frontMatter) => (
-          <ProjectCard key={frontMatter.title} {...frontMatter} />
+          <ProjectCard {...frontMatter} key={frontMatter.slug} />
         ))}
       </div>
-      <h2 className="text-center mt-1 mb-6 text-4xl"> Blog</h2>
-      <div className="flex flex-col mb-6">
+      <div className="flex flex-col">
+        <Title>Blog</Title>
         {filterPosts.map((frontMatter) => (
-          <BlogCard key={frontMatter.title} {...frontMatter} />
+          <BlogCard {...frontMatter} key={frontMatter.slug} />
         ))}
       </div>
     </>
