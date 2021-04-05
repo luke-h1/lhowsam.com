@@ -1,11 +1,7 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
-import styled from '@emotion/styled';
-
-const NextImage = styled(Image)`
-  border-radius: 18px;
-`;
+import { SkillsSection } from '../src/components/Skills';
 
 const About = () => {
   return (
@@ -22,19 +18,23 @@ const About = () => {
         <h1 className="text-4xl align-center text-center mb-10">About</h1>
         <div className="lg:grid grid-cols-2 gap-20">
           <div>
+            <h2 className="md:leading-10 text-2xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4">Hey, I'm Luke 👋,</h2>
             <p
-              className="md:leading-10 text-2xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10"
+              className="md:leading-10 text-1xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4"
               data-testid="about-intro"
             >
-              I'm passionate about solving technical problems and coming up with
-              creative solutions.I enjoy working with the JAMstack, React, Node,
-              testing technologies + practices & various dev-ops technologies. I
-              am currently learning Typescript, React, Next JS & various testing
-              technologies.
+
+              I enjoy working with React, Node, testing tech + practices, dev-ops / cloud services & various backend languages
+            </p>
+            <p
+              className="md:leading-10 text-1xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4"
+              data-testid="about-intro-2"
+            >
+              I am currently working with React, Next, Node, Python, Express & Typescript.
             </p>
           </div>
-          <div>
-            <NextImage
+          <div className="mb-6">
+            <Image
               src="/static/images/luke.png"
               width={400}
               height={500}
@@ -43,6 +43,7 @@ const About = () => {
             />
           </div>
         </div>
+        <SkillsSection />
       </div>
     </>
   );
