@@ -6,8 +6,7 @@ const withPlugins = require('next-compose-plugins');
 
 const { ANALYZE } = process.env;
 
-module.exports = withPlugins([
-], {
+module.exports = withPlugins([], {
   env: {
     GA_TRACKING_ID: process.env.GA_TRACKING_ID,
   },
