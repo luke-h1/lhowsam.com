@@ -1,4 +1,5 @@
 import { BlogPost } from '@src/types';
+import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
 import React from 'react';
 
@@ -23,7 +24,10 @@ const BlogCard = ({
                 {summary}
               </p>
               <div className="flex flex-col">
-                <p className="text-left text-gray-400 mb-4 ">{date}</p>
+                <p className="text-left text-gray-400 mb-4 ">
+                  {' '}
+                  {format(parseISO(date), 'MMMM dd, yyyy')}
+                </p>
               </div>
               <div className="flex">
                 {tags
