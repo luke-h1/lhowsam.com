@@ -33,13 +33,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           site_name: 'Luke Howsam',
           images: [
             {
-              url: 'https://lhowsam.com/images/luke.png',
+              url: 'https://lhowsam.com/static/images/luke.png',
               width: 400,
               height: 500,
               alt: 'Luke Howsam',
             },
             {
-              url: 'https://lhowsam.com/images/logo.png',
+              url: 'https://lhowsam.com/static/images/logo.png',
               alt: 'Site Logo',
             },
           ],
