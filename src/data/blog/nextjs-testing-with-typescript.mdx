@@ -5,7 +5,7 @@ tags: ['nextjs', 'typescript', 'jest', 'testing']
 summary: Sharing my thoughts on how to get setup with jest + typescript on Next JS
 ---
 
-Recently I tried Next js and started to really enjoying developing sites with it. I've found next js to have a really smooth development process, the file structure to be well organised & the fast refresh dev server to be blazingly fast. In addition to this you will get <a href='https://dev.to/prateekvijayvergiya/server-side-rendering-with-next-js-1896' target='_blank'>server side rendering out the box</a> which means you are able to update content without re building your project and your site can be crawled easily due to next sending down pre-rendered HTML for each page that a user visits
+Recently I tried Next and started to enjoy developing sites with it. I've found next js to have a smooth development process, the file structure to be well organized & the fast refresh dev server to be blazingly fast. In addition to this you will get <a href='https://dev.to/prateekvijayvergiya/server-side-rendering-with-next-js-1896' target='_blank'>server side rendering out the box</a> which means you can update content without re-building your project and your site can be crawled easily due to next sending down pre-rendered HTML for each page that a user visits
 
 # What we'll cover
 * Install Next JS 
@@ -23,11 +23,11 @@ To start, open up a terminal and cd into a folder where you want to start this p
 npx create-next-app .
 ```
 
-This will create a new next app in the current directory / folder you've chosen
+This will create a new next app in the current directory
 
 # Installing + configuring typescript 
 
-To start off a basic typescript project I am going to leave the tsconfig in a loose mode (for brevity's sake). Having to deal with strict type errors will only hinder the point of this tutorial. 
+To start a basic typescript project I am going to leave the tsconfig in a loose mode (for brevity's sake). Having to deal with strict type errors will only hinder the point of this tutorial. 
 
 
 
@@ -47,7 +47,7 @@ priority
 />
 
 
-Now that typescript and the relevant types are installed you can now go ahead and run the following command in order for next to generate a tsconfig.json file (next will automatically detect that you're running a typescript project)
+Now that typescript and the relevant types are installed you can now go ahead and run the following command for next to generate a tsconfig.json file (next will automatically detect that you're running a typescript project)
 
 ```shell
 npm run dev 
@@ -92,7 +92,7 @@ You should now have a tsconfig.json that looks like the following:
 
 # Eslint installation and configuration
 
-In order to configure eslint we're going to use npx to use the airbnb eslint config. Some things will needed to be altered in order for this configuration to play nice with Next JS 
+To configure eslint we're going to use npx to use the airbnb eslint config. Some things will need to be altered for this configuration to play nice with Next JS 
 
 
 ```shell
@@ -102,7 +102,7 @@ npx eslint --init
 This command will walk you through a series of options. Pick the following options: 
 
 ```shell
-How would you like to use ESlint ? :
+How would you like to use eslint ? :
 * To check syntax, find problems, and enforce code style
 
 
@@ -139,7 +139,7 @@ Which style guide do you want to follow?
 ```
 
 
-After the above is done your project will be configured with the base airbnb config. In order for eslint to not get angry about certain conventions that Next follows (such as how Links work) we will have to make a few modifications to the eslintrc file: 
+After the above is done your project will be configured with the base airbnb config.To prevent eslint getting angry about certain conventions that Next follows (such as how Links work) we will have to make a few modifications to the eslintrc file: 
 
 
 ```shell
@@ -179,7 +179,7 @@ After the above is done your project will be configured with the base airbnb con
 ```
 
 
-To Explain: Here we are telling eslint not to complaing about the following: 
+To Explain: Here we are telling eslint not to complain about the following: 
 
 * react/react-in-jsx-scope - don't complain about React not been in scope when JSX is present (introduced in React 17)
 
@@ -208,7 +208,7 @@ export const
 export default
 `
 
-Lastly we will add two new scripts to the project's package.json: 
+Lastly, we will add two new scripts to the project's package.json: 
 ```shell
  "lint": "eslint \"./*.{js, jsx,ts,tsx}\" --quiet",
  "lint:fix": "eslint \"./*.{js, jsx,ts,tsx}\" --quiet --fix",
@@ -217,7 +217,7 @@ Lastly we will add two new scripts to the project's package.json:
 
 # Jest + testing library setup 
 
-In order to setup jest and react testing library we will run the following commands: 
+To setup jest and react testing library we will run the following commands: 
 
 
 ```shell
@@ -247,8 +247,7 @@ module.exports = {
 };
 ```
 
-ClearMocks will help prevent issues with persistence of mock data between test runs. the setupFilesAfterEnv will run before each test 
-
+ClearMocks will help prevent issues with the persistence of mock data between test runs. the setupFilesAfterEnv will run before each test 
 
 ### jest.setup.js 
 
@@ -257,11 +256,10 @@ ClearMocks will help prevent issues with persistence of mock data between test r
 import '@testing-library/jest-dom';
 ```
 
-This enables access to the addition assertions provided by the ` 
+This enables access to the additional assertions provided by the ` 
 @testing-library/jest-dom` package
 
 
-Only one more config file 🎉
 
 The last config file you will need is called .babelrc (create this at the root of your project). You won't need any package for babel to run - it's handled automatically via Next. Jest however will need this file to auto-detect how to transform the code before running tests. 
 Add this to the file: 
@@ -273,13 +271,12 @@ Add this to the file:
 
 ````
 
-Write your test file 
+## Write your test file
 
 Create a file called `index.test.tsx` in the root of the project and add some tests ! 
 
 
-
-```javascript
+```typescript
 import React from 'react';
 
 const sum = (a: number, b: number) => {

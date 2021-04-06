@@ -13,7 +13,7 @@ Pre rendering is the term for rendering HTML before it is sent down to the clien
 
 <br /> 
 
-By default Next will pre-render every page. This however can be done in two different ways: 
+By default, Next will pre-render every page. This however can be done in two different ways: 
 
 * Static generation 
 * SSR 
@@ -27,10 +27,10 @@ This is usually ok when the data you're displaying doesn't change often (such as
 
 <br /> 
 
-Server side rendering (SSR for short) means that the HTML is generated on the server on each request for the page - The HTML is fluid rather than static as it will change based on what is pulled from the backend, the CMS, the API etc. 
+Server-side rendering (SSR for short) means that the HTML is generated on the server on each request for the page - The HTML is fluid rather than static as it will change based on what is pulled from the backend, the CMS, the API etc. 
 
-Each time a client requests to view a page that is server side rendered, the server will fetch the data for the page and generate the HTML using that data. At this point the HTML will only be send down to the client once this process has finished completing. 
+Each time a client requests to view a page that is server-side rendered, the server will fetch the data for the page and generate the HTML using that data. At this stage the HTML will only be sent to the client once this process has finished completing. 
 
-You can take advantage of this behavior by using ```getServerSideProps``` or ```getInitialProps``` in the page you want to SSR.
+You can take advantage of this behavior by using ```getServerSideProps``` or ```getInitialProps``` on the page you want to be server-side rendered 
 
-This post doesn't go into detail & doesn't completely explain the differnet types of ways you can fetch data in Next. If you want to read more about what the best way to fetch data is (based on your use case) you can take a look at the awesome <a href='https://nextjs.org/docs/basic-features/data-fetching' target='_blank' referrer='no-referrer'>Next documentation on the subject </a> 
+This post doesn't go into detail & doesn't completely explain the different types of ways you can fetch data in Next. If you want to read more about what the best way to fetch data is (based on your use case) you can take a look at the awesome <a href='https://nextjs.org/docs/basic-features/data-fetching' target='_blank' referrer='no-referrer'>Next documentation on the subject </a> 
