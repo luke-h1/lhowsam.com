@@ -28,10 +28,10 @@ export const Reset = () => {
           background: #fff;
           overflow-x: hidden;
         }
-        a { 
+        a {
           color: blue;
-          &:hover { 
-            cursor: pointer
+          &:hover {
+            cursor: pointer;
           }
         }
       `}
