@@ -19,7 +19,10 @@ export const SkillsSection: React.FC<{}> = () => {
           {Skills
             && Skills.map((s) => (
               <div className="flex w-1/2 mb-2 h-10" key={s.id}>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded text-center w-full ml-4 mr-4" type="button">
+                <button
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold rounded text-center w-full ml-4 mr-4"
+                  type="button"
+                >
                   {s.name}
                 </button>
               </div>
