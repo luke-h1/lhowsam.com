@@ -43,7 +43,7 @@ const About = () => {
               src="/static/images/luke.png"
               width={400}
               height={500}
-              quality="100"
+              quality="50"
               data-testid="photo"
             />
           </div>
