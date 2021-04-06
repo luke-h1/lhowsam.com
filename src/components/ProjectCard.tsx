@@ -8,7 +8,7 @@ const ProjectCard = ({
   return (
     <>
       <Link href={`/projects/${slug}`} key={slug}>
-        <a className="border border-grey-200 dark:border-gray-900 rounded p-4 mb-4 sm: max-w-sm w-full">
+        <a className="border border-grey-200 dark:border-gray-900 rounded p-4 mb-4 sm: max-w-md w-full">
           <h3 className="text-lg font-bold text-left mt-2 text-gray-900 dark:text-gray-100">
             {title}
           </h3>
