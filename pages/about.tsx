@@ -40,13 +40,13 @@ const About = () => {
             </p>
           </div>
           <div className="mb-6">
-            <picture>
-              <source srcSet={require('../public/static/images/luke.png')} type="image/png" />
-              <img
-                src={require('../public/static/images/luke.png')}
-                alt="Luke H"
-              />
-            </picture>
+            <Image
+              src="/static/images/luke.png"
+              quality="50"
+              width={400}
+              height={500}
+              data-testid="headshot"
+            />
           </div>
         </h1>
         <SkillsSection />

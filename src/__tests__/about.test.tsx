@@ -6,7 +6,7 @@ afterEach(cleanup);
 
 test('intro component has correct text + renders correctly', () => {
   const { getByTestId } = render(<About />);
-  const photo = getByTestId('photo');
+  const photo = getByTestId('headshot');
   const text1 = getByTestId('about-intro');
   const text2 = getByTestId('about-intro-2');
 
