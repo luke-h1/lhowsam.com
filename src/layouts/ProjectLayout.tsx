@@ -1,8 +1,6 @@
 import { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
-import { FiGithub } from 'react-icons/fi';
-import { GoBrowser } from 'react-icons/go';
 import { ProjectPost } from '@src/types';
 import { Browser, Github } from '@src/Icons/Social';
 
@@ -33,7 +31,7 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
   }
   return (
     <>
-      <div className="mb-4 max-w-xl w-full h-screen max-h-full">
+      <div className="max-w-xl w-full p-2 min-h-screen h-full">
         <NextSeo
           title={`${frontMatter.title} | lhowsam.com`}
           canonical={`https://lhowsam.com/projects/${frontMatter.slug}`}
@@ -75,9 +73,11 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
         </article>
         <hr />
         <p className="text-lg mt-4 mb-4 leading-10 dark:text-gray-300">{children}</p>
-        <ShareButtons
-          location={`https://lhowsam.com/projects/${frontMatter.slug}`}
-        />
+        <div className="flex flex-col align-center items-center">
+          <ShareButtons
+            location={`https://lhowsam.com/projects/${frontMatter.slug}`}
+          />
+        </div>
       </div>
     </>
   );

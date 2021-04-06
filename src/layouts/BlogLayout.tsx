@@ -36,7 +36,7 @@ const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
         <p className="text-lg mt-4 mb-4 leading-10 tracking-wider dark:text-gray-300">
           {children}
         </p>
-        <div className="flex flex-col">
+        <div className="flex flex-col align-center items-center">
           <ShareButtons
             location={`https://lhowsam.com/blog/${frontMatter.slug}`}
           />

@@ -5,7 +5,7 @@ export const SkillsSection: React.FC<{}> = () => {
   return (
     <div className="flex flex-col items-left justify-left">
       <div className="flex flex-col items-left max-w-md w-full">
-        <p className="md:leading-10 text-3xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-400">
+        <p className="md:leading-10 text-3xl tracking-wide text-left text-gray-700 sm:text-md  leading-10 mb-4 dark:text-gray-400 ml-2">
           Skills
         </p>
         <p className="md:text-1xl mb-12 sm:text-md text-left ml-2 dark:text-gray-400">
