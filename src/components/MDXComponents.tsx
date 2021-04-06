@@ -19,7 +19,7 @@ const MDXComponents = {
   br: (props: MdxRemote.Source) => <br {...props} className="mb-4" />,
   hr: (props: MdxRemote.Source) => <hr {...props} className="text-gray-600" />,
   ul: (props: string | null) => (
-    <ul {...props} className="list-disc mt-4 mb-4" />
+    <ul {...props} className="list-none mt-4 mb-4" />
   ),
   ol: (props: MdxRemote.Components) => <ol {...props} />,
   li: (props: MdxRemote.Components) => <li className="mt-4 mb-4" {...props} />,

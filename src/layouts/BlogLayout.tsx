@@ -33,7 +33,7 @@ const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           {frontMatter.readingTime.text}
         </p>
         <hr />
-        <p className="text-lg mt-4 mb-4 leading-10 tracking-wider">
+        <p className="text-md mt-4 mb-4 leading-10 tracking-wider">
           {children}
         </p>
         <div className="flex flex-col">
