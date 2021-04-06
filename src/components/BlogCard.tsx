@@ -7,16 +7,15 @@ const BlogCard = ({
 }: BlogPost) => {
   return (
     <>
-      <hr className="border border-solid" />
       <div
-        className="max-w-md mx-auto rounded p-2 w-full mb-2 focus:ring hover:border-blue-600"
+        className="max-w-md rounded focus:ring hover:border-blue-600 mx-auto w-full"
         key={slug}
       >
         <Link href={`/blog/${slug}`}>
-          <a className="p-2 w-full mb-4">
-            <div className="mb-8 w-full">
-              <div className="flex flex-col md:flex-row justify-between">
-                <h4 className="text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-300">
+          <a className="p-2 w-full">
+            <div className="mb-3">
+              <div className="flex flex-col md:flex-row justify-left">
+                <h4 className="text-lg md:text-xl font-medium mb-2 text-gray-900 dark:text-gray-300">
                   {title}
                 </h4>
               </div>
@@ -40,6 +39,7 @@ const BlogCard = ({
             </div>
           </a>
         </Link>
+        <hr className="border border-solid" />
       </div>
     </>
   );

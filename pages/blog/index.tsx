@@ -22,6 +22,7 @@ const Index = ({ posts }: { posts: BlogPost[] }) => {
         />
         <div className="flex flex-col align-center mb-4 max-w-lg w-full">
           <Title>Blog</Title>
+          <hr className="border border-solid" />
           <div className="flex flex-col align-center mb-8 max-w-lg w-full">
             {!filterPosts.length && 'No blog posts found'}
             {filterPosts.map((frontMatter) => (

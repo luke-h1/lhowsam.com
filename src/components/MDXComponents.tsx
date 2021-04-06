@@ -1,9 +1,11 @@
-/* eslint-disable */
 import Image from 'next/image';
 import React from 'react';
-import { CustomCode } from '../components/CustomCode';
-import { H1, H2, H3, H4, H5, H6, P } from '@src/components/Typography';
+import {
+  H1, H2, H3, H4, H5, H6, P,
+} from '@src/components/Typography';
 import { MdxRemote } from 'next-mdx-remote/types';
+import { CustomCode } from '../components/CustomCode';
+
 const Quote = (props: MdxRemote.Source) => {
   return <p className="text-red-500" {...props} />;
 };
@@ -11,7 +13,7 @@ const Quote = (props: MdxRemote.Source) => {
 const MDXComponents = {
   Image,
   a: (props: MdxRemote.Source) => (
-    <a className="text-blue-300 underline" {...props} />
+    <a className="text-blue-300 underline hover:text-blue-500" {...props} />
   ),
   h1: (props: MdxRemote.Source) => <H1 {...props} />,
   h2: (props: MdxRemote.Source) => <H2 {...props} />,

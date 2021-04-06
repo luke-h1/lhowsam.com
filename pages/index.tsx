@@ -36,6 +36,7 @@ const Home = ({
       </div>
       <div className="flex flex-col">
         <Title>Blog</Title>
+        <hr className="border border-solid" />
         {filterPosts.map((frontMatter) => (
           <BlogCard {...frontMatter} key={frontMatter.slug} />
         ))}
