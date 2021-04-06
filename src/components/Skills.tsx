@@ -19,7 +19,9 @@ export const SkillsSection: React.FC<{}> = () => {
           {Skills
             && Skills.map((s) => (
               <div className="w-1/3 mb-4 h-12" key={s.id}>
-                <p className="mr-4 ml-4 text-left dark:text-gray-400">{s.name}</p>
+                <p className="mr-4 ml-4 text-left dark:text-gray-400">
+                  {s.name}
+                </p>
               </div>
             ))}
         </div>

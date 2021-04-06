@@ -6,7 +6,10 @@ const BlogCard = ({
   title, summary, slug, date, tags,
 }: BlogPost) => {
   return (
-    <div className="max-w-md mx-auto rounded p-2 w-full mb-4 border focus:outline-none focus:ring hover:border-blue-600" key={slug}>
+    <div
+      className="max-w-md mx-auto rounded p-2 w-full mb-4 border focus:outline-none focus:ring hover:border-blue-600"
+      key={slug}
+    >
       <Link href={`/blog/${slug}`}>
         <a className="p-2 w-full mb-4">
           <div className="mb-8 w-full">
