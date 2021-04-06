@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import { MDXProvider } from '@mdx-js/react';
 import { useRouter } from 'next/router';
@@ -21,6 +22,35 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
   return (
     <>
+      <DefaultSeo
+        titleTemplate="%s | lhowsam.com"
+        description="Luke Howsam - Software tester & developer"
+        canonical="https://lhowsam.com/%s"
+        openGraph={{
+          type: 'website',
+          locale: 'en_IE',
+          url: 'https://lhowsam.com',
+          description: 'Luke Howsam - Software tester & developer',
+          site_name: 'Luke Howsam',
+          images: [
+            {
+              url: 'https://lhowsam.com/images/luke.png',
+              width: 800,
+              height: 512,
+              alt: 'Luke Howsam',
+            },
+            {
+              url: 'https://lhowsam.com/images/logo.png',
+              alt: 'Site Logo',
+            },
+          ],
+        }}
+        twitter={{
+          handle: '@LukeH_1999',
+          site: '@LukeH_1999',
+          cardType: 'summary_large_image',
+        }}
+      />
       <MDXProvider components={MDXComponents}>
         <Nav />
         <div className="flex flex-col align-center items-center">

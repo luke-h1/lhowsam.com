@@ -14,31 +14,15 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
   children,
   frontMatter,
 }) => {
-  if (!children || !frontMatter) {
-    return (
-      <div>
-        <p>
-          Frontmatter is:
-          {typeof frontMatter}
-        </p>
-        <div>
-          <p>
-            children is
-            {typeof children}
-          </p>
-        </div>
-      </div>
-    );
-  }
   return (
     <>
       <div className="mb-4 max-w-xl w-full">
         <NextSeo
-          title={`${frontMatter.title} | lhowsam.com`}
+          title={`${frontMatter.title}`}
           canonical={`https://lhowsam.com/projects/${frontMatter.slug}`}
           openGraph={{
             url: `https://lhowsam.com/projects/${frontMatter.slug}`,
-            title: `${frontMatter.title} | lhowsam.com`,
+            title: `${frontMatter.title}`,
           }}
         />
         <article className="flex flex-col max-w-lg w-full mx-0 mb-5">

@@ -19,5 +19,5 @@ test('intro component has correct text + renders correctly', () => {
   );
 
   // test headshot is visible
-  expect(photo).toBeVisible;
+  expect(photo).not.toBeInTheDocument;
 });
