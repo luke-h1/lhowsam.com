@@ -6,10 +6,7 @@ const BlogCard = ({
   title, summary, slug, date, tags,
 }: BlogPost) => {
   return (
-    <div
-      className="max-w-md mx-auto rounded p-2 w-full mb-4 border"
-      key={slug}
-    >
+    <div className="max-w-md mx-auto rounded p-2 w-full mb-4 border" key={slug}>
       <Link href={`/blog/${slug}`}>
         <a className="p-2 w-full mb-4">
           <div className="mb-8 w-full">
@@ -18,7 +15,9 @@ const BlogCard = ({
                 {title}
               </h4>
             </div>
-            <p className="text-gray-600 dark:text-gray-400 mb-3 text-left">{summary}</p>
+            <p className="text-gray-600 dark:text-gray-400 mb-3 text-left">
+              {summary}
+            </p>
             <div className="flex flex-col">
               <p className="text-left text-gray-400 mb-4 ">{date}</p>
             </div>
