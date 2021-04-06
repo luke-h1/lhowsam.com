@@ -1,14 +1,14 @@
 import { ProjectPost } from '@src/types';
 import Link from 'next/link';
 import React from 'react';
-
+// sm:max-w-xl w-full"
 const ProjectCard = ({
   title, summary, slug, tags,
 }: ProjectPost) => {
   return (
     <>
       <Link href={`/projects/${slug}`} key={slug}>
-        <a className="border border-grey-200 dark:border-gray-900 rounded p-4 mb-4 sm: max-w-sm w-full">
+        <a className="sm:max-w-md w-full border border-grey-200 dark:border-gray-900 rounded p-4 mb-4 ">
           <h3 className="text-lg font-bold text-left mt-2 text-gray-900 dark:text-gray-100">
             {title}
           </h3>

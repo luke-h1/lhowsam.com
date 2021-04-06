@@ -28,7 +28,7 @@ const Home = ({
           title: 'Home | lhowsam.com',
         }}
       />
-      <div className="flex flex-col mb-6">
+      <div className="flex flex-col mb-4">
         <Title>Projects</Title>
         {projects.map((frontMatter) => (
           <ProjectCard {...frontMatter} key={frontMatter.slug} />
