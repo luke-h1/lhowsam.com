@@ -26,6 +26,8 @@ const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
         </div>
         <div className="flex flex-col justify-between mt-2 mb-5">
           <p className="text-sm text-gray-500 mt-2 mb-2 dark:text-gray-300">
+            Published:
+            {' '}
             {format(parseISO(frontMatter.date), 'MMMM dd, yyyy')}
           </p>
         </div>
