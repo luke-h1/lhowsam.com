@@ -25,7 +25,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <DefaultSeo
         titleTemplate="%s | lhowsam.com"
         description="Luke Howsam - Software tester & developer"
-        canonical="https://lhowsam.com/%s"
         openGraph={{
           type: 'website',
           locale: 'en_IE',
@@ -35,8 +34,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           images: [
             {
               url: 'https://lhowsam.com/images/luke.png',
-              width: 800,
-              height: 512,
+              width: 400,
+              height: 500,
               alt: 'Luke Howsam',
             },
             {
