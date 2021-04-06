@@ -2,7 +2,7 @@ import { MdxRemote } from 'next-mdx-remote/types';
 import React from 'react';
 
 export const H1 = ({ children }: MdxRemote.Components) => (
-  <h1 className="text-4xl py-1 px-1 mt-4 mb-4">{children}</h1>
+  <h1 className="text-3xl py-1 px-1 mt-4 mb-4">{children}</h1>
 );
 
 export const H2 = ({ children }: MdxRemote.Components) => (
