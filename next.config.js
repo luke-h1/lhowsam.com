@@ -2,14 +2,10 @@
 const {
   WebpackBundleSizeAnalyzerPlugin,
 } = require('webpack-bundle-size-analyzer');
-const withPlugins = require('next-compose-plugins');
 
 const { ANALYZE } = process.env;
 
-module.exports = withPlugins([], {
-  env: {
-    GA_TRACKING_ID: process.env.GA_TRACKING_ID,
-  },
+module.exports = {
   webpack: (config, { isServer }) => {
     if (ANALYZE) {
       config.plugins.push(new WebpackBundleSizeAnalyzerPlugin('stats.txt'));
@@ -28,4 +24,4 @@ module.exports = withPlugins([], {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     domains: ['lhowsam.com'],
   },
-});
+};

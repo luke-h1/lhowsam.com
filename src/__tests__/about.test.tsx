@@ -6,7 +6,7 @@ afterEach(cleanup);
 
 test('intro component has correct text + renders correctly', () => {
   const { getByTestId } = render(<About />);
-  const photo = getByTestId('headshot');
+  const photo = getByTestId('photo');
   const text1 = getByTestId('about-intro');
   const text2 = getByTestId('about-intro-2');
 
@@ -19,5 +19,5 @@ test('intro component has correct text + renders correctly', () => {
   );
 
   // test headshot is visible
-  expect(photo).not.toBeInTheDocument;
+  expect(photo).toBeVisible;
 });

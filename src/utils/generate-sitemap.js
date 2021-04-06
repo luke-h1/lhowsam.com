@@ -20,7 +20,10 @@ const prettier = require('prettier');
             ${pages
     .map((page) => {
       const path = page
-        .replace('pages', '')
+        .replace('pages/', '/')
+        .replace('data/project', '/project')
+        .replace('data/blog', '/blog')
+        .replace('.public', '/')
         .replace('data', '')
         .replace('.js', '')
         .replace('.ts', '')
@@ -28,10 +31,10 @@ const prettier = require('prettier');
         .replace('.mdx', '');
       const route = path === '/index' ? '' : path;
       return `
-                        <url>
-                            <loc>${`https://lhowsam.com${route}`}</loc>
-                        </url>
-                    `;
+      <url>
+        <loc>${`https://lhowsam.com${route}`}</loc>
+      </url>
+      `;
     })
     .join('')}
         </urlset>

@@ -4,8 +4,8 @@ import { Links } from './Links';
 
 export const Nav: React.FC<{}> = () => {
   return (
-    <nav className="bg-white px-8 pt-2 mb-12">
-      <div className="-mb-px flex justify-center">
+    <nav className="bg-white py-1 mb-7">
+      <div className="-mb-px flex justify-center align-center items-center">
         {Links
           && Links.map((l) => (
             <Link href={l.slug} key={l.id}>

@@ -11,23 +11,25 @@ const Index = ({ posts }: { posts: BlogPost[] }) => {
   );
   return (
     <>
-      <NextSeo
-        title="Blog"
-        canonical="https://lhowsam.com/blog"
-        openGraph={{
-          url: 'https://lhowsam.com/blog',
-          title: 'Blog',
-        }}
-      />
-      <div className="flex flex-col align-center mb-4 max-w-lg w-full">
-        <Title>Blog</Title>
-        <div className="flex flex-col align-center mb-8 max-w-lg w-full">
-          {!filterPosts.length && 'No blog posts found'}
-          {filterPosts.map((frontMatter) => (
-            <BlogCard key={frontMatter.title} {...frontMatter} />
-          ))}
+      <>
+        <NextSeo
+          title="Blog | lhowsam.com"
+          canonical="https://lhowsam.com/blog"
+          openGraph={{
+            url: 'https://lhowsam.com/blog',
+            title: 'Blog | lhowsam.com',
+          }}
+        />
+        <div className="flex flex-col align-center mb-4 max-w-lg w-full">
+          <Title>Blog</Title>
+          <div className="flex flex-col align-center mb-8 max-w-lg w-full">
+            {!filterPosts.length && 'No blog posts found'}
+            {filterPosts.map((frontMatter) => (
+              <BlogCard key={frontMatter.title} {...frontMatter} />
+            ))}
+          </div>
         </div>
-      </div>
+      </>
     </>
   );
 };

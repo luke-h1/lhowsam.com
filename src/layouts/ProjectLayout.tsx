@@ -14,15 +14,31 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
   children,
   frontMatter,
 }) => {
+  if (!children || !frontMatter) {
+    return (
+      <div>
+        <p>
+          Frontmatter is:
+          {typeof frontMatter}
+        </p>
+        <div>
+          <p>
+            children is
+            {typeof children}
+          </p>
+        </div>
+      </div>
+    );
+  }
   return (
     <>
       <div className="mb-4 max-w-xl w-full">
         <NextSeo
-          title={`${frontMatter.title}`}
+          title={`${frontMatter.title} | lhowsam.com`}
           canonical={`https://lhowsam.com/projects/${frontMatter.slug}`}
           openGraph={{
             url: `https://lhowsam.com/projects/${frontMatter.slug}`,
-            title: `${frontMatter.title}`,
+            title: `${frontMatter.title} | lhowsam.com`,
           }}
         />
         <article className="flex flex-col max-w-lg w-full mx-0 mb-5">
@@ -57,9 +73,7 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
           </div>
         </article>
         <hr />
-        <p className="text-md mt-4 mb-4 leading-10 tracking-wider">
-          {children}
-        </p>
+        <p className="text-lg mt-4 mb-4 leading-10">{children}</p>
         <ShareButtons
           location={`https://lhowsam.com/projects/${frontMatter.slug}`}
         />

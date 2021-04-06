@@ -21,14 +21,14 @@ const Home = ({
   return (
     <>
       <NextSeo
-        title="Home"
+        title="Home | lhowsam.com"
         canonical="https://lhowsam.com/"
         openGraph={{
           url: 'https://lhowsam.com',
-          title: 'Home',
+          title: 'Home | lhowsam.com',
         }}
       />
-      <div className="flex flex-col mb-6">
+      <div className="flex flex-col mb-4">
         <Title>Projects</Title>
         {projects.map((frontMatter) => (
           <ProjectCard {...frontMatter} key={frontMatter.slug} />
