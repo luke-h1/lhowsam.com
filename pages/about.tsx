@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
@@ -7,11 +8,11 @@ const About = () => {
   return (
     <>
       <NextSeo
-        title="About | lhowsam.com"
+        title="About"
         canonical="https://lhowsam.com/about"
         openGraph={{
           url: 'https://lhowsam.com/about',
-          title: 'About | lhowsam.com',
+          title: 'About',
         }}
       />
       <div className="max-w-4xl	w-full mb-4">
@@ -41,10 +42,10 @@ const About = () => {
           <div className="mb-6">
             <Image
               src="/static/images/luke.png"
+              quality="50"
               width={400}
               height={500}
-              quality="100"
-              data-testid="photo"
+              data-testid="headshot"
             />
           </div>
         </h1>
