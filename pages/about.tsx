@@ -12,11 +12,11 @@ const About = () => {
   return (
     <>
       <NextSeo
-        title="About | lhowsam.com"
+        title="About"
         canonical="https://lhowsam.com/about"
         openGraph={{
           url: 'https://lhowsam.com/about',
-          title: 'About | lhowsam.com',
+          title: 'About',
         }}
       />
       <div className="max-w-4xl	w-full mb-4">

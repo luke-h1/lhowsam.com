@@ -33,11 +33,11 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
     <>
       <div className="max-w-xl w-full p-2 min-h-screen h-full">
         <NextSeo
-          title={`${frontMatter.title} | lhowsam.com`}
+          title={`${frontMatter.title}`}
           canonical={`https://lhowsam.com/projects/${frontMatter.slug}`}
           openGraph={{
             url: `https://lhowsam.com/projects/${frontMatter.slug}`,
-            title: `${frontMatter.title} | lhowsam.com`,
+            title: `${frontMatter.title}`,
           }}
         />
         <article className="flex flex-col max-w-lg w-full mx-0 mb-5">

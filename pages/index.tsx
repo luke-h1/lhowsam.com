@@ -21,11 +21,11 @@ const Home = ({
   return (
     <>
       <NextSeo
-        title="Home | lhowsam.com"
+        title="Home"
         canonical="https://lhowsam.com/"
         openGraph={{
           url: 'https://lhowsam.com',
-          title: 'Home | lhowsam.com',
+          title: 'Home',
         }}
       />
       <div className="flex flex-col mb-4">

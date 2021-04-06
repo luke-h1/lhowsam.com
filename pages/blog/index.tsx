@@ -13,11 +13,11 @@ const Index = ({ posts }: { posts: BlogPost[] }) => {
     <>
       <>
         <NextSeo
-          title="Blog | lhowsam.com"
+          title="Blog"
           canonical="https://lhowsam.com/blog"
           openGraph={{
             url: 'https://lhowsam.com/blog',
-            title: 'Blog | lhowsam.com',
+            title: 'Blog',
           }}
         />
         <div className="flex flex-col align-center mb-4 max-w-lg w-full">

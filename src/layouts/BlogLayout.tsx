@@ -14,11 +14,11 @@ const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
     <>
       <div className="mb-4 max-w-xl w-full p-2 min-h-screen	h-full">
         <NextSeo
-          title={`${frontMatter.title} | lhowsam.com`}
+          title={`${frontMatter.title}`}
           canonical={`https://lhowsam.com/blog/${frontMatter.slug}`}
           openGraph={{
             url: `https://lhowsam.com/blog/${frontMatter.slug}`,
-            title: `${frontMatter.title} | lhowsam.com`,
+            title: `${frontMatter.title}`,
           }}
         />
         <div className="flex flex-col justify-center mb-5">
