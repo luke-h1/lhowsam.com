@@ -7,7 +7,7 @@ import { Title } from '@src/components/Title';
 
 const Index = ({ projects }: { projects: ProjectPost[] }) => {
   return (
-    <>
+    <div className="mb-40">
       <>
         <NextSeo
           title="Projects | lhowsam.com"
@@ -17,7 +17,7 @@ const Index = ({ projects }: { projects: ProjectPost[] }) => {
             title: 'Projects | lhowsam.com',
           }}
         />
-        <div className="flex flex-col align-center items-center mb-8 max-w-lg w-full">
+        <div className="flex flex-col align-center items-center max-w-lg">
           <Title>Projects</Title>
           {projects.map((project) => (
             <ProjectCard
@@ -32,7 +32,7 @@ const Index = ({ projects }: { projects: ProjectPost[] }) => {
           ))}
         </div>
       </>
-    </>
+    </div>
   );
 };
 export async function getStaticProps() {

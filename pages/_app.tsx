@@ -20,15 +20,15 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
   return (
-    <>
+    <div className="bg-white dark:bg-dark-100">
       <MDXProvider components={MDXComponents}>
         <Nav />
-        <div className="flex flex-col align-center items-center">
+        <div className="flex flex-col align-center items-center place-items-center">
           <Component {...pageProps} />
         </div>
         <Footer />
       </MDXProvider>
-    </>
+    </div>
   );
 }
 

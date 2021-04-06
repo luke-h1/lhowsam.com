@@ -4,6 +4,7 @@ import ShareButtons from '@components/ShareButtons';
 import { FiGithub } from 'react-icons/fi';
 import { GoBrowser } from 'react-icons/go';
 import { ProjectPost } from '@src/types';
+import { Browser, Github } from '@src/Icons/Social';
 
 interface Iprops {
   children: React.ReactNode;
@@ -32,7 +33,7 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
   }
   return (
     <>
-      <div className="mb-4 max-w-xl w-full">
+      <div className="mb-4 max-w-xl w-full h-screen max-h-full">
         <NextSeo
           title={`${frontMatter.title} | lhowsam.com`}
           canonical={`https://lhowsam.com/projects/${frontMatter.slug}`}
@@ -42,8 +43,8 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
           }}
         />
         <article className="flex flex-col max-w-lg w-full mx-0 mb-5">
-          <h1 className="text-3xl">{frontMatter.title}</h1>
-          <div className="flex flex-row mt-5">
+          <h1 className="text-3xl dark:text-gray-300">{frontMatter.title}</h1>
+          <div className="flex flex-row mt-5 dark:text-gray-300">
             <a
               href={frontMatter.github}
               target="_blank"
@@ -54,7 +55,7 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
                 marginBottom: '35px',
               }}
             >
-              <FiGithub />
+              <Github />
             </a>
             {frontMatter.site && (
               <a
@@ -67,13 +68,13 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
                   marginBottom: '35px',
                 }}
               >
-                <GoBrowser />
+                <Browser />
               </a>
             )}
           </div>
         </article>
         <hr />
-        <p className="text-lg mt-4 mb-4 leading-10">{children}</p>
+        <p className="text-lg mt-4 mb-4 leading-10 dark:text-gray-300">{children}</p>
         <ShareButtons
           location={`https://lhowsam.com/projects/${frontMatter.slug}`}
         />

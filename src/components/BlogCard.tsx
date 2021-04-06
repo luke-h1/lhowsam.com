@@ -6,16 +6,16 @@ const BlogCard = ({
   title, summary, slug, date, tags,
 }: BlogPost) => {
   return (
-    <div className="max-w-md mx-auto rounded p-2 w-full mb-4 border" key={slug}>
+    <div className="max-w-md mx-auto rounded p-2 w-full mb-4 border focus:outline-none focus:ring hover:border-blue-600" key={slug}>
       <Link href={`/blog/${slug}`}>
         <a className="p-2 w-full mb-4">
           <div className="mb-8 w-full">
             <div className="flex flex-col md:flex-row justify-between">
-              <h4 className="text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-100">
+              <h4 className="text-lg md:text-xl font-medium mb-2 w-full text-gray-900 dark:text-gray-300">
                 {title}
               </h4>
             </div>
-            <p className="text-gray-600 dark:text-gray-400 mb-3 text-left">
+            <p className="text-gray-600 dark:text-gray-500 mb-3 text-left">
               {summary}
             </p>
             <div className="flex flex-col">
@@ -25,7 +25,7 @@ const BlogCard = ({
               {tags
                 && tags.map((tag) => (
                   <div className="text-md inline-flex items-left leading-sm  px-1 py-0.5 bg-orange-200 text-orange-700 rounded-full">
-                    <p className="text-gray-700 ml-1 mr-1 text-left">
+                    <p className="text-black ml-1 mr-1 text-left dark:text-gray-400">
                       #
                       {tag}
                     </p>

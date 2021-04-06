@@ -12,7 +12,7 @@ interface Iprops {
 const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
   return (
     <>
-      <div className="mb-4 max-w-xl w-full p-2">
+      <div className="mb-4 max-w-xl w-full p-2 min-h-screen	h-full">
         <NextSeo
           title={`${frontMatter.title} | lhowsam.com`}
           canonical={`https://lhowsam.com/blog/${frontMatter.slug}`}
@@ -22,18 +22,18 @@ const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           }}
         />
         <div className="flex flex-col justify-center mb-5">
-          <h1 className="text-3xl">{frontMatter.title}</h1>
+          <h1 className="text-3xl dark:text-gray-300">{frontMatter.title}</h1>
         </div>
         <div className="flex flex-col justify-between mt-2 mb-5">
-          <p className="text-sm text-gray-500 mt-2 mb-2">
+          <p className="text-sm text-gray-500 mt-2 mb-2 dark:text-gray-300">
             {format(parseISO(frontMatter.date), 'MMMM dd, yyyy')}
           </p>
         </div>
-        <p className="text-sm	text-gray-500 mt-2 mb-2">
+        <p className="text-sm	text-gray-500 mt-2 mb-2 dark:text-gray-300">
           {frontMatter.readingTime.text}
         </p>
         <hr />
-        <p className="text-lg mt-4 mb-4 leading-10 tracking-wider">
+        <p className="text-lg mt-4 mb-4 leading-10 tracking-wider dark:text-gray-300">
           {children}
         </p>
         <div className="flex flex-col">

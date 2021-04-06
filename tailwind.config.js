@@ -7,7 +7,7 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './src/components/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: 'class',
+  darkMode: 'media',
   theme: {
     extend: {
       lineHeight: {
@@ -18,6 +18,8 @@ module.exports = {
       },
       colors: {
         blue: colors.lightBlue,
+        dark: { '100': '#1A212C'},
+        gray: { '400': '#9CA3AF' },
         code: {
           green: '#b5f4a5',
           yellow: '#ffe484',
