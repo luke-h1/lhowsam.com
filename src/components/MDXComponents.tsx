@@ -4,12 +4,14 @@ import React from 'react';
 import { CustomCode } from '../components/CustomCode';
 import { H1, H2, H3, H4, H5, H6, P } from '@src/components/Typography';
 import { MdxRemote } from 'next-mdx-remote/types';
-
 const Quote = (props: MdxRemote.Source) => {
   return <p className="text-red-500" {...props} />;
 };
+
+
 const MDXComponents = {
   Image,
+  a: (props: MdxRemote.Source) => <a className='text-blue-300 underline' {...props} />,
   h1: (props: MdxRemote.Source) => <H1 {...props} />,
   h2: (props: MdxRemote.Source) => <H2 {...props} />,
   h3: (props: MdxRemote.Source) => <H3 {...props} />,
@@ -22,13 +24,12 @@ const MDXComponents = {
     <ul {...props} className="list-none mt-4 mb-4" />
   ),
   ol: (props: MdxRemote.Components) => <ol {...props} />,
-  li: (props: MdxRemote.Components) => <li className="mt-4 mb-4" {...props} />,
+  li: (props: MdxRemote.Components) => <li className="mt-4 mb-4 ml-4 list-disc" {...props} />,
   P: (props: MdxRemote.Source) => <P {...props} />,
   code: CustomCode,
   blockquote: Quote,
-  inlineCode: (props: MdxRemote.Source) => (
-    <p className="text-purple-600 m-0 p-0" {...props} />
-  ),
+  inlineCode: (props: MdxRemote.Components) => <pre {...props} className='bold text-gray-500 mx-0 my-0 py-0 px-0' />
+
 };
 
 export default MDXComponents;
