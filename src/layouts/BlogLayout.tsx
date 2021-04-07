@@ -14,8 +14,9 @@ const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
   return (
     <>
       <CustomHead
-        title={`${frontMatter.title}`}
+        title={`Blog | ${frontMatter.title}`}
         description={`${frontMatter.summary}`}
+        image={`${frontMatter.ogImage && frontMatter.ogImage}`}
       />
       <div className="mb-4 max-w-xl w-full p-2 min-h-screen	h-full">
         <NextSeo

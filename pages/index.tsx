@@ -21,10 +21,7 @@ const Home = ({
 
   return (
     <>
-      <CustomHead
-        title="Home | lhowsam.com"
-        description="Homepage"
-      />
+      <CustomHead title="Home | lhowsam.com" description="Homepage" />
       <NextSeo
         title="Home"
         canonical="https://lhowsam.com/"

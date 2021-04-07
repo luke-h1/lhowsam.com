@@ -33,8 +33,9 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
   return (
     <>
       <CustomHead
-        title={`${frontMatter.title}`}
+        title={`Projects | ${frontMatter.title}`}
         description={`${frontMatter.summary}`}
+        image={`${frontMatter.ogImage && frontMatter.ogImage}`}
       />
 
       <div className="max-w-xl w-full p-2 min-h-screen h-full">

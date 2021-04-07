@@ -5,6 +5,7 @@ export interface BlogPost {
   date: string;
   tags: string[];
   readingTime: { text: string; minutes: number; time: number; word: number };
+  ogImage?: string;
 }
 
 export interface ProjectPost {
@@ -14,4 +15,5 @@ export interface ProjectPost {
   tags: string[];
   title: string;
   site?: string;
+  ogImage?: string;
 }

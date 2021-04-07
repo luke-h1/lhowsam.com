@@ -10,10 +10,7 @@ const Index = ({ projects }: { projects: ProjectPost[] }) => {
   return (
     <div className="mb-40">
       <>
-        <CustomHead
-          title="Projects | lhowsam.com"
-          description="Projects"
-        />
+        <CustomHead title="Projects | lhowsam.com" description="Projects" />
         <NextSeo
           title="Projects"
           canonical="https://lhowsam.com/projects"

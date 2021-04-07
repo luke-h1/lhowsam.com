@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
-import { CustomHead } from '@src/components/CustomHead';
+import { CustomHead } from '../src/components/CustomHead';
 import { SkillsSection } from '../src/components/Skills';
 
 const NextImage = styled(Image)`
@@ -12,10 +12,7 @@ const NextImage = styled(Image)`
 const About = () => {
   return (
     <>
-      <CustomHead
-        title="About | lhowsam.com"
-        description="About"
-      />
+      <CustomHead title="About | lhowsam.com" description="About" />
       <NextSeo
         title="About"
         canonical="https://lhowsam.com/about"
