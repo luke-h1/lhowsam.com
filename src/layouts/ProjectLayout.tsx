@@ -80,7 +80,7 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
         </article>
         <hr />
         <div className="prose dark:prose-dark max-w-none w-full">
-          <p className="text-lg mt-4 mb-4 leading-10 tracking-wider dark:text-gray-500 prose dark:prose-dark max-w-none w-full">
+          <p className="text-lg mt-4 mb-4 leading-10 tracking-wider dark:text-gray-300 prose dark:prose-dark max-w-none w-full">
             {children}
           </p>
         </div>

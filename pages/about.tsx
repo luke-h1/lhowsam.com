@@ -27,18 +27,18 @@ const About = () => {
         </h1>
         <h1 className="lg:grid grid-cols-2 gap-20">
           <div>
-            <h2 className="md:leading-10 text-2xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-400">
+            <h2 className="md:leading-10 text-2xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300">
               Hey, I'm Luke 👋,
             </h2>
             <p
-              className="md:leading-10 text-1xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-400"
+              className="md:leading-10 text-1xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
               data-testid="about-intro"
             >
               I enjoy working with React, Node, testing tech + practices,
               dev-ops / cloud services & various backend languages
             </p>
             <p
-              className="md:leading-10 text-1xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-400"
+              className="md:leading-10 text-1xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
               data-testid="about-intro-2"
             >
               I am currently working with React, Next, Node, Python, Express &
