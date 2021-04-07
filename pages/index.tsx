@@ -6,6 +6,7 @@ import { BlogPost, ProjectPost } from '@src/types';
 import ProjectCard from '@src/components/ProjectCard';
 import BlogCard from '@src/components/BlogCard';
 import { Title } from '@src/components/Title';
+import { CustomHead } from '@src/components/CustomHead';
 
 const Home = ({
   posts,
@@ -20,6 +21,10 @@ const Home = ({
 
   return (
     <>
+      <CustomHead
+        title="Home | lhowsam.com"
+        description="Homepage"
+      />
       <NextSeo
         title="Home"
         canonical="https://lhowsam.com/"

@@ -3,6 +3,7 @@ import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
 import { ProjectPost } from '@src/types';
 import { Browser, Github } from '@src/Icons/Social';
+import { CustomHead } from '@src/components/CustomHead';
 
 interface Iprops {
   children: React.ReactNode;
@@ -31,6 +32,11 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
   }
   return (
     <>
+      <CustomHead
+        title={`${frontMatter.title}`}
+        description={`${frontMatter.summary}`}
+      />
+
       <div className="max-w-xl w-full p-2 min-h-screen h-full">
         <NextSeo
           title={`${frontMatter.title}`}

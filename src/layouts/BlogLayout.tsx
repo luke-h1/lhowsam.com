@@ -3,6 +3,7 @@ import { parseISO, format } from 'date-fns';
 import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
 import { BlogPost } from '@src/types';
+import { CustomHead } from '@src/components/CustomHead';
 
 interface Iprops {
   children: React.ReactNode;
@@ -12,6 +13,10 @@ interface Iprops {
 const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
   return (
     <>
+      <CustomHead
+        title={`${frontMatter.title}`}
+        description={`${frontMatter.summary}`}
+      />
       <div className="mb-4 max-w-xl w-full p-2 min-h-screen	h-full">
         <NextSeo
           title={`${frontMatter.title}`}
