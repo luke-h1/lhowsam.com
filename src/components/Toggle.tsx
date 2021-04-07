@@ -1,16 +1,12 @@
-import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
 import { FiMoon, FiSun } from 'react-icons/fi';
+import { useMounted } from '@src/hooks/useMounted';
 
-const ThemeChanger = () => {
-  const [mounted, setMounted] = useState(false);
+export const Toggle = () => {
   const { theme, setTheme } = useTheme();
 
   // When mounted on client, now we can show the UI
-  useEffect(() => setMounted(true), []);
-
-  if (!mounted) return null;
-
+  if (!useMounted) return null;
   return (
     <div>
       <button className="hover:text-orange-600" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} type="button">
@@ -19,5 +15,3 @@ const ThemeChanger = () => {
     </div>
   );
 };
-
-export default ThemeChanger;
