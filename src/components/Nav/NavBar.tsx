@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import ThemeChanger from '../ThemeChanger';
+import { Toggle } from '../Toggle';
 import { Links } from './Links';
 
 export const Nav: React.FC<{}> = () => {
@@ -14,8 +14,7 @@ export const Nav: React.FC<{}> = () => {
               </a>
             </Link>
           ))}
-        <ThemeChanger />
-
+        <Toggle />
       </div>
     </nav>
   );
