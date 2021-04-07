@@ -33,9 +33,9 @@ const MDXComponents = {
   P: (props: MdxRemote.Source) => <P {...props} />,
   code: CustomCode,
   blockquote: Quote,
-  inlineCode: (props: MdxRemote.Components) => (
-    <pre {...props} className="bold text-gray-500 mx-0 my-0 py-0 px-0" />
-  ),
+  // inlineCode: (props: MdxRemote.Components) => (
+  //   <pre {...props} className="bold text-gray-500 mx-0 my-0 py-0 px-0" />
+  // ),
 };
 
 export default MDXComponents;
