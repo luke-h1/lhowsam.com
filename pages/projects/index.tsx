@@ -4,11 +4,16 @@ import { getAllFilesFrontmatter } from '@utils/mdx';
 import ProjectCard from '@src/components/ProjectCard';
 import { ProjectPost } from '@src/types';
 import { Title } from '@src/components/Title';
+import { CustomHead } from '@src/components/CustomHead';
 
 const Index = ({ projects }: { projects: ProjectPost[] }) => {
   return (
     <div className="mb-40">
       <>
+        <CustomHead
+          title="Projects | lhowsam.com"
+          description="Projects"
+        />
         <NextSeo
           title="Projects"
           canonical="https://lhowsam.com/projects"
