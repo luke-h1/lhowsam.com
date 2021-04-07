@@ -9,7 +9,11 @@ export const Toggle = () => {
   if (!useMounted) return null;
   return (
     <div>
-      <button className="hover:text-orange-600" onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} type="button">
+      <button
+        className="hover:text-orange-600"
+        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        type="button"
+      >
         {theme === 'dark' ? <FiSun /> : <FiMoon />}
       </button>
     </div>

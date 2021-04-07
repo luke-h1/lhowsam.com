@@ -56,7 +56,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           </MDXProvider>
         </div>
       </ThemeProvider>
-
     </>
   );
 }
