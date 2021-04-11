@@ -46,12 +46,13 @@ const About = () => {
             </p>
           </div>
           <div className="mb-6">
-            <NextImage
+            <img
               src="/static/images/luke.png"
-              width={400}
-              height={500}
-              quality="50"
+              width="400"
+              height="500"
               data-testid="photo"
+              alt="headshot"
+              style={{ borderRadius: '20px' }}
             />
           </div>
         </h1>
