@@ -1,6 +1,6 @@
 import { useTheme } from 'next-themes';
 import { FiMoon, FiSun } from 'react-icons/fi';
-import { useMounted } from '@src/hooks/useMounted';
+import { useMounted } from '../hooks/useMounted';
 
 export const Toggle = () => {
   const { theme, setTheme } = useTheme();

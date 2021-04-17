@@ -6,29 +6,9 @@
       "dom.iterable",
       "esnext"
     ],
-    "paths": {
-      "@src/*": ["src/*"],
-      "@tests/*": ["./src/__tests__/*"],
-      "@pages/*": ["pages/*"],
-      "@components/*": ["src/components/*"],
-      "@icons/*": ["src/Icons/*"],
-      "@utils/*": ["src/utils/*"],
-      "@styles/*": ["src/styles/*"],
-      "@types/*": ["src/types/*"],
-      "@templates/*": ["src/layouts/*"],
-      "@data/*": ["src/data/*"],
-    },
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
+    "strict": false,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
@@ -37,14 +17,27 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".",
+    "baseUrl": "./src",
+
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "server.js"  ],
   "exclude": [
-    "node_modules"
-  ]
+    "node_modules",
+    ".next"
+  ],
+  "paths": {
+    "@tests/*": ["__tests__/*"],
+    "@pages/*": ["pages/*"],
+    "@components/*": ["components/*"],
+    "@icons/*": ["Icons/*"],
+    "@utils/*": ["utils/*"],
+    "@styles/*": ["styles/*"],
+    "@types/*": ["types/*"],
+    "@templates/*": ["layouts/*"],
+    "@data/*": ["data/*"],
+  },
 }
