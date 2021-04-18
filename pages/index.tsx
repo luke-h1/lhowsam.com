@@ -59,43 +59,6 @@ const index = ({
               <Link href="/projects">here</Link>
             </a>
             {' '}
-            <div className="flex flex-row mt-4 mb-4">
-              <a
-                className="md:block cursor-pointer text-gray-600 hover:text-blue-300 uppercase ml-2 mr-2"
-                href="https://twitter.com/LukeH_1999"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Twitter />
-              </a>
-              <a
-                className="md:block cursor-pointer text-gray-600 hover:text-blue-300 uppercase ml-2 mr-2"
-                href="https://www.linkedin.com/in/lukehowsam"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <LinkedIn />
-              </a>
-              <a
-                className="md:block cursor-pointer text-gray-600 hover:text-blue-300 uppercase ml-2 mr-2"
-                href="https://github.com/luke-h1"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Github />
-                {' '}
-              </a>
-              <a
-                className="md:block cursor-pointer text-gray-600 hover:text-blue-300 uppercase ml-2 mr-2"
-                href="mailto:luke.howsam@yahoo.com?subject=Get In Touch"
-                title="Email"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Email />
-                {' '}
-              </a>
-            </div>
             <hr className="text-black dark:text-white border border-solid" />
           </p>
         </div>
