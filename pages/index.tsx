@@ -9,9 +9,6 @@ import Link from 'next/link';
 import { getAllFilesFrontmatter } from '@src/utils/mdx';
 import { GetStaticProps } from 'next';
 import { BlogPost, ProjectPost } from '@src/types';
-import {
-  Twitter, LinkedIn, Github, Email,
-} from '@src/Icons/Social';
 
 const index = ({
   posts,
