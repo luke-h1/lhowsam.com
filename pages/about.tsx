@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { CustomHead } from '@src/components/CustomHead';
+import { NextSeo } from 'next-seo';
 import { Wrapper } from '../src/components/Wrapper';
 import { Skills } from '../src/data/skills';
 
@@ -100,45 +102,56 @@ const StyledPic = styled.div`
 
 const About = () => {
   return (
-    <StyledAboutSection id="about">
-      <h2 className="text-3xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-5">
-        about me
-      </h2>
-      <div className="inner">
-        <StyledText>
-          <div>
-            <p
-              className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
-              data-testid="about-intro"
-            >
-              Hi, my name is Luke and I enjoy working on big projects and
-              thinking about how solutions can be implemented in order to build
-              scalable & maintainable software.
+    <>
+      <CustomHead title="About | lhowsam.com" description="About" />
+      <NextSeo
+        title="About"
+        canonical="https://lhowsam.com/"
+        openGraph={{
+          url: 'https://lhowsam.com',
+          title: 'About',
+        }}
+      />
+      <StyledAboutSection id="about">
+        <h2 className="text-3xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-5">
+          about me
+        </h2>
+        <div className="inner">
+          <StyledText>
+            <div>
+              <p
+                className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
+                data-testid="about-intro"
+              >
+                Hi, my name is Luke and I enjoy working on big projects and
+                thinking about how solutions can be implemented in order to build
+                scalable & maintainable software.
+              </p>
+            </div>
+            <p className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300 underline">
+              Here is a list of tech I've been working with recently
             </p>
-          </div>
-          <p className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300 underline">
-            Here is a list of tech I've been working with recently
-          </p>
-          <Wrapper>
-            <ul className="skills-list">
-              {Skills && Skills.map((s) => <li key={s.id}>{s.name}</li>)}
-            </ul>
-          </Wrapper>
-        </StyledText>
-        <StyledPic>
-          <div className="wrapper">
-            <img
-              src="/static/images/luke.png"
-              alt="Avatar"
-              width="250"
-              height="300"
-              style={{ borderRadius: '15px' }}
-              data-testid="photo"
-            />
-          </div>
-        </StyledPic>
-      </div>
-    </StyledAboutSection>
+            <Wrapper>
+              <ul className="skills-list">
+                {Skills && Skills.map((s) => <li key={s.id}>{s.name}</li>)}
+              </ul>
+            </Wrapper>
+          </StyledText>
+          <StyledPic>
+            <div className="wrapper">
+              <img
+                src="/static/images/luke.png"
+                alt="Avatar"
+                width="250"
+                height="300"
+                style={{ borderRadius: '15px' }}
+                data-testid="photo"
+              />
+            </div>
+          </StyledPic>
+        </div>
+      </StyledAboutSection>
+    </>
   );
 };
 export default About;
