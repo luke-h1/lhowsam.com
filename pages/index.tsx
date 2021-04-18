@@ -1,24 +1,9 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { GetStaticProps } from 'next';
-import { getAllFilesFrontmatter } from '@utils/mdx';
-import { BlogPost, ProjectPost } from '@src/types';
-import ProjectCard from '@src/components/ProjectCard';
-import BlogCard from '@src/components/BlogCard';
-import { Title } from '@src/components/Title';
 import { CustomHead } from '@src/components/CustomHead';
+import { IndexRedesign } from '@src/layouts/IndexRedesign';
 
-const Home = ({
-  posts,
-  projects,
-}: {
-  posts: BlogPost[];
-  projects: ProjectPost[];
-}) => {
-  const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
-  );
-
+const Home = () => {
   return (
     <>
       <CustomHead title="Home | lhowsam.com" description="Homepage" />
@@ -30,25 +15,9 @@ const Home = ({
           title: 'Home',
         }}
       />
-      <div className="flex flex-col mb-4">
-        <Title>Projects</Title>
-        {projects.map((frontMatter) => (
-          <ProjectCard {...frontMatter} key={frontMatter.slug} />
-        ))}
-      </div>
-      <div className="flex flex-col">
-        <Title>Blog</Title>
-        <hr className="border border-solid" />
-        {filterPosts.map((frontMatter) => (
-          <BlogCard {...frontMatter} key={frontMatter.slug} />
-        ))}
-      </div>
+      {' '}
+      <IndexRedesign />
     </>
   );
-};
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllFilesFrontmatter('blog');
-  const projects = await getAllFilesFrontmatter('project');
-  return { props: { posts, projects } };
 };
 export default Home;
