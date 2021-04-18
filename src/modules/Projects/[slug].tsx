@@ -2,7 +2,7 @@ import hydrate from 'next-mdx-remote/hydrate';
 import MDXComponents from '@components/MDXComponents';
 import { getFiles, getFileBySlug } from '@utils/mdx';
 import { ProjectPost } from '@src/types';
-import ProjectLayout from '@src/layouts/ProjectLayout';
+import ProjectLayout from '@src/modules/Projects/components/ProjectLayout';
 import { MdxRemote } from 'next-mdx-remote/types';
 
 interface ProjectProps {

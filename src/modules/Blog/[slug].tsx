@@ -3,7 +3,7 @@ import { getFiles, getFileBySlug } from '@utils/mdx';
 import MDXComponents from '@components/MDXComponents';
 import { BlogPost } from '@src/types';
 import { MdxRemote } from 'next-mdx-remote/types';
-import BlogLayout from '@src/layouts/BlogLayout';
+import BlogLayout from '@src/modules/Blog/components/BlogLayout';
 
 interface BlogProps {
   mdxSource: MdxRemote.Source;
