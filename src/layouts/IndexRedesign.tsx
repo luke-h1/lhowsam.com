@@ -4,6 +4,7 @@ import { Wrapper } from '@src/components/Wrapper';
 import Link from 'next/link';
 import React from 'react';
 import styled from '@emotion/styled';
+import { GetInTouch } from './GetInTouch';
 
 const StyledAboutSection = styled.section`
   max-width: 750px;
@@ -98,7 +99,7 @@ const StyledPic = styled.div`
     }
   }
 `;
-const skills: string[] = ['JavaScript (ES6)', 'Typescript', 'React', 'Next', 'Testing', 'Node.js', 'Express'];
+const skills: string[] = ['JavaScript (ES6)', 'Typescript', 'React', 'Next', 'Testing (automated & manual)', 'Node.js', 'Express'];
 
 export const IndexRedesign = () => {
   return (
@@ -143,100 +144,6 @@ export const IndexRedesign = () => {
         </div>
       </StyledAboutSection>
 
-      {/* <div className="max-w-lg grid grid-cols-2">
-        <div className="flex flex-wrap flex-col align-left items-left">
-          <h1 className="text-4xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-5">
-            About
-          </h1>
-          <div className="grid-cols-2 grid">
-            <div>
-              <img
-                src="/static/images/luke.png"
-                width="150"
-                height="150"
-                data-testid="photo"
-                alt="headshot"
-                style={{ borderRadius: '20px' }}
-              />
-            </div>
-            <div>
-              <p className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300">
-                Hi, my name is Luke and I enjoy working on big projects and thinking about how solutions can be implemented in order to build scalable & maintainable software. I currently work as a software tester where I do a mixture of manual & automated testing in an agile environment
-              </p>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      {/* <div className="max-w-xl">
-        <div className="flex flex-col items-center justify-center max-w-4xl	w-full mb-4">
-          <h1 className="md:leading-10 text-4xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-6 dark:text-gray-300">
-            About
-          </h1>
-          <h1 className="lg:grid grid-cols-2 gap-15">
-            <div>
-              <h2 className="md:leading-10 text-2xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300">
-                Hey, I'm Luke 👋,
-
-                </h2>
-              <p
-                className="md:leading-10 text-1xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
-                data-testid="about-intro"
-              >
-                I enjoy working with React, Node, testing tech + practices,
-                dev-ops / cloud services & various backend languages
-              </p>
-              <p
-                className="md:leading-10 text-1xl tracking-wide text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
-                data-testid="about-intro-2"
-              >
-                I am currently working with React, Next, Node, Python, Express &
-                Typescript.
-              </p>
-            </div>
-            <div className="mb-6">
-              <img
-                src="/static/images/luke.png"
-                width="200"
-                height="300"
-                data-testid="photo"
-                alt="headshot"
-                style={{ borderRadius: '20px' }}
-              />
-            </div>
-          </h1>
-        </div>
-      </div> */}
-
-      {/* Skills */}
-      {/* <div className="max-w-lg">
-        <div className="align-left">
-          <div className="flex flex-col items-left justify-left">
-            <div className="flex flex-col items-left max-w-md w-full">
-              <h2 className="md:leading-10 text-3xl tracking-wide text-left text-gray-700 sm:text-md  leading-10 mb-4 dark:text-gray-300 ml-2">
-                Skills
-              </h2>
-              <p className="md:text-2xl mb-12 sm:text-md text-left ml-2 dark:text-gray-300">
-                I'm always expanding my technical skills by learning new tech. The
-                following is a list of technology I'm interested in / what I'm
-                actively working with !
-              </p>
-            </div>
-            <div className="max-w-lg w-full">
-              {Skills
-            && Skills.map((s) => (
-              <div className="w-1/3 mb-4 h-12" key={s.id}>
-                <p className="mr-4 ml-4 text-left dark:text-gray-300">
-                  {s.name}
-                </p>
-              </div>
-            ))}
-            </div>
-          </div>
-
-        </div>
-        {' '}
-      </div> */}
       <div className="max-w-lg w-full align-left">
         <h1 className="text-3xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-5">
           Recent Blog Posts
@@ -251,6 +158,7 @@ export const IndexRedesign = () => {
         <ProjectCard />
         <ProjectCard />
       </div>
+      <GetInTouch />
     </>
   );
 };
