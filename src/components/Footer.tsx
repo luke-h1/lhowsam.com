@@ -2,32 +2,20 @@ import {
   Email, Github, LinkedIn, Twitter,
 } from '@src/Icons/Social';
 import Link from 'next/link';
+import { Links } from './Nav/Links';
 
 const Footer: React.FC<{}> = () => {
   return (
     <>
       <div className="flex flex-col dark:bg-dark-100">
         <div className="flex mt-24 mb-8 flex-row justify-center">
-          <Link href="/">
-            <a className="md:block cursor-pointer text-gray-600 dark:text-gray-300 hover:text-blue-500 uppercase ml-2 mr-2">
-              Home
-            </a>
-          </Link>
-          <Link href="/about">
-            <a className="md:block cursor-pointer text-gray-600 dark:text-gray-300 hover:text-blue-500 uppercase ml-2 mr-2">
-              About
-            </a>
-          </Link>
-          <Link href="/projects">
-            <a className="md:block cursor-pointer text-gray-600 dark:text-gray-300 hover:text-blue-500 uppercase ml-2 mr-2">
-              Projects
-            </a>
-          </Link>
-          <Link href="/blog">
-            <a className="md:block cursor-pointer text-gray-600 dark:text-gray-300 hover:text-blue-500 uppercase ml-2 mr-2">
-              Blog
-            </a>
-          </Link>
+          {Links && Links.map((l) => (
+            <Link href={l.slug}>
+              <a className="md:block cursor-pointer text-gray-600 dark:text-gray-300 hover:text-blue-500 uppercase ml-2 mr-2">
+                {l.name}
+              </a>
+            </Link>
+          ))}
         </div>
         <div className="flex mb-12 flex-row justify-center">
           <a

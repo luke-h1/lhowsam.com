@@ -8,16 +8,10 @@ test('intro component has correct text + renders correctly', () => {
   const { getByTestId } = render(<About />);
   const photo = getByTestId('photo');
   const text1 = getByTestId('about-intro');
-  const text2 = getByTestId('about-intro-2');
 
   expect(text1.textContent).toBe(
-    'I enjoy working with React, Node, testing tech + practices, dev-ops / cloud services & various backend languages',
+    'Hi, my name is Luke and I enjoy working on big projects and thinking about how solutions can be implemented in order to build scalable & maintainable software. I currently work as a software tester where I do a mixture of manual & automated testing in an agile environment',
   );
-
-  expect(text2.textContent).toBe(
-    'I am currently working with React, Next, Node, Python, Express & Typescript.',
-  );
-
   // test headshot is visible
   expect(photo).toBeVisible;
 });

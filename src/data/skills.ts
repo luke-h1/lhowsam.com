@@ -8,47 +8,27 @@ export const Skills: { name: string; id: number }[] = [
     id: 2,
   },
   {
-    name: 'Gatsby',
+    name: 'Typescript',
     id: 3,
   },
   {
-    name: 'Basic Typescript',
-    id: 4,
-  },
-  {
-    name: 'Intermediate Javascript',
+    name: 'Javascript (ES6+)',
     id: 5,
   },
   {
-    name: 'Basic Python',
-    id: 6,
+    name: 'Testing (automated & manual)',
+    id: 4,
   },
   {
     name: 'Express',
+    id: 6,
+  },
+  {
+    name: 'Node JS',
     id: 7,
   },
   {
-    name: 'Node',
-    id: 8,
-  },
-  {
-    name: 'Automated Testing',
-    id: 9,
-  },
-  {
-    name: 'Manual Testing',
-    id: 10,
-  },
-  {
     name: 'Git / Github',
-    id: 11,
-  },
-  {
-    name: 'Styled components',
-    id: 12,
-  },
-  {
-    name: 'Tailwind css',
-    id: 13,
+    id: 8,
   },
 ];
