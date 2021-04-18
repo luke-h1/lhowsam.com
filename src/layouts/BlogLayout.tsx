@@ -4,6 +4,7 @@ import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
 import { BlogPost } from '@src/types';
 import { CustomHead } from '@src/components/CustomHead';
+import { Wrapper } from '@src/components/Wrapper';
 
 interface Iprops {
   children: React.ReactNode;
@@ -18,7 +19,7 @@ const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
         description={`${frontMatter.summary}`}
         image={`${frontMatter.ogImage && frontMatter.ogImage}`}
       />
-      <div className="mb-4 max-w-xl w-full p-2 min-h-screen	h-full">
+      <div className="max-w-lg w-full p-2 min-h-screen h-full">
         <NextSeo
           title={`${frontMatter.title}`}
           canonical={`https://lhowsam.com/blog/${frontMatter.slug}`}

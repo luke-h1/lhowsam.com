@@ -4,6 +4,7 @@ import ShareButtons from '@components/ShareButtons';
 import { ProjectPost } from '@src/types';
 import { Browser, Github } from '@src/Icons/Social';
 import { CustomHead } from '@src/components/CustomHead';
+import { Wrapper } from '@src/components/Wrapper';
 
 interface Iprops {
   children: React.ReactNode;
@@ -38,7 +39,7 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
         image={`${frontMatter.ogImage && frontMatter.ogImage}`}
       />
 
-      <div className="max-w-xl w-full p-2 min-h-screen h-full">
+      <div className="max-w-lg w-full p-2 min-h-screen h-full">
         <NextSeo
           title={`${frontMatter.title}`}
           canonical={`https://lhowsam.com/projects/${frontMatter.slug}`}
@@ -63,18 +64,18 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
               <Github />
             </a>
             {frontMatter.site && (
-              <a
-                href={frontMatter.site}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  marginRight: '35px',
-                  marginTop: '35px',
-                  marginBottom: '35px',
-                }}
-              >
-                <Browser />
-              </a>
+            <a
+              href={frontMatter.site}
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                marginRight: '35px',
+                marginTop: '35px',
+                marginBottom: '35px',
+              }}
+            >
+              <Browser />
+            </a>
             )}
           </div>
         </article>
