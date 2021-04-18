@@ -4,7 +4,7 @@ import React from 'react';
 const ProjectCard = () => {
   return (
     <>
-      <div className="max-w-md rounded-lg px-2 focus:ring mx-auto w-full border-2 hover:ring-1" key="1">
+      <div className="max-w-md rounded-lg px-2 focus:ring mx-auto w-full border-2 hover:ring-1 mb-6" key="1">
         <Link href="/blog/">
           <a className="p-2 w-full">
             <div className="mb-3">
