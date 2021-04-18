@@ -3,7 +3,7 @@ import React from 'react';
 
 const BlogCard = () => {
   return (
-    <div className="max-w-md rounded focus:ring mx-auto w-full" key="1">
+    <div className="max-w-md rounded focus:ring mx-auto w-full hover:underline" key="1">
       <Link href="/blog/">
         <a className="p-2 w-full">
           <div className="mb-3">
