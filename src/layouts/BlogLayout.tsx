@@ -4,7 +4,6 @@ import { NextSeo } from 'next-seo';
 import ShareButtons from '@components/ShareButtons';
 import { BlogPost } from '@src/types';
 import { CustomHead } from '@src/components/CustomHead';
-import { Wrapper } from '@src/components/Wrapper';
 
 interface Iprops {
   children: React.ReactNode;

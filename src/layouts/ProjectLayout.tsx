@@ -4,7 +4,6 @@ import ShareButtons from '@components/ShareButtons';
 import { ProjectPost } from '@src/types';
 import { Browser, Github } from '@src/Icons/Social';
 import { CustomHead } from '@src/components/CustomHead';
-import { Wrapper } from '@src/components/Wrapper';
 
 interface Iprops {
   children: React.ReactNode;
@@ -64,18 +63,18 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
               <Github />
             </a>
             {frontMatter.site && (
-            <a
-              href={frontMatter.site}
-              target="_blank"
-              rel="noreferrer"
-              style={{
-                marginRight: '35px',
-                marginTop: '35px',
-                marginBottom: '35px',
-              }}
-            >
-              <Browser />
-            </a>
+              <a
+                href={frontMatter.site}
+                target="_blank"
+                rel="noreferrer"
+                style={{
+                  marginRight: '35px',
+                  marginTop: '35px',
+                  marginBottom: '35px',
+                }}
+              >
+                <Browser />
+              </a>
             )}
           </div>
         </article>

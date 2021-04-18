@@ -9,13 +9,14 @@ const Footer: React.FC<{}> = () => {
     <>
       <div className="flex flex-col dark:bg-dark-100">
         <div className="flex mt-24 mb-8 flex-row justify-center">
-          {Links && Links.map((l) => (
-            <Link href={l.slug}>
-              <a className="md:block cursor-pointer text-gray-600 dark:text-gray-300 hover:text-blue-500 uppercase ml-2 mr-2">
-                {l.name}
-              </a>
-            </Link>
-          ))}
+          {Links
+            && Links.map((l) => (
+              <Link href={l.slug}>
+                <a className="md:block cursor-pointer text-gray-600 dark:text-gray-300 hover:text-blue-500 uppercase ml-2 mr-2">
+                  {l.name}
+                </a>
+              </Link>
+            ))}
         </div>
         <div className="flex mb-12 flex-row justify-center">
           <a
