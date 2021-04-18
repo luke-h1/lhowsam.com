@@ -7,7 +7,7 @@ const ProjectCard = ({
 }: ProjectPost) => {
   return (
     <div className="max-w-md rounded focus:ring mx-auto w-full pl-2" key={slug}>
-      <Link href={`/blog/${slug}`}>
+      <Link href={`/projects/${slug}`}>
         <a className="p-2 w-full">
           <div className="mb-3">
             <div className="flex flex-col md:flex-row justify-left">
