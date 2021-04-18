@@ -3,8 +3,8 @@ import { NextSeo } from 'next-seo';
 import { GetStaticProps } from 'next';
 import { getAllFilesFrontmatter } from '@utils/mdx';
 import { BlogPost, ProjectPost } from '@src/types';
-import ProjectCard from '@src/components/ProjectCard';
-import BlogCard from '@src/components/BlogCard';
+import ProjectCard from '@src/modules/Projects/components/ProjectCard';
+import BlogCard from '@src/modules/Blog/components/BlogCard';
 import { Title } from '@src/components/Title';
 import { CustomHead } from '@src/components/CustomHead';
 
