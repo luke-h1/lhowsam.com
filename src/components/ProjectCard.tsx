@@ -21,21 +21,20 @@ const ProjectCard = ({
             <div className="flex flex-col">
               <p className="text-left text-gray-400 mb-4 ">
                 {tags
-                && tags.map((tag) => (
-                  <div className="text-md inline-flex items-left leading-sm  px-1 py-0.5 bg-orange-200 text-orange-700 rounded-full">
-                    <p className="text-gray-500 ml-1 mr-1 text-left dark:text-gray-400">
-                      #
-                      {tag}
-                    </p>
-                  </div>
-                ))}
+                  && tags.map((tag) => (
+                    <div className="text-md inline-flex items-left leading-sm  px-1 py-0.5 bg-orange-200 text-orange-700 rounded-full">
+                      <p className="text-gray-500 ml-1 mr-1 text-left dark:text-gray-400">
+                        #
+                        {tag}
+                      </p>
+                    </div>
+                  ))}
               </p>
             </div>
           </div>
         </a>
       </Link>
     </div>
-
   );
 };
 export default ProjectCard;
