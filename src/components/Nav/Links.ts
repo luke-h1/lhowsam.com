@@ -9,14 +9,4 @@ export const Links: { id: number; name: string; slug: string }[] = [
     name: 'About',
     slug: '/about',
   },
-  {
-    id: 3,
-    name: 'Projects',
-    slug: '/projects',
-  },
-  {
-    id: 4,
-    name: 'Blog',
-    slug: '/blog',
-  },
 ];
