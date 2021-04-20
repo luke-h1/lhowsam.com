@@ -2,10 +2,7 @@ import { Links } from '../components/Nav/Links';
 
 test('Links data is correct', () => {
   expect(Links).toHaveLength(2);
-  expect(Links.map((l) => l.name)).toEqual([
-    'Home',
-    'About',
-  ]);
+  expect(Links.map((l) => l.name)).toEqual(['Home', 'About']);
 });
 
 for (let i = 0; i < Links.length; i += 1) {

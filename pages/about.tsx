@@ -124,8 +124,10 @@ const About = () => {
                 data-testid="about-intro"
               >
                 Hi, my name is Luke and I enjoy working on big projects and
-                thinking about how solutions can be implemented in order to build
-                scalable & maintainable software.
+                thinking about how solutions can be implemented in order to
+                build scalable & maintainable software. I currently work as a
+                software tester where I do a mixture of manual & automated
+                testing in an agile environment
               </p>
             </div>
             <p className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300 underline">
