@@ -38,13 +38,18 @@ const index = ({
         </h1>
         <div className="align-left">
           <p className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300">
+            I am a software tester who loves to work on big projects where I can
+            grow interpersonally & technically.
+            {' '}
+          </p>
+          <p className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300">
             I have experience working in agile environments, testing features
             end to end, various frontend languages, technologies & tooling.
           </p>
           <p className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300">
-            I sometimes work on open source projects that typically use React,
-            Next, Graphql, Express & Node. You can check out some of my open
-            source projects
+            In my spare time I work on open source projects that typically use
+            React, Next, Graphql, Express & Node. You can check out some of my
+            open source projects
             {' '}
             <a className="text-black hover: underline dark:text-white">
               <Link href="/projects">here</Link>
