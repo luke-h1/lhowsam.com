@@ -7,6 +7,9 @@ const { withSentryConfig } = require('@sentry/nextjs');
 const { ANALYZE } = process.env;
 
 const SentryWebpackPluginOptions = {
+
+  
+  release: 1
   // Additional config options for the Sentry Webpack plugin. Keep in mind that
   // the following options are set automatically, and overriding them is not
   // recommended:
@@ -16,7 +19,7 @@ const SentryWebpackPluginOptions = {
   // https://github.com/getsentry/sentry-webpack-plugin#options.
 };
 
-module.exports = {
+const moduleExports = {
   webpack: (config, { isServer }) => {
     if (ANALYZE) {
       config.plugins.push(new WebpackBundleSizeAnalyzerPlugin('stats.txt'));
