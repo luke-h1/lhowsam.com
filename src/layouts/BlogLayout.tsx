@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { parseISO, format } from 'date-fns';
 import { NextSeo } from 'next-seo';
-import ShareButtons from '@components/ShareButtons';
+import ShareButtons from '@src/components/ShareButtons';
 import { BlogPost } from '@src/types';
 import { CustomHead } from '@src/components/CustomHead';
 

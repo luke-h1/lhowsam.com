@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { getAllFilesFrontmatter } from '@utils/mdx';
+import { getAllFilesFrontmatter } from '@src/utils/mdx';
 import ProjectCard from '@src/components/ProjectCard';
 import { ProjectPost } from '@src/types';
 import { CustomHead } from '@src/components/CustomHead';

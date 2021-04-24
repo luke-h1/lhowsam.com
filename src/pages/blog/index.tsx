@@ -1,7 +1,7 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { getAllFilesFrontmatter } from '@utils/mdx';
-import BlogCard from '@components/BlogCard';
+import { getAllFilesFrontmatter } from '@src/utils/mdx';
+import BlogCard from '@src/components/BlogCard';
 import { BlogPost } from '@src/types';
 import { CustomHead } from '@src/components/CustomHead';
 

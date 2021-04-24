@@ -8,15 +8,6 @@
     ],
     "paths": {
       "@src/*": ["src/*"],
-      "@tests/*": ["./src/__tests__/*"],
-      "@pages/*": ["pages/*"],
-      "@components/*": ["src/components/*"],
-      "@icons/*": ["src/Icons/*"],
-      "@utils/*": ["src/utils/*"],
-      "@styles/*": ["src/styles/*"],
-      "@types/*": ["src/types/*"],
-      "@templates/*": ["src/layouts/*"],
-      "@data/*": ["src/data/*"],
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -37,7 +28,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".",
+    "rootDir": "./src",
+    "baseUrl": "."
   },
   "include": [
     "next-env.d.ts",
