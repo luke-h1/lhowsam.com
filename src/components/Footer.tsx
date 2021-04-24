@@ -34,7 +34,6 @@ const Footer: React.FC<{}> = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Linkedin"
-
           >
             <LinkedIn />
           </a>
@@ -44,7 +43,6 @@ const Footer: React.FC<{}> = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Githu"
-
           >
             <Github />
             {' '}
@@ -56,7 +54,6 @@ const Footer: React.FC<{}> = () => {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Email"
-
           >
             <Email />
             {' '}

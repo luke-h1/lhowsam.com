@@ -1,4 +1,4 @@
-import { Links } from '../components/Nav/Links'
+import { Links } from '../components/Nav/Links';
 
 test('Links data is correct', () => {
   expect(Links).toHaveLength(2);
