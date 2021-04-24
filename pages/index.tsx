@@ -52,7 +52,7 @@ const HomePage = ({
             open source projects
             {' '}
             <Link href="/projects" passHref>
-              <a className="text-black hover: underline dark:text-white">
+              <a className="text-black hover: underline dark:text-white" aria-label="projects">
                 here
               </a>
             </Link>
