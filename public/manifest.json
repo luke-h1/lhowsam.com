@@ -1,0 +1,23 @@
+{
+    "name": "lhowsam",
+    "short_name": "lhowsam",
+    "start_url": "/",
+    "display": "minimal-ui",
+    "background_color": "#0b0e11",
+    "theme_color": "#fd4d4d",
+    "orientation": "portrait-primary",
+    "icons": [
+      {
+        "src": "/static/images/maskable.png",
+        "type": "image/png",
+        "sizes": "200x200",
+        "purpose": "maskable"
+      },
+      {
+        "src": "/static/images/logo.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "splash_pages": null
+  }
