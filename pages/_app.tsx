@@ -2,11 +2,11 @@ import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
 import { MDXProvider } from '@mdx-js/react';
 import { useRouter } from 'next/router';
-import * as gtag from '@utils/gtag';
+import * as gtag from '@src/utils/gtag';
 import Footer from '@src/components/Footer';
 import { Nav } from '@src/components/Nav/NavBar';
 import MDXComponents from '@src/components/MDXComponents';
-import '../src/styles/index.css';
+import '@src/styles/index.css';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 
@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       gtag.pageview(url);
     };
     router.events.on('routeChangeComplete', handleRouteChange);
+
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };

@@ -9,7 +9,7 @@ import { getAllFilesFrontmatter } from '@src/utils/mdx';
 import { GetStaticProps } from 'next';
 import { BlogPost, ProjectPost } from '@src/types';
 
-const index = ({
+const HomePage = ({
   posts,
   projects,
 }: {
@@ -84,4 +84,4 @@ export const getStaticProps: GetStaticProps = async () => {
   return { props: { posts, projects } };
 };
 
-export default index;
+export default HomePage;

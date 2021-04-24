@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
-import ShareButtons from '@components/ShareButtons';
+import ShareButtons from '@src/components/ShareButtons';
 import { ProjectPost } from '@src/types';
 import { Browser, Github } from '@src/Icons/Social';
 import { CustomHead } from '@src/components/CustomHead';

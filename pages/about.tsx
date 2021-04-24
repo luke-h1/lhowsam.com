@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { NextSeo } from 'next-seo';
-import { CustomHead } from '../src/components/CustomHead';
-import { Wrapper } from '../src/components/Wrapper';
-import { Skills } from '../src/data/skills';
+import { CustomHead } from '@src/components/CustomHead';
+import { Wrapper } from '@src/components/Wrapper';
+import { Skills } from '@src/data/skills';
 
 const StyledAboutSection = styled.section`
   max-width: 750px;
