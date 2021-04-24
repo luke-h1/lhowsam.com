@@ -6,7 +6,7 @@ import * as gtag from '@src/utils/gtag';
 import Footer from '@src/components/Footer';
 import { Nav } from '@src/components/Nav/NavBar';
 import MDXComponents from '@src/components/MDXComponents';
-import '../styles/index.css';
+import '@src/styles/index.css';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 
