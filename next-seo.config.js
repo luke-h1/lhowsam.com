@@ -1,5 +1,5 @@
 const title = 'Luke Howsam – Developer, tester ';
-const description = 'Javascript + Typescript enthusiast and software tester';
+const description = 'Node + Typescript enthusiast and software tester';
 
 const SEO = {
   title,

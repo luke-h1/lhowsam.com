@@ -6,7 +6,8 @@
 
 # sentry 
 sentry.properties
-
+*.idea
+/idea
 .DS_*
 *.log
 logs
