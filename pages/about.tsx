@@ -49,7 +49,6 @@ const StyledPic = styled.div`
     display: block;
     position: relative;
     width: 100%;
-    border-radius: 20px;
     &:hover,
     &:focus {
       background: transparent;
@@ -76,7 +75,6 @@ const StyledPic = styled.div`
       width: 100%;
       height: 100%;
       border-radius: 8px;
-      transition: 1s;
     }
     &:before {
       top: 0;
