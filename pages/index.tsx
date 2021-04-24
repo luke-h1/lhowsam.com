@@ -53,8 +53,9 @@ const HomePage = ({
             {' '}
             <Link href="/projects">
               {' '}
-              <p className="text-black hover: underline dark:text-white" />
-              here
+              <p className="text-black hover: underline dark:text-white">
+                here
+              </p>
             </Link>
             {' '}
             <hr className="text-black dark:text-white border border-solid" />
