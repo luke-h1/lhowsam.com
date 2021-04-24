@@ -29,14 +29,10 @@ const StyledText = styled.div`
       position: relative;
       margin-bottom: 10px;
       padding-left: 20px;
-      font-family: var(--font-mono);
-      font-size: var(--fz-xs);
       &:before {
         content: '.';
         position: absolute;
         left: 0;
-        color: var(--green);
-        font-size: var(--fz-sm);
         line-height: 12px;
       }
     }
@@ -53,8 +49,6 @@ const StyledPic = styled.div`
     display: block;
     position: relative;
     width: 100%;
-    border-radius: var(--border-radius);
-    background-color: var(--green);
     &:hover,
     &:focus {
       background: transparent;
@@ -70,10 +64,8 @@ const StyledPic = styled.div`
     }
     .img {
       position: relative;
-      border-radius: var(--border-radius);
+      border-radius: 20px;
       mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1);
-      transition: var(--transition);
     }
     &:before,
     &:after {
@@ -82,17 +74,14 @@ const StyledPic = styled.div`
       position: absolute;
       width: 100%;
       height: 100%;
-      border-radius: var(--border-radius);
-      transition: var(--transition);
+      border-radius: 8px;
     }
     &:before {
       top: 0;
       left: 0;
-      background-color: var(--navy);
       mix-blend-mode: screen;
     }
     &:after {
-      border: 2px solid var(--green);
       top: 20px;
       left: 20px;
       z-index: -1;
@@ -112,16 +101,15 @@ const About = () => {
           title: 'About',
         }}
       />
-      <StyledAboutSection id="about">
+      <StyledAboutSection>
         <h2 className="text-3xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-5">
-          about me
+          About me
         </h2>
         <div className="inner">
           <StyledText>
             <div>
               <p
                 className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
-                data-testid="about-intro"
               >
                 Hi, my name is Luke and I enjoy working on big projects and
                 thinking about how solutions can be implemented in order to

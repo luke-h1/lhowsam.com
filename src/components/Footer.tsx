@@ -24,6 +24,7 @@ const Footer: React.FC<{}> = () => {
             href="https://twitter.com/LukeH_1999"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Twitter"
           >
             <Twitter />
           </a>
@@ -32,6 +33,8 @@ const Footer: React.FC<{}> = () => {
             href="https://www.linkedin.com/in/lukehowsam"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Linkedin"
+
           >
             <LinkedIn />
           </a>
@@ -40,6 +43,8 @@ const Footer: React.FC<{}> = () => {
             href="https://github.com/luke-h1"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Githu"
+
           >
             <Github />
             {' '}
@@ -50,6 +55,8 @@ const Footer: React.FC<{}> = () => {
             title="Email"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Email"
+
           >
             <Email />
             {' '}

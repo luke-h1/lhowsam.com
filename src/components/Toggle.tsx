@@ -10,6 +10,7 @@ export const Toggle = () => {
   return (
     <div>
       <button
+        aria-label={`Change theme to ${theme}`}
         className="hover:text-orange-600"
         onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         type="button"
