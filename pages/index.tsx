@@ -51,9 +51,7 @@ const HomePage = ({
             React, Next, Graphql, Express & Node. You can check out some of my
             open source projects
             {' '}
-            <a className="text-black hover: underline dark:text-white">
-              <Link href="/projects">here</Link>
-            </a>
+            <Link href="/projects" passHref><a className="text-black hover: underline dark:text-white">here</a></Link>
             <hr className="text-black dark:text-white border border-solid" />
           </p>
         </div>
