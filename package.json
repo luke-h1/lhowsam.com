@@ -35,7 +35,7 @@
     "next-mdx-remote": "^2.1.4",
     "next-seo": "^4.24.0",
     "next-themes": "^0.0.14",
-    "polished": "^4.1.1",
+    "polished": "^4.1.2",
     "prettier": "^2.2.1",
     "prism-react-renderer": "^1.2.0",
     "prop-types": "^15.7.2",
