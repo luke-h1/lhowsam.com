@@ -1,7 +1,7 @@
 name: CI / Nightly tests 
 on: 
   schedule:
-    - cron: '0 19 * * *'
+    - cron: '0 22 * * *'
 
 jobs:
   build:
