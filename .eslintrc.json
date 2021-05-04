@@ -40,7 +40,7 @@
   "globals": {
     "React": "writable"
   },
-  "ignorePatterns": ["node_modules/", ".next/"],
+  "ignorePatterns": ["node_modules/", ".next/", "cypress"],
   "settings": {
     "import/resolver": {
       "alias": [
