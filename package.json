@@ -6,7 +6,7 @@
     "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
-    "test": "jest",
+    "test": "jest src/__tests__",
     "watch": "tsc --watch",
     "type-check": "tsc --noEmit",
     "test:update": "jest -u",
@@ -14,9 +14,9 @@
     "test:coverage": "jest --coverage",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
+    "cy:ci": "npm run build && npx start-server-and-test http://localhost:3000 cy:run",
     "lint": "eslint \"./src/**/*.{js, jsx,ts,tsx}\" --quiet --fix && eslint \"./**/*.{js, jsx,ts,tsx}\" --quiet --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
-    "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "stats": "ANALYZE=1 next build && cat .next/stats.txt",
     "deploy": "sh deploy.sh",
     "prepare": "husky install"
@@ -97,6 +97,7 @@
     "remark-frontmatter": "^3.0.0",
     "remark-parse": "^9.0.0",
     "remark-stringify": "^9.0.1",
+    "start-server-and-test": "^1.12.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
     "tailwindcss": "^2.1.2",
@@ -108,7 +109,7 @@
       "npm run lint"
     ],
     "*.{js,jsx,ts,tsx,css,scss,html}": [
-      "npm run format:check && npm run format"
+      "npm run format"
     ]
   }
 }
