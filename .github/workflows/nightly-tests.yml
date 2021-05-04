@@ -15,7 +15,7 @@ jobs:
       run: npx jest 
 
     - name: Start dev server  
-      run: npm run dev 
+      run: next dev -p 3000  
 
     - name: run UI tests 
       run: npm run cy:run 
