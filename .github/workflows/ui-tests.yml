@@ -39,8 +39,5 @@ jobs:
       - name: Run type check
         run: npm run type-check
 
-      - name: Run dev server 
-        run: npm run dev
-
-      - name: Run UI tests  
-        run: npm run cy:run
+      - name: Run UI tests 
+        run: npm run cy:ci
