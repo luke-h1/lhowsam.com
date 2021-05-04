@@ -35,7 +35,7 @@
     "globby": "^11.0.3",
     "gray-matter": "^4.0.3",
     "next": "10.2.0",
-    "next-mdx-remote": "^2.1.4",
+    "next-mdx-remote": "^3.0.1",
     "next-seo": "^4.24.0",
     "next-themes": "^0.0.14",
     "polished": "^4.1.2",
