@@ -3,5 +3,5 @@ module.exports = {
   coverageDirectory: '.coverage',
   testRegex: '(/__tests__/.*|(\\.|/)(test))\\.tsx?$',
   setupFilesAfterEnv: ['./jest.setup.js'],
-  testPathIgnorePatterns: ['cypress/'],
+  testPathIgnorePatterns: ['cypress'],
 };
