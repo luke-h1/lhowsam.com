@@ -12,7 +12,7 @@ jobs:
       run: npm i 
 
     - name: Run jest unit tests
-      run: npx jest 
+      run: npm run test
 
     - name: Run UI tests 
       run: npm run cy:ci 
