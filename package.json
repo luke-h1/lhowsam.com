@@ -104,10 +104,10 @@
     "typescript": "^4.2.4"
   },
   "lint-staged": {
-    "*./src/**/{ts,tsx,js,jsx}": [
+    "*./src/**/**/{ts,tsx,js,jsx}": [
       "npm run lint"
     ],
-    "*./src/**/{js,jsx,ts,tsx,css,scss,html}": [
+    "*./src/**/**/{js,jsx,ts,tsx,css,scss,html}": [
       "npm run format:check && npm run format"
     ]
   }
