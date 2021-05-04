@@ -4,6 +4,8 @@
 
 ### react ###
 
+cypress/videos
+
 # sentry 
 sentry.properties
 *.idea

@@ -12,8 +12,11 @@
     "test:update": "jest -u",
     "jest:watch": "jest --watch",
     "test:coverage": "jest --coverage",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "lint": "eslint \"./src/**/*.{js, jsx,ts,tsx}\" --quiet --fix && eslint \"./**/*.{js, jsx,ts,tsx}\" --quiet --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
+    "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "stats": "ANALYZE=1 next build && cat .next/stats.txt",
     "deploy": "sh deploy.sh",
     "prepare": "husky install"
@@ -72,6 +75,7 @@
     "babel-jest": "^26.6.3",
     "babel-loader": "^8.2.2",
     "babel-preset-react-app": "^10.0.0",
+    "cypress": "^7.2.0",
     "eslint": "^7.25.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-import-resolver-alias": "^1.1.2",
@@ -86,14 +90,25 @@
     "jest-junit": "^12.0.0",
     "jest-resolve": "^26.6.2",
     "jest-serializer-html": "^7.0.0",
+    "lint-staged": "^10.5.4",
     "postcss": "^8.2.13",
     "react-test-renderer": "^17.0.2",
     "rehype": "^11.0.0",
     "remark-frontmatter": "^3.0.0",
     "remark-parse": "^9.0.0",
     "remark-stringify": "^9.0.1",
+    "stylelint": "^13.13.1",
+    "stylelint-config-standard": "^22.0.0",
     "tailwindcss": "^2.1.2",
     "ts-jest": "^26.5.5",
     "typescript": "^4.2.4"
+  },
+  "lint-staged": {
+    "*./src/**/{ts,tsx,js,jsx}": [
+      "npm run lint"
+    ],
+    "*./src/**/{js,jsx,ts,tsx,css,scss,html}": [
+      "npm run format:check && npm run format"
+    ]
   }
 }
