@@ -17,7 +17,6 @@
     "cy:ci": "npm run build && npx start-server-and-test http://localhost:3000 cy:run",
     "lint": "eslint \"./src/**/*.{js, jsx,ts,tsx}\" --quiet --fix && eslint \"./**/*.{js, jsx,ts,tsx}\" --quiet --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
-    "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "stats": "ANALYZE=1 next build && cat .next/stats.txt",
     "deploy": "sh deploy.sh",
     "prepare": "husky install"
@@ -110,7 +109,7 @@
       "npm run lint"
     ],
     "*.{js,jsx,ts,tsx,css,scss,html}": [
-      "npm run format:check && npm run format"
+      "npm run format"
     ]
   }
 }
