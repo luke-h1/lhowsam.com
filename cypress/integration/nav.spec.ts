@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('nav links work', () => {
   context('1080p res', () => {
     beforeEach(() => {
