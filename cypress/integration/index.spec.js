@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe('index intro texts', () => {
   context('1080p res', () => {
     beforeEach(() => {
