@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('blog page should work', () => {
   context('1080p res', () => {
     beforeEach(() => {

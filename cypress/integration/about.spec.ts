@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('About intros', () => {
   // For desktop view
   context('1080p resolution', () => {
