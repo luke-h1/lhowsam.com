@@ -1,7 +1,7 @@
 /* eslint-disable */
 module.exports = {
   trailingSlash: true,
-  webpack(config) {
+  webpack(config, { isServer }) {
     config.module.rules.push({
       test: /\.md$/,
       use: 'raw-loader',
@@ -10,6 +10,9 @@ module.exports = {
       ...config.resolve.alias,
       '~': __dirname,
     };
+    if (isServer) {
+      require('./src/utils/generate-sitemap');
+    }
     return config;
   },
   future: {
