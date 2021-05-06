@@ -1,7 +1,7 @@
 import React from 'react';
 // @ts-ignore
 import Link from 'next/link';
-import { Links } from '@/data/links';
+import { Links } from '@src/data/links';
 import {
   Email, Github, LinkedIn, Twitter,
 } from '../icons/Social';

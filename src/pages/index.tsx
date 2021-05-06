@@ -1,9 +1,9 @@
-import BlogCard from '@/components/BlogCard';
-import { CustomHead } from '@/components/CustomHead';
-import ProjectCard from '@/components/ProjectCard';
-import Wrapper from '@/components/Wrapper';
-import { BlogPost, ProjectPost } from '@/types/md';
-import { getAllFilesFrontmatter } from '@/utils/mdx';
+import BlogCard from '@src/components/BlogCard';
+import { CustomHead } from '@src/components/CustomHead';
+import ProjectCard from '@src/components/ProjectCard';
+import Wrapper from '@src/components/Wrapper';
+import { BlogPost, ProjectPost } from '@src/types/md';
+import { getAllFilesFrontmatter } from '@src/utils/mdx';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';

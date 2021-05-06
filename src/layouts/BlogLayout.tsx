@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
-import { BlogPost } from '@/types/md';
-import { CustomHead } from '@/components/CustomHead';
+import { BlogPost } from '@src/types/md';
+import { CustomHead } from '@src/components/CustomHead';
 
 interface Iprops {
   children: React.ReactNode;

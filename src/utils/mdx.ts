@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import path from 'path';
 import readingTime from 'reading-time';
 import renderToString from 'next-mdx-remote/render-to-string';
-import MDXComponents from '@/components/MDXComponents';
+import MDXComponents from '@src/components/MDXComponents';
 
 export interface PostData {
   path: string;

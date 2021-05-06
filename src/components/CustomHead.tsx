@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import { isServer } from '@/hooks/isServer';
+import { isServer } from '@src/hooks/isServer';
 
 interface CustomHeadProps {
   title: string;

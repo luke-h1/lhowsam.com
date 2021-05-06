@@ -1,12 +1,12 @@
 import type { AppProps } from 'next/app';
-import '@/styles/index.css';
-import Flex from '@/components/Flex';
-import Nav from '@/components/Nav';
+import '@src/styles/index.css';
+import Flex from '@src/components/Flex';
+import Nav from '@src/components/Nav';
 import { DefaultSeo } from 'next-seo';
-import * as gtag from '@/utils/gtag';
+import * as gtag from '@src/utils/gtag';
 import { useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
-import Footer from '@/components/Footer';
+import Footer from '@src/components/Footer';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

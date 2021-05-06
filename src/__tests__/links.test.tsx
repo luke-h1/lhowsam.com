@@ -1,4 +1,4 @@
-import { Links } from '@/data/links';
+import { Links } from '@src/data/links';
 
 test('Links data is correct', () => {
   expect(Links).toHaveLength(2);

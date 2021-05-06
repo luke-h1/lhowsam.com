@@ -1,4 +1,4 @@
-import { ProjectPost } from '@/types/md';
+import { ProjectPost } from '@src/types/md';
 import Link from 'next/link';
 import React from 'react';
 
