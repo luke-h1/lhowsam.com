@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
 import { ProjectPost } from '@src/types/md';
 import { CustomHead } from '@src/components/CustomHead';
-import { Browser, Github } from '@src/icons/Social';
+import { Browser, Github } from '@src/Icons/Social';
 
 interface Iprops {
   children: React.ReactNode;

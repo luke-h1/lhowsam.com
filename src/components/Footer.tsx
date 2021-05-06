@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Links } from '@src/data/links';
 import {
   Email, Github, LinkedIn, Twitter,
-} from '@src/icons/Social';
+} from '@src/Icons/Social';
 
 const Footer: React.FC<{}> = () => {
   return (
