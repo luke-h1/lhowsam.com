@@ -31,7 +31,7 @@ export default class MyDocument extends Document {
             }}
           />
 
-          <link href="favicon.ico" rel="shortcut icon" />
+          <link href="/favicon-16x16.png" rel="shortcut icon" />
           <link href="site.webmanifest" rel="manifest" />
           <link
             rel="icon"
