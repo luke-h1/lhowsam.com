@@ -11,7 +11,7 @@ module.exports = {
       '~': __dirname,
     };
     if (isServer) {
-      require('./src/utils/gen-sitemap.ts');
+      require('./src/utils/gen-sitemap.js');
     }
     return config;
   },
