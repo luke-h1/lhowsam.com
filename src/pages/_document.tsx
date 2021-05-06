@@ -1,7 +1,7 @@
 import Document, {
   Html, Head, Main, NextScript,
 } from 'next/document';
-import { GA_TRACKING_ID } from '@src/utils/gtag';
+import { GA_TRACKING_ID } from '@/utils/gtag';
 
 export default class MyDocument extends Document {
   render() {
@@ -21,40 +21,29 @@ export default class MyDocument extends Document {
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
               __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${GA_TRACKING_ID}', {
-              page_path: window.location.pathname,
-            });
-          `,
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GA_TRACKING_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
             }}
           />
 
-          <link href="/static/favicons/favicon.ico" rel="shortcut icon" />
-          <link href="/static/favicons/site.webmanifest" rel="manifest" />
-          <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/static/favicons/apple-touch-icon.png"
-          />
+          <link href="favicon.ico" rel="shortcut icon" />
+          <link href="site.webmanifest" rel="manifest" />
           <link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="/static/favicons/favicon-32x32.png"
-          />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/static/images/maskable.png"
+            href="/icons/maskable.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="/static/favicons/favicon-16x16.png"
+            href="/icons/favicon-16x16.png"
           />
           <link rel="manifest" href="/site.webmanifest" />
           <meta name="theme-color" content="#ffffff" />

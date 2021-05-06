@@ -1,10 +1,9 @@
-import { BlogPost } from '@src/types';
-import { format, parseISO } from 'date-fns';
+import { BlogPost } from '@/types/md';
 import Link from 'next/link';
 import React from 'react';
 
 const BlogCard = ({
-  title, summary, slug, date, tags,
+  title, summary, slug, tags, date,
 }: BlogPost) => {
   return (
     <div className="max-w-md rounded focus:ring mx-auto w-full pl-2">
@@ -20,16 +19,13 @@ const BlogCard = ({
               {summary}
             </p>
             <div className="flex flex-col">
-              <p className="text-left text-white mb-4 ">
-                {' '}
-                {format(parseISO(date), 'MMMM dd, yyyy')}
-              </p>
+              <p className="text-left text-gray-500 mb-4 ">{date}</p>
             </div>
             <div className="flex">
               {tags
-                && tags.map((tag) => (
+                && tags.map((tag: string) => (
                   <div className="text-md inline-flex items-left leading-sm  px-1 py-0.5 bg-orange-200 text-orange-700 rounded-full">
-                    <p className="text-black ml-1 mr-1 text-left dark:text-white">
+                    <p className="text-gray-500 ml-1 mr-1 text-left dark:text-white">
                       #
                       {tag}
                     </p>

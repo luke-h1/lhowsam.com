@@ -27,8 +27,8 @@ export const CustomCode: React.FC<CodeProps> = ({ children, className }) => {
             ...style,
             overflow: 'scroll',
             marginTop: 20,
+            padding: 20,
             marginBottom: 20,
-            padding: 16,
           }}
         >
           {tokens.map((line, i) => (

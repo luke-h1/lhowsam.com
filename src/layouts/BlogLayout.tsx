@@ -1,9 +1,7 @@
 import React, { FunctionComponent } from 'react';
-import { parseISO, format } from 'date-fns';
 import { NextSeo } from 'next-seo';
-import ShareButtons from '@src/components/ShareButtons';
-import { BlogPost } from '@src/types';
-import { CustomHead } from '@src/components/CustomHead';
+import { BlogPost } from '@/types/md';
+import { CustomHead } from '@/components/CustomHead';
 
 interface Iprops {
   children: React.ReactNode;
@@ -34,22 +32,18 @@ const BlogLayout: FunctionComponent<Iprops> = ({ children, frontMatter }) => {
           <p className="text-sm text-gray-500 mt-2 mb-2 dark:text-gray-300">
             Published:
             {' '}
-            {format(parseISO(frontMatter.date), 'MMMM dd, yyyy')}
+            {frontMatter.date}
+            {' '}
           </p>
         </div>
         <p className="text-sm	text-gray-500 mt-2 mb-2 dark:text-gray-300">
           {frontMatter.readingTime.text}
         </p>
         <hr />
-        <div className="prose dark:prose-dark max-w-none w-full">
-          <p className="text-lg mt-4 mb-4 leading-10 tracking-wider dark:text-gray-300 prose dark:prose-dark max-w-none w-full">
+        <div className=" max-w-none w-full">
+          <p className="text-lg mt-4 mb-4 leading-10 tracking-wider dark:text-gray-300 max-w-none w-full">
             {children}
           </p>
-        </div>
-        <div className="flex flex-col align-center items-center">
-          <ShareButtons
-            location={`https://lhowsam.com/blog/${frontMatter.slug}`}
-          />
         </div>
       </div>
     </>

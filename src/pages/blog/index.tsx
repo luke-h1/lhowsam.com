@@ -1,9 +1,9 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { getAllFilesFrontmatter } from '@src/utils/mdx';
-import BlogCard from '@src/components/BlogCard';
-import { BlogPost } from '@src/types';
-import { CustomHead } from '@src/components/CustomHead';
+import { getAllFilesFrontmatter } from '@/utils/mdx';
+import BlogCard from '@/components/BlogCard';
+import { BlogPost } from '@/types/md';
+import { CustomHead } from '@/components/CustomHead';
 
 const Index = ({ posts }: { posts: BlogPost[] }) => {
   const filterPosts = posts.sort(

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import {
   H1, H2, H3, H4, H5, H6, P,
-} from '@src/components/Typography';
+} from '@/components/Typography';
 import { MdxRemote } from 'next-mdx-remote/types';
 import { CustomCode } from '../components/CustomCode';
 
@@ -33,9 +33,6 @@ const MDXComponents = {
   P: (props: MdxRemote.Source) => <P {...props} />,
   code: CustomCode,
   blockquote: Quote,
-  // inlineCode: (props: MdxRemote.Components) => (
-  //   <pre {...props} className="bold text-gray-500 mx-0 my-0 py-0 px-0" />
-  // ),
 };
 
 export default MDXComponents;

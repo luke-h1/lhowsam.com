@@ -19,7 +19,7 @@ const SEO = {
   },
   images: [
     {
-      url: 'https://lhowsam.com/static/images/logo.png',
+      url: 'https://lhowsam.com/icons/logo.png',
       alt: title,
     },
   ],

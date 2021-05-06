@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { NextSeo } from 'next-seo';
-import { CustomHead } from '@src/components/CustomHead';
-import { Wrapper } from '@src/components/Wrapper';
-import { Skills } from '@src/data/skills';
+import { CustomHead } from '@/components/CustomHead';
+import { Skills } from '@/data/skills';
 
 const StyledAboutSection = styled.section`
   max-width: 750px;
@@ -19,8 +18,6 @@ const StyledAboutSection = styled.section`
 `;
 const StyledText = styled.div`
   ul.skills-list {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(140px, 200px));
     padding: 0;
     margin: 20px 0 0 0;
     overflow: hidden;
@@ -30,7 +27,7 @@ const StyledText = styled.div`
       margin-bottom: 10px;
       padding-left: 20px;
       &:before {
-        content: '.';
+        content: '-';
         position: absolute;
         left: 0;
         line-height: 12px;
@@ -125,16 +122,15 @@ const About = () => {
             >
               Here is a list of tech I've been working with recently
             </p>
-            <Wrapper>
-              <ul className="skills-list">
-                {Skills && Skills.map((s) => <li key={s.id}>{s.name}</li>)}
-              </ul>
-            </Wrapper>
+            <ul className="skills-list">
+              {Skills && Skills.map((s) => <li key={s.id}>{s.name}</li>)}
+            </ul>
           </StyledText>
+
           <StyledPic>
             <div className="wrapper">
               <img
-                src="/static/images/luke.png"
+                src="/images/luke.png"
                 alt="Avatar"
                 width="250"
                 height="300"

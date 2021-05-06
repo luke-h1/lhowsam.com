@@ -1,9 +1,9 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { getAllFilesFrontmatter } from '@src/utils/mdx';
-import ProjectCard from '@src/components/ProjectCard';
-import { ProjectPost } from '@src/types';
-import { CustomHead } from '@src/components/CustomHead';
+import { getAllFilesFrontmatter } from '@/utils/mdx';
+import ProjectCard from '@/components/ProjectCard';
+import { ProjectPost } from '@/types/md';
+import { CustomHead } from '@/components/CustomHead';
 
 const Index = ({ projects }: { projects: ProjectPost[] }) => {
   return (
