@@ -21,12 +21,7 @@
 
 ## Tests 
 
-[![CI / typecheck (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml)
-
-
 [![CI / UI tests (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml)
-
-[![CI / Node.js builds (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nodejs.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nodejs.yml)
 
 [![CI / Nightly unit tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml)
 
