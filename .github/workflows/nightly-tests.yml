@@ -8,8 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: luke-h1/checkout@v2.3.4
-    - name: Install modules
-      run: npm i 
+
+    - name: npm ci
+      run: npm ci 
 
     # - name: Run jest unit tests
     #   run: npm run test
