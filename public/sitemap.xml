@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://lhowsam.com/blog/Next-js-and-SSR-notes</loc>
-  </url>
-
-  <url>
-    <loc>https://lhowsam.com/blog/NextJS-testing-with-typescript</loc>
-  </url>
-
-  <url>
-    <loc>https://lhowsam.com/blog/forcing-git-merges</loc>
-  </url>
-
-  <url>
-    <loc>https://lhowsam.com/blog/hello-world</loc>
-  </url>
-
-  <url>
     <loc>https://lhowsam.com/projects/automation</loc>
   </url>
 
@@ -30,5 +14,21 @@
 
   <url>
     <loc>https://lhowsam.com/projects/tmtodos</loc>
+  </url>
+
+  <url>
+    <loc>https://lhowsam.com/blog/Next-js-and-SSR-notes</loc>
+  </url>
+
+  <url>
+    <loc>https://lhowsam.com/blog/NextJS-testing-with-typescript</loc>
+  </url>
+
+  <url>
+    <loc>https://lhowsam.com/blog/forcing-git-merges</loc>
+  </url>
+
+  <url>
+    <loc>https://lhowsam.com/blog/hello-world</loc>
   </url>
 </urlset>

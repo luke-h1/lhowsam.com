@@ -37,7 +37,5 @@
     "**/*.tsx" ],
   "exclude": [
     "node_modules",
-    "cypress",
-    "src/__tests__"
-  ]
+    "cypress",  ]
 }
