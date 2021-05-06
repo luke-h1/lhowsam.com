@@ -1,8 +1,9 @@
+import React from 'react';
 import {
   Email, Github, LinkedIn, Twitter,
-} from '@src/Icons/Social';
+} from '@/icons/Social';
 import Link from 'next/link';
-import { Links } from './Nav/Links';
+import { Links } from '@/data/links';
 
 const Footer: React.FC<{}> = () => {
   return (

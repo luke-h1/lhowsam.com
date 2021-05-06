@@ -1,9 +1,9 @@
 import hydrate from 'next-mdx-remote/hydrate';
-import { getFiles, getFileBySlug } from '@src/utils/mdx';
-import MDXComponents from '@src/components/MDXComponents';
-import { BlogPost } from '@src/types';
+import { getFiles, getFileBySlug } from '@/utils/mdx';
+import MDXComponents from '@/components/MDXComponents';
+import { BlogPost } from '@/types/md';
 import { MdxRemote } from 'next-mdx-remote/types';
-import BlogLayout from '@src/layouts/BlogLayout';
+import BlogLayout from '@/layouts/BlogLayout';
 
 interface BlogProps {
   mdxSource: MdxRemote.Source;

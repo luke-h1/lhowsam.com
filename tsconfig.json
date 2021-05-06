@@ -7,7 +7,7 @@
       "esnext"
     ],
     "paths": {
-      "@src/*": ["src/*"],
+      "@/*": ["./src/*"],
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -34,10 +34,10 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
-  ],
+    "**/*.tsx" ],
   "exclude": [
     "node_modules",
-    "cypress"
+    "cypress",
+    "src/__tests__"
   ]
 }

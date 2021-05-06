@@ -1,51 +1,12 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/react
-# Edit at https://www.toptal.com/developers/gitignore?templates=react
-
-### react ###
-
-cypress/videos
-
-# sentry 
-sentry.properties
-*.idea
-/idea
-.DS_*
-*.log
-logs
-**/*.backup.*
-**/*.back.*
-out
-node_modules
-.serverless_nextjs
-.vercel
-.next
-node_modules
-bower_components
-
-*.sublime*
-
-psd
-thumb
-sketch
-
-# End of https://www.toptal.com/developers/gitignore/api/react# package directories
-node_modules
-jspm_packages
-
-# Serverless directories
-.serverless
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
 /node_modules
 /.pnp
 .pnp.js
-
+cypress/videos
 # testing
 /coverage
-.env
-env
 
 # next.js
 /.next/
@@ -71,4 +32,6 @@ yarn-error.log*
 
 # vercel
 .vercel
-coverage
+.env
+.env.*
+!.env.example

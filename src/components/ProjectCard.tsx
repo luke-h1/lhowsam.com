@@ -1,4 +1,4 @@
-import { ProjectPost } from '@src/types';
+import { ProjectPost } from '@/types/md';
 import Link from 'next/link';
 import React from 'react';
 
@@ -23,7 +23,7 @@ const ProjectCard = ({
                 {tags
                   && tags.map((tag) => (
                     <div className="text-md inline-flex items-left leading-sm  px-1 py-0.5 bg-orange-200 text-orange-700 rounded-full">
-                      <p className="text-black ml-1 mr-1 text-left dark:text-white">
+                      <p className="text-gray-500 ml-1 mr-1 text-left dark:text-white">
                         #
                         {tag}
                       </p>

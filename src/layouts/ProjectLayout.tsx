@@ -1,9 +1,8 @@
-import { FunctionComponent } from 'react';
+import React, { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
-import ShareButtons from '@src/components/ShareButtons';
-import { ProjectPost } from '@src/types';
-import { Browser, Github } from '@src/Icons/Social';
-import { CustomHead } from '@src/components/CustomHead';
+import { ProjectPost } from '@/types/md';
+import { Browser, Github } from '@/icons/Social';
+import { CustomHead } from '@/components/CustomHead';
 
 interface Iprops {
   children: React.ReactNode;
@@ -83,11 +82,6 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
           <p className="text-lg mt-4 mb-4 leading-10 tracking-wider dark:text-gray-300 prose dark:prose-dark max-w-none w-full">
             {children}
           </p>
-        </div>
-        <div className="flex flex-col align-center items-center">
-          <ShareButtons
-            location={`https://lhowsam.com/projects/${frontMatter.slug}`}
-          />
         </div>
       </div>
     </>

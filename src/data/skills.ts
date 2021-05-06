@@ -12,23 +12,28 @@ export const Skills: { name: string; id: number }[] = [
     id: 3,
   },
   {
+    name: 'Cypress',
+    id: 4,
+  },
+
+  {
     name: 'Javascript (ES6+)',
     id: 5,
   },
   {
     name: 'Testing (automated & manual)',
-    id: 4,
-  },
-  {
-    name: 'Express',
     id: 6,
   },
   {
-    name: 'Node JS',
+    name: 'Express',
     id: 7,
   },
   {
-    name: 'Git / Github',
+    name: 'Node JS',
     id: 8,
+  },
+  {
+    name: 'Git / Github',
+    id: 9,
   },
 ];

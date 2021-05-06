@@ -1,51 +1,46 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "jest": true
-  },
-  "extends": ["plugin:react/recommended", "airbnb"],
-  "parser": "@typescript-eslint/parser",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
+    "env": {
+        "browser": true,
+        "es2021": true
     },
-    "ecmaVersion": 12
-  },
-  "plugins": ["react", "@typescript-eslint"],
-  "rules": {
-    "react/react-in-jsx-scope": "off",
-    "no-console": "warn",
-    "no-use-before-define": "off",
-    "import/extensions": "off",
-    "react/jsx-filename-extension": [
-      0,
-      { "extensions": [".tsx, .ts, .js, .jsx"] }
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb"
     ],
-    "react/jsx-props-no-spreading": "off",
-    "react/state-in-constructor": "off",
-    "no-unsafe-finally": "off",
-    "jsx-a11y/anchor-is-valid": "off",
-    "import/no-unresolved": "off",
-    "arrow-body-style": "off",
-    "jsx-no-lambda": "off",
-    "react/prop-types": "off",
-    "jsx-a11y/anchor-has-content": "off",
-    "import/prefer-default-export": "off",
-    "react/no-unescaped-entities": "off",
-    "no-multi-str": "off",
-    "max-len": "off",
-    "no-tabs": "off" // issue with tailwind class formatting
-  },
-  "globals": {
-    "React": "writable"
-  },
-  "ignorePatterns": ["node_modules/", ".next/", "cypress"],
-  "settings": {
-    "import/resolver": {
-      "alias": [
-        ["@src/*", "src/*"]
-      ]
-    }
-  }
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "react/react-in-jsx-scope": "off",
+        "no-console": "warn",
+        "no-use-before-define": "off",
+        "import/extensions": "off",
+        "react/jsx-filename-extension": [
+          0,
+          { "extensions": [".tsx, .ts, .js, .jsx"] }
+        ],
+        "react/jsx-props-no-spreading": "off",
+        "react/state-in-constructor": "off",
+        "no-unsafe-finally": "off",
+        "jsx-a11y/anchor-is-valid": "off",
+        "import/no-unresolved": "off",
+        "arrow-body-style": "off",
+        "jsx-no-lambda": "off",
+        "react/prop-types": "off",
+        "jsx-a11y/anchor-has-content": "off",
+        "import/prefer-default-export": "off",
+        "react/no-unescaped-entities": "off",
+        "no-multi-str": "off",
+        "max-len": "off",
+        "no-tabs": "off" // issue with tailwind class formatting
+    },
+    "ignorePatterns": ["node_modules/", ".next/", "cypress", "src/types/env.d.ts", "src/__tests__/*.*"]
 }
