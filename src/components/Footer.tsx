@@ -1,4 +1,5 @@
 import React from 'react';
+// @ts-ignore
 import {
   Email, Github, LinkedIn, Twitter,
 } from '@/icons/Social';
