@@ -38,7 +38,7 @@ jobs:
         run: npm ci
 
       - name: tsc
-        run: npm run tsc
+        run: tsc
 
       - name: Run UI tests 
         run: npm run cy:ci
