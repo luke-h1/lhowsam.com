@@ -13,18 +13,8 @@
 - [MDX](https://github.com/mdx-js/mdx)
 - [Typescript](https://github.com/Microsoft/TypeScript)
 - [Vercel](https://vercel.com/)
-- [Cypress](https://www.cypress.io/)
-- [Jest](https://jestjs.io/)
 
 <hr />
-
-
-## Tests 
-
-[![CI / UI tests (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml)
-
-[![CI / Nightly unit tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml)
-
 
 ## Structure: 
 
@@ -33,8 +23,17 @@
 * Main - Represents the code currently deployed on production. This branch will only get updated when a production deploy happens
 
 
+## Tests 
 
+[![CI / typecheck (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml)
+
+[![CI / unit tests (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-tests.yml)
+
+[![CI / Node.js builds (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nodejs.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nodejs.yml)
+
+[![CI / Nightly unit tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml)
 ## Inspirations
+
  - [leerob](https://github.com/leerob)
  - [mxstbr](https://github.com/mxstbr/mxstbr.com)
  - [prismicio](https://github.com/prismicio/nextjs-blog)
