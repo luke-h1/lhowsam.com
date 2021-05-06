@@ -2,8 +2,8 @@ import React, { FunctionComponent } from 'react';
 import { NextSeo } from 'next-seo';
 import { ProjectPost } from '@/types/md';
 // @ts-ignore
-import { Browser, Github } from '@/icons/Social';
 import { CustomHead } from '@/components/CustomHead';
+import { Browser, Github } from '../icons/Social';
 
 interface Iprops {
   children: React.ReactNode;

@@ -1,10 +1,10 @@
 import React from 'react';
 // @ts-ignore
-import {
-  Email, Github, LinkedIn, Twitter,
-} from '@/icons/Social';
 import Link from 'next/link';
 import { Links } from '@/data/links';
+import {
+  Email, Github, LinkedIn, Twitter,
+} from '../icons/Social';
 
 const Footer: React.FC<{}> = () => {
   return (
