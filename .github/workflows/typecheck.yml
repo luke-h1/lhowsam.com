@@ -18,15 +18,6 @@ jobs:
       - name: Checkout
         uses: luke-h1/checkout@v2.3.4
 
-      - name: Cache
-        uses: luke-h1/cache@v2.1.3
-        with:
-          path: |
-            ~/cache
-            ~/.dts/
-            !~/cache/exclude
-            **/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
 
       - name: Use (Volta) Node.js ${{ matrix.node-version }}
         uses: luke-h1/action@v1.6.0
