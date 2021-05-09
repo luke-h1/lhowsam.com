@@ -6,12 +6,14 @@
 ## Tech Stack: 
 - [React](https://github.com/facebook/react)
 - [Next](https://github.com/vercel/next.js)
+- [Cypress](https://cypress.io)
+- [Jest](https://jestjs.io/)
 - [tailwind](http://tailwindcss.com/)
 - [Emotion](https://github.com/emotion-js/emotion)
 - [Polished](https://github.com/styled-components/polished)
 - [React-icons](https://github.com/react-icons/react-icons)
-- [MDX](https://github.com/mdx-js/mdx)
 - [Typescript](https://github.com/Microsoft/TypeScript)
+- [MDX](https://github.com/mdx-js/mdx)
 - [Vercel](https://vercel.com/)
 
 <hr />
