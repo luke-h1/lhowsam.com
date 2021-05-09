@@ -39,5 +39,6 @@
   "exclude": [
     "node_modules",
     "cypress",  
+    "src/__mocks__"
   ]
 }

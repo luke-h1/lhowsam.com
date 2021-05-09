@@ -1,11 +1,12 @@
 import { Skills } from '../data/skills';
 
 test('Skills data is correct', () => {
-  expect(Skills).toHaveLength(8);
+  expect(Skills).toHaveLength(9);
   expect(Skills.map((skill) => skill.name)).toEqual([
     'React',
     'Next',
     'Typescript',
+    'Cypress',
     'Javascript (ES6+)',
     'Testing (automated & manual)',
     'Express',
@@ -30,16 +31,18 @@ test('data returns styled components as last item', () => {
   const Skill6 = Skills[5];
   const Skill7 = Skills[6];
   const Skill8 = Skills[7];
+  const Skill9 = Skills[8];
 
   const i = jest.fn((s) => s.name);
   i(Skill1); // React
   i(Skill2); // Next
   i(Skill3); // Typescript
-  i(Skill4); // Javascript (ES6+)
-  i(Skill5); // Testing (automated & manual)
-  i(Skill6); // Express
-  i(Skill7); // Node JS
-  i(Skill8); // Git / Github
+  i(Skill4); // Cypress
+  i(Skill5); // Javascript (ES6+)
+  i(Skill6); // Testing (automated & manual)
+  i(Skill7); // Express
+  i(Skill8); // Node JS
+  i(Skill9); // Git / Github
 
   expect(i).toHaveLastReturnedWith('Git / Github');
 });
