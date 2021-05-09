@@ -27,7 +27,7 @@
 
 ## Tests 
 
-[![CI / typecheck (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/typecheck.yml)
+[![CI / tsc (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/tsc.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/tsc.yml)
 
 [![CI / UI tests (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml)
 
