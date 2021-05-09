@@ -6,9 +6,12 @@ summary: 'Isolating features into seperate branches is a really common practice 
 ---
 
 Isolating features into seperate branches is a really common practice for most developers. By seperating features & bug fixes you can avoid a lot of problems and keep your branches clean.
+
+##
+
 At some point, you may reach a state where you want to integrate your feature branch with the rest of your project. This is where the git merge command comes into play
 
-
+##
 
 I recently ran into an issue where my feature branch conflicted with the dev branch. If I tried to merge my feature into the dev branch I would have had to deal with endless conflicts. This is where I needed to force the merge into my development branch
 
@@ -18,6 +21,8 @@ I recently ran into an issue where my feature branch conflicted with the dev bra
 Let's assume you want to merge branch hotfix into your master branch but the changes made in hotfix conflict with master. You know the changes in hotfix won't overwrite any important code in master and you need to get this fix deployed.
 
 
+##
+
 Before you touch anything ensure that your local repository (hotfix branch) is up to date with the latest changes from your remote origin with a:
 
 
@@ -26,6 +31,8 @@ git fetch && git status
 # If anything shows up here move it to your desktop 
 # or stash it
 ```
+
+
 <h1>Prepare your main / master branch</h1>
 
 ```shell

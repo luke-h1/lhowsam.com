@@ -5,7 +5,13 @@ tags: ['nextjs', 'typescript', 'jest', 'testing']
 summary: Sharing my thoughts on how to get setup with jest + typescript on Next JS
 ---
 
-Recently I tried Next and started to enjoy developing sites with it. I've found next js to have a smooth development process, the file structure to be well organized & the fast refresh dev server to be blazingly fast. In addition to this you will get <a href='https://dev.to/prateekvijayvergiya/server-side-rendering-with-next-js-1896' target='_blank'>server side rendering out the box</a> which means you can update content without re-building your project and your site can be crawled easily due to next sending down pre-rendered HTML for each page that a user visits
+Recently I tried Next and started to enjoy developing sites with it. I've found next js to have a smooth development process, the file structure to be well organized & the fast refresh dev server to be blazingly fast. 
+
+##
+
+In addition to this you will get <a href='https://dev.to/prateekvijayvergiya/server-side-rendering-with-next-js-1896' target='_blank'>server side rendering out the box</a> which means you can update content without re-building your project and your site can be crawled easily due to next sending down pre-rendered HTML for each page that a user visits
+
+##
 
 # What we'll cover
 * Install Next JS 
@@ -17,18 +23,16 @@ Recently I tried Next and started to enjoy developing sites with it. I've found 
 
 # Installing Next js 
 
-To start, open up a terminal and cd into a folder where you want to start this project. For this we are going to use the create-next-app which will create a basic next app to get started with.
+To start, open up a terminal and cd into a folder where you want to start this project. For this we are going to use the create-next-app which will create a basic next app to get started with. This will create a new next app in the current directory
 
 ```shell
 npx create-next-app .
 ```
 
-This will create a new next app in the current directory
 
 # Installing + configuring typescript 
 
 To start a basic typescript project I am going to leave the tsconfig in a loose mode (for brevity's sake). Having to deal with strict type errors will only hinder the point of this tutorial. 
-
 
 
 
@@ -37,6 +41,8 @@ npm i -D typescript @types/react @types/node
 ```
 
 Now that we have typescript installed we can begin renaming .js files to .ts & .tsx files. You generally want to name files that return JSX with .tsx and files that only contain javascript with .ts Your directory structure should look like the following: 
+
+##
 
 <Image 
 alt={`picture of directory structure`}
@@ -261,7 +267,11 @@ This enables access to the additional assertions provided by the `
 
 
 
-The last config file you will need is called .babelrc (create this at the root of your project). You won't need any package for babel to run - it's handled automatically via Next. Jest however will need this file to auto-detect how to transform the code before running tests. 
+The last config file you will need is called .babelrc (create this at the root of your project). You won't need any package for babel to run - it's handled automatically via Next. 
+
+##
+
+Jest however will need this file to auto-detect how to transform the code before running tests. 
 Add this to the file: 
 
 ````shell
