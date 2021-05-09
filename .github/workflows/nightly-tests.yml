@@ -1,4 +1,4 @@
-name: CI / Nightly tests 
+name: CI / Nightly tests (UI & unit)
 on: 
   schedule:
     - cron: '0 22 * * *'
@@ -12,8 +12,8 @@ jobs:
     - name: npm ci
       run: npm ci 
 
-    # - name: Run jest unit tests
-    #   run: npm run test
+    - name: Jest unit tests
+      run: npm run test:ci
 
-    - name: Run UI tests 
+    - name: Cypress UI tests 
       run: npm run cy:ci 
