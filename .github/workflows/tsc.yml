@@ -1,4 +1,4 @@
-name: CI / typecheck (push / pull)
+name: CI / tsc (push / pull)
 
 on:
   push:
