@@ -70,7 +70,7 @@
     "jest-watch-typeahead": "^0.6.3",
     "lint-staged": "^11.0.0",
     "postcss": "^8.2.14",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.0",
     "start-server-and-test": "^1.12.1",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
