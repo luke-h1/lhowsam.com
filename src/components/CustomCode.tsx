@@ -1,7 +1,9 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-shadow */
+
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import theme from 'prism-react-renderer/themes/nightOwl';
 
 interface CodeProps {

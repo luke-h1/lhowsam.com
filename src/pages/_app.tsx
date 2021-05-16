@@ -1,4 +1,3 @@
-import type { AppProps } from 'next/app';
 import '@src/styles/index.css';
 import Flex from '@src/components/Flex';
 import Nav from '@src/components/Nav';
@@ -7,6 +6,7 @@ import * as gtag from '@src/utils/gtag';
 import { useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import Footer from '@src/components/Footer';
+import type { AppProps } from 'next/app';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
