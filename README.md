@@ -36,6 +36,11 @@
 [![CI / Node.js builds (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nodejs.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nodejs.yml)
 
 [![CI / Nightly unit tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml)
+
+[![CI / lint (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/lint.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/lint.yml)
+
+[![CI / format (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/format.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/format.yml)
+
 ## Inspirations
 
  - [leerob](https://github.com/leerob)
