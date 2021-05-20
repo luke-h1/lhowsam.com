@@ -1,4 +1,4 @@
-name: CI / tsc (push / pull)
+name: CI / build (push / pull)
 
 on:
   push:
@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [12.x, 14.x]
 
     steps:
       - name: Checkout
@@ -36,5 +36,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: format
+        run: npm run format
+
+      - name: lint
+        run: npm run lint
+
+      - name: Jest unit tests
+        run: npm run test:ci
+
+      - name: Cypress UI tests 
+        run: npm run cy:ci 
+      
       - name: tsc
         run: npm run tsc
+
+      - name: build frontend 
+        run: npm run build 
