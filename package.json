@@ -69,7 +69,7 @@
     "jest-serializer-html": "^7.0.0",
     "jest-watch-typeahead": "^0.6.3",
     "lint-staged": "^11.0.0",
-    "postcss": "^8.2.15",
+    "postcss": "^8.3.0",
     "prettier": "^2.3.0",
     "start-server-and-test": "^1.12.2",
     "stylelint": "^13.13.1",
