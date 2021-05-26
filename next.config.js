@@ -1,16 +1,8 @@
-/* eslint-disable */
 module.exports = {
   trailingSlash: true,
   webpack(config, { isServer }) {
-    config.module.rules.push({
-      test: /\.md$/,
-      use: 'raw-loader',
-    });
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      '~': __dirname,
-    };
     if (isServer) {
+      // eslint-disable-next-line global-require
       require('./src/utils/gen-sitemap.js');
     }
     return config;
