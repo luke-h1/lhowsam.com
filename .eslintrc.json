@@ -38,9 +38,7 @@
         "jsx-a11y/anchor-has-content": "off",
         "import/prefer-default-export": "off",
         "react/no-unescaped-entities": "off",
-        "no-multi-str": "off",
-        "max-len": "off",
-        "no-tabs": "off" // issue with tailwind class formatting
+        "no-multi-str": "off"
     },
     "ignorePatterns": ["node_modules/", ".next/", "cypress", "src/types/env.d.ts", "src/__tests__/*.*", "test", "src/__mocks__"]
 }
