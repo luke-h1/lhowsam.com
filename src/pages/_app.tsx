@@ -2,6 +2,7 @@ import type { AppProps } from 'next/app';
 import { useRouter } from 'next/dist/client/router';
 import { useEffect } from 'react';
 import * as gtag from '@src/utils/gtag';
+import { Reset } from '@src/styles/Reset';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -15,7 +16,12 @@ function MyApp({ Component, pageProps }: AppProps) {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, [router.events]);
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Reset />
+      <Component {...pageProps} />
+    </>
+  );
 }
 
 export default MyApp;
