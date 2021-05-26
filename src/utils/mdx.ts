@@ -6,25 +6,6 @@ import readingTime from 'reading-time';
 import renderToString from 'next-mdx-remote/render-to-string';
 import MDXComponents from '@src/components/MDXComponents';
 
-export interface PostData {
-  path: string;
-  title: string;
-  subtitle?: string;
-  content: string;
-  description?: string;
-  canonicalUrl?: string;
-  githubUrl?: string;
-  siteUrl: string;
-  published: string;
-  datePublished: string;
-  author?: string;
-  authorPhoto: string;
-  authorTwitter?: string;
-  tags?: string[];
-  bannerPhoto?: string;
-  thumbnailPhoto?: string;
-}
-
 const root = `${process.cwd()}/src`;
 
 export async function getFiles(type: string) {
