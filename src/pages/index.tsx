@@ -6,7 +6,6 @@ import { BlogPost, ProjectPost } from '@src/types/md';
 import { getAllFilesFrontmatter } from '@src/utils/mdx';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
-import Link from 'next/link';
 
 const Home = ({
   posts,
@@ -38,16 +37,8 @@ const Home = ({
             className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
             data-testid="i-intro-1"
           >
-            I am a software tester who loves to work on big projects where I can
-            grow interpersonally & technically.
-            {' '}
-          </p>
-          <p
-            className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
-            data-testid="i-intro-2"
-          >
-            I have experience working in agile environments, testing features
-            end to end, various frontend languages, technologies & tooling.
+            I have experience working in agile environments, testing features,
+            various frontend languages, technologies & tooling.
           </p>
           <p
             className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
@@ -55,24 +46,6 @@ const Home = ({
           >
             At the moment I enjoy working with React, GraphQL, SQL, Cypress &
             Styled Components
-          </p>
-          <p
-            className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
-            data-testid="i-intro-3"
-          >
-            In my spare time I work on open source projects that typically use
-            React, Next, Graphql, Express & Node. You can check out some of my
-            open source projects
-            {' '}
-            <Link href="/projects" passHref>
-              <a
-                className="text-black hover: underline dark:text-white"
-                aria-label="projects"
-              >
-                here
-              </a>
-            </Link>
-            <hr className="text-black dark:text-white border border-solid" />
           </p>
         </div>
         <div className="max-w-lg w-full align-left mb-8 ">
