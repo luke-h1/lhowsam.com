@@ -1,7 +1,7 @@
+import { Box, Flex, Text } from '@chakra-ui/react';
 import BlogCard from '@src/components/BlogCard';
 import { CustomHead } from '@src/components/CustomHead';
 import ProjectCard from '@src/components/ProjectCard';
-import Wrapper from '@src/components/Wrapper';
 import { BlogPost, ProjectPost } from '@src/types/md';
 import { getAllFilesFrontmatter } from '@src/utils/mdx';
 import { GetStaticProps } from 'next';
@@ -27,45 +27,50 @@ const Home = ({
           title: 'Home',
         }}
       />
-      <Wrapper>
-        <div className="h-6" />
-        <h1 className="text-4xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-5">
+      <Flex
+        direction="column"
+        alignItems="center"
+        alignContent="center"
+        w="700px"
+        minH="20vh"
+      >
+        <Text as="h1" fontSize="37px" fontWeight="bold" mb="4">
           Hi, I'm Luke 👋
-        </h1>
-        <div className="align-left mb-5">
-          <p
-            className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
+        </Text>
+        <div>
+          <Text
+            as="p"
+            fontSize="19px"
+            textAlign="left"
             data-testid="i-intro-1"
+            mb="3"
           >
             I have experience working in agile environments, testing features,
             various frontend languages, technologies & tooling.
-          </p>
-          <p
-            className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
-            data-testid="i-intro-2"
-          >
+          </Text>
+          <Text as="p" fontSize="19px" textAlign="left" data-testid="i-intro-1">
             At the moment I enjoy working with React, GraphQL, SQL, Cypress &
             Styled Components
-          </p>
+          </Text>
         </div>
-        <div className="max-w-lg w-full align-left mb-8 ">
-          <h1 className="text-3xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-3">
-            Blog
-          </h1>
-          {filterPosts.map((frontMatter) => (
-            <BlogCard {...frontMatter} key={frontMatter.slug} />
-          ))}
-        </div>
-        <div className="max-w-lg w-full align-left ">
-          <h1 className="text-3xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-5">
-            Projects
-          </h1>
-          {projects.map((frontMatter) => (
-            <ProjectCard {...frontMatter} key={frontMatter.slug} />
-          ))}
-        </div>
-        {' '}
-      </Wrapper>
+      </Flex>
+      <Box maxW="full">
+        <Text as="h2" textAlign="left" fontSize="32px" fontWeight="medium">
+          Blog
+        </Text>
+        {filterPosts.map((frontMatter) => (
+          <BlogCard {...frontMatter} key={frontMatter.slug} />
+        ))}
+      </Box>
+      <Box mt={4} maxW="full">
+        <Text as="h2" textAlign="left" fontSize="32px" fontWeight="medium">
+          Projects
+        </Text>
+        {projects.map((frontMatter) => (
+          <ProjectCard {...frontMatter} key={frontMatter.slug} />
+        ))}
+      </Box>
+      {' '}
     </>
   );
 };
@@ -74,6 +79,5 @@ export default Home;
 export const getStaticProps: GetStaticProps = async () => {
   const posts = await getAllFilesFrontmatter('blog');
   const projects = await getAllFilesFrontmatter('project');
-
   return { props: { posts, projects } };
 };

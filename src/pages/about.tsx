@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 import { NextSeo } from 'next-seo';
 import { CustomHead } from '@src/components/CustomHead';
 import { Skills } from '@src/data/skills';
+import { Text } from '@chakra-ui/react';
 
 const StyledAboutSection = styled.section`
   max-width: 750px;
@@ -99,14 +100,19 @@ const About = () => {
         }}
       />
       <StyledAboutSection>
-        <h2 className="text-3xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-5">
+        <Text as="h1" fontSize="37px" fontWeight="bold" mb="4">
           About me
-        </h2>
+        </Text>
         <div className="inner">
           <StyledText>
             <div>
-              <p
-                className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300"
+              <Text
+                as="p"
+                fontSize="19px"
+                fontWeight="normal"
+                color="gray.700"
+                textAlign="left"
+                lineHeight="9"
                 data-testid="ab-intro-1"
               >
                 Hi, my name is Luke and I enjoy working on big projects and
@@ -114,14 +120,18 @@ const About = () => {
                 build scalable & maintainable software. I currently work as a
                 software tester where I do a mixture of manual & automated
                 testing in an agile environment
-              </p>
+              </Text>
             </div>
-            <p
-              className="md:leading-10 text-1xl tracking-md text-left text-gray-700 mr-2 sm:text-md ml-4 leading-10 mb-4 dark:text-gray-300 underline"
-              data-testid="ab-intro-2"
+            <Text
+              mt={4}
+              as="p"
+              fontSize="19px"
+              textAlign="left"
+              data-testid="i-intro-1"
             >
               Here is a list of tech I've been working with recently
-            </p>
+            </Text>
+
             <ul className="skills-list">
               {Skills && Skills.map((s) => <li key={s.id}>{s.name}</li>)}
             </ul>

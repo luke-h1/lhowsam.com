@@ -1,4 +1,5 @@
 import '@src/styles/index.css';
+import { ChakraProvider } from '@chakra-ui/react';
 import Flex from '@src/components/Flex';
 import Nav from '@src/components/Nav';
 import { DefaultSeo } from 'next-seo';
@@ -44,11 +45,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           cardType: 'summary_large_image',
         }}
       />
-      <Nav />
-      <Flex>
-        <Component {...pageProps} />
-      </Flex>
-      <Footer />
+      <ChakraProvider>
+        <Nav />
+        <Flex>
+          <Component {...pageProps} />
+        </Flex>
+        <Footer />
+      </ChakraProvider>
     </>
   );
 }
