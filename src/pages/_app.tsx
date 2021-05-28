@@ -5,8 +5,8 @@ import { DefaultSeo } from 'next-seo';
 import * as gtag from '@src/utils/gtag';
 import { useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
-import Footer from '@src/components/Footer';
 import type { AppProps } from 'next/app';
+import { Footer } from '@src/components/theme/Footer';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

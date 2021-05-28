@@ -48,7 +48,7 @@ const Home = ({
             Styled Components
           </p>
         </div>
-        <div className="max-w-lg w-full align-left mb-8 ">
+        <div className="max-w-lg w-full align-left mb-8">
           <h1 className="text-3xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-3">
             Blog
           </h1>
@@ -57,7 +57,7 @@ const Home = ({
           ))}
         </div>
         <div className="max-w-lg w-full align-left ">
-          <h1 className="text-3xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-5">
+          <h1 className="text-3xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-3">
             Projects
           </h1>
           {projects.map((frontMatter) => (
