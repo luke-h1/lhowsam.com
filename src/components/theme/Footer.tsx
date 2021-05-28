@@ -1,6 +1,9 @@
 import React from 'react';
 import { Container } from '@src/components/common/Container';
 import styled from '@emotion/styled';
+import {
+  Twitter, LinkedIn, Github, Email,
+} from '@src/Icons/Social';
 
 export const Wrapper = styled.div`
   padding: 28rem 0 4rem 0;
@@ -61,7 +64,47 @@ export const Footer = () => (
       <Details>
         <h2>Luke H</h2>
       </Details>
-      <Links>TODO: Map thru social links here...</Links>
+      <Links>
+        <a
+          className="md:block cursor-pointer text-gray-600 hover:text-blue-300 uppercase ml-2 mr-2"
+          href="https://twitter.com/LukeH_1999"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Twitter"
+        >
+          <Twitter />
+        </a>
+        <a
+          className="md:block cursor-pointer text-gray-600 hover:text-blue-300 uppercase ml-2 mr-2"
+          href="https://www.linkedin.com/in/lukehowsam"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Linkedin"
+        >
+          <LinkedIn />
+        </a>
+        <a
+          className="md:block cursor-pointer text-gray-600 hover:text-blue-300 uppercase ml-2 mr-2"
+          href="https://github.com/luke-h1"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Githu"
+        >
+          <Github />
+          {' '}
+        </a>
+        <a
+          className="md:block cursor-pointer text-gray-600 hover:text-blue-300 uppercase ml-2 mr-2"
+          href="mailto:luke.howsam@yahoo.com?subject=Get In Touch"
+          title="Email"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Email"
+        >
+          <Email />
+          {' '}
+        </a>
+      </Links>
     </Flex>
   </Wrapper>
 );
