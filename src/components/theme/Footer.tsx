@@ -6,7 +6,7 @@ import {
 } from '@src/Icons/Social';
 
 export const Wrapper = styled.div`
-  padding: 28rem 0 4rem 0;
+  padding: 8rem 0 4rem 0;
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;

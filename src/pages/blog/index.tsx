@@ -1,9 +1,11 @@
 import React from 'react';
+import { Box, Text } from '@chakra-ui/react';
 import { NextSeo } from 'next-seo';
 import { getAllFilesFrontmatter } from '@src/utils/mdx';
 import Card from '@src/components/Card';
 import { BlogPost } from '@src/types/md';
 import { CustomHead } from '@src/components/CustomHead';
+import Wrapper from '@src/components/Wrapper';
 
 const Index = ({ posts }: { posts: BlogPost[] }) => {
   const filterPosts = posts.sort(
@@ -20,15 +22,17 @@ const Index = ({ posts }: { posts: BlogPost[] }) => {
           title: 'Blog',
         }}
       />
-      <h1 className="text-4xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-5">
+      <Text fontSize="30px" fontWeight="bold">
         Blog
-      </h1>
-      <div className="max-w-lg w-full align-left ">
-        {!filterPosts.length && 'No blog posts found'}
-        {filterPosts.map((frontMatter) => (
-          <Card key={frontMatter.title} {...frontMatter} />
-        ))}
-      </div>
+      </Text>
+      <Wrapper>
+        <Box as="div">
+          {filterPosts.length
+            && filterPosts.map((frontMatter) => (
+              <Card key={frontMatter.title} {...frontMatter} />
+            ))}
+        </Box>
+      </Wrapper>
     </>
   );
 };

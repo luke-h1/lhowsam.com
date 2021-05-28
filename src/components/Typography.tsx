@@ -1,44 +1,33 @@
+import { Text } from '@chakra-ui/react';
 import { MdxRemote } from 'next-mdx-remote/types';
 import React from 'react';
 
 export const H1 = ({ children }: MdxRemote.Components) => (
-  <h1 className="text-3xl py-1 px-1 mt-4 mb-4 dark:text-gray-300">
+  <Text as="h1" fontSize="35px" py={1} mt={4} mb={2}>
     {children}
-  </h1>
+  </Text>
 );
 
 export const H2 = ({ children }: MdxRemote.Components) => (
-  <h2 className="text-3xl py-1 px-1 mt-1 mb-1 dark:text-gray-400">
+  <Text as="h2" fontSize="30px" py={1} mt={1} mb={2}>
     {children}
-  </h2>
+  </Text>
 );
 
 export const H3 = ({ children }: MdxRemote.Components) => (
-  <h3 className="text-3xl py-1 px-1 mt-1 mb-1 dark:text-gray-300">
+  <Text as="h3" fontSize="27px" py={1} mt={1} mb={1}>
     {children}
-  </h3>
+  </Text>
 );
 
 export const H4 = ({ children }: MdxRemote.Components) => (
-  <h4 className="text-3xl py-1 px-1 mt-1 mb-1 dark:text-gray-300">
+  <Text as="h4" fontSize="23px" py={1} mt={1} mb={1}>
     {children}
-  </h4>
-);
-
-export const H5 = ({ children }: MdxRemote.Components) => (
-  <h5 className="text-3xl py-1 px-1 mt-1 mb-1 dark:text-gray-300">
-    {children}
-  </h5>
-);
-
-export const H6 = ({ children }: MdxRemote.Components) => (
-  <h6 className="text-3xl py-1 px-1 mt-1 mb-1 dark:text-gray-300">
-    {children}
-  </h6>
+  </Text>
 );
 
 export const P = ({ children }: MdxRemote.Components) => (
-  <p className="text-3xl leading-4 py-1 px-1 mt-1 mb-1 dark:text-gray-300">
+  <Text as="p" fontSize="18px" py={1} mt={1} mb={1}>
     {children}
-  </p>
+  </Text>
 );

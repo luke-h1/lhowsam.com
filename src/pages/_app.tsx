@@ -1,13 +1,12 @@
-import '@src/styles/index.css';
-import Flex from '@src/components/Flex';
+import '@src/styles/styles.scss';
 import Nav from '@src/components/Nav';
 import { DefaultSeo } from 'next-seo';
 import * as gtag from '@src/utils/gtag';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import type { AppProps } from 'next/app';
 import { Footer } from '@src/components/theme/Footer';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Flex } from '@chakra-ui/react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -47,7 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       />
       <ChakraProvider>
         <Nav />
-        <Flex>
+        <Flex direction="column" alignItems="center" justifyContent="center">
           <Component {...pageProps} />
         </Flex>
         <Footer />

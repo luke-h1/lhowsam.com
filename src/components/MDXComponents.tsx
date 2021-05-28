@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import {
-  H1, H2, H3, H4, H5, H6, P,
+  H1, H2, H3, H4, P,
 } from '@src/components/Typography';
 import { MdxRemote } from 'next-mdx-remote/types';
 import { CustomCode } from '../components/CustomCode';
@@ -19,17 +19,11 @@ const MDXComponents = {
   h2: (props: MdxRemote.Source) => <H2 {...props} />,
   h3: (props: MdxRemote.Source) => <H3 {...props} />,
   h4: (props: MdxRemote.Source) => <H4 {...props} />,
-  h5: (props: MdxRemote.Source) => <H5 {...props} />,
-  h6: (props: MdxRemote.Source) => <H6 {...props} />,
-  br: (props: MdxRemote.Source) => <br {...props} className="mb-4" />,
-  hr: (props: MdxRemote.Source) => <hr {...props} className="text-gray-600" />,
+  hr: (props: MdxRemote.Source) => <hr {...props} className="underline" />,
   ul: (props: string | null) => (
     <ul {...props} className="list-none mt-4 mb-4" />
   ),
   ol: (props: MdxRemote.Components) => <ol {...props} />,
-  li: (props: MdxRemote.Components) => (
-    <li className="mt-4 mb-4 ml-4 list-disc" {...props} />
-  ),
   P: (props: MdxRemote.Source) => <P {...props} />,
   code: CustomCode,
   blockquote: Quote,

@@ -3,6 +3,8 @@ import { NextSeo } from 'next-seo';
 import { ProjectPost } from '@src/types/md';
 import { CustomHead } from '@src/components/CustomHead';
 import { Browser, Github } from '@src/Icons/Social';
+import Wrapper from '@src/components/Wrapper';
+import { Flex, Text } from '@chakra-ui/react';
 
 interface Iprops {
   children: React.ReactNode;
@@ -37,7 +39,7 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
         image={`${frontMatter.ogImage && frontMatter.ogImage}`}
       />
 
-      <div className="max-w-lg w-full p-2 min-h-screen h-full">
+      <Wrapper>
         <NextSeo
           title={`${frontMatter.title}`}
           canonical={`https://lhowsam.com/projects/${frontMatter.slug}`}
@@ -46,9 +48,16 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
             title: `${frontMatter.title}`,
           }}
         />
-        <article className="flex flex-col max-w-lg w-full mx-0 mb-5">
-          <h1 className="text-3xl dark:text-gray-300">{frontMatter.title}</h1>
-          <div className="flex flex-row mt-5 dark:text-gray-300">
+        <Flex as="div" direction="column" mx={0} mb={3}>
+          <Text as="h1" fontSize="30px">
+            {frontMatter.title}
+          </Text>
+          <Flex
+            mt={2}
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="center"
+          >
             <a
               href={frontMatter.github}
               target="_blank"
@@ -75,15 +84,13 @@ const ProjectLayout: FunctionComponent<Iprops> = ({
                 <Browser />
               </a>
             )}
-          </div>
-        </article>
-        <hr />
-        <div className="prose dark:prose-dark max-w-none w-full">
-          <p className="text-lg mt-4 mb-4 leading-10 tracking-wider dark:text-gray-300 prose dark:prose-dark max-w-none w-full">
-            {children}
-          </p>
-        </div>
-      </div>
+          </Flex>
+        </Flex>
+        <hr className="underline" />
+        <Text as="p" mt={4} lineHeight={10} fontSize="18px" maxW="70%">
+          {children}
+        </Text>
+      </Wrapper>
     </>
   );
 };
