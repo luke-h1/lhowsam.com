@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import { useRouter } from 'next/dist/client/router';
 import type { AppProps } from 'next/app';
 import { Footer } from '@src/components/theme/Footer';
+import { ChakraProvider } from '@chakra-ui/react';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -44,11 +45,13 @@ function MyApp({ Component, pageProps }: AppProps) {
           cardType: 'summary_large_image',
         }}
       />
-      <Nav />
-      <Flex>
-        <Component {...pageProps} />
-      </Flex>
-      <Footer />
+      <ChakraProvider>
+        <Nav />
+        <Flex>
+          <Component {...pageProps} />
+        </Flex>
+        <Footer />
+      </ChakraProvider>
     </>
   );
 }
