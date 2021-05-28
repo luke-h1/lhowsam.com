@@ -46,7 +46,7 @@ const Home = ({
           as="p"
           fontSize="18px"
           textAlign="left"
-          data-testid="i-intro-1"
+          data-testid="i-intro-2"
           maxW="70%"
         >
           At the moment I enjoy working with React, GraphQL, SQL, Cypress &
