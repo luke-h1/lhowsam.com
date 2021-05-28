@@ -48,14 +48,15 @@ const Home = ({
           textAlign="left"
           data-testid="i-intro-2"
           maxW="70%"
+          mb={7}
         >
           At the moment I enjoy working with React, GraphQL, SQL, Cypress &
           Styled Components
         </Text>
         <Box as="div">
-          <h1 className="text-3xl text-left md:leading-10 tracking-wide text-gray-700 mr-2 sm:text-md ml-4 leading-10 dark:text-gray-300 font-bold mb-3">
+          <Text fontSize="30px" fontWeight="bold">
             Blog
-          </h1>
+          </Text>
           {filterPosts.map((frontMatter) => (
             <Card {...frontMatter} key={frontMatter.slug} />
           ))}
