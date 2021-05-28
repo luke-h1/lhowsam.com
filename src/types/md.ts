@@ -6,14 +6,19 @@ export interface BlogPost {
   tags: string[];
   readingTime: { text: string; minutes: number; time: number; word: number };
   ogImage?: string;
+  type: string;
+  github?: string;
+  site?: string;
 }
 
 export interface ProjectPost {
   summary: string;
-  github: string;
   slug: string;
   tags: string[];
   title: string;
-  site?: string;
+  date?: string;
+  type: string;
   ogImage?: string;
+  github?: string;
+  site?: string;
 }

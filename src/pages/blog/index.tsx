@@ -1,7 +1,7 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import { getAllFilesFrontmatter } from '@src/utils/mdx';
-import BlogCard from '@src/components/BlogCard';
+import Card from '@src/components/Card';
 import { BlogPost } from '@src/types/md';
 import { CustomHead } from '@src/components/CustomHead';
 
@@ -26,7 +26,7 @@ const Index = ({ posts }: { posts: BlogPost[] }) => {
       <div className="max-w-lg w-full align-left ">
         {!filterPosts.length && 'No blog posts found'}
         {filterPosts.map((frontMatter) => (
-          <BlogCard key={frontMatter.title} {...frontMatter} />
+          <Card key={frontMatter.title} {...frontMatter} />
         ))}
       </div>
     </>

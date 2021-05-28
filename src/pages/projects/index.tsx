@@ -1,7 +1,7 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import { getAllFilesFrontmatter } from '@src/utils/mdx';
-import ProjectCard from '@src/components/ProjectCard';
+import Card from '@src/components/Card';
 import { ProjectPost } from '@src/types/md';
 import { CustomHead } from '@src/components/CustomHead';
 
@@ -21,16 +21,8 @@ const Index = ({ projects }: { projects: ProjectPost[] }) => {
         Projects
       </h1>
       <div className="max-w-lg w-full align-left ">
-        {projects.map((project) => (
-          <ProjectCard
-            title={project.title}
-            summary={project.summary}
-            slug={project.slug}
-            tags={project.tags}
-            github={project.github}
-            site={project.site}
-            key={project.title}
-          />
+        {projects.map((frontMatter) => (
+          <Card {...frontMatter} key={frontMatter.slug} />
         ))}
       </div>
     </>
