@@ -14,40 +14,38 @@ const Card = ({
   type,
 }: BlogPost | ProjectPost) => {
   return (
-    <>
-      <Link href={`/${type}/${slug}`}>
-        <a>
-          <Box
-            color="black"
-            shadow="sm"
-            rounded="md"
-            data-testid="card"
-            maxW="md"
-            mt={6}
-            mb={7}
-            borderWidth="1px"
-            borderRadius="md"
-            overflow="hidden"
-          >
-            <Heading m="5" mb="2" as="h1" size="lg">
-              {title}
-            </Heading>
-            <Text m="5" mt="2" mb="4">
-              {summary && summary}
-            </Text>
-            <Text m="5" mt="2" mb="4">
-              {date && date}
-            </Text>
-            {tags && tags.map((t) => (
-              <Tag m={2}>
-                #
-                {t}
-              </Tag>
-            ))}
-          </Box>
-        </a>
-      </Link>
-    </>
+    <Link href={`/${type}/${slug}`}>
+      <a>
+        <Box
+          color="black"
+          shadow="sm"
+          rounded="md"
+          data-testid="card"
+          maxW="md"
+          mt={6}
+          mb={7}
+          borderWidth="1px"
+          borderRadius="md"
+          overflow="hidden"
+        >
+          <Heading m="5" mb="2" as="h1" size="lg">
+            {title}
+          </Heading>
+          <Text m="5" mt="2" mb="4">
+            {summary && summary}
+          </Text>
+          <Text m="5" mt="2" mb="4">
+            {date && date}
+          </Text>
+          {tags && tags.map((t) => (
+            <Tag m={2}>
+              #
+              {t}
+            </Tag>
+          ))}
+        </Box>
+      </a>
+    </Link>
   );
 };
 

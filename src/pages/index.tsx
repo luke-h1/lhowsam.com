@@ -58,7 +58,7 @@ const Home = ({
             Blog
           </Text>
           {filterPosts.map((frontMatter) => (
-            <Card {...frontMatter} key={frontMatter.slug} />
+            <Card {...frontMatter} />
           ))}
         </Box>
 
@@ -67,7 +67,7 @@ const Home = ({
             Projects
           </Text>
           {projects.map((frontMatter) => (
-            <Card {...frontMatter} key={frontMatter.slug} />
+            <Card {...frontMatter} />
           ))}
         </Box>
       </Wrapper>

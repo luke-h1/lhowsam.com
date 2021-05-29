@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 const NavbarContainer = styled.div`
   min-width: 100vw;
+  max-width: 100vw;
   height: 65px;
   z-index: 20;
   background: #fff;
@@ -14,6 +15,7 @@ const NavbarContainer = styled.div`
 
 const NavbarWrap = styled.div`
   width: 1200px;
+  max-width: 100vw;
   height: 100%;
   margin: 0 auto;
   z-index: 20;
