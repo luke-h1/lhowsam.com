@@ -33,10 +33,10 @@ const Card = ({
               {title}
             </Heading>
             <Text m="5" mt="2" mb="4">
-              {summary}
+              {summary && summary}
             </Text>
             <Text m="5" mt="2" mb="4">
-              {date}
+              {date && date}
             </Text>
             {tags && tags.map((t) => (
               <Tag m={2}>
