@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import styled from '@emotion/styled';
-import { SiteLogo } from '@src/Icons/SiteLogo';
 
 const NavbarContainer = styled.div`
   min-width: 100vw;
@@ -84,9 +83,7 @@ const Navbar = () => {
           </Link>
         </Nav>
         <Search>
-          <SearchWrap>
-            <SiteLogo />
-          </SearchWrap>
+          <SearchWrap />
         </Search>
         {/* <ButtonContainer>
           <Button
