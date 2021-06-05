@@ -1,6 +1,6 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { getAllFilesFrontmatter } from '@src/utils/mdx';
+import { getAllFilesFrontMatter } from '@src/utils/mdx';
 import Card from '@src/components/Card';
 import { ProjectPost } from '@src/types/md';
 import { CustomHead } from '@src/components/CustomHead';
@@ -33,7 +33,7 @@ const Index = ({ projects }: { projects: ProjectPost[] }) => {
   );
 };
 export async function getStaticProps() {
-  const projects = await getAllFilesFrontmatter('project');
+  const projects = await getAllFilesFrontMatter('project');
   return { props: { projects } };
 }
 export default Index;

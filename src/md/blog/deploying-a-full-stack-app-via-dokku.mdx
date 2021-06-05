@@ -10,12 +10,12 @@ summary: 'How to deploy a full stack app with Dokku to AWS / Digital Ocean. Cost
 
 # Deploy with dokku to Digital ocean / AWS EC2 instance 
 
-<br /> 
+## 
 
 ### This deployment example uses Postgres, Redis & Node 
 
 
-<br /> 
+## 
 
 
 ## Cloud providers
@@ -31,7 +31,7 @@ AWS & Digital ocean provide Dokku images (among other useful images - https://aw
 * AWS: https://aws.amazon.com/marketplace/pp/Miri-Infotech-Dokku-Platform-as-a-service-solution/B08GYPVW4M 
  
 
-<br />
+##
 
 **VPS / EC2**
 - create new VPS with dokku image or install dokku yourself 
@@ -47,7 +47,7 @@ AWS & Digital ocean provide Dokku images (among other useful images - https://aw
 - Link the redis instance to the API `dokku redis:link <REDIS_INSTANCE_NAME> <API_NAME>`
 - run `docker container list` & make postgres & redis are running
 
-<br />
+##
 
 **Locally** 
 * comment out any old migrations 
@@ -56,7 +56,7 @@ AWS & Digital ocean provide Dokku images (among other useful images - https://aw
 * Create a Dockerfile image locally (this will be responsible for building & running the backend for production)
 * Push the Docker image up to Docker hub
 
-<br />
+##
 
 **VPS / EC2** 
 * Pull the Docker image you've pushed up to Docker hub: `docker pull <USERNAME>/<API_NAME>`
@@ -89,7 +89,7 @@ AWS & Digital ocean provide Dokku images (among other useful images - https://aw
 * Deploy the API to production: `dokku tags:deploy <API_NAME> latest`
 * Your backend should now be successfully deployed
 
-<br />
+##
 
 **Frontend**
 * Add a URL redirect to your DNS config to the main domain name (assuming you've setup a sub domain such as `api.yourdomainname.com` for the API).

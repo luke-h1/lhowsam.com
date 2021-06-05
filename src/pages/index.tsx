@@ -2,7 +2,7 @@ import { CustomHead } from '@src/components/CustomHead';
 import Card from '@src/components/Card';
 import Wrapper from '@src/components/Wrapper';
 import { BlogPost, ProjectPost } from '@src/types/md';
-import { getAllFilesFrontmatter } from '@src/utils/mdx';
+import { getAllFilesFrontMatter } from '@src/utils/mdx';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { Box, Text } from '@chakra-ui/react';
@@ -78,8 +78,8 @@ const Home = ({
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllFilesFrontmatter('blog');
-  const projects = await getAllFilesFrontmatter('project');
+  const posts = await getAllFilesFrontMatter('blog');
+  const projects = await getAllFilesFrontMatter('project');
 
   return { props: { posts, projects } };
 };
