@@ -1,24 +1,19 @@
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable no-shadow */
-
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import theme from 'prism-react-renderer/themes/nightOwl';
 
 interface CodeProps {
   children: String & React.ReactNode;
-  className: String;
 }
 
-export const CustomCode: React.FC<CodeProps> = ({ children, className }) => {
-  const language: any = className.replace(/language-/, '');
+const Code: React.FC<CodeProps> = ({ children }) => {
   return (
     <Highlight
       {...defaultProps}
       theme={theme}
       code={children.trim()}
-      language={language}
+      language="typescript"
     >
       {({
         className, style, tokens, getLineProps, getTokenProps,
@@ -45,3 +40,5 @@ export const CustomCode: React.FC<CodeProps> = ({ children, className }) => {
     </Highlight>
   );
 };
+
+export default Code;

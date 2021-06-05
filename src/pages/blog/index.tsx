@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Text } from '@chakra-ui/react';
 import { NextSeo } from 'next-seo';
-import { getAllFilesFrontmatter } from '@src/utils/mdx';
+import { getAllFilesFrontMatter } from '@src/utils/mdx';
 import Card from '@src/components/Card';
 import { BlogPost } from '@src/types/md';
 import { CustomHead } from '@src/components/CustomHead';
@@ -38,7 +38,7 @@ const Index = ({ posts }: { posts: BlogPost[] }) => {
 };
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontmatter('blog');
+  const posts = await getAllFilesFrontMatter('blog');
   return { props: { posts } };
 }
 export default Index;

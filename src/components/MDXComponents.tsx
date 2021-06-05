@@ -3,29 +3,28 @@ import React from 'react';
 import {
   H1, H2, H3, H4, P,
 } from '@src/components/Typography';
-import { MdxRemote } from 'next-mdx-remote/types';
-import { CustomCode } from '../components/CustomCode';
+import Code from './Code';
 
-const Quote = (props: MdxRemote.Source) => {
+const Quote = (props: any) => {
   return <p className="text-red-500" {...props} />;
 };
 
 const MDXComponents = {
   Image,
-  a: (props: MdxRemote.Source) => (
+  a: (props: any) => (
     <a className="text-blue-300 underline hover:text-blue-500" {...props} />
   ),
-  h1: (props: MdxRemote.Source) => <H1 {...props} />,
-  h2: (props: MdxRemote.Source) => <H2 {...props} />,
-  h3: (props: MdxRemote.Source) => <H3 {...props} />,
-  h4: (props: MdxRemote.Source) => <H4 {...props} />,
-  hr: (props: MdxRemote.Source) => <hr {...props} className="underline" />,
+  h1: (props: any) => <H1 {...props} />,
+  h2: (props: any) => <H2 {...props} />,
+  h3: (props: any) => <H3 {...props} />,
+  h4: (props: any) => <H4 {...props} />,
+  hr: (props: any) => <hr {...props} className="underline" />,
   ul: (props: string | null) => (
     <ul {...props} className="list-none mt-4 mb-4" />
   ),
-  ol: (props: MdxRemote.Components) => <ol {...props} />,
-  P: (props: MdxRemote.Source) => <P {...props} />,
-  code: CustomCode,
+  ol: (props: any) => <ol {...props} />,
+  P: (props: any) => <P {...props} />,
+  code: Code,
   blockquote: Quote,
 };
 
