@@ -6,15 +6,16 @@ describe('index intro texts', () => {
     it('should respond with the index page', () => {
       cy.visit('/');
     });
-    it('should display correct index text (2)', () => {
-      cy.get('[data-testid=i-intro-2]').contains(
-        'At the moment I enjoy working with React, GraphQL, SQL, Cypress & Styled Components'
-      );
-    });
     it('should display correct index text (1)', () => {
       cy.get('[data-testid=i-intro-1]').contains(
         'I have experience working in agile environments, testing features, various frontend languages, technologies & tooling.'
       );
     });
+    it('should display correct index text (2)', () => {
+      cy.get('[data-testid=i-intro-2]').contains(
+        '          At the moment my favorite technologies are: React, Typescript, GraphQL, Node, PostgreSQL & styled-components'
+      );
+    });
+
   });
 });
