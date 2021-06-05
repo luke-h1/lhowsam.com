@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container } from '@src/components/common/Container';
+import Link from 'next/link';
 import styled from '@emotion/styled';
 import {
   Twitter, LinkedIn, Github, Email,
@@ -47,7 +48,6 @@ export const Links = styled.div`
 `;
 
 export const Details = styled.div`
-  h2,
   a,
   span {
     color: #212121;
@@ -62,7 +62,9 @@ export const Footer = () => (
   <Wrapper>
     <Flex as={Container}>
       <Details>
-        <h2>Luke H</h2>
+        <Link href="/">
+          <a>Luke H</a>
+        </Link>
       </Details>
       <Links>
         <a
