@@ -23,7 +23,7 @@ summary: 'How to deploy a full stack app with Dokku to AWS / Digital Ocean. Cost
 Before getting started with the below steps you will need to open up the following ports regardless of whether you use Digital Ocean or AWS
 
 - 80: For Nginx 
-- <PORT_OF_API>: Allows your API through the firewall. This should match whatever you `expose` on your docker image
+- http/https ports
 - 22: For ssh 
 
 AWS & Digital ocean provide Dokku images (among other useful images - https://aws.amazon.com/marketplace) which removes some of the pain points you can run into when setting Dokku up on a plain Ubuntu image. 
