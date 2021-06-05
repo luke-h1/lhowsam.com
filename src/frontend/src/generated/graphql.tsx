@@ -889,7 +889,7 @@ export const AllPostsDocument = gql`
 `;
 
 export function useAllPostsQuery(
-  options: Omit<Urql.UseQueryArgs<AllPostsQueryVariables>, 'query'> = {},
+  options: Omit<Urql.UseQueryArgs<AllPostsQueryVariables>, 'query'> = {}
 ) {
   return Urql.useQuery<AllPostsQuery>({ query: AllPostsDocument, ...options });
 }
