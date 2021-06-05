@@ -1,21 +1,20 @@
-import { Flex } from '@chakra-ui/react';
 import React from 'react';
+import styled from '@emotion/styled';
 
 interface WrapperProps {
   children: React.ReactNode;
 }
 
+const WrapperStyles = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1000px;
+  max-width: 100vw;
+  margin-bottom: 1rem;
+`;
+
 const Wrapper: React.FC<WrapperProps> = ({ children }) => {
-  return (
-    <Flex
-      direction="column"
-      align="center"
-      alignItems="center"
-      mb={3}
-      maxW="1000px"
-    >
-      {children}
-    </Flex>
-  );
+  return <WrapperStyles>{children}</WrapperStyles>;
 };
 export default Wrapper;
