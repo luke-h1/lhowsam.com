@@ -214,6 +214,7 @@ type Post {
   title: String
   status: String
   content: Post_content_DocumentField
+  tags: String
   publishDate: String
   author: User
 }
@@ -251,6 +252,24 @@ input PostWhereInput {
   status_not: String
   status_in: [String]
   status_not_in: [String]
+  tags: String
+  tags_not: String
+  tags_contains: String
+  tags_not_contains: String
+  tags_starts_with: String
+  tags_not_starts_with: String
+  tags_ends_with: String
+  tags_not_ends_with: String
+  tags_i: String
+  tags_not_i: String
+  tags_contains_i: String
+  tags_not_contains_i: String
+  tags_starts_with_i: String
+  tags_not_starts_with_i: String
+  tags_ends_with_i: String
+  tags_not_ends_with_i: String
+  tags_in: [String]
+  tags_not_in: [String]
   publishDate: String
   publishDate_not: String
   publishDate_lt: String
@@ -274,6 +293,8 @@ enum SortPostsBy {
   title_DESC
   status_ASC
   status_DESC
+  tags_ASC
+  tags_DESC
   publishDate_ASC
   publishDate_DESC
 }
@@ -282,6 +303,7 @@ input PostOrderByInput {
   id: OrderDirection
   title: OrderDirection
   status: OrderDirection
+  tags: OrderDirection
   publishDate: OrderDirection
 }
 
@@ -289,6 +311,7 @@ input PostUpdateInput {
   title: String
   status: String
   content: JSON
+  tags: String
   publishDate: String
   author: UserRelateToOneInput
 }
@@ -302,6 +325,7 @@ input PostCreateInput {
   title: String
   status: String
   content: JSON
+  tags: String
   publishDate: String
   author: UserRelateToOneInput
 }
@@ -321,6 +345,7 @@ type Project {
   id: ID!
   title: String
   status: String
+  tags: String
   content: Project_content_DocumentField
   publishDate: String
   author: User
@@ -359,6 +384,24 @@ input ProjectWhereInput {
   status_not: String
   status_in: [String]
   status_not_in: [String]
+  tags: String
+  tags_not: String
+  tags_contains: String
+  tags_not_contains: String
+  tags_starts_with: String
+  tags_not_starts_with: String
+  tags_ends_with: String
+  tags_not_ends_with: String
+  tags_i: String
+  tags_not_i: String
+  tags_contains_i: String
+  tags_not_contains_i: String
+  tags_starts_with_i: String
+  tags_not_starts_with_i: String
+  tags_ends_with_i: String
+  tags_not_ends_with_i: String
+  tags_in: [String]
+  tags_not_in: [String]
   publishDate: String
   publishDate_not: String
   publishDate_lt: String
@@ -382,6 +425,8 @@ enum SortProjectsBy {
   title_DESC
   status_ASC
   status_DESC
+  tags_ASC
+  tags_DESC
   publishDate_ASC
   publishDate_DESC
 }
@@ -390,12 +435,14 @@ input ProjectOrderByInput {
   id: OrderDirection
   title: OrderDirection
   status: OrderDirection
+  tags: OrderDirection
   publishDate: OrderDirection
 }
 
 input ProjectUpdateInput {
   title: String
   status: String
+  tags: String
   content: JSON
   publishDate: String
   author: UserRelateToOneInput
@@ -409,6 +456,7 @@ input ProjectsUpdateInput {
 input ProjectCreateInput {
   title: String
   status: String
+  tags: String
   content: JSON
   publishDate: String
   author: UserRelateToOneInput

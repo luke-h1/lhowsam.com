@@ -5,3 +5,5 @@ node_modules
 public
 build
 cypress
+src/generated/*.tsx
+graphql.tsx

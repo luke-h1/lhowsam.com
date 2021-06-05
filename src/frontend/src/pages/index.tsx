@@ -1,21 +1,14 @@
+/* eslint-disable */
 import { CustomHead } from '@src/components/CustomHead';
-import Card from '@src/components/Card';
 import Wrapper from '@src/components/Wrapper';
-import { BlogPost, ProjectPost } from '@src/types/md';
-import { getAllFilesFrontmatter } from '@src/utils/mdx';
-import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { Box, Text } from '@chakra-ui/react';
+import { withUrqlClient } from 'next-urql';
+import { createUrqlClient } from '@src/utils/createUrqlClient';
+import { useAllPostsQuery } from '@src/generated/graphql';
 
-const Home = ({
-  posts,
-  projects,
-}: {
-  posts: BlogPost[];
-  projects: ProjectPost[];
-}) => {
-  // @ts-expect-error
-  const filterPosts = posts.sort((a, b) => Number(new Date(b.date) - Number(new Date(a.date))));
+const Home = () => {
+  const [{ data, error, fetching }] = useAllPostsQuery();
   return (
     <>
       <CustomHead title="Home | lhowsam.com" description="Homepage" />
@@ -57,8 +50,8 @@ const Home = ({
           <Text fontSize="30px" fontWeight="bold">
             Blog
           </Text>
-          {filterPosts.map((frontMatter) => (
-            <Card {...frontMatter} />
+          {data?.allPosts?.map((post) => (
+            <Text as="h1">{post.title}</Text>
           ))}
         </Box>
 
@@ -66,20 +59,10 @@ const Home = ({
           <Text fontSize="30px" fontWeight="bold">
             Projects
           </Text>
-          {projects.map((frontMatter) => (
-            <Card {...frontMatter} />
-          ))}
         </Box>
-      </Wrapper>
-      {' '}
+      </Wrapper>{' '}
     </>
   );
 };
-export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllFilesFrontmatter('blog');
-  const projects = await getAllFilesFrontmatter('project');
-
-  return { props: { posts, projects } };
-};
+export default withUrqlClient(createUrqlClient, { ssr: false })(Home);

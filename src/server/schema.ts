@@ -12,8 +12,7 @@ export const lists = createSchema({
   User: list({
     ui: {
       listView: {
-        initialColumns: ['name', 'posts'],
-
+        initialColumns: ['name', 'posts', 'projects'],
       },
     },
     fields: {
@@ -48,6 +47,7 @@ export const lists = createSchema({
         links: true,
         dividers: true,
       }),
+      tags: text(),
       publishDate: timestamp(),
       author: relationship({
         ref: 'User.posts',
@@ -73,6 +73,7 @@ export const lists = createSchema({
           displayMode: 'segmented-control',
         },
       }),
+      tags: text(),
       content: document({
         formatting: true,
         layouts: [

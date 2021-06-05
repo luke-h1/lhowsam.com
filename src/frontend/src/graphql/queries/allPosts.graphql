@@ -1,0 +1,10 @@
+query AllPosts{
+  allPosts {
+    id
+    title
+    publishDate
+    content {
+      document
+    }
+  }
+}
