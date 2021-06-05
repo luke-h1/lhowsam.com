@@ -1,7 +1,6 @@
-node_modules
-.github
+package/migrations
+package/migrations/*
+.keystone
+dist
 .next
-.vercel
-public
-build
-cypress
+node_modules

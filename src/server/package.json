@@ -1,0 +1,28 @@
+{
+  "name": "keystone-app",
+  "version": "2.0.5",
+  "private": true,
+  "scripts": {
+    "dev": "keystone-next dev",
+    "start": "keystone-next start",
+    "build": "keystone-next build",
+    "postinstall": "keystone-next postinstall",
+    "lint": "eslint --ext *.ts --fix",
+    "format": "prettier --write \"*.{js,jsx,ts,tsx}\""
+
+  },
+  "dependencies": {
+    "@keystone-next/auth": "^26.0.0",
+    "@keystone-next/fields": "^10.0.0",
+    "@keystone-next/fields-document": "^6.0.1",
+    "@keystone-next/keystone": "^19.0.0",
+    "typescript": "^4.3.2"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "eslint": "^7.28.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4"
+  }
+}
