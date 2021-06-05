@@ -50,8 +50,8 @@ const Home = ({
           maxW="70%"
           mb={7}
         >
-          At the moment I enjoy working with React, GraphQL, SQL, Cypress &
-          Styled Components
+          At the moment my favorite technologies are: React, Typescript,
+          GraphQL, Node, PostgreSQL & styled-components
         </Text>
         <Box as="div">
           <Text fontSize="30px" fontWeight="bold">
