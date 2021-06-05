@@ -13,6 +13,7 @@ export const lists = createSchema({
     ui: {
       listView: {
         initialColumns: ['name', 'posts'],
+
       },
     },
     fields: {
@@ -20,6 +21,7 @@ export const lists = createSchema({
       email: text({ isRequired: true, isUnique: true }),
       password: password({ isRequired: true }),
       posts: relationship({ ref: 'Post.author', many: true }),
+      projects: relationship({ ref: 'Project.author', many: true }),
     },
   }),
   Post: list({
@@ -57,29 +59,42 @@ export const lists = createSchema({
           inlineCreate: { fields: ['name', 'email'] },
         },
       }),
-      tags: relationship({
-        ref: 'Tag.posts',
-        ui: {
-          displayMode: 'cards',
-          cardFields: ['name'],
-          inlineEdit: { fields: ['name'] },
-          linkToItem: true,
-          inlineConnect: true,
-          inlineCreate: { fields: ['name'] },
-        },
-        many: true,
-      }),
     },
   }),
-  Tag: list({
-    ui: {
-      isHidden: true,
-    },
+  Project: list({
     fields: {
-      name: text(),
-      posts: relationship({
-        ref: 'Post.tags',
-        many: true,
+      title: text(),
+      status: select({
+        options: [
+          { label: 'Published', value: 'published' },
+          { label: 'Draft', value: 'draft' },
+        ],
+        ui: {
+          displayMode: 'segmented-control',
+        },
+      }),
+      content: document({
+        formatting: true,
+        layouts: [
+          [1, 1],
+          [1, 1, 1],
+          [2, 1],
+          [1, 2],
+          [1, 2, 1],
+        ],
+        links: true,
+        dividers: true,
+      }),
+      publishDate: timestamp(),
+      author: relationship({
+        ref: 'User.projects',
+        ui: {
+          displayMode: 'cards',
+          cardFields: ['name', 'email'],
+          inlineEdit: { fields: ['name', 'email'] },
+          linkToItem: true,
+          inlineCreate: { fields: ['name', 'email'] },
+        },
       }),
     },
   }),

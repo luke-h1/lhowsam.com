@@ -5,6 +5,13 @@ input PostRelateToManyInput {
   disconnectAll: Boolean
 }
 
+input ProjectRelateToManyInput {
+  create: [ProjectCreateInput]
+  connect: [ProjectWhereUniqueInput]
+  disconnect: [ProjectWhereUniqueInput]
+  disconnectAll: Boolean
+}
+
 """
  A keystone list
 """
@@ -35,6 +42,28 @@ type User {
       reason: "This query will be removed in a future version. Please use postsCount instead."
     )
   postsCount(where: PostWhereInput! = {}): Int
+  projects(
+    where: ProjectWhereInput! = {}
+    search: String
+    sortBy: [SortProjectsBy!]
+      @deprecated(reason: "sortBy has been deprecated in favour of orderBy")
+    orderBy: [ProjectOrderByInput!]! = []
+    first: Int
+    skip: Int! = 0
+  ): [Project!]!
+  _projectsMeta(
+    where: ProjectWhereInput! = {}
+    search: String
+    sortBy: [SortProjectsBy!]
+      @deprecated(reason: "sortBy has been deprecated in favour of orderBy")
+    orderBy: [ProjectOrderByInput!]! = []
+    first: Int
+    skip: Int! = 0
+  ): _QueryMeta
+    @deprecated(
+      reason: "This query will be removed in a future version. Please use projectsCount instead."
+    )
+  projectsCount(where: ProjectWhereInput! = {}): Int
 }
 
 input UserWhereInput {
@@ -100,6 +129,21 @@ input UserWhereInput {
    condition must be false for all nodes
   """
   posts_none: PostWhereInput
+
+  """
+   condition must be true for all nodes
+  """
+  projects_every: ProjectWhereInput
+
+  """
+   condition must be true for at least 1 node
+  """
+  projects_some: ProjectWhereInput
+
+  """
+   condition must be false for all nodes
+  """
+  projects_none: ProjectWhereInput
 }
 
 input UserWhereUniqueInput {
@@ -131,6 +175,7 @@ input UserUpdateInput {
   email: String
   password: String
   posts: PostRelateToManyInput
+  projects: ProjectRelateToManyInput
 }
 
 input UsersUpdateInput {
@@ -143,6 +188,7 @@ input UserCreateInput {
   email: String
   password: String
   posts: PostRelateToManyInput
+  projects: ProjectRelateToManyInput
 }
 
 input UsersCreateInput {
@@ -160,13 +206,6 @@ input UserRelateToOneInput {
   disconnectAll: Boolean
 }
 
-input TagRelateToManyInput {
-  create: [TagCreateInput]
-  connect: [TagWhereUniqueInput]
-  disconnect: [TagWhereUniqueInput]
-  disconnectAll: Boolean
-}
-
 """
  A keystone list
 """
@@ -177,28 +216,6 @@ type Post {
   content: Post_content_DocumentField
   publishDate: String
   author: User
-  tags(
-    where: TagWhereInput! = {}
-    search: String
-    sortBy: [SortTagsBy!]
-      @deprecated(reason: "sortBy has been deprecated in favour of orderBy")
-    orderBy: [TagOrderByInput!]! = []
-    first: Int
-    skip: Int! = 0
-  ): [Tag!]!
-  _tagsMeta(
-    where: TagWhereInput! = {}
-    search: String
-    sortBy: [SortTagsBy!]
-      @deprecated(reason: "sortBy has been deprecated in favour of orderBy")
-    orderBy: [TagOrderByInput!]! = []
-    first: Int
-    skip: Int! = 0
-  ): _QueryMeta
-    @deprecated(
-      reason: "This query will be removed in a future version. Please use tagsCount instead."
-    )
-  tagsCount(where: TagWhereInput! = {}): Int
 }
 
 input PostWhereInput {
@@ -244,21 +261,6 @@ input PostWhereInput {
   publishDate_not_in: [String]
   author: UserWhereInput
   author_is_null: Boolean
-
-  """
-   condition must be true for all nodes
-  """
-  tags_every: TagWhereInput
-
-  """
-   condition must be true for at least 1 node
-  """
-  tags_some: TagWhereInput
-
-  """
-   condition must be false for all nodes
-  """
-  tags_none: TagWhereInput
 }
 
 input PostWhereUniqueInput {
@@ -289,7 +291,6 @@ input PostUpdateInput {
   content: JSON
   publishDate: String
   author: UserRelateToOneInput
-  tags: TagRelateToManyInput
 }
 
 input PostsUpdateInput {
@@ -303,46 +304,31 @@ input PostCreateInput {
   content: JSON
   publishDate: String
   author: UserRelateToOneInput
-  tags: TagRelateToManyInput
 }
 
 input PostsCreateInput {
   data: PostCreateInput
 }
 
+type Project_content_DocumentField {
+  document(hydrateRelationships: Boolean! = false): JSON!
+}
+
 """
  A keystone list
 """
-type Tag {
+type Project {
   id: ID!
-  name: String
-  posts(
-    where: PostWhereInput! = {}
-    search: String
-    sortBy: [SortPostsBy!]
-      @deprecated(reason: "sortBy has been deprecated in favour of orderBy")
-    orderBy: [PostOrderByInput!]! = []
-    first: Int
-    skip: Int! = 0
-  ): [Post!]!
-  _postsMeta(
-    where: PostWhereInput! = {}
-    search: String
-    sortBy: [SortPostsBy!]
-      @deprecated(reason: "sortBy has been deprecated in favour of orderBy")
-    orderBy: [PostOrderByInput!]! = []
-    first: Int
-    skip: Int! = 0
-  ): _QueryMeta
-    @deprecated(
-      reason: "This query will be removed in a future version. Please use postsCount instead."
-    )
-  postsCount(where: PostWhereInput! = {}): Int
+  title: String
+  status: String
+  content: Project_content_DocumentField
+  publishDate: String
+  author: User
 }
 
-input TagWhereInput {
-  AND: [TagWhereInput!]
-  OR: [TagWhereInput!]
+input ProjectWhereInput {
+  AND: [ProjectWhereInput!]
+  OR: [ProjectWhereInput!]
   id: ID
   id_not: ID
   id_lt: ID
@@ -351,74 +337,85 @@ input TagWhereInput {
   id_gte: ID
   id_in: [ID]
   id_not_in: [ID]
-  name: String
-  name_not: String
-  name_contains: String
-  name_not_contains: String
-  name_starts_with: String
-  name_not_starts_with: String
-  name_ends_with: String
-  name_not_ends_with: String
-  name_i: String
-  name_not_i: String
-  name_contains_i: String
-  name_not_contains_i: String
-  name_starts_with_i: String
-  name_not_starts_with_i: String
-  name_ends_with_i: String
-  name_not_ends_with_i: String
-  name_in: [String]
-  name_not_in: [String]
-
-  """
-   condition must be true for all nodes
-  """
-  posts_every: PostWhereInput
-
-  """
-   condition must be true for at least 1 node
-  """
-  posts_some: PostWhereInput
-
-  """
-   condition must be false for all nodes
-  """
-  posts_none: PostWhereInput
+  title: String
+  title_not: String
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  title_i: String
+  title_not_i: String
+  title_contains_i: String
+  title_not_contains_i: String
+  title_starts_with_i: String
+  title_not_starts_with_i: String
+  title_ends_with_i: String
+  title_not_ends_with_i: String
+  title_in: [String]
+  title_not_in: [String]
+  status: String
+  status_not: String
+  status_in: [String]
+  status_not_in: [String]
+  publishDate: String
+  publishDate_not: String
+  publishDate_lt: String
+  publishDate_lte: String
+  publishDate_gt: String
+  publishDate_gte: String
+  publishDate_in: [String]
+  publishDate_not_in: [String]
+  author: UserWhereInput
+  author_is_null: Boolean
 }
 
-input TagWhereUniqueInput {
+input ProjectWhereUniqueInput {
   id: ID!
 }
 
-enum SortTagsBy {
+enum SortProjectsBy {
   id_ASC
   id_DESC
-  name_ASC
-  name_DESC
+  title_ASC
+  title_DESC
+  status_ASC
+  status_DESC
+  publishDate_ASC
+  publishDate_DESC
 }
 
-input TagOrderByInput {
+input ProjectOrderByInput {
   id: OrderDirection
-  name: OrderDirection
+  title: OrderDirection
+  status: OrderDirection
+  publishDate: OrderDirection
 }
 
-input TagUpdateInput {
-  name: String
-  posts: PostRelateToManyInput
+input ProjectUpdateInput {
+  title: String
+  status: String
+  content: JSON
+  publishDate: String
+  author: UserRelateToOneInput
 }
 
-input TagsUpdateInput {
+input ProjectsUpdateInput {
   id: ID!
-  data: TagUpdateInput
+  data: ProjectUpdateInput
 }
 
-input TagCreateInput {
-  name: String
-  posts: PostRelateToManyInput
+input ProjectCreateInput {
+  title: String
+  status: String
+  content: JSON
+  publishDate: String
+  author: UserRelateToOneInput
 }
 
-input TagsCreateInput {
-  data: TagCreateInput
+input ProjectsCreateInput {
+  data: ProjectCreateInput
 }
 
 """
@@ -495,34 +492,34 @@ type Mutation {
   deletePosts(ids: [ID!]): [Post]
 
   """
-   Create a single Tag item.
+   Create a single Project item.
   """
-  createTag(data: TagCreateInput): Tag
+  createProject(data: ProjectCreateInput): Project
 
   """
-   Create multiple Tag items.
+   Create multiple Project items.
   """
-  createTags(data: [TagsCreateInput]): [Tag]
+  createProjects(data: [ProjectsCreateInput]): [Project]
 
   """
-   Update a single Tag item by ID.
+   Update a single Project item by ID.
   """
-  updateTag(id: ID!, data: TagUpdateInput): Tag
+  updateProject(id: ID!, data: ProjectUpdateInput): Project
 
   """
-   Update multiple Tag items by ID.
+   Update multiple Project items by ID.
   """
-  updateTags(data: [TagsUpdateInput]): [Tag]
+  updateProjects(data: [ProjectsUpdateInput]): [Project]
 
   """
-   Delete a single Tag item by ID.
+   Delete a single Project item by ID.
   """
-  deleteTag(id: ID!): Tag
+  deleteProject(id: ID!): Project
 
   """
-   Delete multiple Tag items by ID.
+   Delete multiple Project items by ID.
   """
-  deleteTags(ids: [ID!]): [Tag]
+  deleteProjects(ids: [ID!]): [Project]
   authenticateUserWithPassword(
     email: String!
     password: String!
@@ -640,39 +637,39 @@ type Query {
   postsCount(where: PostWhereInput! = {}): Int
 
   """
-   Search for all Tag items which match the where clause.
+   Search for all Project items which match the where clause.
   """
-  allTags(
-    where: TagWhereInput! = {}
+  allProjects(
+    where: ProjectWhereInput! = {}
     search: String
-    sortBy: [SortTagsBy!]
+    sortBy: [SortProjectsBy!]
       @deprecated(reason: "sortBy has been deprecated in favour of orderBy")
-    orderBy: [TagOrderByInput!]! = []
+    orderBy: [ProjectOrderByInput!]! = []
     first: Int
     skip: Int! = 0
-  ): [Tag!]
+  ): [Project!]
 
   """
-   Search for the Tag item with the matching ID.
+   Search for the Project item with the matching ID.
   """
-  Tag(where: TagWhereUniqueInput!): Tag
+  Project(where: ProjectWhereUniqueInput!): Project
 
   """
-   Perform a meta-query on all Tag items which match the where clause.
+   Perform a meta-query on all Project items which match the where clause.
   """
-  _allTagsMeta(
-    where: TagWhereInput! = {}
+  _allProjectsMeta(
+    where: ProjectWhereInput! = {}
     search: String
-    sortBy: [SortTagsBy!]
+    sortBy: [SortProjectsBy!]
       @deprecated(reason: "sortBy has been deprecated in favour of orderBy")
-    orderBy: [TagOrderByInput!]! = []
+    orderBy: [ProjectOrderByInput!]! = []
     first: Int
     skip: Int! = 0
   ): _QueryMeta
     @deprecated(
-      reason: "This query will be removed in a future version. Please use tagsCount instead."
+      reason: "This query will be removed in a future version. Please use projectsCount instead."
     )
-  tagsCount(where: TagWhereInput! = {}): Int
+  projectsCount(where: ProjectWhereInput! = {}): Int
   authenticatedItem: AuthenticatedItem
   keystone: KeystoneMeta!
 }
