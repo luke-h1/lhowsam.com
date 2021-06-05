@@ -1,20 +1,19 @@
-import hydrate from 'next-mdx-remote/hydrate';
+import { MDXRemote } from 'next-mdx-remote';
 import MDXComponents from '@src/components/MDXComponents';
 import { getFiles, getFileBySlug } from '@src/utils/mdx';
-import { ProjectPost } from '@src/types/md';
 import ProjectLayout from '@src/layouts/ProjectLayout';
-import { MdxRemote } from 'next-mdx-remote/types';
 
-interface ProjectProps {
-  mdxSource: MdxRemote.Source;
-  frontMatter: ProjectPost;
-}
+// interface ProjectProps {
+//   mdxSource: MdxRemote.Source;
+//   frontMatter: ProjectPost;
+// }
 
-const Project = ({ mdxSource, frontMatter }: ProjectProps) => {
-  const content = hydrate(mdxSource, {
-    components: MDXComponents,
-  });
-  return <ProjectLayout frontMatter={frontMatter}>{content}</ProjectLayout>;
+const Project = ({ mdxSource, frontMatter }: any) => {
+  return (
+    <ProjectLayout frontMatter={frontMatter}>
+      <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
+    </ProjectLayout>
+  );
 };
 
 export async function getStaticPaths() {
