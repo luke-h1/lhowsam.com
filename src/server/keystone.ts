@@ -1,7 +1,7 @@
 import { config } from '@keystone-next/keystone/schema';
 import { statelessSessions } from '@keystone-next/keystone/session';
 import { createAuth } from '@keystone-next/auth';
-
+import keystone from '@keystonejs/keystone';
 import { lists } from './schema';
 
 let sessionSecret = process.env.SESSION_SECRET;
@@ -16,7 +16,7 @@ if (!sessionSecret) {
   }
 }
 
-let sessionMaxAge = 60 * 60 * 24 * 30; // 30 days
+const sessionMaxAge = 60 * 60 * 24 * 3; // 3 days
 
 const { withAuth } = createAuth({
   listKey: 'User',
@@ -43,9 +43,10 @@ export default withAuth(
       },
     },
     ui: {
-      isAccessAllowed: context => !!context.session?.data, // only show UI for people who pass this test
+      isAccessAllowed: (context) => !!context.session?.data, // only show UI for people who pass this test
     },
     server: {
+      port: 5000,
       cors: {
         origin:
           process.env.NODE_ENV !== 'production'
