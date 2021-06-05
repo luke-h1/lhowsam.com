@@ -13,7 +13,7 @@ describe('index intro texts', () => {
     });
     it('should display correct index text (2)', () => {
       cy.get('[data-testid=i-intro-2]').contains(
-        '          At the moment my favorite technologies are: React, Typescript, GraphQL, Node, PostgreSQL & styled-components'
+        'At the moment my favorite technologies are: React, Typescript, GraphQL, Node, PostgreSQL & styled-components'
       );
     });
 
