@@ -13,7 +13,7 @@ How does SSR work in Next JS ?
 
 Pre rendering is the term for rendering HTML before it is sent down to the client. 
 
-<br /> 
+## 
 
 By default, Next will pre-render every page. This however can be done in two different ways: 
 
@@ -23,26 +23,26 @@ By default, Next will pre-render every page. This however can be done in two dif
 
 A next site can use a combination of these methods (which method you pick to use is usually determined by what data your page needs). Static generation means that the HTML is generated once on the server at build time & this HTML is reused for each request the client makes. 
 
-&nbsp;
+##
 
 This is usually ok when the data you're displaying doesn't change often (such as a blog post which is statically rendered via transforming markdown to HTML) however this isn't ideal when a user needs to see a page updated after they change the data that the client displays (such as from a CMS, a backend API etc). 
 
-&nbsp;
+##
 
 This means that in most cases static generation of pages cannot be used.
 
-&nbsp;
+##
 
 Server-side rendering (SSR for short) means that the HTML is generated on the server on each request for the page - The HTML is fluid rather than static as it will change based on what is pulled from the backend, the CMS, the API etc. 
 
-&nbsp;
+##
 
 Each time a client requests to view a page that is server-side rendered, the server will fetch the data for the page and generate the HTML using that data. At this stage the HTML will only be sent to the client once this process has finished completing. 
 
-&nbsp;
+##
 
 You can take advantage of this behavior by using `getServerSideProps` or `getInitialProps` on the page you want to be server-side rendered 
 
-&nbsp;
+##
 
 This post doesn't go into detail & doesn't completely explain the different types of ways you can fetch data in Next. If you want to read more about what the best way to fetch data is (based on your use case) you can take a look at the awesome <a href='https://nextjs.org/docs/basic-features/data-fetching' target='_blank' referrer='no-referrer'>Next documentation on the subject </a> 
