@@ -100,7 +100,7 @@ docker container list
 * Create a Dockerfile image locally (this will be responsible for building & running the backend for production) with 
 
 ```ts
-docker build -t <USER>/app:1.0.0
+docker build -t <USER>/app:1.0.0 . 
 ```
 
 * Push the Docker image up to Docker hub 
@@ -200,7 +200,7 @@ dokku letsencrypt:enable <API_NAME>
 * build fresh docker image on server & push to docker hub
 
 ```ts
-docker build -t <USER>/app:1.0.1
+docker build -t <USER>/app:1.0.1 .
 
 ```
 
