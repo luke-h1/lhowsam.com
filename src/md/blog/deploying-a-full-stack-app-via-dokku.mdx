@@ -22,9 +22,9 @@ summary: 'How to deploy a full stack app with Dokku to AWS / Digital Ocean. Cost
 
 Before getting started with the below steps you will need to open up the following ports regardless of whether you use Digital Ocean or AWS
 
-- 80: For Nginx 
-- http/https ports
-- 22: For ssh 
+* 80: For Nginx 
+* http/https ports
+* 22: For ssh 
 
 * Install Dokku & Docker for Ubuntu: 
 
@@ -58,7 +58,10 @@ You can find an example of a full stack application that has been deployed with 
 - go to VM IP address in browser
 - check virtual hosts option
 - ssh into VPS
-- create a dokku app (API) `dokku apps:create <API_NAME>`
+- create a dokku app (this will be the API)
+````
+dokku apps:create <API_NAME>
+```` 
 - install the postgres dokku plugin 
 
 ```ts 
