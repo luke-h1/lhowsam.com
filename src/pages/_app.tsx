@@ -7,6 +7,7 @@ import { useRouter } from 'next/dist/client/router';
 import type { AppProps } from 'next/app';
 import { Footer } from '@src/components/theme/Footer';
 import { ChakraProvider, Flex } from '@chakra-ui/react';
+import '@fontsource/noto-sans-jp';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
