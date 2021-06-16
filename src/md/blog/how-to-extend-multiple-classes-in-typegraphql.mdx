@@ -41,18 +41,18 @@ As an example UsernamePasswordInput would look something like...
 ```ts
 @InputType()
 export class UsernamePasswordInput {
-  @Field()
-  firstName: string;
+  @Field(() => String)
+  email: string 
 
-  @Field()
-  location: string;
+  @Field(() => String)
+  password: string 
 }
 ```
 
 ##
 
 
-Here we are specifying that we expect a firstName and a location (both of type sring) to be sent from the client. 
+Here we are specifying that we expect a firstName and a password (both of type sring) to be sent from the client. 
 
 and an example of UserResponse would be something like... 
 
@@ -154,9 +154,7 @@ this is because we are registering multiple queries and mutations with the same 
 To get around this we will need to decorate our mixin with the following: 
 
 ```ts
-
   @InputType({ isAbstract: true })
-
 ```
 
 Now we can go ahead and use this in our RegisterInput
