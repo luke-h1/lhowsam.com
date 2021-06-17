@@ -4,6 +4,8 @@ import { NextSeo } from 'next-seo';
 import { CustomHead } from '@src/components/CustomHead';
 import { Skills } from '@src/data/skills';
 import { Text } from '@chakra-ui/react';
+import Image from 'next/image';
+import ProfileImage from '../../public/images/luke.png';
 
 const StyledAboutSection = styled.section`
   max-width: 750px;
@@ -137,12 +139,12 @@ const About = () => {
 
           <StyledPic>
             <div className="wrapper">
-              <img
-                src="/images/luke.png"
+              <Image
+                src={ProfileImage}
                 alt="Avatar"
                 width="250"
                 height="300"
-                style={{ borderRadius: '15px' }}
+                placeholder="blur"
                 data-testid="photo"
               />
             </div>
