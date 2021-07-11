@@ -1,4 +1,6 @@
+import { CustomHead } from '@src/components/CustomHead';
 import { Projects } from '@src/shared/projects';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 import { AiOutlineGithub } from 'react-icons/ai';
 import { CgWebsite } from 'react-icons/cg';
@@ -8,6 +10,15 @@ interface IndexProps {}
 const Index: React.FC<IndexProps> = () => {
   return (
     <>
+      <CustomHead title="Projects | lhowsam.com" description="Projects" />
+      <NextSeo
+        title="Projects"
+        canonical="https://lhowsam.com/projects"
+        openGraph={{
+          url: 'https://lhowsam.com/projects',
+          title: 'Projects',
+        }}
+      />
       <section className="text-gray-600 body-font">
         {Projects
           && Projects.map((project) => (
