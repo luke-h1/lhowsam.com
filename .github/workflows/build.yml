@@ -45,8 +45,8 @@ jobs:
       - name: Jest unit tests
         run: npm run test:ci
 
-      - name: Cypress UI tests 
-        run: npm run cy:ci 
+      # - name: Cypress UI tests 
+      #   run: npm run cy:ci 
       
       - name: tsc
         run: npm run tsc

@@ -8,7 +8,7 @@ export const Projects: {
 }[] = [
   {
     id: 1,
-    title: 'My website',
+    title: 'My Website',
     description:
       "I use this project as a training ground for myself and often find myself in the deep end of learning a new framework or trying a new technology (This has helped me get comfortable with React & Next for example). I like working on this site and can't wait to continue to improve it with the latest technologies available",
     siteUrl: 'https://lhowsam.com',
