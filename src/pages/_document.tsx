@@ -2,8 +2,6 @@ import Document, {
   Html, Head, Main, NextScript,
 } from 'next/document';
 import { GA_TRACKING_ID } from '@src/utils/gtag';
-import theme from '@src/styles/theme';
-import { ColorModeScript } from '@chakra-ui/react';
 
 export default class MyDocument extends Document {
   render() {
@@ -49,7 +47,6 @@ export default class MyDocument extends Document {
           <meta content="#ffffff" name="msapplication-TileColor" />
         </Head>
         <body>
-          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />
         </body>

@@ -1,44 +1,31 @@
+import BlogPreview from '@src/components/BlogPreview';
+import { getAllPostsMeta } from '@src/lib/mdx';
+import { PostMeta } from '@src/types/post';
 import React from 'react';
-import { Box, Text } from '@chakra-ui/react';
-import { NextSeo } from 'next-seo';
-import { getAllFilesFrontMatter } from '@src/utils/mdx';
-import Card from '@src/components/Card';
-import { BlogPost } from '@src/types/md';
-import { CustomHead } from '@src/components/CustomHead';
-import Wrapper from '@src/components/Wrapper';
 
-const Index = ({ posts }: { posts: BlogPost[] }) => {
-  const filterPosts = posts.sort(
-    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date)),
-  );
+interface indexProps {
+  posts: PostMeta[];
+}
+
+const index: React.FC<indexProps> = ({ posts }) => {
   return (
-    <>
-      <CustomHead title="Blog | lhowsam.com" description="Blog" />
-      <NextSeo
-        title="Blog"
-        canonical="https://lhowsam.com/blog"
-        openGraph={{
-          url: 'https://lhowsam.com/blog',
-          title: 'Blog',
-        }}
-      />
-      <Text fontSize="30px" fontWeight="bold">
-        Blog
-      </Text>
-      <Wrapper>
-        <Box as="div">
-          {filterPosts.length
-            && filterPosts.map((frontMatter) => (
-              <Card key={frontMatter.title} {...frontMatter} />
-            ))}
-        </Box>
-      </Wrapper>
-    </>
+    <div className="container px-4 mx-auto mt-24">
+      <h1 className="text-4xl font-extrabold text-gray-800">Blog</h1>
+      <h4 className="mt-2 text-gray-500">
+        Lessons learned, thoughts on various tech & articles on what I'm
+        building
+      </h4>
+      <div className="mt-8 space-y-8">
+        {posts.map((post) => (
+          <BlogPreview key={post.slug} post={post} />
+        ))}
+      </div>
+    </div>
   );
 };
+export default index;
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter('blog');
+  const posts = getAllPostsMeta('post');
   return { props: { posts } };
 }
-export default Index;

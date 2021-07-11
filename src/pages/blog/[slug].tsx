@@ -1,40 +1,71 @@
-import { MDXRemote } from 'next-mdx-remote';
-import { getFiles, getFileBySlug } from '@src/utils/mdx';
-import MDXComponents from '@src/components/MDXComponents';
-import BlogLayout from '@src/layouts/BlogLayout';
+import React, { useMemo } from 'react';
+import { getAllPostsMeta, getPostBySlug } from '@src/lib/mdx';
+import { Post } from '@src/types/post';
+import { GetStaticProps } from 'next';
+import { getMDXComponent } from 'mdx-bundler/client';
+import { format, parseISO } from 'date-fns';
+import { components } from '@src/components/MDXComponents';
+import Image from 'next/image';
+import Button from '@src/components/Button';
 
-// interface BlogProps {
-//   mdxSource: MdxRemote.Source;
-//   frontMatter: BlogPost;
-// }
-
-const Blog = ({ mdxSource, frontMatter }: any) => {
-  return (
-    <BlogLayout frontMatter={frontMatter}>
-      <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
-    </BlogLayout>
-  );
-};
-
-export async function getStaticPaths() {
-  const posts = await getFiles('blog');
-
+export const getStaticPaths = () => {
+  const posts = getAllPostsMeta();
+  const paths = posts.map(({ slug }) => ({ params: { slug } }));
   return {
-    paths: posts.map((post) => ({
-      params: {
-        slug: post.replace(/\.mdx/, ''),
-      },
-    })),
+    paths,
     fallback: false,
   };
-}
-
-export const getStaticProps = async ({
-  params,
-}: {
-  params: { slug: string };
-}) => {
-  const post = await getFileBySlug('blog', params.slug);
-  return { props: post };
 };
-export default Blog;
+
+export const getStaticProps: GetStaticProps<Post> = async (ctx) => {
+  const slug = ctx.params?.slug as string;
+  const post = await getPostBySlug(slug);
+  return {
+    props: post,
+  };
+};
+const BlogPage = ({ meta, code }: Post) => {
+  const Component = useMemo(() => getMDXComponent(code), [code]);
+  return (
+    <div className="container max-w-3xl px-4 mx-auto mt-36">
+      <h1 className="text-2xl font-bold md:text-4xl">{meta.title}</h1>
+
+      <div className="flex items-center mt-4 space-x-2 text-gray-500">
+        <Image
+          src="/avatar.jpg"
+          height={24}
+          width={24}
+          className="rounded-full"
+        />
+
+        <div>Luke Howsam</div>
+
+        <div className="text-gray-300">&middot;</div>
+
+        <div>{format(parseISO(meta.createdAt), 'MMMM dd, yyyy')}</div>
+      </div>
+
+      {meta.image ? (
+        <div className="mt-10 overflow-hidden rounded-2xl text-[0px]">
+          <Image
+            src={`/blog-images/${meta.image}`}
+            width={1920}
+            height={900}
+            placeholder="blur"
+            blurDataURL={`/blog-images/${meta.image}`}
+          />
+        </div>
+      ) : null}
+
+      <div className="mt-10 text-gray-900">
+        <Component components={components as any} />
+      </div>
+      <div className="flex justify-center mt-16 space-x-8">
+        {meta.source ? (
+          <Button href={meta.source}>View Source Code</Button>
+        ) : null}
+      </div>
+    </div>
+  );
+};
+export default BlogPage;

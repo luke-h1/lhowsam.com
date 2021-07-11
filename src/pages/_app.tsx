@@ -1,13 +1,13 @@
-import '@src/styles/styles.scss';
-import Nav from '@src/components/Nav';
 import { DefaultSeo } from 'next-seo';
 import * as gtag from '@src/utils/gtag';
 import React, { useEffect } from 'react';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
-import { Footer } from '@src/components/theme/Footer';
-import { ChakraProvider, Flex } from '@chakra-ui/react';
-import '@fontsource/noto-sans-jp';
+import '@src/styles/index.css';
+import Nav from '@src/components/Nav';
+import Container from '@src/components/Container';
+import Footer from '@src/components/Footer';
+// import '@fontsource/noto-sans-jp';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -45,13 +45,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           cardType: 'summary_large_image',
         }}
       />
-      <ChakraProvider>
-        <Nav />
-        <Flex direction="column" alignItems="center" justifyContent="center">
-          <Component {...pageProps} />
-        </Flex>
+      <Nav />
+      <Container>
+        <Component {...pageProps} />
         <Footer />
-      </ChakraProvider>
+      </Container>
     </>
   );
 }
