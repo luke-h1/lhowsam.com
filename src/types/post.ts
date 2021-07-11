@@ -7,6 +7,7 @@ export interface PostMeta {
   category: 'draft' | 'project' | 'post';
   image?: string;
   source?: string;
+  isOnIndex?: string;
 }
 
 export type Post = {
