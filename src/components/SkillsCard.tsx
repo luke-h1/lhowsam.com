@@ -1,34 +1,46 @@
+import { Skills } from '@src/shared/Skills';
+import Image from 'next/image';
 import React from 'react';
 
 interface SkillsCardProps {}
 
 const SkillsCard: React.FC<SkillsCardProps> = () => {
   return (
-    <div className="p-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
-      {/* card one */}
-      <div className="rounded overflow-hidden shadow-lg">
-        <img className="w-full" src="/mountain.jpg" alt="Mountain" />
-        <div className="px-2 py-2">
-          <div className="font-bold text-xl mb-2">Mountain</div>
-          <p className="text-gray-700 text-base">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Voluptatibus quia, nulla! Maiores et perferendis eaque,
-            exercitationem praesentium nihil.
+    <section className="text-gray-600 body-font">
+      <div className="container px-5 py-24 mx-auto">
+        <div className="flex flex-col text-center w-full mb-20">
+          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
+            Skills
+          </h1>
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+            At the moment I enjoy working with Next.js, GraphQL, SQL-based
+            databases & various testing tools
           </p>
         </div>
-        <div className="px-6 pt-4 pb-2">
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #photography
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #travel
-          </span>
-          <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-            #winter
-          </span>
+        <div className="flex flex-wrap -m-2">
+          {Skills
+            && Skills.map((skill) => (
+              <div className="p-2 lg:w-1/4 md:w-1/3 w-full">
+                <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                  <Image
+                    width={50}
+                    height={50}
+                    alt="team"
+                    className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
+                    src={skill.src}
+                  />
+                  <div className="flex-grow">
+                    <h2 className="text-gray-900 title-font font-medium">
+                      {skill.text}
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
+
 export default SkillsCard;
