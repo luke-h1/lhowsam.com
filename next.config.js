@@ -3,7 +3,7 @@ module.exports = {
   webpack(config, { isServer }) {
     if (isServer) {
       // eslint-disable-next-line global-require
-      require('./src/utils/gen-sitemap.js');
+      require('./src/lib/gen-sitemap');
     }
     return config;
   },
