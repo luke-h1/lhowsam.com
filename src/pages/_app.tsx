@@ -6,6 +6,7 @@ import type { AppProps } from 'next/app';
 import '@src/styles/index.css';
 import Nav from '@src/components/Nav';
 import Container from '@src/components/Container';
+import Footer from '@src/components/Footer';
 // import '@fontsource/noto-sans-jp';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -47,6 +48,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Nav />
       <Container>
         <Component {...pageProps} />
+        <Footer />
       </Container>
     </>
   );

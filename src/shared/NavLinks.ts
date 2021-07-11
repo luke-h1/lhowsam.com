@@ -6,16 +6,11 @@ export const NavLinks: { id: number; text: string; slug: string }[] = [
   },
   {
     id: 2,
-    text: 'About',
-    slug: '/about',
-  },
-  {
-    id: 3,
     text: 'Blog',
     slug: '/blog',
   },
   {
-    id: 4,
+    id: 3,
     text: 'Projects',
     slug: '/projects',
   },

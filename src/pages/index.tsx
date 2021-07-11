@@ -1,4 +1,5 @@
 import Hero from '@src/components/Hero';
+import PostCard from '@src/components/PostCard';
 import SkillsCard from '@src/components/SkillsCard';
 import React from 'react';
 
@@ -9,6 +10,7 @@ const index: React.FC<indexProps> = () => {
     <>
       <Hero />
       <SkillsCard />
+      <PostCard />
     </>
   );
 };
