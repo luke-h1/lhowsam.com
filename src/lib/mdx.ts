@@ -8,7 +8,7 @@ import gfmPlugin from 'remark-gfm';
 import slugPlugin from 'remark-slug';
 import type { PostMeta } from '@src/types/post';
 
-const ROOT_PATH = process.cwd();
+const ROOT_PATH = `${process.cwd()}/src`;
 export const POSTS_PATH = path.join(ROOT_PATH, 'posts');
 
 export const getAllPostsMeta = (category?: PostMeta['category']) => {

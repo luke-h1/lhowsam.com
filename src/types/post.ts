@@ -4,7 +4,7 @@ export interface PostMeta {
   updatedAt: string;
   description: string;
   slug?: any;
-  category: 'draft' | 'project' | 'blog';
+  category: 'draft' | 'project' | 'post';
   image?: string;
   source?: string;
 }
