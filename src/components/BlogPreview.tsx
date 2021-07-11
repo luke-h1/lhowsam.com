@@ -26,19 +26,11 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ post }) => {
               </h2>
               <p className="leading-relaxed">{post.description}</p>
               <Link href={`/blog/${post.slug}`}>
-                Read More
-                <svg
-                  className="w-4 h-4 ml-2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  fill="none"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14" />
-                  <path d="M12 5l7 7-7 7" />
-                </svg>
+                <a className="m-5">
+                  <p className="font-semibold title-font text-gray-700">
+                    Read More
+                  </p>
+                </a>
               </Link>
             </div>
           </div>
