@@ -1,5 +1,5 @@
 import { Skills } from '@src/shared/Skills';
-import Image from 'next/image';
+import cx from 'clsx';
 import React from 'react';
 
 interface SkillsCardProps {}
@@ -22,12 +22,12 @@ const SkillsCard: React.FC<SkillsCardProps> = () => {
             && Skills.map((skill) => (
               <div className="p-2 lg:w-1/4 md:w-1/3 w-full">
                 <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
-                  <Image
-                    width={50}
-                    height={50}
-                    alt="team"
-                    className="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4"
+                  <img
+                    className={cx(
+                      'w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4',
+                    )}
                     src={skill.src}
+                    alt={skill.text}
                   />
                   <div className="flex-grow">
                     <h2 className="text-gray-900 title-font font-medium">
