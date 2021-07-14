@@ -36,3 +36,5 @@ yarn-error.log*
 .env.*
 !.env.example
 cypress/screenshots/*
+public/sitemap.xml
+public/robots.txt
