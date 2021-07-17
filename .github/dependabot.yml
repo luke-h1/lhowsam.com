@@ -6,6 +6,6 @@ updates:
     schedule:
       interval: "daily"
       time: "19:00"
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 100
     assignees: 
     - luke-h1
