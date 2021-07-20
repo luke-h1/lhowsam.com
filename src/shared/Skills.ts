@@ -34,9 +34,4 @@ export const Skills: { id: number; text: string; src: string }[] = [
     text: 'Manual & automated testing',
     src: '/images/skills/testing.webp',
   },
-  {
-    id: 8,
-    text: 'AWS (EC2, S3, Lightsail)',
-    src: '/images/skills/aws.jpeg',
-  },
 ];

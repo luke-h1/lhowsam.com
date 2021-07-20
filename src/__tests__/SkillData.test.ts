@@ -1,7 +1,7 @@
 import { Skills } from '../shared/Skills';
 
 test('skills data is correct', () => {
-  expect(Skills).toHaveLength(8);
+  expect(Skills).toHaveLength(7);
   expect(Skills.map((skill) => skill.text)).toEqual([
     'React.js',
     'Next.js',
@@ -10,7 +10,6 @@ test('skills data is correct', () => {
     'Node.js',
     'Express.js',
     'Manual & automated testing',
-    'AWS (EC2, S3, Lightsail)',
   ]);
 });
 
