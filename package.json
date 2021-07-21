@@ -48,7 +48,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@types/glob": "^7.1.4",
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.3.3",
+    "@types/node": "^16.4.0",
     "@types/react": "^17.0.14",
     "@types/styled-components": "^5.1.11",
     "@types/testing-library__dom": "^7.5.0",
