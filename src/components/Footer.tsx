@@ -1,4 +1,3 @@
-import { constants } from '@src/shared/constants';
 import React from 'react';
 import {
   AiFillLinkedin,
@@ -19,7 +18,7 @@ const Footer: React.FC<FooterProps> = () => {
         </a>
         <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
           <a
-            href={constants.githubUrl}
+            href="https://github.com/luke-h1"
             target="_blank"
             rel="noreferrer"
             className="text-gray-500 ml-3"
@@ -27,7 +26,7 @@ const Footer: React.FC<FooterProps> = () => {
             <AiOutlineGithub fontSize="22px" />
           </a>
           <a
-            href={constants.twitterUrl}
+            href="https://twitter.com/LukeH_1999"
             target="_blank"
             rel="noreferrer"
             className="text-gray-500 ml-3"
@@ -35,7 +34,7 @@ const Footer: React.FC<FooterProps> = () => {
             <AiOutlineTwitter fontSize="22px" />
           </a>
           <a
-            href={constants.linkedinUrl}
+            href="https://www.linkedin.com/in/lukehowsam/"
             target="_blank"
             rel="noreferrer"
             className="text-gray-500 ml-3"

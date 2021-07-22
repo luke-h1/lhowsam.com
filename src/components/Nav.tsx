@@ -35,7 +35,7 @@ const Nav = () => {
           ))}
           <p className="flex pl-6 space-x-3 text-xl">
             <a
-              href={constants.twitterUrl}
+              href="https://twitter.com/LukeH_1999"
               className={cx(
                 'transition-colors text-gray-900 hover:text-sky-500 cursor-pointer',
                 constants.FOCUS_VISIBLE_OUTLINE,
@@ -46,7 +46,7 @@ const Nav = () => {
               <AiOutlineTwitter />
             </a>
             <a
-              href={constants.githubUrl}
+              href="https://github.com/luke-h1"
               className={cx(
                 'transition-colors text-gray-900 hover:text-sky-500 cursor-pointer',
                 constants.FOCUS_VISIBLE_OUTLINE,
