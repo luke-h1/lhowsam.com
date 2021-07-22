@@ -2,7 +2,7 @@ export const Skills: { id: number; text: string; src: string }[] = [
   {
     id: 1,
     text: 'React.js',
-    src: '/images/skills/react-logo.png',
+    src: '/images/skills/react-logo.jpeg',
   },
   {
     id: 2,
@@ -32,6 +32,6 @@ export const Skills: { id: number; text: string; src: string }[] = [
   {
     id: 7,
     text: 'Manual & automated testing',
-    src: '/images/skills/testing.webp',
+    src: '/images/skills/testing.jpeg',
   },
 ];
