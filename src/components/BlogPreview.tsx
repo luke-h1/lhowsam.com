@@ -17,7 +17,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ post }) => {
               <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
                 {post.title}
               </h2>
-              <div className="mb-3">
+              <div className="mb-4">
                 <span className="mt-1 text-gray-500 text-sm">
                   {post.createdAt}
                 </span>
