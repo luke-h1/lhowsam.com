@@ -28,6 +28,7 @@ const Nav = () => {
                   'font-medium block transition-colors mt-1.5 lg:mt-0 lg:ml-8 ml-5 hover:text-sky-500',
                   constants.FOCUS_VISIBLE_OUTLINE,
                 )}
+                aria-label={link.text}
               >
                 {link.text}
               </a>
@@ -42,6 +43,7 @@ const Nav = () => {
               )}
               target="_blank"
               rel="noreferrer"
+              aria-label="Twiiter"
             >
               <AiOutlineTwitter />
             </a>
@@ -53,6 +55,7 @@ const Nav = () => {
               )}
               target="_blank"
               rel="noreferrer"
+              aria-label="Github"
             >
               <AiOutlineGithub />
             </a>

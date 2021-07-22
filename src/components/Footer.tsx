@@ -22,6 +22,7 @@ const Footer: React.FC<FooterProps> = () => {
             target="_blank"
             rel="noreferrer"
             className="text-gray-500 ml-3"
+            aria-label="Github"
           >
             <AiOutlineGithub fontSize="22px" />
           </a>
@@ -30,6 +31,7 @@ const Footer: React.FC<FooterProps> = () => {
             target="_blank"
             rel="noreferrer"
             className="text-gray-500 ml-3"
+            aria-label="Twitter"
           >
             <AiOutlineTwitter fontSize="22px" />
           </a>
@@ -38,6 +40,7 @@ const Footer: React.FC<FooterProps> = () => {
             target="_blank"
             rel="noreferrer"
             className="text-gray-500 ml-3"
+            aria-label="Linkedin"
           >
             <AiFillLinkedin fontSize="22px" />
           </a>
