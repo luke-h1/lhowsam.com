@@ -25,6 +25,5 @@ describe('index intro texts', () => {
       cy.get('[data-testid=skill-6]').contains('Express.js')
       cy.get('[data-testid=skill-7]').contains('Manual & automated testing')
     })
-
   });
 });

@@ -27,7 +27,8 @@ const Hero: React.FC<HeroProps> = () => {
             data-testid="hey"
           >
             Hey,
-            <br className="hidden lg:inline-block" />
+            {' '}
+            {/* <br className="hidden lg:inline-block" /> */}
             I'm Luke
           </h1>
           <p className="mb-8 leading-relaxed" data-testid="short-intro">
