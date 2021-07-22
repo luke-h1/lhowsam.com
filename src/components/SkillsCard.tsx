@@ -30,7 +30,10 @@ const SkillsCard: React.FC<SkillsCardProps> = () => {
                     alt={skill.text}
                   />
                   <div className="flex-grow">
-                    <h2 className="text-gray-900 title-font font-medium">
+                    <h2
+                      className="text-gray-900 title-font font-medium"
+                      data-testid={`skill-${skill.id}`}
+                    >
                       {skill.text}
                     </h2>
                   </div>
