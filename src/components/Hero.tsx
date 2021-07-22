@@ -22,12 +22,15 @@ const Hero: React.FC<HeroProps> = () => {
           />
         </div>
         <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+          <h1
+            className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"
+            data-testid="hey"
+          >
             Hey,
             <br className="hidden lg:inline-block" />
             I'm Luke
           </h1>
-          <p className="mb-8 leading-relaxed">
+          <p className="mb-8 leading-relaxed" data-testid="short-intro">
             I enjoy working on big projects and thinking about how solutions can
             be implemented in order to build scalable & maintainable software. I
             currently work as a software tester where I do a mixture of manual &
