@@ -1,4 +1,4 @@
-import Hero from '@src/components/Hero';
+import About from '@src/components/About';
 import SkillsCard from '@src/components/SkillsCard';
 import { getAllPostsMeta } from '@src/lib/mdx';
 import { PostMeta } from '@src/types/post';
@@ -23,7 +23,7 @@ const Index: React.FC<IndexProps> = ({ posts }) => {
           title: 'Home',
         }}
       />
-      <Hero />
+      <About />
       <SkillsCard />
       <h1 className="text-4xl text-center">Recent Posts</h1>
       {posts
