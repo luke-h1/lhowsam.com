@@ -1,4 +1,4 @@
-import Hero from '@src/components/Hero';
+import About from '@src/components/About';
 import SkillsCard from '@src/components/SkillsCard';
 import { getAllPostsMeta } from '@src/lib/mdx';
 import { PostMeta } from '@src/types/post';
@@ -23,11 +23,13 @@ const Index: React.FC<IndexProps> = ({ posts }) => {
           title: 'Home',
         }}
       />
-      <Hero />
+      <About />
       <SkillsCard />
       <h1 className="text-4xl text-center">Recent Posts</h1>
-      {posts
-        && posts.map((post) => (post.isOnIndex ? <BlogPreview key={post.slug} post={post} /> : null))}
+      <div className="mt-6 sm:grid sm:grid-cols-2 sm:gap-10">
+        {posts
+          && posts.map((post) => (post.isOnIndex ? <BlogPreview key={post.slug} post={post} /> : null))}
+      </div>
     </>
   );
 };

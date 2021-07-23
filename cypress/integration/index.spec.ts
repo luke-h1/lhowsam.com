@@ -8,14 +8,17 @@ describe('index intro texts', () => {
     })
     it('should display correct index text (1)', () => {
       cy.get('[data-testid=hey]').contains(
-        'Hey, I\'m Luke'
+        'Hey 👋, I\'m Luke'
       );
     });
     it('should display correct index text (2)', () => {
       cy.get('[data-testid=short-intro]').contains(
-        'I enjoy working on big projects and thinking about how solutions can be implemented in order to build scalable & maintainable software. I currently work as a software tester where I do a mixture of manual & automated testing in an agile environment'
+        'I like building and testing projects that are scalable, performant & user friendly'
       );
     });
+    it('should display correct index text (3)', () => {
+      cy.get('[data-testid=short-intro2]').contains('I currently work as a software tester where I do a mixture of manual & automated testing in an agile environment')
+    })
     it('should display correct skills', () => { 
       cy.get('[data-testid=skill-1]').contains('React.js')
       cy.get('[data-testid=skill-2]').contains('Next.js')
