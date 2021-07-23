@@ -58,6 +58,7 @@ const About: React.FC<AboutProps> = () => {
             height={400}
             blurDataURL="/images/luke.jpeg"
             placeholder="blur"
+            alt="profile picture"
           />
         </div>
       </div>
