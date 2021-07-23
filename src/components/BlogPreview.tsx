@@ -19,7 +19,7 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ post }) => {
                     <img
                       className="lg:h-48 md:h-36 w-full object-cover object-center"
                       src={`/blog-images/${post.image}`}
-                      alt="blog"
+                      alt={post.image}
                     />
                   )}
                   <div className="p-6">
