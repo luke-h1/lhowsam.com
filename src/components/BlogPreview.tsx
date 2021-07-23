@@ -8,26 +8,28 @@ interface BlogPreviewProps {
 
 const BlogPreview: React.FC<BlogPreviewProps> = ({ post }) => {
   return (
-    <section
-      className="text-gray-600 body-font overflow-hidden"
-      key={post.slug}
-    >
+    <section className="text-gray-600 body-font" key={post.slug}>
       <Link href={`/blog/${post.slug}`}>
         <a>
-          <div className="container px-5 py-24 mx-auto">
-            <div className="-my-8 divide-y-2 divide-gray-100">
-              <div className="py-8 flex flex-wrap md:flex-nowrap">
-                <div className="md:w-64 md:mb-0 mb-6 flex-shrink-0 flex flex-col" />
-                <div className="md:flex-grow">
-                  <h2 className="text-2xl font-medium text-gray-900 title-font mb-2">
-                    {post.title}
-                  </h2>
-                  <div className="mb-3">
-                    <span className="mt-1 text-gray-500 text-sm">
+          <div className="container px-5 py-4 mx-auto">
+            <div className="">
+              <div className="p-4">
+                <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                  <img
+                    className="lg:h-48 md:h-36 w-full object-cover object-center"
+                    src={`/blog-images/${post.image}`}
+                    alt="blog"
+                  />
+                  <div className="p-6">
+                    <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
                       {post.createdAt}
-                    </span>
+                    </h2>
+                    <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
+                      {post.title}
+                    </h1>
+                    <p className="leading-relaxed mb-3">{post.description}</p>
+                    <div className="flex items-center flex-wrap" />
                   </div>
-                  <p className="leading-relaxed">{post.description}</p>
                 </div>
               </div>
             </div>
