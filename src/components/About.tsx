@@ -8,15 +8,17 @@ const About: React.FC<AboutProps> = () => {
     <section className="text-gray-600 body-font">
       <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
         <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+          <h1
+            className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900"
+            data-testid="hey"
+          >
             Hey 👋, I'm Luke
-            <br className="hidden lg:inline-block" />
           </h1>
-          <p className="leading-relaxed mb-5">
-            I like building and testing tools that are scalable, performant &
+          <p className="leading-relaxed mb-5" data-testid="short-intro">
+            I like building and testing projects that are scalable, performant &
             user friendly
           </p>
-          <p className="leading-relaxed mb-5">
+          <p className="leading-relaxed mb-5" data-testid="short-intro2">
             I currently work as a software tester where I do a mixture of manual
             & automated testing in an agile environment
           </p>

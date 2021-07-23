@@ -8,5 +8,6 @@ describe('blog page should work', () => {
   it('should render properly', () => {
     cy.visit('/blog');
     cy.contains('Blog').should('exist');
+    cy.contains('Lessons learned, thoughts on various tech & articles on what I\'m building').should('exist')
   });
 });
