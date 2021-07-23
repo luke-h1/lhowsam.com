@@ -15,11 +15,13 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ post }) => {
             <div className="">
               <div className="p-4">
                 <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
-                  <img
-                    className="lg:h-48 md:h-36 w-full object-cover object-center"
-                    src={`/blog-images/${post.image}`}
-                    alt="blog"
-                  />
+                  {post.image && (
+                    <img
+                      className="lg:h-48 md:h-36 w-full object-cover object-center"
+                      src={`/blog-images/${post.image}`}
+                      alt="blog"
+                    />
+                  )}
                   <div className="p-6">
                     <h2 className="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">
                       {post.createdAt}
