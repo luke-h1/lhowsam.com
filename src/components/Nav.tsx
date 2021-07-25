@@ -29,6 +29,7 @@ const Nav = () => {
                   constants.FOCUS_VISIBLE_OUTLINE,
                 )}
                 aria-label={link.text}
+                data-testid={`nav-${link.text}`}
               >
                 {link.text}
               </a>
@@ -44,6 +45,7 @@ const Nav = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="Twiiter"
+              data-testid="nav-twitter"
             >
               <AiOutlineTwitter />
             </a>
@@ -56,6 +58,7 @@ const Nav = () => {
               target="_blank"
               rel="noreferrer"
               aria-label="Github"
+              data-testid="nav-github"
             >
               <AiOutlineGithub />
             </a>
