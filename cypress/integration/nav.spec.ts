@@ -1,7 +1,6 @@
 describe('nav contains correct text', () => { 
     context('1080p res', () => { 
         cy.viewport(1920, 1080)
-    })
     before(() => { 
         cy.visit('/')
     })
@@ -16,4 +15,5 @@ describe('nav contains correct text', () => {
         cy.get('[data-testid=nav-github]').should('be.visible')
 
     })
+  })
 })
