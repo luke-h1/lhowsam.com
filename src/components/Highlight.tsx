@@ -15,8 +15,8 @@ export const RoughHighlight: React.FC<RoughHighlightProps> = ({
     <RoughNotation
       type="highlight"
       multiline
-      strokeWidth={5}
-      padding={[0, 4]}
+      strokeWidth={3}
+      padding={[0, 2]}
       iterations={1}
       animationDuration={duration}
       color={color}
