@@ -6,6 +6,7 @@ import React from 'react';
 import BlogPreview from '@src/components/BlogPreview';
 import { NextSeo } from 'next-seo';
 import { CustomHead } from '@src/components/CustomHead';
+import Contact from '@src/components/Contact';
 
 interface IndexProps {
   posts: PostMeta[];
@@ -30,6 +31,7 @@ const Index: React.FC<IndexProps> = ({ posts }) => {
         {posts
           && posts.map((post) => (post.isOnIndex ? <BlogPreview key={post.slug} post={post} /> : null))}
       </div>
+      <Contact />
     </>
   );
 };
