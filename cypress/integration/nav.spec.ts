@@ -1,5 +1,5 @@
 describe('nav contains correct text', () => { 
-    context('108p res', () => { 
+    context('1080p res', () => { 
         cy.viewport(1920, 1080)
     })
     before(() => { 
