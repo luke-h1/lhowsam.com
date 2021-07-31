@@ -30,6 +30,8 @@
 
 [![CI / unit tests (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-test.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-test.yml)
 
+[![CI / Nightly tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml)
+
 ## Inspirations
  - [leerob](https://github.com/leerob)
  - [mxstbr](https://github.com/mxstbr/mxstbr.com)
