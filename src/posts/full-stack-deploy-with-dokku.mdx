@@ -212,7 +212,7 @@ dokku proxy:por-add <API_NAME> http:80:<PORT_IN_DOCKER_IMAGE>
  Now that we've assigned a domain name, configured the correct por, we can enable let's encrypt:
 
 ```
-dokku leencrypt:enable <API_NAME>
+dokku letsencrypt:enable <API_NAME>
 ```
  At the point of enabling letencrypt you may get some errors about the domain name. If so check if your advanced DNS config is correctly configured
 
