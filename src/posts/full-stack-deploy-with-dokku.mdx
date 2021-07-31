@@ -196,20 +196,20 @@ dokku domains:report
 ```
 dokku domains:add <API_NAME> <DOMAIN_NAME>
 ```
- Check the por: 
+ Check the port: 
 
 ```
-dokku proxy:por <API_NAME>
+dokku proxy:port <API_NAME>
 ```
 
- Assign the por to the API name. This should match whatever you've exposed in your Docker image
+ Assign the port to the API name. This should match whatever you've exposed in your Docker image
 
 ``` 
-dokku proxy:por-add <API_NAME> http:80:<PORT_IN_DOCKER_IMAGE>
+dokku proxy:port-add <API_NAME> http:80:<PORT_IN_DOCKER_IMAGE>
 ```
 
  At this point you should be able to get access via the browser (cannot get / message). If you see this it means the above steps have worked. You may get a 502 response from the server if DNS hasn't finished propogating.
- Now that we've assigned a domain name, configured the correct por, we can enable let's encrypt:
+ Now that we've assigned a domain name, configured the correct port, we can enable let's encrypt:
 
 ```
 dokku letsencrypt:enable <API_NAME>
