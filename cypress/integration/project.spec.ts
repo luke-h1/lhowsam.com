@@ -21,7 +21,7 @@ describe('blog page should work', () => {
   it('should render Airbnb clone project', () => { 
     cy.visit('/projects');
     cy.contains('Airbnb clone - full stack clone of Airbnb').should('be.visible')
-    cy.contains('In this project I built a clone of Airbnb with Next.js for the frontend & GraphQl + Typescript for the api. While this project is not a 1 to 1 match of the actual Airbnb, I learnt a lot about technologies that I wasn\'t very comfortable with at the start of this project (uploading & deleting s3 images, more complex SQL queries etc.)')
+    cy.contains('In this project I built a clone of Airbnb with Next.js for the frontend & GraphQL + Typescript for the api. While this project is not a 1 to 1 match of the actual Airbnb, I learnt a lot about technologies that I wasn\'t very comfortable with at the start of this project (uploading & deleting s3 images, more complex SQL queries etc.)')
   })
 
   it('should render Automation project', () => {
