@@ -17,11 +17,10 @@ export const Projects: {
   },
   {
     id: 2,
-    title: 'tmtodos.me - full stack todo app',
+    title: 'Airbnb clone - full stack clone of Airbnb',
     description:
-      'this project was an eye opener on which technologies I most like working with (building full stack applications is really satisifying) and the importance of picking the correct tech-stack to start a project with. Initially the tech stack I chose to start this project was simply not suitable (i.e. Redux was overkill for this project).',
-    siteUrl: 'https://tmtodos.me',
-    githubUrl: 'https://github.com/luke-h1/tmtodos.me',
+      "In this project I built a clone of Airbnb with Next.js for the frontend & GraphQl + Typescript for the api. While this project is not a 1 to 1 match of the actual Airbnb, I learnt a lot about technologies that I wasn't very comfortable with at the start of this project (uploading & deleting s3 images, more complex SQL queries etc.)",
+    githubUrl: 'https://github.com/luke-h1/airbnb-clone',
     tech: [
       'Typescript',
       'Node',
@@ -29,7 +28,7 @@ export const Projects: {
       'Redis',
       'PostgreSQL',
       'Next.js',
-      'AWS',
+      'AWS S3',
       'Docker',
     ],
   },
