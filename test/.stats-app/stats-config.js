@@ -9,9 +9,9 @@ const StatsConfig = {
   appBuildCommand: string,
   appStartCommand: string | undefined,
   // the main branch to compare against (what PRs will be merging into)
-  mainBranch: 'canary',
+  mainBranch: 'dev',
   // the main repository path (relative to https://github.com/)
-  mainRepo: 'zeit/next.js',
+  mainRepo: 'luke-h1/lhowsam.com',
   // whether to attempt auto merging the main branch into PR before running stats
   autoMergeMain: boolean | undefined,
   // an array of configs for each run
