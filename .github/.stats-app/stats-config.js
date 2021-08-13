@@ -29,6 +29,7 @@ const StatsConfig = {
         {
           srcGlob: 'main-*.js',
           dest: 'main.js',
+          
         },
       ],
       // config files to add before running (removed before successive runs)
