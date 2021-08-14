@@ -164,7 +164,7 @@ dokku plugin:install https://github.com/dokku/dokku-letsencrypt
  setup lets encrypt: 
 ```
 dokku config:set --no-restart <API_NAME> 
-DOKKU_LEENCRYPT_EMAIL=<YOUR_EMAIL_ADDR>
+DOKKU_LETSENCRYPT_EMAIL=<YOUR_EMAIL_ADDR>
 ```
 
  Now we will need to setup the domain for the API. By default dokku will assume it's the name of the VPS / EC2 instance. So we will need to get rid of this. If you're following along on AWS you will first need to assign the VPS a hostname with the following command: 
@@ -199,13 +199,13 @@ dokku domains:add <API_NAME> <DOMAIN_NAME>
  Check the port: 
 
 ```
-dokku proxy:port <API_NAME>
+dokku proxy:ports <API_NAME>
 ```
 
  Assign the port to the API name. This should match whatever you've exposed in your Docker image
 
 ``` 
-dokku proxy:port-add <API_NAME> http:80:<PORT_IN_DOCKER_IMAGE>
+dokku proxy:ports-add <API_NAME> http:80:<PORT_IN_DOCKER_IMAGE>
 ```
 
  At this point you should be able to get access via the browser (cannot get / message). If you see this it means the above steps have worked. You may get a 502 response from the server if DNS hasn't finished propogating.
