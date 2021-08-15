@@ -9,6 +9,6 @@ jobs:
         name: PR Stats
         runs-on: ubuntu-latest
         steps:
-            - uses: vercel/next-stats-action@master
+            - uses: luke-h1/next-stats-action@master
               env:
                   PR_STATS_COMMENT_TOKEN: ${{secrets.PR_STATS_COMMENT_TOKEN}}
