@@ -4,7 +4,8 @@ describe('index intro texts', () => {
     });
     before(() => { 
       cy.visit('/')
-    } 
+    )}
+           
     it('should display correct index text (1)', () => {
       cy.get('[data-testid=hey]').contains(
         'Hey 👋, I\'m Luke'
