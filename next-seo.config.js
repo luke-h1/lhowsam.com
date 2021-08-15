@@ -1,5 +1,7 @@
-const title = 'Luke Howsam – Developer, tester ';
-const description = 'Node + Typescript enthusiast and software tester';
+import { constants } from './src/shared/constants';
+
+const title = constants.site;
+const description = constants.intro;
 
 const SEO = {
   title,

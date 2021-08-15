@@ -7,6 +7,7 @@ import '@src/styles/index.css';
 import Nav from '@src/components/Nav';
 import Container from '@src/components/Container';
 import Footer from '@src/components/Footer';
+import { constants } from '@src/shared/constants';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -29,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           type: 'website',
           locale: 'en_IE',
           url: 'https://lhowsam.com',
-          description: 'Luke Howsam',
+          description: constants.intro,
           site_name: 'Luke Howsam',
           images: [
             {
