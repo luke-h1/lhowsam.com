@@ -24,12 +24,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <DefaultSeo
         titleTemplate="%s | lhowsam.com"
-        description="Luke Howsam - Software tester & developer"
+        description="Luke Howsam"
         openGraph={{
           type: 'website',
           locale: 'en_IE',
           url: 'https://lhowsam.com',
-          description: 'Luke Howsam - Software tester & developer',
+          description: 'Luke Howsam',
           site_name: 'Luke Howsam',
           images: [
             {
