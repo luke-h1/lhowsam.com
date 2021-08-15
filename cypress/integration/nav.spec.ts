@@ -1,19 +1,29 @@
-describe('blog page should work', () => {
-    context('1080p res', () => {
-      beforeEach(() => {
-        cy.viewport(1920, 1080);
-      });
-    });
-  
+describe('nav', () => {
+  beforeEach(() => { 
+    cy.visit('/')
+  })
     it('should render properly', () => {
-      cy.visit('/');
-      cy.get('[data-testid=nav-Home]').contains('Home').should('be.visible')
-      cy.get('[data-testid=nav-Blog]').contains('Blog').should('be.visible')
+      cy.getByTestId('nav-Home').contains('Home').should('be.visible')
+      cy.getByTestId('nav-Blog').contains('Blog').should('be.visible')
 
-      cy.get('[data-testid=nav-Projects]').contains('Projects').should('be.visible')
+      cy.getByTestId('nav-Projects').contains('Projects').should('be.visible')
 
-      cy.get('[data-testid=nav-twitter]').should('be.visible')
-      cy.get('[data-testid=nav-github]').should('be.visible')
+      cy.getByTestId('nav-twitter').should('be.visible')
+      cy.getByTestId('nav-github').should('be.visible')
 
     });
+
+    it('should redirect to correct pages', () => { 
+      cy.getByTestId('nav-Home').contains('Home').should('be.visible').click()
+      cy.url().should('eq', 'http://localhost:3000/');
+
+      cy.getByTestId('nav-Blog').contains('Blog').should('be.visible').click()
+      cy.url().should('eq', 'http://localhost:3000/blog');
+      cy.contains('h1', 'Blog').should('be.visible')
+
+      cy.getByTestId('nav-Projects').contains('Projects').should('be.visible').click()
+      cy.url().should('eq', 'http://localhost:3000/projects');
+      cy.contains('h1', 'Projects').should('be.visible')
+
+    })
   });
