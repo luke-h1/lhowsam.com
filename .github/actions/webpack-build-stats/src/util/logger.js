@@ -1,3 +1,4 @@
+
 function logger(...args) {
   console.log(...args);
 }
@@ -13,4 +14,4 @@ logger.warn = (...args) => {
   console.warn(...args);
 };
 
-export default logger;
+module.exports = logger;
