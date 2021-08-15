@@ -1,12 +1,8 @@
-describe('index intro texts', () => {
-    beforeEach(() => {
-      cy.viewport(1920, 1080);
-    });
-    before(() => { 
-      cy.visit('/')
-    )}
-           
-    it('should display correct index text (1)', () => {
+describe('index', () => {
+  beforeEach(() => { 
+    cy.visit('/')
+  })
+  it('should display correct index text (1)', () => {
       cy.get('[data-testid=hey]').contains(
         'Hey 👋, I\'m Luke'
       ).should('be.visible')
@@ -33,4 +29,3 @@ describe('index intro texts', () => {
       cy.get('p').contains('Do you have a project or opportunity you\'d like to discuss?').should('be.visible')
     })
   });
-});

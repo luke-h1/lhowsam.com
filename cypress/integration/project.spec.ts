@@ -4,7 +4,6 @@ describe('project page', () => {
   })
 
   it('should render properly', () => {
-    cy.visit('/projects');
     cy.contains('h1', 'Projects').should('be.visible');
   });
 
