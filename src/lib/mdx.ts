@@ -8,11 +8,11 @@ import gfmPlugin from 'remark-gfm';
 import slugPlugin from 'remark-slug';
 import type { PostMeta } from '@src/types/post';
 
-const ROOT_PATH = `${process.cwd()}/src`;
-export const POSTS_PATH = path.join(ROOT_PATH, 'posts');
+const rootPath = `${process.cwd()}/src`;
+export const postsPath = path.join(rootPath, 'posts');
 
 export const getAllPostsMeta = (category?: PostMeta['category']) => {
-  const PATH = path.join(POSTS_PATH);
+  const PATH = path.join(postsPath);
 
   // get file paths in blog folder that end with .mdx
   const paths = glob.sync(`${PATH}/**/*.mdx`);
@@ -48,7 +48,7 @@ export const getAllPostsMeta = (category?: PostMeta['category']) => {
 // get content of post
 export const getPostBySlug = async (slug: string) => {
   // get content of file
-  const source = fs.readFileSync(path.join(POSTS_PATH, `${slug}.mdx`), 'utf-8');
+  const source = fs.readFileSync(path.join(postsPath, `${slug}.mdx`), 'utf-8');
 
   const { code, frontmatter } = await bundleMDX(source, {
     xdmOptions(options) {
