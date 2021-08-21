@@ -1,4 +1,4 @@
-const shuffleArray = (array: string[]) => {
+const shuffle = (array: string[]) => {
   let currentIndex = array.length;
   let randomIndex;
 
@@ -19,4 +19,4 @@ const shuffleArray = (array: string[]) => {
 
   return array;
 };
-export default shuffleArray;
+export default shuffle;
