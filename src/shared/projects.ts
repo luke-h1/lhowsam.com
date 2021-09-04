@@ -20,7 +20,6 @@ export const Projects: {
     title: 'Airbnb clone - full stack clone of Airbnb',
     description:
       "In this project I built a clone of Airbnb with Next.js for the frontend & GraphQL + Typescript for the api. While this project is not a 1 to 1 match of the actual Airbnb, I learnt a lot about technologies that I wasn't very comfortable with at the start of this project (uploading & deleting s3 images, more complex SQL queries etc.)",
-    siteUrl: 'https://airbb-clone-code.xyz',
     githubUrl: 'https://github.com/luke-h1/airbnb-clone',
     tech: [
       'Typescript',
