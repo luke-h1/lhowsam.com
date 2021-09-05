@@ -12,7 +12,7 @@ const SkillsCard: React.FC<SkillsCardProps> = () => {
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
             Skills
           </h1>
-          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-left">
             At the moment I enjoy working with React.js, Node.js,
             SQL-based databases & various testing tools
           </p>
@@ -20,7 +20,7 @@ const SkillsCard: React.FC<SkillsCardProps> = () => {
         <div className="flex flex-wrap -m-2">
           {Skills
             && Skills.map((skill) => (
-              <div className="p-2 lg:w-1/4 md:w-1/3 w-full">
+              <div className="p-2 lg:w-1/4 md:w-1/3 w-full" key={skill.id}>
                 <div className="h-full flex items-center border-gray-200 border p-4 rounded-lg">
                   <img
                     className={cx(
