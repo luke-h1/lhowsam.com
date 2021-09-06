@@ -66,6 +66,7 @@ export const components = {
       )}
     </figure>
   ),
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   img: ({ children, ...props }: { children: React.ReactNode }) => (
     <div className="my-5">
       <NextImage {...(props as any)} />
