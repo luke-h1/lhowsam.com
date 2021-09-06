@@ -7,6 +7,7 @@ import BlogPreview from '@src/components/BlogPreview';
 import { NextSeo } from 'next-seo';
 import { CustomHead } from '@src/components/CustomHead';
 import Contact from '@src/components/Contact';
+import { getOpenGraphImage } from '../lib/getOpenGraphImage';
 
 interface IndexProps {
   posts: PostMeta[];
@@ -22,6 +23,13 @@ const Index: React.FC<IndexProps> = ({ posts }) => {
         openGraph={{
           url: 'https://lhowsam.com',
           title: 'Home',
+          images: [getOpenGraphImage('Luke Howsam')],
+
+        }}
+        twitter={{
+          handle: '@LukeH_1999',
+          cardType: 'summary_large_image',
+
         }}
       />
       <About />
