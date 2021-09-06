@@ -9,6 +9,7 @@ import Image from 'next/image';
 import Button from '@src/components/Button';
 import { CustomHead } from '@src/components/CustomHead';
 import { NextSeo } from 'next-seo';
+import { getOpenGraphImage } from '@src/lib/getOpenGraphImage';
 
 export const getStaticPaths = () => {
   const posts = getAllPostsMeta();
@@ -41,6 +42,11 @@ const BlogPage = ({ meta, code }: Post) => {
         openGraph={{
           url: `https://lhowsam.com/blog/${meta.slug}`,
           title: `${meta.title}`,
+          type: 'article',
+          images: [getOpenGraphImage(meta.title)],
+          article: {
+            publishedTime: new Date(meta.createdAt).toISOString(),
+          },
         }}
       />
       <div className="container max-w-3xl px-4 mx-auto mt-36">
