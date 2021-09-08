@@ -26,7 +26,6 @@ const Index: React.FC<IndexProps> = ({ posts }) => {
         twitter={{
           handle: '@LukeH_1999',
           cardType: 'summary_large_image',
-
         }}
       />
       <About />
