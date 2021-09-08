@@ -1,5 +1,4 @@
-
-name: CI / UI tests (push / pull)
+name: CI / UI tests
 
 on:
   push:

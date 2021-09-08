@@ -1,4 +1,4 @@
-name: CI / unit tests (push / pull)
+name: CI / unit tests
 
 on:
   push:
