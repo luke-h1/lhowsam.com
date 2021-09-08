@@ -13,8 +13,8 @@ const SkillsCard: React.FC<SkillsCardProps> = () => {
             Skills
           </h1>
           <p className="lg:w-2/3 mx-auto leading-relaxed text-base text-left">
-            At the moment I enjoy working with React.js, Node.js,
-            SQL-based databases & various testing tools
+            At the moment I enjoy working with React.js, Node.js, SQL-based
+            databases & various testing tools
           </p>
         </div>
         <div className="flex flex-wrap -m-2">
