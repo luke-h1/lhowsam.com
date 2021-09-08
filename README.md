@@ -24,11 +24,11 @@
 
 ## Tests 
 
-[![CI / build (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml)
+[![CI / build](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml)
 
-[![CI / UI tests (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml)
+[![CI / UI tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml)
 
-[![CI / unit tests (push / pull)](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-test.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-test.yml)
+[![CI / unit tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-test.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-test.yml)
 
 [![CI / Nightly tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml)
 
