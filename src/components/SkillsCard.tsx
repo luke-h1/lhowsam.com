@@ -1,4 +1,4 @@
-import { Skills } from '@src/shared/Skills';
+import { Skills } from '@src/data/Skills';
 import cx from 'clsx';
 import React from 'react';
 

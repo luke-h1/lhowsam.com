@@ -1,4 +1,4 @@
-import { Skills } from '../shared/Skills';
+import { Skills } from '../data/Skills';
 
 test('skills data is correct', () => {
   expect(Skills).toHaveLength(7);

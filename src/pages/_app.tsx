@@ -7,7 +7,7 @@ import '@src/styles/index.css';
 import Nav from '@src/components/Nav';
 import Container from '@src/components/Container';
 import Footer from '@src/components/Footer';
-import { constants } from '@src/shared/constants';
+import { constants } from '@src/data/constants';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

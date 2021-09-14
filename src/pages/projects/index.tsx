@@ -1,5 +1,5 @@
 import { CustomHead } from '@src/components/CustomHead';
-import { Projects } from '@src/shared/projects';
+import { Projects } from '@src/data/projects';
 import { NextSeo } from 'next-seo';
 import React from 'react';
 import { AiOutlineGithub } from 'react-icons/ai';
