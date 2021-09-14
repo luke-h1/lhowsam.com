@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { getAllPostsMeta, getPostBySlug } from '@src/lib/mdx';
+import { getAllPostsMeta, getPostBySlug } from '@src/utils/mdx';
 import { Post } from '@src/types/post';
 import { GetStaticProps } from 'next';
 import { getMDXComponent } from 'mdx-bundler/client';

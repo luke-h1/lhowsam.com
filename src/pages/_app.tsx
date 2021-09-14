@@ -1,5 +1,5 @@
 import { DefaultSeo } from 'next-seo';
-import * as gtag from '@src/lib/gtag';
+import * as gtag from '@src/utils/gtag';
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';

@@ -1,6 +1,6 @@
 import About from '@src/components/About';
 import SkillsCard from '@src/components/SkillsCard';
-import { getAllPostsMeta } from '@src/lib/mdx';
+import { getAllPostsMeta } from '@src/utils/mdx';
 import { PostMeta } from '@src/types/post';
 import React from 'react';
 import BlogPreview from '@src/components/BlogPreview';
