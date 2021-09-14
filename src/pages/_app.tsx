@@ -1,5 +1,5 @@
 import { DefaultSeo } from 'next-seo';
-import * as gtag from '@src/lib/gtag';
+import * as gtag from '@src/utils/gtag';
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
@@ -7,7 +7,7 @@ import '@src/styles/index.css';
 import Nav from '@src/components/Nav';
 import Container from '@src/components/Container';
 import Footer from '@src/components/Footer';
-import { constants } from '@src/shared/constants';
+import { constants } from '@src/data/constants';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

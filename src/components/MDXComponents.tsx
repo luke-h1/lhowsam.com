@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import React from 'react';
-import { constants } from '@src/shared/constants';
+import { constants } from '@src/data/constants';
 import cx from 'clsx';
 import NextLink from 'next/link';
 import NextImage from 'next/image';
