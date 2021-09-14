@@ -1,5 +1,5 @@
-import { constants } from '@src/shared/constants';
-import { NavLinks } from '@src/shared/NavLinks';
+import { constants } from '@src/data/constants';
+import { NavLinks } from '@src/data/NavLinks';
 import cx from 'clsx';
 import Link from 'next/link';
 import React from 'react';

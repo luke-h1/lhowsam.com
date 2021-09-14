@@ -1,6 +1,6 @@
 import BlogPreview from '@src/components/BlogPreview';
 import { CustomHead } from '@src/components/CustomHead';
-import { getAllPostsMeta } from '@src/lib/mdx';
+import { getAllPostsMeta } from '@src/utils/mdx';
 import { PostMeta } from '@src/types/post';
 import { NextSeo } from 'next-seo';
 import React from 'react';
