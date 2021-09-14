@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
+import Profile from '../../public/images/luke.jpeg';
 
 interface AboutProps {}
 
@@ -52,14 +53,7 @@ const About: React.FC<AboutProps> = () => {
           </div>
         </div>
         <div className="lg:max-w-sm lg:w-full md:w-1/2 w-4/6">
-          <Image
-            src="/images/luke.jpeg"
-            width={320}
-            height={400}
-            blurDataURL="/images/luke.jpeg"
-            placeholder="blur"
-            alt="profile picture"
-          />
+          <Image src={Profile} alt="profile picture" placeholder="blur" />
         </div>
       </div>
     </section>
