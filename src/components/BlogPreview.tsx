@@ -8,9 +8,9 @@ interface BlogPreviewProps {
 
 const BlogPreview: React.FC<BlogPreviewProps> = ({ post }) => {
   return (
-    <section className="text-gray-600 body-font" key={post.slug}>
-      <Link href={`/blog/${post.slug}`}>
-        <a>
+    <Link href={`/blog/${post.slug}`}>
+      <a>
+        <section className="text-gray-600 body-font" key={post.slug}>
           <div className="container px-5 py-4 mx-auto">
             <div className="">
               <div className="p-4">
@@ -36,9 +36,9 @@ const BlogPreview: React.FC<BlogPreviewProps> = ({ post }) => {
               </div>
             </div>
           </div>
-        </a>
-      </Link>
-    </section>
+        </section>
+      </a>
+    </Link>
   );
 };
 export default BlogPreview;
