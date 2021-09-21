@@ -1,12 +1,11 @@
 import { Projects } from '../data/projects';
 
 test('skills data is correct', () => {
-  expect(Projects).toHaveLength(4);
+  expect(Projects).toHaveLength(3);
   expect(Projects.map((skill) => skill.title)).toEqual([
     'My Website',
-    'tmtodos.me - full stack todo app',
-    'Automation',
     'Airbnb clone - full stack clone of Airbnb',
+    'Automation',
   ]);
 });
 
