@@ -14,7 +14,7 @@ describe('project page', () => {
 
   it('should render tmtodos project', () => { 
     cy.getByTestId('project-title').should('be.visible').contains('tmtodos.me - full stack todo app')
-    cy.contains('tmtodos is a full stack todo app.This was the first fullstack app I created. This project was an eye opener on which technologies I most like working with (building full stack applications is really satisifying) and the importance of picking the correct tech-stack to start a project with. While simple in the functionality it exposes to a user, I learnt a lot about technologies that I wasn\'t very comfortable with at the start of this project (uploading & deleting s3 images, more complex SQL queries etc.)').should('be.visible')
+    cy.contains('tmtodos is a full stack todo app.This was the first fullstack app I created. This project was an eye opener on which technologies I most like working with (building full stack applications is really satisifying) and the importance of picking the correct tech-stack to start a project with.While simple in the functionality it exposes to a user, I learnt a lot about technologies that I wasn\'t very comfortable with at the start of this project (uploading & deleting s3 images, more complex SQL queries etc.)').should('be.visible')
   })
 
   it('should render Automation project', () => {
