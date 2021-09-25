@@ -13,14 +13,14 @@ export const Projects: {
       "I use this project as a training ground for myself and often find myself in the deep end of learning a new framework or trying a new technology (This has helped me get comfortable with React & Next for example). I like working on this site and can't wait to continue to improve it with the latest technologies available",
     siteUrl: 'https://lhowsam.com',
     githubUrl: 'https://github.com/luke-h1/lhowsam.com',
-    tech: ['Next.js', 'Typescript', 'Tailwind-css'],
+    tech: ['Next.js', 'Typescript', 'tailwindcss', 'Cypress'],
   },
   {
     id: 2,
-    title: 'Airbnb clone - full stack clone of Airbnb',
+    title: 'tmtodos.me - full stack todo app',
     description:
-      "In this project I built a clone of Airbnb with Next.js for the frontend & GraphQL + Typescript for the api. While this project is not a 1 to 1 match of the actual Airbnb, I learnt a lot about technologies that I wasn't very comfortable with at the start of this project (uploading & deleting s3 images, more complex SQL queries etc.)",
-    githubUrl: 'https://github.com/luke-h1/airbnb-clone',
+      "tmtodos is a full stack todo app.This was the first fullstack app I created. This project was an eye opener on which technologies I most like working with (building full stack applications is really satisifying) and the importance of picking the correct tech-stack to start a project with.While simple in the functionality it exposes to a user, I learnt a lot about technologies that I wasn't very comfortable with at the start of this project (uploading & deleting s3 images, more complex SQL queries etc.)",
+    githubUrl: 'https://github.com/luke-h1/tmtodos.me',
     tech: [
       'Typescript',
       'Node',
@@ -28,7 +28,8 @@ export const Projects: {
       'Redis',
       'PostgreSQL',
       'Next.js',
-      'AWS S3',
+      'AWS',
+      'S3',
       'Docker',
     ],
   },
