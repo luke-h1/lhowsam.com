@@ -22,12 +22,14 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.4.7",
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/line-clamp": "^0.2.1",
     "clsx": "^1.1.1",
     "date-fns": "^2.24.0",
     "dotenv-safe": "^8.2.0",
     "esbuild": "^0.12.29",
+    "express-rate-limit": "^5.3.0",
     "gen-env-types": "^1.3.0",
     "glob": "^7.2.0",
     "gray-matter": "^4.0.3",
@@ -47,6 +49,7 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.0",
+    "@types/express-rate-limit": "^5.1.3",
     "@types/glob": "^7.1.4",
     "@types/jest": "^27.0.2",
     "@types/node": "^16.9.6",
