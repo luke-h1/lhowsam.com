@@ -1,54 +1,45 @@
 import React, { useMemo } from 'react';
-import { getAllPostsMeta, getPostBySlug } from '@src/utils/mdx';
 import { Post } from '@src/types/post';
-import { GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { format, parseISO } from 'date-fns';
 import { components } from '@src/components/MDXComponents';
 import Image from 'next/image';
-import Button from '@src/components/Button';
 import { CustomHead } from '@src/components/CustomHead';
 import { NextSeo } from 'next-seo';
+import { getAllItems, getItemBySlug } from '@src/utils/mdx3';
+import { isProd } from '../../utils/isProd';
 
-export const getStaticPaths = () => {
-  const posts = getAllPostsMeta();
-  const paths = posts.map(({ slug }) => ({ params: { slug } }));
-  return {
-    paths,
-    fallback: false,
-  };
-};
+interface Props {
+  post: Post;
+}
 
-export const getStaticProps: GetStaticProps<Post> = async (ctx) => {
-  const slug = ctx.params?.slug as string;
-  const post = await getPostBySlug(slug);
-  return {
-    props: post,
-  };
-};
-const BlogPage = ({ meta, code }: Post) => {
-  const Component = useMemo(() => getMDXComponent(code), [code]);
+const BlogPage = ({ post }: Props) => {
+  const Component = useMemo(
+    () => getMDXComponent(post.content),
+    [post.content],
+  );
   return (
     <>
       <CustomHead
-        title={`Blog | ${meta.title}`}
-        description={`${meta.description}`}
-        image={`${meta.image && meta.image}`}
+        title={`Blog | ${post.title}`}
+        description={`${post.intro}`}
+        image={`${post.image && post.image}`}
       />
       <NextSeo
-        title={`${meta.title}`}
-        canonical={`https://lhowsam.com/blog/${meta.slug}`}
+        title={`${post.title}`}
+        canonical={`https://lhowsam.com/blog/${post.slug}`}
         openGraph={{
-          url: `https://lhowsam.com/blog/${meta.slug}`,
-          title: `${meta.title}`,
+          url: `https://lhowsam.com/blog/${post.slug}`,
+          title: `${post.title}`,
           type: 'article',
           article: {
-            publishedTime: new Date(meta.createdAt).toISOString(),
+            publishedTime: new Date(post.createdAt).toISOString(),
           },
         }}
       />
       <div className="container max-w-3xl px-4 mx-auto mt-36">
-        <h1 className="text-2xl font-bold md:text-4xl">{meta.title}</h1>
+        <h1 className="text-2xl font-bold md:text-4xl">{post.title}</h1>
 
         <div className="flex items-center mt-4 space-x-2 text-gray-500">
           <Image
@@ -62,17 +53,17 @@ const BlogPage = ({ meta, code }: Post) => {
 
           <div className="text-gray-300">&middot;</div>
 
-          <div>{format(parseISO(meta.createdAt), 'MMMM dd, yyyy')}</div>
+          <div>{format(parseISO(post.createdAt), 'MMMM dd, yyyy')}</div>
         </div>
 
-        {meta.image ? (
+        {post.image ? (
           <div className="mt-10 overflow-hidden rounded-2xl text-[0px]">
             <Image
-              src={`/blog-images/${meta.image}`}
+              src={`/blog-images/${post.image}`}
               width={1920}
               height={900}
               placeholder="blur"
-              blurDataURL={`/blog-images/${meta.image}`}
+              blurDataURL={`/blog-images/${post.image}`}
             />
           </div>
         ) : null}
@@ -80,13 +71,31 @@ const BlogPage = ({ meta, code }: Post) => {
         <div className="mt-10 text-gray-900">
           <Component components={components as any} />
         </div>
-        <div className="flex justify-center mt-16 space-x-8">
-          {meta.source ? (
-            <Button href={meta.source}>View Source Code</Button>
-          ) : null}
-        </div>
+        <div className="flex justify-center mt-16 space-x-8" />
       </div>
     </>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await getAllItems<Post>('posts', !isProd);
+
+  return {
+    paths: posts.map((post) => ({ params: { slug: post.slug } })),
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps = async (
+  ctx: GetStaticPropsContext,
+) => {
+  const slug = ctx?.params?.slug as string;
+
+  const post = await getItemBySlug<Post>(slug, 'posts');
+  return {
+    props: {
+      post: post ?? null,
+    },
+  };
 };
 export default BlogPage;
