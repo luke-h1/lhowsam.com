@@ -7,8 +7,7 @@ import { components } from '@src/components/MDXComponents';
 import Image from 'next/image';
 import { CustomHead } from '@src/components/CustomHead';
 import { NextSeo } from 'next-seo';
-import { getAllItems, getItemBySlug } from '@src/utils/mdx3';
-import { isProd } from '../../utils/isProd';
+import { getFiles, getPostBySlug } from '@src/utils/mdx';
 
 interface Props {
   post: Post;
@@ -34,7 +33,7 @@ const BlogPage = ({ post }: Props) => {
           title: `${post.title}`,
           type: 'article',
           article: {
-            publishedTime: new Date(post.createdAt).toISOString(),
+            // publishedTime: new Date(post.createdAt).toISOString(),
           },
         }}
       />
@@ -53,7 +52,7 @@ const BlogPage = ({ post }: Props) => {
 
           <div className="text-gray-300">&middot;</div>
 
-          <div>{format(parseISO(post.createdAt), 'MMMM dd, yyyy')}</div>
+          {/* <div>{format(parseISO(post.createdAt), 'MMMM dd, yyyy')}</div> */}
         </div>
 
         {post.image ? (
@@ -78,10 +77,14 @@ const BlogPage = ({ post }: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllItems<Post>('posts', !isProd);
+  const posts = await getFiles('posts');
 
   return {
-    paths: posts.map((post) => ({ params: { slug: post.slug } })),
+    paths: posts.map((p) => ({
+      params: {
+        slug: p.replace(/\.mdx/, ''),
+      },
+    })),
     fallback: false,
   };
 };
@@ -91,10 +94,10 @@ export const getStaticProps: GetStaticProps = async (
 ) => {
   const slug = ctx?.params?.slug as string;
 
-  const post = await getItemBySlug<Post>(slug, 'posts');
+  const post = await getPostBySlug('posts', slug);
   return {
     props: {
-      post: post ?? null,
+      ...post,
     },
   };
 };

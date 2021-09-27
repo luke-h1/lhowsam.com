@@ -4,7 +4,7 @@ import { constants } from '@src/data/constants';
 import cx from 'clsx';
 import NextLink from 'next/link';
 import NextImage from 'next/image';
-import Code from './Code';
+import { Code } from './Markdown/Code';
 
 export const components = {
   h1: (props: any) => (
