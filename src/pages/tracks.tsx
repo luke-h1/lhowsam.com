@@ -20,12 +20,10 @@ const Tracks = () => {
           cardType: 'summary_large_image',
         }}
       />
-      <div className="container px-5 py-4 mx-auto">
-        <div className="">
-          <div className="p-4">
-            {tracks && tracks.map((t) => <TrackPreview track={t} />)}
-          </div>
-        </div>
+      <h1 className="text-4xl font-extrabold text-gray-800">Tracks</h1>
+
+      <div className="mt-6 sm:grid sm:grid-cols-2 sm:gap-10">
+        {tracks && tracks.map((t) => <TrackPreview track={t} />)}
       </div>
     </>
   );
