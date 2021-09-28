@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^7.4.7",
-    "@tailwindcss/forms": "^0.3.3",
+    "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/line-clamp": "^0.2.1",
     "clsx": "^1.1.1",
     "date-fns": "^2.24.0",
