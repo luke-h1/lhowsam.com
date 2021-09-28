@@ -25,4 +25,10 @@ export const tracks: Track[] = [
     link: 'https://www.youtube.com/watch?v=hZe5K1DN4ec&list=RDhZe5K1DN4ec&start_radio=1',
     image: 'say-it.jpeg',
   },
+  {
+    id: 5,
+    title: 'Calvin Harris - The Girls',
+    link: 'https://www.youtube.com/watch?v=DwZVZ5qZnoA',
+    image: 'ch-the-girls.jpeg',
+  },
 ];
