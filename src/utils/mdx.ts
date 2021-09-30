@@ -3,27 +3,29 @@ import fs from 'fs';
 import glob from 'glob';
 import matter from 'gray-matter';
 import { bundleMDX } from 'mdx-bundler';
-import path from 'path';
+import { join, basename } from 'path';
 import gfmPlugin from 'remark-gfm';
 import slugPlugin from 'remark-slug';
 import type { PostMeta } from '@src/types/post';
 
-const rootPath = `${process.cwd()}/src/data`;
-export const postsPath = path.join(rootPath, 'posts');
+type PostTypes = 'posts';
 
-export const getAllPostsMeta = (category?: PostMeta['category']) => {
-  const PATH = path.join(postsPath);
+export const getAllPostsMeta = (
+  type: PostTypes,
+  category?: PostMeta['category'],
+) => {
+  const path = join(process.cwd(), 'src', 'data', type);
 
   // get file paths in blog folder that end with .mdx
-  const paths = glob.sync(`${PATH}/**/*.mdx`);
+  const paths = glob.sync(`${path}/**/*.mdx`);
   return (
     paths
       .map((filePath): PostMeta => {
         //   get content of the file
-        const source = fs.readFileSync(path.join(filePath), 'utf-8');
+        const source = fs.readFileSync(join(filePath), 'utf-8');
 
         // get the slug
-        const slug = path.basename(filePath).replace('.mdx', '');
+        const slug = basename(filePath).replace('.mdx', '');
 
         // extract post meta from post content
         const data = matter(source).data as PostMeta;
@@ -46,9 +48,12 @@ export const getAllPostsMeta = (category?: PostMeta['category']) => {
 };
 
 // get content of post
-export const getPostBySlug = async (slug: string) => {
+export const getPostBySlug = async (slug: string, type: string) => {
   // get content of file
-  const source = fs.readFileSync(path.join(postsPath, `${slug}.mdx`), 'utf-8');
+  const source = fs.readFileSync(
+    join(process.cwd(), 'src', 'data', type, `${slug}.mdx`),
+    'utf-8',
+  );
 
   const { code, frontmatter } = await bundleMDX(source, {
     xdmOptions(options) {

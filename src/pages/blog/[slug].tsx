@@ -11,7 +11,7 @@ import { CustomHead } from '@src/components/CustomHead';
 import { NextSeo } from 'next-seo';
 
 export const getStaticPaths = () => {
-  const posts = getAllPostsMeta();
+  const posts = getAllPostsMeta('posts');
   const paths = posts.map(({ slug }) => ({ params: { slug } }));
   return {
     paths,
@@ -21,7 +21,7 @@ export const getStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps<Post> = async (ctx) => {
   const slug = ctx.params?.slug as string;
-  const post = await getPostBySlug(slug);
+  const post = await getPostBySlug(slug, 'posts');
   return {
     props: post,
   };
