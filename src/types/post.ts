@@ -20,6 +20,7 @@ export interface Post {
   createdAt: string;
   updatedAt: string | null;
   slug: string;
+  image: string | null;
   content: string;
   intro: string;
   keywords: string;
