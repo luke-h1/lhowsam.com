@@ -39,6 +39,6 @@ const index: React.FC<indexProps> = ({ posts }) => {
 export default index;
 
 export async function getStaticProps() {
-  const posts = getAllPostsMeta('post');
+  const posts = getAllPostsMeta('posts', 'post');
   return { props: { posts } };
 }
