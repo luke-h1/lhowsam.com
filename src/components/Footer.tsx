@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import {
   AiFillLinkedin,
@@ -44,6 +45,11 @@ const Footer: React.FC<FooterProps> = () => {
             <AiFillLinkedin fontSize="22px" />
           </a>
         </span>
+        <div className="ml-2 mt-3">
+          <Link href="https://lhowsam.com/sitemap.xml">
+            <a>Sitemap</a>
+          </Link>
+        </div>
       </div>
     </footer>
   );
