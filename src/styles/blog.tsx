@@ -95,3 +95,81 @@ export const LinkedHeaderIconWrapper = styled.a<{ isHovered: boolean }>`
     display: none;
   `)}
 `;
+
+export const CustomBlockQuote = styled.aside<{ type?: string }>`
+  padding: 20px;
+  margin: 20px -20px 20px -25px;
+  border-radius: var(--border-radius);
+
+  ${({ type }) => (type
+    ? `
+     background-color: var(--color-${type}-accent-faded);
+     border-left: 0.3em var(--color-${type}-accent) solid;
+    `
+    : css`
+          background-color: var(--color-info-accent-faded);
+          border-left: 0.3em var(--color-info-accent) solid;
+        `)}
+`;
+
+export const Highlight = styled.span`
+  color: var(--color-primary-accent);
+  font-style: italic;
+  font-weight: bold;
+`;
+
+export const ReadMorePrompt = styled.p<{ isHovered: boolean }>`
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin: 0;
+  color: ${({ isHovered }) => (isHovered ? 'var(--color-primary-accent)' : null)};
+`;
+
+const EndLinksGrid = styled.div`
+  padding-top: 15px;
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--color-primary-accent);
+
+  & * {
+    cursor: pointer;
+  }
+`;
+
+export const EndLinks = ({ children }: PropsWithChildren<React.ReactNode>) => (
+  <EndLinksGrid>{children}</EndLinksGrid>
+);
+
+export const Button = styled.button`
+  font-size: 18px;
+  cursor: pointer;
+  background-color: var(--color-background);
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  border: 2px solid var(--color-primary-accent);
+  color: var(--color-primary);
+  ${sharedTransition('color, background-color')}
+
+  &:hover {
+    background-color: var(--color-primary-accent);
+    color: var(--color-background);
+  }
+`;
+
+export const ButtonUnstyled = styled.button`
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+`;
+
+export const AnchorUnstyled = styled.a`
+  color: unset;
+  &:hover {
+    text-decoration: unset;
+  }
+`;

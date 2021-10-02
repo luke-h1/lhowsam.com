@@ -4,6 +4,8 @@ import { getAllPostsMeta } from '@src/utils/mdx';
 import { PostMeta } from '@src/types/post';
 import { NextSeo } from 'next-seo';
 import React from 'react';
+import { BlogPostsPreviewLayout, Center } from '@src/styles/layouts';
+import { Title } from '@src/styles/typography';
 
 interface indexProps {
   posts: PostMeta[];
@@ -13,6 +15,33 @@ const index: React.FC<indexProps> = ({ posts }) => {
   return (
     <>
       <CustomHead title="Blog | lhowsam.com" description="Blog" />
+      <NextSeo
+        title="Blog"
+        canonical="https://lhowsam.com/blog"
+        openGraph={{
+          url: 'https://lhowsam.com/blog',
+          title: 'Blog',
+        }}
+      />
+      <Center>
+        <Title size={5}>Blog</Title>
+      </Center>
+      <BlogPostsPreviewLayout>
+        {posts.map((post) => (
+          <BlogPreview key={post.slug} post={post} />
+        ))}
+      </BlogPostsPreviewLayout>
+    </>
+  );
+};
+export default index;
+
+export async function getStaticProps() {
+  const posts = getAllPostsMeta('posts', 'post');
+  return { props: { posts } };
+}
+/*
+  <CustomHead title="Blog | lhowsam.com" description="Blog" />
       <NextSeo
         title="Blog"
         canonical="https://lhowsam.com/blog"
@@ -33,12 +62,4 @@ const index: React.FC<indexProps> = ({ posts }) => {
           ))}
         </div>
       </div>
-    </>
-  );
-};
-export default index;
-
-export async function getStaticProps() {
-  const posts = getAllPostsMeta('posts', 'post');
-  return { props: { posts } };
-}
+*/
