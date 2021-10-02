@@ -28,28 +28,31 @@ type BreakpointSide = typeof breakpointSides[number];
 type BreakpointFn = {
   [side in BreakpointSide]: {
     [key in Breakpoint]: (styles: FlattenSimpleInterpolation) => string;
-  }
+  };
 };
 
 export const breakpoint = breakpointSides.reduce(
   (partial, curr) => ({
     ...partial,
-    [curr]: Object.entries(BREAKPOINTS).reduce((useBreakpoint, [name, size]) => ({
-      ...useBreakpoint,
-      [name]: (...styles: FlattenSimpleInterpolation) => {
-        return curr === 'until' ? css`
-          @media (max-width: ${size - 1}px) {
-            ${styles}
-          }
-          
-        ` : css`
-          @media (min-width: ${size}px) {
-            ${styles}
-          }
-        `;
-      },
-    }),
-    {} as BreakpointFn),
+    [curr]: Object.entries(BREAKPOINTS).reduce(
+      (useBreakpoint, [name, size]) => ({
+        ...useBreakpoint,
+        [name]: (...styles: FlattenSimpleInterpolation) => {
+          return curr === 'until'
+            ? css`
+                @media (max-width: ${size - 1}px) {
+                  ${styles}
+                }
+              `
+            : css`
+                @media (min-width: ${size}px) {
+                  ${styles}
+                }
+              `;
+        },
+      }),
+      {} as BreakpointFn,
+    ),
   }),
   {} as BreakpointFn,
 );

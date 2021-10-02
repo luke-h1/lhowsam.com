@@ -22,7 +22,7 @@ const CodePreBlockWithHighlight = styled.pre`
   border-radius: var(--border-radius);
   overflow-x: scroll;
   white-space: pre-wrap;
-  word-wrap: break-word; 
+  word-wrap: break-word;
   .highlight-line {
     background-color: rgb(255, 2555, 255, 0.07);
     display: block;
@@ -62,9 +62,9 @@ type MDXProviderCodeProps = {
       mdxType: string;
       filename?: string;
       [key: string]: unknown;
-    }
-  }
-}
+    };
+  };
+};
 
 /*
  pattern for highlighting lines in code blocks
@@ -78,7 +78,9 @@ const calculateLinesToHighlight = (meta = '') => {
   if (!LINE_HIGHLIGHT_REGEX.test(meta) || regExpExecArr === null) {
     return () => false;
   }
-  const lineNumbers = regExpExecArr[1].split(',').map((v) => v.split('-').map((v) => parseInt(v, 10)));
+  const lineNumbers = regExpExecArr[1]
+    .split(',')
+    .map((v) => v.split('-').map((v) => parseInt(v, 10)));
   return (index: number) => {
     const lineNumber = index + 1;
     const inRange = lineNumbers.some(([start, end]) => (end ? lineNumber >= start && lineNumber <= end : lineNumber === start));

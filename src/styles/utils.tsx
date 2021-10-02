@@ -12,17 +12,17 @@ export const StyledDetails = styled.details`
   }
 `;
 
-export const MDXTitle = styled.h1<{color?: string}>`
+export const MDXTitle = styled.h1<{ color?: string }>`
   font-size: 2rem;
-  color: ${({ color }) => (color || 'red')};
+  color: ${({ color }) => color || 'red'};
 `;
 
 export const MDXLink = styled(Link)`
   color: var(--color-primary-accent);
   text-decoration: none;
-  &:hover { 
+  &:hover {
     color: var(--color-primary-accent);
-  }  
+  }
 `;
 
 export function sharedTransition(properties: string) {

@@ -15,14 +15,15 @@ export const TextGradientStyles = css`
     var(--color-secondary-accent) 90%
   );
   background-clip: text;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	box-decoration-break: slice;
-	-webkit-box-decoration-break: clone;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  box-decoration-break: slice;
+  -webkit-box-decoration-break: clone;
 `;
 
 export const TextGradient = styled.span`
-${TextGradientStyles}`;
+  ${TextGradientStyles}
+`;
 
 export const Heavy = styled.span`
   font-weight: bold;
@@ -33,8 +34,8 @@ export const Accent = styled.span`
 `;
 
 export const Monospace = styled.span`
-	font-family: SFMono-Regular, Consolas, Roboto Mono, Menlo, Monaco, Liberation Mono,
-		Lucida FoobarWrapper, monospace;
+  font-family: SFMono-Regular, Consolas, Roboto Mono, Menlo, Monaco,
+    Liberation Mono, Lucida FoobarWrapper, monospace;
 `;
 
 export const RemoveBulletsFromList = styled.div`
@@ -67,16 +68,19 @@ export const Datestamp = styled.p`
   margin: 0.5rem 0;
 `;
 
-export const MDXTitle = styled.h1<{color?: string}>`
+export const MDXTitle = styled.h1<{ color?: string }>`
   font-size: 2rem;
-  color: ${({ color }) => (color || 'red')};
+  color: ${({ color }) => color || 'red'};
 `;
 
-export const Paragraph = styled.p<{paddingTop?: boolean | number}>`
+export const Paragraph = styled.p<{ paddingTop?: boolean | number }>`
   margin: 0;
   padding: 10px 0;
-  padding-top: ${({ paddingTop }) => (paddingTop ? (typeof paddingTop === 'number' ? `${paddingTop}px` : '150px') : null)
-};
+  padding-top: ${({ paddingTop }) => (paddingTop
+    ? typeof paddingTop === 'number'
+      ? `${paddingTop}px`
+      : '150px'
+    : null)};
 `;
 
 export const SmallText = styled.p`
@@ -145,8 +149,8 @@ export const LinkTo = ({
 export const Title = styled.h1<{ resetLineHeight?: boolean; size?: number }>`
   padding: 20px 0;
   font-size: ${({ size }) => (size ? `${size}rem` : '3rem')}
-  ${({ resetLineHeight }) => resetLineHeight && css`
-    line-height: 1;
-  `
-}
+    ${({ resetLineHeight }) => resetLineHeight
+      && css`
+        line-height: 1;
+      `};
 `;

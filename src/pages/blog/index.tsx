@@ -1,4 +1,3 @@
-import BlogPreview from '@src/components/BlogPreview';
 import { CustomHead } from '@src/components/CustomHead';
 import { getAllPostsMeta } from '@src/utils/mdx';
 import { PostMeta } from '@src/types/post';
@@ -6,6 +5,7 @@ import { NextSeo } from 'next-seo';
 import React from 'react';
 import { BlogPostsPreviewLayout, Center } from '@src/styles/layouts';
 import { Title } from '@src/styles/typography';
+import BlogPostPreview from '@src/components/blog/BlogPostPreview';
 
 interface indexProps {
   posts: PostMeta[];
@@ -28,7 +28,7 @@ const index: React.FC<indexProps> = ({ posts }) => {
       </Center>
       <BlogPostsPreviewLayout>
         {posts.map((post) => (
-          <BlogPreview key={post.slug} post={post} />
+          <BlogPostPreview key={post.slug} post={post} />
         ))}
       </BlogPostsPreviewLayout>
     </>
