@@ -1,7 +1,5 @@
 # [lhowsam.com](https://lhowsam.com)
 
-![lhowsam.com](https://socialify.git.ci/luke-h1/lhowsam.com/image?font=Inter&language=1&owner=1&pattern=Signal&pulls=1&stargazers=1&theme=Dark)
-
 
 ## Tech Stack: 
 - [React](https://github.com/facebook/react)
@@ -14,13 +12,6 @@
 - [Vercel](https://vercel.com/)
 
 <hr />
-
-## Structure: 
-
-* Dev - Represents the latest code merged via PRs with succesful CI builds  
-
-* Main - Represents the code currently deployed on production. This branch will only get updated when a production deploy happens
-
 
 ## Tests 
 
