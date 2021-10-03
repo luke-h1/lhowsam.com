@@ -1,54 +1,72 @@
-import Link from 'next/link';
 import React from 'react';
-import {
-  AiFillLinkedin,
-  AiOutlineGithub,
-  AiOutlineTwitter,
-} from 'react-icons/ai';
+import Link from 'next/link';
+import { isProd } from '@src/utils/isProd';
 
-interface FooterProps {}
+const ExternalLink = ({
+  href,
+  children,
+  aria,
+}: {
+  href: string;
+  children: React.ReactNode;
+  aria: string;
+}) => (
+  <a
+    className="text-gray-500 hover:text-gray-600 transition"
+    target="_blank"
+    rel="noopener noreferrer"
+    href={href}
+    aria-label={aria}
+  >
+    {children}
+  </a>
+);
 
-const Footer: React.FC<FooterProps> = () => {
+const Footer = () => {
   return (
-    <footer className="text-gray-600 body-font">
-      <hr />
-      <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-        <p className="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-          <span className="ml-3 text-xl">Luke H</span>
-        </p>
-        <span className="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
-          <a
-            href="https://github.com/luke-h1"
-            target="_blank"
-            rel="noreferrer"
-            className="text-gray-500 ml-3"
-            aria-label="Github"
-          >
-            <AiOutlineGithub fontSize="22px" />
-          </a>
-          <a
-            href="https://twitter.com/LukeH_1999"
-            target="_blank"
-            rel="noreferrer"
-            className="text-gray-500 ml-3"
-            aria-label="Twitter"
-          >
-            <AiOutlineTwitter fontSize="22px" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/lukehowsam/"
-            target="_blank"
-            rel="noreferrer"
-            className="text-gray-500 ml-3"
-            aria-label="Linkedin"
-          >
-            <AiFillLinkedin fontSize="22px" />
-          </a>
-        </span>
-        <div className="ml-2 mt-3">
-          <Link href="https://lhowsam.com/sitemap.xml">
-            <a>Sitemap</a>
+    <footer className="flex flex-col justify-center items-start max-w-2xl mx-auto w-full mb-8">
+      <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
+      <div className="w-full max-w-2xl grid grid-cols-1 gap-4 pb-16 sm:grid-cols-3">
+        <div className="flex flex-col space-y-4">
+          <Link href="/">
+            <a className="text-gray-500 hover:text-gray-600 transition">Home</a>
           </Link>
+          <Link href="/blog">
+            <a className="text-gray-500 hover:text-gray-600 transition">Blog</a>
+          </Link>
+          <Link href="/projects">
+            <a className="text-gray-500 hover:text-gray-600 transition">
+              Projects
+            </a>
+          </Link>
+        </div>
+        <div className="flex flex-col space-y-4">
+          <ExternalLink href="https://twitter.com/LukeH_1999" aria="Twitter">
+            Twitter
+          </ExternalLink>
+          <ExternalLink
+            href="https://www.linkedin.com/in/lukehowsam/"
+            aria="Linkedin"
+          >
+            LinkedIn
+          </ExternalLink>
+          <ExternalLink href="https://github.com/luke-h1" aria="Github">
+            GitHub
+          </ExternalLink>
+        </div>
+        <div className="flex flex-col space-y-4">
+          <Link href="/sitemap.xml">
+            <a className="text-gray-500 hover:text-gray-600 transition">
+              Sitemap
+            </a>
+          </Link>
+          {isProd ? null : (
+            <Link href="/snippets">
+              <a className="text-gray-500 hover:text-gray-600 transition">
+                Snippets
+              </a>
+            </Link>
+          )}
         </div>
       </div>
     </footer>
