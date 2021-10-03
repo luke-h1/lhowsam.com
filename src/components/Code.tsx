@@ -1,7 +1,7 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import theme from 'prism-react-renderer/themes/nightOwl';
+import theme from 'prism-react-renderer/themes/vsDark';
 
 interface CodeProps {
   children: String & React.ReactNode;
