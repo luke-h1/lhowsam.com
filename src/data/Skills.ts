@@ -3,7 +3,7 @@ export interface SkillItem {
   items: string[];
 }
 
-const skills: SkillItem[] = [
+const Skills: SkillItem[] = [
   {
     title: 'Frontend',
     items: [
@@ -28,4 +28,4 @@ const skills: SkillItem[] = [
     items: ['Manual & automated testing'],
   },
 ];
-export default skills;
+export default Skills;

@@ -5,7 +5,7 @@ import { CustomHead } from '@src/components/CustomHead';
 import Contact from '@src/components/Contact';
 import BlogPost from '@src/components/BlogPost';
 import { NextPage } from 'next';
-import Skills from '@src/components/Skills';
+import Skills from '@src/components/Skill';
 
 const Index: NextPage = () => {
   return (

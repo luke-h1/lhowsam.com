@@ -1,13 +1,13 @@
-import skills, { SkillItem } from '@src/data/skills';
+import Skills, { SkillItem } from '@src/data/Skills';
 import styles from '@src/styles/skills.module.scss';
 
-const Skills = () => {
+const Skill = () => {
   return (
     <section id="skills" className="mt-4 mb-12">
       <h1 className="section__title text-4xl">Skills</h1>
 
       <div className={styles.skillsContainer}>
-        {skills.map((s: SkillItem) => {
+        {Skills.map((s: SkillItem) => {
           return (
             <div key={s.title}>
               <header className="text-2xl mt-5 mb-2">
@@ -30,4 +30,4 @@ const Skills = () => {
     </section>
   );
 };
-export default Skills;
+export default Skill;
