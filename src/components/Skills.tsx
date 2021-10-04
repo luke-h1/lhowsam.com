@@ -1,4 +1,4 @@
-import { skills } from '@src/data/skills';
+import skills from '@src/data/skills';
 import styles from '@src/styles/skills.module.scss';
 
 const Skills = () => {
