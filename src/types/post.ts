@@ -6,8 +6,6 @@ export interface PostMeta {
   slug?: any;
   image?: string;
   source?: string;
-  draft: boolean;
-  isOnIndex?: string;
 }
 
 export type Post = {
