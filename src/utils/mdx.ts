@@ -31,11 +31,6 @@ export const getAllPostsMeta = (type: PostTypes) => {
           slug,
         };
       })
-      // don't include drafts
-      .filter((post) => {
-        if (post.draft) return false;
-        return post;
-      })
       // sort posts by createdAt date
       .sort(
         (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
