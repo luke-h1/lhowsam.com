@@ -1,4 +1,4 @@
-import { skills } from '../data/skills';
+import skills from '../data/skills';
 
 test('skills title is correct', () => {
   expect(skills.map((skill) => skill.title)).toEqual([
