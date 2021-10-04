@@ -10,10 +10,7 @@ import type { PostMeta } from '@src/types/post';
 
 type PostTypes = 'posts';
 
-export const getAllPostsMeta = (
-  type: PostTypes,
-  category?: PostMeta['category'],
-) => {
+export const getAllPostsMeta = (type: PostTypes) => {
   const path = join(process.cwd(), 'src', 'data', type);
 
   // get file paths in blog folder that end with .mdx
@@ -34,13 +31,12 @@ export const getAllPostsMeta = (
           slug,
         };
       })
-      //   filter post by category if specified
+      // don't include drafts
       .filter((post) => {
-        //   default to all posts
-        if (!category) return true;
-        return post.category === category;
+        if (post.draft) return false;
+        return post;
       })
-      //   sort posts by createdAt date
+      // sort posts by createdAt date
       .sort(
         (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
       )

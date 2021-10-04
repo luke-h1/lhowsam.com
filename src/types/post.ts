@@ -4,9 +4,9 @@ export interface PostMeta {
   updatedAt: string;
   description: string;
   slug?: any;
-  category: 'draft' | 'project' | 'post';
   image?: string;
   source?: string;
+  draft: boolean;
   isOnIndex?: string;
 }
 
