@@ -1,18 +1,13 @@
 import About from '@src/components/About';
-import SkillsCard from '@src/components/SkillsCard';
-import { getAllPostsMeta } from '@src/utils/mdx';
-import { PostMeta } from '@src/types/post';
 import React from 'react';
-import BlogPreview from '@src/components/BlogPreview';
 import { NextSeo } from 'next-seo';
 import { CustomHead } from '@src/components/CustomHead';
 import Contact from '@src/components/Contact';
+import BlogPost from '@src/components/BlogPost';
+import { NextPage } from 'next';
+import Skill from '@src/components/Skill';
 
-interface IndexProps {
-  posts: PostMeta[];
-}
-
-const Index: React.FC<IndexProps> = ({ posts }) => {
+const Index: NextPage = () => {
   return (
     <>
       <CustomHead title="Home | lhowsam.com" description="Homepage" />
@@ -25,19 +20,30 @@ const Index: React.FC<IndexProps> = ({ posts }) => {
         }}
       />
       <About />
-      <SkillsCard />
-      <h1 className="text-4xl text-center">Recent Posts</h1>
-      <div className="mt-6 sm:grid sm:grid-cols-2 sm:gap-10">
-        {posts
-          && posts.map((post) => (post.isOnIndex ? <BlogPreview key={post.slug} post={post} /> : null))}
+      <div className="container px-4 mx-auto mb-10 py-10">
+        <div className="mb-4">
+          <Skill />
+        </div>
+
+        <h1 className="text-4xl text-left mb-4">Posts</h1>
+        <BlogPost
+          title="Next.js SSR notes"
+          slug="nextjs-ssr-notes"
+          summary="How SSR works with Next JS"
+        />
+        <BlogPost
+          title="Forcing git merges"
+          slug="forcing-git-merges"
+          summary="Isolating features into seperate branches is a really common practice for most developers. By seperating features & bug fixes you can avoid a lot of problems and keep your branches clean."
+        />
+        <BlogPost
+          title="Deploying a full stack application with Dokku"
+          slug="full-stack-deploy-with-dokku"
+          summary="How to deploy a full stack app with Dokku to AWS / Digital Ocean."
+        />
       </div>
       <Contact />
     </>
   );
-};
-
-export const getStaticProps = async () => {
-  const posts = getAllPostsMeta('posts', 'post');
-  return { props: { posts } };
 };
 export default Index;

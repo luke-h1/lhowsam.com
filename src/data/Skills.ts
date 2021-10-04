@@ -1,37 +1,31 @@
-export const Skills: { id: number; text: string; src: string }[] = [
+export interface SkillItem {
+  title: string;
+  items: string[];
+}
+
+const Skills: SkillItem[] = [
   {
-    id: 1,
-    text: 'React.js',
-    src: '/images/skills/react-logo.jpeg',
+    title: 'Frontend',
+    items: [
+      'HTML, CSS & SCSS',
+      'Javascript',
+      'Typescript',
+      'React',
+      'Next.js',
+      'styled-components',
+    ],
   },
   {
-    id: 2,
-    text: 'Next.js',
-    src: '/images/skills/next-js-logo.png',
+    title: 'Backend',
+    items: ['Node.js', 'GraphQL', 'PostgreSQL'],
   },
   {
-    id: 3,
-    text: 'GraphQL',
-    src: '/images/skills/gql-logo.jpeg',
+    title: 'Other',
+    items: ['Git & Github', 'Docker', 'AWS', 'DigitalOcean'],
   },
   {
-    id: 4,
-    text: 'Docker',
-    src: '/images/skills/docker.png',
-  },
-  {
-    id: 5,
-    text: 'Node.js',
-    src: '/images/skills/node-logo.png',
-  },
-  {
-    id: 6,
-    text: 'Express.js',
-    src: '/images/skills/express-logo.png',
-  },
-  {
-    id: 7,
-    text: 'Manual & automated testing',
-    src: '/images/skills/testing.jpeg',
+    title: 'Testing',
+    items: ['Manual & automated testing'],
   },
 ];
+export default Skills;
