@@ -41,9 +41,6 @@ const Footer = () => {
           </Link>
         </div>
         <div className="flex flex-col space-y-4">
-          <ExternalLink href="https://twitter.com/LukeH_1999" aria="Twitter">
-            Twitter
-          </ExternalLink>
           <ExternalLink
             href="https://www.linkedin.com/in/lukehowsam/"
             aria="Linkedin"

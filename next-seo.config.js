@@ -14,11 +14,6 @@ const SEO = {
     title,
     description,
   },
-  twitter: {
-    handle: '@lukeH_1999',
-    site: '@lukeH_1999',
-    cardType: 'summary_large_image',
-  },
   images: [
     {
       url: 'https://lhowsam.com/icons/logo.png',

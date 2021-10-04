@@ -34,15 +34,6 @@ const Contact = () => {
             Github
           </a>
         </li>
-        <li className="mb-2">
-          <a
-            href="https://twitter.com/LukeH_1999"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Twitter
-          </a>
-        </li>
       </ul>
     </div>
   );
