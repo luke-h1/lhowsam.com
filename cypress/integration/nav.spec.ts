@@ -8,7 +8,6 @@ describe('nav', () => {
 
       cy.getByTestId('nav-Projects').contains('Projects').should('be.visible')
 
-      cy.getByTestId('nav-twitter').should('be.visible')
       cy.getByTestId('nav-github').should('be.visible')
 
     });

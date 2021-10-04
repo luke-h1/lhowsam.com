@@ -23,10 +23,6 @@ const Index: React.FC<IndexProps> = ({ posts }) => {
           url: 'https://lhowsam.com',
           title: 'Home',
         }}
-        twitter={{
-          handle: '@LukeH_1999',
-          cardType: 'summary_large_image',
-        }}
       />
       <About />
       <SkillsCard />
