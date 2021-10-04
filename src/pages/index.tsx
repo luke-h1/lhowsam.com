@@ -5,7 +5,7 @@ import { CustomHead } from '@src/components/CustomHead';
 import Contact from '@src/components/Contact';
 import BlogPost from '@src/components/BlogPost';
 import { NextPage } from 'next';
-import Skills from '@src/components/Skill';
+import Skill from '@src/components/Skill';
 
 const Index: NextPage = () => {
   return (
@@ -22,7 +22,7 @@ const Index: NextPage = () => {
       <About />
       <div className="container px-4 mx-auto mb-10 py-10">
         <div className="mb-4">
-          <Skills />
+          <Skill />
         </div>
 
         <h1 className="text-4xl text-left mb-4">Posts</h1>
