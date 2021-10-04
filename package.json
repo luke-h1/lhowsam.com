@@ -95,7 +95,7 @@
     "*.{js,jsx,ts,tsx,css,scss,html}": [
       "npm run format"
     ],
-    "*.{mdx}": [
+    "*.mdx": [
       "prettier --write --parser mdx"
     ]
   },
