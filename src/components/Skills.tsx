@@ -1,5 +1,6 @@
 import skills from '@src/data/skills';
 import styles from '@src/styles/skills.module.scss';
+import { SkillItem } from '../data/skills';
 
 const Skills = () => {
   return (
@@ -7,7 +8,7 @@ const Skills = () => {
       <h1 className="section__title text-4xl">Skills</h1>
 
       <div className={styles.skillsContainer}>
-        {skills.map((s) => {
+        {skills.map((s: SkillItem) => {
           return (
             <div key={s.title}>
               <header className="text-2xl mt-5 mb-2">
