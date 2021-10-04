@@ -18,7 +18,4 @@ test('diplays correct text', () => {
 
   expect(link[2]).toHaveAttribute('href', 'https://github.com/luke-h1');
   expect(link[2]).toHaveTextContent('Github');
-
-  expect(link[3]).toHaveAttribute('href', 'https://twitter.com/LukeH_1999');
-  expect(link[3]).toHaveTextContent('Twitter');
 });

@@ -3,7 +3,7 @@ import { NavLinks } from '@src/data/NavLinks';
 import cx from 'clsx';
 import Link from 'next/link';
 import React from 'react';
-import { AiOutlineTwitter, AiOutlineGithub } from 'react-icons/ai';
+import { AiOutlineGithub } from 'react-icons/ai';
 
 const Nav = () => {
   return (
@@ -36,19 +36,6 @@ const Nav = () => {
             </Link>
           ))}
           <p className="flex pl-6 space-x-3 text-xl">
-            <a
-              href="https://twitter.com/LukeH_1999"
-              className={cx(
-                'transition-colors text-gray-900 hover:text-sky-500 cursor-pointer',
-                constants.FOCUS_VISIBLE_OUTLINE,
-              )}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Twiiter"
-              data-testid="nav-twitter"
-            >
-              <AiOutlineTwitter />
-            </a>
             <a
               href="https://github.com/luke-h1"
               className={cx(

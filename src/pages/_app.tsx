@@ -39,11 +39,6 @@ function MyApp({ Component, pageProps }: AppProps) {
             },
           ],
         }}
-        twitter={{
-          handle: '@LukeH_1999',
-          site: '@LukeH_1999',
-          cardType: 'summary_large_image',
-        }}
       />
       <Nav />
       <Container>

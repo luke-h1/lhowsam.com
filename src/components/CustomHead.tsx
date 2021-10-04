@@ -15,8 +15,6 @@ export const CustomHead: React.FC<CustomHeadProps> = ({
 }) => {
   return (
     <Head>
-      <meta name="twitter:card" content="summary" key="twcard" />
-      <meta name="twitter:creator" content="@lukeH_1999" key="twhandle" />
       <meta
         property="og:url"
         content={`${!isServer() && window.location.href}`}
