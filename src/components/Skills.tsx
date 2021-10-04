@@ -9,7 +9,7 @@ const Skills = () => {
       <div className={styles.skillsContainer}>
         {skills.map((s) => {
           return (
-            <div key={s.title} className={styles.s}>
+            <div key={s.title}>
               <header className="text-2xl mt-5 mb-2">
                 <h1>{s.title}</h1>
               </header>
