@@ -1,11 +1,13 @@
-export const Projects: {
+export interface ProjectItem {
   id: number;
   title: string;
   description: string;
   siteUrl?: string;
   githubUrl: string;
   tech: string[];
-}[] = [
+}
+
+export const Projects: ProjectItem[] = [
   {
     id: 1,
     title: 'My Website',
