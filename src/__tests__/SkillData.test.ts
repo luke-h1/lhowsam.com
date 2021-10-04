@@ -1,22 +1,17 @@
-import { Skills } from '../data/Skills';
+import { skills } from '../data/skills';
 
-test('skills data is correct', () => {
-  expect(Skills).toHaveLength(7);
-  expect(Skills.map((skill) => skill.text)).toEqual([
-    'React.js',
-    'Next.js',
-    'GraphQL',
-    'Docker',
-    'Node.js',
-    'Express.js',
-    'Manual & automated testing',
+test('skills title is correct', () => {
+  expect(skills.map((skill) => skill.title)).toEqual([
+    'Frontend',
+    'Backend',
+    'Other',
+    'Testing',
   ]);
 });
 
-for (let i = 0; i < Skills.length; i += 1) {
-  test(`data[${i}] should have keys id, text & src`, () => {
-    expect(Skills[i]).toHaveProperty('id');
-    expect(Skills[i]).toHaveProperty('text');
-    expect(Skills[i]).toHaveProperty('src');
+for (let i = 0; i < skills.length; i += 1) {
+  test(`data[${i}] should have properties title and items`, () => {
+    expect(skills[i]).toHaveProperty('title');
+    expect(skills[i]).toHaveProperty('items');
   });
 }
