@@ -1,8 +1,4 @@
 module.exports = {
-  experimental: {
-    swcLoader: true,
-    swcMinify: false,
-  },
   reactStrictMode: true,
   generateBuildId: async () => {
     return '1';
