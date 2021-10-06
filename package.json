@@ -27,7 +27,7 @@
     "@tailwindcss/line-clamp": "^0.2.2",
     "@tailwindcss/typography": "^0.4.1",
     "clsx": "^1.1.1",
-    "date-fns": "^2.24.0",
+    "date-fns": "^2.25.0",
     "dotenv-safe": "^8.2.0",
     "esbuild": "^0.13.3",
     "express-rate-limit": "^5.4.0",
