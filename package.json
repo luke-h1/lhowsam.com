@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "tsc": "tsc --noEmit -p tsconfig.json",
+    "tsc": "tsc --noEmit",
     "cy:ci": "npm run build && npx start-server-and-test http://localhost:3000 cy:run",
     "gen-env": "gen-env-types .env -o src/types/env.d.ts -e .",
     "lint": "eslint \"./src/**/*.{js, jsx,ts,tsx}\" --quiet --fix && eslint \"./**/*.{js, jsx,ts,tsx}\" --quiet --fix",
