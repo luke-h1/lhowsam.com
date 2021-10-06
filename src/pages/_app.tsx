@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import { constants } from '@src/data/constants';
+import '@src/styles/global.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
