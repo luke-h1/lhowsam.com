@@ -22,10 +22,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@emotion/react": "^11.4.1",
-    "@emotion/serialize": "^1.0.2",
-    "@emotion/server": "^11.4.0",
-    "@emotion/sheet": "^1.0.2",
     "@sendgrid/mail": "^7.4.7",
     "date-fns": "^2.25.0",
     "dotenv-safe": "^8.2.0",
@@ -45,6 +41,7 @@
     "react-icons": "^4.3.1",
     "remark-gfm": "^3.0.0",
     "remark-slug": "^6.1.0",
+    "sass": "^1.42.1",
     "sharp": "^0.29.1"
   },
   "devDependencies": {
