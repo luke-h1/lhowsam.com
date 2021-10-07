@@ -3,5 +3,6 @@ declare namespace NodeJS {
     SEND_GRID_API_KEY: string;
     GA_TRACKING_ID: string;
     TO_EMAIL: string;
+    GITHUB_TOKEN: string;
   }
 }

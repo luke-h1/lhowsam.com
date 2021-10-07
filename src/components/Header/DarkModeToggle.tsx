@@ -18,7 +18,10 @@ const DarkModeToggle = ({ onClick, colorMode }: Props) => (
       onClick={onClick}
     >
       {colorMode === 'light' ? (
-        <MoonIcon name="moon-icon" />
+        <MoonIcon
+          name="moon-icon"
+          color={colorMode === 'light' ? '#000' : '#fff'}
+        />
       ) : (
         <SunIcon name="sun-icon" />
       )}
