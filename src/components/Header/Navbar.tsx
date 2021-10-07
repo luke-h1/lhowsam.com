@@ -20,7 +20,10 @@ const Navbar = () => {
         <Box
           as="ul"
           fontWeight="600"
-          bg={{ base: 'telegram.700', lg: 'transparent' }}
+          bg={{
+            base: colorMode === 'dark' ? '#1A202C' : '#fff',
+            lg: 'transparent',
+          }}
           display={{
             base: isOpen ? 'block' : 'none',
             lg: 'flex',
