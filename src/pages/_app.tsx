@@ -1,13 +1,20 @@
 import { DefaultSeo } from 'next-seo';
 import * as gtag from '@src/utils/gtag';
 import React, { useEffect } from 'react';
+import { ChakraProvider } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
-import '@src/styles/index.css';
-import Nav from '@src/components/Nav';
-import Container from '@src/components/Container';
-import Footer from '@src/components/Footer';
 import { constants } from '@src/data/constants';
+import '@fontsource/raleway/400.css';
+import '@fontsource/raleway/600.css';
+import '@fontsource/raleway/700.css';
+import '@fontsource/raleway/800.css';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import '@fontsource/poppins/800.css';
+import Wrapper from '@src/components/Wrapper';
+import theme from '@src/styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -40,11 +47,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           ],
         }}
       />
-      <Nav />
-      <Container>
-        <Component {...pageProps} />
-        <Footer />
-      </Container>
+      <ChakraProvider theme={theme}>
+        <Wrapper>
+          <Component {...pageProps} />
+        </Wrapper>
+      </ChakraProvider>
     </>
   );
 }

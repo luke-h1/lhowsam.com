@@ -1,12 +1,15 @@
-import React from 'react';
+import styled from '@emotion/styled';
 
-interface ContainerProps {
-  children: React.ReactNode;
-}
+export const Container = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 90%;
 
-const Container: React.FC<ContainerProps> = ({ children }) => {
-  return (
-    <main className="max-w-4xl mx-auto mt-13 antialiased">{children}</main>
-  );
-};
-export default Container;
+  @media (min-width: 601px) {
+    width: 90%;
+  }
+
+  @media (min-width: 993px) {
+    width: 80%;
+  }
+`;

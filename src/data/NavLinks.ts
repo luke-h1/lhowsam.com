@@ -1,17 +1,17 @@
-export const NavLinks: { id: number; text: string; slug: string }[] = [
+export const NavLinks: { id: number; title: string; slug: string }[] = [
   {
     id: 1,
-    text: 'Home',
+    title: 'Home',
     slug: '/',
   },
   {
     id: 2,
-    text: 'Blog',
+    title: 'Blog',
     slug: '/blog',
   },
   {
     id: 3,
-    text: 'Projects',
+    title: 'Projects',
     slug: '/projects',
   },
 ];
