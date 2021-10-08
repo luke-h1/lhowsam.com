@@ -3,11 +3,11 @@ import * as gtag from '@src/utils/gtag';
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
-import '@src/styles/global.scss';
 import { constants } from '@src/data/constants';
 import Nav from '@src/components/Nav';
 import Menu from '@src/components/Menu';
 import Footer from '@src/components/Footer';
+import GlobalStyles from '@src/styles/global';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -23,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
   return (
     <>
+      {GlobalStyles}
       <DefaultSeo
         titleTemplate="%s | lhowsam.com"
         description="Luke Howsam"
