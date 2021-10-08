@@ -1,51 +1,77 @@
-import { NextApiRequest, NextApiResponse } from 'next';
-import { RepoResponse } from '@src/types/github';
+import NextApiResponse, { NextApiRequest } from 'next';
 
-const QTY = 5;
-const ENDPOINT = 'https://api.github.com/graphql';
+const QUANTITY = 5;
+const GRAPHQL_ENDPOINT = 'https://api.github.com/graphql';
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const { username, githubToken } = req.body;
+export interface Repo {
+  id: string;
+  name: string;
+  url: string;
+  description: string;
+  owner: {
+    login: string;
+  };
+}
+
+interface RepoResponseData {
+  user: {
+    repositoriesContributedTo: {
+      nodes: Repo[];
+    };
+    starredRepositories: {
+      nodes: Repo[];
+    };
+  };
+}
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse,
+) {
   const query = `
-    query {
-      user (login: "${username}") {
-        repositoriesContributedTo(last: ${QTY}, privacy: PUBLIC, includeUserRepositories: true, contributionTypes: [COMMIT, PULL_REQUEST, REPOSITORY]) {
-          nodes {
-            id
-            name
-            url
-            description
-            owner {
-              login
-            }
-          }
-        }
-        starredRepositories(last: ${QTY}) {
-          nodes {
-            id
-            name
-            description
-            url
-            owner {
-              login
-            }
+  query {
+    user (login: "luke-h1") {
+      repositoriesContributedTo(last: 6, privacy: PUBLIC, includeUserRepositories: true, contributionTypes: [COMMIT, PULL_REQUEST, REPOSITORY]) {
+        nodes {
+          id
+          name
+          url
+          description
+          owner {
+            login
           }
         }
       }
-    }`;
-
-  const response = await fetch(ENDPOINT, {
+      starredRepositories(last: ${QUANTITY}) {
+        nodes {
+          id
+          name
+          description
+          url
+          owner {
+            login
+          }
+        }
+      }
+    }
+  }`;
+  const resp = await fetch(GRAPHQL_ENDPOINT, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${githubToken}`,
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
     },
     body: JSON.stringify({ query }),
   });
-  const { data }: { data: RepoResponse } = await response.json();
-  res.status(200).json({
+  const { data }: { data: RepoResponseData } = await resp.json();
+
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=1200, stale-while-revalidate=600',
+  );
+
+  return res.status(200).json({
     starredRepos: data.user.starredRepositories.nodes.reverse(),
     contributedRepos: data.user.repositoriesContributedTo.nodes.reverse(),
   });
-  res.end();
-};
+}
