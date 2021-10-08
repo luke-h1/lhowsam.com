@@ -1,36 +1,39 @@
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable no-shadow */
 import React from 'react';
-import theme from 'prism-react-renderer/themes/vsDark';
-import styles from '@src/styles/blog.module.scss';
 import Highlight, { defaultProps } from 'prism-react-renderer';
+import theme from 'prism-react-renderer/themes/vsDark';
+import styled from '@emotion/styled';
 
-interface Props {
+interface CodeProps {
   children: String & React.ReactNode;
-  inline: boolean;
-  className: string;
 }
 
-const Code = ({ children, className, inline }: Props) => {
-  const match = /language-(\w+)/.exec(className || '');
-  const text = String(children).replace(/\n$/, '');
-  const [btnText, setBtnText] = React.useState('Copy');
+const Pre = styled.pre`
+  text-align: left;
+  margin: 1em 1em;
+  padding: 0.5em;
+  overflow: scroll;
+`;
 
-  function handleCopy() {
-    if (typeof window !== 'undefined' && window.navigator?.clipboard) {
-      navigator.clipboard.writeText(text);
+const Line = styled.div`
+  display: table-row;
+`;
 
-      setBtnText('Copied!');
-      setTimeout(() => setBtnText('Copy'), 1000);
-    }
-  }
+const LineNo = styled.span`
+  display: table-cell;
+  text-align: right;
+  padding-right: 1em;
+  user-select: none;
+  opacity: 0.5;
+`;
 
-  return !inline && match ? (
+const LineContent = styled.span`
+  display: table-cell;
+`;
+
+const Code: React.FC<CodeProps> = ({ children }) => {
+  return (
     <div>
-      <button onClick={handleCopy} className={styles.copyBtn} type="button">
-        {btnText}
-      </button>
-
       <Highlight
         {...defaultProps}
         theme={theme}
@@ -40,29 +43,22 @@ const Code = ({ children, className, inline }: Props) => {
         {({
           className, style, tokens, getLineProps, getTokenProps,
         }) => (
-          <pre
-            className={className}
-            style={{
-              ...style,
-              overflow: 'scroll',
-              marginTop: 20,
-              padding: 20,
-              marginBottom: 20,
-            }}
-          >
+          <Pre className={className} style={style}>
             {tokens.map((line, i) => (
-              <div key={i} {...getLineProps({ line, key: i })}>
-                {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key })} />
-                ))}
-              </div>
+              <Line key={i} {...getLineProps({ line, key: i })}>
+                <LineNo>{i + 1}</LineNo>
+                <LineContent>
+                  {line.map((token, key) => (
+                    <span key={key} {...getTokenProps({ token, key })} />
+                  ))}
+                </LineContent>
+              </Line>
             ))}
-          </pre>
+          </Pre>
         )}
       </Highlight>
     </div>
-  ) : (
-    <code className={className}>{children}</code>
   );
 };
+
 export default Code;

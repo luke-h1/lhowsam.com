@@ -3,10 +3,12 @@ import { getMDXComponent } from 'mdx-bundler/client';
 import styles from '@src/styles/blog.module.scss';
 import { Link } from './Markdown/Link';
 import Alert from './Markdown/Alert';
+import Code from './Markdown/Code';
 
 const components = {
   a: Link,
   // Image: Image,
+  code: Code,
   Alert,
 };
 

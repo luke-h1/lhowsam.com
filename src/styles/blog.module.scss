@@ -33,35 +33,9 @@
 
 .reactMarkdown {
   margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding: 1rem;
+
   a {
     text-decoration: underline;
-    color: var(--text-color);
-  }
-
-  pre {
-    background: var(--dark) !important;
-    border-radius: 0.3rem;
-    overflow-x: auto;
-    position: relative;
-    margin-top: 1.5rem;
-    margin-bottom: 1.5rem;
-
-    code {
-      padding: 0;
-      background: none;
-    }
-
-    &:hover button {
-      opacity: 1;
-    }
-  }
-
-  code {
-    padding: 0.1rem 0.5rem;
-    background: var(--dark);
-    border-radius: 0.3rem;
   }
 
   h4,
@@ -124,7 +98,7 @@
   z-index: 99;
   cursor: pointer;
   border: none;
-  background-color: var(--secondary);
+  background-color: var(--bg);
   color: var(--text-color);
 
   border-bottom-left-radius: 0.5rem;
