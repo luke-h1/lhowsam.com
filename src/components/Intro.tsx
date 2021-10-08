@@ -3,15 +3,17 @@ import {
   Stack,
   Flex,
   Box,
+  Link as ChakraLink,
   Heading,
   Text,
-  Button,
+  HStack,
   Image,
-  Icon,
   IconButton,
-  IconProps,
   useColorModeValue,
+  Center,
 } from '@chakra-ui/react';
+import React from 'react';
+import { IoLogoGithub, IoLogoLinkedin } from 'react-icons/io';
 
 const Intro = () => {
   return (
@@ -40,12 +42,38 @@ const Intro = () => {
             spacing={{ base: 4, sm: 6 }}
             direction={{ base: 'column', sm: 'row' }}
           >
-            <Button rounded="full" size="lg" fontWeight="normal" px={6}>
-              LinkedIn
-            </Button>
-            <Button rounded="full" size="lg" fontWeight="normal" px={6}>
-              Github
-            </Button>
+            <ChakraLink
+              py={2}
+              px={4}
+              href="https://github.com/luke-h1"
+              rounded="sm"
+              bg="#333"
+              color="#fff"
+              fontWeight="bold"
+              isExternal
+            >
+              <HStack spacing={2} alignItems="center">
+                <Box as={IoLogoGithub} />
+                {' '}
+                <Text>Github</Text>
+              </HStack>
+            </ChakraLink>
+            <ChakraLink
+              py={2}
+              px={4}
+              href="https://www.linkedin.com/in/lukehowsam"
+              rounded="sm"
+              bg="#0e76a8"
+              color="#fff"
+              fontWeight="bold"
+              isExternal
+            >
+              <HStack spacing={2} alignItems="center">
+                <Box as={IoLogoLinkedin} />
+                {' '}
+                <Text>Linkedin</Text>
+              </HStack>
+            </ChakraLink>
           </Stack>
         </Stack>
         <Flex
@@ -55,15 +83,6 @@ const Intro = () => {
           position="relative"
           w="full"
         >
-          <Blob
-            w="150%"
-            h="150%"
-            position="absolute"
-            top="-20%"
-            left={0}
-            zIndex={-1}
-            color={useColorModeValue('red.50', 'red.400')}
-          />
           <Box
             position="relative"
             height="300px"
@@ -84,17 +103,66 @@ const Intro = () => {
               right="50%"
               transform="translateX(-50%) translateY(-50%)"
             />
-            <Image
-              alt="Hero Image"
-              fit="cover"
-              borderRadius="8%"
-              align="center"
-              alignContent="center"
-              objectFit="fill"
-              w="40%"
-              h="100%"
-              src="/images/luke.jpeg"
-            />
+            <Center py={5}>
+              <Box
+                role="group"
+                p={3}
+                maxW="245px"
+                w="full"
+                bg={useColorModeValue('white', 'gray.800')}
+                boxShadow="2xl"
+                pos="relative"
+                zIndex={1}
+              >
+                <Box
+                  rounded="lg"
+                  pos="relative"
+                  _after={{
+                    transition: 'all .3s ease',
+                    content: '""',
+                    w: 'full',
+                    h: 'full',
+                    pos: 'absolute',
+                    top: 3,
+                    left: 0,
+                    filter: 'blur(15px)',
+                    zIndex: -1,
+                  }}
+                  _groupHover={{
+                    _after: {
+                      filter: 'blur(20px)',
+                    },
+                  }}
+                >
+                  <Image
+                    height={230}
+                    width={300}
+                    objectFit="cover"
+                    src="/images/luke.jpeg"
+                  />
+                </Box>
+                <Stack pt={10} align="center">
+                  <Text
+                    color="gray.500"
+                    fontSize="sm"
+                    textTransform="uppercase"
+                  >
+                    Brand
+                  </Text>
+                  <Heading fontSize="2xl" fontFamily="body" fontWeight={500}>
+                    Nice Chair, pink
+                  </Heading>
+                  <Stack direction="row" align="center">
+                    <Text fontWeight={800} fontSize="xl">
+                      $57
+                    </Text>
+                    <Text textDecoration="line-through" color="gray.600">
+                      $199
+                    </Text>
+                  </Stack>
+                </Stack>
+              </Box>
+            </Center>
           </Box>
         </Flex>
       </Stack>
@@ -102,22 +170,4 @@ const Intro = () => {
   );
 };
 
-export const Blob = (props: IconProps) => {
-  return (
-    <Icon
-      width="100%"
-      viewBox="0 0 578 440"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M239.184 439.443c-55.13-5.419-110.241-21.365-151.074-58.767C42.307 338.722-7.478 282.729.938 221.217c8.433-61.644 78.896-91.048 126.871-130.712 34.337-28.388 70.198-51.348 112.004-66.78C282.34 8.024 325.382-3.369 370.518.904c54.019 5.115 112.774 10.886 150.881 49.482 39.916 40.427 49.421 100.753 53.385 157.402 4.13 59.015 11.255 128.44-30.444 170.44-41.383 41.683-111.6 19.106-169.213 30.663-46.68 9.364-88.56 35.21-135.943 30.551z"
-        fill="currentColor"
-      />
-    </Icon>
-  );
-};
 export default Intro;

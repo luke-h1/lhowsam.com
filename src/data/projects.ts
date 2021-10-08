@@ -7,7 +7,7 @@ export interface ProjectItem {
   tech: string[];
 }
 
-export const Projects: ProjectItem[] = [
+export const ProjectData: ProjectItem[] = [
   {
     id: 1,
     title: 'My Website',

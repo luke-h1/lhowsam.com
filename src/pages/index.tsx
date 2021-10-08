@@ -1,10 +1,8 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { NextPage } from 'next';
 import Intro from '@src/components/Intro';
-import GetInTouch from '../components/GetInTouch';
 
-const Index: NextPage = () => {
+const Index = () => {
   return (
     <>
       <NextSeo
@@ -16,7 +14,6 @@ const Index: NextPage = () => {
         }}
       />
       <Intro />
-      <GetInTouch />
     </>
   );
 };
