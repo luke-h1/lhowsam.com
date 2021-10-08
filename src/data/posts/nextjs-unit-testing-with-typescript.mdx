@@ -1,11 +1,12 @@
 ---
-title: "Testing Next JS with jest & typescript"
-description: "Sharing my thoughts on how to get setup with jest + typescript on Next JS"
-createdAt: "2021-01-26"
-image: "next-ts.png"
-category: "post"
+title: 'Testing Next JS with jest & typescript'
+intro: 'Sharing my thoughts on how to get setup with jest + typescript on Next JS'
+createdAt: '2021-01-26'
+image: 'next-ts.png'
+category: 'post'
 ---
-Recently I tried Next and started to enjoy developing sites with it. I've found next js to have a smooth development process, the file structure to be well organized & the fast refresh dev server to be blazingly fast. 
+
+Recently I tried Next and started to enjoy developing sites with it. I've found next js to have a smooth development process, the file structure to be well organized & the fast refresh dev server to be blazingly fast.
 
 ##
 
@@ -14,14 +15,15 @@ In addition to this you will get <a href='https://dev.to/prateekvijayvergiya/ser
 ##
 
 # What we'll cover
-* Install Next JS 
-* Typescript: install + configure 
-* Eslint: Install + configure 
-* Jest & react testing library: install, configure & test
+
+- Install Next JS
+- Typescript: install + configure
+- Eslint: Install + configure
+- Jest & react testing library: install, configure & test
 
 ##
 
-# Installing Next js 
+# Installing Next js
 
 To start, open up a terminal and cd into a folder where you want to start this project. For this we are going to use the create-next-app which will create a basic next app to get started with. This will create a new next app in the current directory
 
@@ -29,41 +31,35 @@ To start, open up a terminal and cd into a folder where you want to start this p
 npx create-next-app .
 ```
 
+# Installing + configuring typescript
 
-# Installing + configuring typescript 
-
-To start a basic typescript project I am going to leave the tsconfig in a loose mode (for brevity's sake). Having to deal with strict type errors will only hinder the point of this tutorial. 
-
-
+To start a basic typescript project I am going to leave the tsconfig in a loose mode (for brevity's sake). Having to deal with strict type errors will only hinder the point of this tutorial.
 
 ```ts
-npm i -D typescript @types/react @types/node 
+npm i -D typescript @types/react @types/node
 ```
 
-Now that we have typescript installed we can begin renaming .js files to .ts & .tsx files. You generally want to name files that return JSX with .tsx and files that only contain javascript with .ts Your directory structure should look like the following: 
+Now that we have typescript installed we can begin renaming .js files to .ts & .tsx files. You generally want to name files that return JSX with .tsx and files that only contain javascript with .ts Your directory structure should look like the following:
 
 ##
 
-<Image 
-alt={`picture of directory structure`}
-src={`/images/next-testing/file-dir.png`}
-width={420}
-height={800}
-priority 
+<Image
+  alt={`picture of directory structure`}
+  src={`/images/next-testing/file-dir.png`}
+  width={420}
+  height={800}
+  priority
 />
-
 
 Now that typescript and the relevant types are installed you can now go ahead and run the following command for next to generate a tsconfig.json file (next will automatically detect that you're running a typescript project)
 
 ```ts
-npm run dev 
+npm run dev
 ```
 
+You should now have a tsconfig.json that looks like the following:
 
-You should now have a tsconfig.json that looks like the following: 
-
-
-````ts
+```ts
 {
   "compilerOptions": {
     "target": "es5",
@@ -93,19 +89,17 @@ You should now have a tsconfig.json that looks like the following:
     "node_modules"
   ]
 }
-````
-
+```
 
 # Eslint installation and configuration
 
-To configure eslint we're going to use npx to use the airbnb eslint config. Some things will need to be altered for this configuration to play nice with Next JS 
-
+To configure eslint we're going to use npx to use the airbnb eslint config. Some things will need to be altered for this configuration to play nice with Next JS
 
 ```ts
-npx eslint --init 
+npx eslint --init
 ```
 
-This command will walk you through a series of options. Pick the following options: 
+This command will walk you through a series of options. Pick the following options:
 
 ```ts
 How would you like to use eslint ? :
@@ -121,32 +115,30 @@ Which framework does your project use? :
 
 
 Does your project use TypeScript?
-* Yes 
+* Yes
 
 
 Where does your code run?
-* Browser 
+* Browser
 
 
 How would you like to define a style for your project?
-* Use a popular style guide 
+* Use a popular style guide
 
 
 What format do you want your config file to be in?
-* JSON 
+* JSON
 
 
 Which style guide do you want to follow?
 * AirBnb
 
  Would you like to install them now with npm?
- * Yes 
- 
+ * Yes
+
 ```
 
-
-After the above is done your project will be configured with the base airbnb config.To prevent eslint getting angry about certain conventions that Next follows (such as how Links work) we will have to make a few modifications to the eslintrc file: 
-
+After the above is done your project will be configured with the base airbnb config.To prevent eslint getting angry about certain conventions that Next follows (such as how Links work) we will have to make a few modifications to the eslintrc file:
 
 ```ts
 
@@ -184,63 +176,55 @@ After the above is done your project will be configured with the base airbnb con
 }
 ```
 
+To Explain: Here we are telling eslint not to complain about the following:
 
-To Explain: Here we are telling eslint not to complain about the following: 
+- react/react-in-jsx-scope - don't complain about React not been in scope when JSX is present (introduced in React 17)
 
-* react/react-in-jsx-scope - don't complain about React not been in scope when JSX is present (introduced in React 17)
+- no-console - don't error when we use console.log()
 
-* no-console - don't error when we use console.log()
-
-* import/extensions - don't tell us to import files with their filenames included. i.e:
+- import/extensions - don't tell us to import files with their filenames included. i.e:
 
 ```ts
-import Component from './Component.tsx'
+import Component from './Component.tsx';
 ```
 
+- react/jsx-props-no-spreading - don't complain about when we use the spread operator on props
 
+- jsx-a11y/anchor-is-valid - don't complain when we use an anchor tag without a href (for Links)
 
-* react/jsx-props-no-spreading - don't complain about when we use the spread operator on props 
+- jsx-a11y/anchor-has-content - same as above
 
-* jsx-a11y/anchor-is-valid - don't complain when we use an anchor tag without a href (for Links) 
+- import/prefer-default-export - don't complain when we use
+  ` export const` instead of
 
-* jsx-a11y/anchor-has-content - same as above 
+` export default`
 
-* import/prefer-default-export - don't complain when we use 
-` 
-export const
-` instead of 
+Lastly, we will add two new scripts to the project's package.json:
 
-` 
-export default
-`
-
-Lastly, we will add two new scripts to the project's package.json: 
 ```ts
  "lint": "eslint \"./*.{js, jsx,ts,tsx}\" --quiet",
  "lint:fix": "eslint \"./*.{js, jsx,ts,tsx}\" --quiet --fix",
 ```
 
+# Jest + testing library setup
 
-# Jest + testing library setup 
-
-To setup jest and react testing library we will run the following commands: 
-
+To setup jest and react testing library we will run the following commands:
 
 ```ts
-npm i -D @types/jest @types/testing-library__jest-dom babel-jest 
-jest 
+npm i -D @types/jest @types/testing-library__jest-dom babel-jest
+jest
 ts-jest @testing-library/react @testing-library/jest-dom
 ```
 
-We will then need to create a directory in the root of the project which will be responsible for holding the needed jest config files: 
+We will then need to create a directory in the root of the project which will be responsible for holding the needed jest config files:
 
 ```ts
-mkdir jest 
+mkdir jest
 ```
 
-Now we will create two config files inside of the jest directory: 
+Now we will create two config files inside of the jest directory:
 
-### jest.config.js 
+### jest.config.js
 
 ```ts
 // Jest.config.js
@@ -253,38 +237,34 @@ module.exports = {
 };
 ```
 
-ClearMocks will help prevent issues with the persistence of mock data between test runs. the setupFilesAfterEnv will run before each test 
+ClearMocks will help prevent issues with the persistence of mock data between test runs. the setupFilesAfterEnv will run before each test
 
-### jest.setup.js 
+### jest.setup.js
 
 ```ts
 // Jest.setup.js
 import '@testing-library/jest-dom';
 ```
 
-This enables access to the additional assertions provided by the ` 
-@testing-library/jest-dom` package
+This enables access to the additional assertions provided by the ` @testing-library/jest-dom` package
 
-
-
-The last config file you will need is called .babelrc (create this at the root of your project). You won't need any package for babel to run - it's handled automatically via Next. 
+The last config file you will need is called .babelrc (create this at the root of your project). You won't need any package for babel to run - it's handled automatically via Next.
 
 ##
 
-Jest however will need this file to auto-detect how to transform the code before running tests. 
-Add this to the file: 
+Jest however will need this file to auto-detect how to transform the code before running tests.
+Add this to the file:
 
-````ts
+```ts
 {
   "presets": ["next/babel"]
 }
 
-````
+```
 
 ## Write your test file
 
-Create a file called `index.test.tsx` in the root of the project and add some tests ! 
-
+Create a file called `index.test.tsx` in the root of the project and add some tests !
 
 ```ts
 import React from 'react';

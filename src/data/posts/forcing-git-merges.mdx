@@ -1,11 +1,11 @@
 ---
-title: "forcing git merges"
-description: "Isolating features into seperate branches is a really common practice for most developers. By seperating features & bug fixes you can avoid a lot of problems and keep your branches clean."
-createdAt: "2020-12-15"
-image: "git-image.jpeg"
-category: "post"
-isOnIndex: "true"
+title: 'forcing git merges'
+intro: 'Isolating features into seperate branches is a really common practice for most developers. By seperating features & bug fixes you can avoid a lot of problems and keep your branches clean.'
+createdAt: '2020-12-15'
+image: 'git-image.jpeg'
+category: 'post'
 ---
+
 Isolating features into seperate branches is a really common practice for most developers. By seperating features & bug fixes you can avoid a lot of problems and keep your branches clean.
 
 ##
@@ -18,20 +18,16 @@ I recently ran into an issue where my feature branch conflicted with the dev bra
 
 # Preparing to merge
 
-
 Let's assume you want to merge branch hotfix into your master branch but the changes made in hotfix conflict with master. You know the changes in hotfix won't overwrite any important code in master and you need to get this fix deployed.
-
 
 ##
 
 Before you touch anything ensure that your local repository (hotfix branch) is up to date with the latest changes from your remote origin with a:
 
-
 ```
 git fetch && git status
 # If anything shows up here move it to your desktop or stash it
 ```
-
 
 ## Prepare your main / master branch
 
@@ -39,9 +35,7 @@ git fetch && git status
 git checkout master && git pull
 ```
 
-
 ## Dress up your hotfix branch
-
 
 ```
 git checkout hotifx && git merge --strategy=ours master
@@ -50,7 +44,6 @@ git checkout hotifx && git merge --strategy=ours master
 ```
 
 ## Go in for the kill 😎
-
 
 ```
 git checkout master && git merge --no-ff hotfix

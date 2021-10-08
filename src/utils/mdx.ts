@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import readingTime from 'reading-time';
-import { readdirSync } from 'node:fs';
-import { join } from 'node:path';
+import { readdirSync } from 'fs';
+import { join } from 'path';
 import { bundleMDXFile } from 'mdx-bundler';
 import { Post } from '@src/types/post';
 
@@ -15,7 +15,7 @@ export function getSlugsFromDir(dir: string): string[] {
 }
 
 export type Fields<T> = (keyof T)[];
-type Types = 'posts' | 'snippets' | 'case-studies';
+type Types = 'posts';
 
 /**
  * @param type The type of item (blog post, snippet, case study)
