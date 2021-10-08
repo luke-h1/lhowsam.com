@@ -24,7 +24,7 @@ export const breakpoints = {
   xxs: '260px',
 } as const;
 
-export const colors = {} as const; // TODO: decide on color scheme
+export const colors = {} as const; // TODO: move colors to here (from :root)
 
 export const borderRadius = {
   sm: '8px',
