@@ -1,14 +1,15 @@
-export interface PostMeta {
+export interface Post {
   title: string;
   createdAt: string;
-  updatedAt: string;
-  description: string;
-  slug?: any;
+  updatedAt: string | null;
+  slug: string;
+  content: string;
   image?: string;
-  source?: string;
+  intro: string | null;
+  keywords: string | null;
+  readingTime: number;
+  draft: boolean;
+  frontmatter: {
+    [key: string]: any;
+  };
 }
-
-export type Post = {
-  meta: PostMeta;
-  code?: any;
-};

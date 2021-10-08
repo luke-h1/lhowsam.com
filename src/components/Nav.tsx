@@ -1,57 +1,67 @@
-import { constants } from '@src/data/constants';
-import { NavLinks } from '@src/data/NavLinks';
-import cx from 'clsx';
+import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import React from 'react';
-import { AiOutlineGithub } from 'react-icons/ai';
+import menuStyles from '@src/components/menu.module.scss';
+import styles from './nav.module.scss';
 
 const Nav = () => {
-  return (
-    <div className="sticky top-0 z-10 py-2 bg-white md:py-6 md:mb-6">
-      <div className="container px-4 mx-auto lg:max-w-4xl md:flex md:items-center md:justify-between">
-        <Link href="/">
-          <a
-            className={cx(
-              'font-medium tracking-wider transition-colors text-gray-900 hover:text-sky-500 uppercase',
-              constants.FOCUS_VISIBLE_OUTLINE,
-            )}
-          >
-            Luke H
-          </a>
-        </Link>
+  const ref = useRef<HTMLDivElement>(null);
 
-        <div className="flex items-center -ml-5 text-gray-900 lg:-ml-8">
-          {NavLinks.map((link) => (
-            <Link href={link.slug} key={link.id}>
-              <a
-                className={cx(
-                  'font-medium block transition-colors mt-1.5 lg:mt-0 lg:ml-8 ml-5 hover:text-sky-500',
-                  constants.FOCUS_VISIBLE_OUTLINE,
-                )}
-                aria-label={link.text}
-                data-testid={`nav-${link.text}`}
-              >
-                {link.text}
-              </a>
+  function isPageOffset(): boolean {
+    const offset = ref?.current?.offsetTop;
+    if (offset) {
+      return window.pageYOffset > offset;
+    }
+    return false;
+  }
+
+  function handleHamburgerClick() {
+    document.getElementById('menu')?.classList.add(menuStyles.menuNavActive);
+    document.getElementById('menu__bg')?.classList.add(menuStyles.menuBgActive);
+    document.body.classList.add('disable-scroll');
+  }
+
+  useEffect(() => {
+    window.onscroll = function updateNav() {
+      if (isPageOffset()) {
+        ref.current?.classList.add(styles.navActive);
+      } else {
+        ref.current?.classList.remove(styles.navActive);
+      }
+    };
+  }, []);
+  return (
+    <div className={styles.navContainer}>
+      <nav ref={ref} className={styles.nav} id="nav">
+        <div className={styles.navContent}>
+          <h1 className={styles.navIcon}>
+            <Link href="/">
+              <a>logo here</a>
             </Link>
-          ))}
-          <p className="flex pl-6 space-x-3 text-xl">
-            <a
-              href="https://github.com/luke-h1"
-              className={cx(
-                'transition-colors text-gray-900 hover:text-sky-500 cursor-pointer',
-                constants.FOCUS_VISIBLE_OUTLINE,
-              )}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="Github"
-              data-testid="nav-github"
-            >
-              <AiOutlineGithub />
-            </a>
-          </p>
+          </h1>
+          <div className={styles.navLinks}>
+            <Link href="/">
+              <a className={styles.navLink}>Home</a>
+            </Link>
+            <Link href="/projects">
+              <a className={styles.navLink}>Projects</a>
+            </Link>
+            <Link href="/blog">
+              <a className={styles.navLink}>Blog</a>
+            </Link>
+          </div>
+          <div className={styles.hamburgerContainer} />
+          <button
+            aria-label="Open Menu"
+            type="button"
+            onClick={handleHamburgerClick}
+            className={styles.hamburger}
+          >
+            <span className={styles.hamburgerItem} />
+            <span className={styles.hamburgerItem} />
+            <span className={styles.hamburgerItem} />
+          </button>
         </div>
-      </div>
+      </nav>
     </div>
   );
 };
