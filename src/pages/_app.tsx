@@ -7,6 +7,7 @@ import '@src/styles/global.scss';
 import { constants } from '@src/data/constants';
 import Nav from '@src/components/Nav';
 import Menu from '@src/components/Menu';
+import Footer from '@src/components/Footer';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -46,6 +47,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </div>
       </div>
+      <Footer />
     </>
   );
 }

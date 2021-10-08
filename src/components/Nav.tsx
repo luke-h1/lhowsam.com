@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
-import menuStyles from '@src/components/menu.module.scss';
-import styles from './nav.module.scss';
+import menuStyles from '@src/styles/menu.module.scss';
+import styles from '@src/styles/nav.module.scss';
 
 const Nav = () => {
   const ref = useRef<HTMLDivElement>(null);

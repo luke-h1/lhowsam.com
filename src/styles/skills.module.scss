@@ -15,10 +15,7 @@
 .skillsItem {
   display: flex;
   flex-direction: column;
-
   header {
-    margin-bottom: 0.7rem;
-
     h1 {
       font-size: clamp(1.1rem, 6vw, 1.5rem);
       font-weight: bold;

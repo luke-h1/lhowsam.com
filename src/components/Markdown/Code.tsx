@@ -9,7 +9,7 @@ interface Props {
   className: string;
 }
 
-export const MDCode = ({ children, className, inline }: Props) => {
+const Code = ({ children, className, inline }: Props) => {
   const match = /language-(\w+)/.exec(className || '');
   const text = String(children).replace(/\n$/, '');
   const [btnText, setBtnText] = React.useState('Copy');
@@ -37,3 +37,4 @@ export const MDCode = ({ children, className, inline }: Props) => {
     <code className={className}>{children}</code>
   );
 };
+export default Code;

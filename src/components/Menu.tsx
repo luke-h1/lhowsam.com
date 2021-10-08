@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import Link from 'next/link';
 import XIcon from '@src/components/icons/XIcon';
-import styles from './menu.module.scss';
+import styles from '@src/styles/menu.module.scss';
 
 const Menu = () => {
   function handleClose() {
