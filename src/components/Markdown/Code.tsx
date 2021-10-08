@@ -1,10 +1,12 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable no-shadow */
 import React from 'react';
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/cjs/prism-async-light';
-import Theme from 'react-syntax-highlighter/dist/cjs/styles/prism/tomorrow';
+import theme from 'prism-react-renderer/themes/vsDark';
 import styles from '@src/styles/blog.module.scss';
+import Highlight, { defaultProps } from 'prism-react-renderer';
 
 interface Props {
-  children: React.ReactNode;
+  children: String & React.ReactNode;
   inline: boolean;
   className: string;
 }
@@ -29,9 +31,35 @@ const Code = ({ children, className, inline }: Props) => {
         {btnText}
       </button>
 
-      <SyntaxHighlighter style={Theme} language={match[1]}>
-        {text}
-      </SyntaxHighlighter>
+      <Highlight
+        {...defaultProps}
+        theme={theme}
+        code={children.trim()}
+        language="typescript"
+      >
+        {({
+          className, style, tokens, getLineProps, getTokenProps,
+        }) => (
+          <pre
+            className={className}
+            style={{
+              ...style,
+              overflow: 'scroll',
+              marginTop: 20,
+              padding: 20,
+              marginBottom: 20,
+            }}
+          >
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
     </div>
   ) : (
     <code className={className}>{children}</code>

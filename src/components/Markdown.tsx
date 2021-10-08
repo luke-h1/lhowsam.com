@@ -1,14 +1,12 @@
 import * as React from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import styles from '@src/styles/blog.module.scss';
-import Code from '@src/components/Markdown/Code';
 import { Link } from './Markdown/Link';
 import Alert from './Markdown/Alert';
 
 const components = {
   a: Link,
   // Image: Image,
-  code: Code,
   Alert,
 };
 
