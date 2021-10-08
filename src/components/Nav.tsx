@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import menuStyles from '@src/styles/menu.module.scss';
 import styles from '@src/styles/nav.module.scss';
+import { HiOutlineCode } from 'react-icons/hi';
 
 const Nav = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -35,7 +36,9 @@ const Nav = () => {
         <div className={styles.navContent}>
           <h1 className={styles.navIcon}>
             <Link href="/">
-              <a>logo here</a>
+              <a>
+                <HiOutlineCode fontSize="30px" />
+              </a>
             </Link>
           </h1>
           <div className={styles.navLinks}>

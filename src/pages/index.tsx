@@ -2,12 +2,12 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import { NextPage } from 'next';
 import mainStyles from '@src/styles/main.module.scss';
-import Link from '@src/components/Link';
 import { motion } from 'framer-motion';
 import SkillsSection from '@src/sections/SkillsSection';
 import { ProjectSection } from '@src/sections/ProjectsSection';
 import SocialLinks from '@src/data/SocialLinks';
 import Image from 'next/image';
+import SEO from '@src/components/SEO';
 
 const Index: NextPage = () => {
   return (
@@ -19,6 +19,12 @@ const Index: NextPage = () => {
           url: 'https://lhowsam.com',
           title: 'Home',
         }}
+      />
+      <SEO
+        description="Home page"
+        title="Home"
+        keywords={['Projects, Blog posts, About']}
+        url="https://lhowsam.com"
       />
       <main className={mainStyles.main} id="about">
         <div className={mainStyles.mainTitle}>
@@ -40,10 +46,9 @@ const Index: NextPage = () => {
           Hey I'm Luke, I currently work as a software tester where I do a
           mixture of manual & automated testing in an agile environment. I'm
           also a developer who likes working with React & Node.js.
-          {' '}
-          <Link href="/about">
+          {/* <Link href="/about">
             <a>Read More</a>
-          </Link>
+          </Link> */}
         </p>
         <div className={mainStyles.btnContainer}>
           {SocialLinks

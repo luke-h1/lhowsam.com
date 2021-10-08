@@ -25,15 +25,14 @@ const BlogHeader = ({ post }: Props) => {
               {' '}
               {published}
               {' '}
-              ago
+              ago |
             </span>
-            {post.readingTime ? (
-              <span>
-                {' '}
-                -
-                {post.readingTime}
-              </span>
-            ) : null}
+            {post.readingTime && (
+            <span>
+              {' '}
+              {post.readingTime}
+            </span>
+            )}
           </h2>
         </div>
       </div>

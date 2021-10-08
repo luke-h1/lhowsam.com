@@ -15,7 +15,7 @@ export function getSlugsFromDir(dir: string): string[] {
 }
 
 export type Fields<T> = (keyof T)[];
-type Types = 'posts';
+type Types = 'posts' | 'projects';
 
 /**
  * @param type The type of item (blog post, snippet, case study)

@@ -1,30 +1,35 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { useRouter } from 'next/router';
 import BlogHeader from '@src/components/BlogHeader';
 import { getAllItems, getItemBySlug } from '@src/utils/mdx';
 import { Post } from '@src/types/post';
 import { Markdown } from '@src/components/Markdown';
 import { isProd } from '@src/utils/isProd';
+import { NextSeo } from 'next-seo';
+import SEO from '@src/components/SEO';
 
 interface Props {
   post: Post;
 }
 
 const PostPage = ({ post }: Props) => {
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!post) {
-      router.push('/404');
-    }
-  }, [post, router]);
-  if (!post) {
-    return null;
-  }
   // const keywords = post.keywords?.split(', ') ?? [];
   return (
     <>
+      <NextSeo
+        title="Blog"
+        canonical={`https://lhowsam.com/blog/${post.slug}`}
+        openGraph={{
+          url: `https://lhowsam.com/blog/${post.slug}`,
+          title: `Blog | ${post.slug}`,
+        }}
+      />
+      <SEO
+        description={`${post.intro}`}
+        title={`Blog | ${post.title}`}
+        keywords={['blog', 'tech posts']}
+        url={`https://lhowsam.com/blog/${post.slug}`}
+      />
       <BlogHeader post={post} />
       <Markdown content={post.content} />
     </>
