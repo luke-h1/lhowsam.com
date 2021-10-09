@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import { motion } from 'framer-motion';
+import { heading } from './helpers';
+import { fontSizes } from './typography';
 
 export const ReactMarkdown = styled.main`
   margin-top: 1rem;
@@ -17,11 +19,11 @@ export const ReactMarkdown = styled.main`
   }
 
   h2 {
-    font-size: 1.6rem;
+    font-size: ${heading.lg};
   }
 
   h3 {
-    font-size: 1.35rem;
+    font-size: ${heading.md};
   }
 
   h6,
@@ -44,7 +46,7 @@ export const ReactMarkdown = styled.main`
 
   p,
   hr {
-    font-size: 1.1rem;
+    ${fontSizes.sm};
     margin: 0.5rem 0;
     line-height: 2rem;
   }
