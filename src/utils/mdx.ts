@@ -1,67 +1,84 @@
 /* eslint-disable no-param-reassign */
-import fs from 'fs';
-import glob from 'glob';
-import matter from 'gray-matter';
-import { bundleMDX } from 'mdx-bundler';
-import { join, basename } from 'path';
-import gfmPlugin from 'remark-gfm';
-import slugPlugin from 'remark-slug';
-import type { PostMeta } from '@src/types/post';
+import readingTime from 'reading-time';
+import { readdirSync } from 'fs';
+import { join } from 'path';
+import { bundleMDXFile } from 'mdx-bundler';
+import { Post } from '@src/types/post';
 
-type PostTypes = 'posts';
+import remarkGfm from 'remark-gfm';
+import rehypeSlug from 'rehype-slug';
+import rehypeCodeTitles from 'rehype-code-titles';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
-export const getAllPostsMeta = (type: PostTypes) => {
-  const path = join(process.cwd(), 'src', 'data', type);
+export function getSlugsFromDir(dir: string): string[] {
+  return readdirSync(dir);
+}
 
-  // get file paths in blog folder that end with .mdx
-  const paths = glob.sync(`${path}/**/*.mdx`);
-  return (
-    paths
-      .map((filePath): PostMeta => {
-        //   get content of the file
-        const source = fs.readFileSync(join(filePath), 'utf-8');
+export type Fields<T> = (keyof T)[];
+type Types = 'posts';
 
-        // get the slug
-        const slug = basename(filePath).replace('.mdx', '');
+export async function getAllItems<T extends Post>(
+  type: Types,
+  includeDrafts = false,
+): Promise<T[]> {
+  const slugs = getSlugsFromDir(
+    join(process.cwd(), 'src', 'data', type),
+  ).filter((v) => /\.mdx?$/.test(v));
 
-        // extract post meta from post content
-        const data = matter(source).data as PostMeta;
-        return {
-          ...data,
-          slug,
-        };
-      })
-      // sort posts by createdAt date
-      .sort(
-        (a, b) => Number(new Date(b.createdAt)) - Number(new Date(a.createdAt)),
-      )
+  let posts = await Promise.all(
+    slugs.map(async (slug) => getItemBySlug<T>(slug, type)),
   );
-};
+  posts = posts.sort((post1, post2) => (new Date(post1.createdAt) > new Date(post2.createdAt) ? -1 : 1));
 
-// get content of post
-export const getPostBySlug = async (slug: string, type: string) => {
-  // get content of file
-  const source = fs.readFileSync(
-    join(process.cwd(), 'src', 'data', type, `${slug}.mdx`),
-    'utf-8',
-  );
+  if (!includeDrafts) {
+    posts = posts.filter((v) => !v.draft);
+  }
+  return posts as unknown as Pick<T, keyof T>[];
+}
 
-  const { code, frontmatter } = await bundleMDX(source, {
-    xdmOptions(options) {
-      options.remarkPlugins = [
-        ...(options?.remarkPlugins ?? []),
-        slugPlugin,
-        gfmPlugin,
+export async function getItemBySlug<T = unknown>(
+  slug: string,
+  type: Types,
+): Promise<T> {
+  const dir = join(process.cwd(), 'src', 'data', type);
+  const realSlug = slug.replace(/\.mdx$/, '');
+  const fullPath = join(dir, `${realSlug}.mdx`);
+
+  const { code: content, frontmatter } = await bundleMDXFile(fullPath, {
+    xdmOptions: (options) => {
+      options.remarkPlugins = [...(options?.remarkPlugins ?? []), remarkGfm];
+
+      options.rehypePlugins = [
+        ...(options?.rehypePlugins ?? []),
+        rehypeSlug,
+        rehypeCodeTitles,
+        rehypeAutolinkHeadings,
       ];
+
+      return options;
+    },
+    esbuildOptions: (options) => {
+      options.loader = {
+        ...options.loader,
+        '.png': 'dataurl',
+      };
+
       return options;
     },
   });
-  const meta = {
-    ...frontmatter,
-    slug,
-  } as PostMeta;
+
+  const { text } = readingTime(content);
+
   return {
-    meta,
-    code,
-  };
-};
+    slug: realSlug,
+    content,
+    readingTime: text,
+    frontmatter,
+    createdAt: frontmatter.createdAt,
+    intro: frontmatter.intro,
+    keywords: frontmatter.keywords ?? '',
+    title: frontmatter.title,
+    updatedAt: frontmatter.updatedAt ?? null,
+    draft: frontmatter.draft ?? false,
+  } as any as T;
+}

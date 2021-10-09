@@ -18,7 +18,7 @@ cypress/videos
 # misc
 .DS_Store
 *.pem
-
+junit.xml
 # debug
 npm-debug.log*
 yarn-debug.log*

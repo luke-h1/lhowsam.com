@@ -1,16 +1,23 @@
-import About from '@src/components/About';
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { CustomHead } from '@src/components/CustomHead';
-import Contact from '@src/components/Contact';
-import BlogPost from '@src/components/BlogPost';
 import { NextPage } from 'next';
-import Skill from '@src/components/Skill';
+import { motion } from 'framer-motion';
+import SkillsSection from '@src/sections/SkillsSection';
+import { ProjectSection } from '@src/sections/ProjectsSection';
+import SocialLinks from '@src/data/SocialLinks';
+import Image from 'next/image';
+import SEO from '@src/components/SEO';
+import {
+  ButtonContainer,
+  Flex,
+  Main,
+  MainText,
+  MainTitle,
+} from '@src/styles/main';
 
 const Index: NextPage = () => {
   return (
     <>
-      <CustomHead title="Home | lhowsam.com" description="Homepage" />
       <NextSeo
         title="Home"
         canonical="https://lhowsam.com/"
@@ -19,30 +26,61 @@ const Index: NextPage = () => {
           title: 'Home',
         }}
       />
-      <About />
-      <div className="container px-4 mx-auto mb-10 py-10">
-        <div className="mb-4">
-          <Skill />
-        </div>
-
-        <h1 className="text-4xl text-left mb-4">Posts</h1>
-        <BlogPost
-          title="Next.js SSR notes"
-          slug="nextjs-ssr-notes"
-          summary="How SSR works with Next JS"
-        />
-        <BlogPost
-          title="Forcing git merges"
-          slug="forcing-git-merges"
-          summary="Isolating features into seperate branches is a really common practice for most developers. By seperating features & bug fixes you can avoid a lot of problems and keep your branches clean."
-        />
-        <BlogPost
-          title="Deploying a full stack application with Dokku"
-          slug="full-stack-deploy-with-dokku"
-          summary="How to deploy a full stack app with Dokku to AWS / Digital Ocean."
-        />
-      </div>
-      <Contact />
+      <SEO
+        description="Home page"
+        title="Home"
+        keywords={['Projects, Blog posts, About']}
+        url="https://lhowsam.com"
+      />
+      <Main id="about">
+        <MainTitle>
+          <h1>Hey, I'm Luke 👋</h1>
+          <Flex>
+            <Image
+              src="/images/luke.jpeg"
+              width={220}
+              height={250}
+              blurDataURL="/images/luke.jpeg"
+              placeholder="blur"
+              alt="profile picture"
+              quality="100"
+              priority
+            />
+          </Flex>
+        </MainTitle>
+        <MainText>
+          Hey I'm Luke, I currently work as a software tester where I do a
+          mixture of manual & automated testing in an agile environment. I'm
+          also a developer who likes working with React & Node.js.
+          {/* <Link href="/about">
+            <a>Read More</a>
+          </Link> */}
+        </MainText>
+        <ButtonContainer>
+          {SocialLinks
+            && SocialLinks.map((link) => (
+              <motion.a
+                key={link.id}
+                initial={{
+                  opacity: 0,
+                  translateY: -10,
+                }}
+                animate={{
+                  opacity: 1,
+                  translateY: 0,
+                }}
+                transition={{ duration: 0.3, delay: 0.1 * link.id }}
+                className="btn btn__light btn__icon"
+                href={link.href}
+              >
+                <link.Icon />
+                {link.name}
+              </motion.a>
+            ))}
+        </ButtonContainer>
+      </Main>
+      <SkillsSection />
+      <ProjectSection />
     </>
   );
 };

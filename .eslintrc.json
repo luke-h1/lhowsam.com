@@ -30,6 +30,7 @@
         "react/jsx-props-no-spreading": "off",
         "react/state-in-constructor": "off",
         "no-unsafe-finally": "off",
+        "react/require-default-props": "off",
         "jsx-a11y/anchor-is-valid": "off",
         "import/no-unresolved": "off",
         "arrow-body-style": "off",
