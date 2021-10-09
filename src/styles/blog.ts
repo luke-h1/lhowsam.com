@@ -19,7 +19,7 @@ export const ReactMarkdown = styled.main`
   }
 
   h2 {
-    font-size: ${heading.lg};
+    font-size: ${heading.xl};
   }
 
   h3 {
@@ -46,7 +46,7 @@ export const ReactMarkdown = styled.main`
 
   p,
   hr {
-    ${fontSizes.sm};
+    ${fontSizes.md};
     margin: 0.5rem 0;
     line-height: 2rem;
   }
@@ -54,7 +54,7 @@ export const ReactMarkdown = styled.main`
   li {
     margin-bottom: 0.3rem;
     margin-left: 1.5rem;
-    list-style-type: '- ';
+    list-style-type: '. ';
   }
 
   summary {

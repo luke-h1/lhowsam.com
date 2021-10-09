@@ -22,7 +22,6 @@ const globalStyles = (
         --dark: #1a202c;
         --content-width: 90%;
       }
-
       html {
         font-size: 16px;
         -webkit-font-smoothing: antialiased;
