@@ -15,12 +15,8 @@ export function getSlugsFromDir(dir: string): string[] {
 }
 
 export type Fields<T> = (keyof T)[];
-type Types = 'posts' | 'projects';
+type Types = 'posts';
 
-/**
- * @param type The type of item (blog post, snippet, case study)
- * @param includeDrafts Defaults to `false`
- */
 export async function getAllItems<T extends Post>(
   type: Types,
   includeDrafts = false,
@@ -37,7 +33,6 @@ export async function getAllItems<T extends Post>(
   if (!includeDrafts) {
     posts = posts.filter((v) => !v.draft);
   }
-
   return posts as unknown as Pick<T, keyof T>[];
 }
 
