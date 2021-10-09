@@ -1,19 +1,25 @@
 import React from 'react';
 import { projects, Project } from '@src/data/projects';
-import styles from '@src/styles/projects.module.scss';
 import { AiFillGithub } from 'react-icons/ai';
 import { MdWebAsset } from 'react-icons/md';
+import {
+  ProjectsContainer,
+  StyledProjectItem,
+  ProjectHeader,
+  ProjectContent,
+  ProjectFooter,
+} from '../styles/project';
 
 export const ProjectSection = () => {
   return (
     <section id="projects">
       <h1 className="section__title">Projects</h1>
-      <div className={styles.projectsContainer}>
+      <ProjectsContainer>
         {projects
           && projects.map((project) => {
             return <ProjectItem project={project} key={project.id} />;
           })}
-      </div>
+      </ProjectsContainer>
     </section>
   );
 };
@@ -24,12 +30,12 @@ interface Props {
 
 const ProjectItem = ({ project }: Props) => {
   return (
-    <div className={styles.projectItem}>
-      <header className={styles.projectItemheader}>{project.title}</header>
-      <div className={styles.projectItemBody}>
+    <StyledProjectItem>
+      <ProjectHeader>{project.title}</ProjectHeader>
+      <ProjectContent>
         <p>{project.intro}</p>
-      </div>
-      <footer className={styles.projectItemFooter}>
+      </ProjectContent>
+      <ProjectFooter>
         {project.siteUrl && (
           <a href={project.siteUrl}>
             <MdWebAsset fontSize="20px" />
@@ -38,7 +44,7 @@ const ProjectItem = ({ project }: Props) => {
         <a href={project.githubUrl}>
           <AiFillGithub fontSize="20px" />
         </a>
-      </footer>
-    </div>
+      </ProjectFooter>
+    </StyledProjectItem>
   );
 };

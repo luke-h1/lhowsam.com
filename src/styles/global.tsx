@@ -228,6 +228,47 @@ const globalStyles = (
           border-top-right-radius: 0 !important;
         }
       }
+      .rightContainer a {
+        font-size: 1rem;
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        border-radius: 0.3rem;
+        background: transparent;
+        transition: background 200ms;
+      }
+
+      @media (hover: hover) {
+        .rightContainer a:hover {
+          background: var(--dark);
+        }
+      }
+
+      .alert {
+        display: flex;
+        align-items: center;
+
+        padding: 0.5rem 0.8rem;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+
+        p,
+        span {
+          margin: 0;
+          margin-left: 0.5rem;
+        }
+
+        &.info {
+          background: var(--secondary);
+        }
+
+        &.error {
+          background: rgb(145, 6, 6);
+        }
+
+        &.warn {
+          background: #42381f;
+        }
+      }
     `}
   />
 );

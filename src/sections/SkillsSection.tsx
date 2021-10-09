@@ -1,28 +1,28 @@
 import React from 'react';
 import Skills from '@src/data/Skills';
-import styles from '@src/styles/skills.module.scss';
+import { SkillItem, SkillList, SkillsContainer } from '@src/styles/skills';
 
 const SkillsSection = () => {
   return (
     <section id="skills">
       <h1 className="section__title">Skills</h1>
-      <div className={styles.skillsContainer}>
+      <SkillsContainer>
         {Skills
           && Skills.map((skill) => (
-            <div key={skill.title} className={styles.SkillItem}>
+            <SkillItem key={skill.title}>
               <header>
                 <h1>{skill.title}</h1>
               </header>
-              <ul className={styles.skillsItem}>
+              <SkillList>
                 {skill.items.map((item) => (
                   <li key={item}>
                     <p>{item}</p>
                   </li>
                 ))}
-              </ul>
-            </div>
+              </SkillList>
+            </SkillItem>
           ))}
-      </div>
+      </SkillsContainer>
     </section>
   );
 };

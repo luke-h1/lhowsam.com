@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from '@src/styles/blog.module.scss';
 import WarnIcon from '@src/components/icons/Warn';
 import ErrorIcon from '@src/components/icons/Error';
 import InfoIcon from '@src/components/icons/Info';
 import classes from '@src/utils/classes';
+import styles from '@src/styles/icons.module.scss';
 
 type AlertIconType = 'info' | 'error' | 'warn';
 interface Props extends React.HTMLAttributes<HTMLDivElement> {

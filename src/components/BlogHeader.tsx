@@ -2,7 +2,8 @@ import * as React from 'react';
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import format from 'date-fns/format';
 import { Post } from '@src/types/post';
-import styles from '@src/styles/blog-header.module.scss';
+import { BlogDate, BlogTitle, StyledBlogHeader } from '@src/styles/blogHeader';
+import { LeftContainer } from '../styles/blogHeader';
 
 interface Props {
   post: Post;
@@ -15,11 +16,11 @@ const BlogHeader = ({ post }: Props) => {
   const publishedText = post.updatedAt ? 'Updated' : 'Published';
 
   return (
-    <header className={styles.blogHeader}>
-      <div className={styles.leftContainer}>
+    <StyledBlogHeader>
+      <LeftContainer>
         <div>
-          <h1 className={styles.blogTitle}>{post.title}</h1>
-          <h2 className={styles.blogDate}>
+          <BlogTitle>{post.title}</BlogTitle>
+          <BlogDate>
             <span title={publishDateFull}>
               {publishedText}
               {' '}
@@ -33,10 +34,10 @@ const BlogHeader = ({ post }: Props) => {
               {post.readingTime}
             </span>
             )}
-          </h2>
+          </BlogDate>
         </div>
-      </div>
-    </header>
+      </LeftContainer>
+    </StyledBlogHeader>
   );
 };
 export default BlogHeader;

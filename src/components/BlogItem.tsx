@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Post } from '@src/types/post';
-import styles from '@src/styles/blog.module.scss';
+import { StyledBlogItem } from '@src/styles/blog';
 
 interface Props<T extends Post> {
   post: T;
@@ -10,10 +10,10 @@ interface Props<T extends Post> {
 const BlogItem = ({ type, post }: Props<Post>) => {
   return (
     <Link href={`${type}/${post.slug}`} key={post.slug}>
-      <a className={styles.blogItem}>
+      <StyledBlogItem>
         <h2>{post.title}</h2>
         <p>{post.intro}</p>
-      </a>
+      </StyledBlogItem>
     </Link>
   );
 };

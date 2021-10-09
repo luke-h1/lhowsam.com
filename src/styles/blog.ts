@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { motion } from 'framer-motion';
 
 export const ReactMarkdown = styled.main`
   margin-top: 1rem;
@@ -60,7 +61,7 @@ export const ReactMarkdown = styled.main`
   }
 `;
 
-export const BlogItems = styled.div`
+export const BlogItems = styled(motion.div)`
   display: flex;
   flex-direction: column;
 
@@ -73,4 +74,27 @@ export const BlogItems = styled.div`
   }
 `;
 
-export const StyledBlogItem = styled.a``;
+export const StyledBlogItem = styled.a`
+  padding: 0.8rem 0;
+  margin: 0.2rem 0;
+  border-radius: 0.3rem;
+
+  transition: background 200ms, transform 150ms;
+
+  h2 {
+    font-size: 1.3rem;
+    margin: 0;
+  }
+
+  p {
+    font-size: 1.05rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translate(1.5px, -1.5px);
+    }
+  }
+`;

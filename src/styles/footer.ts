@@ -1,4 +1,6 @@
-.footer {
+import styled from '@emotion/styled';
+
+export const StyledFooter = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,9 +11,9 @@
   a {
     text-decoration: underline;
   }
-}
+`;
 
-.footerContent {
+export const FooterContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -25,12 +27,11 @@
       margin-top: 1rem;
     }
   }
-}
+`;
 
-.footerLinks {
+export const FooterLinks = styled.div`
   display: flex;
   flex-direction: row;
-
   a {
     font-size: 1.1rem;
     margin: 0 0.2rem;
@@ -39,4 +40,8 @@
   @media (max-width: 635px) {
     flex-direction: column;
   }
-}
+
+  @media (max-width: 450px) {
+    margin-top: 1rem;
+  }
+`;

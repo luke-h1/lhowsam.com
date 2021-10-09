@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
-import styles from '@src/styles/blog.module.scss';
+import { ReactMarkdown } from '@src/styles/blog';
 import { Link } from './Markdown/Link';
 import Alert from './Markdown/Alert';
 import Code from './Markdown/Code';
@@ -20,8 +20,8 @@ export const Markdown = ({ content }: Props) => {
   const Component = React.useMemo(() => getMDXComponent(content), [content]);
 
   return (
-    <main className={styles.reactMarkdown}>
+    <ReactMarkdown>
       <Component components={components as any} />
-    </main>
+    </ReactMarkdown>
   );
 };

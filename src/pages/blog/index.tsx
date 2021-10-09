@@ -1,12 +1,12 @@
 import { GetStaticProps } from 'next';
 import { motion } from 'framer-motion';
 import { Post } from '@src/types/post';
-import styles from '@src/styles/blog.module.scss';
 import BlogItem from '@src/components/BlogItem';
 import { getAllItems } from '@src/utils/mdx';
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import SEO from '@src/components/SEO';
+import { BlogItems } from '@src/styles/blog';
 
 interface Props {
   posts: Post[];
@@ -36,17 +36,16 @@ const BlogPage = ({ posts }: Props) => {
       >
         Blog Posts
       </motion.h1>
-      <motion.div
+      <BlogItems
         transition={{ duration: 0.3 }}
         initial={{ translateY: 15, opacity: 0 }}
         animate={{ translateY: 0, opacity: 1 }}
-        className={styles.blogItems}
       >
         {posts
           && posts.map((post) => {
             return <BlogItem type="blog" post={post} key={post.slug} />;
           })}
-      </motion.div>
+      </BlogItems>
     </>
   );
 };

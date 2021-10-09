@@ -1,11 +1,11 @@
 import React from 'react';
-import styles from '@src/styles/footer.module.scss';
+import { FooterContent, FooterLinks, StyledFooter } from '@src/styles/footer';
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.footerContent}>
-        <div className={styles.footerLinks}>
+    <StyledFooter>
+      <FooterContent>
+        <FooterLinks>
           <a target="_blank" rel="noreferrer noopener" href="">
             Twitter
           </a>
@@ -15,9 +15,9 @@ const Footer = () => {
           <a target="_blank" rel="noreferrer noopener" href="">
             LinkedIn
           </a>
-        </div>
-      </div>
-    </footer>
+        </FooterLinks>
+      </FooterContent>
+    </StyledFooter>
   );
 };
 
