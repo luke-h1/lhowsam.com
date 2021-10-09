@@ -27,10 +27,10 @@ const Menu = () => {
             <Link href="/">
               <a className={styles.menuLink}>Home</a>
             </Link>
-            <Link href="/about">
+            <Link href="/projects">
               <a className={styles.menuLink}>Projects</a>
             </Link>
-            <Link href="/">
+            <Link href="/blog">
               <a className={styles.menuLink}>Blog</a>
             </Link>
           </div>
