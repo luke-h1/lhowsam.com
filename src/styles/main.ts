@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 
 export const Main = styled.main`
   margin-top: 2rem;
-  min-height: 40vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

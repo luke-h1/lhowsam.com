@@ -38,8 +38,8 @@ const Index: NextPage = () => {
           <Flex>
             <Image
               src="/images/luke.jpeg"
-              width={320}
-              height={400}
+              width={220}
+              height={250}
               blurDataURL="/images/luke.jpeg"
               placeholder="blur"
               alt="profile picture"

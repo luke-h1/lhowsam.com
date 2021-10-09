@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import NextLink from 'next/link';
 
 interface Props extends React.HTMLAttributes<HTMLAnchorElement> {
@@ -19,7 +19,9 @@ const Link = (props: Props) => {
 
   return (
     <NextLink href={href}>
-      <a {...rest}>{children}</a>
+      <a {...rest} style={{ cursor: 'pointer' }}>
+        {children}
+      </a>
     </NextLink>
   );
 };

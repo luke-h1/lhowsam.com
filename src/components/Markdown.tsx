@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { getMDXComponent } from 'mdx-bundler/client';
 import { ReactMarkdown } from '@src/styles/blog';
 import { Link } from './Markdown/Link';

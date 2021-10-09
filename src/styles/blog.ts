@@ -78,7 +78,7 @@ export const StyledBlogItem = styled.a`
   padding: 0.8rem 0;
   margin: 0.2rem 0;
   border-radius: 0.3rem;
-
+  cursor: pointer;
   transition: background 200ms, transform 150ms;
 
   h2 {
