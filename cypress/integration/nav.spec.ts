@@ -3,9 +3,9 @@ describe('nav', () => {
     cy.visit('/')
   })
     it('should render properly', () => {
-      cy.getByTestId('a').contains('Home').should('be.visible')
-      cy.getByTestId('a').contains('Blog').should('be.visible')
-      cy.getByTestId('a').contains('Projects').should('be.visible')
+      cy.get('a').contains('Home').should('be.visible')
+      cy.get('a').contains('Blog').should('be.visible')
+      cy.get('a').contains('Projects').should('be.visible')
 
     });
 

@@ -1,7 +1,7 @@
 describe('blog page should work', () => {
   before(() => { 
     cy.visit('/blog')
-    cy.contains('Blog').should('be.visible')
+    cy.contains('Blog Posts').should('be.visible')
   })
 
   it('renders titles correctly', () => {
