@@ -8,7 +8,7 @@ export interface Project {
   githubUrl: string;
 }
 
-export const projects: Project[] = [
+const projects: Project[] = [
   {
     id: 1,
     title: 'My Website',
@@ -50,3 +50,4 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/luke-h1/Automation',
   },
 ];
+export default projects;

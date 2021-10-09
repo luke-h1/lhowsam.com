@@ -8,14 +8,10 @@ describe('index', () => {
       ).should('be.visible')
     });
     it('should display correct index text (2)', () => {
-      cy.getByTestId('short-intro').contains(
-        'I like building and testing projects that are scalable, performant & user friendly'
+      cy.get('p').contains(
+        'Hey I\'m Luke, I currently work as a software tester where I do a mixture of manual & automated testing in an agile environment. I\'m also a developer who likes working with React & Node.js.'
       ).should('be.visible')
     });
-    it('should display correct index text (3)', () => {
-      
-      cy.getByTestId('short-intro2').contains('I currently work as a software tester where I do a mixture of manual & automated testing in an agile environment').should('be.visible')
-    })
 
     it('should display contact section', () => { 
       cy.get('h2').contains('Get in touch').should('be.visible')

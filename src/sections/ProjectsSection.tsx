@@ -1,5 +1,5 @@
 import React from 'react';
-import { projects, Project } from '@src/data/projects';
+import projects, { Project } from '@src/data/projects';
 import { AiFillGithub } from 'react-icons/ai';
 import { MdWebAsset } from 'react-icons/md';
 import {
