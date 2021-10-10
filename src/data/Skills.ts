@@ -1,7 +1,4 @@
-export interface SkillItem {
-  title: string;
-  items: string[];
-}
+import { SkillItem } from '@src/types/SkillItem';
 
 const Skills: SkillItem[] = [
   {
