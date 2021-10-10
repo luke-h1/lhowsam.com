@@ -1,15 +1,12 @@
 export interface Post {
+  id: string;
   title: string;
-  createdAt: string;
-  updatedAt: string | null;
   slug: string;
+  date: string;
   content: string;
-  image?: string;
-  intro: string | null;
+  image: string;
+  intro: string;
   keywords: string | null;
   readingTime: number;
-  draft: boolean;
-  frontmatter: {
-    [key: string]: any;
-  };
+  source: { compiledSource: string };
 }

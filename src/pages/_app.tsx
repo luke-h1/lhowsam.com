@@ -15,6 +15,8 @@ import '@fontsource/poppins/800.css';
 import { ChakraProvider } from '@chakra-ui/react';
 import Layout from '@src/components/Layout';
 import theme from '@src/styles/theme';
+import { MDXProvider } from '@mdx-js/react';
+import MDXComponents from '@src/components/MDXComponents';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -48,9 +50,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         }}
       />
       <ChakraProvider resetCSS theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <MDXProvider components={MDXComponents}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </MDXProvider>
       </ChakraProvider>
     </>
   );
