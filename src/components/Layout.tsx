@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 import Header from './Header';
+import Container from './Container';
 
 interface Props {
   children: React.ReactNode;
@@ -9,8 +10,10 @@ interface Props {
 const Layout = ({ children }: Props) => {
   return (
     <>
-      <Header />
-      <Box as="main">{children}</Box>
+      <Flex direction="column" minHeight="100vh">
+        <Header />
+        <Container as="main">{children}</Container>
+      </Flex>
     </>
   );
 };

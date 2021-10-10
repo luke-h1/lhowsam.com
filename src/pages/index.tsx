@@ -2,6 +2,7 @@ import React from 'react';
 import { NextSeo } from 'next-seo';
 import { NextPage } from 'next';
 import SEO from '@src/components/SEO';
+import Hero from '@src/components/Hero';
 
 const Index: NextPage = () => {
   return (
@@ -20,6 +21,7 @@ const Index: NextPage = () => {
         keywords={['Projects, Blog posts, About']}
         url="https://lhowsam.com"
       />
+      <Hero />
     </>
   );
 };
