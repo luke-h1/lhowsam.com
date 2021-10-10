@@ -46,7 +46,6 @@ export const getServerSideProps: GetServerSideProps = async () => {
     }
   `;
   const data = await Client.request(query);
-  console.log(data);
   return {
     props: { posts: data.blogs },
   };

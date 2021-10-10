@@ -4,7 +4,9 @@ export interface Post {
   slug: string;
   date: string;
   content: string;
-  image: string;
+  image: {
+    url: string;
+  };
   intro: string;
   keywords: string | null;
   readingTime: number;
