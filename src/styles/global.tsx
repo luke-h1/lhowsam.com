@@ -5,7 +5,6 @@ import { prismDarkTheme, prismLightTheme } from './prism';
 
 const GlobalStyle = ({ children }: { children: React.ReactNode }) => {
   const { colorMode } = useColorMode();
-
   return (
     <>
       <Global

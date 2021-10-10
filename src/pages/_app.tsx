@@ -12,11 +12,12 @@ import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/800.css';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react';
 import Layout from '@src/components/Layout';
 import theme from '@src/styles/theme';
 import { MDXProvider } from '@mdx-js/react';
 import MDXComponents from '@src/components/MDXComponents';
+import GlobalStyle from '@src/styles/global';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -49,13 +50,21 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           ],
         }}
       />
-      <ChakraProvider resetCSS theme={theme}>
-        <MDXProvider components={MDXComponents}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </MDXProvider>
-      </ChakraProvider>
+      <ColorModeProvider
+        options={{
+          useSystemColorMode: true,
+        }}
+      >
+        <ChakraProvider resetCSS theme={theme}>
+          <MDXProvider components={MDXComponents}>
+            <GlobalStyle>
+              <Layout>
+                <Component {...pageProps} />
+              </Layout>
+            </GlobalStyle>
+          </MDXProvider>
+        </ChakraProvider>
+      </ColorModeProvider>
     </>
   );
 };

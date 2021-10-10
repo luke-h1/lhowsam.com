@@ -9,6 +9,8 @@ import {
   useColorMode,
 } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import React from 'react';
+import CodeBlock from './CodeBlock';
 
 const CustomLink = ({ href }: { href: string }) => {
   const { colorMode } = useColorMode();
@@ -79,6 +81,7 @@ const MDXComponents = {
   h6: (props: any) => (
     <Heading as="h6" size="xs" fontWeight="bold" {...props} />
   ),
+  Code: (props: any) => <CodeBlock {...props} />,
   inlineCode: (props: any) => (
     <Code colorScheme="yellow" fontSize="0.84em" {...props} />
   ),
