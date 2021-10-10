@@ -1,8 +1,10 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import SEO from '@src/components/SEO';
 import Hero from '@src/components/Hero';
+import { gql } from 'graphql-request';
+import { Client } from '@src/utils/Client';
 
 const Index: NextPage = () => {
   return (
@@ -25,4 +27,23 @@ const Index: NextPage = () => {
     </>
   );
 };
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const query = gql`
+    query Blogs {
+      blogs {
+        id
+        slug
+        title
+        intro
+      }
+    }
+  `;
+  const data = await Client.request(query);
+  console.log(data);
+  return {
+    props: { posts: data.blogs },
+  };
+};
+
 export default Index;
