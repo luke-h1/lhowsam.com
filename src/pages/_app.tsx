@@ -4,12 +4,8 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import { constants } from '@src/data/constants';
-import Nav from '@src/components/Nav';
-import Menu from '@src/components/Menu';
-import Footer from '@src/components/Footer';
-import GlobalStyles from '@src/styles/global';
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -23,7 +19,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
   return (
     <>
-      {GlobalStyles}
       <DefaultSeo
         titleTemplate="%s | lhowsam.com"
         description="Luke Howsam"
@@ -41,16 +36,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           ],
         }}
       />
-      <Nav />
-      <Menu />
-      <div id="container" className="container">
-        <div className="content">
-          <Component {...pageProps} />
-        </div>
-      </div>
-      <Footer />
+      <Component {...pageProps} />
     </>
   );
-}
+};
 
 export default MyApp;
