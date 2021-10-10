@@ -1,5 +1,6 @@
 import { chakra, useColorMode } from '@chakra-ui/react';
 import NextLink from 'next/link';
+import { HiOutlineCode } from 'react-icons/hi';
 
 const Logo = () => {
   const { colorMode } = useColorMode();
@@ -14,7 +15,7 @@ const Logo = () => {
           fontWeight="700"
           color={colorMode === 'light' ? '#000' : '#fff'}
         >
-          LOGO
+          <HiOutlineCode fontSize="28px" />
         </chakra.a>
       </NextLink>
     </>

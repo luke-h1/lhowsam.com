@@ -27,6 +27,8 @@ const Navbar = () => {
             base: isOpen ? 'block' : 'none',
             lg: 'flex',
           }}
+          background={colorMode === 'dark' ? '#1A202C' : '#fff'}
+          color={colorMode === 'light' ? '#000' : '#fff'}
           position={{ base: 'absolute', lg: 'static' }}
           top="5rem"
           left="5%"
