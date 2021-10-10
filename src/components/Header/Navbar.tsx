@@ -16,6 +16,7 @@ const Navbar = () => {
         display="flex"
         flexDir={{ base: 'row-reverse', lg: 'row' }}
         alignItems="center"
+        color={colorMode === 'light' ? '#000' : '#fff'}
       >
         <HamburgerMenu toggled={isOpen} toggle={setIsOpen} />
         <Box

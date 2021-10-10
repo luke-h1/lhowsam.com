@@ -1,4 +1,4 @@
-import { Box, chakra } from '@chakra-ui/react';
+import { Box, chakra, useColorMode } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 import { NavLinks } from '@src/data/NavLinks';
@@ -8,6 +8,7 @@ interface Props {
 }
 
 const Links = ({ onClick }: Props) => {
+  const { colorMode } = useColorMode();
   return (
     <>
       {NavLinks
@@ -20,7 +21,11 @@ const Links = ({ onClick }: Props) => {
             key={link.id}
           >
             <NextLink href={link.slug}>
-              <chakra.a href={link.slug} onClick={onClick}>
+              <chakra.a
+                href={link.slug}
+                onClick={onClick}
+                color={colorMode === 'light' ? '#000' : '#fff'}
+              >
                 {link.text}
               </chakra.a>
             </NextLink>

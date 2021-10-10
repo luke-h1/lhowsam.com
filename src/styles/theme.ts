@@ -4,7 +4,7 @@ const theme = extendTheme({
   useSystemColorMode: true,
   fonts: {
     body: 'Raleway',
-    heading: 'Poppins,',
+    heading: 'Poppins',
   },
   global: () => ({
     body: {

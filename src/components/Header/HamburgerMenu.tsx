@@ -7,18 +7,20 @@ interface Props {
   toggle: Dispatch<SetStateAction<boolean>>;
 }
 
-const HamburgerMenu = ({ toggled, toggle }: Props) => (
-  <>
-    <Box display={{ lg: 'none' }}>
-      <Hamburger
-        hideOutline={false}
-        label="hamburger menu"
-        size={25}
-        toggled={toggled}
-        toggle={toggle}
-        direction="right"
-      />
-    </Box>
-  </>
-);
+const HamburgerMenu = ({ toggled, toggle }: Props) => {
+  return (
+    <>
+      <Box display={{ lg: 'none' }}>
+        <Hamburger
+          hideOutline={false}
+          label="hamburger menu"
+          size={25}
+          toggled={toggled}
+          toggle={toggle}
+          direction="right"
+        />
+      </Box>
+    </>
+  );
+};
 export default HamburgerMenu;
