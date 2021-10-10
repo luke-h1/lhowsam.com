@@ -6,7 +6,7 @@ import Hero from '@src/components/Hero';
 import { gql } from 'graphql-request';
 import { Client } from '@src/utils/Client';
 import BlogPost from '@src/components/BlogPost';
-import { Heading } from '@chakra-ui/react';
+import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
 import { Post } from '../types/post';
 
 const Index = ({ posts }: { posts: Post[] }) => {
@@ -27,8 +27,23 @@ const Index = ({ posts }: { posts: Post[] }) => {
         url="https://lhowsam.com"
       />
       <Hero />
-      <Heading mb={4}>Recent Blog Posts</Heading>
+      <Heading mb={4}>Recent Blog Posts 📝</Heading>
       {posts && posts.map((post) => <BlogPost post={post} key={post.id} />)}
+      <Box as="section" mt={10} mb={20}>
+        <Heading
+          letterSpacing="tight"
+          mt={8}
+          size="lg"
+          fontWeight={700}
+          as="h2"
+          mb={4}
+        >
+          Highlighted Projects 👨‍💻
+        </Heading>
+        <SimpleGrid minChildWidth="300px" spacing="40px">
+          test
+        </SimpleGrid>
+      </Box>
     </>
   );
 };
