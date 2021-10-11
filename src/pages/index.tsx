@@ -31,8 +31,8 @@ const Index = ({ posts, projects }: { posts: Post[]; projects: Project[] }) => {
       <Hero />
       <Heading mb={4}>Recent Blog Posts 📝</Heading>
       {posts && posts.map((post) => <BlogPost post={post} key={post.id} />)}
-      <Box as="section" mt={10} mb={20}>
-        <Heading mb={4}>Highlighted Projects 👨‍💻</Heading>
+      <Box as="section" mt={20} mb={20}>
+        <Heading mb={10}>Highlighted Projects 👨‍💻</Heading>
         <SimpleGrid minChildWidth="300px" spacing="20px">
           {projects
             && projects.map((project) => (
@@ -64,6 +64,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
         slug
         intro
         tech
+        siteUrl
+        githubUrl
       }
     }
   `;

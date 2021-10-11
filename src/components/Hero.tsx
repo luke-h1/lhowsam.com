@@ -17,7 +17,7 @@ const Hero = () => {
       align="center"
       justify={{ base: 'center', md: 'space-around', xl: 'space-between' }}
       direction={{ base: 'column-reverse', md: 'row' }}
-      minH="70vh"
+      minH="60vh"
       mb={16}
     >
       <Stack
