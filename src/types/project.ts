@@ -3,6 +3,7 @@ export interface Project {
   title: string;
   intro: string;
   content: string;
+  slug: string;
   tech: string[];
   siteUrl?: string;
   githubUrl: string;

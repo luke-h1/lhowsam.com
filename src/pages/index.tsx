@@ -7,9 +7,11 @@ import { gql } from 'graphql-request';
 import { Client } from '@src/utils/Client';
 import BlogPost from '@src/components/BlogPost';
 import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
+import ProjectCard from '@src/components/ProjectCard';
+import { Project } from '@src/types/project';
 import { Post } from '../types/post';
 
-const Index = ({ posts }: { posts: Post[] }) => {
+const Index = ({ posts, projects }: { posts: Post[]; projects: Project[] }) => {
   return (
     <>
       <NextSeo
@@ -30,18 +32,12 @@ const Index = ({ posts }: { posts: Post[] }) => {
       <Heading mb={4}>Recent Blog Posts 📝</Heading>
       {posts && posts.map((post) => <BlogPost post={post} key={post.id} />)}
       <Box as="section" mt={10} mb={20}>
-        <Heading
-          letterSpacing="tight"
-          mt={8}
-          size="lg"
-          fontWeight={700}
-          as="h2"
-          mb={4}
-        >
-          Highlighted Projects 👨‍💻
-        </Heading>
-        <SimpleGrid minChildWidth="300px" spacing="40px">
-          test
+        <Heading mb={4}>Highlighted Projects 👨‍💻</Heading>
+        <SimpleGrid minChildWidth="300px" spacing="20px">
+          {projects
+            && projects.map((project) => (
+              <ProjectCard project={project} key={project.id} />
+            ))}
         </SimpleGrid>
       </Box>
     </>
@@ -49,7 +45,7 @@ const Index = ({ posts }: { posts: Post[] }) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const query = gql`
+  const blogQuery = gql`
     query Blogs {
       blogs(orderBy: id_DESC, first: 3) {
         id
@@ -60,9 +56,22 @@ export const getServerSideProps: GetServerSideProps = async () => {
       }
     }
   `;
-  const data = await Client.request(query);
+  const projectQuery = gql`
+    query Projects {
+      projects(orderBy: id_DESC, first: 3) {
+        id
+        title
+        slug
+        intro
+        tech
+      }
+    }
+  `;
+
+  const blogData = await Client.request(blogQuery);
+  const projectData = await Client.request(projectQuery);
   return {
-    props: { posts: data.blogs },
+    props: { posts: blogData.blogs, projects: projectData.projects },
   };
 };
 
