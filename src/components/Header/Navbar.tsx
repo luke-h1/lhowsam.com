@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { Box, useColorMode } from '@chakra-ui/react';
 import Links from './Links';
-import DarkModeToggle from './DarkModeToggle';
 import HamburgerMenu from './HamburgerMenu';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const { colorMode, toggleColorMode } = useColorMode();
+  const { colorMode } = useColorMode();
 
   return (
     <>
@@ -42,8 +41,6 @@ const Navbar = () => {
         >
           <Links onClick={() => setIsOpen(false)} />
         </Box>
-
-        <DarkModeToggle onClick={toggleColorMode} colorMode={colorMode} />
       </Box>
     </>
   );

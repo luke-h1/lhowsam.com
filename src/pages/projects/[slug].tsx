@@ -8,7 +8,7 @@ import { gql } from 'graphql-request';
 import { Client } from '@src/utils/Client';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote } from 'next-mdx-remote';
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetStaticProps } from 'next';
 import MDXComponents from '@src/components/MDXComponents';
 import React from 'react';
 import SEO from '@src/components/SEO';
@@ -85,7 +85,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths = async () => {
   const query = gql`
     query Projects() {
       projects() {
@@ -98,6 +98,5 @@ export const getStaticPaths: GetStaticPaths = async () => {
   );
   return {
     paths: data.projects.map((project) => ({ params: { slug: project.slug } })),
-    fallback: 'blocking',
   };
 };

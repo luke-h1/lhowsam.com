@@ -2,7 +2,7 @@ import MDXComponents from '@src/components/MDXComponents';
 import BlogLayout from '@src/layouts/blog';
 import { motion } from 'framer-motion';
 import { MDXRemote } from 'next-mdx-remote';
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetStaticProps } from 'next';
 import { gql } from 'graphql-request';
 import { Client } from '@src/utils/Client';
 import { serialize } from 'next-mdx-remote/serialize';
@@ -79,7 +79,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     revalidate: 60 * 60, // 1 hour cache
   };
 };
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths = async () => {
   const query = gql`
    query Blogs() {
       blogs() {
@@ -90,6 +90,5 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const data = await Client.request(query);
   return {
     paths: data.blogs.map((blog: Post) => ({ params: { slug: blog.slug } })),
-    fallback: 'blocking', // dynamically create the page
   };
 };
