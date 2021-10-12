@@ -12,7 +12,7 @@ import '@fontsource/poppins/400.css';
 import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/800.css';
-import { ChakraProvider, ColorModeProvider } from '@chakra-ui/react';
+import { ChakraProvider } from '@chakra-ui/react';
 import Layout from '@src/components/Layout';
 import theme from '@src/styles/theme';
 import { MDXProvider } from '@mdx-js/react';
@@ -50,21 +50,16 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           ],
         }}
       />
-      <ColorModeProvider
-        options={{
-          useSystemColorMode: true,
-        }}
-      >
-        <ChakraProvider resetCSS theme={theme}>
-          <MDXProvider components={MDXComponents}>
-            <GlobalStyle>
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            </GlobalStyle>
-          </MDXProvider>
-        </ChakraProvider>
-      </ColorModeProvider>
+
+      <ChakraProvider resetCSS theme={theme}>
+        <MDXProvider components={MDXComponents}>
+          <GlobalStyle>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </GlobalStyle>
+        </MDXProvider>
+      </ChakraProvider>
     </>
   );
 };
