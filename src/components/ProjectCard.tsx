@@ -28,6 +28,7 @@ const ProjectCard = ({ project }: Props) => {
       borderRadius={10}
       border={`2px solid ${colorMode === 'light' ? '#000' : '#fff'}`}
       cursor="pointer"
+      mb={8}
     >
       <Flex p={[5, 15, 25]} flexDir="column" justify="space-between" h="100%">
         <Link href={`/projects/${project.slug}`}>
