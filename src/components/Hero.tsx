@@ -8,7 +8,6 @@ import {
   Heading,
   Stack,
 } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
 
 const Hero = () => {
   const { colorMode } = useColorMode();
@@ -25,47 +24,37 @@ const Hero = () => {
         w={{ base: '80%', md: '100%' }}
         align={['center', 'center', 'flex-start', 'flex-start']}
       >
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
+        <Heading
+          as="h1"
+          size="xl"
+          fontWeight="bold"
+          color="primary.800"
+          textAlign={['center', 'center', 'left', 'left']}
         >
-          <Heading
-            as="h1"
-            size="xl"
-            fontWeight="bold"
-            color="primary.800"
-            textAlign={['center', 'center', 'left', 'left']}
-          >
-            Hey, I'm Luke 👋
-          </Heading>
-        </motion.div>
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
+          Hey, I'm Luke 👋
+        </Heading>
+
+        <Heading
+          as="h2"
+          size="md"
+          color="primary.800"
+          opacity="0.8"
+          fontWeight="normal"
+          lineHeight={1.5}
+          textAlign="left"
         >
-          <Heading
-            as="h2"
-            size="md"
-            color="primary.800"
-            opacity="0.8"
-            fontWeight="normal"
-            lineHeight={1.5}
-            textAlign="left"
-          >
-            I'm a
-            {' '}
-            <strong>software tester</strong>
-            {' '}
-            and
-            {' '}
-            <strong>developer</strong>
-            {' '}
-            who lives and works in Sheffield, UK. I
-            like building and testing projects that are scalable, performant &
-            user friendly
-          </Heading>
+          I'm a
+          {' '}
+          <strong>software tester</strong>
+          {' '}
+          and
+          {' '}
+          <strong>developer</strong>
+          {' '}
+          who lives and works in Sheffield, UK. I like building and testing
+          projects that are scalable, performant & user friendly
+        </Heading>
+        {process.env.NODE_ENV === 'production' ? null : (
           <Button
             background={colorMode === 'light' ? '#A0AEC0' : '#63B3ED'}
             borderRadius="8px"
@@ -77,21 +66,15 @@ const Hero = () => {
           >
             More about me
           </Button>
-        </motion.div>
+        )}
       </Stack>
       <Box w={{ base: '80%', sm: '60%', md: '50%' }} mb={{ base: 12, md: 0 }}>
-        <motion.div
-          initial={{ y: -20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-        >
-          <Image
-            src="/images/luke.jpeg"
-            size="100%"
-            rounded="1rem"
-            shadow="2xl"
-          />
-        </motion.div>
+        <Image
+          src="/images/luke.jpeg"
+          size="100%"
+          rounded="1rem"
+          shadow="2xl"
+        />
       </Box>
     </Flex>
   );

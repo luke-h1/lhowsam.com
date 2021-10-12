@@ -1,7 +1,8 @@
 import { extendTheme } from '@chakra-ui/react';
 
 const theme = extendTheme({
-  useSystemColorMode: true,
+  initialColorMode: 'dark',
+  useSystemColorMode: false,
   fonts: {
     body: 'Raleway',
     heading: 'Poppins',

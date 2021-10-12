@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import React from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 import ProjectCard from '@src/components/ProjectCard';
@@ -26,20 +25,15 @@ const ProjectPage = ({ projects }: { projects: Project[] }) => {
         keywords={['Projects, Typescript, React.js, Next.js']}
         url="https://lhowsam.com/projects"
       />
-      <motion.div
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.4, delay: 0.2 }}
-      >
-        <Box mt={10}>
-          {' '}
-          <Heading mb={4}>Projects</Heading>
-          {projects
-            && projects.map((project) => (
-              <ProjectCard project={project} key={project.id} />
-            ))}
-        </Box>
-      </motion.div>
+
+      <Box mt={10}>
+        {' '}
+        <Heading mb={4}>Projects</Heading>
+        {projects
+          && projects.map((project) => (
+            <ProjectCard project={project} key={project.id} />
+          ))}
+      </Box>
     </>
   );
 };
