@@ -10,6 +10,7 @@ import SkillsSection from '@src/sections/SkillsSection';
 import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
 import ProjectCard from '@src/components/ProjectCard';
 import BlogPost from '@src/components/BlogPost';
+import ContactSection from '@src/sections/ContactSection';
 import { Post } from '../types/post';
 
 const Index = ({ posts, projects }: { posts: Post[]; projects: Project[] }) => {
@@ -43,6 +44,7 @@ const Index = ({ posts, projects }: { posts: Post[]; projects: Project[] }) => {
         </SimpleGrid>
       </Box>
       <SkillsSection />
+      <ContactSection />
     </>
   );
 };
