@@ -11,7 +11,7 @@ interface Props {
 
 const BlogPost = ({ post }: Props) => {
   return (
-    <Link href={`blog/${post.slug}`}>
+    <Link href={`blog/${post.slug}`} key={post.id}>
       <ChakraLink w="100%" _hover={{ textDecoration: 'none' }}>
         <Box mb={10} display="block" width="100%">
           <Flex

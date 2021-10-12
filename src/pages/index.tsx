@@ -5,10 +5,11 @@ import SEO from '@src/components/SEO';
 import Hero from '@src/components/Hero';
 import { gql } from 'graphql-request';
 import { Client } from '@src/utils/Client';
-import BlogPost from '@src/components/BlogPost';
+import { Project } from '@src/types/project';
+import SkillsSection from '@src/sections/SkillsSection';
 import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
 import ProjectCard from '@src/components/ProjectCard';
-import { Project } from '@src/types/project';
+import BlogPost from '@src/components/BlogPost';
 import { Post } from '../types/post';
 
 const Index = ({ posts, projects }: { posts: Post[]; projects: Project[] }) => {
@@ -31,6 +32,7 @@ const Index = ({ posts, projects }: { posts: Post[]; projects: Project[] }) => {
       <Hero />
       <Heading mb={4}>Recent Blog Posts 📝</Heading>
       {posts && posts.map((post) => <BlogPost post={post} key={post.id} />)}
+
       <Box as="section" mt={20} mb={20}>
         <Heading mb={10}>Highlighted Projects 👨‍💻</Heading>
         <SimpleGrid minChildWidth="300px" spacing="20px">
@@ -40,6 +42,7 @@ const Index = ({ posts, projects }: { posts: Post[]; projects: Project[] }) => {
             ))}
         </SimpleGrid>
       </Box>
+      <SkillsSection />
     </>
   );
 };
