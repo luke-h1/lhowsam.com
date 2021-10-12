@@ -6,7 +6,7 @@
 - [Typescript](https://github.com/Microsoft/TypeScript)
 - [Cypress](https://cypress.io)
 - [Jest](https://jestjs.io/)
-- [tailwind-css](http://tailwindcss.com/)
+- [Chakra UI](https://chakra-ui.com/)
 - [MDX](https://github.com/mdx-js/mdx)
 - [Vercel](https://vercel.com/)
 
