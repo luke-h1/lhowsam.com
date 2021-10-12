@@ -1,4 +1,9 @@
 /* eslint-disable no-param-reassign */
+
+// @ts-ignore
+// @ts-nocheck
+// @ts-expect-error
+
 import readingTime from 'reading-time';
 import { readdirSync } from 'fs';
 import { join } from 'path';

@@ -1,4 +1,4 @@
-import { GitHubIcon, TwitterIcon, LinkedInIcon } from '@src/icons/social';
+import { GitHubIcon, TwitterIcon, LinkedInIcon } from '@src/components/Icons';
 
 const SocialLinks = [
   {

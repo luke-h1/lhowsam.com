@@ -1,55 +1,95 @@
+import MDXComponents from '@src/components/MDXComponents';
+import BlogLayout from '@src/layouts/blog';
+import { motion } from 'framer-motion';
+import { MDXRemote } from 'next-mdx-remote';
+import { GetStaticProps, GetStaticPaths } from 'next';
+import { gql } from 'graphql-request';
+import { Client } from '@src/utils/Client';
+import { serialize } from 'next-mdx-remote/serialize';
+import mdxPrism from 'mdx-prism';
+import CodeTitle from 'remark-code-titles';
+import Headings from 'remark-autolink-headings';
 import React from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import BlogHeader from '@src/components/BlogHeader';
-import { getAllItems, getItemBySlug } from '@src/utils/mdx';
-import { Post } from '@src/types/post';
-import { Markdown } from '@src/components/Markdown';
-import { isProd } from '@src/utils/isProd';
-import { NextSeo } from 'next-seo';
 import SEO from '@src/components/SEO';
+import { NextSeo } from 'next-seo';
+import { Post } from '../../types/post';
 
-interface Props {
-  post: Post;
-}
-
-const PostPage = ({ post }: Props) => {
-  // const keywords = post.keywords?.split(', ') ?? [];
+const BlogPost = ({ post }: { post: Post }) => {
   return (
     <>
       <NextSeo
-        title="Blog"
+        title={`Blog | ${post.title}`}
         canonical={`https://lhowsam.com/blog/${post.slug}`}
         openGraph={{
           url: `https://lhowsam.com/blog/${post.slug}`,
-          title: `Blog | ${post.slug}`,
+          title: `Blog ${post.title}`,
         }}
       />
       <SEO
-        description={`${post.intro}`}
+        description={`Blog | ${post.intro}`}
         title={`Blog | ${post.title}`}
-        keywords={['blog', 'tech posts']}
+        keywords={['Blog posts, Typescript, Node.js']}
         url={`https://lhowsam.com/blog/${post.slug}`}
       />
-      <BlogHeader post={post} />
-      <Markdown content={post.content} />
+      <motion.div
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.4 }}
+      >
+        <BlogLayout post={post}>
+          <MDXRemote {...post.source} components={MDXComponents} />
+        </BlogLayout>
+      </motion.div>
     </>
   );
 };
-export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllItems<Post>('posts', !isProd);
-  return {
-    fallback: false,
-    paths: posts.map((post) => ({ params: { slug: post.slug } })),
-  };
-};
-export const getStaticProps: GetStaticProps = async (ctx) => {
-  const slug = ctx.params?.slug as string;
+export default BlogPost;
 
-  const post = await getItemBySlug<Post>(slug, 'posts');
-  return {
-    props: {
-      post: post ?? null,
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const slug = params?.slug as string;
+  const query = gql`
+    query Blog($slug: String!) {
+      blog(where: { slug: $slug }) {
+        id
+        slug
+        title
+        date
+        intro
+        content
+        image {
+          url
+        }
+      }
+    }
+  `;
+  const data: { blog: Post | null } = await Client.request(query, { slug });
+  if (!data.blog) {
+    return {
+      notFound: true,
+    };
+  }
+  const source = await serialize(data.blog.content, {
+    mdxOptions: {
+      remarkPlugins: [CodeTitle, Headings],
+      rehypePlugins: [mdxPrism],
     },
+  });
+  return {
+    props: { post: { ...data.blog, source } },
+    revalidate: 60 * 60, // 1 hour cache
   };
 };
-export default PostPage;
+export const getStaticPaths: GetStaticPaths = async () => {
+  const query = gql`
+   query Blogs() {
+      blogs() {
+        slug
+      }
+    }
+  `;
+  const data = await Client.request(query);
+  return {
+    paths: data.blogs.map((blog: Post) => ({ params: { slug: blog.slug } })),
+    fallback: 'blocking', // dynamically create the page
+  };
+};

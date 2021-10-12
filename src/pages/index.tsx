@@ -1,21 +1,19 @@
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { NextPage } from 'next';
-import { motion } from 'framer-motion';
-import SkillsSection from '@src/sections/SkillsSection';
-import { ProjectSection } from '@src/sections/ProjectsSection';
-import SocialLinks from '@src/data/SocialLinks';
-import Image from 'next/image';
+import { GetServerSideProps } from 'next';
 import SEO from '@src/components/SEO';
-import {
-  ButtonContainer,
-  Flex,
-  Main,
-  MainText,
-  MainTitle,
-} from '@src/styles/main';
+import Hero from '@src/components/Hero';
+import { gql } from 'graphql-request';
+import { Client } from '@src/utils/Client';
+import { Project } from '@src/types/project';
+import SkillsSection from '@src/sections/SkillsSection';
+import { Box, Heading, SimpleGrid } from '@chakra-ui/react';
+import ProjectCard from '@src/components/ProjectCard';
+import BlogPost from '@src/components/BlogPost';
+import ContactSection from '@src/sections/ContactSection';
+import { Post } from '../types/post';
 
-const Index: NextPage = () => {
+const Index = ({ posts, projects }: { posts: Post[]; projects: Project[] }) => {
   return (
     <>
       <NextSeo
@@ -32,56 +30,56 @@ const Index: NextPage = () => {
         keywords={['Projects, Blog posts, About']}
         url="https://lhowsam.com"
       />
-      <Main id="about">
-        <MainTitle>
-          <h1>Hey, I'm Luke 👋</h1>
-          <Flex>
-            <Image
-              src="/images/luke.jpeg"
-              width={220}
-              height={250}
-              blurDataURL="/images/luke.jpeg"
-              placeholder="blur"
-              alt="profile picture"
-              quality="100"
-              priority
-            />
-          </Flex>
-        </MainTitle>
-        <MainText>
-          Hey I'm Luke, I currently work as a software tester where I do a
-          mixture of manual & automated testing in an agile environment. I'm
-          also a developer who likes working with React & Node.js.
-          {/* <Link href="/about">
-            <a>Read More</a>
-          </Link> */}
-        </MainText>
-        <ButtonContainer>
-          {SocialLinks
-            && SocialLinks.map((link) => (
-              <motion.a
-                key={link.id}
-                initial={{
-                  opacity: 0,
-                  translateY: -10,
-                }}
-                animate={{
-                  opacity: 1,
-                  translateY: 0,
-                }}
-                transition={{ duration: 0.3, delay: 0.1 * link.id }}
-                className="btn btn__light btn__icon"
-                href={link.href}
-              >
-                <link.Icon />
-                {link.name}
-              </motion.a>
+      <Hero />
+      <Heading mb={4}>Recent Blog Posts 📝</Heading>
+      {posts && posts.map((post) => <BlogPost post={post} key={post.id} />)}
+
+      <Box as="section" mt={20} mb={20}>
+        <Heading mb={10}>Highlighted Projects 👨‍💻</Heading>
+        <SimpleGrid minChildWidth="300px" spacing="20px">
+          {projects
+            && projects.map((project) => (
+              <ProjectCard project={project} key={project.id} />
             ))}
-        </ButtonContainer>
-      </Main>
+        </SimpleGrid>
+      </Box>
       <SkillsSection />
-      <ProjectSection />
+      <ContactSection />
     </>
   );
 };
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const blogQuery = gql`
+    query Blogs {
+      blogs(orderBy: id_DESC, first: 3) {
+        id
+        slug
+        title
+        intro
+        date
+      }
+    }
+  `;
+  const projectQuery = gql`
+    query Projects {
+      projects(orderBy: id_DESC, first: 3) {
+        id
+        title
+        slug
+        intro
+        tech
+        siteUrl
+        githubUrl
+      }
+    }
+  `;
+
+  const blogData = await Client.request(blogQuery);
+  const projectData = await Client.request(projectQuery);
+  return {
+    props: { posts: blogData.blogs, projects: projectData.projects },
+  };
+};
+
 export default Index;

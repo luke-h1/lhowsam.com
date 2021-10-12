@@ -1,18 +1,15 @@
-import { GetStaticProps } from 'next';
-import { motion } from 'framer-motion';
-import { Post } from '@src/types/post';
-import BlogItem from '@src/components/BlogItem';
-import { getAllItems } from '@src/utils/mdx';
 import React from 'react';
-import { NextSeo } from 'next-seo';
+import { Heading, Box } from '@chakra-ui/react';
+import BlogPost from '@src/components/BlogPost';
+import { gql } from 'graphql-request';
+import { Client } from '@src/utils/Client';
+import { GetServerSideProps } from 'next';
+import { motion } from 'framer-motion';
 import SEO from '@src/components/SEO';
-import { BlogItems } from '@src/styles/blog';
+import { NextSeo } from 'next-seo';
+import { Post } from '../../types/post';
 
-interface Props {
-  posts: Post[];
-}
-
-const BlogPage = ({ posts }: Props) => {
+const BlogPage = ({ posts }: { posts: Post[] }) => {
   return (
     <>
       <NextSeo
@@ -24,38 +21,42 @@ const BlogPage = ({ posts }: Props) => {
         }}
       />
       <SEO
-        description="Blog page"
+        description="blog page"
         title="Blog"
-        keywords={['blog', 'tech posts']}
+        keywords={['Typescript, React.js, Next.js, blog, Tech']}
         url="https://lhowsam.com/blog"
       />
-      <motion.h1
-        transition={{ duration: 0.3 }}
-        initial={{ translateY: 10, opacity: 0 }}
-        animate={{ translateY: 0, opacity: 1 }}
+      <motion.div
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
       >
-        Blog Posts
-      </motion.h1>
-      <BlogItems
-        transition={{ duration: 0.3 }}
-        initial={{ translateY: 15, opacity: 0 }}
-        animate={{ translateY: 0, opacity: 1 }}
-      >
-        {posts
-          && posts.map((post) => {
-            return <BlogItem type="blog" post={post} key={post.slug} />;
-          })}
-      </BlogItems>
+        <Box mt={10}>
+          {' '}
+          <Heading mb={4}>Blog Posts</Heading>
+          {posts && posts.map((post) => <BlogPost post={post} key={post.id} />)}
+        </Box>
+      </motion.div>
     </>
   );
 };
-export default BlogPage;
 
-export const getStaticProps: GetStaticProps = async () => {
-  const posts = await getAllItems<Post>('posts');
+export const getServerSideProps: GetServerSideProps = async () => {
+  const query = gql`
+    query Blogs {
+      blogs(orderBy: id_DESC) {
+        id
+        slug
+        title
+        intro
+        date
+      }
+    }
+  `;
+  const data = await Client.request(query);
   return {
-    props: {
-      posts,
-    },
+    props: { posts: data.blogs },
   };
 };
+
+export default BlogPage;

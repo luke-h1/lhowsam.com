@@ -1,12 +1,11 @@
-export interface Post {
+export interface Project {
   id: string;
-  slug: string;
   title: string;
-  date: string;
-  image: {
-    url: string;
-  };
   intro: string;
   content: string;
+  slug: string;
+  tech: string[];
+  siteUrl?: string;
+  githubUrl: string;
   source: { compiledSource: string };
 }

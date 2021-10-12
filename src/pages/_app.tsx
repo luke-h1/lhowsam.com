@@ -4,12 +4,22 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import type { AppProps } from 'next/app';
 import { constants } from '@src/data/constants';
-import Nav from '@src/components/Nav';
-import Menu from '@src/components/Menu';
-import Footer from '@src/components/Footer';
-import GlobalStyles from '@src/styles/global';
+import '@fontsource/Raleway/400.css';
+import '@fontsource/Raleway/600.css';
+import '@fontsource/Raleway/700.css';
+import '@fontsource/Raleway/800.css';
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import '@fontsource/poppins/800.css';
+import { ChakraProvider } from '@chakra-ui/react';
+import Layout from '@src/components/Layout';
+import theme from '@src/styles/theme';
+import { MDXProvider } from '@mdx-js/react';
+import MDXComponents from '@src/components/MDXComponents';
+import GlobalStyle from '@src/styles/global';
 
-function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -23,7 +33,6 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, [router.events]);
   return (
     <>
-      {GlobalStyles}
       <DefaultSeo
         titleTemplate="%s | lhowsam.com"
         description="Luke Howsam"
@@ -41,16 +50,18 @@ function MyApp({ Component, pageProps }: AppProps) {
           ],
         }}
       />
-      <Nav />
-      <Menu />
-      <div id="container" className="container">
-        <div className="content">
-          <Component {...pageProps} />
-        </div>
-      </div>
-      <Footer />
+
+      <ChakraProvider resetCSS theme={theme}>
+        <MDXProvider components={MDXComponents}>
+          <GlobalStyle>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </GlobalStyle>
+        </MDXProvider>
+      </ChakraProvider>
     </>
   );
-}
+};
 
 export default MyApp;

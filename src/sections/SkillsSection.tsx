@@ -1,11 +1,12 @@
 import React from 'react';
 import Skills from '@src/data/Skills';
 import { SkillItem, SkillList, SkillsContainer } from '@src/styles/skills';
+import { Heading } from '@chakra-ui/react';
 
 const SkillsSection = () => {
   return (
     <section id="skills">
-      <h1 className="section__title">Skills</h1>
+      <Heading mb={10}>Skills</Heading>
       <SkillsContainer>
         {Skills
           && Skills.map((skill) => (
