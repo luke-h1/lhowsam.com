@@ -9,32 +9,38 @@ import { serialize } from 'next-mdx-remote/serialize';
 import mdxPrism from 'mdx-prism';
 import CodeTitle from 'remark-code-titles';
 import Headings from 'remark-autolink-headings';
+import React from 'react';
+import SEO from '@src/components/SEO';
+import { NextSeo } from 'next-seo';
 import { Post } from '../../types/post';
 
-export interface IPost {
-  id: string;
-  slug: string;
-  title: string;
-  date: string;
-  image: {
-    url: string;
-  };
-  intro: string;
-  content: string;
-  source: { compiledSource: string };
-}
-
-const BlogPost = ({ post }: { post: IPost }) => {
+const BlogPost = ({ post }: { post: Post }) => {
   return (
-    <motion.div
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, delay: 0.4 }}
-    >
-      <BlogLayout post={post}>
-        <MDXRemote {...post.source} components={MDXComponents} />
-      </BlogLayout>
-    </motion.div>
+    <>
+      <NextSeo
+        title={`Blog | ${post.title}`}
+        canonical={`https://lhowsam.com/blog/${post.slug}`}
+        openGraph={{
+          url: `https://lhowsam.com/blog/${post.slug}`,
+          title: `Blog ${post.title}`,
+        }}
+      />
+      <SEO
+        description={`Blog | ${post.intro}`}
+        title={`Blog | ${post.title}`}
+        keywords={['Blog posts, Typescript, Node.js']}
+        url={`https://lhowsam.com/blog/${post.slug}`}
+      />
+      <motion.div
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.4 }}
+      >
+        <BlogLayout post={post}>
+          <MDXRemote {...post.source} components={MDXComponents} />
+        </BlogLayout>
+      </motion.div>
+    </>
   );
 };
 export default BlogPost;
@@ -56,7 +62,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       }
     }
   `;
-  const data: { blog: IPost | null } = await Client.request(query, { slug });
+  const data: { blog: Post | null } = await Client.request(query, { slug });
   if (!data.blog) {
     return {
       notFound: true,

@@ -32,19 +32,21 @@ const ProjectCard = ({ project }: Props) => {
     >
       <Flex p={[5, 15, 25]} flexDir="column" justify="space-between" h="100%">
         <Link href={`/projects/${project.slug}`}>
-          <Box>
-            <Heading as="h3" size="lg" fontWeight="semibold" mb={2}>
-              {project.title}
-            </Heading>
-            <Box h={1} w="35%" mb={4} />
-            <Text>{project.intro}</Text>
-            {project.tech
-              && project.tech.map((item) => (
-                <Tag m={2} textAlign="left">
-                  {item}
-                </Tag>
-              ))}
-          </Box>
+          <a>
+            <Box>
+              <Heading as="h3" size="lg" fontWeight="semibold" mb={2}>
+                {project.title}
+              </Heading>
+              <Box h={1} w="35%" mb={4} />
+              <Text>{project.intro}</Text>
+              {project.tech
+                && project.tech.map((item) => (
+                  <Tag m={2} textAlign="left">
+                    {item}
+                  </Tag>
+                ))}
+            </Box>
+          </a>
         </Link>
         <Flex justify="space-between" mt={2}>
           <Flex align="center">

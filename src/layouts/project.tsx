@@ -1,23 +1,15 @@
-import React from 'react';
 import {
-  Heading,
-  Text,
-  Flex,
-  Stack,
-  Image,
-  Avatar,
-  Box,
+  Box, Container, Flex, Heading, Stack,
 } from '@chakra-ui/react';
-import Container from '@src/components/Container';
-import { Post } from '@src/types/post';
+import React from 'react';
+import { Project } from '../types/project';
 
-const BlogLayout = ({
-  post,
-  children,
-}: {
-  post: Post;
+interface ProjectProps {
+  project: Project;
   children: React.ReactNode;
-}) => {
+}
+
+const ProjectLayout = ({ project, children }: ProjectProps) => {
   return (
     <>
       <Box
@@ -49,7 +41,7 @@ const BlogLayout = ({
             w="100%"
           >
             <Heading letterSpacing="tight" mb={2} mt={4} as="h1" size="2xl">
-              {post.title}
+              {project.title}
             </Heading>
             <Flex
               justify="space-between"
@@ -58,21 +50,7 @@ const BlogLayout = ({
               mt={2}
               w="100%"
               mb={4}
-            >
-              <Flex align="center">
-                <Avatar
-                  size="sm"
-                  name="Luke Howsam"
-                  src="/images/luke.jpeg"
-                  mr={2}
-                />
-                <Text fontSize="sm">
-                  Posted by Luke Howsam /
-                  {post.date}
-                </Text>
-              </Flex>
-            </Flex>
-            <Image src={post.image.url} alt={post.title} />
+            />
           </Flex>
           {children}
         </Stack>
@@ -80,4 +58,4 @@ const BlogLayout = ({
     </>
   );
 };
-export default BlogLayout;
+export default ProjectLayout;

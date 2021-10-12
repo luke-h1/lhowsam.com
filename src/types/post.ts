@@ -1,14 +1,12 @@
 export interface Post {
   id: string;
-  title: string;
   slug: string;
+  title: string;
   date: string;
-  content: string;
   image: {
     url: string;
   };
   intro: string;
-  keywords: string | null;
-  readingTime: number;
+  content: string;
   source: { compiledSource: string };
 }

@@ -5,21 +5,39 @@ import { gql } from 'graphql-request';
 import { Client } from '@src/utils/Client';
 import { GetServerSideProps } from 'next';
 import { motion } from 'framer-motion';
+import SEO from '@src/components/SEO';
+import { NextSeo } from 'next-seo';
 import { Post } from '../../types/post';
 
 const BlogPage = ({ posts }: { posts: Post[] }) => {
   return (
-    <motion.div
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.4, delay: 0.2 }}
-    >
-      <Box mt={10}>
-        {' '}
-        <Heading mb={4}>Blog Posts</Heading>
-        {posts && posts.map((post) => <BlogPost post={post} key={post.id} />)}
-      </Box>
-    </motion.div>
+    <>
+      <NextSeo
+        title="Blog"
+        canonical="https://lhowsam.com/blog"
+        openGraph={{
+          url: 'https://lhowsam.com/blog',
+          title: 'Blog',
+        }}
+      />
+      <SEO
+        description="blog page"
+        title="Blog"
+        keywords={['Typescript, React.js, Next.js, blog, Tech']}
+        url="https://lhowsam.com/blog"
+      />
+      <motion.div
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.4, delay: 0.2 }}
+      >
+        <Box mt={10}>
+          {' '}
+          <Heading mb={4}>Blog Posts</Heading>
+          {posts && posts.map((post) => <BlogPost post={post} key={post.id} />)}
+        </Box>
+      </motion.div>
+    </>
   );
 };
 

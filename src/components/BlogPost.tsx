@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Heading, Text, Flex, Box, Link as ChakraLink,
+  Heading, Text, Flex, Box,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { Post } from '@src/types/post';
@@ -12,7 +12,7 @@ interface Props {
 const BlogPost = ({ post }: Props) => {
   return (
     <Link href={`blog/${post.slug}`} key={post.id}>
-      <ChakraLink w="100%" _hover={{ textDecoration: 'none' }}>
+      <a>
         <Box mb={10} display="block" width="100%">
           <Flex
             width="100%"
@@ -37,7 +37,7 @@ const BlogPost = ({ post }: Props) => {
           </Flex>
           <Text>{post.intro}</Text>
         </Box>
-      </ChakraLink>
+      </a>
     </Link>
   );
 };

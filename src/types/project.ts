@@ -7,4 +7,5 @@ export interface Project {
   tech: string[];
   siteUrl?: string;
   githubUrl: string;
+  source: { compiledSource: string };
 }
