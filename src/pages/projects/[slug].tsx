@@ -1,6 +1,5 @@
 import ProjectLayout from '@src/layouts/project';
 import { Project } from '@src/types/project';
-import { motion } from 'framer-motion';
 import mdxPrism from 'mdx-prism';
 import CodeTitle from 'remark-code-titles';
 import Headings from 'remark-autolink-headings';
@@ -35,15 +34,10 @@ const ProjectPost = ({ project }: ProjectPostProps) => {
         keywords={['Typescript, Node.js, git, blog']}
         url={`https://lhowsam.com/blog/${project.slug}`}
       />
-      <motion.div
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.4 }}
-      >
-        <ProjectLayout project={project}>
-          <MDXRemote {...project.source} components={MDXComponents} />
-        </ProjectLayout>
-      </motion.div>
+
+      <ProjectLayout project={project}>
+        <MDXRemote {...project.source} components={MDXComponents} />
+      </ProjectLayout>
     </>
   );
 };

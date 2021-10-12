@@ -1,6 +1,5 @@
 import MDXComponents from '@src/components/MDXComponents';
 import BlogLayout from '@src/layouts/blog';
-import { motion } from 'framer-motion';
 import { MDXRemote } from 'next-mdx-remote';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { gql } from 'graphql-request';
@@ -31,15 +30,10 @@ const BlogPost = ({ post }: { post: Post }) => {
         keywords={['Blog posts, Typescript, Node.js']}
         url={`https://lhowsam.com/blog/${post.slug}`}
       />
-      <motion.div
-        initial={{ y: -20, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.4 }}
-      >
-        <BlogLayout post={post}>
-          <MDXRemote {...post.source} components={MDXComponents} />
-        </BlogLayout>
-      </motion.div>
+
+      <BlogLayout post={post}>
+        <MDXRemote {...post.source} components={MDXComponents} />
+      </BlogLayout>
     </>
   );
 };
