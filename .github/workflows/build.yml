@@ -27,9 +27,6 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: Install prod dependencies
-        run: yarn install --production
-
       - name: format
         run: yarn run format
 
