@@ -11,8 +11,8 @@
 - [Vercel](https://vercel.com)
 - [Sanity](https://www.sanity.io)
 
-## Tests 
-
+## Tests
+[![CI / build](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml)
 
 ## Inspirations
  - [leerob](https://github.com/leerob)
