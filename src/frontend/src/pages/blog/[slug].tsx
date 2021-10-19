@@ -7,7 +7,7 @@ import imageService from '@src/services/imageService';
 import { MDXContent, PostMetaDataGrid, EndLinks } from '@src/styles/blog';
 import { PostTitle, Datestamp, TextGradient } from '@src/styles/typography';
 import mdxPrism from 'mdx-prism';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import React, { useRef } from 'react';
@@ -48,10 +48,10 @@ const PostPage = ({ post }: Props) => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
+export const getStaticPaths = async () => {
   return {
     paths: [],
-    fallback: 'blocking',
+    fallback: false,
   };
 };
 
