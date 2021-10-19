@@ -1224,8 +1224,8 @@
   resolved "https://registry.npmjs.org/@sanity/components/-/components-2.14.0.tgz"
 
 "@sanity/core@^2.21.4":
-  version "2.21.4"
-  resolved "https://registry.npmjs.org/@sanity/core/-/core-2.21.4.tgz"
+  version "2.21.5"
+  resolved "https://registry.yarnpkg.com/@sanity/core/-/core-2.21.5.tgz#946813791f947e156b9cc83cc9c8b00d56895653"
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.10.4"
     "@babel/preset-env" "^7.11.5"
@@ -1238,7 +1238,7 @@
     "@sanity/import" "2.21.3"
     "@sanity/plugin-loader" "2.21.4"
     "@sanity/resolver" "2.21.4"
-    "@sanity/schema" "2.21.0"
+    "@sanity/schema" "2.21.5"
     "@sanity/server" "2.21.4"
     "@sanity/util" "2.21.4"
     "@sanity/uuid" "^3.0.1"
