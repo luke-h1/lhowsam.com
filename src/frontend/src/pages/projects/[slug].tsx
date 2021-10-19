@@ -1,0 +1,70 @@
+import { Project } from '@lhowsam/cms/types/schema';
+import { ScrollToTop } from '@src/components/blog';
+import MDXComponents from '@src/components/mdx';
+import { EndLinks, MDXContent } from '@src/styles/blog';
+import { PostTitle, TextGradient } from '@src/styles/typography';
+import mdxPrism from 'mdx-prism';
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
+import { useRef } from 'react';
+import Headings from 'remark-autolink-headings';
+import CodeTitle from 'remark-code-titles';
+import projectService from '../../services/projectService';
+
+interface Props {
+  project: Project;
+}
+
+const ProjectPage = ({ project }: Props) => {
+  const topRef = useRef<HTMLDivElement>(null);
+  return (
+    <>
+      <div ref={topRef} />
+      <PostTitle>
+        <TextGradient>{project.title}</TextGradient>
+      </PostTitle>
+      <MDXContent>
+        <MDXRemote {...project.source} components={MDXComponents} />
+      </MDXContent>
+      <EndLinks>
+        <ScrollToTop topRef={topRef} />
+      </EndLinks>
+    </>
+  );
+};
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: 'blocking',
+  };
+};
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  if (!params?.slug) {
+    return {
+      props: [],
+      notFound: true,
+    };
+  }
+  const project = await projectService.getProject(params.slug as string);
+  if (!project) {
+    return {
+      props: [],
+      notFound: true,
+    };
+  }
+  const source = await serialize(project.description, {
+    mdxOptions: {
+      remarkPlugins: [CodeTitle, Headings],
+      rehypePlugins: [mdxPrism],
+    },
+  });
+  return {
+    props: {
+      project: { ...project, source },
+    },
+    revalidate: 60 * 30,
+  };
+};
+export default ProjectPage;

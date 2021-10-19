@@ -5,3 +5,10 @@ node_modules
 public
 build
 cypress
+.next/
+build/
+coverage/
+node_modules/
+*.min.css
+*.min.js
+@sanity

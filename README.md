@@ -5,22 +5,17 @@
 - [Next](https://github.com/vercel/next.js)
 - [Typescript](https://github.com/Microsoft/TypeScript)
 - [Cypress](https://cypress.io)
-- [Jest](https://jestjs.io/)
-- [Chakra UI](https://chakra-ui.com/)
+- [Jest](https://jestjs.io)
+- [styled-components](https://styled-components.com)
 - [MDX](https://github.com/mdx-js/mdx)
-- [Vercel](https://vercel.com/)
+- [Vercel](https://vercel.com)
+- [Sanity](https://www.sanity.io)
 
 ## Tests 
 
-[![CI / build](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml)
-
-[![CI / UI tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml)
-
-[![CI / unit tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-test.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/unit-test.yml)
-
-[![CI / Nightly tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml)
 
 ## Inspirations
  - [leerob](https://github.com/leerob)
  - [mxstbr](https://github.com/mxstbr/mxstbr.com)
  - [prismicio](https://github.com/prismicio/nextjs-blog)
+ 
