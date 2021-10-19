@@ -9,7 +9,7 @@
     "prettier": "^2.4.1",
     "typescript": "^4.4.4",
     "@commitlint/cli": "^12.1.1",
-    "@commitlint/config-conventional": "^12.1.1"
+    "@commitlint/config-conventional": "^13.2.0"
   },
   "scripts": {
     "clean": "lerna clean -y",
