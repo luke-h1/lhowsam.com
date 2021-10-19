@@ -1065,7 +1065,7 @@
   version "1.2.3"
   resolved "https://registry.npmjs.org/@sanity/asset-utils/-/asset-utils-1.2.3.tgz"
 
-"@sanity/base@2.21.4", "@sanity/base@^2.21.4":
+"@sanity/base@2.21.4":
   version "2.21.4"
   resolved "https://registry.npmjs.org/@sanity/base/-/base-2.21.4.tgz"
   dependencies:
@@ -1125,7 +1125,7 @@
     shallow-equals "^1.0.0"
     use-device-pixel-ratio "^1.1.0"
 
-"@sanity/base@2.21.5":
+"@sanity/base@2.21.5", "@sanity/base@^2.21.4":
   version "2.21.5"
   resolved "https://registry.yarnpkg.com/@sanity/base/-/base-2.21.5.tgz#58d910aa4288f13b76483013e4225c8f7c5369cf"
   dependencies:
