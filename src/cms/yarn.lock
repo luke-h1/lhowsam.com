@@ -1747,8 +1747,8 @@
     lodash "^4.17.15"
 
 "@sanity/vision@^2.21.4":
-  version "2.21.4"
-  resolved "https://registry.npmjs.org/@sanity/vision/-/vision-2.21.4.tgz"
+  version "2.21.5"
+  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.21.5.tgz#12134425ae1962df912684d575608315ffbff08a"
   dependencies:
     "@sanity/icons" "^1.2.1"
     "@sanity/ui" "^0.36.12"
