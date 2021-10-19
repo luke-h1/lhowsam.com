@@ -1,26 +1,25 @@
 {
-  "name": "root",
   "private": true,
+  "workspaces": [
+    "src/*"
+  ],
   "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
     "eslint": "^7.32.0",
     "husky": "^7.0.0",
     "lerna": "^4.0.0",
     "lint-staged": "^11.2.3",
     "prettier": "^2.4.1",
-    "typescript": "^4.4.4",
-    "@commitlint/cli": "^13.2.1",
-    "@commitlint/config-conventional": "^13.2.0"
+    "typescript": "^4.4.4"
   },
   "scripts": {
     "clean": "lerna clean -y",
     "build": "lerna run build",
     "tsc": "lerna run tsc",
-    "test": "lerna run test --scope @lhowsam/frontend",
-    "cy:ci": "lerna run cy:ci --scope @lhowsam/frontend",
+    "test": "yarn workspace @lhowsam/frontend test",
+    "cy:ci": "yarn workspace @lhowsam/frontend cy:ci",
     "new-version": "lerna version --conventional-commits --yes",
-    "bootstrap": "lerna bootstrap --ci --force-local",
-    "bootstrap:prod": "lerna bootstrap --ci --force-local -- --only=prod",
-    "bootstrap:install": "lerna bootstrap --force-local",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx src --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\""
@@ -56,5 +55,6 @@
     "stylelint-config-standard": "^22.0.0",
     "stylelint-order": "^4.1.0",
     "stylelint-prettier": "^1.2.0"
-  }
+  },
+  "name": "lhowsam-yarn"
 }
