@@ -13,6 +13,17 @@ export interface Blog extends Document<Blog> {
   source: { compiledSource: string }; // when md is serialized
 }
 
+export interface Snippet extends Document<Snippet> {
+  _id: string;
+  _type: 'snippet';
+  key: string;
+  title: string;
+  slug: Slug;
+  description: string;
+  logo: Image
+  source: { compiledSource: string }; // when md is serialized
+
+}
 export interface Project extends Document<Project> {
   _id: string;
   _type: 'project';
