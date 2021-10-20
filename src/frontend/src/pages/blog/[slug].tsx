@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Blog } from '@lhowsam/cms/types/schema';
+import SEO from '@src/components/SEO';
 import { ScrollToTop, ShareLinks } from '@src/components/blog';
 import MDXComponents, { ImageWrapper } from '@src/components/mdx';
 import blogService from '@src/services/blogService';
@@ -10,18 +11,33 @@ import mdxPrism from 'mdx-prism';
 import { GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import { NextSeo } from 'next-seo';
 import React, { useRef } from 'react';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
 
 interface Props {
   post: Blog;
-};
+}
 
 const PostPage = ({ post }: Props) => {
   const topRef = useRef<HTMLDivElement>(null);
   return (
     <>
+      <NextSeo
+        title={`${post.title} | lhowsam.com`}
+        canonical={`https://lhowsam.com/posts/${post.slug}`}
+        openGraph={{
+          url: `https://lhowsam.com/posts/${post.slug}`,
+          title: `${post.title} | lhowsam.com`,
+        }}
+      />
+      <SEO
+        description={post.intro}
+        title={`${post.title} | lhowsam.com`}
+        keywords={['posts, Blog posts, About']}
+        url={`https://lhowsam.com/posts/${post.slug}`}
+      />
       <div ref={topRef} />
       <PostTitle>
         <TextGradient>{post.title}</TextGradient>
@@ -50,8 +66,8 @@ const PostPage = ({ post }: Props) => {
 
 export const getStaticPaths = async () => {
   const posts = await blogService.getAllPosts();
-  const slugs = posts.map((post) => ({ params: { slug: post.slug.current } }))
-  console.log(slugs)
+  const slugs = posts.map((post) => ({ params: { slug: post.slug.current } }));
+  console.log(slugs);
   return {
     paths: slugs,
     fallback: false,
