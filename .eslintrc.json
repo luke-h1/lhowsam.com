@@ -1,53 +1,123 @@
 {
-    "env": {
-        "browser": true,
-        "es2021": true
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@next/next/recommended",
+    "prettier",
+    "prettier/prettier"
+  ],
+  "settings": {
+    "import/resolver": {
+      "typescript": {
+        "project": ["src/**/tsconfig.json"]
+      }
     },
-    "extends": [
-        "plugin:react/recommended",
-        "airbnb"
+    "next": {
+      "rootDir": "src/frontend"
+    },
+    "react": {
+      "version": "detect"
+    }
+  },
+  "plugins": ["@typescript-eslint"],
+  "env": {
+    "browser": true,
+    "jest": true,
+    "node": true
+  },
+  "rules": {
+    "@typescript-eslint/no-use-before-define": [
+      "error",
+      {
+        "functions": false
+      }
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12
-    },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "mjs": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
     ],
-    "rules": {
-        "react/react-in-jsx-scope": "off",
-        "no-console": "warn",
-        "no-use-before-define": "off",
-        "import/extensions": "off",
-        "react/jsx-filename-extension": [
-          0,
-          { "extensions": [".tsx, .ts, .js, .jsx"] }
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["^(part|all):"] // eslint doesn't play nice with sanity imports
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [[ "builtin", "external", "internal" ], "parent", "sibling", "index"],
+        "pathGroups": [
+          {
+            "pattern": "@frontend/**",
+            "group": "internal"
+          }
         ],
-        "react/jsx-props-no-spreading": "off",
-        "react/state-in-constructor": "off",
-        "no-unsafe-finally": "off",
-        "jsx-a11y/anchor-is-valid": "off",
-        "import/no-unresolved": "off",
-        "arrow-body-style": "off",
-        "jsx-no-lambda": "off",
-        "react/prop-types": "off",
-        "jsx-a11y/anchor-has-content": "off",
-        "import/prefer-default-export": "off",
-        "react/no-unescaped-entities": "off",
-        "no-multi-str": "off",
-        "@typescript-eslint/ban-ts-ignore": "off",
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/no-empty-function": "off",
-        "@typescript-eslint/no-unused-vars": [
-          "warn",
-          { "argsIgnorePattern": "^_$" }
-        ],
-        "max-len": "off",
-        "no-tabs": "off" // issue with tailwind class formatting
-    },
-    "ignorePatterns": ["node_modules/", ".next/", "cypress", "src/types/env.d.ts", "src/__tests__/*.*", "test", "src/__mocks__"]
+        "alphabetize": {
+          "order": "asc"
+        }
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "no-unsafe-finally": "off",
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": ["key", "_type", "_rev", "_id"]
+      }
+    ],
+    "no-use-before-define": "off",
+    "react/jsx-filename-extension": [
+      "error",
+      {
+        "extensions": [".jsx", ".tsx"]
+      }
+    ],
+    "react/jsx-one-expression-per-line": "off",
+    "@typescript-eslint/ban-types": "off",
+    "@next/next/no-img-element": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-wrap-multilines": ["error", { "prop": "ignore" }],
+    "react/prop-types": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/require-default-props": "off",
+    "react/state-in-constructor": "off",
+    "react/no-unescaped-entities": [
+      "error",
+      {
+        "forbid": [
+          {
+            "char": ">",
+            "alternatives": ["&gt;"]
+          },
+          {
+            "char": "}",
+            "alternatives": ["&#125;"]
+          }
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off",
+        "global-require": "off",
+        "import/no-dynamic-require": "off",
+        "no-console": "off"
+      }
+    }
+  ]
 }
