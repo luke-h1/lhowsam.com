@@ -54,7 +54,7 @@ export const getStaticProps = async () => {
   const projects = await projectService.getAllProjects();
 
   return {
-    revalidate: 60 * 30,
+    revalidate: 2,
     props: {
       posts: posts.posts,
       projects: projects.projects,
