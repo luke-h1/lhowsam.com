@@ -48,7 +48,7 @@
       }
     ],
     "import/no-unresolved": [
-      "error",
+      "error"
     ],
     "import/order": [
       "error",
