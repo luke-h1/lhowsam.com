@@ -1,0 +1,261 @@
+---
+title: 'Deploying a full stack app with Dokku'
+intro: 'How to deploy a full stack app with Dokku to AWS / Digital Ocean. Cost effective deployment for Node, PostgresQL & Redis'
+createdAt: '2021-05-29'
+image: 'code.jpeg'
+category: 'post'
+---
+
+### This deployment example uses Postgres, Redis & Node
+
+## Cloud providers
+
+Before getting started with the below steps you will need to open up the following ports regardless of whether you use Digital Ocean or AWS
+
+- 80: For Nginx
+- http/https ports
+- 22: For ssh
+
+Install Dokku & Docker for Ubuntu:
+
+```
+sudo apt update
+sudo apt install -y apt-transport-https
+
+wget -nv -O - https://packagecloud.io/dokku/dokku/gpgkey | sudo apt-key add -
+
+OS_ID="$(lsb_release -cs 2>/dev/null || echo "bionic")"
+
+echo "deb https://packagecloud.io/dokku/dokku/ubuntu/ ${OS_ID} main" | sudo tee /etc/apt/sources.list.d/dokku.list
+
+sudo apt update -y
+
+wget -nv -O - https://get.docker.com/ | sudo bash -
+
+sudo apt update
+
+sudo apt install dokku -y
+```
+
+##
+
+## Example app
+
+You can find an example of a full stack application that has been deployed with the below steps <a href="https://github.com/luke-h1/tmtodos.me" target="_blank" referrer="no referrer">here</a>
+
+##
+
+VPS / EC2
+
+- create new VPS with dokku image or install dokku yourself
+- go to VM IP address in browser
+- check virtual hosts option
+- ssh into VPS
+- create a dokku app (this will be the API)
+
+```
+dokku apps:create <API_NAME>
+```
+
+- install the postgres dokku plugin
+
+```
+sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git
+```
+
+- create the database
+
+```
+dokku postgres:create <DATABASE_NAME>
+```
+
+- Link postgres to the API
+
+```
+dokku postgres:link <DATABASE_NAME> <API_NAME>
+```
+
+- Install redis:
+
+```
+sudo dokku plugin:install
+https://github.com/dokku/dokku-redis.git
+```
+
+- create redis instance:
+
+```
+sudo dokku redis:create <REDIS_INSTANCE_NAME>
+```
+
+- Link the redis instance to the API
+
+```
+dokku redis:link <REDIS_INSTANCE_NAME> <API_NAME>
+```
+
+- run the following command & make postgres & redis are running
+
+```
+docker container list
+```
+
+##
+
+Locally
+
+comment out any old migrations
+
+Generate an initial migration (this will be responsible for creating the initial tables on the production database)
+
+Create a repository on Docker hub
+
+Create a Dockerfile image locally (this will be responsible for building & running the backend for production) with
+
+```
+docker build -t <USER>/app:1.0.0 .
+```
+
+Push the Docker image up to Docker hub
+
+```
+docker push <USER>/app:1.0.0
+```
+
+##
+
+VPS / EC2
+Pull the Docker image you've pushed up to Docker hub:
+
+```
+docker pull <USERNAME>/<API_NAME>:1.0.0
+```
+
+Tag the docker image:
+
+```
+docker tag <USERNAME>/<API_NAME>:<VERSION> dokku/<API_NAME>:latest
+```
+
+Deploy the image via dokku:
+
+```
+dokku tags:deploy <API_NAME> latest
+```
+
+Go to your DNS provider
+
+Go to the advanced DNS records section
+
+Add a new A record (the IP address of VPS / EC2 instances)
+
+the host name should match the name of whatever you named it via dokku
+
+set TTL to automatic
+
+let the DNS propagate (10 - 20 mins max)
+
+Now we will need to setup letencrypt + a cron job for i renewal in order to enable HTTPS
+
+Install lets encrypt:
+
+```
+
+dokku plugin:install https://github.com/dokku/dokku-letsencrypt
+```
+
+setup lets encrypt:
+
+```
+dokku config:set --no-restart <API_NAME>
+DOKKU_LETSENCRYPT_EMAIL=<YOUR_EMAIL_ADDR>
+```
+
+Now we will need to setup the domain for the API. By default dokku will assume it's the name of the VPS / EC2 instance. So we will need to get rid of this. If you're following along on AWS you will first need to assign the VPS a hostname with the following command:
+
+```
+sudo su -
+hostnamectl set-hostname <NEW_HOSTNAME_HERE>
+```
+
+Now with that done we can continue with the following command:
+
+```
+dokku domains:remove-global <NAME_OF_VPS/EC2_HOST>
+```
+
+```
+
+dokku domains:remove <API_NAME> <VPS NAME>  (DOMAIN APP VHOS)
+```
+
+Once that's done we need to check if it's removed with:
+
+```
+dokku domains:report
+```
+
+If it's not removed repeat the above steps or check the <a href="https://dokku.com/docs/getting-started/installation/">dokku</a> docs
+
+If it is removed let's continue to add a custom domain name:
+
+```
+dokku domains:add <API_NAME> <DOMAIN_NAME>
+```
+
+Check the port:
+
+```
+dokku proxy:ports <API_NAME>
+```
+
+Assign the port to the API name. This should match whatever you've exposed in your Docker image
+
+```
+dokku proxy:ports-add <API_NAME> http:80:<PORT_IN_DOCKER_IMAGE>
+```
+
+At this point you should be able to get access via the browser (cannot get / message). If you see this it means the above steps have worked. You may get a 502 response from the server if DNS hasn't finished propogating.
+Now that we've assigned a domain name, configured the correct port, we can enable let's encrypt:
+
+```
+dokku letsencrypt:enable <API_NAME>
+```
+
+At the point of enabling letencrypt you may get some errors about the domain name. If so check if your advanced DNS config is correctly configured
+
+build fresh docker image on server & push to docker hub
+
+```
+docker build -t <USER>/app:1.0.1 .
+
+```
+
+Tag the new release:
+
+```
+docker tag <USERNAME>/<API_NAME>:<VERSION> dokku/<API_NAME>:latest
+```
+
+Deploy the API to production 😎 :
+
+```
+dokku tags:deploy <API_NAME> latest
+```
+
+Your backend should now be successfully deployed
+
+##
+
+Frontend
+Add a URL redirect to your DNS config to the main domain name (assuming you've setup a sub domain such as `api.yourdomainname.com` for the API).
+Add the following A record to your DNS config:
+
+```
+A Record @ <VERCEL_A_RECORD_ADDR> Automatic
+```
+
+Make sure frontend has .env variables correctly setup
+Deploy frontend
+Wait for DNS to propagate
+All done. Your API, DB & Frontend should now be successfully deployed
