@@ -9,11 +9,10 @@ import { breakpoint } from '@src/utils/style';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BsCodeSlash } from 'react-icons/bs';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
-import { FiSun, FiMenu, FiX } from 'react-icons/fi';
-import { IoMdMoon } from 'react-icons/io';
+import { FiMenu, FiX } from 'react-icons/fi';
 import styled, { css } from 'styled-components';
 
 const Container = styled.div`
@@ -214,6 +213,7 @@ const NavLinks = () => {
 
 const NavbarMenu = () => {
   const [showDrawer, setShowDrawer] = useState<boolean>(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isMobileLayout, setIsMobileLayout] = useState<boolean | undefined>(
     undefined
   );
