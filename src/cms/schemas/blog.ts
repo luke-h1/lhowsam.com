@@ -30,8 +30,8 @@ const blog: Document<Blog> = {
     {
       name: 'description',
       title: 'Description',
-      description: 'Content of blog post',
       type: 'markdown',
+      description: 'Content of blog post',
       validation: rule => rule.required(),
     },
     {
