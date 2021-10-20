@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-undef */
 /* eslint-disable no-shadow */
 /* eslint-disable no-nested-ternary */
@@ -213,6 +214,7 @@ const NavLinks = () => {
 
 const NavbarMenu = () => {
   const [showDrawer, setShowDrawer] = useState<boolean>(false);
+  // @ts-ignore
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isMobileLayout, setIsMobileLayout] = useState<boolean | undefined>(
     undefined
