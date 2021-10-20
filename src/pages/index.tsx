@@ -14,7 +14,7 @@ import { Post } from '../types/post';
 import { Project } from '../types/project';
 
 interface Props {
-  posts: Post[];
+  posts: Post[]
   projects: Project[];
 }
 
@@ -50,13 +50,13 @@ const Index = ({ posts, projects }: Props) => {
 };
 
 export const getStaticProps = async () => {
-  const posts = await blogService.getRecentPosts();
+  const posts: { posts: Post[] } = await blogService.getRecentPosts();
   const projects = await projectService.getAllProjects();
 
   return {
     revalidate: 60 * 30,
     props: {
-      posts: posts.blogPosts,
+      posts: posts.posts,
       projects: projects.projects,
     },
   };

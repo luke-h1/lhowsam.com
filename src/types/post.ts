@@ -8,5 +8,4 @@ export interface Post {
     };
     intro: string;
     content: string;
-  source: { compiledSource: string };
 }

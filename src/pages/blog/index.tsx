@@ -25,13 +25,12 @@ const Index = ({ posts }: Props) => {
 };
 
 export const getStaticProps = async () => {
-  const posts = await blogService.getAllPosts();
-  console.log(posts)
+  const { posts } = await blogService.getAllPosts();
 
   return {
     revalidate: 60 * 30,
     props: {
-      posts: posts.blogPosts,
+      posts: posts,
     },
   };
 };

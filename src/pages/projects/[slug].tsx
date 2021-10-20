@@ -16,18 +16,19 @@ import projectService from '../../services/projectService';
 
 interface Props {
   project: Project;
+  source: { compiledSource: string };
 }
 
-const ProjectPage = ({ project }: Props) => {
+const ProjectPage = ({ project, source }: Props) => {
   const topRef = useRef<HTMLDivElement>(null);
   return (
     <>
       <div ref={topRef} />
       <PostTitle>
-        <TextGradient>{project.project.title}</TextGradient>
+        <TextGradient>{project.title}</TextGradient>
       </PostTitle>
       <MDXContent>
-        <MDXRemote {...project.source} components={MDXComponents} />
+        <MDXRemote {...source} components={MDXComponents} />
       </MDXContent>
       <EndLinks>
         <ScrollToTop topRef={topRef} />
@@ -36,9 +37,9 @@ const ProjectPage = ({ project }: Props) => {
   );
 };
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = await projectService.getAllProjects();
-  // @ts-ignore
-  const paths = projects.projects.map(({ slug }) => ({ params: { slug } }))
+  const { projects } = await projectService.getAllProjects();
+  const paths = projects.map(({ slug }) => ({ params: { slug } }))
+
   return {
     paths,
     fallback: 'blocking',
@@ -52,14 +53,14 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       notFound: true,
     };
   }
-  const project = await projectService.getProject(params.slug as string);
-  if (!project.project) {
+  const { project } = await projectService.getProject(params.slug as string);
+  if (!project) {
     return {
       props: [],
       notFound: true,
     };
   }
-  const source = await serialize(project.project.content, {
+  const source = await serialize(project.content, {
     mdxOptions: {
       remarkPlugins: [CodeTitle, Headings],
       rehypePlugins: [mdxPrism],
@@ -67,7 +68,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   });
   return {
     props: {
-      project: { ...project, source },
+      project: project,
+      source,
     },
     revalidate: 60 * 30,
   };

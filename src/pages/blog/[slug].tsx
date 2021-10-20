@@ -1,9 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ScrollToTop, ShareLinks } from '@src/components/blog';
 import MDXComponents, { ImageWrapper } from '@src/components/mdx';
-import blogService, { PostSlug } from '@src/services/blogService';
+import blogService from '@src/services/blogService';
 import { MDXContent, PostMetaDataGrid, EndLinks } from '@src/styles/blog';
 import { PostTitle, Datestamp, TextGradient } from '@src/styles/typography';
+import { Post } from '@src/types/post';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
@@ -13,29 +14,31 @@ import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
 
 interface Props {
-  post: PostSlug;
+  post: Post;
+  source: { compiledSource: string };
+
 };
 
-const PostPage = ({ post }: Props) => {
+const PostPage = ({ post, source }: Props) => {
   const topRef = useRef<HTMLDivElement>(null);
   return (
     <>
       <div ref={topRef} />
       <PostTitle>
-        <TextGradient>{post.blogPost.title}</TextGradient>
+        <TextGradient>{post.title}</TextGradient>
       </PostTitle>
-      <ImageWrapper src={post.blogPost.image.url} alt={post.blogPost.title} />
+      <ImageWrapper src={post.image.url} alt={post.title} />
       <PostMetaDataGrid>
         <Datestamp>
           Published:{' '}
-          {post.blogPost.date}
+          {post.date}
         </Datestamp>
       </PostMetaDataGrid>
       <MDXContent>
-        <MDXRemote {...post.source} components={MDXComponents} />
+        <MDXRemote {...source} components={MDXComponents} />
       </MDXContent>
       <EndLinks>
-        <ShareLinks title={post.blogPost.title} slug={post.blogPost.slug} />
+        <ShareLinks title={post.title} slug={post.slug} />
         <ScrollToTop topRef={topRef} />
       </EndLinks>
     </>
@@ -43,11 +46,9 @@ const PostPage = ({ post }: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await blogService.getAllPosts();
-  console.log(posts)
-  // @ts-ignore
-  const paths = posts.blogPosts.map(({ slug }) => ({ params: { slug } }))
-  console.log(paths)
+  const { posts } = await blogService.getAllPosts();
+  const paths = posts.map(({ slug }) => ({ params: { slug } }))
+
   return {
     paths,
     fallback: 'blocking',
@@ -62,14 +63,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  const post = await blogService.getPost(params.slug as string);
-  if (!post.blogPost) {
+  const { post } = await blogService.getPost(params.slug as string);
+  if (!post) {
     return {
       props: [],
       notFound: true,
     };
   }
-  const source = await serialize(post.blogPost.content, {
+
+  const source = await serialize(post.content, {
     mdxOptions: {
       remarkPlugins: [CodeTitle, Headings],
       rehypePlugins: [mdxPrism],
@@ -78,7 +80,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
-      post: { ...post, source },
+      post: post,
+      source,
     },
     revalidate: 60 * 30,
   };

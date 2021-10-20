@@ -31,12 +31,11 @@ const ProjectPage = ({ projects }: Props) => {
 export default ProjectPage;
 
 export const getStaticProps = async () => {
-  const projects = await projectService.getAllProjects();
+  const { projects } = await projectService.getAllProjects();
   return {
     revalidate: 60 * 30,
     props: {
-      // @ts-ignore
-      projects: projects.projects
+      projects: projects,
     },
   };
 };

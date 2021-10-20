@@ -32,10 +32,10 @@ query Project($slug: String!) {
 `;
 
 const projectService = {
-  async getAllProjects(): Promise<Project[]> {
+  async getAllProjects(): Promise<{ projects: Project[] }> {
     return cmsClient.request(getAllProjcets)
   },
-  async getProject(slug: string): Promise<Project> {
+  async getProject(slug: string): Promise<{ project: Project }> {
     return cmsClient.request(getProject, { slug })
   },
 };
