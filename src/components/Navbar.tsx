@@ -213,6 +213,7 @@ const NavLinks = () => {
 
 const NavbarMenu = () => {
   const [showDrawer, setShowDrawer] = useState<boolean>(false);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const [isMobileLayout, setIsMobileLayout] = useState<boolean | undefined>(
     undefined

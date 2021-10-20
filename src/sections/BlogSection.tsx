@@ -1,8 +1,8 @@
-import { Post } from '../types/post';
 import { BlogPostPreview } from '@src/components/blog';
 import { PreviewLayout } from '@src/styles/layouts';
 import { Title } from '@src/styles/typography';
 import React from 'react';
+import { Post } from '../types/post';
 
 interface Props {
   posts: Post[];

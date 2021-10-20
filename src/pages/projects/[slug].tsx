@@ -1,5 +1,3 @@
-// @ts-ignore
-// @ts-nocheck
 import { ScrollToTop } from '@src/components/blog';
 import MDXComponents from '@src/components/mdx';
 import { EndLinks, MDXContent } from '@src/styles/blog';
@@ -68,7 +66,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   });
   return {
     props: {
-      project: project,
+      project,
       source,
     },
     revalidate: 30 * 40,

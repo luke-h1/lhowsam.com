@@ -1,5 +1,3 @@
-// @ts-ignore
-// @ts-nocheck
 import SEO from '@src/components/SEO';
 import BlogSection from '@src/sections/BlogSection';
 import IntroSection from '@src/sections/IntroSection';
