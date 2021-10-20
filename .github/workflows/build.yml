@@ -21,24 +21,23 @@ jobs:
         uses: luke-h1/action@v1.6.0
         with:
           node-version: ${{ matrix.node-version }}
+          yarn-version: 1.19
+
       
       - name: Install dependencies
-        run: npm ci && npm run bootstrap
-
-      - name: bootstrap prod
-        run: npm run bootstrap:prod
+        run: yarn install
 
       - name: format
-        run: npm run format
+        run: yarn format
 
       - name: lint
-        run: npm run lint
+        run: yarn lint
 
       - name: tsc
-        run: npm run tsc
+        run: yarn tsc
 
       - name: build
-        run: npm run build
+        run: yarn build
 
       - name: UI tests 
-        run: npm run cy:ci
+        run: yarn cy:ci
