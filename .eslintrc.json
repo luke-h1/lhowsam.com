@@ -13,11 +13,11 @@
   "settings": {
     "import/resolver": {
       "typescript": {
-        "project": ["src/**/tsconfig.json"]
+        "project": ["sconfig.json"]
       }
     },
     "next": {
-      "rootDir": "src/frontend"
+      "rootDir": "."
     },
     "react": {
       "version": "detect"
@@ -49,9 +49,6 @@
     ],
     "import/no-unresolved": [
       "error",
-      {
-        "ignore": ["^(part|all):"] // eslint doesn't play nice with sanity imports
-      }
     ],
     "import/order": [
       "error",
