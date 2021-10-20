@@ -1,33 +1,44 @@
 {
   "compilerOptions": {
-    "allowJs": true,
-    "alwaysStrict": true,
-    "allowSyntheticDefaultImports": true,
-    "isolatedModules": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true,
-    "noImplicitAny": true,
-    "noImplicitReturns": false,
-    "strict": true,
-    "strictNullChecks": true,
-    "baseUrl": "./",
-    "jsx": "preserve",
+    "target": "es5",
     "lib": [
       "dom",
-      "DOM.iterable",
+      "dom.iterable",
       "esnext"
     ],
+    "paths": {
+      "@src/*": ["src/*"],
+    },
+    "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "sourceMap": true,
+    "strict": true,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "baseUrl": "."
   },
-  "exclude": ["node_modules"],
-  "paths": {
-    "@cms/*": ["./src/cms/*"],
-    "@frontend/*": ["./src/frontend/*"]
-  }
+  "include": [
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx"
+, "src/styles/prism.ts"  ],
+  "exclude": [
+    "node_modules",
+    "cypress",  
+    "src/__mocks__"
+  ]
 }
