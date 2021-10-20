@@ -9,12 +9,11 @@ import { breakpoint } from '@src/utils/style';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BsCodeSlash } from 'react-icons/bs';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
-import { FiSun, FiMenu, FiX } from 'react-icons/fi';
-import { IoMdMoon } from 'react-icons/io';
-import styled, { css, ThemeContext } from 'styled-components';
+import { FiMenu, FiX } from 'react-icons/fi';
+import styled, { css } from 'styled-components';
 
 const Container = styled.div`
   display: grid;
@@ -213,9 +212,8 @@ const NavLinks = () => {
 };
 
 const NavbarMenu = () => {
-  const [darkTheme, setDarkTheme] = useState<boolean | undefined>(undefined);
-  const { theme } = useContext(ThemeContext);
   const [showDrawer, setShowDrawer] = useState<boolean>(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isMobileLayout, setIsMobileLayout] = useState<boolean | undefined>(
     undefined
   );
@@ -235,52 +233,11 @@ const NavbarMenu = () => {
   );
 
   useEffect(() => {
-    const root = window.document.documentElement;
-    const initialColorValue: 'light' | 'dark' = root.style.getPropertyValue(
-      '--initial-color-mode'
-    ) as 'light' | 'dark';
-    setDarkTheme(initialColorValue === 'dark');
-  }, []);
-
-  useEffect(() => {
-    if (darkTheme !== undefined) {
-      if (darkTheme) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        window.localStorage.setItem('theme', 'dark');
-      } else {
-        document.documentElement.removeAttribute('data-theme');
-        window.localStorage.setItem('theme', 'light');
-      }
-    }
-  }, [darkTheme]);
-
-  useEffect(() => {
-    if (theme) setDarkTheme(theme === 'dark');
-  }, [theme]);
-
-  useEffect(() => {
-    const handleKeyboardDarkModeToggle = (event: KeyboardEvent) => {
-      if (event.key.toLowerCase() === 'l' && event.shiftKey && event.metaKey) {
-        event.preventDefault();
-        setDarkTheme(!darkTheme);
-      }
-    };
-    window.addEventListener('keydown', handleKeyboardDarkModeToggle);
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyboardDarkModeToggle);
-    };
-  }, [darkTheme]);
-
-  useEffect(() => {
     setShowDrawer(false);
     document.body.style.removeProperty('overflow');
   }, [asPath]);
 
-  const handleThemeSwitch = (event: React.MouseEvent) => {
-    event.preventDefault();
-    setDarkTheme(!darkTheme);
-  };
+
 
   const handleToggleDrawer = () => {
     setShowDrawer((showDrawer) => {
@@ -301,21 +258,6 @@ const NavbarMenu = () => {
         <NavLinksDesktop>
           <NavLinks />
         </NavLinksDesktop>
-        {showDrawer && isMobileLayout ? null : (
-          <ThemeSwitch onClick={handleThemeSwitch}>
-            {darkTheme === undefined ? (
-              <div style={{ width: '25px' }} />
-            ) : darkTheme ? (
-              <IoMdMoon
-                aria-label="Switch to Light Mode"
-              />
-            ) : (
-              <FiSun
-                aria-label="Switch to Dark Mode"
-              />
-            )}
-          </ThemeSwitch>
-        )}
         <MobileMenuToggle
           onClick={handleToggleDrawer}
           aria-label={showDrawer ? 'Close menu' : 'Open menu'}
