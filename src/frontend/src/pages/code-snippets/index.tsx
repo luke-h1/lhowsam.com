@@ -1,6 +1,4 @@
 import { Snippet } from '@lhowsam/cms/types/schema';
-import useHover from '@src/hooks/useHover';
-import imageService from '@src/services/imageService';
 import snippetService from '@src/services/snippetService';
 import {
   AnchorUnstyled,
@@ -12,7 +10,6 @@ import { Card } from '@src/styles/project';
 import { Title, BlogPostPreviewTitle } from '@src/styles/typography';
 import Link from 'next/link';
 import React from 'react';
-import { FaArrowRight } from 'react-icons/fa';
 
 interface Props {
   snippets: Snippet[];
