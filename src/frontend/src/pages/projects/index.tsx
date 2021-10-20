@@ -24,7 +24,7 @@ const ProjectPage = ({ projects }: Props) => {
         }}
       />
       <SEO
-        description="Projects | lhowsam.com"
+        description='My projects'
         title="Projects"
         keywords={['Projects, Blog posts, About']}
         url="https://lhowsam.com/projects"
