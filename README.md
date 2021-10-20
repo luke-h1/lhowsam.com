@@ -12,6 +12,9 @@
 - [Sanity](https://www.sanity.io)
 
 ## Tests
+
+[![CI / UI tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml)
+
 [![CI / build](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml)
 
 ## Inspirations
