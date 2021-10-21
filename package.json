@@ -22,7 +22,9 @@
     "new-version": "lerna version --conventional-commits --yes",
     "lint": "eslint --ext .ts,.tsx,.js,.jsx src --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
-    "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\""
+    "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
+    "deploy:frontend": "vc --prod -f && vc -f",
+    "deploy:cms": "cd src/cms && vc --prod -f && vc -f"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
