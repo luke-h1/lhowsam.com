@@ -3372,17 +3372,6 @@
     "@types/lodash" "^4.14.149"
     lodash "^4.17.15"
 
-"@sanity/types@2.21.4":
-  version "2.21.4"
-  resolved "https://registry.yarnpkg.com/@sanity/types/-/types-2.21.4.tgz#c938a40b16ab088e4fb6e80ef2a4fceb305210c4"
-  integrity sha512-fj0xSImb0nyeTmqr89dfaZPCAwFEf9UrBYMTWxfl09x3nFA9kEEn6wCJbwe/09j5imJ1ZBeHC/T+zx9e/T8AHQ==
-  dependencies:
-    "@sanity/client" "2.21.3"
-    "@sanity/color" "^2.1.5"
-    "@types/react" "^17.0.0"
-    react "17.0.1"
-    rxjs "^6.5.3"
-
 "@sanity/types@2.21.6", "@sanity/types@^2.17.1":
   version "2.21.6"
   resolved "https://registry.yarnpkg.com/@sanity/types/-/types-2.21.6.tgz#bedecbe3138aec67ac2865f2e0f8f3a2393b3c4f"
@@ -3409,19 +3398,6 @@
     react-is "^17.0.2"
     react-popper "^2.2.5"
     react-refractor "^2.1.5"
-
-"@sanity/util@2.21.4":
-  version "2.21.4"
-  resolved "https://registry.yarnpkg.com/@sanity/util/-/util-2.21.4.tgz#cb1d03a2abf2986a1b2e59dfc4bc58e424044719"
-  integrity sha512-y0CNkhkzTf7E1ys0vo38uxFTo1pVcELn5VdxhcKw3LwihRsFa6w5KkjmnCr6OddAyvg8xUqWEN3nxb8V/gCw2A==
-  dependencies:
-    "@sanity/types" "2.21.4"
-    dotenv "^8.2.0"
-    fs-extra "^7.0.0"
-    get-random-values "^1.2.2"
-    lodash "^4.17.15"
-    moment "^2.19.1"
-    resolve-from "^4.0.0"
 
 "@sanity/util@2.21.6":
   version "2.21.6"
