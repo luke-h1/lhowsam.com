@@ -63,7 +63,7 @@ const MDXLinkWrapper = (props: PropsWithChildren<{ href: string }>) => {
   return (
     <MDXLinkStyled>
       {props.href[0] === '/' ? (
-        <Link {...props} />
+        <Link {...props} scroll />
       ) : (
         <a {...props} target="_blank" rel="noopener noreferrer">
           {props.children}

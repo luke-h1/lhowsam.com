@@ -22,8 +22,8 @@ const ProjectCard = ({ project }: Props) => {
       <Card ref={hoverRef} data-testid={`project-${project.title}`}>
         <Link
           href={`/projects/${project.slug.current}`}
-          scroll={false}
           passHref
+          scroll
         >
           <AnchorUnstyled href={`/blog/${project.slug.current}`}>
             <BlogPostPreviewTitle {...{ isHovered }}>

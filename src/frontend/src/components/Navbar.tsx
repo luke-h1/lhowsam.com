@@ -332,7 +332,7 @@ const Navbar = () => {
   return (
     <Header>
       <HeaderInner>
-        <Link href="/" passHref>
+        <Link href="/" passHref scroll>
           <IconContainer tabIndex={0}>
             <BsCodeSlash />
           </IconContainer>
