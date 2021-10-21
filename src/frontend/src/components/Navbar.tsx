@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable no-undef */
 /* eslint-disable no-shadow */
 /* eslint-disable no-nested-ternary */
@@ -10,11 +9,12 @@ import { breakpoint } from '@src/utils/style';
 import { AnimatePresence, motion, Variants } from 'framer-motion';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { BsCodeSlash } from 'react-icons/bs';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
-import { FiMenu, FiX } from 'react-icons/fi';
-import styled, { css } from 'styled-components';
+import { FiSun, FiMenu, FiX } from 'react-icons/fi';
+import { IoMdMoon } from 'react-icons/io';
+import styled, { css, ThemeContext } from 'styled-components';
 
 const Container = styled.div`
   display: grid;
@@ -28,7 +28,6 @@ const Container = styled.div`
 const NavLink = styled(LinkTo)`
   border: none !important;
   color: var(--color-primary);
-
   &:hover {
     color: var(--color-primary-accent);
   }
@@ -38,7 +37,6 @@ const ThemeSwitch = styled(IconContainer).attrs({ as: 'button' })``;
 
 const MobileMenuToggle = styled(IconContainer).attrs({ as: 'button' })`
   color: var(--color-primary-accent);
-
   ${breakpoint.from.md(css`
     display: none;
   `)}
@@ -63,7 +61,6 @@ const HeaderInner = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: var(--max-width);
-
   display: grid;
   grid-template-columns: max-content auto;
   align-content: center;
@@ -79,7 +76,6 @@ const Nav = styled.nav`
 const navLinksMixin = css`
   display: grid;
   list-style: none;
-
   ${breakpoint.from.md(css`
     display: contents;
   `)}
@@ -91,14 +87,12 @@ const PageLinks = styled.ul`
 
 const IconLinks = styled.ul`
   ${navLinksMixin}
-
   ${breakpoint.until.md(css`
     grid-auto-flow: column;
     gap: 2rem;
     /* padding: 0.5rem 1rem; */
     width: min-content;
   `)}
-
 	& > li {
     padding: 0;
   }
@@ -106,7 +100,6 @@ const IconLinks = styled.ul`
 
 const NavLinksDesktop = styled.div`
   display: none;
-
   ${breakpoint.from.md(css`
     display: contents;
   `)}
@@ -116,14 +109,11 @@ const FullScreenWrapper = styled(motion.div)<{ visible: boolean }>`
   height: 100vh;
   width: 100vw;
   background-color: var(--color-bg-blurred);
-
   position: absolute;
   top: 0;
   left: 0;
-
   display: grid;
   align-content: center;
-
   ${({ visible }) =>
     visible
       ? css`
@@ -132,22 +122,18 @@ const FullScreenWrapper = styled(motion.div)<{ visible: boolean }>`
       : css`
           pointer-events: none;
         `}
-
   ${Nav} {
     display: grid;
     gap: 2rem;
-
     & > ${PageLinks}, ${IconLinks} {
       padding-left: 3rem;
       font-size: 1.5rem;
       width: min-content;
     }
-
     & > ${PageLinks} > li {
       padding: 0.5rem 0;
     }
   }
-
   ${breakpoint.from.md(css`
     display: none;
   `)}
@@ -213,9 +199,9 @@ const NavLinks = () => {
 };
 
 const NavbarMenu = () => {
+  const [darkTheme, setDarkTheme] = useState<boolean | undefined>(undefined);
+  const { theme } = useContext(ThemeContext);
   const [showDrawer, setShowDrawer] = useState<boolean>(false);
-  // @ts-ignore
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isMobileLayout, setIsMobileLayout] = useState<boolean | undefined>(
     undefined
   );
@@ -235,11 +221,52 @@ const NavbarMenu = () => {
   );
 
   useEffect(() => {
+    const root = window.document.documentElement;
+    const initialColorValue: 'light' | 'dark' = root.style.getPropertyValue(
+      '--initial-color-mode'
+    ) as 'light' | 'dark';
+    setDarkTheme(initialColorValue === 'dark');
+  }, []);
+
+  useEffect(() => {
+    if (darkTheme !== undefined) {
+      if (darkTheme) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        window.localStorage.setItem('theme', 'dark');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+        window.localStorage.setItem('theme', 'light');
+      }
+    }
+  }, [darkTheme]);
+
+  useEffect(() => {
+    if (theme) setDarkTheme(theme === 'dark');
+  }, [theme]);
+
+  useEffect(() => {
+    const handleKeyboardDarkModeToggle = (event: KeyboardEvent) => {
+      if (event.key.toLowerCase() === 'l' && event.shiftKey && event.metaKey) {
+        event.preventDefault();
+        setDarkTheme(!darkTheme);
+      }
+    };
+    window.addEventListener('keydown', handleKeyboardDarkModeToggle);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyboardDarkModeToggle);
+    };
+  }, [darkTheme]);
+
+  useEffect(() => {
     setShowDrawer(false);
     document.body.style.removeProperty('overflow');
   }, [asPath]);
 
-
+  const handleThemeSwitch = (event: React.MouseEvent) => {
+    event.preventDefault();
+    setDarkTheme(!darkTheme);
+  };
 
   const handleToggleDrawer = () => {
     setShowDrawer((showDrawer) => {
@@ -260,6 +287,21 @@ const NavbarMenu = () => {
         <NavLinksDesktop>
           <NavLinks />
         </NavLinksDesktop>
+        {showDrawer && isMobileLayout ? null : (
+          <ThemeSwitch onClick={handleThemeSwitch}>
+            {darkTheme === undefined ? (
+              <div style={{ width: '25px' }} />
+            ) : darkTheme ? (
+              <IoMdMoon
+                aria-label="Switch to Light Mode"
+              />
+            ) : (
+              <FiSun
+                aria-label="Switch to Dark Mode"
+              />
+            )}
+          </ThemeSwitch>
+        )}
         <MobileMenuToggle
           onClick={handleToggleDrawer}
           aria-label={showDrawer ? 'Close menu' : 'Open menu'}
