@@ -2962,9 +2962,9 @@
   integrity sha512-D8t7l+exvw1cg80m8yDZDRboAI6L827FeCacGjTOdElvgrR2shtsbepYui7ODfRgx9ynAceNDsQ1VSNnUgIHug==
 
 "@sanity/core@^2.21.4":
-  version "2.21.5"
-  resolved "https://registry.yarnpkg.com/@sanity/core/-/core-2.21.5.tgz#946813791f947e156b9cc83cc9c8b00d56895653"
-  integrity sha512-PH16QqsBlz6VjMejlZCsdWBJ7SYwTf2lGriBTiyWaE83pWJPooTL8aEKIV9tVGDWRniZ2aucbbcT+3Vbpv7lPg==
+  version "2.21.6"
+  resolved "https://registry.yarnpkg.com/@sanity/core/-/core-2.21.6.tgz#1d719d9ea6e09fca556992a7ca810f28144079af"
+  integrity sha512-91K7hwnu3RUCfKcmI8S5Vy5KcoHQTVxx+GLiZ/HGEYZVTrgEiy93HZXgE4hoqI4jGofDRt5C9u7riV50rirw3Q==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.10.4"
     "@babel/preset-env" "^7.11.5"
@@ -2975,13 +2975,13 @@
     "@sanity/export" "2.21.0"
     "@sanity/generate-help-url" "2.18.0"
     "@sanity/import" "2.21.3"
-    "@sanity/plugin-loader" "2.21.4"
-    "@sanity/resolver" "2.21.4"
+    "@sanity/plugin-loader" "2.21.6"
+    "@sanity/resolver" "2.21.6"
     "@sanity/schema" "2.21.5"
-    "@sanity/server" "2.21.4"
-    "@sanity/util" "2.21.4"
+    "@sanity/server" "2.21.6"
+    "@sanity/util" "2.21.6"
     "@sanity/uuid" "^3.0.1"
-    "@sanity/webpack-integration" "2.21.4"
+    "@sanity/webpack-integration" "2.21.6"
     chalk "^2.4.2"
     chokidar "^3.0.0"
     configstore "^5.0.1"
@@ -3299,14 +3299,14 @@
     object-assign "^4.1.1"
     rxjs "^6.5.3"
 
-"@sanity/plugin-loader@2.21.4":
-  version "2.21.4"
-  resolved "https://registry.yarnpkg.com/@sanity/plugin-loader/-/plugin-loader-2.21.4.tgz#bd193e9d8c1b97206d6ab4d438b3439e6dbe86e1"
-  integrity sha512-s/L+GnZF5/MqCROhrdlikvc5N3pG8NX1DPaa56Z/fronh3JImvhpfpzwStcCKFL6SWiwQvHjtauVRA3Zo0Z6uA==
+"@sanity/plugin-loader@2.21.6":
+  version "2.21.6"
+  resolved "https://registry.yarnpkg.com/@sanity/plugin-loader/-/plugin-loader-2.21.6.tgz#2569f0e00a490544cbddc6c7a441312daa6772ec"
+  integrity sha512-yrCq3Iv6pktyipK0AYXxb6KJjukF6U2yOPp17d1GOSYdl/b//ByOQXyRegQhkHJQsrb7xGVPHgkrVSMy78FI5A==
   dependencies:
-    "@sanity/resolver" "2.21.4"
-    "@sanity/util" "2.21.4"
-    "@sanity/webpack-integration" "2.21.4"
+    "@sanity/resolver" "2.21.6"
+    "@sanity/util" "2.21.6"
+    "@sanity/webpack-integration" "2.21.6"
     css-modules-require-hook "4.1.0"
     interop-require "^1.0.0"
 
@@ -3334,13 +3334,13 @@
     react-rx "^1.0.0-beta.6"
     rxjs "^6.5.3"
 
-"@sanity/resolver@2.21.4":
-  version "2.21.4"
-  resolved "https://registry.yarnpkg.com/@sanity/resolver/-/resolver-2.21.4.tgz#1b807f1920c462eb9ca7218b5aeec697e445b412"
-  integrity sha512-7NUth8Rb6+xSR20MpjEvkk6eHQqdF1h9D9uGsNXV8GT7dwgPT6N+UFlgsNhYoUuLtlpg8VbVwsOb4OfIHQzmEg==
+"@sanity/resolver@2.21.6":
+  version "2.21.6"
+  resolved "https://registry.yarnpkg.com/@sanity/resolver/-/resolver-2.21.6.tgz#31e47d98aa8285be72353ac5001b8006fc0f0ab9"
+  integrity sha512-gP9941hBk/5sKYKAohDI/9YSGINlfi/yvr28X98vofSlxHtsANlrVGvVBeTxi29MUZsx27zEqghteZDFxAde2w==
   dependencies:
     "@sanity/generate-help-url" "2.18.0"
-    "@sanity/util" "2.21.4"
+    "@sanity/util" "2.21.6"
     fs-extra "^7.0.0"
     lodash "^4.17.15"
     path-exists "^3.0.0"
@@ -3358,10 +3358,10 @@
     lodash "^4.17.15"
     object-inspect "^1.6.0"
 
-"@sanity/server@2.21.4":
-  version "2.21.4"
-  resolved "https://registry.yarnpkg.com/@sanity/server/-/server-2.21.4.tgz#d5e3152c3182b5459dc7ec836b1cb5e28ce91a67"
-  integrity sha512-9cxMMFzSVV9JWgh5OcfcFeCT5VkJUOXOXZFVSdwii9Lz0G46pcf5vAjFFs00iA8NqqGQL5JBxNaWpccm/ICbeg==
+"@sanity/server@2.21.6":
+  version "2.21.6"
+  resolved "https://registry.yarnpkg.com/@sanity/server/-/server-2.21.6.tgz#bbb8885b993c32b01bb3533b1fe36d27a4a1af1e"
+  integrity sha512-ttkB6mwllN14RQr7gtzxQ1AP6rAQERMA3QWMo74qRCat2qbd9GPnB+drxvzAZM7b+qs8t1iIebGs9PUoKdlEVw==
   dependencies:
     "@babel/core" "^7.11.6"
     "@babel/plugin-proposal-class-properties" "^7.10.4"
@@ -3372,10 +3372,10 @@
     "@hot-loader/react-dom" "^16.9.0-4.12.11"
     "@sanity/css-loader" "^0.28.12"
     "@sanity/eventsource" "2.14.0"
-    "@sanity/resolver" "2.21.4"
-    "@sanity/util" "2.21.4"
+    "@sanity/resolver" "2.21.6"
+    "@sanity/util" "2.21.6"
     "@sanity/webpack-dev-middleware" "^2.0.6"
-    "@sanity/webpack-integration" "2.21.4"
+    "@sanity/webpack-integration" "2.21.6"
     babel-loader "^8.0.6"
     eventsource-polyfill "^0.9.6"
     express "^4.16.1"
@@ -3579,13 +3579,13 @@
     url-join "^2.0.2"
     webpack-log "^1.0.1"
 
-"@sanity/webpack-integration@2.21.4":
-  version "2.21.4"
-  resolved "https://registry.yarnpkg.com/@sanity/webpack-integration/-/webpack-integration-2.21.4.tgz#ee1f8c5a33545f4ba11c29921dd04b949609d6de"
-  integrity sha512-d1AEZOjgpVGKfqfMaegLmmw7tfNTW43bEtfLYLmKP2tggcppdk7DyIF+EPDdjfShR6CzPVAbqPZMjAPQXvhPRg==
+"@sanity/webpack-integration@2.21.6":
+  version "2.21.6"
+  resolved "https://registry.yarnpkg.com/@sanity/webpack-integration/-/webpack-integration-2.21.6.tgz#180d98920d671894af7f249d411d1f3f7bbee56c"
+  integrity sha512-o4TocOVSpVu4EgCrP2qvXPKsXfjc6T113jqwsnB+AkHC8jyfK6GXOpxRWW8v5nQ9LRyjJcYSoWjmktCoq2bvjg==
   dependencies:
-    "@sanity/resolver" "2.21.4"
-    "@sanity/webpack-loader" "2.21.4"
+    "@sanity/resolver" "2.21.6"
+    "@sanity/webpack-loader" "2.21.6"
     css-color-function "^1.3.3"
     dotenv "^8.2.0"
     fs.realpath "^1.0.0"
@@ -3599,13 +3599,13 @@
     postcss-url "^7.3.1"
     resolve "^1.3.3"
 
-"@sanity/webpack-loader@2.21.4":
-  version "2.21.4"
-  resolved "https://registry.yarnpkg.com/@sanity/webpack-loader/-/webpack-loader-2.21.4.tgz#a85cb4bbbcc2e3e888b499159ce674ad227b10d1"
-  integrity sha512-P85m9847sFfqLvekxwdN3g1QmujazIYrRTJNTZMBjPN0eQj/nG8rztXTXKLUYqYF+IoW6Zg8W+AOdVmflbjjRw==
+"@sanity/webpack-loader@2.21.6":
+  version "2.21.6"
+  resolved "https://registry.yarnpkg.com/@sanity/webpack-loader/-/webpack-loader-2.21.6.tgz#8a86e8e6703dd84c163f6646f46f7b38fb4622f6"
+  integrity sha512-mhoJGD9AtBCQWMUb6HK4fLg5K9nDeOQ4koJ10utuArcoqfcpSPXCfx9rZZZ7dSZP1vt4mi6HkrERXsNdmqrEuw==
   dependencies:
-    "@sanity/resolver" "2.21.4"
-    "@sanity/util" "2.21.4"
+    "@sanity/resolver" "2.21.6"
+    "@sanity/util" "2.21.6"
     loader-utils "1.1.0"
 
 "@sideway/address@^4.1.0":
