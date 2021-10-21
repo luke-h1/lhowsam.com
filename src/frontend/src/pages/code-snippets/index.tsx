@@ -27,7 +27,7 @@ const SnippetsPage = ({ snippets }: Props) => {
           {snippets &&
             snippets.map((snippet) => (
               <li key={snippet._id}>
-                <Link href={`/code-snippets/${snippet.slug.current}`}>
+                <Link href={`/code-snippets/${snippet.slug.current}`} scroll>
                   {snippet.title}
                 </Link>
               </li>
@@ -44,8 +44,8 @@ const SnippetsPage = ({ snippets }: Props) => {
               >
                 <Link
                   href={`/code-snippets/${snippet.slug.current}`}
-                  scroll={false}
                   passHref
+                  scroll
                 >
                   <AnchorUnstyled href={`/blog/${snippet.slug.current}`}>
                     <Card>
