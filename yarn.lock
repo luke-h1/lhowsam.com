@@ -17879,10 +17879,10 @@ sanity-diff-patch@^1.0.9:
   dependencies:
     diff-match-patch "^1.0.5"
 
-sanity-plugin-markdown@^2.0.3:
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/sanity-plugin-markdown/-/sanity-plugin-markdown-2.0.3.tgz#8458acfc1df0a68e19e4f7a5a7140a0b54bfb1be"
-  integrity sha512-Paxa/4QHXJGJyhs2SYCC3MCxGWxeGBo6L4PWZgsDP3wRC/dcwTXJ1vQIfeETuTzCgyWFjInl7yIQbnJowpFNIA==
+sanity-plugin-markdown@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/sanity-plugin-markdown/-/sanity-plugin-markdown-2.0.4.tgz#ed839e936cb49c0fba787f07e250dcf50fc76951"
+  integrity sha512-I6NuGRyK6V1cpKSkjzWzKDv4GaZiH5+fpUv8iFsUFPawrX4UWfxYhUBKsc2RMSY4UuYIbJkARVjBbLGPZKOlaw==
   dependencies:
     react-markdown "^5.0.3"
     react-mde "^11.5.0"
