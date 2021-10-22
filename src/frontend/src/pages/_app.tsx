@@ -61,14 +61,15 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <>
       <DefaultSeo
-        titleTemplate="%s | lhowsam.com"
-        description="Luke Howsam"
+        titleTemplate={`%s | ${constants.site}`}
+        defaultTitle={constants.site}
+        canonical={`${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`}
         openGraph={{
           type: 'website',
-          locale: 'en_IE',
-          url: 'https://lhowsam.com',
+          locale: 'en_GB',
+          url: `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`,
           description: constants.intro,
-          site_name: 'Luke Howsam',
+          site_name: constants.site,
           images: [
             {
               url: 'https://lhowsam.com/icons/logo.png',
@@ -76,6 +77,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             },
           ],
         }}
+        twitter={{ 
+          site: '@LukeH_1999',
+          cardType: 'summary_large_image'
+         }}
       />
       <MDXProvider components={MDXComponents}>
         <GlobalStyles />

@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Blog } from '@lhowsam/cms/types/schema';
-import SEO from '@src/components/SEO';
 import { ScrollToTop, ShareLinks } from '@src/components/blog';
 import MDXComponents, { ImageWrapper } from '@src/components/mdx';
 import { constants } from '@src/data/constants';
@@ -13,6 +12,7 @@ import { GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo, ArticleJsonLd } from 'next-seo';
+import { useRouter } from 'next/router';
 import React, { useRef } from 'react';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
@@ -26,31 +26,26 @@ const PostPage = ({ post }: Props) => {
 
   const SEOImage = imageService.getSEOImage(post.image.asset);
 
+  const router = useRouter()
   return (
     <>
       <NextSeo
-        title={`${post.title} | lhowsam.com`}
-        canonical={`${constants.siteUrl}/blog/${post.slug}`}
+        title={`${post.title}`}
+        canonical={`${constants.siteUrl}${router.asPath}`}
         openGraph={{
-          url: `${constants.siteUrl}/blog/${post.slug}`,
+          url: `${constants.siteUrl}${router.asPath}`,
           title: `${post.title} | lhowsam.com`,
         }}
       />
-      <SEO
-        description={post.intro}
-        title={`${post.title} | lhowsam.com`}
-        keywords={['posts, Blog posts, About']}
-        url={`${constants.siteUrl}/blog/${post.slug}`}
-      />
       <ArticleJsonLd
-        url={`${constants.siteUrl}/blog/${post.slug}`}
+        url={`${constants.siteUrl}${router.asPath}`}
         title={post.title}
         images={[SEOImage]}
         datePublished={post.publishedAt}
         authorName={constants.fullName}
         description={post.intro}
         publisherName={constants.site}
-        publisherLogo={`${constants.siteUrl}/code.svg`}
+        publisherLogo={`${constants.siteUrl}/icons/logo.png`}
       />
       <div ref={topRef} />
       <PostTitle>

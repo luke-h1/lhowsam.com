@@ -1,5 +1,4 @@
 import { Project } from '@lhowsam/cms/types/schema';
-import SEO from '@src/components/SEO';
 import { ScrollToTop } from '@src/components/blog';
 import MDXComponents from '@src/components/mdx';
 import { constants } from '@src/data/constants';
@@ -11,6 +10,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo, ArticleJsonLd } from 'next-seo';
+import { useRouter } from 'next/router';
 import { useRef } from 'react';
 import { AiFillGithub } from 'react-icons/ai';
 import { CgWebsite } from 'react-icons/cg';
@@ -25,31 +25,26 @@ interface Props {
 const ProjectPage = ({ project }: Props) => {
   const topRef = useRef<HTMLDivElement>(null);
   const SEOImage = imageService.getSEOImage(project.image.asset)
+  const router = useRouter()
   return (
     <>
       <NextSeo
-        title={`${project.title} | lhowsam.com`}
-        canonical={`${constants.siteUrl}/projects/${project.slug}`}
+        title={`${project.title}`}
+        canonical={`${constants.siteUrl}${router.asPath}`}
         openGraph={{
-          url: `${constants.siteUrl}/projects/${project.slug}`,
+          url: `${constants.siteUrl}${router.asPath}`,
           title: `${project.title} | lhowsam.com`,
         }}
       />
-      <SEO
-        description={project.intro}
-        title={`${project.title} | lhowsam.com`}
-        keywords={['Projects, Blog posts, About']}
-        url={`${constants.siteUrl}/projects/${project.slug}`}
-      />
-      <ArticleJsonLd 
-        url={`${constants.siteUrl}/projects/${project.slug}`}
+      <ArticleJsonLd
+        url={`${constants.siteUrl}${router.asPath}`}
         title={project.title}
         images={[SEOImage]}
-        datePublished=""
+        datePublished=''
         authorName={constants.fullName}
         description={project.intro}
         publisherName={constants.site}
-        publisherLogo={`${constants.siteUrl}/code.svg`}
+        publisherLogo={`${constants.siteUrl}/icons/logo.png`}
       />
       <div ref={topRef} />
       <PostTitle>
