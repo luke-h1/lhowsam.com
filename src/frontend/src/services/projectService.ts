@@ -23,7 +23,7 @@ const getProjectQuery = groq`
 `;
 
 const getProjectSlugs = groq`
-*[ _type == "blog" && slug.current == $slug][0] {
+*[ _type == "project" ] {
   slug,
 }
 `;

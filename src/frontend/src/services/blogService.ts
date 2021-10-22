@@ -33,7 +33,7 @@ const getPostQuery = groq`
 `;
 
 const getPostSlugs = groq`
-*[ _type == "blog" && slug.current == $slug][0] {
+*[ _type == "blog" ] {
   slug,
 }
 `;
