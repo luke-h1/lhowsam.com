@@ -22,6 +22,12 @@ const getProjectQuery = groq`
 }
 `;
 
+const getProjectSlugs = groq`
+*[ _type == "blog" && slug.current == $slug][0] {
+  slug,
+}
+`;
+
 const projectService = {
   async getAllProjects(): Promise<
     Pick<
@@ -36,6 +42,9 @@ const projectService = {
       slug,
     });
   },
+  async getProjectSlugs(): Promise<Pick<Project, 'slug'>[]> {
+    return cmsClient.fetch(getProjectSlugs)
+  }
 };
 
 export default projectService;

@@ -32,6 +32,12 @@ const getPostQuery = groq`
 }
 `;
 
+const getPostSlugs = groq`
+*[ _type == "blog" && slug.current == $slug][0] {
+  slug,
+}
+`;
+
 const blogService = {
   async getPost(slug: string): Promise<Blog> {
     return cmsClient.fetch(getPostQuery, {
@@ -48,6 +54,9 @@ const blogService = {
   > {
     return cmsClient.fetch(recentPostsQuery);
   },
+  async getPostSlugs(): Promise<Pick<Blog, 'slug'>[]> {
+    return cmsClient.fetch(getPostSlugs)
+  }
 };
 
 export default blogService;
