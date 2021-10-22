@@ -1,6 +1,5 @@
-import { ContactButton, ContactWrapper } from '@src/styles/contact';
-import { Center } from '@src/styles/layouts';
-import { Flex, Paragraph, Title } from '@src/styles/typography';
+import { ContactWrapper } from '@src/styles/contact';
+import { Paragraph, Title } from '@src/styles/typography';
 import React from 'react';
 
 const ContactSection = () => {
