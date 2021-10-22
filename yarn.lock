@@ -3430,9 +3430,9 @@
     lodash "^4.17.15"
 
 "@sanity/vision@^2.21.4":
-  version "2.21.5"
-  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.21.5.tgz#12134425ae1962df912684d575608315ffbff08a"
-  integrity sha512-D+1hFPWVvGpWHfNpkUBcFOn0kOKrdkYvEAoR7WZBA6t45dbTdBvPbnOiL1XOHU68FfdaWPgaMrKuC18kOOyhpw==
+  version "2.21.6"
+  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.21.6.tgz#32506d69809286a5d64f0281c869551f24ea91f5"
+  integrity sha512-jZVz5M38Lvxh7d9gd8weFqTNVsPCk+cU68qtZ+9ExBnWlYQdPIxRyUYOWrD/fhofQ0dsni9XQH9NoORELXA2Vw==
   dependencies:
     "@sanity/icons" "^1.2.1"
     "@sanity/ui" "^0.36.12"
