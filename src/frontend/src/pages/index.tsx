@@ -1,6 +1,7 @@
 import { Blog, Project } from '@lhowsam/cms/types/schema';
 import SEO from '@src/components/SEO';
 import BlogSection from '@src/sections/BlogSection';
+import ContactSection from '@src/sections/ContactSection';
 import IntroSection from '@src/sections/IntroSection';
 import ProjectSection from '@src/sections/ProjectSection';
 import SkillsSection from '@src/sections/SkillsSection';
@@ -42,6 +43,8 @@ const Index = ({ posts, projects }: Props) => {
       <Space size={25} />
 
       <ProjectSection projects={projects} />
+      <Space size={25} />
+      <ContactSection />
     </>
   );
 };
