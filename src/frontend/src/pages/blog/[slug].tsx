@@ -12,6 +12,7 @@ import { GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import React, { useRef } from 'react';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
@@ -21,14 +22,15 @@ interface Props {
 }
 
 const PostPage = ({ post }: Props) => {
+  const router = useRouter()
   const topRef = useRef<HTMLDivElement>(null);
   return (
     <>
       <NextSeo
         title={`${post.title} | lhowsam.com`}
-        canonical={`https://lhowsam.com/posts/${post.slug}`}
+        canonical={`https://lhowsam.com${router.asPath}`}
         openGraph={{
-          url: `https://lhowsam.com/posts/${post.slug}`,
+          url: `https://lhowsam.com${router.asPath}`,
           title: `${post.title} | lhowsam.com`,
         }}
       />
@@ -36,7 +38,7 @@ const PostPage = ({ post }: Props) => {
         description={post.intro}
         title={`${post.title} | lhowsam.com`}
         keywords={['posts, Blog posts, About']}
-        url={`https://lhowsam.com/posts/${post.slug}`}
+        url={`https://lhowsam.com${router.asPath}`}
       />
       <div ref={topRef} />
       <PostTitle>
