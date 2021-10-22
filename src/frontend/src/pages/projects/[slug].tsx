@@ -2,14 +2,18 @@ import { Project } from '@lhowsam/cms/types/schema';
 import SEO from '@src/components/SEO';
 import { ScrollToTop } from '@src/components/blog';
 import MDXComponents from '@src/components/mdx';
+import { constants } from '@src/data/constants';
+import imageService from '@src/services/imageService';
 import { EndLinks, MDXContent } from '@src/styles/blog';
-import { PostTitle, TextGradient } from '@src/styles/typography';
+import { PostTitle, TextGradient, Flex } from '@src/styles/typography';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import { NextSeo } from 'next-seo';
+import { NextSeo, ArticleJsonLd } from 'next-seo';
 import { useRef } from 'react';
+import { AiFillGithub } from 'react-icons/ai';
+import { CgWebsite } from 'react-icons/cg';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
 import projectService from '../../services/projectService';
@@ -20,13 +24,14 @@ interface Props {
 
 const ProjectPage = ({ project }: Props) => {
   const topRef = useRef<HTMLDivElement>(null);
+  const SEOImage = imageService.getSEOImage(project.image.asset)
   return (
     <>
       <NextSeo
         title={`${project.title} | lhowsam.com`}
-        canonical={`https://lhowsam.com/projects/${project.slug}`}
+        canonical={`${constants.siteUrl}/projects/${project.slug}`}
         openGraph={{
-          url: `https://lhowsam.com/projects/${project.slug}`,
+          url: `${constants.siteUrl}/projects/${project.slug}`,
           title: `${project.title} | lhowsam.com`,
         }}
       />
@@ -34,12 +39,43 @@ const ProjectPage = ({ project }: Props) => {
         description={project.intro}
         title={`${project.title} | lhowsam.com`}
         keywords={['Projects, Blog posts, About']}
-        url={`https://lhowsam.com/projects/${project.slug}`}
+        url={`${constants.siteUrl}/projects/${project.slug}`}
+      />
+      <ArticleJsonLd 
+        url={`${constants.siteUrl}/projects/${project.slug}`}
+        title={project.title}
+        images={[SEOImage]}
+        datePublished=""
+        authorName={constants.fullName}
+        description={project.intro}
+        publisherName={constants.site}
+        publisherLogo={`${constants.siteUrl}/code.svg`}
       />
       <div ref={topRef} />
       <PostTitle>
         <TextGradient>{project.title}</TextGradient>
       </PostTitle>
+      <Flex>
+      <Flex>
+          {project.siteUrl && (
+            <a
+              href={project.siteUrl}
+              aria-label="Deployed website"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <CgWebsite fontSize="25px" />
+            </a>
+          )}
+          <a
+            href={project.githubUrl}
+            aria-label="Github repo of project"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <AiFillGithub fontSize="25px" />
+          </a>
+        </Flex>      </Flex>
       <MDXContent>
         <MDXRemote {...project.source} components={MDXComponents} />
       </MDXContent>
@@ -50,7 +86,7 @@ const ProjectPage = ({ project }: Props) => {
   );
 };
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = await projectService.getAllProjects();
+  const projects = await projectService.getProjectSlugs();
   const slugs = projects.map((project) => ({
     params: { slug: project.slug.current },
   }));

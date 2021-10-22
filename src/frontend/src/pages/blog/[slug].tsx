@@ -3,6 +3,7 @@ import { Blog } from '@lhowsam/cms/types/schema';
 import SEO from '@src/components/SEO';
 import { ScrollToTop, ShareLinks } from '@src/components/blog';
 import MDXComponents, { ImageWrapper } from '@src/components/mdx';
+import { constants } from '@src/data/constants';
 import blogService from '@src/services/blogService';
 import imageService from '@src/services/imageService';
 import { MDXContent, PostMetaDataGrid, EndLinks } from '@src/styles/blog';
@@ -11,7 +12,7 @@ import mdxPrism from 'mdx-prism';
 import { GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import { NextSeo } from 'next-seo';
+import { NextSeo, ArticleJsonLd } from 'next-seo';
 import React, { useRef } from 'react';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
@@ -22,13 +23,16 @@ interface Props {
 
 const PostPage = ({ post }: Props) => {
   const topRef = useRef<HTMLDivElement>(null);
+
+  const SEOImage = imageService.getSEOImage(post.image.asset);
+
   return (
     <>
       <NextSeo
         title={`${post.title} | lhowsam.com`}
-        canonical={`https://lhowsam.com/posts/${post.slug}`}
+        canonical={`${constants.siteUrl}/blog/${post.slug}`}
         openGraph={{
-          url: `https://lhowsam.com/posts/${post.slug}`,
+          url: `${constants.siteUrl}/blog/${post.slug}`,
           title: `${post.title} | lhowsam.com`,
         }}
       />
@@ -36,7 +40,17 @@ const PostPage = ({ post }: Props) => {
         description={post.intro}
         title={`${post.title} | lhowsam.com`}
         keywords={['posts, Blog posts, About']}
-        url={`https://lhowsam.com/posts/${post.slug}`}
+        url={`${constants.siteUrl}/blog/${post.slug}`}
+      />
+      <ArticleJsonLd
+        url={`${constants.siteUrl}/blog/${post.slug}`}
+        title={post.title}
+        images={[SEOImage]}
+        datePublished={post.publishedAt}
+        authorName={constants.fullName}
+        description={post.intro}
+        publisherName={constants.site}
+        publisherLogo={`${constants.siteUrl}/code.svg`}
       />
       <div ref={topRef} />
       <PostTitle>
@@ -65,7 +79,7 @@ const PostPage = ({ post }: Props) => {
 };
 
 export const getStaticPaths = async () => {
-  const posts = await blogService.getAllPosts();
+  const posts = await blogService.getPostSlugs();
   const slugs = posts.map((post) => ({ params: { slug: post.slug.current } }));
   return {
     paths: slugs,

@@ -34,7 +34,16 @@ const project: Document<Project> = {
       type: 'markdown',
       validation: rule => rule.required(),
     },
-
+    {
+      name: 'image',
+      title: 'Image',
+      type: 'image',
+      description: 'Image used for SEO',
+      options: {
+        hotspot: true,
+      },
+      validation: rule => rule.required(),
+    },
     {
       name: 'siteUrl',
       title: 'deployed site URL',
