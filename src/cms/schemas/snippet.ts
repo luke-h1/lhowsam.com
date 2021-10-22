@@ -27,13 +27,12 @@ const snippet: Document<Snippet> = {
       validation: rule => rule.required()
     },
     {
-      name: 'image',
-      title: 'Image',
+      name: 'logo',
+      title: 'Logo',
       type: 'image',
       options: {
         hotspot: true,
       },
-      description: 'Image used for SEO',
       validation: rule => rule.required(),
     },
     

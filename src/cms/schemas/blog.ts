@@ -41,7 +41,6 @@ const blog: Document<Blog> = {
       options: {
         hotspot: true,
       },
-      description: 'Used on blog slug pages & SEO cards',
       validation: rule => rule.required(),
     },
     {

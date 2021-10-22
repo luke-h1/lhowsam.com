@@ -1,4 +1,5 @@
 import { Blog, Project } from '@lhowsam/cms/types/schema';
+import SEO from '@src/components/SEO';
 import BlogSection from '@src/sections/BlogSection';
 import ContactSection from '@src/sections/ContactSection';
 import IntroSection from '@src/sections/IntroSection';
@@ -20,11 +21,17 @@ const Index = ({ posts, projects }: Props) => {
     <>
       <NextSeo
         title="Home"
-        canonical="https://lhowsam.com"
+        canonical="https://lhowsam.com/"
         openGraph={{
           url: 'https://lhowsam.com',
-          title: 'Home | lhowsam.com',
+          title: 'Home',
         }}
+      />
+      <SEO
+        description="Home page"
+        title="Home"
+        keywords={['Projects, Blog posts, About']}
+        url="https://lhowsam.com"
       />
       <IntroSection />
       <Space size={25} />

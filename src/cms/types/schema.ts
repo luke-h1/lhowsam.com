@@ -20,7 +20,7 @@ export interface Snippet extends Document<Snippet> {
   title: string;
   slug: Slug;
   description: string;
-  image: Image;
+  logo: Image
   source: { compiledSource: string }; // when md is serialized
 
 }
@@ -31,7 +31,6 @@ export interface Project extends Document<Project> {
   title: string;
   intro: string;
   description: string;
-  image: Image;
   slug: Slug;
   tech: string[];
   siteUrl?: string;
