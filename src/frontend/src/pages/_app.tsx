@@ -8,7 +8,6 @@ import { GlobalThemeObject, ThemeObjectInitial } from '@src/types/styled';
 import * as gtag from '@src/utils/gtag';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
-import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import '@fontsource/raleway/400.css';
 import '@fontsource/raleway/600.css';
@@ -27,7 +26,7 @@ const initTheme = {
   theme: undefined,
 };
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+const MyApp = ({ Component, pageProps, router }: AppProps) => {
   const [themeObject, setThemeObject] = useState<ThemeObjectInitial>(initTheme);
 
   const getCSSVarValue = (variable: string) => {
@@ -47,7 +46,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     changeThemeVariant,
   };
 
-  const router = useRouter();
   useEffect(() => {
     const handleRouteChange = (url: string) => {
       gtag.pageview(url);
