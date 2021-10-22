@@ -26,6 +26,12 @@ const listAllPosts = groq`
   }
 `;
 
+const getAllSlugs = groq`
+*[ _type == "blog" ] {
+  slug
+}
+`
+
 const getPostQuery = groq`
 *[ _type == "blog" && slug.current == $slug][0] {
   ...,
@@ -48,6 +54,9 @@ const blogService = {
   > {
     return cmsClient.fetch(recentPostsQuery);
   },
+  async getPostSlugs(): Promise<Pick<Blog, 'slug'>[]> {
+    return cmsClient.fetch(getAllSlugs)
+  }
 };
 
 export default blogService;
