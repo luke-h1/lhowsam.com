@@ -72,7 +72,7 @@ const ProjectPage = ({ project }: Props) => {
   );
 };
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = await projectService.getAllProjects();
+  const projects = await projectService.getProjectSlugs();
   const slugs = projects.map((project) => ({
     params: { slug: project.slug.current },
   }));
