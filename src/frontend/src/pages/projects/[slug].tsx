@@ -3,13 +3,15 @@ import SEO from '@src/components/SEO';
 import { ScrollToTop } from '@src/components/blog';
 import MDXComponents from '@src/components/mdx';
 import { EndLinks, MDXContent } from '@src/styles/blog';
-import { PostTitle, TextGradient } from '@src/styles/typography';
+import { PostTitle, TextGradient, Flex } from '@src/styles/typography';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
 import { useRef } from 'react';
+import { AiFillGithub } from 'react-icons/ai';
+import { CgWebsite } from 'react-icons/cg';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
 import projectService from '../../services/projectService';
@@ -40,6 +42,27 @@ const ProjectPage = ({ project }: Props) => {
       <PostTitle>
         <TextGradient>{project.title}</TextGradient>
       </PostTitle>
+      <Flex>
+      <Flex>
+          {project.siteUrl && (
+            <a
+              href={project.siteUrl}
+              aria-label="Deployed website"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <CgWebsite fontSize="25px" />
+            </a>
+          )}
+          <a
+            href={project.githubUrl}
+            aria-label="Github repo of project"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <AiFillGithub fontSize="25px" />
+          </a>
+        </Flex>      </Flex>
       <MDXContent>
         <MDXRemote {...project.source} components={MDXComponents} />
       </MDXContent>
