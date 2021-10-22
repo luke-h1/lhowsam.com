@@ -9,6 +9,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import { useRef } from 'react';
 import { AiFillGithub } from 'react-icons/ai';
 import { CgWebsite } from 'react-icons/cg';
@@ -21,14 +22,15 @@ interface Props {
 }
 
 const ProjectPage = ({ project }: Props) => {
+  const router = useRouter()
   const topRef = useRef<HTMLDivElement>(null);
   return (
     <>
       <NextSeo
         title={`${project.title} | lhowsam.com`}
-        canonical={`https://lhowsam.com/projects/${project.slug}`}
+        canonical={`https://lhowsam.com${router.asPath}`}
         openGraph={{
-          url: `https://lhowsam.com/projects/${project.slug}`,
+          url: `https://lhowsam.com${router.asPath}`,
           title: `${project.title} | lhowsam.com`,
         }}
       />
@@ -36,7 +38,7 @@ const ProjectPage = ({ project }: Props) => {
         description={project.intro}
         title={`${project.title} | lhowsam.com`}
         keywords={['Projects, Blog posts, About']}
-        url={`https://lhowsam.com/projects/${project.slug}`}
+        url={`https://lhowsam.com${router.asPath}`}
       />
       <div ref={topRef} />
       <PostTitle>
