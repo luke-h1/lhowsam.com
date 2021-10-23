@@ -65,7 +65,7 @@ describe('projects', () => {
     cy.get('span').contains('My website').should('be.visible');
     cy.get('p')
       .contains(
-        "I have been working on my website since I started learning web development. I use this project as a training ground for myself and often find myself in the deep end of learning a new framework or trying a new technology (This has helped me get comfortable with React & Next for example). I like working on this site and can't wait to continue to improve it with the latest technologies available."
+        "I have been working on my website since I started learning web development. I use this project as a training ground for myself and often find myself in the deep end of learning a new framework or trying a new technology (this has helped me get comfortable with React & Next for example). I like working on this site and can't wait to continue to improve it with the latest technologies available."
       )
       .should('be.visible');
   });
