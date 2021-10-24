@@ -1,13 +1,7 @@
 import { Snippet } from '@lhowsam/cms/types/schema';
 import snippetService from '@src/services/snippetService';
-import {
-  AnchorUnstyled,
-  PostMetaDataGrid,
-  ReadMorePrompt,
-} from '@src/styles/blog';
-import { Center, PreviewLayout, Space } from '@src/styles/layouts';
-import { Card } from '@src/styles/project';
-import { Title, BlogPostPreviewTitle, Paragraph } from '@src/styles/typography';
+import { Center, Space } from '@src/styles/layouts';
+import { Title, Paragraph } from '@src/styles/typography';
 import Link from 'next/link';
 import React from 'react';
 
@@ -37,33 +31,6 @@ const SnippetsPage = ({ snippets }: Props) => {
             ))}
         </ul>
       </Space>
-      <PostMetaDataGrid>
-        <PreviewLayout>
-          {snippets &&
-            snippets.map((snippet) => (
-              <article
-                data-testid={`snippet-${snippet.title}`}
-                key={snippet._id}
-              >
-                <Link
-                  href={`/code-snippets/${snippet.slug.current}`}
-                  passHref
-                  scroll
-                >
-                  <AnchorUnstyled href={`/blog/${snippet.slug.current}`}>
-                    <Card>
-                      <BlogPostPreviewTitle isHovered={false}>
-                        {snippet.title}
-                      </BlogPostPreviewTitle>
-                      {/* <SmallText>{snippet.description}</SmallText> */}
-                      <ReadMorePrompt isHovered={false}>Read more </ReadMorePrompt>
-                    </Card>
-                  </AnchorUnstyled>
-                </Link>
-              </article>
-            ))}
-        </PreviewLayout>
-      </PostMetaDataGrid>
     </>
   );
 };
