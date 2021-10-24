@@ -107,7 +107,7 @@ color: #000;
 /* color: var(--color-primary-accent); */
 background: #DCDCDC;
 font-family: "B612 Mono";
-font-size: "0.875rem";
+font-size: "0.775rem";
 padding: '0.2em';
 border-radius: "0.875rem";
 `;
