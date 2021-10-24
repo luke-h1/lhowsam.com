@@ -16,6 +16,12 @@ const getSnippet = groq`
   }
 `
 
+const getSnippetSlugs = groq`
+  *[ _type == "snippet" ] {
+    slug,
+  }
+`
+
 const snippetService = {
   async getAllSnippets(): Promise<Snippet[]> {
     return cmsClient.fetch(listAllSnippets);
@@ -24,6 +30,9 @@ const snippetService = {
     return cmsClient.fetch(getSnippet, {
       slug
     })
+  },
+  async getSnippetSlugs(): Promise<Pick<Snippet, 'slug'>[]> {
+    return cmsClient.fetch(getSnippetSlugs)
   }
 }
 export default snippetService;
