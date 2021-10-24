@@ -26,16 +26,6 @@ const snippet: Document<Snippet> = {
       type: 'markdown',
       validation: rule => rule.required()
     },
-    {
-      name: 'logo',
-      title: 'Logo',
-      type: 'image',
-      options: {
-        hotspot: true,
-      },
-      validation: rule => rule.required(),
-    },
-    
   ]
 }
 export default snippet;
