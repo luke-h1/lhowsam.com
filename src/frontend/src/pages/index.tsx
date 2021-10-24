@@ -67,7 +67,7 @@ export const getStaticProps = async () => {
   }
 
   return {
-    revalidate: 60 * 30,
+    revalidate: 60 * 60,
     props: {
       posts,
       projects,
