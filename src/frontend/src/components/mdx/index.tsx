@@ -104,7 +104,6 @@ const MDXHeadingWrapper = {
 
 export const InlineCodeStyles = styled.span`
 color: #000;
-/* color: var(--color-primary-accent); */
 background: #DCDCDC;
 font-family: "B612 Mono";
 font-size: "0.775rem";
