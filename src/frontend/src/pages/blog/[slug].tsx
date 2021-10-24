@@ -84,7 +84,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const post = await blogService.getPost(params.slug as string);
-  if (!post) {
+  
+  if (!post._id) {
     return {
       props: [],
       notFound: true,
