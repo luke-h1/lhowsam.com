@@ -102,12 +102,24 @@ const MDXHeadingWrapper = {
   h3: (props: MDXPropsWithChildren) => HandleMDXHeaderElement('h3', props),
 };
 
+export const InlineCodeStyles = styled.span`
+color: #000;
+/* color: var(--color-primary-accent); */
+background: #DCDCDC;
+font-family: "B612 Mono";
+font-size: "0.875rem";
+padding: '0.2em';
+border-radius: "0.875rem";
+`;
+
+
 const MDXComponents = {
   p: Paragraph,
   h1: MDXHeadingWrapper.h1,
   h2: MDXHeadingWrapper.h2,
   h3: MDXHeadingWrapper.h3,
   Code: CodeBlock,
+  inlineCode: InlineCodeStyles,
   img: ImageWrapper,
   a: MDXLinkWrapper,
 };
