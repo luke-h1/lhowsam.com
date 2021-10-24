@@ -92,7 +92,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
   const project = await projectService.getProject(params.slug as string);
-  if (!project) {
+  
+  if (!project._id) {
     return {
       props: [],
       notFound: true,

@@ -71,11 +71,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
   const snippet = await snippetService.getSnippet(params.slug as string);
-  if (!snippet) {
+  
+  if(!snippet._id) {
     return {
       props: [],
       notFound: true,
-    };
+    }
   }
   const source = await serialize(snippet.description, {
     mdxOptions: {
