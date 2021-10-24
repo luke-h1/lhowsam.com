@@ -7,7 +7,7 @@ import {
 } from '@src/styles/blog';
 import { Center, PreviewLayout, Space } from '@src/styles/layouts';
 import { Card } from '@src/styles/project';
-import { Title, BlogPostPreviewTitle } from '@src/styles/typography';
+import { Title, BlogPostPreviewTitle, Paragraph } from '@src/styles/typography';
 import Link from 'next/link';
 import React from 'react';
 
@@ -21,6 +21,9 @@ const SnippetsPage = ({ snippets }: Props) => {
       <Center>
         <Title size={5}>Code snippets</Title>
       </Center>
+      <Paragraph>
+      These are a collection of code snippets I've used in the past and saved
+      </Paragraph>
       <Space>
         Table of contents
         <ul>
