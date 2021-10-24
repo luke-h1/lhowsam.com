@@ -1,4 +1,4 @@
-import { Document } from './sanity';
+import { Document } from './types/sanity';
 
 export interface Blog extends Document<Blog> {
   _id: string;

@@ -20,7 +20,6 @@ export interface Snippet extends Document<Snippet> {
   title: string;
   slug: Slug;
   description: string;
-  logo: Image
   source: { compiledSource: string }; // when md is serialized
 
 }
