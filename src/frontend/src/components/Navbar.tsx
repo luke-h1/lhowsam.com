@@ -188,8 +188,8 @@ const NavLinks = () => {
             $styledOnHover
           >
             <FaTwitter
-              aria-label="twitterwitter"
-              title="twitterwitter"
+              aria-label="twitter"
+              title="twitter"
             />
           </IconContainer>
         </motion.li>
