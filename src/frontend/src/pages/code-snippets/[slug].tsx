@@ -1,6 +1,6 @@
 import { Snippet } from '@lhowsam/cms/types/schema';
 import SEO from '@src/components/SEO';
-import { ShareLinks, ScrollToTop } from '@src/components/blog';
+import { ScrollToTop } from '@src/components/blog';
 import MDXComponents from '@src/components/mdx';
 import snippetService from '@src/services/snippetService';
 import { EndLinks, MDXContent } from '@src/styles/blog';
@@ -46,7 +46,6 @@ const SnippetPage = ({ snippet }: Props) => {
         <MDXRemote {...snippet.source} components={MDXComponents} />
       </MDXContent>
       <EndLinks>
-        <ShareLinks title={snippet.title} slug={snippet.slug.current} />
         <ScrollToTop topRef={topRef} />
       </EndLinks>
     </>

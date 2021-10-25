@@ -1,7 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Blog } from '@lhowsam/cms/types/schema';
 import SEO from '@src/components/SEO';
-import { ScrollToTop, ShareLinks } from '@src/components/blog';
+import { ScrollToTop } from '@src/components/blog';
 import MDXComponents, { ImageWrapper } from '@src/components/mdx';
 import blogService from '@src/services/blogService';
 import imageService from '@src/services/imageService';
@@ -59,7 +59,6 @@ const PostPage = ({ post }: Props) => {
         <MDXRemote {...post.source} components={MDXComponents} />
       </MDXContent>
       <EndLinks>
-        <ShareLinks title={post.title} slug={post.slug.current} />
         <ScrollToTop topRef={topRef} />
       </EndLinks>
     </>
