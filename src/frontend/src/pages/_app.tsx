@@ -69,7 +69,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           locale: 'en_IE',
           url: 'https://lhowsam.com',
           description: constants.intro,
-          site_name: 'Luke Howsam',
+          site_name: 'lhowsam.com',
           images: [
             {
               url: 'https://lhowsam.com/icons/logo.png',
