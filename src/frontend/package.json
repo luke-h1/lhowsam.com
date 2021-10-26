@@ -67,7 +67,7 @@
     "remark-autolink-headings": "^7.0.1",
     "remark-code-titles": "^0.1.2",
     "remark-gfm": "^3.0.0",
-    "remark-slug": "^6.1.0",
+    "remark-slug": "^7.0.1",
     "sass": "^1.43.2",
     "sharp": "^0.29.1",
     "styled-components": "^5.3.1",
