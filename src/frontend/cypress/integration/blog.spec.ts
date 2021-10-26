@@ -1,6 +1,6 @@
 describe('blog page should work', () => {
   before(() => {
-    cy.visit('http://localhost:3000/blog');
+    cy.visit('/blog');
     cy.get('h1').contains('blog').should('be.visible');
   });
 

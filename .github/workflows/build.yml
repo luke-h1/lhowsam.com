@@ -22,7 +22,6 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           yarn-version: 1.19
-
       
       - name: Install dependencies
         run: yarn install
