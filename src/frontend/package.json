@@ -38,7 +38,7 @@
     "@sanity/image-url": "^1.0.1",
     "@svgr/webpack": "^5.5.0",
     "core-js": "^3.18.3",
-    "cypress": "8.6.0",
+    "cypress": "8.7.0",
     "date-fns": "^2.25.0",
     "dotenv-safe": "^8.2.0",
     "eslint-plugin-cypress": "2.12.1",
