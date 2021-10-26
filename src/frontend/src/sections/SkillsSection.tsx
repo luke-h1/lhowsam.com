@@ -1,11 +1,12 @@
 import Skills from '@src/data/Skills';
 import styles from '@src/styles/skills.module.scss';
+import { Title } from '@src/styles/typography';
 import React from 'react';
 
 const SkillsSection = () => {
   return (
     <section>
-      <h1 className="section__title">Skills</h1>
+      <Title size={2.3}>Skills</Title>
 
       <div className={styles.skillsContainer}>
         {Skills.map((skill) => {
