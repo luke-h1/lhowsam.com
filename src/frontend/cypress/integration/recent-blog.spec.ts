@@ -54,7 +54,7 @@ describe('recent blogs', () => {
   });
 
   it('should display blog slug page correctly', () => {
-    cy.visit('http://localhost:3000/blog/full-stack-deploy-with-dokku');
+    cy.visit('/blog/full-stack-deploy-with-dokku');
     cy.get('span')
       .contains('Full stack deploy with Dokku')
       .should('be.visible');
@@ -65,7 +65,7 @@ describe('recent blogs', () => {
       )
       .should('be.visible');
 
-    cy.visit('http://localhost:3000/blog/next-js-ssr-notes');
+    cy.visit('/blog/next-js-ssr-notes');
     cy.get('span').contains('Next.js SSR notes').should('be.visible');
     cy.get('img').should('be.visible');
     cy.get('p')

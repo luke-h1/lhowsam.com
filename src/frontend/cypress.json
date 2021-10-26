@@ -1,6 +1,7 @@
 {
     "baseUrl": "http://localhost:3000",
-    "defaultCommandTimeout": 5000,
+    "blockHosts": "www.google-analytics.com",
+    "defaultCommandTimeout": 4000,
     "video": false,
     "retries": {
         "runMode": 1,

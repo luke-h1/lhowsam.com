@@ -36,23 +36,19 @@ describe('projects', () => {
       .should('be.visible');
   });
   it('should redirect to project slug page', () => {
-    cy.getByTestId('project-Automation').click();
-    cy.url().should('eq', 'http://localhost:3000/projects/automation');
+    cy.get('h2').contains('Automation').click()
+    cy.contains('Automation').should('be.visible')
 
     cy.visit('/');
 
-    cy.getByTestId('project-My website').click();
-    cy.url().should('eq', 'http://localhost:3000/projects/my-website');
+    cy.get('h2').contains('tm todos').click()
+    cy.contains('tm todos').should('be.visible')
 
-    cy.visit('/');
-
-    cy.getByTestId('project-tm todos').click();
-    cy.url().should('eq', 'http://localhost:3000/projects/tm-todos');
   });
   it('should display project slug data correctly', () => {
-    cy.visit('http://localhost:3000/projects/automation');
+    cy.visit('/projects/automation');
 
-    cy.get('span').contains('Automation').should('be.visible');
+    cy.contains('Automation').should('be.visible')
 
     cy.get('p')
       .contains(
@@ -60,9 +56,10 @@ describe('projects', () => {
       )
       .should('be.visible');
 
-    cy.visit('http://localhost:3000/projects/my-website');
+    cy.visit('/projects/my-website');
 
-    cy.get('span').contains('My website').should('be.visible');
+    cy.contains('My website').should('be.visible')
+
     cy.get('p')
       .contains(
         "I have been working on my website since I started learning web development. I use this project as a training ground for myself and often find myself in the deep end of learning a new framework or trying a new technology (this has helped me get comfortable with React & Next for example). I like working on this site and can't wait to continue to improve it with the latest technologies available."
