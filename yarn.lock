@@ -3978,7 +3978,7 @@
   dependencies:
     "@types/node" "*"
 
-"@types/hast@^2.0.0":
+"@types/hast@^2.0.0", "@types/hast@^2.3.2":
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/@types/hast/-/hast-2.3.4.tgz#8aa5ef92c117d20d974a82bdfb6a648b08c0bafc"
   integrity sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==
@@ -4097,9 +4097,9 @@
   integrity sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==
 
 "@types/node@*", "@types/node@^16.11.0":
-  version "16.11.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.4.tgz#90771124822d6663814f7c1c9b45a6654d8fd964"
-  integrity sha512-TMgXmy0v2xWyuCSCJM6NCna2snndD8yvQF67J29ipdzMcsPa9u+o0tjF5+EQNdhcuZplYuouYqpc4zcd5I6amQ==
+  version "16.11.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-16.11.5.tgz#e91be5ba4ab88c06095e7b61f9ad1767a1093faf"
+  integrity sha512-NyUV2DGcqYIx9op++MG2+Z4Nhw1tPhi0Wfs81TgncuX1aJC4zf2fgCJlJhl4BW9bCSS04e34VkqmOS96w0XQdg==
 
 "@types/node@^14.14.31":
   version "14.17.27"
@@ -4142,9 +4142,9 @@
   integrity sha512-L28j2FcJfSZOnL1WBjDYp2vUHCeIFlyYI/53EwD/rKUBQ7MtUUfbQWiyKJGpcnv4/WgrhWsFKrcPstcAt/J0tQ==
 
 "@types/react@*", "@types/react@^17.0.0", "@types/react@^17.0.30":
-  version "17.0.31"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.31.tgz#fe05ebf91ff3ae35bb6b13f6c1b461db8089dff8"
-  integrity sha512-MQSR5EL4JZtdWRvqDgz9kXhSDDoy2zMTYyg7UhP+FZ5ttUOocWyxiqFJiI57sUG0BtaEX7WDXYQlkCYkb3X9vQ==
+  version "17.0.32"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.32.tgz#89a161286bbe2325d4d516420a27364a324909f4"
+  integrity sha512-hAm1pmwA3oZWbkB985RFwNvBRMG0F3KWSiC4/hNmanigKZMiKQoH5Q6etNw8HIDztTGfvXyOjPvdNnvBUCuaPg==
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -4281,13 +4281,13 @@
     debug "^4.3.1"
 
 "@typescript-eslint/parser@^5.0.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-5.1.0.tgz#6c7f837d210d2bc0a811e7ea742af414f4e00908"
-  integrity sha512-vx1P+mhCtYw3+bRHmbalq/VKP2Y3gnzNgxGxfEWc6OFpuEL7iQdAeq11Ke3Rhy8NjgB+AHsIWEwni3e+Y7djKA==
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-5.2.0.tgz#dc081aa89de16b5676b10215519af3aa7b58fb72"
+  integrity sha512-Uyy4TjJBlh3NuA8/4yIQptyJb95Qz5PX//6p8n7zG0QnN4o3NF9Je3JHbVU7fxf5ncSXTmnvMtd/LDQWDk0YqA==
   dependencies:
-    "@typescript-eslint/scope-manager" "5.1.0"
-    "@typescript-eslint/types" "5.1.0"
-    "@typescript-eslint/typescript-estree" "5.1.0"
+    "@typescript-eslint/scope-manager" "5.2.0"
+    "@typescript-eslint/types" "5.2.0"
+    "@typescript-eslint/typescript-estree" "5.2.0"
     debug "^4.3.2"
 
 "@typescript-eslint/scope-manager@4.33.0":
@@ -6669,9 +6669,9 @@ core-js@^2.4.0, core-js@^2.5.0:
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
 
 core-js@^3.18.3:
-  version "3.18.3"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.18.3.tgz#86a0bba2d8ec3df860fefcc07a8d119779f01509"
-  integrity sha512-tReEhtMReZaPFVw7dajMx0vlsz3oOb8ajgPoHVYGxr8ErnZ6PcYEvvmjGmXlfpnxpkYSdOQttjB+MvVbCGfvLw==
+  version "3.19.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.19.0.tgz#9e40098a9bc326c7e81b486abbd5e12b9d275176"
+  integrity sha512-L1TpFRWXZ76vH1yLM+z6KssLZrP8Z6GxxW4auoCj+XiViOzNPJCAuTIkn03BGdFe6Z5clX5t64wRIRypsZQrUg==
 
 core-util-is@1.0.2:
   version "1.0.2"
@@ -13115,11 +13115,6 @@ mdast-util-to-markdown@^1.0.0:
     unist-util-visit "^4.0.0"
     zwitch "^2.0.0"
 
-mdast-util-to-string@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/mdast-util-to-string/-/mdast-util-to-string-1.1.0.tgz#27055500103f51637bd07d01da01eb1967a43527"
-  integrity sha512-jVU0Nr2B9X3MU4tSK7JP1CMkSvOj7X5l/GboG1tKRw52lLF1x2Ju92Ms9tNetCcbfX3hzlM73zYo2NKkWSfF/A==
-
 mdast-util-to-string@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/mdast-util-to-string/-/mdast-util-to-string-2.0.0.tgz#b8cfe6a713e1091cb5b728fc48885a4767f8b97b"
@@ -16048,6 +16043,11 @@ postcss-sorting@^5.0.1:
     lodash "^4.17.14"
     postcss "^7.0.17"
 
+postcss-sorting@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/postcss-sorting/-/postcss-sorting-7.0.1.tgz#923b5268451cf2d93ebf8835e17a6537757049a5"
+  integrity sha512-iLBFYz6VRYyLJEJsBJ8M3TCqNcckVzz4wFounSc5Oez35ogE/X+aoC5fFu103Ot7NyvjU3/xqIXn93Gp3kJk4g==
+
 postcss-svgo@^4.0.3:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/postcss-svgo/-/postcss-svgo-4.0.3.tgz#343a2cdbac9505d416243d496f724f38894c941e"
@@ -17519,14 +17519,17 @@ remark-rehype@^9.0.0:
     mdast-util-to-hast "^11.0.0"
     unified "^10.0.0"
 
-remark-slug@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/remark-slug/-/remark-slug-6.1.0.tgz#0503268d5f0c4ecb1f33315c00465ccdd97923ce"
-  integrity sha512-oGCxDF9deA8phWvxFuyr3oSJsdyUAxMFbA0mZ7Y1Sas+emILtO+e5WutF9564gDsEN4IXaQXm5pFo6MLH+YmwQ==
+remark-slug@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/remark-slug/-/remark-slug-7.0.1.tgz#9827ce6d6ee81ca82b79891b0e5931a8123ce63b"
+  integrity sha512-NRvYePr69LdeCkEGwL4KYAmq7kdWG5rEavCXMzUR4qndLoXHJAOLSUmPY6Qm4NJfKix7/EmgObyVaYivONAFhg==
   dependencies:
+    "@types/hast" "^2.3.2"
+    "@types/mdast" "^3.0.0"
     github-slugger "^1.0.0"
-    mdast-util-to-string "^1.0.0"
-    unist-util-visit "^2.0.0"
+    mdast-util-to-string "^3.0.0"
+    unified "^10.0.0"
+    unist-util-visit "^4.0.0"
 
 remark-squeeze-paragraphs@4.0.0:
   version "4.0.0"
@@ -19106,7 +19109,7 @@ stylelint-config-standard@^22.0.0:
   dependencies:
     stylelint-config-recommended "^5.0.0"
 
-stylelint-order@^4.0.0, stylelint-order@^4.1.0:
+stylelint-order@^4.0.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-4.1.0.tgz#692d05b7d0c235ac66fcf5ea1d9e5f08a76747f6"
   integrity sha512-sVTikaDvMqg2aJjh4r48jsdfmqLT+nqB1MOsaBnvM3OwLx4S+WXcsxsgk5w18h/OZoxZCxuyXMh61iBHcj9Qiw==
@@ -19114,6 +19117,14 @@ stylelint-order@^4.0.0, stylelint-order@^4.1.0:
     lodash "^4.17.15"
     postcss "^7.0.31"
     postcss-sorting "^5.0.1"
+
+stylelint-order@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-order/-/stylelint-order-5.0.0.tgz#abd20f6b85ac640774cbe40e70d3fe9c6fdf4400"
+  integrity sha512-OWQ7pmicXufDw5BlRqzdz3fkGKJPgLyDwD1rFY3AIEfIH/LQY38Vu/85v8/up0I+VPiuGRwbc2Hg3zLAsJaiyw==
+  dependencies:
+    postcss "^8.3.11"
+    postcss-sorting "^7.0.1"
 
 stylelint-prettier@^1.2.0:
   version "1.2.0"
