@@ -1,4 +1,3 @@
-
 describe('snippets', () => {
   before(() => {
     cy.visit('/code-snippets')
