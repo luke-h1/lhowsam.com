@@ -12,5 +12,8 @@ jobs:
     - name: Install dependencies
       run: yarn install
 
-    - name: UI tests 
+    - name: local UI tests 
       run: npm run cy:ci
+
+    - name: prod UI tests 
+      run: npm run e2e:prod

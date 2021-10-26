@@ -26,5 +26,5 @@ jobs:
       - name: Install dependencies
         run: yarn install
 
-      - name: UI tests 
+      - name: local UI tests 
         run: yarn workspace @lhowsam/frontend cy:ci
