@@ -2843,7 +2843,7 @@
     shallow-equals "^1.0.0"
     use-device-pixel-ratio "^1.1.0"
 
-"@sanity/base@^2.21.4":
+"@sanity/base@2.21.7", "@sanity/base@^2.21.4":
   version "2.21.7"
   resolved "https://registry.yarnpkg.com/@sanity/base/-/base-2.21.7.tgz#88c150bc02ea15268862d6e02b93782872a798ce"
   integrity sha512-oAT7HGvtJHh9I7vA0cmw2IKRGxrrRIAnB05aX7bruHJdClMM7qtsZpi7IJ/+7pASzxEs/MYKLZLaecq1TpEEjA==
@@ -3060,17 +3060,17 @@
     lodash "^4.17.15"
 
 "@sanity/default-layout@^2.21.4":
-  version "2.21.6"
-  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-2.21.6.tgz#adf5384aa5e82957ffdea56863d5ee29251eda57"
-  integrity sha512-H4LXe05vwOTWsU8VesMgn2zpgdsuuOHE5N1qjoWpRUn3PbQ0L2M+OlHiR9A3YEpkciCC3A7D3zfAniiREceXMQ==
+  version "2.21.7"
+  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-2.21.7.tgz#fd5c7acb6c70376c199ac500258cdd3b29eec361"
+  integrity sha512-UjHL4ogF+K2eiNjEbhPakg8d3kmTZrMNqsscGflpyCoJO7QCT4Q3TJxh2IdM57+y6UDkwVGUAij4bX7zUgNClw==
   dependencies:
     "@reach/auto-id" "^0.13.2"
-    "@sanity/base" "2.21.6"
-    "@sanity/client" "2.21.3"
+    "@sanity/base" "2.21.7"
+    "@sanity/client" "2.21.7"
     "@sanity/generate-help-url" "2.18.0"
     "@sanity/icons" "^1.2.1"
     "@sanity/ui" "^0.36.12"
-    "@sanity/util" "2.21.6"
+    "@sanity/util" "2.21.7"
     lodash "^4.17.15"
     react-rx "^1.0.0-beta.6"
     rxjs "^6.5.3"
