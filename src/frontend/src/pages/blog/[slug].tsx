@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Blog } from '@lhowsam/cms/types/schema';
-import SEO from '@src/components/SEO';
 import { ScrollToTop } from '@src/components/blog';
 import MDXComponents, { ImageWrapper } from '@src/components/mdx';
 import blogService from '@src/services/blogService';
@@ -27,18 +26,12 @@ const PostPage = ({ post }: Props) => {
   return (
     <>
       <NextSeo
-        title={`${post.title} | lhowsam.com`}
+        title={post.title}
         canonical={`https://lhowsam.com${router.asPath}`}
         openGraph={{
           url: `https://lhowsam.com${router.asPath}`,
           title: `${post.title} | lhowsam.com`,
         }}
-      />
-      <SEO
-        description={post.intro}
-        title={`${post.title} | lhowsam.com`}
-        keywords={['posts, Blog posts, About']}
-        url={`https://lhowsam.com${router.asPath}`}
       />
       <div ref={topRef} />
       <PostTitle>
@@ -84,7 +77,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const post = await blogService.getPost(params.slug as string);
   
-  if (!post._id) {
+  if (!post) {
     return {
       props: [],
       notFound: true,
