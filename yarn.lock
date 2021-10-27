@@ -3076,9 +3076,9 @@
     rxjs "^6.5.3"
 
 "@sanity/default-login@^2.21.4":
-  version "2.21.6"
-  resolved "https://registry.yarnpkg.com/@sanity/default-login/-/default-login-2.21.6.tgz#75abb74d0e57ff0879a1f1585afcbbf5a51fcb97"
-  integrity sha512-1e9z27kJiopLyCBNHeSwY/kaCULokyyCmQG562CtzNbdP9btUyBHci4HYsyuZAorGMR3XlEVZUujMJBLpCsQqg==
+  version "2.21.7"
+  resolved "https://registry.yarnpkg.com/@sanity/default-login/-/default-login-2.21.7.tgz#c561f8afaf89e2e58842123128a546bf11ba8555"
+  integrity sha512-+NYCct+ZXe9pNhNmDsv52dJ72+6OBjXcwfW/NgHou1NLop+mQbYSdFyTXodwRaH/ZVknTralgbo2xOh9VVz5Pg==
   dependencies:
     "@sanity/generate-help-url" "2.18.0"
     "@sanity/logos" "^1.1.6"
