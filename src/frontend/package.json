@@ -12,7 +12,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "cy:open": "./node_modules/.bin/cypress open",
     "cy:run": "./node_modules/.bin/cypress run",
-    "cy:ci": "npm run build && npx start-server-and-test http://localhost:3000 cy:run",
+    "e2e:local": "npm run build && npx start-server-and-test http://localhost:3000 cy:run",
     "e2e:prod": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress run",
     "e2e:prod-open": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress open",
     "test": "jest",

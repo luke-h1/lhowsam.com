@@ -18,7 +18,7 @@
     "build": "lerna run build",
     "tsc": "lerna run tsc",
     "test": "yarn workspace @lhowsam/frontend test",
-    "e2e:local": "yarn workspace @lhowsam/frontend cy:ci",
+    "e2e:local": "yarn workspace @lhowsam/frontend e2e:local",
     "e2e:prod": "yarn workspace @lhowsam/frontend e2e:prod",
     "e2e:prod-open": "yarn workspace @lhowsam/frontend e2e:prod-open",
     "new-version": "lerna version --conventional-commits --yes",

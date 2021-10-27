@@ -13,7 +13,7 @@ jobs:
       run: yarn install
 
     - name: local UI tests 
-      run: npm run cy:ci
+      run: npm run e2e:local
 
     - name: prod UI tests 
       run: npm run e2e:prod
