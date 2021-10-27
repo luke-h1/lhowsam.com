@@ -1,5 +1,4 @@
 import { Blog } from '@lhowsam/cms/types/schema';
-import SEO from '@src/components/SEO';
 import { BlogPostPreview } from '@src/components/blog';
 import blogService from '@src/services/blogService';
 import { PreviewLayout, Center } from '@src/styles/layouts';
@@ -15,18 +14,12 @@ const Index = ({ posts }: Props) => {
   return (
     <>
       <NextSeo
-        title="Blog | lhowsam.com"
+        title="Blog"
         canonical="https://lhowsam.com/blog"
         openGraph={{
           url: 'https://lhowsam.com/blog',
           title: 'Blog | lhowsam.com',
         }}
-      />
-      <SEO
-        description="My blog"
-        title="Blog | lhowsam.com"
-        keywords={['Projects, Blog posts, About']}
-        url="https://lhowsam.com/blog"
       />
       <Center>
         <Title size={5}>blog</Title>

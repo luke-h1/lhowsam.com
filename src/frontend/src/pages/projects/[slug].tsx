@@ -1,5 +1,4 @@
 import { Project } from '@lhowsam/cms/types/schema';
-import SEO from '@src/components/SEO';
 import { ScrollToTop } from '@src/components/blog';
 import MDXComponents from '@src/components/mdx';
 import { EndLinks, MDXContent } from '@src/styles/blog';
@@ -27,18 +26,12 @@ const ProjectPage = ({ project }: Props) => {
   return (
     <>
       <NextSeo
-        title={`${project.title} | lhowsam.com`}
+        title={project.title}
         canonical={`https://lhowsam.com${router.asPath}`}
         openGraph={{
           url: `https://lhowsam.com${router.asPath}`,
           title: `${project.title} | lhowsam.com`,
         }}
-      />
-      <SEO
-        description={project.intro}
-        title={`${project.title} | lhowsam.com`}
-        keywords={['Projects, Blog posts, About']}
-        url={`https://lhowsam.com${router.asPath}`}
       />
       <div ref={topRef} />
       <PostTitle>
@@ -93,7 +86,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
   const project = await projectService.getProject(params.slug as string);
   
-  if (!project._id) {
+  if (!project) {
     return {
       props: [],
       notFound: true,

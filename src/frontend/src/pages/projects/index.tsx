@@ -1,6 +1,5 @@
 import { Project } from '@lhowsam/cms/types/schema';
 import ProjectCard from '@src/components/ProjectCard';
-import SEO from '@src/components/SEO';
 import projectService from '@src/services/projectService';
 import { Center, PreviewLayout } from '@src/styles/layouts';
 import { ProjectWrapper } from '@src/styles/project';
@@ -16,19 +15,15 @@ const ProjectPage = ({ projects }: Props) => {
   return (
     <>
       <NextSeo
-        title="Projects | lhowsam.com"
+        title="Projects"
         canonical="https://lhowsam.com/projects"
+        description='projects (mainly Next.js, Node & React)'
         openGraph={{
           url: 'https://lhowsam.com/projects',
           title: 'Projects',
         }}
       />
-      <SEO
-        description='My projects'
-        title="Projects"
-        keywords={['Projects, Blog posts, About']}
-        url="https://lhowsam.com/projects"
-      />
+  
       <Center>
         <Title size={5}>Projects</Title>
       </Center>

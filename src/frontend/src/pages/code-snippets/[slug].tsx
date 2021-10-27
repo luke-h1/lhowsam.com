@@ -1,5 +1,4 @@
 import { Snippet } from '@lhowsam/cms/types/schema';
-import SEO from '@src/components/SEO';
 import { ScrollToTop } from '@src/components/blog';
 import MDXComponents from '@src/components/mdx';
 import snippetService from '@src/services/snippetService';
@@ -25,18 +24,12 @@ const SnippetPage = ({ snippet }: Props) => {
   return (
     <>
       <NextSeo
-        title={`${snippet.title} | lhowsam.com`}
+        title={snippet.title}
         canonical={`https://lhowsam.com${router.asPath}`}
         openGraph={{
           url: `https://lhowsam.com${router.asPath}`,
           title: `${snippet.title} | lhowsam.com`,
         }}
-      />
-      <SEO
-        description={snippet.title}
-        title={`${snippet.title} | lhowsam.com`}
-        keywords={['code snippets, css, Node']}
-        url={`https://lhowsam.com${router.asPath}`}
       />
       <div ref={topRef} />
       <PostTitle>
@@ -71,7 +64,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
   const snippet = await snippetService.getSnippet(params.slug as string);
   
-  if(!snippet._id) {
+  if(!snippet) {
     return {
       props: [],
       notFound: true,
