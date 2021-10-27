@@ -1,7 +1,7 @@
 import { Project } from '@lhowsam/cms/types/schema';
 import useHover from '@src/hooks/useHover';
 import { AnchorUnstyled, ReadMorePrompt } from '@src/styles/blog';
-import { Space } from '@src/styles/layouts';
+import { Space, TagItem } from '@src/styles/layouts';
 import { Card } from '@src/styles/project';
 import { BlogPostPreviewTitle, SmallText, Flex } from '@src/styles/typography';
 import Link from 'next/link';
@@ -9,6 +9,7 @@ import React from 'react';
 import { AiFillGithub } from 'react-icons/ai';
 import { CgWebsite } from 'react-icons/cg';
 import { FaArrowRight } from 'react-icons/fa';
+import Tag from './Tag';
 
 interface Props {
   project: Project;
@@ -20,11 +21,7 @@ const ProjectCard = ({ project }: Props) => {
   return (
     <>
       <Card ref={hoverRef} data-testid={`project-${project.title}`}>
-        <Link
-          href={`/projects/${project.slug.current}`}
-          passHref
-          scroll
-        >
+        <Link href={`/projects/${project.slug.current}`} passHref scroll>
           <AnchorUnstyled href={`/blog/${project.slug.current}`}>
             <BlogPostPreviewTitle {...{ isHovered }}>
               {project.title}
@@ -57,6 +54,9 @@ const ProjectCard = ({ project }: Props) => {
             <AiFillGithub fontSize="25px" />
           </a>
         </Flex>
+        <TagItem>
+        <Tag tech={project.tech} />
+        </TagItem>
       </Card>
     </>
   );
