@@ -13,6 +13,8 @@
 
 ## Tests
 
+[![CI / UI tests (production)](https://github.com/luke-h1/lhowsam.com/actions/workflows/prod-ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/prod-ui-tests.yml)
+
 [![CI / UI tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml)
 
 [![CI / Nightly tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-tests.yml)
