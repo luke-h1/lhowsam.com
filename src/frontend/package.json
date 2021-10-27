@@ -12,7 +12,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "cy:open": "./node_modules/.bin/cypress open",
     "cy:run": "./node_modules/.bin/cypress run",
-    "cy:ci": "npm run build && npx start-server-and-test http://localhost:3000 cy:run",
+    "e2e:local": "npm run build && npx start-server-and-test http://localhost:3000 cy:run",
     "e2e:prod": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress run",
     "e2e:prod-open": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress open",
     "test": "jest",
@@ -109,7 +109,7 @@
     "postcss": "^8.3.9",
     "prettier": "^2.4.1",
     "start-server-and-test": "^1.14.0",
-    "stylelint": "^13.13.1",
+    "stylelint": "^14.0.1",
     "stylelint-config-standard": "^23.0.0",
     "ts-jest": "^27.0.7",
     "typescript": "^4.4.4"
