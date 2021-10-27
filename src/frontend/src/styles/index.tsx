@@ -35,7 +35,7 @@ export const GlobalStyles = createGlobalStyle`
 		--values-primary-accent: 157, 134, 233;
 		--color-secondary-accent: rgb(97, 218, 251);
 		--color-background: rgb(0, 0, 0);
-		--color-inlineCode-bg: rgb(51, 51, 51);
+		--color-inlineCode-bg: #fff;
 		--color-bg-blurred: rgba(15,10,35,0.9);
 	}
 	html,
