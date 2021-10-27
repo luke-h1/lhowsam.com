@@ -2,6 +2,7 @@ import { Snippet } from '@lhowsam/cms/types/schema';
 import snippetService from '@src/services/snippetService';
 import { Center, Space } from '@src/styles/layouts';
 import { Title, Paragraph } from '@src/styles/typography';
+import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import React from 'react';
 
@@ -12,11 +13,20 @@ interface Props {
 const SnippetsPage = ({ snippets }: Props) => {
   return (
     <>
+      <NextSeo
+        title="Snippets"
+        canonical="https://lhowsam.com/code-snippets"
+        description="code snippets"
+        openGraph={{
+          url: 'https://lhowsam.com/code-snippets',
+          title: 'Snippets',
+        }}
+      />
       <Center>
         <Title size={5}>Code snippets</Title>
       </Center>
       <Paragraph>
-      These are a collection of code snippets I've used in the past and saved
+        These are a collection of code snippets I've used in the past and saved
       </Paragraph>
       <Space>
         Table of contents

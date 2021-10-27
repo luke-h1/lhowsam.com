@@ -1,7 +1,6 @@
 import { MDXProvider } from '@mdx-js/react';
 import Navbar from '@src/components/Navbar';
 import MDXComponents from '@src/components/mdx/index';
-import { constants } from '@src/data/constants';
 import { GlobalStyles } from '@src/styles';
 import { Layout } from '@src/styles/layouts';
 import { GlobalThemeObject, ThemeObjectInitial } from '@src/types/styled';
@@ -63,20 +62,6 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <>
       <DefaultSeo
         titleTemplate="%s | lhowsam.com"
-        description="Luke Howsam"
-        openGraph={{
-          type: 'website',
-          locale: 'en_IE',
-          url: 'https://lhowsam.com',
-          description: constants.intro,
-          site_name: 'lhowsam.com',
-          images: [
-            {
-              url: 'https://lhowsam.com/icons/logo.png',
-              alt: 'Site Logo',
-            },
-          ],
-        }}
       />
       <MDXProvider components={MDXComponents}>
         <GlobalStyles />

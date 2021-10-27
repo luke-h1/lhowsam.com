@@ -9,6 +9,18 @@ import Document, {
 } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
+const keywords = [
+  'Luke Howsam',
+  'Developer',
+  'Software Tester',
+  'React.js',
+  'Node.js',
+  'Next.js',
+  'Automated & manual testing',
+  'Sheffield',
+  'United Kingdom',
+];
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
@@ -34,7 +46,7 @@ export default class MyDocument extends Document {
       sheet.seal();
     }
   }
-
+  
   render() {
     return (
       <Html lang="en">
@@ -42,6 +54,10 @@ export default class MyDocument extends Document {
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <meta
+            name="keywords"
+            content={[...(keywords as string[])].join(', ')}
           />
           <script
             // eslint-disable-next-line react/no-danger
@@ -56,7 +72,6 @@ export default class MyDocument extends Document {
             `,
             }}
           />
-
           <link href="/icons/favicon-16x16.png" rel="shortcut icon" />
           <link href="site.webmanifest" rel="manifest" />
           <link
