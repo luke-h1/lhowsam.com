@@ -1,10 +1,6 @@
-name: CI / UI tests
+name: CI / UI tests (production)
 on:
-  push:
-    branches: [dev]
-  pull_request:
-    branches: [dev, main]
-
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,9 +18,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           yarn-version: 1.19
-
+      
       - name: Install dependencies
         run: yarn install
 
-      - name: local UI tests 
-        run: yarn workspace @lhowsam/frontend e2e:local
+      - name: UI tests (production)
+        run: yarn e2e:prod
