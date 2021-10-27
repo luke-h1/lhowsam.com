@@ -18044,9 +18044,9 @@ sanity-plugin-markdown@^2.0.4:
     remark-gfm "^1.0.0"
 
 sanity-plugin-media@^1.4.1:
-  version "1.4.2"
-  resolved "https://registry.yarnpkg.com/sanity-plugin-media/-/sanity-plugin-media-1.4.2.tgz#a6812be45198959de0ee98388dffdcc0d842cc88"
-  integrity sha512-2W8d2thKHm57TUphzffesLcpn8XJ3AJCo8Hw+q+7BvaQvnOtgR65XbbmQFrfwSOnj9AH5nO4SjtvPt1UzP/gCw==
+  version "1.4.3"
+  resolved "https://registry.yarnpkg.com/sanity-plugin-media/-/sanity-plugin-media-1.4.3.tgz#3f05135edcca365ac77c72b1fca3f354808152a9"
+  integrity sha512-mMyGHJDyO+RGGm3Cg3fO8o0Iacm3wgaIhEBG6ylEmeMfJHjnqWgSUWwJrpLF4y2qi7ERlhuW7v8L50sf+nw9jQ==
   dependencies:
     "@hookform/resolvers" "2.0.0-beta.3"
     "@reduxjs/toolkit" "1.5.1"
