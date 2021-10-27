@@ -166,6 +166,9 @@ const NavLinks = () => {
         <motion.li variants={textLinksVariants}>
           <NavLink href="/projects">Projects</NavLink>
         </motion.li>
+        <motion.li variants={textLinksVariants}>
+          <NavLink href="/code-snippets">Snippets</NavLink>
+        </motion.li>
       </PageLinks>
       <IconLinks>
         <motion.li variants={iconLinksVariants}>
