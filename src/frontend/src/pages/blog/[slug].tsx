@@ -6,6 +6,7 @@ import blogService from '@src/services/blogService';
 import imageService from '@src/services/imageService';
 import { MDXContent, PostMetaDataGrid, EndLinks } from '@src/styles/blog';
 import { PostTitle, Datestamp, TextGradient } from '@src/styles/typography';
+import { buildURL } from '@src/utils/buildURL';
 import mdxPrism from 'mdx-prism';
 import { GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
@@ -21,8 +22,15 @@ interface Props {
 }
 
 const PostPage = ({ post }: Props) => {
-  const router = useRouter()
+  const router = useRouter();
   const topRef = useRef<HTMLDivElement>(null);
+  const ogImageUrl = buildURL('https://image-worker.vercel.app/og.jpg', {
+    author: 'Luke',
+    website: 'lhowsam.com',
+    title: post.title,
+    image: 'https://lhowsam.com/images/luke.jpeg',
+    debug: false,
+  });
   return (
     <>
       <NextSeo
@@ -31,6 +39,15 @@ const PostPage = ({ post }: Props) => {
         openGraph={{
           url: `https://lhowsam.com${router.asPath}`,
           title: `${post.title} | lhowsam.com`,
+          images: [
+            {
+              url: ogImageUrl,
+              width: 1200,
+              height: 630,
+              alt: 'temp alt',
+              type: 'image/jpeg',
+            },
+          ],
         }}
       />
       <div ref={topRef} />
@@ -76,7 +93,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
 
   const post = await blogService.getPost(params.slug as string);
-  
+
   if (!post) {
     return {
       props: [],
