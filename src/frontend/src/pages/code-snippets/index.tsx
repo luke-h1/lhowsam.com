@@ -1,4 +1,5 @@
 import { Snippet } from '@lhowsam/cms/types/schema';
+import imageService from '@src/services/imageService';
 import snippetService from '@src/services/snippetService';
 import { Center, Space } from '@src/styles/layouts';
 import { Title, Paragraph } from '@src/styles/typography';
@@ -20,6 +21,8 @@ const SnippetsPage = ({ snippets }: Props) => {
         openGraph={{
           url: 'https://lhowsam.com/code-snippets',
           title: 'Snippets',
+          images: [imageService.getOpenGraphImage('Code snippets')],
+
         }}
       />
       <Center>

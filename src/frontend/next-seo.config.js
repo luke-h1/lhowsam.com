@@ -6,7 +6,6 @@ const SEO = {
   title,
   canonical: 'https://lhowsam.com',
   description: "My website, built with Next.js, Typescript & Sanity.io",
-
   openGraph: {
     profile: {
       firstName: 'Luke',

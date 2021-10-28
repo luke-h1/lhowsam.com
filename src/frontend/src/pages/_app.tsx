@@ -18,8 +18,8 @@ import '@fontsource/poppins/600.css';
 import '@fontsource/poppins/700.css';
 import '@fontsource/poppins/800.css';
 import "@fontsource/b612-mono";
-
 import { ThemeProvider } from 'styled-components';
+import SEO from '../../next-seo.config'
 
 import '@src/styles/prism.css';
 
@@ -62,6 +62,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
     <>
       <DefaultSeo
         titleTemplate="%s | lhowsam.com"
+        {...SEO}
       />
       <MDXProvider components={MDXComponents}>
         <GlobalStyles />
