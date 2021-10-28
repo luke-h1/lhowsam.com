@@ -13,6 +13,13 @@ const snippet: Document<Snippet> = {
       validation: rule => rule.required()
     },
     {
+      name: 'intro',
+      title: 'Intro',
+      type: 'string',
+      description: 'Short intro to snippet',
+      validation: rule => rule.required()
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',
