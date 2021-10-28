@@ -1,6 +1,7 @@
 import { Blog } from '@lhowsam/cms/types/schema';
 import { BlogPostPreview } from '@src/components/blog';
 import blogService from '@src/services/blogService';
+import imageService from '@src/services/imageService';
 import { PreviewLayout, Center } from '@src/styles/layouts';
 import { Title } from '@src/styles/typography';
 import { NextSeo } from 'next-seo';
@@ -19,6 +20,7 @@ const Index = ({ posts }: Props) => {
         openGraph={{
           url: 'https://lhowsam.com/blog',
           title: 'Blog | lhowsam.com',
+          images: [imageService.getOpenGraphImage('Blog')],
         }}
       />
       <Center>

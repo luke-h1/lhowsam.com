@@ -1,6 +1,7 @@
 import { Snippet } from '@lhowsam/cms/types/schema';
 import { ScrollToTop } from '@src/components/blog';
 import MDXComponents from '@src/components/mdx';
+import imageService from '@src/services/imageService';
 import snippetService from '@src/services/snippetService';
 import { EndLinks, MDXContent } from '@src/styles/blog';
 import { PostTitle, TextGradient } from '@src/styles/typography';
@@ -29,6 +30,7 @@ const SnippetPage = ({ snippet }: Props) => {
         openGraph={{
           url: `https://lhowsam.com${router.asPath}`,
           title: `${snippet.title} | lhowsam.com`,
+          images: [imageService.getOpenGraphImage(snippet.title)],
         }}
       />
       <div ref={topRef} />

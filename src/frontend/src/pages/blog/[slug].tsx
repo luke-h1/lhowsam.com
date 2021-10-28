@@ -32,6 +32,7 @@ const PostPage = ({ post }: Props) => {
         canonical={`https://lhowsam.com${router.asPath}`}
         description={post.intro}
         openGraph={{
+          images: [imageService.getOpenGraphImage(post.title)],
           url: `https://lhowsam.com${router.asPath}`,
           title: `${post.title} | lhowsam.com`,
         }}

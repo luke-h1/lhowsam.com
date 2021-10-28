@@ -5,6 +5,7 @@ import IntroSection from '@src/sections/IntroSection';
 import ProjectSection from '@src/sections/ProjectSection';
 import SkillsSection from '@src/sections/SkillsSection';
 import blogService from '@src/services/blogService';
+import imageService from '@src/services/imageService';
 import projectService from '@src/services/projectService';
 import { Space } from '@src/styles/layouts';
 import { NextSeo } from 'next-seo';
@@ -24,6 +25,7 @@ const Index = ({ posts, projects }: Props) => {
         openGraph={{
           url: 'https://lhowsam.com',
           title: 'Home',
+          images: [imageService.getOpenGraphImage('Home')],
         }}
       />
       <IntroSection />

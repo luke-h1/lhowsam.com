@@ -1,5 +1,6 @@
 import { Project } from '@lhowsam/cms/types/schema';
 import ProjectCard from '@src/components/ProjectCard';
+import imageService from '@src/services/imageService';
 import projectService from '@src/services/projectService';
 import { Center, PreviewLayout } from '@src/styles/layouts';
 import { ProjectWrapper } from '@src/styles/project';
@@ -21,6 +22,8 @@ const ProjectPage = ({ projects }: Props) => {
         openGraph={{
           url: 'https://lhowsam.com/projects',
           title: 'Projects',
+          images: [imageService.getOpenGraphImage('Projects')],
+
         }}
       />
   
