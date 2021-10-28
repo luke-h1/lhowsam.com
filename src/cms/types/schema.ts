@@ -18,6 +18,7 @@ export interface Snippet extends Document<Snippet> {
   _type: 'snippet';
   key: string;
   title: string;
+  intro: string;
   slug: Slug;
   description: string;
   source: { compiledSource: string }; // when md is serialized

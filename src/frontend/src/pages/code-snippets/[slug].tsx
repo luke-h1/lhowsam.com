@@ -27,6 +27,7 @@ const SnippetPage = ({ snippet }: Props) => {
       <NextSeo
         title={snippet.title}
         canonical={`https://lhowsam.com${router.asPath}`}
+        description={snippet.intro}
         openGraph={{
           url: `https://lhowsam.com${router.asPath}`,
           title: `${snippet.title} | lhowsam.com`,
