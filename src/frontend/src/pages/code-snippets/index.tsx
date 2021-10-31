@@ -20,7 +20,7 @@ const SnippetsPage = ({ snippets }: Props) => {
         description="code snippets"
         openGraph={{
           url: 'https://lhowsam.com/code-snippets',
-          title: 'Snippets',
+          title: 'Snippets | lhowsam.com',
           images: [imageService.getOpenGraphImage('Code snippets')],
 
         }}
