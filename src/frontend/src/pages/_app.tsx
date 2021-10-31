@@ -8,7 +8,6 @@ import { GlobalThemeObject, ThemeObjectInitial } from '@src/types/styled';
 import * as gtag from '@src/utils/gtag';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
-import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import '@fontsource/raleway/400.css';
 import '@fontsource/raleway/600.css';
