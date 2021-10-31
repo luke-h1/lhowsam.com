@@ -77,8 +77,10 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
           site_name: 'lhowsam.com',
           images: [
             {
-              url: 'https://lhowsam.com/icons/logo.png',
-              alt: config.site
+              url: `${process.env.NEXT_PUBLIC_SITE_URL}/icons/logo.png`,
+              alt: config.site,
+              width: 1200,
+              height: 630
             },
           ],
         }}

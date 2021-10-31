@@ -1,7 +1,6 @@
 import { Project } from '@lhowsam/cms/types/schema';
 import { ScrollToTop } from '@src/components/blog';
 import MDXComponents from '@src/components/mdx';
-import imageService from '@src/services/imageService';
 import { EndLinks, MDXContent } from '@src/styles/blog';
 import { Flex, PostTitle, TextGradient } from '@src/styles/typography';
 import mdxPrism from 'mdx-prism';
@@ -32,7 +31,6 @@ const ProjectPage = ({ project }: Props) => {
         openGraph={{
           url: `https://lhowsam.com${router.asPath}`,
           title: `${project.title} | lhowsam.com`,
-          images: [imageService.getOpenGraphImage(project.title)],
         }}
       />
       <div ref={topRef} />
