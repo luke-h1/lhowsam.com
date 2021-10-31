@@ -104,7 +104,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       project: { ...project, source },
     },
-    revalidate: 60 * 60,
+    revalidate: 60 * 30,
   };
 };
 export default ProjectPage;
