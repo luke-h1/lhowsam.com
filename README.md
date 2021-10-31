@@ -4,12 +4,14 @@
 - [React](https://github.com/facebook/react)
 - [Next](https://github.com/vercel/next.js)
 - [Typescript](https://github.com/Microsoft/TypeScript)
+- [Sanity](https://www.sanity.io)
+- [Yarn workspaces](https://classic.yarnpkg.com/lang/en/docs/workspaces/)
+- [Lerna](https://lerna.js.org/)
 - [Cypress](https://cypress.io)
 - [Jest](https://jestjs.io)
 - [styled-components](https://styled-components.com)
 - [MDX](https://github.com/mdx-js/mdx)
 - [Vercel](https://vercel.com)
-- [Sanity](https://www.sanity.io)
 
 ## Tests
 
