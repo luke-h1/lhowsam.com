@@ -17,6 +17,7 @@ const Index = ({ posts }: Props) => {
       <NextSeo
         title="Blog"
         canonical="https://lhowsam.com/blog"
+        description='Blog'
         openGraph={{
           url: 'https://lhowsam.com/blog',
           title: 'Blog | lhowsam.com',
