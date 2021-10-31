@@ -19,7 +19,7 @@ const SnippetsPage = ({ snippets }: Props) => {
     {
       author: "Luke Howsam",
       website: "lhowsam.com",
-      title: 'Blog',
+      title: 'Code snippets',
       image: `${process.env.NEXT_PUBLIC_SITE_URL}/${config.profilePicture}`,
     }
   )
