@@ -1,5 +1,6 @@
 import { Project } from '@lhowsam/cms/types/schema';
 import ProjectCard from '@src/components/ProjectCard';
+import config from '@src/config/config';
 import imageService from '@src/services/imageService';
 import projectService from '@src/services/projectService';
 import { Center, PreviewLayout } from '@src/styles/layouts';
@@ -13,6 +14,17 @@ interface Props {
 }
 
 const ProjectPage = ({ projects }: Props) => {
+  
+  const ogImageUrl = imageService.buildURL(
+    process.env.NEXT_PUBLIC_OG_FUNCTION_URL,
+    {
+      author: "Luke Howsam",
+      website: "lhowsam.com",
+      title: 'Projects',
+      image: `${process.env.NEXT_PUBLIC_SITE_URL}/${config.profilePicture}`,
+    }
+  )
+
   return (
     <>
       <NextSeo
@@ -22,8 +34,10 @@ const ProjectPage = ({ projects }: Props) => {
         openGraph={{
           url: 'https://lhowsam.com/projects',
           title: 'Projects | lhowsam.com',
-          images: [imageService.getOpenGraphImage('Projects')],
-
+          images: [{
+            url: ogImageUrl,
+            alt: "Projects"
+          }],
         }}
       />
   

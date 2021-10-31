@@ -4,5 +4,6 @@ const config = {
   site: 'lhowsam.com',
   intro: "Hey I'm Luke 👋 | Software tester | React.js & Typescript Enthusiast",
   websiteDescription: 'My website, built with Next.js, Typescript & Sanity.io',
+  profilePicture: 'images/luke.jpeg'
 };
 export default config;

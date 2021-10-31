@@ -1,5 +1,6 @@
 import { Blog } from '@lhowsam/cms/types/schema';
 import { BlogPostPreview } from '@src/components/blog';
+import config from '@src/config/config';
 import blogService from '@src/services/blogService';
 import imageService from '@src/services/imageService';
 import { PreviewLayout, Center } from '@src/styles/layouts';
@@ -12,6 +13,17 @@ interface Props {
 }
 
 const Index = ({ posts }: Props) => {
+
+  const ogImageUrl = imageService.buildURL(
+    process.env.NEXT_PUBLIC_OG_FUNCTION_URL,
+    {
+      author: "Luke Howsam",
+      website: "lhowsam.com",
+      title: 'Blog',
+      image: `${process.env.NEXT_PUBLIC_SITE_URL}/${config.profilePicture}`,
+    }
+  )
+
   return (
     <>
       <NextSeo
@@ -21,7 +33,10 @@ const Index = ({ posts }: Props) => {
         openGraph={{
           url: 'https://lhowsam.com/blog',
           title: 'Blog | lhowsam.com',
-          images: [imageService.getOpenGraphImage('Blog')],
+          images: [{
+            url: ogImageUrl,
+            alt: 'blog'
+          }],
         }}
       />
       <Center>

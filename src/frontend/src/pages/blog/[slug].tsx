@@ -2,6 +2,7 @@
 import { Blog } from '@lhowsam/cms/types/schema';
 import { ScrollToTop } from '@src/components/blog';
 import MDXComponents, { ImageWrapper } from '@src/components/mdx';
+import config from '@src/config/config';
 import blogService from '@src/services/blogService';
 import imageService from '@src/services/imageService';
 import { MDXContent, PostMetaDataGrid, EndLinks } from '@src/styles/blog';
@@ -25,6 +26,15 @@ const PostPage = ({ post }: Props) => {
   const router = useRouter();
   const topRef = useRef<HTMLDivElement>(null);
 
+  const ogImageUrl = imageService.buildURL(
+    process.env.NEXT_PUBLIC_OG_FUNCTION_URL,
+    {
+      author: "Luke Howsam",
+      website: "lhowsam.com",
+      title: post.title,
+      image: `${process.env.NEXT_PUBLIC_SITE_URL}/${config.profilePicture}`,
+    }
+  )
   return (
     <>
       <NextSeo
@@ -32,7 +42,12 @@ const PostPage = ({ post }: Props) => {
         canonical={`https://lhowsam.com${router.asPath}`}
         description={post.intro}
         openGraph={{
-          images: [imageService.getOpenGraphImage(post.title)],
+          images: [
+            {
+              url: ogImageUrl,
+              alt: post.title,
+            }
+          ],
           url: `https://lhowsam.com${router.asPath}`,
           title: `${post.title} | lhowsam.com`,
         }}

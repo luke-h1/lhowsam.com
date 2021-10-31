@@ -1,4 +1,5 @@
 import { Snippet } from '@lhowsam/cms/types/schema';
+import config from '@src/config/config';
 import imageService from '@src/services/imageService';
 import snippetService from '@src/services/snippetService';
 import { Center, Space } from '@src/styles/layouts';
@@ -12,6 +13,17 @@ interface Props {
 }
 
 const SnippetsPage = ({ snippets }: Props) => {
+
+  const ogImageUrl = imageService.buildURL(
+    process.env.NEXT_PUBLIC_OG_FUNCTION_URL,
+    {
+      author: "Luke Howsam",
+      website: "lhowsam.com",
+      title: 'Blog',
+      image: `${process.env.NEXT_PUBLIC_SITE_URL}/${config.profilePicture}`,
+    }
+  )
+  
   return (
     <>
       <NextSeo
@@ -21,8 +33,10 @@ const SnippetsPage = ({ snippets }: Props) => {
         openGraph={{
           url: 'https://lhowsam.com/code-snippets',
           title: 'Snippets | lhowsam.com',
-          images: [imageService.getOpenGraphImage('Code snippets')],
-
+          images: [{
+            url: ogImageUrl,
+            alt: "Code snippets"
+          }],
         }}
       />
       <Center>

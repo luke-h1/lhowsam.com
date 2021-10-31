@@ -1,6 +1,7 @@
 import { Snippet } from '@lhowsam/cms/types/schema';
 import { ScrollToTop } from '@src/components/blog';
 import MDXComponents from '@src/components/mdx';
+import config from '@src/config/config';
 import imageService from '@src/services/imageService';
 import snippetService from '@src/services/snippetService';
 import { EndLinks, MDXContent } from '@src/styles/blog';
@@ -22,6 +23,17 @@ interface Props {
 const SnippetPage = ({ snippet }: Props) => {
   const router = useRouter();
   const topRef = useRef<HTMLDivElement>(null);
+
+  const ogImageUrl = imageService.buildURL(
+    process.env.NEXT_PUBLIC_OG_FUNCTION_URL,
+    {
+      author: "Luke Howsam",
+      website: "lhowsam.com",
+      title: snippet.title,
+      image: `${process.env.NEXT_PUBLIC_SITE_URL}/${config.profilePicture}`,
+    }
+  )
+  
   return (
     <>
       <NextSeo
@@ -31,7 +43,12 @@ const SnippetPage = ({ snippet }: Props) => {
         openGraph={{
           url: `https://lhowsam.com${router.asPath}`,
           title: `${snippet.title} | lhowsam.com`,
-          images: [imageService.getOpenGraphImage(snippet.title)],
+          images: [
+            {
+              url: ogImageUrl,
+              alt: snippet.title,
+            }
+          ],
         }}
       />
       <div ref={topRef} />

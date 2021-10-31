@@ -1,6 +1,7 @@
 import { Project } from '@lhowsam/cms/types/schema';
 import { ScrollToTop } from '@src/components/blog';
 import MDXComponents from '@src/components/mdx';
+import config from '@src/config/config';
 import imageService from '@src/services/imageService';
 import { EndLinks, MDXContent } from '@src/styles/blog';
 import { Flex, PostTitle, TextGradient } from '@src/styles/typography';
@@ -24,6 +25,17 @@ interface Props {
 const ProjectPage = ({ project }: Props) => {
   const router = useRouter()
   const topRef = useRef<HTMLDivElement>(null);
+
+  const ogImageUrl = imageService.buildURL(
+    process.env.NEXT_PUBLIC_OG_FUNCTION_URL,
+    {
+      author: "Luke Howsam",
+      website: "lhowsam.com",
+      title: project.title,
+      image: `${process.env.NEXT_PUBLIC_SITE_URL}/${config.profilePicture}`,
+    }
+  )
+
   return (
     <>
       <NextSeo
@@ -32,7 +44,10 @@ const ProjectPage = ({ project }: Props) => {
         openGraph={{
           url: `https://lhowsam.com${router.asPath}`,
           title: `${project.title} | lhowsam.com`,
-          images: [imageService.getOpenGraphImage(project.title)],
+          images: [{
+            url: ogImageUrl,
+            alt: project.title
+          }],
         }}
       />
       <div ref={topRef} />
