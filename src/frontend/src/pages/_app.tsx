@@ -8,6 +8,7 @@ import { GlobalThemeObject, ThemeObjectInitial } from '@src/types/styled';
 import * as gtag from '@src/utils/gtag';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
+import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import '@fontsource/raleway/400.css';
 import '@fontsource/raleway/600.css';
@@ -77,8 +78,10 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
           site_name: 'lhowsam.com',
           images: [
             {
-              url: 'https://lhowsam.com/icons/logo.png',
-              alt: config.site
+              url: `${process.env.NEXT_PUBLIC_SITE_URL}/icons/logo.png`,
+              alt: config.site,
+              width: 1200,
+              height: 630
             },
           ],
         }}
