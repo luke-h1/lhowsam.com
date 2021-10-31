@@ -24,7 +24,7 @@ const Index = ({ posts, projects }: Props) => {
     {
       author: "Luke Howsam",
       website: "lhowsam.com",
-      title: 'Projects',
+      title: 'Home',
       image: `${process.env.NEXT_PUBLIC_SITE_URL}/${config.profilePicture}`,
     }
   )
