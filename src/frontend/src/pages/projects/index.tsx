@@ -18,10 +18,10 @@ const ProjectPage = ({ projects }: Props) => {
       <NextSeo
         title="Projects"
         canonical="https://lhowsam.com/projects"
-        description='projects (mainly Next.js, Node & React)'
+        description='projects'
         openGraph={{
           url: 'https://lhowsam.com/projects',
-          title: 'Projects',
+          title: 'Projects | lhowsam.com',
           images: [imageService.getOpenGraphImage('Projects')],
 
         }}
