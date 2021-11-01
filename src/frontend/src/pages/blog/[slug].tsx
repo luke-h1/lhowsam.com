@@ -80,12 +80,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const post = await blogService.getPost(params.slug as string);
 
-  if (!post) {
-    return {
-      props: [],
-      notFound: true,
-    };
-  }
+  
   const source = await serialize(post.description, {
     mdxOptions: {
       remarkPlugins: [CodeTitle, Headings],
