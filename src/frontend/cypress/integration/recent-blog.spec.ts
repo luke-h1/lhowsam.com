@@ -3,54 +3,42 @@ describe('recent blogs', () => {
     cy.visit('/');
   });
   it('should display recent blogs correctly', () => {
-    cy.getByTestId('blog-post-Next.js SSR notes')
+    cy.getByTestId('blog-post-How to rename local & remote git branches')
       .find('h2')
-      .contains('Next.js SSR notes')
-      .should('be.visible');
-
-    cy.getByTestId('blog-post-Next.js SSR notes')
-      .find('p')
-      .contains('April 6, 2021')
-      .should('be.visible');
-
-    cy.getByTestId('blog-post-Next.js SSR notes')
-      .find('p')
-      .contains(
-        'A few notes that explain how server-side rendering works in Next.js'
-      )
+      .contains('How to rename local & remote git branches')
       .should('be.visible');
 
     cy.getByTestId('blog-post-Forcing git merges')
       .find('h2')
       .contains('Forcing git merges')
-      .should('be.visible');
+      .should('be.visible')
+
+    cy.getByTestId('blog-post-Forcing git merges')
+      .find('p')
+      .contains('Isolating features into separate branches is a really common practice for most developers. By separating features & bug fixes you can avoid a lot of problems and keep your branches clean.')
+      .should('be.visible')
 
     cy.getByTestId('blog-post-Forcing git merges')
       .find('p')
       .contains('December 12, 2020')
       .should('be.visible');
 
-    cy.getByTestId('blog-post-Forcing git merges')
-      .find('p')
-      .contains(
-        'Isolating features into separate branches is a really common practice for most developers. By separating features & bug fixes you can avoid a lot of problems and keep your branches clean.'
-      )
-      .should('be.visible');
 
     cy.getByTestId('blog-post-First blog post')
       .find('h2')
       .contains('First blog post')
-      .should('be.visible');
-
-    cy.getByTestId('blog-post-First blog post')
+      .should('be.visible')
+    
+      cy.getByTestId('blog-post-First blog post')
       .find('p')
       .contains('December 10, 2020')
-      .should('be.visible');
-
-    cy.getByTestId('blog-post-First blog post')
+      .should('be.visible')
+    
+      cy.getByTestId('blog-post-First blog post')
       .find('p')
       .contains('Posting the first blog post')
       .should('be.visible');
+
   });
 
   it('should display blog slug page correctly', () => {
