@@ -65,12 +65,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
   const snippet = await snippetService.getSnippet(params.slug as string);
   
-  if(!snippet) {
-    return {
-      props: [],
-      notFound: true,
-    }
-  }
   const source = await serialize(snippet.description, {
     mdxOptions: {
       remarkPlugins: [CodeTitle, Headings],
