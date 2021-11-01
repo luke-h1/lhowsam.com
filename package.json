@@ -4,7 +4,7 @@
     "src/*"
   ],
   "devDependencies": {
-    "@commitlint/cli": "^13.2.1",
+    "@commitlint/cli": "^14.1.0",
     "@commitlint/config-conventional": "^14.1.0",
     "eslint": "^7.32.0",
     "husky": "^7.0.0",
@@ -55,7 +55,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "stylelint": "^14.0.0",
     "stylelint-config-prettier": "^9.0.3",
-    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^23.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-prettier": "^1.2.0"
