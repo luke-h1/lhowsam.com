@@ -85,13 +85,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
   const project = await projectService.getProject(params.slug as string);
-  
-  if (!project) {
-    return {
-      props: [],
-      notFound: true,
-    };
-  }
+
   const source = await serialize(project.description, {
     mdxOptions: {
       remarkPlugins: [CodeTitle, Headings],
