@@ -3505,12 +3505,12 @@
     lodash "^4.17.15"
 
 "@sanity/vision@^2.21.7":
-  version "2.21.7"
-  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.21.7.tgz#a7940b2e43d70c4c05e808f0aabe8e83ed568406"
-  integrity sha512-GKdItFO+lP88B1bKk2qxQB7Af5aM7eGBBtnQgDW5U8JRCxkB7ejIokw57nBQqPyJqHN60qMGLsfxBlmkXrhJTQ==
+  version "2.21.9"
+  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.21.9.tgz#8a5fb99d6733c39050e433b7deba9c466e06dda8"
+  integrity sha512-Tsr24RZyl9JVd3sweGtVIvhIgkFvMPyD4LUns1etQznCtiqWqsAj3oOQ2J4cZze55lPCcQg2kjiwhc3ULTjOyA==
   dependencies:
     "@sanity/icons" "^1.2.1"
-    "@sanity/ui" "^0.36.12"
+    "@sanity/ui" "^0.36.13"
     classnames "^2.2.5"
     codemirror "^5.47.0"
     is-hotkey "^0.1.6"
