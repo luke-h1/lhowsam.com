@@ -50,7 +50,7 @@
     "groq": "^2.15.0",
     "hast-util-to-html": "^8.0.2",
     "hast-util-to-string": "^2.0.0",
-    "mdx-bundler": "^6.0.2",
+    "mdx-bundler": "^7.0.0",
     "mdx-prism": "^0.3.4",
     "next": "^11.1.2",
     "next-mdx-remote": "^3.0.6",
