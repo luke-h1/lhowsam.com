@@ -10,7 +10,7 @@ jobs:
     - uses: luke-h1/checkout@v2.3.4
 
     - name: Install dependencies
-      run: yarn install
+      run: yarn bootstrap
 
     - name: local UI tests 
       run: yarn e2e:local

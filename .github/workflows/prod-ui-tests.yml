@@ -20,7 +20,7 @@ jobs:
           yarn-version: 1.19
       
       - name: Install dependencies
-        run: yarn install
+        run: yarn bootstrap
 
       - name: UI tests (production)
         run: yarn e2e:prod
