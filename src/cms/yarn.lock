@@ -1809,23 +1809,7 @@
     react "17.0.1"
     rxjs "^6.5.3"
 
-"@sanity/ui@>=0.36.6":
-  version "0.36.12"
-  resolved "https://registry.npmjs.org/@sanity/ui/-/ui-0.36.12.tgz"
-  integrity sha512-BTkuBWGIf03lVUrlgLRyUwixI9uWJjsOzJx0MJeZBO7fLsbaiI+4sMZZYqWpMZrw1mh2p0+jsaoDbKlbiHwrPA==
-  dependencies:
-    "@juggle/resize-observer" "^3.3.1"
-    "@popperjs/core" "^2.10.1"
-    "@reach/auto-id" "^0.16.0"
-    "@sanity/color" "^2.1.5"
-    "@sanity/icons" "^1.2.1"
-    framer-motion "^4.1.17"
-    popper-max-size-modifier "^0.2.0"
-    react-is "^17.0.2"
-    react-popper "^2.2.5"
-    react-refractor "^2.1.5"
-
-"@sanity/ui@^0.36.13":
+"@sanity/ui@>=0.36.6", "@sanity/ui@^0.36.13":
   version "0.36.13"
   resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-0.36.13.tgz#246575683bea4330e33ab20f49a98746041672e2"
   integrity sha512-GlMreWDh07xWWwiLolkMw/woSJOonx/cSadYjlsaRGGku9ulUfbYn4KLACLern/J3645Zg2FOWHMoKyI7kkM8A==
