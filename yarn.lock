@@ -3396,10 +3396,10 @@
     react "17.0.1"
     rxjs "^6.5.3"
 
-"@sanity/ui@>=0.36.6", "@sanity/ui@^0.36.13":
-  version "0.36.13"
-  resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-0.36.13.tgz#246575683bea4330e33ab20f49a98746041672e2"
-  integrity sha512-GlMreWDh07xWWwiLolkMw/woSJOonx/cSadYjlsaRGGku9ulUfbYn4KLACLern/J3645Zg2FOWHMoKyI7kkM8A==
+"@sanity/ui@>=0.36.6", "@sanity/ui@^0.36.13", "@sanity/ui@^0.36.15":
+  version "0.36.15"
+  resolved "https://registry.yarnpkg.com/@sanity/ui/-/ui-0.36.15.tgz#fd378890983b7f1332a389d4eb954993c1c146b7"
+  integrity sha512-4IuyCpfJycfVB2PtWyUbD1bWvrTadH1fko3mmhbttggVXOSeclh0DIUP1595ckgZhjYVrM7QqxUn0wdSfRBnjQ==
   dependencies:
     "@juggle/resize-observer" "^3.3.1"
     "@popperjs/core" "^2.10.2"
@@ -3444,12 +3444,12 @@
     lodash "^4.17.15"
 
 "@sanity/vision@^2.21.7":
-  version "2.21.9"
-  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.21.9.tgz#8a5fb99d6733c39050e433b7deba9c466e06dda8"
-  integrity sha512-Tsr24RZyl9JVd3sweGtVIvhIgkFvMPyD4LUns1etQznCtiqWqsAj3oOQ2J4cZze55lPCcQg2kjiwhc3ULTjOyA==
+  version "2.21.10"
+  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.21.10.tgz#785de59e40de76d6872270bf3b2b6c90313d9e42"
+  integrity sha512-D8N9rMXk0iHsnufJkYiGyyxgkKv8ddKPpt/yZmxqDnAHtXncm7JM+VyuTKWhScL+btST5g3x0xceMkPwp20f4g==
   dependencies:
     "@sanity/icons" "^1.2.1"
-    "@sanity/ui" "^0.36.13"
+    "@sanity/ui" "^0.36.15"
     classnames "^2.2.5"
     codemirror "^5.47.0"
     is-hotkey "^0.1.6"
@@ -4297,14 +4297,6 @@
     "@typescript-eslint/types" "4.33.0"
     "@typescript-eslint/visitor-keys" "4.33.0"
 
-"@typescript-eslint/scope-manager@5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/scope-manager/-/scope-manager-5.3.0.tgz#97d0ccc7c9158e89e202d5e24ce6ba49052d432e"
-  integrity sha512-22Uic9oRlTsPppy5Tcwfj+QET5RWEnZ5414Prby465XxQrQFZ6nnm5KnXgnsAJefG4hEgMnaxTB3kNEyjdjj6A==
-  dependencies:
-    "@typescript-eslint/types" "5.3.0"
-    "@typescript-eslint/visitor-keys" "5.3.0"
-
 "@typescript-eslint/scope-manager@5.3.1":
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/scope-manager/-/scope-manager-5.3.1.tgz#3cfbfbcf5488fb2a9a6fbbe97963ee1e8d419269"
@@ -4317,11 +4309,6 @@
   version "4.33.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-4.33.0.tgz#a1e59036a3b53ae8430ceebf2a919dc7f9af6d72"
   integrity sha512-zKp7CjQzLQImXEpLt2BUw1tvOMPfNoTAfb8l51evhYbOEEzdWyQNmHWWGPR6hwKJDAi+1VXSBmnhL9kyVTTOuQ==
-
-"@typescript-eslint/types@5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/types/-/types-5.3.0.tgz#af29fd53867c2df0028c57c36a655bd7e9e05416"
-  integrity sha512-fce5pG41/w8O6ahQEhXmMV+xuh4+GayzqEogN24EK+vECA3I6pUwKuLi5QbXO721EMitpQne5VKXofPonYlAQg==
 
 "@typescript-eslint/types@5.3.1":
   version "5.3.1"
@@ -4338,19 +4325,6 @@
     debug "^4.3.1"
     globby "^11.0.3"
     is-glob "^4.0.1"
-    semver "^7.3.5"
-    tsutils "^3.21.0"
-
-"@typescript-eslint/typescript-estree@5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-5.3.0.tgz#4f68ddd46dc2983182402d2ab21fb44ad94988cf"
-  integrity sha512-FJ0nqcaUOpn/6Z4Jwbtf+o0valjBLkqc3MWkMvrhA2TvzFXtcclIM8F4MBEmYa2kgcI8EZeSAzwoSrIC8JYkug==
-  dependencies:
-    "@typescript-eslint/types" "5.3.0"
-    "@typescript-eslint/visitor-keys" "5.3.0"
-    debug "^4.3.2"
-    globby "^11.0.4"
-    is-glob "^4.0.3"
     semver "^7.3.5"
     tsutils "^3.21.0"
 
@@ -4374,14 +4348,6 @@
   dependencies:
     "@typescript-eslint/types" "4.33.0"
     eslint-visitor-keys "^2.0.0"
-
-"@typescript-eslint/visitor-keys@5.3.0":
-  version "5.3.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/visitor-keys/-/visitor-keys-5.3.0.tgz#a6258790f3b7b2547f70ed8d4a1e0c3499994523"
-  integrity sha512-oVIAfIQuq0x2TFDNLVavUn548WL+7hdhxYn+9j3YdJJXB7mH9dAmZNJsPDa7Jc+B9WGqoiex7GUDbyMxV0a/aw==
-  dependencies:
-    "@typescript-eslint/types" "5.3.0"
-    eslint-visitor-keys "^3.0.0"
 
 "@typescript-eslint/visitor-keys@5.3.1":
   version "5.3.1"
