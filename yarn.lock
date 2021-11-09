@@ -3492,7 +3492,7 @@
     "@types/lodash" "^4.14.149"
     lodash "^4.17.15"
 
-"@sanity/types@2.21.10":
+"@sanity/types@2.21.10", "@sanity/types@^2.17.1":
   version "2.21.10"
   resolved "https://registry.yarnpkg.com/@sanity/types/-/types-2.21.10.tgz#77667ee568ccd38e54bd8204c24775c8e5cb554f"
   integrity sha512-qgyY+1fLvzFd+osDkw1yKM2dKcCROe63nFEhdpSpTkkJyg0tBdzBW5djYYBn3L+tAmZqwD09ENJofoS3QSCfWg==
@@ -3503,7 +3503,7 @@
     react "17.0.1"
     rxjs "^6.5.3"
 
-"@sanity/types@2.21.7", "@sanity/types@^2.17.1":
+"@sanity/types@2.21.7":
   version "2.21.7"
   resolved "https://registry.yarnpkg.com/@sanity/types/-/types-2.21.7.tgz#445d497a21ac85479c5d6be7256fc2fab915ea1d"
   integrity sha512-2t7rI/5TYvNQR3QUnogxV7Q7MaOOv+tiRlqWTLUpzWm49wujwkAUjEFYtwLN4zhAaGNlXNABcm/AZoVSHSS04w==
@@ -14070,12 +14070,7 @@ nano-pubsub@^1.0.2:
   resolved "https://registry.yarnpkg.com/nano-pubsub/-/nano-pubsub-1.0.2.tgz#34ce776f7af959915b8f7acfe8dd6b9c66f3bde9"
   integrity sha1-NM53b3r5WZFbj3rP6N1rnGbzvek=
 
-nano-pubsub@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/nano-pubsub/-/nano-pubsub-2.0.0.tgz#de291f170ce54ea3e3b39f0b53296d322cd9c540"
-  integrity sha512-tDJdYcRD4CIHAxB6kAWO7HWSGWODxL0buzcJHazIIrmHYDH2t7DcTN0vV7dIr39oPwZo5WawULp9CHhtYdhm0A==
-
-nano-pubsub@^2.0.1:
+nano-pubsub@^2.0.0, nano-pubsub@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/nano-pubsub/-/nano-pubsub-2.0.1.tgz#59f3b7b6ed06868d879a10bdc9d082d9a27ee3ae"
   integrity sha512-RWgGP2TdeKZLx+guR5a7/BzYs85sj6yrXXyj0o/znbgzPlz/Ez9wQuKDpwUZ8q+u2RxXpqZ1iTkPXCIU+GHhpA==
