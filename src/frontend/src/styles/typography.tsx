@@ -152,7 +152,7 @@ export const LinkTo = ({
   ...props
 }: PropsWithoutRef<LinkProps & React.HTMLProps<HTMLAnchorElement>>) => {
   return (
-    <Link {...{ href, as, replace }} passHref scroll>
+    <Link {...{ href, as, replace }}>
       <StyledLink {...{ style, ...props }}>{children}</StyledLink>
     </Link>
   );
