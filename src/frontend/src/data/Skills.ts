@@ -9,13 +9,13 @@ const Skills: SkillItem[] = [
       'Typescript',
       'React',
       'Next.js',
-      'Lerna',
+      'Lerna / Yarn workspaces',
       'styled-components',
     ],
   },
   {
     title: 'Backend',
-    items: ['Node.js', 'GraphQL', 'PostgreSQL'],
+    items: ['Node.js', 'Express.js', 'GraphQL', 'PostgreSQL'],
   },
   {
     title: 'Other',
@@ -23,7 +23,7 @@ const Skills: SkillItem[] = [
   },
   {
     title: 'Testing',
-    items: ['Manual & automated testing'],
+    items: ['Manual / automated testing', 'Selenium', 'k6', 'Cypress',],
   },
 ];
 export default Skills;
