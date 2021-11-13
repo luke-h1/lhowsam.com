@@ -13,7 +13,7 @@
     "cy:open": "./node_modules/.bin/cypress open",
     "cy:run": "./node_modules/.bin/cypress run",
     "cy:run-parallel": "./node_modules/.bin/cypress run --record --parallel",
-    "cy:run-ci": "yarn build && ./node_modules/.bin/start-server-and-test localhost:3000 cy:run-parallel",
+    "cy:run-ci": "yarn build && ./node_modules/.bin/start-server-and-test http://localhost:3000 cy:run-parallel",
     "cy:local": "yarn build && ./node_modules/.bin/start-server-and-test http://localhost:3000 cy:run",
     "cy:prod": "CYPRESS_BASE_URL=https://lhowsam.com cy:run-parallel",
     "cy:prod-open": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress open",
