@@ -23,4 +23,4 @@ jobs:
         run: yarn install
 
       - name: UI tests (production)
-        run: yarn e2e:prod
+        run: yarn workspace @lhowsam/frontend cy:prod
