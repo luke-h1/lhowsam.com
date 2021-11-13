@@ -27,4 +27,4 @@ jobs:
         run: yarn install
 
       - name: local UI tests 
-        run: yarn workspace @lhowsam/frontend cy:parallel
+        run: yarn workspace @lhowsam/frontend cy:run-ci
