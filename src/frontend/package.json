@@ -12,7 +12,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "cy:open": "./node_modules/.bin/cypress open",
     "cy:run": "./node_modules/.bin/cypress run",
-    "cy:run-ci": "yarn build && npx start-server-and-test http://localhost:3000 ./node_modules/.bin/cypress run --record --parallel",
+    "cy:run-ci": "yarn build && yarn start && ./node_modules/.bin/wait-on http://localhost:3000 ./node_modules/.bin/cypress run --record --parallel",
     "cy:local": "yarn build && npx start-server-and-test http://localhost:3000 cy:run",
     "cy:prod": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress run --record --parallel",
     "cy:prod-open": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress open",
@@ -77,7 +77,8 @@
     "sharp": "^0.29.1",
     "styled-components": "^5.3.1",
     "unified": "^10.1.0",
-    "unist-util-visit": "^4.1.0"
+    "unist-util-visit": "^4.1.0",
+    "wait-on": "^6.0.0"
   },
   "devDependencies": {
     "@emotion/babel-plugin": "^11.3.0",
