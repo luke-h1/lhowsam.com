@@ -12,7 +12,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "cy:open": "./node_modules/.bin/cypress open",
     "cy:prod": "CYPRESS_BASE_URL=https://lhowsam.com npx cypress run --record --key=9f6260ca-519b-41c0-b4b3-ca1767758223 --parallel",
-    "cy:prod-open": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress open",
+    "cy:prod-open": "CYPRESS_BASE_URL=https://lhowsam.com npx cypress open",
     "cy:run-parallel": "npx cypress run --record --key=9f6260ca-519b-41c0-b4b3-ca1767758223 --parallel",
     "cy:run-ci": "yarn build && ./node_modules/.bin/start-server-and-test http://localhost:3000 cy:run-parallel",
     "cy:local": "yarn build && ./node_modules/.bin/start-server-and-test http://localhost:3000 cy:run",
