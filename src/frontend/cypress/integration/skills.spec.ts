@@ -23,7 +23,7 @@ describe('skills', () => {
 
     cy.getByTestId('skill-item-Frontend')
       .find('li')
-      .contains('Lerna')
+      .contains('Lerna / Yarn workspaces')
       .should('be.visible');
 
     cy.getByTestId('skill-item-Frontend')
@@ -45,6 +45,12 @@ describe('skills', () => {
       .find('li')
       .contains('Node.js')
       .should('be.visible');
+
+    cy.getByTestId('skill-item-Backend')
+      .find('li')
+      .contains('Express.js')
+      .should('be.visible');
+
     cy.getByTestId('skill-item-Backend')
       .find('li')
       .contains('GraphQL')
@@ -75,7 +81,22 @@ describe('skills', () => {
   it('should display testing skill items correctly', () => {
     cy.getByTestId('skill-item-Testing')
       .find('li')
-      .contains('Manual & automated testing')
+      .contains('Manual / automated testing')
+      .should('be.visible');
+
+    cy.getByTestId('skill-item-Testing')
+      .find('li')
+      .contains('Selenium')
+      .should('be.visible');
+
+    cy.getByTestId('skill-item-Testing')
+      .find('li')
+      .contains('k6')
+      .should('be.visible');
+
+    cy.getByTestId('skill-item-Testing')
+      .find('li')
+      .contains('Cypress')
       .should('be.visible');
   });
 });
