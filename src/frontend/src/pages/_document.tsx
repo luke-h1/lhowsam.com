@@ -112,17 +112,21 @@ const blockingSetInitialColorMode = `(function() {
 
 function setInitialColorMode() {
   function getInitialColorMode() {
-    const persistedColorPreference = window.localStorage.getItem('theme');
+    const persistedColorPreference = typeof window !== 'undefined' && window.localStorage.getItem('theme');
     const hasPersistedPreference = typeof persistedColorPreference === 'string';
 
     if (hasPersistedPreference) {
       return persistedColorPreference;
     }
 
-    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+    const mql = typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)');
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const hasMediaQueryPreference = typeof mql.matches === 'boolean';
 
     if (hasMediaQueryPreference) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
       return mql.matches ? 'dark' : 'light';
     }
 
