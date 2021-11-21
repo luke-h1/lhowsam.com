@@ -23,6 +23,7 @@ jobs:
         uses: luke-h1/github-action@v2
         with:
           build: yarn workspace @lhowsam/frontend build
-          start: yarn start
+          start: yarn workspace @lhowsam/frontend start
+          test: yarn workspace @lhowsam/frontend cy:run
           wait-on: 'http://localhost:3000'
           group: 'example'
