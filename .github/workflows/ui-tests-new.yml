@@ -1,4 +1,4 @@
-name: Parallel Cypress Tests
+name: test
 on:
   push:
     branches: [dev]
