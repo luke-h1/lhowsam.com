@@ -1,0 +1,29 @@
+name: Parallel Cypress Tests
+
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev, main]
+    
+jobs:
+  test:
+    name: Cypress run
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
+    steps:
+      - name: Checkout
+        uses: luke-h1/checkout@v2
+
+      - name: Install dependencies 
+        run: yarn 
+      
+      - name: Cypress run
+        uses: luke-h1/github-action@v2
+        with:
+          start: yarn && cd src/frontend && yarn build && yarn start
+          wait-on: 'http://localhost:3000'
+          group: 'example'
