@@ -17,7 +17,7 @@ jobs:
         uses: luke-h1/checkout@v2
 
       - name: Install dependencies 
-        run: yarn 
+        run: yarn install --frozen-lockfile --check-files
       
       - name: Cypress run
         uses: luke-h1/github-action@v2
@@ -25,5 +25,6 @@ jobs:
           build: yarn workspace @lhowsam/frontend build
           start: yarn workspace @lhowsam/frontend start
           test: yarn workspace @lhowsam/frontend cy:run
+          working-directory: src/frontend
           wait-on: 'http://localhost:3000'
           group: 'example'
