@@ -11,7 +11,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        containers: [1, 2, 3]
+        node-version: [14.x]
     steps:
       - name: Checkout
         uses: luke-h1/checkout@v2
@@ -27,4 +27,3 @@ jobs:
           test: yarn workspace @lhowsam/frontend cy:run
           working-directory: src/frontend
           wait-on: 'http://localhost:3000'
-          group: 'example'
