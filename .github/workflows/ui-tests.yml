@@ -1,30 +1,29 @@
-name: CI / UI tests
+name: test
 on:
   push:
     branches: [dev]
   pull_request:
     branches: [dev, main]
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  test:
+    name: Cypress run
+    runs-on: ubuntu-20.04
     strategy:
+      fail-fast: false
       matrix:
         node-version: [14.x]
-
     steps:
       - name: Checkout
-        uses: luke-h1/checkout@v2.3.4
+        uses: luke-h1/checkout@v2
 
-      - name: Use (Volta) Node.js ${{ matrix.node-version }}
-        uses: luke-h1/action@v1.6.0
+      - name: Install dependencies 
+        run: yarn install --frozen-lockfile --check-files
+      
+      - name: Cypress run
+        uses: luke-h1/github-action@v2
         with:
-          node-version: ${{ matrix.node-version }}
-          yarn-version: 1.22
-
-      - name: Install dependencies
-        run: yarn install
-
-      - name: local UI tests 
-        run: yarn workspace @lhowsam/frontend cy:run-ci
+          build: yarn workspace @lhowsam/frontend build
+          start: yarn workspace @lhowsam/frontend start
+          test: yarn workspace @lhowsam/frontend cy:run
+          working-directory: src/frontend
+          wait-on: 'http://localhost:3000'

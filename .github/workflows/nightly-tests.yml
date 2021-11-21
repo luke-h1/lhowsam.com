@@ -1,19 +1,34 @@
-name: CI / Nightly tests 
-on: 
-  schedule:
-    - cron: '0 22 * * *'
-
+name: test
+on:
+  push:
+    branches: [dev]
+  pull_request:
+    branches: [dev, main]
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test:
+    name: Cypress run
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [14.x]
     steps:
-    - uses: luke-h1/checkout@v2.3.4
+      - name: Checkout
+        uses: luke-h1/checkout@v2
 
-    - name: Install dependencies
-      run: yarn install
+      - name: Install dependencies 
+        run: yarn install --frozen-lockfile --check-files
 
-    - name: local UI tests 
-      run: yarn workspace @lhowsam/frontend cy:run-ci
+      - name: Cypress run (local)
+        uses: luke-h1/github-action@v2
+        with:
+          test: yarn workspace @lhowsam/frontend cy:run
+          working-directory: src/frontend
+          wait-on: 'http://localhost:3000'
 
-    - name: prod UI tests 
-      run: yarn workspace @lhowsam/frontend cy:prod
+      - name: Cypress run (prod)
+        uses: luke-h1/github-action@v2
+        with:
+          test: yarn workspace @lhowsam/frontend cy:prod
+          working-directory: src/frontend
+          wait-on: 'https://lhowsam.com'
