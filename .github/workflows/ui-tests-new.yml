@@ -22,6 +22,7 @@ jobs:
       - name: Cypress run
         uses: luke-h1/github-action@v2
         with:
-          start: yarn && cd src/frontend && yarn build && yarn start
+          build: yarn build
+          start: yarn start
           wait-on: 'http://localhost:3000'
           group: 'example'
