@@ -1,9 +1,7 @@
-name: test
-on:
-  push:
-    branches: [dev]
-  pull_request:
-    branches: [dev, main]
+name: CI / Nightly tests 
+on: 
+  schedule:
+    - cron: '0 22 * * *'
 jobs:
   test:
     name: Cypress run

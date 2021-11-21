@@ -1,4 +1,4 @@
-name: test
+name: CI / UI tests (production)
 on:
   push:
     branches: [dev]
