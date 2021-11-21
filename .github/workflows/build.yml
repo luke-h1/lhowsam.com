@@ -23,8 +23,8 @@ jobs:
           node-version: ${{ matrix.node-version }}
           yarn-version: 1.22
       
-      - name: Install dependencies
-        run: yarn install
+      - name: Install dependencies 
+        run: yarn install --frozen-lockfile --check-files
 
       - name: format
         run: yarn format
@@ -37,4 +37,3 @@ jobs:
 
       - name: build
         run: yarn build
-
