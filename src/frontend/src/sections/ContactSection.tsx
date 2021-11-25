@@ -1,4 +1,3 @@
-import { ContactWrapper } from '@src/styles/contact';
 import { Paragraph, Title } from '@src/styles/typography';
 import React from 'react';
 
