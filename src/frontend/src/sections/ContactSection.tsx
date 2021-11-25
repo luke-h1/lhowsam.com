@@ -6,7 +6,7 @@ const ContactSection = () => {
     <>
       <Title size={2.3}>Contact</Title>
       <Paragraph>
-        Want to react out? Get in touch via{' '}
+        Want to reach out? Get in touch via{' '}
         <a href="mailto:luke.howsam@yahoo.com" referrerPolicy="no-referrer">
           Email
         </a>
