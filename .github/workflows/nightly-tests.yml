@@ -13,12 +13,6 @@ jobs:
     steps:
       - name: Checkout
         uses: luke-h1/checkout@v2
-
-      - name: Use (Volta) Node.js ${{ matrix.node-version }}
-        uses: luke-h1/action@v1.6.0
-        with:
-          node-version: ${{ matrix.node-version }}
-          yarn-version: 1.22
           
       - name: Install dependencies 
         run: yarn install --frozen-lockfile --check-files
