@@ -15,10 +15,6 @@ jobs:
 
       - name: Install dependencies 
         run: yarn install --frozen-lockfile --check-files
-      
+
       - name: Cypress run (prod)
-        uses: luke-h1/github-action@v2
-        with:
-          test: yarn workspace @lhowsam/frontend cy:prod
-          working-directory: src/frontend
-          wait-on: 'https://lhowsam.com'
+        run: yarn workspace @lhowsam/frontend cy:prod
