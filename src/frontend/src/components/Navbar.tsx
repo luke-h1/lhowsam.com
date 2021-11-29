@@ -12,7 +12,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState, useEffect, useContext } from 'react';
 import { BsCodeSlash } from 'react-icons/bs';
-import { FaGithub, FaTwitter } from 'react-icons/fa';
+import { FaGithub } from 'react-icons/fa';
 import { FiMenu, FiX } from 'react-icons/fi';
 import styled, { css, ThemeContext } from 'styled-components';
 
@@ -180,19 +180,6 @@ const NavLinks = () => {
           >
             <FaGithub
               aria-label="GitHub"
-            />
-          </IconContainer>
-        </motion.li>
-        <motion.li variants={iconLinksVariants}>
-          <IconContainer
-            href="https://twitter.com/LukeH_1999"
-            target="_blank"
-            rel="noopener noreferrer"
-            $styledOnHover
-          >
-            <FaTwitter
-              aria-label="twitter"
-              title="twitter"
             />
           </IconContainer>
         </motion.li>
