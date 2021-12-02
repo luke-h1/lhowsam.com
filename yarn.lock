@@ -3022,9 +3022,9 @@
     lodash "^4.17.15"
 
 "@sanity/default-layout@^2.21.10":
-  version "2.22.3"
-  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-2.22.3.tgz#f48fc3bb8e1213650e14e47d184bda9983deef0c"
-  integrity sha512-oR7SNDaUT2iOX0j3Gq4zCNQdIh0tzCWn67YRORtG5lIJfXD9WIIkF9YDg9afCSdujwrjxt21HTZYIdPEPmkAtw==
+  version "2.22.4"
+  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-2.22.4.tgz#6381ea4136bdfe7797240c4642f8fc3df10d8a08"
+  integrity sha512-u46c7t7xFqDbdoYioOeGA2ZNxJ8c3iM+WjJIxvoEpu4p4kw8qJp3dxDMgAP93TdjsmhlucYc5OHX/k66zcIQtw==
   dependencies:
     "@reach/auto-id" "^0.13.2"
     "@sanity/base" "2.22.3"
