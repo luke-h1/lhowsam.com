@@ -3,7 +3,6 @@ import CodeBlock from '@src/components/mdx/code';
 import useHover from '@src/hooks/useHover';
 import { LinkedHeaderIconWrapper } from '@src/styles/blog';
 import { Paragraph } from '@src/styles/typography';
-
 import Link from 'next/link';
 import React, {
   createElement,
@@ -38,7 +37,6 @@ export const ImageWrapper = ({ alt, src }: { alt: string; src: string }) => {
   return (
     <img
       {...{ alt, src }}
-      loading="lazy"
       style={{
         maxWidth: 'var(--max-width)',
         width: '100%',
@@ -47,6 +45,7 @@ export const ImageWrapper = ({ alt, src }: { alt: string; src: string }) => {
     />
   );
 };
+
 
 export const MDXLinkStyled = styled.span`
   & a {
