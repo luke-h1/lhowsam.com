@@ -3,7 +3,6 @@ import CodeBlock from '@src/components/mdx/code';
 import useHover from '@src/hooks/useHover';
 import { LinkedHeaderIconWrapper } from '@src/styles/blog';
 import { Paragraph } from '@src/styles/typography';
-
 import Link from 'next/link';
 import React, {
   createElement,
@@ -38,7 +37,6 @@ export const ImageWrapper = ({ alt, src }: { alt: string; src: string }) => {
   return (
     <img
       {...{ alt, src }}
-      loading="lazy"
       style={{
         maxWidth: 'var(--max-width)',
         width: '100%',
@@ -103,14 +101,13 @@ const MDXHeadingWrapper = {
 };
 
 export const InlineCodeStyles = styled.span`
-color: #000;
-background: #DCDCDC;
-font-family: "B612 Mono";
-font-size: "0.775rem";
-padding: '0.2em';
-border-radius: "0.875rem";
+  color: #000;
+  background: #dcdcdc;
+  font-family: 'B612 Mono';
+  font-size: '0.775rem';
+  padding: '0.2em';
+  border-radius: '0.875rem';
 `;
-
 
 const MDXComponents = {
   p: Paragraph,
