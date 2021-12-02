@@ -46,7 +46,6 @@ export const ImageWrapper = ({ alt, src }: { alt: string; src: string }) => {
   );
 };
 
-
 export const MDXLinkStyled = styled.span`
   & a {
     color: var(--color-primary-accent);
@@ -102,14 +101,13 @@ const MDXHeadingWrapper = {
 };
 
 export const InlineCodeStyles = styled.span`
-color: #000;
-background: #DCDCDC;
-font-family: "B612 Mono";
-font-size: "0.775rem";
-padding: '0.2em';
-border-radius: "0.875rem";
+  color: #000;
+  background: #dcdcdc;
+  font-family: 'B612 Mono';
+  font-size: '0.775rem';
+  padding: '0.2em';
+  border-radius: '0.875rem';
 `;
-
 
 const MDXComponents = {
   p: Paragraph,
