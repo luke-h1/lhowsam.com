@@ -5,6 +5,8 @@ const nextConfig = {
   },
   images: {
     domains: ['localhost', 'cdn.sanity.io'],
+    formats: ['image/avif', 'image/webp']
+
   },
   eslint: {
     ignoreDuringBuilds: true,
