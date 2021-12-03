@@ -1,13 +1,13 @@
-module.exports = {
+const nextConfig = {
+  reactStrictMode: true,
+  generateBuildId: async () => {
+    return '1';
+  },
   images: {
     domains: ['localhost', 'cdn.sanity.io'],
   },
   eslint: {
     ignoreDuringBuilds: true,
-  },
-  reactStrictMode: true,
-  generateBuildId: async () => {
-    return '1';
   },
   webpack(config) {
     config.module.rules.push({
@@ -22,7 +22,6 @@ module.exports = {
         },
       ],
     });
-
     return config;
   },
   async redirects() {
@@ -35,3 +34,4 @@ module.exports = {
     ];
   },
 };
+module.exports = nextConfig;
