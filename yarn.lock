@@ -2994,9 +2994,9 @@
     rxjs "^6.5.3"
 
 "@sanity/desk-tool@^2.21.10":
-  version "2.22.3"
-  resolved "https://registry.yarnpkg.com/@sanity/desk-tool/-/desk-tool-2.22.3.tgz#a56e260d1d0c2af405f714bd8b772374806c1180"
-  integrity sha512-26pFo7yNDPATcwZZkci/boWQWL+ckN1k6PRYK60O+0o57qetlhNCZqcM0NrqArk7/MqqZzzlHyN41kvLV6HrfA==
+  version "2.22.5"
+  resolved "https://registry.yarnpkg.com/@sanity/desk-tool/-/desk-tool-2.22.5.tgz#9c4a328bb4f2463a20652863f1c6ee986a0b3ad7"
+  integrity sha512-GahzmlKAq5XvN5p0nfMkPkq+1l40dhALodd9FRDsKlrlnVqHaFBQKPSIfRCGrq9HUnFckVRojk4CrNbHMebcIw==
   dependencies:
     "@reach/auto-id" "^0.13.2"
     "@sanity/client" "2.22.3"
