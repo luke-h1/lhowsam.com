@@ -3433,12 +3433,12 @@
     lodash "^4.17.15"
 
 "@sanity/vision@^2.21.10":
-  version "2.22.3"
-  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.22.3.tgz#88dec0b3b15a43ea48f3d6ca9b87becde8fef177"
-  integrity sha512-K8HfG4+jb5FUaxJPX+gwk1gboM9XwLt3KlNQVykxyDUikwL3ntsScgcWh5wXpPZJJwWdfmCoDiYBgutPyYNgQw==
+  version "2.23.0"
+  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.23.0.tgz#d7815018504148f8f87d4966511d81bfcc4bcffe"
+  integrity sha512-reAAzEiasl4PzsWsniN6Etb945gncLk3qEMLmtmUrDcr9YCTay/KhEp7yoWcnZ6iVw6wnBpvvvD8zDfDl2xJbA==
   dependencies:
     "@sanity/icons" "^1.2.1"
-    "@sanity/ui" "^0.36.15"
+    "@sanity/ui" "^0.36.17"
     classnames "^2.2.5"
     codemirror "^5.47.0"
     is-hotkey "^0.1.6"
