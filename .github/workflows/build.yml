@@ -17,17 +17,25 @@ jobs:
       - name: Checkout
         uses: luke-h1/checkout@v2.3.4
 
-      - name: Install dependencies 
-        run: yarn install --frozen-lockfile --check-files
+      - name: Use (Volta) Node.js ${{ matrix.node-version }}
+        uses: luke-h1/action@v1.6.0
+        with:
+          node-version: ${{ matrix.node-version }}
+      
+      - name: Install dependencies
+        run: npm ci
 
       - name: format
-        run: yarn format
+        run: npm run format
 
       - name: lint
-        run: yarn lint
+        run: npm run lint
 
       - name: tsc
-        run: yarn tsc
+        run: npm run tsc
 
       - name: build
-        run: yarn build
+        run: npm run build
+
+      - name: UI tests 
+        run: npm run cy:ci
