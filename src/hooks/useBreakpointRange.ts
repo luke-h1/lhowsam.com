@@ -4,12 +4,12 @@ import { useState, useEffect } from 'react';
 
 type UseBreakpointProps = (
   { from, to }: { from?: Breakpoint | number; to: Breakpoint | number },
-  { onEnter, onLeave }: { onEnter: () => void; onLeave: () => void }
+  { onEnter, onLeave }: { onEnter: () => void; onLeave: () => void },
 ) => void;
 
 const useBreakpointRange: UseBreakpointProps = (
   { from = 0, to },
-  { onEnter, onLeave }
+  { onEnter, onLeave },
 ) => {
   const [currentState, setCurrentState] = useState('');
   const fromSize = getBreakpointOrSize(from);

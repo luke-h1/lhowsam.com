@@ -18,7 +18,7 @@ const Index = ({ posts }: Props) => {
 
       <PreviewLayout>
         {posts &&
-          posts.map((post) => <BlogPostPreview post={post} key={post.id} />)}
+          posts.map(post => <BlogPostPreview post={post} key={post.id} />)}
       </PreviewLayout>
     </>
   );
@@ -30,7 +30,7 @@ export const getStaticProps = async () => {
   return {
     revalidate: 2,
     props: {
-      posts: posts,
+      posts,
     },
   };
 };

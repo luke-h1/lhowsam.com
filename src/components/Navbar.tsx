@@ -189,9 +189,7 @@ const NavLinks = () => {
             rel="noopener noreferrer"
             $styledOnHover
           >
-            <FaGithub
-              aria-label="GitHub"
-            />
+            <FaGithub aria-label="GitHub" />
           </IconContainer>
         </motion.li>
         <motion.li variants={iconLinksVariants}>
@@ -217,7 +215,7 @@ const NavbarMenu = () => {
   const { theme } = useContext(ThemeContext);
   const [showDrawer, setShowDrawer] = useState<boolean>(false);
   const [isMobileLayout, setIsMobileLayout] = useState<boolean | undefined>(
-    undefined
+    undefined,
   );
   const { asPath } = useRouter();
 
@@ -231,13 +229,13 @@ const NavbarMenu = () => {
 
   useBreakpointRange(
     { to: 'md' },
-    { onEnter: handleMobileOnEnter, onLeave: handleMobileOnLeave }
+    { onEnter: handleMobileOnEnter, onLeave: handleMobileOnLeave },
   );
 
   useEffect(() => {
     const root = window.document.documentElement;
     const initialColorValue: 'light' | 'dark' = root.style.getPropertyValue(
-      '--initial-color-mode'
+      '--initial-color-mode',
     ) as 'light' | 'dark';
     setDarkTheme(initialColorValue === 'dark');
   }, []);
@@ -283,7 +281,7 @@ const NavbarMenu = () => {
   };
 
   const handleToggleDrawer = () => {
-    setShowDrawer((showDrawer) => {
+    setShowDrawer(showDrawer => {
       const nextState = !showDrawer;
 
       if (nextState === true) {
@@ -306,13 +304,9 @@ const NavbarMenu = () => {
             {darkTheme === undefined ? (
               <div style={{ width: '25px' }} />
             ) : darkTheme ? (
-              <IoMdMoon
-                aria-label="Switch to Light Mode"
-              />
+              <IoMdMoon aria-label="Switch to Light Mode" />
             ) : (
-              <FiSun
-                aria-label="Switch to Dark Mode"
-              />
+              <FiSun aria-label="Switch to Dark Mode" />
             )}
           </ThemeSwitch>
         )}

@@ -1,5 +1,3 @@
-// @ts-ignore
-// @ts-nocheck
 import SEO from '@src/components/SEO';
 import BlogSection from '@src/sections/BlogSection';
 import IntroSection from '@src/sections/IntroSection';
@@ -14,7 +12,7 @@ import { Post } from '../types/post';
 import { Project } from '../types/project';
 
 interface Props {
-  posts: Post[]
+  posts: Post[];
   projects: Project[];
 }
 

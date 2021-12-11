@@ -9,24 +9,23 @@ import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import React, { useRef } from 'react';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
-import { useRouter } from 'next/router';
-import { NextSeo } from 'next-seo';
 
 interface Props {
   post: Post;
   source: { compiledSource: string };
-
-};
+}
 
 const PostPage = ({ post, source }: Props) => {
   const router = useRouter();
   const topRef = useRef<HTMLDivElement>(null);
   return (
     <>
-     <NextSeo
+      <NextSeo
         title={post.title}
         canonical={`https://lhowsam.com${router.asPath}`}
         description={post.intro}
@@ -41,10 +40,7 @@ const PostPage = ({ post, source }: Props) => {
       </PostTitle>
       <ImageWrapper src={post.image.url} alt={post.title} />
       <PostMetaDataGrid>
-        <Datestamp>
-          Published:{' '}
-          {post.date}
-        </Datestamp>
+        <Datestamp>Published: {post.date}</Datestamp>
       </PostMetaDataGrid>
       <MDXContent>
         <MDXRemote {...source} components={MDXComponents} />
@@ -59,7 +55,7 @@ const PostPage = ({ post, source }: Props) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const { posts } = await blogService.getAllPosts();
-  const paths = posts.map(({ slug }) => ({ params: { slug } }))
+  const paths = posts.map(({ slug }) => ({ params: { slug } }));
 
   return {
     paths,
@@ -92,7 +88,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   return {
     props: {
-      post: post,
+      post,
       source,
     },
     revalidate: 2,

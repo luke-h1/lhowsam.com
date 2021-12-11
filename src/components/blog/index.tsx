@@ -69,9 +69,7 @@ export const BlogPostPreview = ({ post }: Props) => {
             <BlogPostPreviewTitle {...{ isHovered }}>
               {post.title}
             </BlogPostPreviewTitle>
-            <Datestamp>
-             {post.date}
-            </Datestamp>
+            <Datestamp>{post.date}</Datestamp>
             <SmallText>{post.intro}</SmallText>
             <ReadMorePrompt {...{ isHovered }}>
               Read more{' '}

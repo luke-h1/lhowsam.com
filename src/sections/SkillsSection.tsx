@@ -8,7 +8,7 @@ const SkillsSection = () => {
       <h1 className="section__title">Skills</h1>
 
       <div className={styles.skillsContainer}>
-        {Skills.map((skill) => {
+        {Skills.map(skill => {
           return (
             <div
               key={skill.title}
@@ -23,7 +23,7 @@ const SkillsSection = () => {
                 className={styles.skillsItem}
                 data-testid={`skill-item-${skill.title}`}
               >
-                {skill.items.map((item) => (
+                {skill.items.map(item => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>

@@ -1,7 +1,7 @@
 module.exports = {
   images: {
     domains: ['localhost', 'media.graphcms.com'],
-    formats: ['image/avif', 'image/webp']
+    formats: ['image/avif', 'image/webp'],
   },
   eslint: {
     ignoreDuringBuilds: true,

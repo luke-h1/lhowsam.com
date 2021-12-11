@@ -51,8 +51,8 @@ export const breakpoint = breakpointSides.reduce(
               `;
         },
       }),
-      {} as BreakpointFn
+      {} as BreakpointFn,
     ),
   }),
-  {} as BreakpointFn
+  {} as BreakpointFn,
 );

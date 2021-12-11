@@ -1,5 +1,3 @@
-// @ts-ignore
-// @ts-nocheck
 import { ScrollToTop } from '@src/components/blog';
 import MDXComponents from '@src/components/mdx';
 import { EndLinks, MDXContent } from '@src/styles/blog';
@@ -9,12 +7,12 @@ import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import { useRef } from 'react';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
 import projectService from '../../services/projectService';
-import { NextSeo } from 'next-seo';
-import { useRouter } from 'next/router';
 
 interface Props {
   project: Project;
@@ -22,11 +20,11 @@ interface Props {
 }
 
 const ProjectPage = ({ project, source }: Props) => {
-  const router = useRouter()
+  const router = useRouter();
   const topRef = useRef<HTMLDivElement>(null);
   return (
     <>
-     <NextSeo
+      <NextSeo
         title={project.title}
         canonical={`https://lhowsam.com${router.asPath}`}
         openGraph={{
@@ -49,7 +47,7 @@ const ProjectPage = ({ project, source }: Props) => {
 };
 export const getStaticPaths: GetStaticPaths = async () => {
   const { projects } = await projectService.getAllProjects();
-  const paths = projects.map(({ slug }) => ({ params: { slug } }))
+  const paths = projects.map(({ slug }) => ({ params: { slug } }));
 
   return {
     paths,
@@ -79,7 +77,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   });
   return {
     props: {
-      project: project,
+      project,
       source,
     },
     revalidate: 2,

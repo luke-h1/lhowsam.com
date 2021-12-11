@@ -76,7 +76,7 @@ const MDXLinkWrapper = (props: PropsWithChildren<{ href: string }>) => {
 type MDXPropsWithChildren = PropsWithChildren<{ id: string }>;
 const HandleMDXHeaderElement = (
   el: keyof ReactHTML,
-  { children, ...propsWithoutChildren }: MDXPropsWithChildren
+  { children, ...propsWithoutChildren }: MDXPropsWithChildren,
 ) => {
   const [hoverRef, isHovered] = useHover();
   const headerStyles: CSSProperties = {

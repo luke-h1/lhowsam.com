@@ -1,6 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
 import Navbar from '@src/components/Navbar';
 import MDXComponents from '@src/components/mdx/index';
+import constants from '@src/constants';
 import { GlobalStyles } from '@src/styles';
 import { Layout } from '@src/styles/layouts';
 import { GlobalThemeObject, ThemeObjectInitial } from '@src/types/styled';
@@ -20,7 +21,6 @@ import '@fontsource/poppins/800.css';
 import { ThemeProvider } from 'styled-components';
 
 import '@src/styles/prism.css';
-import constants from '@src/constants';
 
 const initTheme = {
   theme: undefined,
@@ -37,9 +37,7 @@ const MyApp = ({ Component, pageProps, router }: AppProps) => {
     }
     return undefined;
   };
-  const changeThemeVariant: GlobalThemeObject['changeThemeVariant'] = (
-    theme
-  ) => {
+  const changeThemeVariant: GlobalThemeObject['changeThemeVariant'] = theme => {
     setThemeObject({ theme });
   };
   const themeForContext: GlobalThemeObject = {

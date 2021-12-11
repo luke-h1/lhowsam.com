@@ -2,7 +2,7 @@ declare module '@testing-library/jest-dom/dist/utils' {
   export const checkHtmlElement: (
     element: unknown,
     matcherFn?: Function,
-    context?: jest.MatcherUtils
+    context?: jest.MatcherUtils,
   ) => void;
 }
 

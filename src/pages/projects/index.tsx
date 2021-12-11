@@ -11,7 +11,7 @@ interface Props {
 }
 
 const ProjectPage = ({ projects }: Props) => {
-  console.log(projects)
+  console.log(projects);
   return (
     <>
       <Center>
@@ -20,7 +20,7 @@ const ProjectPage = ({ projects }: Props) => {
       <PreviewLayout>
         <ProjectWrapper>
           {projects &&
-            projects.map((project) => (
+            projects.map(project => (
               <ProjectCard project={project} key={project.id} />
             ))}
         </ProjectWrapper>
@@ -35,7 +35,7 @@ export const getStaticProps = async () => {
   return {
     revalidate: 2,
     props: {
-      projects: projects,
+      projects,
     },
   };
 };
