@@ -279,7 +279,6 @@ const NavbarMenu = () => {
     document.body.style.removeProperty('overflow');
   }, [asPath]);
 
-
   const handleToggleDrawer = () => {
     setShowDrawer(showDrawer => {
       const nextState = !showDrawer;

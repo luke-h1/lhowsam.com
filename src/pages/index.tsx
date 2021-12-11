@@ -1,4 +1,3 @@
-import SEO from '@src/components/SEO';
 import BlogSection from '@src/sections/BlogSection';
 import IntroSection from '@src/sections/IntroSection';
 import ProjectSection from '@src/sections/ProjectSection';
@@ -26,12 +25,6 @@ const Index = ({ posts, projects }: Props) => {
           url: 'https://lhowsam.com',
           title: 'Home',
         }}
-      />
-      <SEO
-        description="Home page"
-        title="Home"
-        keywords={['Projects, Blog posts, About']}
-        url="https://lhowsam.com"
       />
       <IntroSection />
       <Space size={25} />

@@ -4,6 +4,7 @@ import { Center, PreviewLayout } from '@src/styles/layouts';
 import { ProjectWrapper } from '@src/styles/project';
 import { Title } from '@src/styles/typography';
 import { Project } from '@src/types/project';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 
 interface Props {
@@ -11,9 +12,17 @@ interface Props {
 }
 
 const ProjectPage = ({ projects }: Props) => {
-  console.log(projects);
   return (
     <>
+      <NextSeo
+        title="Projects"
+        canonical="https://lhowsam.com/projects"
+        description="projects"
+        openGraph={{
+          url: 'https://lhowsam.com/projects',
+          title: 'Projects | lhowsam.com',
+        }}
+      />
       <Center>
         <Title size={5}>Projects</Title>
       </Center>

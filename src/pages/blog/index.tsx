@@ -3,6 +3,7 @@ import blogService from '@src/services/blogService';
 import { PreviewLayout, Center } from '@src/styles/layouts';
 import { Title } from '@src/styles/typography';
 import { Post } from '@src/types/post';
+import { NextSeo } from 'next-seo';
 import React from 'react';
 
 interface Props {
@@ -12,6 +13,15 @@ interface Props {
 const Index = ({ posts }: Props) => {
   return (
     <>
+      <NextSeo
+        title="Blog"
+        canonical="https://lhowsam.com/blog"
+        description="Blog"
+        openGraph={{
+          url: 'https://lhowsam.com/blog',
+          title: 'Blog | lhowsam.com',
+        }}
+      />
       <Center>
         <Title size={5}>blog</Title>
       </Center>

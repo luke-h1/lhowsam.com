@@ -29,8 +29,7 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: App => props => sheet.collectStyles(<App {...props} />),
         });
       const initialProps = await Document.getInitialProps(ctx);
       return {
@@ -46,7 +45,7 @@ export default class MyDocument extends Document {
       sheet.seal();
     }
   }
-  
+
   render() {
     return (
       <Html lang="en">
@@ -112,21 +111,24 @@ const blockingSetInitialColorMode = `(function() {
 
 function setInitialColorMode() {
   function getInitialColorMode() {
-    const persistedColorPreference = typeof window !== 'undefined' && window.localStorage.getItem('theme');
+    const persistedColorPreference =
+      typeof window !== 'undefined' && window.localStorage.getItem('theme');
     const hasPersistedPreference = typeof persistedColorPreference === 'string';
 
     if (hasPersistedPreference) {
       return persistedColorPreference;
     }
 
-    const mql = typeof window !== 'undefined' && window.matchMedia('(prefers-color-scheme: dark)');
+    const mql =
+      typeof window !== 'undefined' &&
+      window.matchMedia('(prefers-color-scheme: dark)');
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const hasMediaQueryPreference = typeof mql.matches === 'boolean';
 
     if (hasMediaQueryPreference) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       return mql.matches ? 'dark' : 'light';
     }
 
