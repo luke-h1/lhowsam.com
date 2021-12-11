@@ -12,6 +12,8 @@ import { serialize } from 'next-mdx-remote/serialize';
 import React, { useRef } from 'react';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
+import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 
 interface Props {
   post: Post;
@@ -20,9 +22,19 @@ interface Props {
 };
 
 const PostPage = ({ post, source }: Props) => {
+  const router = useRouter();
   const topRef = useRef<HTMLDivElement>(null);
   return (
     <>
+     <NextSeo
+        title={post.title}
+        canonical={`https://lhowsam.com${router.asPath}`}
+        description={post.intro}
+        openGraph={{
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `${post.title} | lhowsam.com`,
+        }}
+      />
       <div ref={topRef} />
       <PostTitle>
         <TextGradient>{post.title}</TextGradient>

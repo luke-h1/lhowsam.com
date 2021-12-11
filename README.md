@@ -9,7 +9,6 @@
 - [styled-components](https://styled-components.com)
 - [MDX](https://github.com/mdx-js/mdx)
 - [Vercel](https://vercel.com)
-- [Sanity](https://www.sanity.io)
 
 ## Tests
 [![CI / build](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml)

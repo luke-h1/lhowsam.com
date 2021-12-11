@@ -1,6 +1,7 @@
 module.exports = {
   images: {
-    domains: ['localhost', 'cdn.sanity.io'],
+    domains: ['localhost', 'media.graphcms.com'],
+    formats: ['image/avif', 'image/webp']
   },
   eslint: {
     ignoreDuringBuilds: true,

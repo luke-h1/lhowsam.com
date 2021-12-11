@@ -13,6 +13,8 @@ import { useRef } from 'react';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
 import projectService from '../../services/projectService';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 
 interface Props {
   project: Project;
@@ -20,9 +22,18 @@ interface Props {
 }
 
 const ProjectPage = ({ project, source }: Props) => {
+  const router = useRouter()
   const topRef = useRef<HTMLDivElement>(null);
   return (
     <>
+     <NextSeo
+        title={project.title}
+        canonical={`https://lhowsam.com${router.asPath}`}
+        openGraph={{
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `${project.title} | lhowsam.com`,
+        }}
+      />
       <div ref={topRef} />
       <PostTitle>
         <TextGradient>{project.title}</TextGradient>

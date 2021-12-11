@@ -1,0 +1,35 @@
+name: CI / Nightly tests 
+on: 
+  schedule:
+    - cron: '0 22 * * *'
+jobs:
+  test:
+    name: Cypress run
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [14.x]
+    steps:
+      - name: Checkout
+        uses: luke-h1/checkout@v2
+          
+      - name: Install dependencies 
+        run: yarn install --frozen-lockfile --check-files
+
+      - name: Cypress run (local)
+        uses: luke-h1/github-action@v2
+        with:
+          build: npm run build
+          start: npm run start
+          test: npm run cy:run
+          wait-on: 'http://localhost:3000'
+
+      - name: Cypress run (prod)
+        uses: luke-h1/github-action@v2
+        with:
+          build: npm run build
+          start: npm run start
+          test: npm run cy:prod
+
+          wait-on: 'https://lhowsam.com'
