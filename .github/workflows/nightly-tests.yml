@@ -19,18 +19,21 @@ jobs:
 
       - name: Cypress run (local)
         uses: luke-h1/github-action@v2
+        env: 
+          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}        
         with:
-          build: yarn workspace @lhowsam/frontend build
-          start: yarn workspace @lhowsam/frontend start
-          test: yarn workspace @lhowsam/frontend cy:run
-          working-directory: src/frontend
+          build: npm run build
+          start: npm run start
+          test: npm run cy:run
           wait-on: 'http://localhost:3000'
 
       - name: Cypress run (prod)
         uses: luke-h1/github-action@v2
+        env: 
+          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}        
         with:
-          build: yarn workspace @lhowsam/frontend build
-          start: yarn workspace @lhowsam/frontend start
-          test: yarn workspace @lhowsam/frontend cy:prod
-          working-directory: src/frontend
+          build: npm run build
+          start: npm run start
+          test: npm run cy:prod
+
           wait-on: 'https://lhowsam.com'

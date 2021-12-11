@@ -14,7 +14,9 @@ jobs:
         uses: luke-h1/checkout@v2
 
       - name: Install dependencies 
-        run: yarn install --frozen-lockfile --check-files
+        run: npm ci
 
       - name: Cypress run (prod)
-        run: yarn workspace @lhowsam/frontend cy:prod
+        run: npm run cy:prod
+          env: 
+            NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}

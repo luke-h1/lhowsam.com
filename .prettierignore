@@ -1,7 +1,7 @@
-.next/
-build/
-coverage/
-node_modules/
-*.min.css
-*.min.js
-@sanity
+node_modules
+.github
+.next
+.vercel
+public
+build
+cypress
