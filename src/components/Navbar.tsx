@@ -1,6 +1,9 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable no-shadow */
 /* eslint-disable no-nested-ternary */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import useBreakpointRange from '@src/hooks/useBreakpointRange';
 import { IconContainer } from '@src/styles/blog';
 import { sharedTransition } from '@src/styles/components';
@@ -12,8 +15,7 @@ import { useRouter } from 'next/router';
 import React, { useState, useEffect, useContext } from 'react';
 import { BsCodeSlash } from 'react-icons/bs';
 import { FaGithub, FaTwitter } from 'react-icons/fa';
-import { FiSun, FiMenu, FiX } from 'react-icons/fi';
-import { IoMdMoon } from 'react-icons/io';
+import { FiMenu, FiX } from 'react-icons/fi';
 import styled, { css, ThemeContext } from 'styled-components';
 
 const Container = styled.div`
@@ -214,6 +216,8 @@ const NavbarMenu = () => {
   const [darkTheme, setDarkTheme] = useState<boolean | undefined>(undefined);
   const { theme } = useContext(ThemeContext);
   const [showDrawer, setShowDrawer] = useState<boolean>(false);
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
   const [isMobileLayout, setIsMobileLayout] = useState<boolean | undefined>(
     undefined,
   );
@@ -275,10 +279,6 @@ const NavbarMenu = () => {
     document.body.style.removeProperty('overflow');
   }, [asPath]);
 
-  const handleThemeSwitch = (event: React.MouseEvent) => {
-    event.preventDefault();
-    setDarkTheme(!darkTheme);
-  };
 
   const handleToggleDrawer = () => {
     setShowDrawer(showDrawer => {
@@ -299,17 +299,6 @@ const NavbarMenu = () => {
         <NavLinksDesktop>
           <NavLinks />
         </NavLinksDesktop>
-        {showDrawer && isMobileLayout ? null : (
-          <ThemeSwitch onClick={handleThemeSwitch}>
-            {darkTheme === undefined ? (
-              <div style={{ width: '25px' }} />
-            ) : darkTheme ? (
-              <IoMdMoon aria-label="Switch to Light Mode" />
-            ) : (
-              <FiSun aria-label="Switch to Dark Mode" />
-            )}
-          </ThemeSwitch>
-        )}
         <MobileMenuToggle
           onClick={handleToggleDrawer}
           aria-label={showDrawer ? 'Close menu' : 'Open menu'}
