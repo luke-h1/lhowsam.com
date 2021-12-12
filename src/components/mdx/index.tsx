@@ -38,7 +38,6 @@ export const ImageWrapper = ({ alt, src }: { alt: string; src: string }) => {
   return (
     <img
       {...{ alt, src }}
-      loading="lazy"
       style={{
         maxWidth: 'var(--max-width)',
         width: '100%',

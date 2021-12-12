@@ -7,8 +7,9 @@
       "esnext"
     ],
     "paths": {
-      "@src/*": ["src/*"],
-      "@common/*": ["../common/*"]
+      "@src/*": [
+        "src/*"
+      ]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -30,16 +31,18 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": "."
+    "baseUrl": ".",
+    "incremental": true
   },
   "include": [
     "next-env.d.ts",
     "src/**/*.ts",
-    "src/**/*.tsx"
-, "src/styles/prism.ts"  ],
+    "src/**/*.tsx",
+    "src/styles/prism.ts"
+  ],
   "exclude": [
     "node_modules",
-    "cypress",  
+    "cypress",
     "src/__mocks__"
   ]
 }
