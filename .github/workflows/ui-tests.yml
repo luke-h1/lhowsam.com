@@ -25,8 +25,8 @@ jobs:
       - name: Cypress run
         uses: luke-h1/github-action@v2
         with:
+          config: baseUrl=http://localhost:3000
           build: yarn workspace @lhowsam/frontend build
           start: yarn workspace @lhowsam/frontend start
           test: yarn workspace @lhowsam/frontend cy:run
-          working-directory: src/frontend
           wait-on: 'http://localhost:3000'

@@ -23,7 +23,7 @@ const Skills: SkillItem[] = [
   },
   {
     title: 'Testing',
-    items: ['Manual / automated testing', 'Selenium', 'k6', 'Cypress',],
+    items: ['Manual / automated testing', 'Cypress'],
   },
 ];
 export default Skills;
