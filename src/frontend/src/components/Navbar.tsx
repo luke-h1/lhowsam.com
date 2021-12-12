@@ -166,9 +166,6 @@ const NavLinks = () => {
         <motion.li variants={textLinksVariants}>
           <NavLink href="/projects">Projects</NavLink>
         </motion.li>
-        <motion.li variants={textLinksVariants}>
-          <NavLink href="/code-snippets">Snippets</NavLink>
-        </motion.li>
       </PageLinks>
       <IconLinks>
         <motion.li variants={iconLinksVariants}>
@@ -178,9 +175,7 @@ const NavLinks = () => {
             rel="noopener noreferrer"
             $styledOnHover
           >
-            <FaGithub
-              aria-label="GitHub"
-            />
+            <FaGithub aria-label="GitHub" />
           </IconContainer>
         </motion.li>
         <motion.li variants={iconLinksVariants}>
@@ -190,9 +185,7 @@ const NavLinks = () => {
             rel="noopener noreferrer"
             $styledOnHover
           >
-            <FaLinkedin
-              aria-label="Linkedin"
-            />
+            <FaLinkedin aria-label="Linkedin" />
           </IconContainer>
         </motion.li>
       </IconLinks>
@@ -263,7 +256,6 @@ const NavbarMenu = () => {
     setShowDrawer(false);
     document.body.style.removeProperty('overflow');
   }, [asPath]);
-
 
   const handleToggleDrawer = () => {
     setShowDrawer((showDrawer) => {
