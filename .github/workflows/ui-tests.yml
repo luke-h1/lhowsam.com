@@ -15,6 +15,7 @@ jobs:
     steps:
       - name: Checkout
         uses: luke-h1/checkout@v2
+        env:  NEXT_PUBLIC_SANITY_URL: ${{ secrets.NEXT_PUBLIC_SANITY_URL }}
 
       - name: Install dependencies 
         run: yarn install --frozen-lockfile --check-files

@@ -12,9 +12,14 @@ jobs:
     steps:
       - name: Checkout
         uses: luke-h1/checkout@v2
+        env:  NEXT_PUBLIC_SANITY_URL: ${{ secrets.NEXT_PUBLIC_SANITY_URL }}
 
       - name: Install dependencies 
         run: yarn install --frozen-lockfile --check-files
 
       - name: Cypress run (prod)
-        run: yarn workspace @lhowsam/frontend cy:prod
+        uses: luke-h1/github-action@v2
+        with:
+          test: yarn workspace @lhowsam/frontend cy:prod
+          working-directory: src/frontend
+          wait-on: 'https://lhowsam.com'
