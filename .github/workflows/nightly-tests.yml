@@ -32,5 +32,6 @@ jobs:
         env: 
           NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
         with:
+          config: baseUrl=https://lhowsam.com
           test: npm run cy:prod
-          wait-on: 'http://localhost:3000'
+          wait-on: 'https://lhowsam.com'
