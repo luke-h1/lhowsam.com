@@ -2,6 +2,9 @@ name: CI / Nightly tests
 on: 
   schedule:
     - cron: '0 22 * * *'
+env:
+  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+
 jobs:
   test:
     name: Cypress run
@@ -19,7 +22,6 @@ jobs:
 
       - name: Cypress run (local)
         uses: luke-h1/github-action@v2
-        env:  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
         with:
           build: yarn workspace @lhowsam/frontend build
           start: yarn workspace @lhowsam/frontend start
@@ -29,7 +31,6 @@ jobs:
 
       - name: Cypress run (prod)
         uses: luke-h1/github-action@v2
-        env:  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
         with:
           test: yarn workspace @lhowsam/frontend cy:prod
           working-directory: src/frontend

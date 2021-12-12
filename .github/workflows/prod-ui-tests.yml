@@ -1,6 +1,9 @@
 name: CI / UI tests (production)
 on:
   workflow_dispatch:
+env:
+  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+
 jobs:
   test:
     name: Cypress run
@@ -14,12 +17,10 @@ jobs:
         uses: luke-h1/checkout@v2
 
       - name: Install dependencies 
-        env:  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
         run: yarn install --frozen-lockfile --check-files
 
       - name: Cypress run (prod)
         uses: luke-h1/github-action@v2
-        env:  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
         with:
           test: yarn workspace @lhowsam/frontend cy:prod
           working-directory: src/frontend
