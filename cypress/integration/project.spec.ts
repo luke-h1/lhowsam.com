@@ -37,20 +37,20 @@ describe('projects', () => {
   });
   it('should redirect to project slug page', () => {
     cy.getByTestId('project-Automation').click();
-    cy.url().should('eq', 'http://localhost:3000/projects/automation');
+    cy.url().should('include', '/projects/automation');
 
     cy.visit('/');
 
     cy.getByTestId('project-My website').click();
-    cy.url().should('eq', 'http://localhost:3000/projects/my-website');
+    cy.url().should('include', '/projects/my-website');
 
     cy.visit('/');
 
     cy.getByTestId('project-tm todos').click();
-    cy.url().should('eq', 'http://localhost:3000/projects/tm-todos');
+    cy.url().should('include', '/projects/tm-todos');
   });
   it('should display project slug data correctly', () => {
-    cy.visit('http://localhost:3000/projects/automation');
+    cy.visit('/projects/automation');
 
     cy.get('span').contains('Automation').should('be.visible');
 
@@ -60,7 +60,7 @@ describe('projects', () => {
       )
       .should('be.visible');
 
-    cy.visit('http://localhost:3000/projects/my-website');
+    cy.visit('/projects/my-website');
 
     cy.get('span').contains('My website').should('be.visible');
     cy.get('p')
