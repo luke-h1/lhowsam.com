@@ -4,6 +4,9 @@ on:
     branches: [dev]
   pull_request:
     branches: [dev, main]
+env:
+  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+
 jobs:
   test:
     name: Cypress run
@@ -17,14 +20,14 @@ jobs:
         uses: luke-h1/checkout@v2
 
       - name: Install dependencies 
-        run: npm ci
+        run: yarn install --frozen-lockfile --check-files
       
       - name: Cypress run
         uses: luke-h1/github-action@v2
-        env: 
-          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
         with:
-          build: npm run build
-          start: npm run start
-          test: npm run cy:run
+          config: baseUrl=http://localhost:3000
+          build: yarn workspace @lhowsam/frontend build
+          start: yarn workspace @lhowsam/frontend start
+          test: yarn workspace @lhowsam/frontend cy:run
+          working-directory: src/frontend
           wait-on: 'http://localhost:3000'
