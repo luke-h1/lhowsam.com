@@ -24,4 +24,5 @@ jobs:
         with:
           config: baseUrl=https://lhowsam.com
           test: yarn workspace @lhowsam/frontend cy:prod
+          working-directory: src/frontend
           wait-on: 'https://lhowsam.com'
