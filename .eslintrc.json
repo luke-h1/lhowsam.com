@@ -13,8 +13,11 @@
   "settings": {
     "import/resolver": {
       "typescript": {
-        "project": ["tsconfig.json"]
+        "project": ["src/**/tsconfig.json"]
       }
+    },
+    "next": {
+      "rootDir": "src/frontend"
     },
     "react": {
       "version": "detect"
@@ -44,15 +47,21 @@
         "tsx": "never"
       }
     ],
-    "import/no-unresolved": ["error"],
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["^(part|all):"] // eslint doesn't play nice with sanity imports
+      }
+    ],
     "import/order": [
       "error",
       {
-        "groups": [
-          ["builtin", "external", "internal"],
-          "parent",
-          "sibling",
-          "index"
+        "groups": [[ "builtin", "external", "internal" ], "parent", "sibling", "index"],
+        "pathGroups": [
+          {
+            "pattern": "@frontend/**",
+            "group": "internal"
+          }
         ],
         "alphabetize": {
           "order": "asc"
@@ -61,7 +70,12 @@
     ],
     "import/prefer-default-export": "off",
     "no-unsafe-finally": "off",
-    "no-underscore-dangle": ["error"],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": ["key", "_type", "_rev", "_id"]
+      }
+    ],
     "no-use-before-define": "off",
     "react/jsx-filename-extension": [
       "error",
