@@ -17,8 +17,9 @@ jobs:
         run: npm ci
 
       - name: Cypress run (prod)
+        uses: luke-h1/github-action@v2
         env: 
           NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
-        run: npm run cy:prod
-        wait-on: 'https://lhowsam.com'
-
+        with:
+          test: npm run cy:run
+          wait-on: 'https://lhowsam.com'
