@@ -22,5 +22,5 @@ jobs:
           NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
         with:
           config: baseUrl=https://lhowsam.com
-          test: npm run cy:prod
+          test: npm run cy:run
           wait-on: 'https://lhowsam.com'
