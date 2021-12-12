@@ -28,9 +28,7 @@ jobs:
         run: yarn lint
 
       - name: tsc
-        with:
-          run: yarn tsc
+        run: yarn tsc
 
       - name: build
-        with:
-          run: yarn build
+        run: yarn build
