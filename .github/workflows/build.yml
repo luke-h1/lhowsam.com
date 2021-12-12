@@ -28,7 +28,9 @@ jobs:
         run: yarn lint
 
       - name: tsc
+        env:  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
         run: yarn tsc
 
       - name: build
+        env:  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
         run: yarn build
