@@ -29,7 +29,6 @@ const Index = ({ projects }: Props) => {
 
       <ProjectSection projects={projects} />
       <Space size={25} />
-
     </>
   );
 };
