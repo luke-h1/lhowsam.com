@@ -33,7 +33,7 @@ jobs:
           NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
         with:
           config: baseUrl=https://lhowsam.com
-          build: npm run build
-          start: npm run start
+          # build: npm run build
+          # start: npm run start
           test: npm run cy:prod
           wait-on: 'https://lhowsam.com'
