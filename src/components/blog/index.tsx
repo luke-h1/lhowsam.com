@@ -63,7 +63,7 @@ export const BlogPostPreview = ({ post }: Props) => {
 
   return (
     <article data-testid={`blog-post-${post.title}`}>
-      <Link href={`/blog/${post.slug}`} scroll={false} passHref>
+      <Link href={`/blog/${post.slug}`} passHref>
         <AnchorUnstyled href={`/blog/${post.slug}`}>
           <Card ref={hoverRef}>
             <BlogPostPreviewTitle {...{ isHovered }}>
