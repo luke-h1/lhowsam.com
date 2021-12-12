@@ -1,10 +1,20 @@
 import { Space, Center, StyledImage } from '@src/styles/layouts';
 import { Title, Paragraph } from '@src/styles/typography';
 import React from 'react';
+import styled from 'styled-components';
+
+const IntroWrap = styled.div`
+  min-height: 90vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
 const IntroSection = () => {
   return (
-    <>
+    <IntroWrap>
       <Space size={25} />
       <Center>
         <Title size={2.5}>
@@ -33,7 +43,7 @@ const IntroSection = () => {
         environment
       </Paragraph>
       <Space size={25} />
-    </>
+    </IntroWrap>
   );
 };
 export default IntroSection;

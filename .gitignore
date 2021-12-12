@@ -1,3 +1,4 @@
 node_modules
 src/cms/public
 .vercel
+src/frontend/cypress/screenshots/*
