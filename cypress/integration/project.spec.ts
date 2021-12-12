@@ -35,13 +35,4 @@ describe('projects', () => {
       .contains('tmtodos - A simple full stack CRUD todo app')
       .should('be.visible');
   });
-  it('should display project slug data correctly', () => {
-    cy.visit('/projects/automation');
-
-    cy.get('span').contains('Automation').should('be.visible');
-
-    cy.visit('/projects/my-website');
-
-    cy.get('span').contains('My website').should('be.visible');
-  });
 });
