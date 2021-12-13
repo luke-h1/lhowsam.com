@@ -75,7 +75,12 @@ describe('skills', () => {
   it('should display testing skill items correctly', () => {
     cy.getByTestId('skill-item-Testing')
       .find('li')
-      .contains('Manual & automated testing')
+      .contains('Manual / automated testing')
+      .should('be.visible');
+
+    cy.getByTestId('skill-item-Testing')
+      .find('li')
+      .contains('Cypress')
       .should('be.visible');
   });
 });
