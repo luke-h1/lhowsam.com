@@ -3521,9 +3521,9 @@
     lodash "^4.17.15"
 
 "@sanity/vision@^2.21.10":
-  version "2.23.0"
-  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.23.0.tgz#d7815018504148f8f87d4966511d81bfcc4bcffe"
-  integrity sha512-reAAzEiasl4PzsWsniN6Etb945gncLk3qEMLmtmUrDcr9YCTay/KhEp7yoWcnZ6iVw6wnBpvvvD8zDfDl2xJbA==
+  version "2.23.1"
+  resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.23.1.tgz#b9d345c3a078804e2b457a7c9a8d0d6b2bdbdcf7"
+  integrity sha512-Uhpt1mSxDkpveHeKWR7zNRX2i/jlLjFGaJE6jo/3cpqKAP6s88XLPd4NrJKg6fNGTrStnvGko+DTh47blF7HFw==
   dependencies:
     "@sanity/icons" "^1.2.1"
     "@sanity/ui" "^0.36.17"
