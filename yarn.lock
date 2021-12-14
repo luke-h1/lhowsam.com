@@ -2842,19 +2842,6 @@
   resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-2.23.1.tgz#8ff32adc859979b3db1f16ac098fc48dec9c4754"
   integrity sha512-+Q12/T+NNX7b532uxN9njIvjNnxvzGycpNJPiWbmg9umMihI3iWx+cc/vEFeZX/HF7/6crgGFQCoF37AXE+pXA==
 
-"@sanity/client@2.23.0":
-  version "2.23.0"
-  resolved "https://registry.yarnpkg.com/@sanity/client/-/client-2.23.0.tgz#6b52701ac165e8458019cbf2d5a9a214130c5181"
-  integrity sha512-B7MCavPzfeLgH2WI7sf9srDp43IOLQfZqie430O61CJb6bh6/Yl7BZXo53CHdaOplFKX272nfcbtWxXcAnx05Q==
-  dependencies:
-    "@sanity/eventsource" "2.23.0"
-    "@sanity/generate-help-url" "2.18.0"
-    "@sanity/observable" "2.0.9"
-    deep-assign "^2.0.0"
-    get-it "^5.1.0"
-    make-error "^1.3.0"
-    object-assign "^4.1.1"
-
 "@sanity/client@2.23.1", "@sanity/client@^2.21.3":
   version "2.23.1"
   resolved "https://registry.yarnpkg.com/@sanity/client/-/client-2.23.1.tgz#7c7c471f0ea25f77cfef5db518b35c304b924e23"
@@ -3344,17 +3331,6 @@
     "@types/lodash" "^4.14.149"
     lodash "^4.17.15"
 
-"@sanity/types@2.23.0":
-  version "2.23.0"
-  resolved "https://registry.yarnpkg.com/@sanity/types/-/types-2.23.0.tgz#4dd1b2a45ce9749727c5729516ce77047f05820e"
-  integrity sha512-HH9zFybWShVV+fOcJgKlrXejiBrSdrZnYsZZmzPhk7jMWpyP/yp9qLRrroa3prTe07mSFOOkb1NCAtbpO0qnuw==
-  dependencies:
-    "@sanity/client" "2.23.0"
-    "@sanity/color" "^2.1.5"
-    "@types/react" "^17.0.0"
-    react "17.0.1"
-    rxjs "^6.5.3"
-
 "@sanity/types@2.23.1", "@sanity/types@^2.17.1":
   version "2.23.1"
   resolved "https://registry.yarnpkg.com/@sanity/types/-/types-2.23.1.tgz#cf19007b5eea4aecc9d92113725e4a1907febf84"
@@ -3382,19 +3358,6 @@
     react-is "^17.0.2"
     react-popper "^2.2.5"
     react-refractor "^2.1.5"
-
-"@sanity/util@2.23.0":
-  version "2.23.0"
-  resolved "https://registry.yarnpkg.com/@sanity/util/-/util-2.23.0.tgz#8e0bb39463c2a8ffa610648044061fd6e3189705"
-  integrity sha512-GY5D5V/3FBTG0N8RU+2hAj2Iu2YaL74/UvkdqL3MKoUGcQ4zo0B80eGqaY/8x6QEv3zCukEuwno5izisy+TuGQ==
-  dependencies:
-    "@sanity/types" "2.23.0"
-    dotenv "^8.2.0"
-    fs-extra "^7.0.0"
-    get-random-values "^1.2.2"
-    lodash "^4.17.15"
-    moment "^2.19.1"
-    resolve-from "^4.0.0"
 
 "@sanity/util@2.23.1":
   version "2.23.1"
@@ -9188,7 +9151,7 @@ get-intrinsic@^1.0.2, get-intrinsic@^1.1.0, get-intrinsic@^1.1.1:
     has "^1.0.3"
     has-symbols "^1.0.1"
 
-get-it@^5.1.0, get-it@^5.2.1:
+get-it@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/get-it/-/get-it-5.2.1.tgz#89cd98d73afd787aa4f2c89409f5893d17991e0c"
   integrity sha512-KDR5lTKmxKd/XyP3egZ8ieIdKLxKrQPKUFxk86MSoytGjxX4STigaFuwtFGmGx/lBPc1YSpi9wyuQJ5uP8WcRA==
