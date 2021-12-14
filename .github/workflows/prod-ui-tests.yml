@@ -1,9 +1,6 @@
 name: CI / UI tests (production)
 on:
   workflow_dispatch:
-env:
-  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-
 jobs:
   test:
     name: Cypress run
