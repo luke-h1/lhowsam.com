@@ -3040,9 +3040,9 @@
     rxjs "^6.5.3"
 
 "@sanity/default-login@^2.21.10":
-  version "2.23.0"
-  resolved "https://registry.yarnpkg.com/@sanity/default-login/-/default-login-2.23.0.tgz#0ab5c8f400b11b534ad278143496f2625cf41175"
-  integrity sha512-Vxr2W5tVkeTIeau+JTORFAkV0kuJV4iZBguse8Ids88akhSn6Bo/Zime802a5Y4wFKuUNX22v5gLFpfwxd8/ag==
+  version "2.23.1"
+  resolved "https://registry.yarnpkg.com/@sanity/default-login/-/default-login-2.23.1.tgz#b4e99a6b1284bf970a7631f4e5a3c4252db1ee02"
+  integrity sha512-MMbUWQmkHhMexqC06y+GTLzZht775j8vcjWJabWaRsupbzdX+L7Uoh500fIAqn7oIdOdxuUSYerYslFeEFkwiw==
   dependencies:
     "@sanity/generate-help-url" "2.18.0"
     "@sanity/logos" "^1.1.6"
