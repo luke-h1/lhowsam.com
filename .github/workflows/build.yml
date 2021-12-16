@@ -4,9 +4,8 @@ on:
     branches: [dev]
   pull_request:
     branches: [dev, main]
-env: 
+env:
   NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
-
 jobs:
   build:
     runs-on: ubuntu-latest

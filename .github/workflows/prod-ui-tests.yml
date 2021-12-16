@@ -1,9 +1,8 @@
 name: CI / UI tests (production)
 on:
   workflow_dispatch:
-env:
+env: 
   NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
-
 jobs:
   test:
     name: Cypress run
@@ -20,9 +19,8 @@ jobs:
         run: npm ci
 
       - name: Cypress run (prod)
+        uses: luke-h1/github-action@v2
         with:
-        env: NEXT_PUBLIC_GRAPHCMS_URL: ${{ env.NEXT_PUBLIC_GRAPHCMS_URL }}     
-        config: baseUrl='https://lhowsam.com'
-        run: npm run cy:prod
-        wait-on: 'https://lhowsam.com'
-
+          config: baseUrl=https://lhowsam.com
+          test: npm run cy:prod
+          wait-on: 'https://lhowsam.com'
