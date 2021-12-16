@@ -1,9 +1,8 @@
 name: CI / UI tests (production)
-env: 
-  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 on:
   workflow_dispatch:
-
+env: 
+  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 jobs:
   test:
     name: Cypress run

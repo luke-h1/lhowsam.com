@@ -1,11 +1,12 @@
 name: CI / build
-env:
-  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 on:
   push:
     branches: [dev]
   pull_request:
     branches: [dev, main]
+env:
+  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
