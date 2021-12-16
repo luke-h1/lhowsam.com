@@ -2,9 +2,6 @@ name: CI / Nightly tests
 on: 
   schedule:
     - cron: '0 22 * * *'
-
-env:
-  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 jobs:
   test:
     name: Cypress run
