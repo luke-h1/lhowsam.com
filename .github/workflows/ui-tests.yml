@@ -4,8 +4,6 @@ on:
     branches: [dev]
   pull_request:
     branches: [dev, main]
-env: 
-  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 jobs:
   test:
     name: Cypress run
@@ -23,6 +21,8 @@ jobs:
       
       - name: Cypress run
         uses: luke-h1/github-action@v2
+        env: 
+          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
         with:
           build: npm run build
           start: npm run start
