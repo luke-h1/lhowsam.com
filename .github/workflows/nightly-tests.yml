@@ -19,8 +19,9 @@ jobs:
 
       - name: Cypress run (local)
         uses: luke-h1/github-action@v2
+        env: 
+          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}        
         with:
-          env: NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
           build: npm run build
           start: npm run start
           test: npm run cy:run
@@ -28,8 +29,11 @@ jobs:
 
       - name: Cypress run (prod)
         uses: luke-h1/github-action@v2
+        env: 
+          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}        
         with:
-          env: NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
-          config: baseUrl=https://lhowsam.com
+          build: npm run build
+          start: npm run start
           test: npm run cy:prod
+
           wait-on: 'https://lhowsam.com'
