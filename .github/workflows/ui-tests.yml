@@ -21,8 +21,5 @@ jobs:
       - name: Install dependencies 
         run: npm ci
 
-      - name: Build frontend
-        run: npm run build
-
       - name: run local UI tests
         run: npm run cy:ci
