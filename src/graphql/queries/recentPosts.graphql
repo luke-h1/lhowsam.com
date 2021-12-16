@@ -1,0 +1,9 @@
+query RecentPosts {
+  posts(orderBy: id_DESC, first: 3) {
+    id
+    slug
+    title
+    intro
+    date
+  }
+}
