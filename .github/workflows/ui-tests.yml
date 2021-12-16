@@ -21,12 +21,5 @@ jobs:
       - name: Install dependencies 
         run: npm ci
 
-      
-      - name: Cypress run
-        uses: luke-h1/github-action@v2
-        with:
-          env: NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
-          build: npm run build
-          start: npm run start
-          test: npm run cy:run
-          wait-on: 'http://localhost:3000'
+      - name: run local UI tests
+        run: npm run cy:ci

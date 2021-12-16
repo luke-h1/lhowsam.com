@@ -13,6 +13,7 @@
     "cy:open": "./node_modules/.bin/cypress open",
     "cy:prod": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress run",
     "cy:prod-open": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress open",
+    "cy:ci": "npm run build && npx start-server-and-test http://localhost:3000 cy:run",
     "cy:run": "./node_modules/.bin/cypress run",
     "test": "jest",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
