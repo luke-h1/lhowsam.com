@@ -22,4 +22,5 @@ jobs:
         run: npm ci
 
       - name: run local UI tests
+        env: NEXT_PUBLIC_GRAPHCMS_URL: ${{env.NEXT_PUBLIC_GRAPHCMS_URL}}
         run: npm run cy:ci
