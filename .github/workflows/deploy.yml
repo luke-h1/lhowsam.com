@@ -1,0 +1,23 @@
+name: CI / deploy
+on:
+  push:
+    branches: [main]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - name: Checkout
+        uses: luke-h1/checkout@v2.3.4
+
+      - name: Use (Volta) Node.js ${{ matrix.node-version }}
+        uses: luke-h1/action@v1.6.0
+        with:
+          node-version: ${{ matrix.node-version }}
+      
+      - name: Deploy
+        run: curl -X POST ${{ secrets.VERCEL_DEPLOY_HOOK }}
