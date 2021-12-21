@@ -38,10 +38,10 @@ export const getStaticProps = async () => {
   const { posts } = await blogService.getAllPosts();
 
   return {
-    revalidate: 30 * 60,
     props: {
       posts,
     },
+    revalidate: 30 * 60,
   };
 };
 

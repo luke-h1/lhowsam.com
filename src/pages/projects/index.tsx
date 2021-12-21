@@ -42,9 +42,9 @@ export default ProjectPage;
 export const getStaticProps = async () => {
   const { projects } = await projectService.getAllProjects();
   return {
-    revalidate: 30 * 60,
     props: {
       projects,
     },
+    revalidate: 30 * 60,
   };
 };
