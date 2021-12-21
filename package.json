@@ -71,7 +71,7 @@
     "remark-code-titles": "^0.1.2",
     "remark-gfm": "^3.0.1",
     "remark-slug": "^6.1.0",
-    "sass": "^1.45.0",
+    "sass": "^1.45.1",
     "sharp": "^0.29.3",
     "styled-components": "^5.3.3",
     "stylelint": "^14.2.0",
