@@ -1,0 +1,34 @@
+.pageContainer {
+  overscroll-behavior-y: contain;
+  overflow: hidden;
+}
+
+.intro {
+  text-align: left;
+}
+
+
+.photoContainer {
+  position: relative;
+  height: 280px;
+  width: 100%;
+}
+
+@media (min-width: 632px) {
+  .photoContainer {
+    width: auto;
+  }
+}
+
+.cardContainer {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 632px) {
+  .cardContainer {
+    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+  }
+}

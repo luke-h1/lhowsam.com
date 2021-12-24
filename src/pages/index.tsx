@@ -78,20 +78,34 @@ const Home = ({ projects, posts }: Props) => {
         </div>
       </div>
       <h2>Contact</h2>
-        <p>
-          Get in touch via{" "}
-          <a href="mailto:luke.howsam@yahoo.com" className={styles.contact}>email</a> or send a message on{" "}
-          <a
-            href="https://twitter.com/LukeH_1999"
-            rel="noopener noreferrer"
-            target="_blank"
-            className={styles.contact}
-          >
-            Twitter
-          </a>
-          .
-        </p>
+        Get in touch via{' '}
+        <ul>
+          <li>
+            {' '}
+            <a
+              href="https://www.linkedin.com/in/lukehowsam"
+              className={styles.contact}
+            >
+              Linkedin
+            </a>{' '}
+          </li>
+          <li>
+            <a href="mailto:luke.howsam@yahoo.com" className={styles.contact}>
+              email
+            </a>{' '}
+          </li>
 
+          <li>
+            <a
+              href="https://twitter.com/LukeH_1999"
+              rel="noopener noreferrer"
+              target="_blank"
+              className={styles.contact}
+            >
+              Twitter
+            </a>
+          </li>
+        </ul>
     </Page>
   );
 };
