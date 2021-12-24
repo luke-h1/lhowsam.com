@@ -1,8 +1,12 @@
 import type { AppProps } from 'next/app';
-import '@src/styles/global.css';
-import '@src/styles/prism.css';
+import '../styles/global.css'
+import '../styles/prism.css'
 
 const App = ({ Component, pageProps, router }: AppProps) => {
-  return <Component {...pageProps} />;
+  return (
+    <>
+      <Component {...pageProps} />
+    </>
+  );
 };
 export default App;

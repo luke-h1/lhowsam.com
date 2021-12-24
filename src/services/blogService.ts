@@ -10,6 +10,9 @@ const recentPostsQuery = gql`
       title
       intro
       date
+      image {
+        url
+      }
     }
   }
 `;

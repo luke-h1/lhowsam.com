@@ -12,6 +12,9 @@ const getAllProjcets = gql`
       tech
       siteUrl
       githubUrl
+      image {
+        url
+      }
     }
   }
 `;
@@ -26,6 +29,7 @@ const getProject = gql`
       content
       githubUrl
       siteUrl
+      
     }
   }
 `;
