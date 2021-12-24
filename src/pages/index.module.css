@@ -26,6 +26,13 @@
   margin-bottom: 0px;
   margin-top: 8px;
 }
+
+
+.contact {
+  color: var(--primaryColor);
+}
+
+
 .title:hover {
   color: var(--primaryColor);
 }

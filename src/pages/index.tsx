@@ -1,6 +1,8 @@
+/* eslint-disable import/no-duplicates */
 import Card from '@src/components/Card';
 import Head from '@src/components/Head';
 import Nav from '@src/components/Nav';
+import Page from '@src/components/Page';
 import blogService from '@src/services/blogService';
 import projectService from '@src/services/projectService';
 import { Post } from '@src/types/post';
@@ -8,7 +10,7 @@ import { Project } from '@src/types/project';
 import classnames from 'classnames';
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './index.module.css';
@@ -20,9 +22,11 @@ interface Props {
 
 const Home = ({ projects, posts }: Props) => {
   return (
-    <>
-      <Head />
-      <Nav className="container" />
+    <Page
+      className='container'
+      title='Home | lhowsam.com'
+      description='Home page'
+    >
       <div className={classnames('container', styles.hero)}>
         <h1 className={styles.greeting}>
           <span>Hey 👋 </span>
@@ -73,7 +77,22 @@ const Home = ({ projects, posts }: Props) => {
             ))}
         </div>
       </div>
-    </>
+      <h2>Contact</h2>
+        <p>
+          Get in touch via{" "}
+          <a href="mailto:luke.howsam@yahoo.com" className={styles.contact}>email</a> or send a message on{" "}
+          <a
+            href="https://twitter.com/LukeH_1999"
+            rel="noopener noreferrer"
+            target="_blank"
+            className={styles.contact}
+          >
+            Twitter
+          </a>
+          .
+        </p>
+
+    </Page>
   );
 };
 export default Home;
