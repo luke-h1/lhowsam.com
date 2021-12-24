@@ -3,10 +3,6 @@
     [
       "next/babel",
       {
-        "preset-react": {
-          "runtime": "automatic",
-          "importSource": "@emotion/react"
-        },
         "preset-env": {
           "useBuiltIns": "entry",
           "corejs": 3,
@@ -16,6 +12,5 @@
         }
       }
     ]
-  ],
-  "plugins": ["styled-components"]
+  ]
 }
