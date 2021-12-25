@@ -1,50 +1,60 @@
-import ProjectCard from '@src/components/ProjectCard';
+/* eslint-disable import/no-duplicates */
+import Page from '@src/components/Page';
 import projectService from '@src/services/projectService';
-import { Center, PreviewLayout } from '@src/styles/layouts';
-import { ProjectWrapper } from '@src/styles/project';
-import { Title } from '@src/styles/typography';
 import { Project } from '@src/types/project';
-import { NextSeo } from 'next-seo';
-import React from 'react';
+import { GetStaticProps } from 'next';
+import Link from 'next/link';
+import { AiFillGithub } from 'react-icons/ai';
+import { FaLink } from 'react-icons/fa';
+import styles from './project-index.module.css';
 
 interface Props {
   projects: Project[];
 }
 
-const ProjectPage = ({ projects }: Props) => {
+const ProjectIndexPage = ({ projects }: Props) => {
   return (
-    <>
-      <NextSeo
-        title="Projects"
-        canonical="https://lhowsam.com/projects"
-        description="projects"
-        openGraph={{
-          url: 'https://lhowsam.com/projects',
-          title: 'Projects | lhowsam.com',
-        }}
-      />
-      <Center>
-        <Title size={5}>Projects</Title>
-      </Center>
-      <PreviewLayout>
-        <ProjectWrapper>
-          {projects &&
-            projects.map(project => (
-              <ProjectCard project={project} key={project.id} />
-            ))}
-        </ProjectWrapper>
-      </PreviewLayout>
-    </>
+    <Page className="container" title="Projects | lhowsam.com">
+      <header>
+        <h1>Projects</h1>
+      </header>
+      <main>
+        {projects &&
+          projects.map(project => (
+            <article key={project.id}>
+              <header>
+                <Link href={`/projects/${project.slug}`}>
+                  <a>
+                    <h2 className={styles.title}>{project.title}</h2>
+                  </a>
+                </Link>
+                <small className={styles.links}>
+                  {project.githubUrl && (
+                    <a href={project.githubUrl}>
+                      <AiFillGithub />
+                    </a>
+                  )}
+                  {project.siteUrl && (
+                    <a href={project.siteUrl}>
+                      <FaLink />
+                    </a>
+                  )}
+                </small>
+              </header>
+            </article>
+          ))}
+      </main>
+    </Page>
   );
 };
-export default ProjectPage;
+export default ProjectIndexPage;
 
-export const getStaticProps = async () => {
-  const { projects } = await projectService.getAllProjects();
+export const getStaticProps: GetStaticProps = async () => {
+  const projects = await projectService.getAllProjects();
+
   return {
     props: {
-      projects,
+      projects: projects.projects,
     },
-    revalidate: 30 * 60,
   };
 };

@@ -1,52 +1,44 @@
-import { ScrollToTop } from '@src/components/blog';
-import MDXComponents from '@src/components/mdx';
-import { EndLinks, MDXContent } from '@src/styles/blog';
-import { PostTitle, TextGradient } from '@src/styles/typography';
+import Page from '@src/components/Page';
+import projectService from '@src/services/projectService';
 import { Project } from '@src/types/project';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import { NextSeo } from 'next-seo';
-import { useRouter } from 'next/router';
-import { useRef } from 'react';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
-import projectService from '../../services/projectService';
 
 interface Props {
   project: Project;
   source: { compiledSource: string };
 }
 
-const ProjectPage = ({ project, source }: Props) => {
-  const router = useRouter();
-  const topRef = useRef<HTMLDivElement>(null);
+const ProjectSlugPage = ({ project, source }: Props) => {
   return (
-    <>
-      <NextSeo
-        title={project.title}
-        canonical={`https://lhowsam.com${router.asPath}`}
-        openGraph={{
-          url: `https://lhowsam.com${router.asPath}`,
-          title: `${project.title} | lhowsam.com`,
-        }}
-      />
-      <div ref={topRef} />
-      <PostTitle>
-        <TextGradient>{project.title}</TextGradient>
-      </PostTitle>
-      <MDXContent>
-        <MDXRemote {...source} components={MDXComponents} />
-      </MDXContent>
-      <EndLinks>
-        <ScrollToTop topRef={topRef} />
-      </EndLinks>
-    </>
+    <Page
+      title={`${project.title} | lhowsam.com`}
+      description={project.intro}
+      ogImage={project.image.url}
+    >
+      <div className="container">
+        <header>
+          <h1 data-cy='project-title'>{project.title}</h1>
+        </header>
+        <p className="blog-meta">Tech Stack:
+        {project.tech && project.tech.map(t => <small className='tech' key={t}>{t}</small>)}
+
+        </p>
+        <article>
+          <MDXRemote {...source} />
+        </article>
+      </div>
+    </Page>
   );
 };
+export default ProjectSlugPage;
+
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { projects } = await projectService.getAllProjects();
+  const { projects } = await projectService.getProjectsBySlug();
   const paths = projects.map(({ slug }) => ({ params: { slug } }));
 
   return {
@@ -83,4 +75,3 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     revalidate: 30 * 60,
   };
 };
-export default ProjectPage;

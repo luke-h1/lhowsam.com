@@ -3,9 +3,7 @@ on:
   push:
     branches: [dev]
   pull_request:
-    branches: [dev]
-env:
-  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+    branches: [dev, main]
 jobs:
   test:
     name: Cypress run

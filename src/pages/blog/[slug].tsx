@@ -1,17 +1,13 @@
-/* eslint-disable react/jsx-props-no-spreading */
-import { ScrollToTop, ShareLinks } from '@src/components/blog';
-import MDXComponents, { ImageWrapper } from '@src/components/mdx';
+/* eslint-disable import/no-duplicates */
+import Page from '@src/components/Page';
 import blogService from '@src/services/blogService';
-import { MDXContent, PostMetaDataGrid, EndLinks } from '@src/styles/blog';
-import { PostTitle, Datestamp, TextGradient } from '@src/styles/typography';
 import { Post } from '@src/types/post';
+import { formatDistanceToNow } from 'date-fns';
+import parseISO from 'date-fns/parseISO';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import { NextSeo } from 'next-seo';
-import { useRouter } from 'next/router';
-import React, { useRef } from 'react';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
 
@@ -20,41 +16,33 @@ interface Props {
   source: { compiledSource: string };
 }
 
-const PostPage = ({ post, source }: Props) => {
-  const router = useRouter();
-  const topRef = useRef<HTMLDivElement>(null);
+const BlogSlugPage = ({ post, source }: Props) => {
   return (
-    <>
-      <NextSeo
-        title={post.title}
-        canonical={`https://lhowsam.com${router.asPath}`}
-        description={post.intro}
-        openGraph={{
-          url: `https://lhowsam.com${router.asPath}`,
-          title: `${post.title} | lhowsam.com`,
-        }}
-      />
-      <div ref={topRef} />
-      <PostTitle>
-        <TextGradient>{post.title}</TextGradient>
-      </PostTitle>
-      <ImageWrapper src={post.image.url} alt={post.title} />
-      <PostMetaDataGrid>
-        <Datestamp>Published: {post.date}</Datestamp>
-      </PostMetaDataGrid>
-      <MDXContent>
-        <MDXRemote {...source} components={MDXComponents} />
-      </MDXContent>
-      <EndLinks>
-        <ShareLinks title={post.title} slug={post.slug} />
-        <ScrollToTop topRef={topRef} />
-      </EndLinks>
-    </>
+    <Page
+      title={`${post.title} | lhowsam.com`}
+      description={`Blog | ${post.intro}`}
+      ogImage={post.image.url}
+    >
+      <div className="container">
+        <header>
+          <h1 data-cy='blog-title'>{post.title}</h1>
+        </header>
+        <p className="blog-meta">
+          <time dateTime={post.date}>
+            Published {formatDistanceToNow(parseISO(post.date))} ago
+          </time>
+        </p>
+        <article>
+          <MDXRemote {...source} />
+        </article>
+      </div>
+    </Page>
   );
 };
+export default BlogSlugPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { posts } = await blogService.getAllPosts();
+  const { posts } = await blogService.getPostsBySlug();
   const paths = posts.map(({ slug }) => ({ params: { slug } }));
 
   return {
@@ -94,5 +82,3 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     revalidate: 30 * 60,
   };
 };
-
-export default PostPage;
