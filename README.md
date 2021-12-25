@@ -8,7 +8,6 @@ My website & blog
 - [Typescript](https://github.com/Microsoft/TypeScript)
 - [Cypress](https://cypress.io)
 - [Jest](https://jestjs.io)
-- [styled-components](https://styled-components.com)
 - [MDX](https://github.com/mdx-js/mdx)
 - [Vercel](https://vercel.com)
 - [GraphCMS](https://graphcms.com/)

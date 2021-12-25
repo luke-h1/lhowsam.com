@@ -1,48 +1,49 @@
-import { BlogPostPreview } from '@src/components/blog';
+/* eslint-disable import/no-duplicates */
+import Page from '@src/components/Page';
 import blogService from '@src/services/blogService';
-import { PreviewLayout, Center } from '@src/styles/layouts';
-import { Title } from '@src/styles/typography';
 import { Post } from '@src/types/post';
-import { NextSeo } from 'next-seo';
-import React from 'react';
+import format from 'date-fns/format';
+import parseISO from 'date-fns/parseISO';
+import { GetStaticProps } from 'next';
+import Link from 'next/link';
+import styles from './blog-index.module.css';
 
 interface Props {
   posts: Post[];
 }
 
-const Index = ({ posts }: Props) => {
+const BlogIndexPage = ({ posts }: Props) => {
   return (
-    <>
-      <NextSeo
-        title="Blog"
-        canonical="https://lhowsam.com/blog"
-        description="Blog"
-        openGraph={{
-          url: 'https://lhowsam.com/blog',
-          title: 'Blog | lhowsam.com',
-        }}
-      />
-      <Center>
-        <Title size={5}>blog</Title>
-      </Center>
-
-      <PreviewLayout>
+    <Page className="container" title="Blog | lhowsam.com">
+      <header>
+        <h1>Blog</h1>
+      </header>
+      <main>
         {posts &&
-          posts.map(post => <BlogPostPreview post={post} key={post.id} />)}
-      </PreviewLayout>
-    </>
+          posts.map(post => (
+            <article key={post.id}>
+              <header>
+                <Link href={`/blog/${post.slug}`}>
+                  <a>
+                    <h2 className={styles.title}>{post.title}</h2>
+                  </a>
+                </Link>
+                <small>{format(parseISO(post.date), 'MMMM d, yyyy')}</small>
+              </header>
+            </article>
+          ))}
+      </main>
+    </Page>
   );
 };
+export default BlogIndexPage;
 
-export const getStaticProps = async () => {
-  const { posts } = await blogService.getAllPosts();
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await blogService.getAllPosts();
 
   return {
     props: {
-      posts,
+      posts: posts.posts,
     },
-    revalidate: 30 * 60,
   };
 };
-
-export default Index;

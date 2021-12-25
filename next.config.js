@@ -1,29 +1,21 @@
 module.exports = {
-  images: {
-    domains: ['localhost', 'media.graphcms.com'],
-    formats: ['image/avif', 'image/webp'],
-  },
+  reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
   },
-  reactStrictMode: true,
   generateBuildId: async () => {
     return '1';
   },
+
+  images: {
+    domains: ['localhost', 'media.graphcms.com', 'pbs.twimg.com'],
+    formats: ['image/avif', 'image/webp'],
+  },
   webpack(config) {
     config.module.rules.push({
-      test: /\.svg$/,
-      use: [
-        {
-          loader: '@svgr/webpack',
-          options: {
-            icon: true,
-            titleProp: true,
-          },
-        },
-      ],
+      test: /react-sprint/,
+      sideEffects: true,
     });
-
     return config;
   },
   async redirects() {
