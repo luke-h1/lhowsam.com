@@ -5,7 +5,7 @@ describe('index', () => {
 
   it('should render correctly', () => {
     cy.get('span').contains('Hey 👋 ').should('be.visible')
-    cy.contains('I\'m Luke. I\'m a software tester & developer').should('be.visible')
+    cy.contains('I\'m Luke')
   })
 
   it('should display recent blogs', () => {
