@@ -3,9 +3,6 @@ export interface Project {
   title: string;
   intro: string;
   content: string;
-  image: {
-    url: string;
-  };
   slug: string;
   tech: string[];
   siteUrl?: string;

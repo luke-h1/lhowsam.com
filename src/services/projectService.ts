@@ -10,7 +10,7 @@ const projectsSlugsQuery = gql`
   }
 `;
 
-const getAllProjcets = gql`
+const getAllProjects = gql`
   query Projects {
     projects(orderBy: id_DESC) {
       id
@@ -20,9 +20,6 @@ const getAllProjcets = gql`
       tech
       siteUrl
       githubUrl
-      image {
-        url
-      }
     }
   }
 `;
@@ -38,16 +35,13 @@ const getProject = gql`
       githubUrl
       siteUrl
       tech
-      image {
-        url
-      }
     }
   }
 `;
 
 const projectService = {
   async getAllProjects(): Promise<{ projects: Project[] }> {
-    return cmsClient.request(getAllProjcets);
+    return cmsClient.request(getAllProjects);
   },
   async getProject(slug: string): Promise<{ project: Project }> {
     return cmsClient.request(getProject, { slug });
