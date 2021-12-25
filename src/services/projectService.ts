@@ -2,6 +2,14 @@ import { Project } from '@src/types/project';
 import { cmsClient } from '@src/utils/graphcms';
 import { gql } from 'graphql-request';
 
+const projectsSlugsQuery = gql`
+  query Projects {
+    projects {
+      slug
+    }
+  }
+`;
+
 const getAllProjcets = gql`
   query Projects {
     projects(orderBy: id_DESC) {
@@ -29,6 +37,10 @@ const getProject = gql`
       content
       githubUrl
       siteUrl
+      tech
+      image {
+        url
+      }
     }
   }
 `;
@@ -39,6 +51,9 @@ const projectService = {
   },
   async getProject(slug: string): Promise<{ project: Project }> {
     return cmsClient.request(getProject, { slug });
+  },
+  async getProjectsBySlug(): Promise<{ projects: { slug: string }[] }> {
+    return cmsClient.request(projectsSlugsQuery);
   },
 };
 

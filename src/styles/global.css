@@ -121,3 +121,8 @@ pre {
 .blog-meta > a {
   margin-right: 16px;
 }
+
+.tech {
+  margin-left: 5px;
+  margin-right: 5px;
+}

@@ -1,9 +1,6 @@
-/* eslint-disable import/no-duplicates */
 import Page from '@src/components/Page';
-import blogService from '@src/services/blogService';
-import { Post } from '@src/types/post';
-import { formatDistanceToNow } from 'date-fns';
-import parseISO from 'date-fns/parseISO';
+import projectService from '@src/services/projectService';
+import { Project } from '@src/types/project';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
@@ -12,25 +9,24 @@ import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
 
 interface Props {
-  post: Post;
+  project: Project;
   source: { compiledSource: string };
 }
 
-const BlogSlugPage = ({ post, source }: Props) => {
+const ProjectSlugPage = ({ project, source }: Props) => {
   return (
     <Page
-      title={`${post.title} | lhowsam.com`}
-      description={`Blog | ${post.intro}`}
-      ogImage={post.image.url}
+      title={`${project.title} | lhowsam.com`}
+      description={project.intro}
+      ogImage={project.image.url}
     >
       <div className="container">
         <header>
-          <h1>{post.title}</h1>
+          <h1>{project.title}</h1>
         </header>
-        <p className="blog-meta">
-          <time dateTime={post.date}>
-            Published {formatDistanceToNow(parseISO(post.date))} ago
-          </time>
+        <p className="blog-meta">Tech Stack:
+        {project.tech && project.tech.map(t => <small className='tech' key={t}>{t}</small>)}
+
         </p>
         <article>
           <MDXRemote {...source} />
@@ -39,11 +35,11 @@ const BlogSlugPage = ({ post, source }: Props) => {
     </Page>
   );
 };
-export default BlogSlugPage;
+export default ProjectSlugPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { posts } = await blogService.getPostsBySlug();
-  const paths = posts.map(({ slug }) => ({ params: { slug } }));
+  const { projects } = await projectService.getProjectsBySlug();
+  const paths = projects.map(({ slug }) => ({ params: { slug } }));
 
   return {
     paths,
@@ -58,25 +54,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       notFound: true,
     };
   }
-
-  const { post } = await blogService.getPost(params.slug as string);
-  if (!post) {
+  const { project } = await projectService.getProject(params.slug as string);
+  if (!project) {
     return {
       props: [],
       notFound: true,
     };
   }
-
-  const source = await serialize(post.content, {
+  const source = await serialize(project.content, {
     mdxOptions: {
       remarkPlugins: [CodeTitle, Headings],
       rehypePlugins: [mdxPrism],
     },
   });
-
   return {
     props: {
-      post,
+      project,
       source,
     },
     revalidate: 30 * 60,

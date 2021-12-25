@@ -1,0 +1,12 @@
+.title {
+  margin-bottom: 0px;
+}
+
+.links {
+  display: flex;
+}
+
+.links > * {
+  margin-right: 5px;
+  margin-left: 5px;
+}
