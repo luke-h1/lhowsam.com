@@ -15,18 +15,19 @@ interface Props {
 
 const ProjectSlugPage = ({ project, source }: Props) => {
   return (
-    <Page
-      title={`${project.title} | lhowsam.com`}
-      description={project.intro}
-      ogImage={project.image.url}
-    >
+    <Page title={`${project.title} | lhowsam.com`} description={project.intro}>
       <div className="container">
         <header>
-          <h1 data-cy='project-title'>{project.title}</h1>
+          <h1 data-cy="project-title">{project.title}</h1>
         </header>
-        <p className="blog-meta">Tech Stack:
-        {project.tech && project.tech.map(t => <small className='tech' key={t}>{t}</small>)}
-
+        <p className="blog-meta">
+          Tech Stack:
+          {project.tech &&
+            project.tech.map(t => (
+              <small className="tech" key={t}>
+                {t}
+              </small>
+            ))}
         </p>
         <article>
           <MDXRemote {...source} />
