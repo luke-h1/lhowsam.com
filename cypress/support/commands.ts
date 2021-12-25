@@ -1,5 +1,5 @@
 Cypress.Commands.add('getByTestId', (testId: string) => {
-  cy.get(`[data-testid="${testId}"]`);
+  cy.get(`[data-cy="${testId}"]`);
 });
 
 Cypress.Commands.add('getById', (id: string) => {

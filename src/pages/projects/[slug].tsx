@@ -22,7 +22,7 @@ const ProjectSlugPage = ({ project, source }: Props) => {
     >
       <div className="container">
         <header>
-          <h1>{project.title}</h1>
+          <h1 data-cy='project-title'>{project.title}</h1>
         </header>
         <p className="blog-meta">Tech Stack:
         {project.tech && project.tech.map(t => <small className='tech' key={t}>{t}</small>)}
