@@ -13,7 +13,7 @@ const Head = ({
   children,
   title = 'Luke Howsam, Developer & software tester',
   description = "Hey, I'm Luke I'm a software tester and developer. I like building and testing projects that are scalable, performant & user friendly. I currently work as a software tester where I do a mixture of manual & automated testing in an agile environment",
-  ogImage = `${process.env.NEXT_PUBLIC_SITE_URL}/ogImage.png`,
+  ogImage = `${process.env.NEXT_PUBLIC_SITE_URL}/icons/logo.png`,
 }: Props) => {
   const router = useRouter();
 
