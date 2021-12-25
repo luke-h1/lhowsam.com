@@ -29,7 +29,7 @@ const Home = ({ projects, posts }: Props) => {
         <h1 className={styles.greeting}>
           <span>Hey 👋 </span>
           <br />
-          I'm Luke. I'm a software tester & developer
+          I'm Luke
         </h1>
       </div>
       <div className="container">
