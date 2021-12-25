@@ -10,7 +10,7 @@ const Photo = () => {
         <animated.div
           className={styles.photo}
           style={{ background: 'url(/images/luke.jpeg)' }}
-         />
+        />
       </div>
     </>
   );

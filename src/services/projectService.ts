@@ -29,7 +29,6 @@ const getProject = gql`
       content
       githubUrl
       siteUrl
-      
     }
   }
 `;

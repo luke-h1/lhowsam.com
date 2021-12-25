@@ -5,7 +5,7 @@ export interface Project {
   content: string;
   image: {
     url: string;
-  }
+  };
   slug: string;
   tech: string[];
   siteUrl?: string;

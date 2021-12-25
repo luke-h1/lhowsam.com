@@ -22,10 +22,7 @@ export default class MyDocument extends Document {
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
-          <meta
-            name="keywords"
-            content={[...(keywords)].join(', ')}
-          />
+          <meta name="keywords" content={[...keywords].join(', ')} />
           <script
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
@@ -40,7 +37,6 @@ export default class MyDocument extends Document {
             }}
           />
           <link href="/icons/favicon-16x16.png" rel="shortcut icon" />
-          <link href="site.webmanifest" rel="manifest" />
           <link
             rel="icon"
             type="image/png"
@@ -53,7 +49,7 @@ export default class MyDocument extends Document {
             sizes="16x16"
             href="/icons/favicon-16x16.png"
           />
-          <link rel="manifest" href="/site.webmanifest" />
+          <link rel="manifest" href="/manifest.json" />
           <meta name="theme-color" content="#ffffff" />
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
           <meta content="#ffffff" name="theme-color" />

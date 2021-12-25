@@ -1,7 +1,5 @@
 /* eslint-disable import/no-duplicates */
 import Card from '@src/components/Card';
-import Head from '@src/components/Head';
-import Nav from '@src/components/Nav';
 import Page from '@src/components/Page';
 import blogService from '@src/services/blogService';
 import projectService from '@src/services/projectService';
@@ -23,9 +21,9 @@ interface Props {
 const Home = ({ projects, posts }: Props) => {
   return (
     <Page
-      className='container'
-      title='Home | lhowsam.com'
-      description='Home page'
+      className="container"
+      title="Home | lhowsam.com"
+      description="Home page"
     >
       <div className={classnames('container', styles.hero)}>
         <h1 className={styles.greeting}>
@@ -34,7 +32,6 @@ const Home = ({ projects, posts }: Props) => {
           I'm Luke. I'm a software tester & developer
         </h1>
       </div>
-
       <div className="container">
         <h2>Recent blog posts</h2>
         {posts &&
@@ -70,42 +67,39 @@ const Home = ({ projects, posts }: Props) => {
         <div className={styles.cardContainer}>
           {projects &&
             projects.map(project => (
-              <Card
-                project={project}
-                key={project.id}
-              />
+              <Card project={project} key={project.id} />
             ))}
         </div>
       </div>
       <h2>Contact</h2>
-        Get in touch via{' '}
-        <ul>
-          <li>
-            {' '}
-            <a
-              href="https://www.linkedin.com/in/lukehowsam"
-              className={styles.contact}
-            >
-              Linkedin
-            </a>{' '}
-          </li>
-          <li>
-            <a href="mailto:luke.howsam@yahoo.com" className={styles.contact}>
-              email
-            </a>{' '}
-          </li>
+      Get in touch via{' '}
+      <ul>
+        <li>
+          {' '}
+          <a
+            href="https://www.linkedin.com/in/lukehowsam"
+            className={styles.contact}
+          >
+            Linkedin
+          </a>{' '}
+        </li>
+        <li>
+          <a href="mailto:luke.howsam@yahoo.com" className={styles.contact}>
+            email
+          </a>{' '}
+        </li>
 
-          <li>
-            <a
-              href="https://twitter.com/LukeH_1999"
-              rel="noopener noreferrer"
-              target="_blank"
-              className={styles.contact}
-            >
-              Twitter
-            </a>
-          </li>
-        </ul>
+        <li>
+          <a
+            href="https://twitter.com/LukeH_1999"
+            rel="noopener noreferrer"
+            target="_blank"
+            className={styles.contact}
+          >
+            Twitter
+          </a>
+        </li>
+      </ul>
     </Page>
   );
 };

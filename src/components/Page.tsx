@@ -1,5 +1,5 @@
+import Nav from '@src/components/Nav';
 import Head from './Head';
-import Nav from './Nav';
 
 interface Props {
   children: React.ReactNode;
@@ -9,13 +9,21 @@ interface Props {
   title: string;
 }
 
-const Page = ({ children, className, description, ogImage, title }: Props) => {
+const Page = ({
+  children,
+  className = 'container',
+  description,
+  ogImage,
+  title,
+}: Props) => {
   return (
-    <div className={className}>
-      <Head title={title} description={description} ogImage={ogImage} />
-      <Nav />
-      {children}
-    </div>
+    <>
+      <div className={className}>
+        <Nav />
+        <Head title={title} description={description} ogImage={ogImage} />
+        {children}
+      </div>
+    </>
   );
 };
 export default Page;

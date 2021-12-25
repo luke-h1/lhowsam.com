@@ -2,6 +2,14 @@ import { Post } from '@src/types/post';
 import { cmsClient } from '@src/utils/graphcms';
 import { gql } from 'graphql-request';
 
+const postsSlugsQuery = gql`
+  query Posts {
+    posts {
+      slug
+    }
+  }
+`;
+
 const recentPostsQuery = gql`
   query Posts {
     posts(orderBy: id_DESC, first: 3) {
@@ -54,6 +62,9 @@ const blogService = {
   },
   async getRecentPosts(): Promise<{ posts: Post[] }> {
     return cmsClient.request(recentPostsQuery);
+  },
+  async getPostsBySlug(): Promise<{ posts: { slug: string }[] }> {
+    return cmsClient.request(postsSlugsQuery);
   },
 };
 
