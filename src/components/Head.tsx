@@ -22,7 +22,10 @@ const Head = ({
       <meta charSet="UTF-8" />
       <title>{title}</title>
       <meta name="description" content={description} />
-      <meta name="twitter:site" content={`${process.env.NEXT_PUBLIC_SITE_URL}${router.pathname}`} />
+      <meta
+        name="twitter:site"
+        content={`${process.env.NEXT_PUBLIC_SITE_URL}${router.pathname}`}
+      />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={ogImage} />
       <meta property="og:image" content={ogImage} />

@@ -11,17 +11,17 @@ interface NavProps {
 const Nav = ({ className }: NavProps) => {
   return (
     <nav className={classnames(styles.nav, className)}>
-      <Link href='/'>
-      <a className={styles.siteLogo}>
-        <Image
-          src="/icons/logo.png"
-          height={32}
-          layout="fixed"
-          priority
-          width={32}
-        />
-        <span>Luke H</span>
-      </a>
+      <Link href="/">
+        <a className={styles.siteLogo}>
+          <Image
+            src="/icons/logo.png"
+            height={32}
+            layout="fixed"
+            priority
+            width={32}
+          />
+          <span>Luke H</span>
+        </a>
       </Link>
       <ul>
         {NavLinks &&
