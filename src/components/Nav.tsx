@@ -11,7 +11,8 @@ interface NavProps {
 const Nav = ({ className }: NavProps) => {
   return (
     <nav className={classnames(styles.nav, className)}>
-      <a className={styles.siteLogo} href="/">
+      <Link href='/'>
+      <a className={styles.siteLogo}>
         <Image
           src="/icons/logo.png"
           height={32}
@@ -21,6 +22,7 @@ const Nav = ({ className }: NavProps) => {
         />
         <span>Luke H</span>
       </a>
+      </Link>
       <ul>
         {NavLinks &&
           NavLinks.map(link => (
