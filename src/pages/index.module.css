@@ -28,10 +28,11 @@
 }
 
 .title {
-  color: var(--white);
+  color: var(--black);
   margin-bottom: 0px;
   margin-top: 8px;
 }
+
 
 .contact {
   color: var(--primaryColor);
