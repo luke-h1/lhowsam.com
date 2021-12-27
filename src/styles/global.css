@@ -1,8 +1,7 @@
 :root {
   --pageContentWidth: 632px;
   --mainPadding: calc((100% - var(--pageContentWidth)) / 2);
-
-  --black: #333333;
+  --black: #111111;
   --grey: #eceff1;
   --white: #ffffff;
   --hoverColor: #2941F5;
@@ -16,7 +15,8 @@
 }
 
 body {
-  color: var(--black);
+  background-color: var(--black);
+  color: var(--white);
   font-family: -apple-system, BlinkMacSystemFont, Avenir Next, Avenir, Helvetica,
     sans-serif;
   font-size: 1.2em;
@@ -32,6 +32,7 @@ h5,
 h6 {
   line-height: normal;
   margin-top: 2.4rem;
+  color: var(--white);
 }
 
 h1 {
@@ -40,12 +41,12 @@ h1 {
 
 hr {
   border: none;
-  border-top: 1px solid var(--black);
+  border-top: 1px solid var(--white);
   opacity: 0.2;
 }
 
 blockquote {
-  border-left: 2px solid var(--black);
+  border-left: 2px solid var(--white);
   font-style: italic;
   font-weight: 300;
   margin: 2em 0;
