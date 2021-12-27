@@ -24,6 +24,4 @@ jobs:
       
       - name: Cypress run
         run: npm run cy:ci
-        env:
-          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 
