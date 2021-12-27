@@ -23,11 +23,14 @@ jobs:
 
       - name: Build frontend
         run: npm run build 
-        env:
-          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+        with:
+          env:
+            NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 
       - name: Cypress run
         run: npx start-server-and-test http://localhost:3000 cy:run
-        env:
-          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+        with:
+          env:
+            NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+
 
