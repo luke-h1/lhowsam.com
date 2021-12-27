@@ -11,7 +11,6 @@
     "lint": "eslint \"./src/**/*.{js, jsx,ts,tsx}\" --quiet --fix && eslint \"./**/*.{js, jsx,ts,tsx}\" --quiet --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
     "cy:open": "./node_modules/.bin/cypress open",
-    "cy:ci": "npm run build && npx start-server-and-test http://localhost:3000 cy:run",
     "cy:prod": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress run",
     "cy:prod-open": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress open",
     "cy:run": "./node_modules/.bin/cypress run",
