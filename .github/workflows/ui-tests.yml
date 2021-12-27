@@ -26,7 +26,6 @@ jobs:
 
       - name: Cypress run
         run: npx start-server-and-test http://localhost:3000 cy:run
-        with:
-          env:
-            NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+        env:
+          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 
