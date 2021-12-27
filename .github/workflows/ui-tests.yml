@@ -29,3 +29,6 @@ jobs:
           start: npm run start
           test: npm run cy:run
           wait-on: 'http://localhost:3000'
+        env:
+          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+
