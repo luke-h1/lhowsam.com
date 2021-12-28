@@ -17,7 +17,7 @@ jobs:
         uses: luke-h1/checkout@v2
           
       - name: Install dependencies 
-        run: yarn install --frozen-lockfile --check-files
+        run: npm ci
 
       - name: Cypress run (local)
         uses: luke-h1/github-action@v2
