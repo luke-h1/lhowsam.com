@@ -26,7 +26,7 @@
 
 .nav li a,
 .siteLogo {
-  color: var(--black);
+  color: var(--white);
   padding: 0 8px;
   text-decoration: none;
   font-size: 13px;

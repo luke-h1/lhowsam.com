@@ -2,6 +2,10 @@
   margin-bottom: 0px;
 }
 
+.title:hover {
+  color: var(--primaryColor);
+}
+
 .links {
   display: flex;
 }
