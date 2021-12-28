@@ -1,5 +1,5 @@
 .hero {
-  color: var(--black);
+  color: var(--white);
 }
 
 .contact {
@@ -28,7 +28,7 @@
 }
 
 .title {
-  color: var(--black);
+  color: var(--white);
   margin-bottom: 0px;
   margin-top: 8px;
 }
