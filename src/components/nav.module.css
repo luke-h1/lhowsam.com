@@ -11,8 +11,13 @@
   padding: 0;
 }
 
+.nav ul > * {
+  color: var(--white);
+}
+
 .nav li {
   display: flex;
+  color: var(--white);
   transition: transform 0.2s;
 }
 
