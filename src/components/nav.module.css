@@ -11,8 +11,13 @@
   padding: 0;
 }
 
+.nav ul > * {
+  color: var(--white);
+}
+
 .nav li {
   display: flex;
+  color: var(--white);
   transition: transform 0.2s;
 }
 
@@ -26,7 +31,7 @@
 
 .nav li a,
 .siteLogo {
-  color: var(--black);
+  color: var(--white);
   padding: 0 8px;
   text-decoration: none;
   font-size: 13px;

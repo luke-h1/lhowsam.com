@@ -1,6 +1,5 @@
 import { NavLinks } from '@src/data/NavLinks';
 import classnames from 'classnames';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from './nav.module.css';
 
@@ -13,13 +12,6 @@ const Nav = ({ className }: NavProps) => {
     <nav className={classnames(styles.nav, className)}>
       <Link href="/">
         <a className={styles.siteLogo}>
-          <Image
-            src="/icons/logo.png"
-            height={32}
-            layout="fixed"
-            priority
-            width={32}
-          />
           <span>Luke H</span>
         </a>
       </Link>
