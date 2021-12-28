@@ -32,6 +32,9 @@ jobs:
       - name: lint
         run: npm run lint
 
+      - name: jest
+        run: npm run test
+
       - name: tsc
         run: npm run tsc
 

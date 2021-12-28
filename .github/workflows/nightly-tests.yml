@@ -19,6 +19,9 @@ jobs:
       - name: Install dependencies 
         run: npm ci
 
+      - name: jest 
+        run: npm run test
+
       - name: Cypress run (local)
         uses: luke-h1/github-action@v2
         with:
