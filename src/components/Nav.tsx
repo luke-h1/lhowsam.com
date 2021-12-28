@@ -1,6 +1,5 @@
 import { NavLinks } from '@src/data/NavLinks';
 import classnames from 'classnames';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from './nav.module.css';
 
