@@ -4,7 +4,7 @@ import blogService from '@src/services/blogService';
 import { Post } from '@src/types/post';
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
-import { GetStaticProps } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import styles from './blog-index.module.css';
 
@@ -12,7 +12,7 @@ interface Props {
   posts: Post[];
 }
 
-const BlogIndexPage = ({ posts }: Props) => {
+const BlogIndexPage: NextPage<Props> = ({ posts }) => {
   return (
     <Page className="container" title="Blog | lhowsam.com">
       <header>

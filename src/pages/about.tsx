@@ -1,9 +1,10 @@
 import Page from '@src/components/Page';
 import Photo from '@src/components/Photo';
 import classnames from 'classnames';
+import { NextPage } from 'next';
 import styles from './about.module.css';
 
-const AboutPage = () => {
+const AboutPage: NextPage = () => {
   return (
     <Page
       className={classnames('container', styles.pageContainer)}

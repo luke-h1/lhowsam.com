@@ -5,7 +5,7 @@ import { Post } from '@src/types/post';
 import { formatDistanceToNow } from 'date-fns';
 import parseISO from 'date-fns/parseISO';
 import mdxPrism from 'mdx-prism';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import Headings from 'remark-autolink-headings';
@@ -16,7 +16,7 @@ interface Props {
   source: { compiledSource: string };
 }
 
-const BlogSlugPage = ({ post, source }: Props) => {
+const BlogSlugPage: NextPage<Props> = ({ post, source }) => {
   return (
     <Page
       title={`${post.title} | lhowsam.com`}

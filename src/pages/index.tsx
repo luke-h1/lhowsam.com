@@ -8,7 +8,7 @@ import { Project } from '@src/types/project';
 import classnames from 'classnames';
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
-import { GetStaticProps } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './index.module.css';
@@ -18,7 +18,7 @@ interface Props {
   posts: Post[];
 }
 
-const Home = ({ projects, posts }: Props) => {
+const Home: NextPage<Props> = ({ projects, posts }) => {
   return (
     <Page
       className="container"

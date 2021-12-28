@@ -2,7 +2,7 @@
 import Page from '@src/components/Page';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/project';
-import { GetStaticProps } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import { AiFillGithub } from 'react-icons/ai';
 import { FaLink } from 'react-icons/fa';
@@ -12,7 +12,7 @@ interface Props {
   projects: Project[];
 }
 
-const ProjectIndexPage = ({ projects }: Props) => {
+const ProjectIndexPage: NextPage<Props> = ({ projects }) => {
   return (
     <Page className="container" title="Projects | lhowsam.com">
       <header>

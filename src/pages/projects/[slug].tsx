@@ -2,7 +2,7 @@ import Page from '@src/components/Page';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/project';
 import mdxPrism from 'mdx-prism';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import Headings from 'remark-autolink-headings';
@@ -13,7 +13,7 @@ interface Props {
   source: { compiledSource: string };
 }
 
-const ProjectSlugPage = ({ project, source }: Props) => {
+const ProjectSlugPage: NextPage<Props> = ({ project, source }) => {
   return (
     <Page title={`${project.title} | lhowsam.com`} description={project.intro}>
       <div className="container">
