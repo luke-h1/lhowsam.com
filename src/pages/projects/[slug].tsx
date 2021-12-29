@@ -18,7 +18,7 @@ const ProjectSlugPage = ({ project, source }: Props) => {
     <Page title={`${project.title} | lhowsam.com`} description={project.intro}>
       <div className="container">
         <header>
-          <h1 data-cy="project-title">{project.title}</h1>
+          <h1 data-testid="project-title">{project.title}</h1>
         </header>
         <p className="blog-meta">
           Tech Stack:

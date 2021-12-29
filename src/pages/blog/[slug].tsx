@@ -25,7 +25,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
     >
       <div className="container">
         <header>
-          <h1 data-cy="blog-title">{post.title}</h1>
+          <h1 data-testid="blog-title">{post.title}</h1>
         </header>
         <p className="blog-meta">
           <time dateTime={post.date}>
