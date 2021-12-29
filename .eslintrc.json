@@ -71,6 +71,7 @@
     ],
     "react/jsx-one-expression-per-line": "off",
     "@typescript-eslint/ban-types": "off",
+    "react/function-component-definition": "off",
     "@next/next/no-img-element": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-wrap-multilines": ["error", { "prop": "ignore" }],

@@ -13,18 +13,18 @@ const Card = ({ project }: CardProps) => {
     <Link href={`/projects/${project.slug}`}>
       <a className={styles.card}>
         <div>
-          <h3 data-cy="project-title">
+          <h3 data-testid="project-title">
             {project.title} <span className={styles.arrow}>&rarr;</span>
           </h3>
-          <p data-cy="project-intro">{project.intro}</p>
+          <p data-testid="project-intro">{project.intro}</p>
           <span>
             {project.githubUrl && (
-              <a href={project.githubUrl} data-cy="github-url">
+              <a href={project.githubUrl} data-testid="github-url">
                 <AiFillGithub />
               </a>
             )}
             {project.siteUrl && (
-              <a href={project.siteUrl} data-cy="site-url">
+              <a href={project.siteUrl} data-testid="site-url">
                 <FaLink />
               </a>
             )}
