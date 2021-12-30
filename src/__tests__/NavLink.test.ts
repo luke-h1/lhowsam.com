@@ -1,7 +1,7 @@
 import { NavLinks } from '../data/NavLinks';
 
 test('skills data is correct', () => {
-  expect(NavLinks).toHaveLength(3);
+  expect(NavLinks).toHaveLength(4);
   expect(NavLinks.map(link => link.text)).toEqual(['Home', 'About', 'Blog', 'Projects']);
 });
 
