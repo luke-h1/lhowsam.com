@@ -1,4 +1,4 @@
-name: CI / build
+name: CI / Build
 on:
   push:
     branches: [dev]
@@ -7,22 +7,17 @@ on:
 env:
   NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
+  test:
+    name: Build
+    runs-on: ubuntu-20.04
     strategy:
+      fail-fast: false
       matrix:
-        node-version: [14.x]
-
+        node-version: 14
     steps:
       - name: Checkout
-        uses: luke-h1/checkout@v2.3.4
+        uses: luke-h1/checkout@v2
 
-      - name: Use (Volta) Node.js ${{ matrix.node-version }}
-        uses: luke-h1/action@v1.6.0
-        with:
-          node-version: ${{ matrix.node-version }}
-      
       - name: Use latest npm version
         run: npm i -g npm@latest
 
