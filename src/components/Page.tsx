@@ -17,13 +17,11 @@ const Page = ({
   title,
 }: Props) => {
   return (
-    <>
-      <div className={className}>
-        <Nav />
-        <Head title={title} description={description} ogImage={ogImage} />
-        {children}
-      </div>
-    </>
+    <div className={className}>
+      <Nav />
+      <Head title={title} description={description} ogImage={ogImage} />
+      {children}
+    </div>
   );
 };
 export default Page;

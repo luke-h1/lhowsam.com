@@ -9,7 +9,7 @@ env:
 jobs:
   test:
     name: Cypress run
-    runs-on: ubuntu-20.04
+    runs-on: [ubuntu-latest, macos-latest]
     steps:
       - name: Setup node
         uses: luke-h1/setup-node@v2
