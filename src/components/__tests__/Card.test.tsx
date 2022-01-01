@@ -49,5 +49,5 @@ describe('card', () => {
       'href',
       'https://github.com',
     );
-  })
+  });
 });
