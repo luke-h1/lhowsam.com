@@ -56,6 +56,10 @@ export default class MyDocument extends Document {
           <meta content="#ffffff" name="msapplication-TileColor" />
           <meta property="og:image:width" content="1200" />
           <meta property="og:image:height" content="630" />
+          <meta
+            content="VXnRb79aLIbpTSPg8tRVx5KMcECv8hLJPYW0f3X4KKI"
+            name="google-site-verification"
+          />
         </Head>
         <body>
           <Main />
