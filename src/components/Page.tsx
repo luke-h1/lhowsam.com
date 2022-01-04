@@ -1,4 +1,5 @@
 import Nav from '@src/components/Nav';
+import Footer from './Footer';
 import Head from './Head';
 
 interface Props {
@@ -21,6 +22,7 @@ const Page = ({
       <Nav />
       <Head title={title} description={description} ogImage={ogImage} />
       {children}
+      <Footer />
     </div>
   );
 };
