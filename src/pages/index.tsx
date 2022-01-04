@@ -73,7 +73,7 @@ const Home = ({ projects, posts }: Props) => {
       </div>
       <h2>Contact</h2>
       Get in touch via{' '}
-      <ul style={{ marginBottom: '2rem' }}>
+      <ul>
         <li>
           {' '}
           <a
