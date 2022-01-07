@@ -105,7 +105,7 @@
     "jest-resolve": "^27.4.6",
     "jest-serializer-html": "^7.1.0",
     "jest-watch-typeahead": "^1.0.0",
-    "lint-staged": "^12.1.5",
+    "lint-staged": "^12.1.7",
     "prettier": "^2.5.1",
     "react-icons": "^4.3.1",
     "ts-jest": "^27.1.2",
