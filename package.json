@@ -112,17 +112,13 @@
     "typescript": "^4.5.3"
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!src/**/*.d.ts"
-    ],
+    "collectCoverage": true,
     "setupFilesAfterEnv": [
       "<rootDir>/test/setupTests.js"
     ],
     "testMatch": [
       "<rootDir>/src/**/*.(test).{js,jsx,ts,tsx}",
-      "<rootDir>/__tests__/**/*.(test).{js,jsx,ts,tsx}",
-      "<rootDir>/src/components/__tests__/**/*.(test).{js,jsx,ts,tsx}"
+      "<rootDir>/src/__tests__/**/*.(test).{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jsdom",
     "testURL": "http://localhost",
