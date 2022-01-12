@@ -16,6 +16,7 @@ describe('blog page should work', () => {
   it('shows slug page correctly', () => {
     cy.get('h2').contains('Forcing git merges').click()
     cy.getByTestId('blog-title').contains('Forcing git merges').should('be.visible')
+    cy.get('img').should('be.visible')
 
     cy.get('article').should('not.be.empty')
   })

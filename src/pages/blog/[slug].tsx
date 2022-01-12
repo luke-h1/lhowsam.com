@@ -32,6 +32,14 @@ const BlogSlugPage = ({ post, source }: Props) => {
             Published {formatDistanceToNow(parseISO(post.date))} ago
           </time>
         </p>
+
+        <img
+          alt={post.title}
+          src={post.image.url}
+          style={{
+            maxWidth: '100%',
+          }}
+        />
         <article>
           <MDXRemote {...source} />
         </article>
