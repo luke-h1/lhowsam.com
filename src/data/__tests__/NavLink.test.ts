@@ -1,4 +1,4 @@
-import { NavLinks } from '../data/NavLinks';
+import { NavLinks } from '../NavLinks';
 
 test('skills data is correct', () => {
   expect(NavLinks).toHaveLength(4);
