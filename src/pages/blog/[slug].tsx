@@ -8,8 +8,10 @@ import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import Image from 'next/image';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
+import styles from '../../components/photo.module.css';
 
 interface Props {
   post: Post;
@@ -32,6 +34,14 @@ const BlogSlugPage = ({ post, source }: Props) => {
             Published {formatDistanceToNow(parseISO(post.date))} ago
           </time>
         </p>
+
+        <img
+          alt={post.title}
+          src={post.image.url}
+          style={{
+            maxWidth: '100%',
+          }}
+        />
         <article>
           <MDXRemote {...source} />
         </article>
