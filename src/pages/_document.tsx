@@ -1,17 +1,20 @@
 import { GA_TRACKING_ID } from '@src/utils/gtag';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
-const keywords: string[] = [
+const keywords = [
   'Luke Howsam',
   'Developer',
   'Software Tester',
-  'React.js',
-  'Node.js',
-  'Next.js',
+  'React',
+  'Node',
+  'Typescript',
+  'Javascript',
+  'GraphQL',
+  'QA',
   'Automated & manual testing',
   'Sheffield',
   'United Kingdom',
-];
+] as const;
 
 export default class MyDocument extends Document {
   render() {
