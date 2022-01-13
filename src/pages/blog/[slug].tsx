@@ -22,7 +22,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
   const router = useRouter();
 
   return (
-    <Page>
+    <Page ogImage={post.image.url}>
       <NextSeo
         title={post.title}
         canonical={`https://lhowsam.com${router.asPath}`}
