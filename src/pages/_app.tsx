@@ -1,6 +1,6 @@
-import constants from '../constants';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
+import constants from '../constants';
 import '../styles/global.css';
 import '../styles/prism.css';
 
@@ -13,7 +13,6 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         titleTemplate="%s | lhowsam.com"
         title={constants.site}
         canonical={canonicalUrl}
-        description={constants.intro}
         openGraph={{
           profile: {
             firstName: 'Luke',
@@ -23,7 +22,6 @@ const App = ({ Component, pageProps, router }: AppProps) => {
           type: 'website',
           locale: 'en_GB',
           url: canonicalUrl,
-          description: constants.intro,
           site_name: 'lhowsam.com',
           images: [
             {

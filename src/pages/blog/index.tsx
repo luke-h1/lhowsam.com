@@ -5,7 +5,9 @@ import { Post } from '@src/types/post';
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 import { GetStaticProps } from 'next';
+import { NextSeo } from 'next-seo';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from './blog-index.module.css';
 
 interface Props {
@@ -13,8 +15,21 @@ interface Props {
 }
 
 const BlogIndexPage = ({ posts }: Props) => {
+  const router = useRouter();
+
   return (
-    <Page className="container" title="Blog | lhowsam.com">
+    <Page>
+        <NextSeo
+        title="Blog"
+        canonical={`https://lhowsam.com${router.asPath}`}
+        description="My blog posts"
+        openGraph={{
+          defaultImageWidth: 1200,
+          defaultImageHeight: 630,
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `Blog | lhowsam.com`,
+        }}
+      />
       <header>
         <h1>Blog</h1>
       </header>
