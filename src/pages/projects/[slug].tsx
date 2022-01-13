@@ -5,6 +5,8 @@ import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
 
@@ -14,8 +16,20 @@ interface Props {
 }
 
 const ProjectSlugPage = ({ project, source }: Props) => {
+  const router = useRouter();
   return (
-    <Page title={`${project.title} | lhowsam.com`} description={project.intro}>
+    <Page>
+      <NextSeo
+        title={project.title}
+        canonical={`https://lhowsam.com${router.asPath}`}
+        description={project.intro}
+        openGraph={{
+          defaultImageWidth: 1200,
+          defaultImageHeight: 630,
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `${project.title} | lhowsam.com`,
+        }}
+      />
       <div className="container">
         <header>
           <h1 data-testid="project-title">{project.title}</h1>

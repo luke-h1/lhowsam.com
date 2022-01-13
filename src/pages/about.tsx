@@ -1,14 +1,25 @@
 import Page from '@src/components/Page';
 import Photo from '@src/components/Photo';
 import classnames from 'classnames';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import styles from './about.module.css';
 
 const AboutPage = () => {
+  const router = useRouter();
   return (
-    <Page
-      className={classnames('container', styles.pageContainer)}
-      title="About | lhowsam.com"
-    >
+    <Page className={classnames('container', styles.pageContainer)}>
+      <NextSeo
+        title="About"
+        canonical={`https://lhowsam.com${router.asPath}`}
+        description="About me"
+        openGraph={{
+          defaultImageWidth: 1200,
+          defaultImageHeight: 630,
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `About | lhowsam.com`,
+        }}
+      />
       <article>
         <header>
           <h1>About</h1>
