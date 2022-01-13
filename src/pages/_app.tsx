@@ -9,10 +9,11 @@ const App = ({ Component, pageProps, router }: AppProps) => {
 
   return (
     <>
-     <DefaultSeo
+      <DefaultSeo
         titleTemplate="%s | lhowsam.com"
         title={constants.site}
         canonical={canonicalUrl}
+        description="Hey, I'm Luke I'm a software tester and developer. I like building and testing projects that are scalable, performant & user friendly. I currently work as a software tester where I do a mixture of manual & automated testing in an agile environment"
         openGraph={{
           profile: {
             firstName: 'Luke',
@@ -38,7 +39,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         }}
       />
 
-    <Component {...pageProps} />
+      <Component {...pageProps} />
     </>
   );
 };
