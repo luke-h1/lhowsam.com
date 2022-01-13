@@ -13,7 +13,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         titleTemplate="%s | lhowsam.com"
         title={constants.site}
         canonical={canonicalUrl}
-        description="Hey, I'm Luke I'm a software tester and developer. I like building and testing projects that are scalable, performant & user friendly. I currently work as a software tester where I do a mixture of manual & automated testing in an agile environment"
+        description="Luke Howsam is a QA engineer and software developer who specializes in Javascript, Typescript, GraphQL, cloud technologies & automated + manual testing"
         openGraph={{
           profile: {
             firstName: 'Luke',
