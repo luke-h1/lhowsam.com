@@ -24,7 +24,7 @@ const Head = ({
       <meta name="description" content={description} />
       <meta
         name="twitter:site"
-        content={`${process.env.NEXT_PUBLIC_SITE_URL}${router.pathname}`}
+        content={`${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`}
       />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={ogImage} />

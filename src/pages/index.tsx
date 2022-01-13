@@ -9,8 +9,10 @@ import classnames from 'classnames';
 import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 import { GetStaticProps } from 'next';
+import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import styles from './index.module.css';
 
 interface Props {
@@ -19,12 +21,22 @@ interface Props {
 }
 
 const Home = ({ projects, posts }: Props) => {
+  const router = useRouter();
   return (
     <Page
       className="container"
-      title="Home | lhowsam.com"
-      description="Home page"
     >
+       <NextSeo
+        title="Home"
+        canonical={`https://lhowsam.com${router.asPath}`}
+        description="Home"
+        openGraph={{
+          defaultImageWidth: 1200,
+          defaultImageHeight: 630,
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `Home | lhowsam.com`,
+        }}
+      />
       <div className={classnames('container', styles.hero)}>
         <h1 className={styles.greeting}>
           <span>Hey 👋 </span>

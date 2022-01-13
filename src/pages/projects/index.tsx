@@ -3,7 +3,9 @@ import Page from '@src/components/Page';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/project';
 import { GetStaticProps } from 'next';
+import { NextSeo } from 'next-seo';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { AiFillGithub } from 'react-icons/ai';
 import { FaLink } from 'react-icons/fa';
 import styles from './project-index.module.css';
@@ -13,8 +15,20 @@ interface Props {
 }
 
 const ProjectIndexPage = ({ projects }: Props) => {
+  const router = useRouter();
   return (
-    <Page className="container" title="Projects | lhowsam.com">
+    <Page>
+      <NextSeo
+        title="Projects"
+        canonical={`https://lhowsam.com${router.asPath}`}
+        description="My projects"
+        openGraph={{
+          defaultImageWidth: 1200,
+          defaultImageHeight: 630,
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `Projects | lhowsam.com`,
+        }}
+      />
       <header>
         <h1>Projects</h1>
       </header>

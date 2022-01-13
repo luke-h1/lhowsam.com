@@ -8,6 +8,8 @@ import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
 
@@ -17,12 +19,21 @@ interface Props {
 }
 
 const BlogSlugPage = ({ post, source }: Props) => {
+  const router = useRouter();
+
   return (
-    <Page
-      title={`${post.title} | lhowsam.com`}
-      description={`Blog | ${post.intro}`}
-      ogImage={post.image.url}
-    >
+    <Page ogImage={post.image.url}>
+      <NextSeo
+        title={post.title}
+        canonical={`https://lhowsam.com${router.asPath}`}
+        description={post.intro}
+        openGraph={{
+          defaultImageWidth: 1200,
+          defaultImageHeight: 630,
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `${post.title} | lhowsam.com`,
+        }}
+      />
       <div className="container">
         <header>
           <h1 data-testid="blog-title">{post.title}</h1>
