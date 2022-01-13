@@ -22,7 +22,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
   const router = useRouter();
 
   return (
-    <Page ogImage={post.image.url}>
+    <Page>
       <NextSeo
         title={post.title}
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -30,6 +30,14 @@ const BlogSlugPage = ({ post, source }: Props) => {
         openGraph={{
           defaultImageWidth: 1200,
           defaultImageHeight: 630,
+          images: [
+            {
+              url: post.image.url,
+              alt: post.title,
+              height: 1200,
+              width: 630,
+            },
+          ],
           url: `https://lhowsam.com${router.asPath}`,
           title: `${post.title} | lhowsam.com`,
         }}
