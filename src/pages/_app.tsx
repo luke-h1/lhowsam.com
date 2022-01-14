@@ -1,6 +1,5 @@
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
-import constants from '../constants';
 import '../styles/global.css';
 import '../styles/prism.css';
 
@@ -11,9 +10,8 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     <>
       <DefaultSeo
         titleTemplate="%s | lhowsam.com"
-        title={constants.site}
+        title='lhowsam.com'
         canonical={canonicalUrl}
-        description="Luke Howsam is a QA engineer and software developer who specializes in Javascript, Typescript, GraphQL, cloud technologies & automated + manual testing"
         openGraph={{
           profile: {
             firstName: 'Luke',
@@ -27,7 +25,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
           images: [
             {
               url: `${process.env.NEXT_PUBLIC_SITE_URL}/icons/logo.png`,
-              alt: constants.site,
+              alt: 'logo for lhowsam.com',
               width: 1200,
               height: 630,
             },
