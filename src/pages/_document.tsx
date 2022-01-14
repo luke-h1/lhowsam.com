@@ -63,6 +63,10 @@ export default class MyDocument extends Document {
             content="VXnRb79aLIbpTSPg8tRVx5KMcECv8hLJPYW0f3X4KKI"
             name="google-site-verification"
           />
+          <meta
+            name="description"
+            content="Luke Howsam is a QA engineer and software developer who specializes in Javascript, Typescript, GraphQL, cloud technologies & automated + manual testing"
+          />
         </Head>
         <body>
           <Main />
