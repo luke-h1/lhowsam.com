@@ -39,3 +39,4 @@ tsconfig.tsbuildinfo
 cypress/screenshots/*
 public/sitemap.xml
 public/robots.txt
+junit.xml
