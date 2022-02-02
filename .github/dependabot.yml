@@ -5,7 +5,7 @@ updates:
     target-branch: "dev"
     schedule:
       interval: "daily"
-      time: "19:00"
+      time: "10:00"
     open-pull-requests-limit: 300
     assignees: 
     - luke-h1
@@ -15,6 +15,4 @@ updates:
         - 9.0.0
         - 9.1.0
         - 9.1.1
-      - dependency-name: react-use-gesture
-        versions:
-        - 9.1.0
+
