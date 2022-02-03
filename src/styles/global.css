@@ -75,6 +75,14 @@ article li {
   margin-inline-end: 0px;
 }
 
+article img {
+  position: relative;
+  border: 1px solid var(--grey);
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
 pre {
   border-radius: 8px;
 }
