@@ -2,7 +2,7 @@
 import Page from '@src/components/Page';
 import blogService from '@src/services/blogService';
 import { Post } from '@src/types/post';
-import { formatDistanceToNow } from 'date-fns';
+import format from 'date-fns/format';
 import parseISO from 'date-fns/parseISO';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -48,7 +48,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
         </header>
         <p className="blog-meta">
           <time dateTime={post.date}>
-            Published {formatDistanceToNow(parseISO(post.date))} ago
+            <small>{format(parseISO(post.date), 'MMMM d, yyyy')}</small>
           </time>
         </p>
 
