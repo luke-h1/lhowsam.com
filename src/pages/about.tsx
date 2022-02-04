@@ -65,22 +65,18 @@ const AboutPage = () => {
           I don't believe in a one size fits all approach and think that each
           technology has it's place in a project
         </p>
-        <ul className={styles.skillGrid}>
+        <ul className={styles.skillGrid} id="skills-grid">
           <SkillItem icon={SiJavascript} text="Javascript" />
           <SkillItem icon={SiTypescript} text="TypeScript" />
           <SkillItem icon={SiReact} text="React.js" />
           <SkillItem icon={SiNextDotJs} text="Next.js" />
           <SkillItem icon={SiCss3} text="CSS, SCSS" />
+          <SkillItem icon={SiStyledComponents} text="styled-components" />
           <SkillItem icon={SiNodeDotJs} text="Node.js" />
           <SkillItem icon={SiGraphql} text="GraphQL" />
-          <SkillItem icon={SiStyledComponents} text="styled-components" />
-          <SkillItem icon={SiDocker} text="Docker" />
-          <SkillItem icon={SiYarn} text="Yarn" />
-          <SkillItem icon={SiNpm} text="NPM" />
           <SkillItem icon={BiTestTube} text="Automated & manual testing" />
-          <SkillItem icon={SiSelenium} text="Selenium" />
           <SkillItem icon={SiPython} text="Python" />
-          <SkillItem icon={SiCypress} text="Cypress" />
+          <SkillItem icon={SiDocker} text="Docker" />
           <SkillItem icon={SiGit} text="Git, Github, Gitlab" />
           <SkillItem icon={SiAtlassian} text="Jira, Trello, confluence etc." />
         </ul>
