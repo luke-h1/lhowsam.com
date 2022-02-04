@@ -111,3 +111,7 @@
   padding: 0;
   display: flex;
 }
+
+.skillsIntro {
+  margin-bottom: 2rem;
+}
