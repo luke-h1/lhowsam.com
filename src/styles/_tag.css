@@ -1,0 +1,75 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: #3f4156;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.tag:not(:last-child) {
+  margin-right: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.tag > small {
+  color: #fff;
+}
+
+.tag--outline > small {
+  color: #3f4156;
+}
+
+.tag--outline {
+  border: 2px solid #3f4156;
+  background-color: transparent;
+  padding: 0.4rem 1rem;
+}
+
+.tag--pill {
+  border-radius: 5rem;
+}
+
+.tag--main,
+.tag--main > small {
+  background: #e6faff;
+  color: #5aa5b9;
+  font-weight: 500;
+}
+
+.tag--sub,
+.tag--sub > small {
+  background: #ededfd;
+  color: #51546e;
+  font-weight: 500;
+}
+
+.tag--sm {
+  padding: 0.3rem 1rem;
+  font-size: 0.75rem;
+}
+
+.tag--sm:not(:last-child) {
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.tag-container {
+  display: flex;
+  margin-top: 1rem;
+  flex-direction: row;
+  justify-content: left;
+  align-items: left;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6;
+  font-weight: 500;
+  flex-wrap: wrap;
+}
