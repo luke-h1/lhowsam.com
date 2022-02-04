@@ -9,19 +9,15 @@ import {
   SiDocker,
   SiGit,
   SiJavascript,
-  SiCypress,
   SiAtlassian,
   SiPython,
   SiNextdotjs as SiNextDotJs,
   SiNodedotjs as SiNodeDotJs,
-  SiSelenium,
   SiReact,
   SiGraphql,
   SiCss3,
   SiStyledcomponents as SiStyledComponents,
   SiTypescript,
-  SiYarn,
-  SiNpm,
 } from 'react-icons/si';
 import styles from './about.module.css';
 
