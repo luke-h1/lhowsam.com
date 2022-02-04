@@ -139,3 +139,10 @@ pre {
   margin-left: 5px;
   margin-right: 5px;
 }
+
+.skill-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.35rem;
+  color: #fff;
+}
