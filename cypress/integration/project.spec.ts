@@ -14,6 +14,7 @@ describe('projects', () => {
     cy.get('h2').contains('tm todos').click()
     cy.getByTestId('project-title').contains('tm todos').should('be.visible')
     cy.get('article').should('not.be.empty')
+    cy.get('small').contains('GraphQL').should('be.visible')
   })
   
 });

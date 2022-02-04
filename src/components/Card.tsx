@@ -29,6 +29,14 @@ const Card = ({ project }: CardProps) => {
               </a>
             )}
           </span>
+          <div className="tag-container">
+            {project.tech &&
+              project.tech.map(t => (
+                <span className="tag tag--pill tag--sm" key={t}>
+                  <small>{t}</small>
+                </span>
+              ))}
+          </div>
         </div>
       </a>
     </Link>

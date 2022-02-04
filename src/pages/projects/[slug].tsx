@@ -36,12 +36,14 @@ const ProjectSlugPage = ({ project, source }: Props) => {
         </header>
         <p className="blog-meta">
           Tech Stack:
-          {project.tech &&
-            project.tech.map(t => (
-              <small className="tech" key={t}>
-                {t}
-              </small>
-            ))}
+          <div className="tag-container">
+            {project.tech &&
+              project.tech.map(t => (
+                <span className="tag tag--pill tag--sm" key={t}>
+                  <small>{t}</small>
+                </span>
+              ))}
+          </div>
         </p>
         <article>
           <MDXRemote {...source} />
