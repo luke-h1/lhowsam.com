@@ -1,3 +1,5 @@
+@import './_tag.css';
+
 :root {
   --pageContentWidth: 632px;
   --mainPadding: calc((100% - var(--pageContentWidth)) / 2);
