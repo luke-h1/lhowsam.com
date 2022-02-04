@@ -9,19 +9,15 @@ import {
   SiDocker,
   SiGit,
   SiJavascript,
-  SiCypress,
   SiAtlassian,
   SiPython,
   SiNextdotjs as SiNextDotJs,
   SiNodedotjs as SiNodeDotJs,
-  SiSelenium,
   SiReact,
   SiGraphql,
   SiCss3,
   SiStyledcomponents as SiStyledComponents,
   SiTypescript,
-  SiYarn,
-  SiNpm,
 } from 'react-icons/si';
 import styles from './about.module.css';
 
@@ -54,32 +50,25 @@ const AboutPage = () => {
           </span>{' '}
           I currently work as a software tester where I do a mixture of
           automated & manual testing in an agile setting. I like building
-          projects that are scalable, performant & user friendly. My favorite
-          technologies right now are: React.js, Typescript, GraphQL, Node.js,
-          and PostgreSQL
+          projects that are scalable, performant & user friendly.
         </p>
         <h2>Skills</h2>
-        <p className={styles.skillsIntro}>
-          I use a wide range of tools to solve the problems that come up during
-          the software development lifecycle in the most efficient way possible.
-          I don't believe in a one size fits all approach and think that each
-          technology has it's place in a project
-        </p>
         <ul className={styles.skillGrid} id="skills-grid">
           <SkillItem icon={SiJavascript} text="Javascript" />
           <SkillItem icon={SiTypescript} text="TypeScript" />
           <SkillItem icon={SiReact} text="React.js" />
           <SkillItem icon={SiNextDotJs} text="Next.js" />
-          <SkillItem icon={SiCss3} text="CSS, SCSS" />
-          <SkillItem icon={SiStyledComponents} text="styled-components" />
           <SkillItem icon={SiNodeDotJs} text="Node.js" />
           <SkillItem icon={SiGraphql} text="GraphQL" />
-          <SkillItem icon={BiTestTube} text="Automated & manual testing" />
           <SkillItem icon={SiPython} text="Python" />
+          <SkillItem icon={SiCss3} text="CSS, SCSS" />
+          <SkillItem icon={SiStyledComponents} text="styled-components" />
+          <SkillItem icon={BiTestTube} text="Automated & manual testing" />
           <SkillItem icon={SiDocker} text="Docker" />
           <SkillItem icon={SiGit} text="Git, Github, Gitlab" />
           <SkillItem icon={SiAtlassian} text="Jira, Trello, confluence etc." />
         </ul>
+        <hr />
         <h3>Contact</h3>
         Get in touch via{' '}
         <ul>
