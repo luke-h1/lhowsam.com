@@ -11,9 +11,8 @@ module.exports = {
   generateBuildId: async () => {
     return '1';
   },
-
   images: {
-    domains: ['localhost', 'media.graphcms.com', 'pbs.twimg.com'],
+    domains: ['localhost', 'media.graphcms.com'],
     formats: ['image/avif', 'image/webp'],
   },
   webpack(config) {
