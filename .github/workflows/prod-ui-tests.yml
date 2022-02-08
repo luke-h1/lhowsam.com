@@ -27,5 +27,5 @@ jobs:
         uses: luke-h1/github-action@v2
         with:
           config: baseUrl=https://lhowsam.com
-          test: npm run cy:prod
+          test: CYPRESS_BASE_URL=https://lhowsam.com cypress-parallel -s cy:run -t 4 -d cypress/integration
           wait-on: 'https://lhowsam.com'
