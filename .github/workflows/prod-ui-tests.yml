@@ -24,8 +24,4 @@ jobs:
         run: npm ci
 
       - name: Cypress run (prod)
-        uses: luke-h1/github-action@v2
-        with:
-          config: baseUrl=https://lhowsam.com
-          test: CYPRESS_BASE_URL=https://lhowsam.com cypress-parallel -s cy:run -t 4 -d cypress/integration
-          wait-on: 'https://lhowsam.com'
+        run: npm run cy-ci:prod

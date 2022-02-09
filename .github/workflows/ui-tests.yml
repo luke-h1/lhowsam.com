@@ -26,11 +26,4 @@ jobs:
         run: npm ci
 
       - name: Cypress run (local)
-        uses: luke-h1/github-action@v2
-        with:
-          build: npm run build
-          start: npm run start
-          test: cypress-parallel -s cy:run -t 4 -d cypress/integration
-          wait-on: 'http://localhost:3000'
-        env:
-          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+        run: npm run cy-ci:local
