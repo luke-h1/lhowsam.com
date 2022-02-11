@@ -27,7 +27,7 @@ jobs:
         run: npm run test
 
       - name: Cypress run (local)
-        run: cy:ci-local
+        run: npm run cy:ci-local
         env:
           NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 
