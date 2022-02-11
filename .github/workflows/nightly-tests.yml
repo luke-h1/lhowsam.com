@@ -27,9 +27,9 @@ jobs:
         run: npm run test
 
       - name: Cypress run (local)
-        run: npm run cy:ci-local
+        run: npm run build && npx start-server-and-test http://localhost:3000 cy:run
         env:
           NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 
       - name: Cypress run (prod)
-        run: npm run cy:ci-prod
+        run: npm run cy:prod

@@ -26,4 +26,4 @@ jobs:
         run: npm ci
 
       - name: Cypress run (local)
-        run: npm run cy:ci-local
+        run: npm run build && npx start-server-and-test http://localhost:3000 cy:run

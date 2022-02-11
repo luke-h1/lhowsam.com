@@ -14,8 +14,6 @@
     "cy:prod": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress run",
     "cy:prod-open": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress open",
     "cy:run": "./node_modules/.bin/cypress run",
-    "cy:ci-local": "npm run build && npx start-server-and-test http://localhost:3000 cy:run",
-    "cy:ci-prod": "npm run build && npx start-server-and-test https://lhowsam.com cy:prod",
     "test": "jest",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test:watch": "jest --watch",
