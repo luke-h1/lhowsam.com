@@ -9,10 +9,4 @@ updates:
     open-pull-requests-limit: 300
     assignees: 
     - luke-h1
-    ignore:
-      - dependency-name: react-spring
-        versions:
-        - 9.0.0
-        - 9.1.0
-        - 9.1.1
 
