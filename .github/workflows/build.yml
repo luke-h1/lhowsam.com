@@ -10,6 +10,7 @@ jobs:
   test:
     name: Build
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Setup node
         uses: luke-h1/setup-node@v2
