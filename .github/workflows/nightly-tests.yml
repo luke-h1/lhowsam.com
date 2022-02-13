@@ -8,6 +8,7 @@ jobs:
   test:
     name: Cypress run
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Setup node
         uses: luke-h1/setup-node@v2
@@ -27,18 +28,9 @@ jobs:
         run: npm run test
 
       - name: Cypress run (local)
-        uses: luke-h1/github-action@v2
-        with:
-          build: npm run build
-          start: npm run start
-          test: npm run cy:run
-          wait-on: 'http://localhost:3000'
+        run: npm run build && npx start-server-and-test http://localhost:3000 cy:run
         env:
           NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 
       - name: Cypress run (prod)
-        uses: luke-h1/github-action@v2
-        with:
-          config: baseUrl=https://lhowsam.com
-          test: npm run cy:prod
-          wait-on: 'https://lhowsam.com'
+        run: npm run cy:prod

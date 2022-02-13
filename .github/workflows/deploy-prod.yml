@@ -1,14 +1,11 @@
-name: CI / Build
+name: CI / deploy prod
 on:
-  push:
-    branches: [dev]
-  pull_request:
-    branches: [dev, main]
+  workflow_dispatch:
 env:
   NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 jobs:
   test:
-    name: Build
+    name: deploy
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -38,5 +35,8 @@ jobs:
       - name: tsc
         run: npm run tsc
 
-      - name: build
-        run: npm run build
+      - name: Cypress run (local)
+        run: npm run build && npx start-server-and-test http://localhost:3000 cy:run
+
+      - name: deploy prod
+        run: curl -X POST ${{ secrets.VERCEL_PROD_DEPLOY_HOOK }}
