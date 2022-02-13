@@ -1,0 +1,43 @@
+name: CI / deploy dev
+on:
+  push:
+    branches: [dev]
+env:
+  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+jobs:
+  test:
+    name: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Setup node
+        uses: luke-h1/setup-node@v2
+        with:
+          node-version: 14      
+      
+      - name: Checkout
+        uses: luke-h1/checkout@v2
+
+      - name: Use latest npm version
+        run: npm i -g npm@latest
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: format
+        run: npm run format
+
+      - name: lint
+        run: npm run lint
+
+      - name: jest
+        run: npm run test
+
+      - name: tsc
+        run: npm run tsc
+
+      - name: build
+        run: npm run build
+
+      - name: deploy dev
+        run: curl -X POST ${{ secrets.VERCEL_DEV_DEPLOY_HOOK }}
