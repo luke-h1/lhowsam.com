@@ -47,7 +47,7 @@
     "hast-util-to-string": "^2.0.0",
     "mdx-prism": "^0.3.4",
     "next": "^12.1.0",
-    "next-mdx-remote": "^3.0.8",
+    "next-mdx-remote": "^4.0.0",
     "next-seo": "^4.29.0",
     "next-sitemap": "^2.4.2",
     "parse-numeric-range": "^1.3.0",
