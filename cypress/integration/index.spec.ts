@@ -20,7 +20,7 @@ describe('index', () => {
   })
 
   it('should display projects', () => {
-    for (let i =0; i < 3; i+= 1) {
+    for (let i = 0; i < 3; i+= 1) {
       cy.getByTestId('project-title').should('not.be.empty')
       cy.getByTestId('project-intro').should('not.be.empty')
       cy.getByTestId('github-url').should('be.visible')
