@@ -1,5 +1,6 @@
 /* eslint-disable import/no-duplicates */
 import Page from '@src/components/Page';
+import { siteConfig } from '@src/config/site';
 import blogService from '@src/services/blogService';
 import { Post } from '@src/types/post';
 import format from 'date-fns/format';
@@ -106,6 +107,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       post,
       source,
     },
-    revalidate: 30 * 60,
+    revalidate: siteConfig.defaultRevalidate,
   };
 };

@@ -13,6 +13,7 @@ import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { siteConfig } from '../config/site';
 import styles from './index.module.css';
 
 interface Props {
@@ -23,10 +24,8 @@ interface Props {
 const Home = ({ projects, posts }: Props) => {
   const router = useRouter();
   return (
-    <Page
-      className="container"
-    >
-       <NextSeo
+    <Page className="container">
+      <NextSeo
         title="Home"
         canonical={`https://lhowsam.com${router.asPath}`}
         description="Home"
@@ -126,6 +125,6 @@ export const getStaticProps: GetStaticProps = async () => {
       projects: projects.projects,
       posts: posts.posts,
     },
-    revalidate: 30 * 60,
+    revalidate: siteConfig.defaultRevalidate,
   };
 };

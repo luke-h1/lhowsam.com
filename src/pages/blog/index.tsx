@@ -8,6 +8,7 @@ import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { siteConfig } from '../../config/site';
 import styles from './blog-index.module.css';
 
 interface Props {
@@ -19,7 +20,7 @@ const BlogIndexPage = ({ posts }: Props) => {
 
   return (
     <Page>
-        <NextSeo
+      <NextSeo
         title="Blog"
         canonical={`https://lhowsam.com${router.asPath}`}
         description="My blog posts"
@@ -60,6 +61,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       posts: posts.posts,
     },
-    revalidate: 30 * 60,
+    revalidate: siteConfig.defaultRevalidate,
   };
 };

@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { AiFillGithub } from 'react-icons/ai';
 import { FaLink } from 'react-icons/fa';
+import { siteConfig } from '../../config/site';
 import styles from './project-index.module.css';
 
 interface Props {
@@ -70,6 +71,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       projects: projects.projects,
     },
-    revalidate: 30 * 60,
+    revalidate: siteConfig.defaultRevalidate,
   };
 };
