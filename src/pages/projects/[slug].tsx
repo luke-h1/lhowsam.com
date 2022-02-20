@@ -9,6 +9,7 @@ import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
+import { siteConfig } from '../../config/site';
 
 interface Props {
   project: Project;
@@ -89,6 +90,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       project,
       source,
     },
-    revalidate: 30 * 60,
+    revalidate: siteConfig.defaultRevalidate,
   };
 };
