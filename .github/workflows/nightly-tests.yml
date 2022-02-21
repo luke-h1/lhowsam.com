@@ -28,9 +28,18 @@ jobs:
         run: npm run test
 
       - name: Cypress run (local)
-        run: npm run build && npx start-server-and-test http://localhost:3000 cy:run
+        uses: luke-h1/github-action@v2
+        with:
+          build: npm run build
+          start: npm run start
+          test: npm run cy:run
+          wait-on: 'http://localhost:3000'
         env:
           NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 
       - name: Cypress run (prod)
-        run: npm run cy:prod
+        uses: luke-h1/github-action@v2
+        with:
+          config: baseUrl=https://lhowsam.com
+          test: npm run cy:prod
+          wait-on: 'https://lhowsam.com'
