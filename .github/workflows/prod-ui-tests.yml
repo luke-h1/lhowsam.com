@@ -25,4 +25,8 @@ jobs:
         run: npm ci
 
       - name: Cypress run (prod)
-        run: npm run cy:prod
+        uses: luke-h1/github-action@v2
+        with:
+          config: baseUrl=https://lhowsam.com
+          test: npm run cy:prod
+          wait-on: 'https://lhowsam.com'
