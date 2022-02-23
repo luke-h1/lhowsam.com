@@ -117,8 +117,10 @@ const Home = ({ projects, posts }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projects = await projectService.getAllProjects();
-  const posts = await blogService.getRecentPosts();
+  const [posts, projects] = await Promise.all([
+    blogService.getRecentPosts(),
+    projectService.getAllProjects(),
+  ]);
 
   return {
     props: {
