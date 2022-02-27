@@ -65,9 +65,7 @@ const Home = ({ projects, posts }: Props) => {
                         objectFit="cover"
                       />
                     </div>
-                    <h3 className={styles.title} data-testid="blog-title">
-                      {post.title}
-                    </h3>
+                    <h3 className={styles.title}>{post.title}</h3>
                   </a>
                 </Link>
                 <small>{format(parseISO(post.date), 'MMMM d, yyyy')}</small>

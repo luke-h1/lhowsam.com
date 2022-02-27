@@ -41,7 +41,7 @@ const ProjectSlugPage = ({ project, source }: Props) => {
             {project.tech &&
               project.tech.map(t => (
                 <span className="tag tag--pill tag--sm" key={t}>
-                  <small data-testid="tech">{t}</small>
+                  <small>{t}</small>
                 </span>
               ))}
           </div>
