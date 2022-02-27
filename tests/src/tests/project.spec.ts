@@ -21,7 +21,7 @@ test.describe('project page works', () => {
   test('it renders slug page correctly', async ({ page }) => {
     await (await page.waitForSelector('//h2[text()="Storify"]')).click();
     await page
-      .waitForNavigation({ waitUntil: 'domcontentloaded' })
+      .waitForNavigation({ waitUntil: 'networkidle' })
       .catch(e => console.error(e));
 
     expect(

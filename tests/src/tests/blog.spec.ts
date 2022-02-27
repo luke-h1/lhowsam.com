@@ -22,7 +22,7 @@ test.describe('blog page works', () => {
     const gitPost = await page.locator('//h2[text()="Forcing git merges"]');
     await gitPost.click();
     await page
-      .waitForNavigation({ waitUntil: 'domcontentloaded' })
+      .waitForNavigation({ waitUntil: 'networkidle' })
       .catch(e => console.error(e));
 
     expect(await page.locator('h1').innerText()).toBe('Forcing git merges');
