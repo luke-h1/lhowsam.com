@@ -40,3 +40,5 @@ cypress/screenshots/*
 public/sitemap.xml
 public/robots.txt
 junit.xml
+playwright-report
+test-results

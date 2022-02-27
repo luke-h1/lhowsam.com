@@ -19,6 +19,8 @@
     "test:watch": "jest --watch",
     "test:snapshot": "jest --updateSnapshot",
     "postbuild": "next-sitemap",
+    "test:local": "./node_modules/.bin/playwright test --config=tests/local.config.ts",
+    "test:prod": "./node_modules/.bin/playwright test --config=tests/prod.config.ts",
     "prepare": "husky install"
   },
   "dependencies": {
