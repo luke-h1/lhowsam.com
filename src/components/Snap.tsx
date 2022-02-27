@@ -1,5 +1,5 @@
 import { Project } from '@src/types/project';
-import styles from './snap.module.scss';
+import styles from './snap.module.css';
 
 interface Props {
   project: Project;

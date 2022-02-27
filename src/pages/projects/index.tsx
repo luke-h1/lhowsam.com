@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import { AiFillGithub } from 'react-icons/ai';
 import { FaLink } from 'react-icons/fa';
 import { siteConfig } from '../../config/site';
-import styles from './project-index.module.scss';
+import styles from './project-index.module.css';
 
 interface Props {
   projects: Project[];
@@ -45,12 +45,12 @@ const ProjectIndexPage = ({ projects }: Props) => {
                 </Link>
                 <small className={styles.links}>
                   {project.githubUrl && (
-                    <a href={project.githubUrl} className={styles.socialLinks}>
+                    <a href={project.githubUrl}>
                       <AiFillGithub />
                     </a>
                   )}
                   {project.siteUrl && (
-                    <a href={project.siteUrl} className={styles.socialLinks}>
+                    <a href={project.siteUrl}>
                       <FaLink />
                     </a>
                   )}

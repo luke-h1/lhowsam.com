@@ -14,7 +14,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { siteConfig } from '../config/site';
-import styles from './index.module.scss';
+import styles from './index.module.css';
 
 interface Props {
   projects: Project[];

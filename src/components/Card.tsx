@@ -2,7 +2,7 @@ import { Project } from '@src/types/project';
 import Link from 'next/link';
 import { AiFillGithub } from 'react-icons/ai';
 import { FaLink } from 'react-icons/fa';
-import styles from './card.module.scss';
+import styles from './card.module.css';
 
 interface CardProps {
   project: Project;

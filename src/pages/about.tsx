@@ -19,7 +19,7 @@ import {
   SiStyledcomponents as SiStyledComponents,
   SiTypescript,
 } from 'react-icons/si';
-import styles from './about.module.scss';
+import styles from './about.module.css';
 
 const AboutPage = () => {
   const router = useRouter();

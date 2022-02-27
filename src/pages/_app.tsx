@@ -1,7 +1,8 @@
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
-import '../styles/global.scss';
-// import '../styles/prism.scss';
+import '../styles/global.css';
+import '../styles/prism.css';
+
 const App = ({ Component, pageProps, router }: AppProps) => {
   const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`;
 
@@ -9,7 +10,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     <>
       <DefaultSeo
         titleTemplate="%s | lhowsam.com"
-        title="lhowsam.com"
+        title='lhowsam.com'
         canonical={canonicalUrl}
         openGraph={{
           profile: {
