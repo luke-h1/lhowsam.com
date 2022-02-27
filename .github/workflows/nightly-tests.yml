@@ -1,45 +1,41 @@
-name: CI / Nightly tests 
-on: 
+name: UI tests (prod)
+on:
   schedule:
     - cron: '0 22 * * *'
 env:
   NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 jobs:
   test:
-    name: Cypress run
+    timeout-minutes: 30
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     steps:
-      - name: Setup node
-        uses: luke-h1/setup-node@v2
-        with:
-          node-version: 14      
+    - uses: luke-h1/checkout@v2
+    - uses: luke-h1/setup-node@v2
+      with:
+        node-version: '14.x'
 
-      - name: Checkout
-        uses: luke-h1/checkout@v2
+    # https://github.com/actions/virtual-environments/issues/1187
+    - name: tune linux network
+      run: sudo ethtool -K eth0 tx off rx off
 
-      - name: Use latest npm version
-        run: npm i -g npm@latest
-        
-      - name: Install dependencies 
-        run: npm ci
+    - name: Use latest npm version
+      run: npm i -g npm@latest
 
-      - name: jest 
-        run: npm run test
+    - name: Install dependencies
+      run: npm ci
 
-      - name: Cypress run (local)
-        uses: luke-h1/github-action@v2
-        with:
-          build: npm run build
-          start: npm run start
-          test: npm run cy:run
-          wait-on: 'http://localhost:3000'
-        env:
-          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+    - name: Install Playwright
+      run: npx playwright install --with-deps
 
-      - name: Cypress run (prod)
-        uses: luke-h1/github-action@v2
-        with:
-          config: baseUrl=https://lhowsam.com
-          test: npm run cy:prod
-          wait-on: 'https://lhowsam.com'
+    - name: Run local tests 
+      run: npm run build && npx start-server-and-test http://localhost:3000 test:local
+      
+    - name: Run prod tests
+      run: npm run test:prod
+      
+    - uses: luke-h1/upload-artifact@v2
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 7

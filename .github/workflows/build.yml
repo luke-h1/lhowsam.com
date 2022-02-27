@@ -1,4 +1,4 @@
-name: CI / Build
+name: Build
 on:
   push:
     branches: [dev]
@@ -19,6 +19,10 @@ jobs:
       
       - name: Checkout
         uses: luke-h1/checkout@v2
+
+      # https://github.com/actions/virtual-environments/issues/1187
+      - name: tune linux network
+        run: sudo ethtool -K eth0 tx off rx off
 
       - name: Use latest npm version
         run: npm i -g npm@latest
