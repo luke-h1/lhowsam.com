@@ -1,9 +1,6 @@
 name: UI tests (prod)
 on:
-  push:
-    branches: [ main, dev ]
-  pull_request:
-    branches: [ main, dev ]
+  workflow_dispatch:
 jobs:
   test:
     timeout-minutes: 30
