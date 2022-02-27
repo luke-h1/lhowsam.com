@@ -1,9 +1,9 @@
 name: UI tests (prod)
 on:
-  push:
-    branches: [ main, dev ]
-  pull_request:
-    branches: [ main, dev ]
+  schedule:
+    - cron: '0 22 * * *'
+env:
+  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 jobs:
   test:
     timeout-minutes: 30
