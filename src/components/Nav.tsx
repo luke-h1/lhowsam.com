@@ -1,7 +1,7 @@
 import { NavLinks } from '@src/data/NavLinks';
 import classnames from 'classnames';
 import Link from 'next/link';
-import styles from './nav.module.css';
+import styles from './nav.module.scss';
 
 interface NavProps {
   className?: string;

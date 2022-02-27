@@ -9,7 +9,7 @@ import { NextSeo } from 'next-seo';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { siteConfig } from '../../config/site';
-import styles from './blog-index.module.css';
+import styles from './blog-index.module.scss';
 
 interface Props {
   posts: Post[];
