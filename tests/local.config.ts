@@ -12,7 +12,6 @@ const config: PlaywrightTestConfig = {
   },
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
-  workers: parseInt(process.env.WORKERS, 10),
   reporter: 'line',
   use: {
     screenshot: 'only-on-failure',
@@ -31,7 +30,6 @@ const config: PlaywrightTestConfig = {
     trace: 'on-first-retry',
     defaultBrowserType: 'chromium',
   },
-
   projects: [
     {
       name: 'chromium',

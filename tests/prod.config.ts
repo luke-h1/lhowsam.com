@@ -11,7 +11,6 @@ const config: PlaywrightTestConfig = {
   },
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 2 : 1,
   reporter: 'github',
   use: {
     screenshot: 'only-on-failure',
