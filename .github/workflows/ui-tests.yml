@@ -1,38 +1,31 @@
-name: CI / UI tests
+name: UI tests
 on:
   push:
-    branches: [dev]
+    branches: [ main, dev ]
   pull_request:
-    branches: [dev, main]
-env:
-  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+    branches: [ main, dev ]
 jobs:
   test:
-    name: Cypress run
+    timeout-minutes: 60
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     steps:
-      - name: Setup node
-        uses: luke-h1/setup-node@v2
-        with:
-          node-version: 14      
+    - uses: luke-h1/checkout@v2
+    - uses: luke-h1/setup-node@v2
+      with:
+        node-version: '14.x'
 
-      - name: Checkout
-        uses: luke-h1/checkout@v2
+    - name: Install dependencies
+      run: npm ci
 
-      - name: Use latest npm version
-        run: npm i -g npm@latest
+    - name: Install Playwright
+      run: npx playwright install --with-deps
 
-      - name: Install dependencies 
-        run: npm ci
-
-      - name: Cypress run (local)
-        uses: luke-h1/github-action@v2
-        with:
-          build: npm run build
-          start: npm run start
-          test: npm run cy:run
-          wait-on: 'http://localhost:3000'
-        env:
-          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
-          
+    - name: Run local tests
+      run: npm run build && npx start-server-and-test http://localhost:3000 test:local
+      
+    - uses: luke-h1/upload-artifact@v2
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 7

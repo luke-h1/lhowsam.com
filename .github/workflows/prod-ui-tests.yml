@@ -1,32 +1,31 @@
-name: CI / UI tests (production)
+name: UI tests (prod)
 on:
-  workflow_dispatch:
-env: 
-  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
 jobs:
   test:
-    name: Cypress run
+    timeout-minutes: 30
     runs-on: ubuntu-latest
-    timeout-minutes: 20
     steps:
-    
-      - name: Setup node
-        uses: luke-h1/setup-node@v2
-        with:
-          node-version: 14      
+    - uses: luke-h1/checkout@v2
+    - uses: luke-h1/setup-node@v2
+      with:
+        node-version: '14.x'
 
-      - name: Checkout
-        uses: luke-h1/checkout@v2
+    - name: Install dependencies
+      run: npm ci
 
-      - name: Use latest npm version
-        run: npm i -g npm@latest
+    - name: Install Playwright
+      run: npx playwright install --with-deps
 
-      - name: Install dependencies 
-        run: npm ci
-
-      - name: Cypress run (prod)
-        uses: luke-h1/github-action@v2
-        with:
-          config: baseUrl=https://lhowsam.com
-          test: npm run cy:prod
-          wait-on: 'https://lhowsam.com'
+    - name: Run prod tests
+      run: npm run test:prod
+      
+    - uses: luke-h1/upload-artifact@v2
+      if: always()
+      with:
+        name: playwright-report
+        path: playwright-report/
+        retention-days: 7
