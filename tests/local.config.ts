@@ -1,6 +1,7 @@
+/* eslint-disable no-unneeded-ternary */
 import { PlaywrightTestConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
-import { projectRoot } from './src/utils/config';
+import { isMac, projectRoot } from './src/utils/config';
 
 dotenv.config({ path: `${projectRoot}/.env.local` });
 
@@ -10,8 +11,7 @@ const config: PlaywrightTestConfig = {
   expect: {
     timeout: 7000,
   },
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 1 : 0,
+  retries: 0,
   reporter: 'line',
   use: {
     screenshot: 'only-on-failure',
@@ -19,11 +19,11 @@ const config: PlaywrightTestConfig = {
     navigationTimeout: 10000,
     launchOptions: {
       timeout: 5000,
-      slowMo: parseInt(process.env.SLOW_MO, 10),
+      slowMo: isMac ? 1000 : 0,
     },
     acceptDownloads: true,
     deviceScaleFactor: 0.75,
-    headless: false,
+    headless: isMac ? false : true,
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
     actionTimeout: 0,

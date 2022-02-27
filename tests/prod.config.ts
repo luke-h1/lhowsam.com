@@ -1,6 +1,6 @@
 import { PlaywrightTestConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
-import { projectRoot } from './src/utils/config';
+import { isMac, projectRoot } from './src/utils/config';
 
 dotenv.config({ path: `${projectRoot}/.env.production` });
 const config: PlaywrightTestConfig = {
@@ -9,8 +9,7 @@ const config: PlaywrightTestConfig = {
   expect: {
     timeout: 7000,
   },
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
+  retries: 0,
   reporter: 'github',
   use: {
     screenshot: 'only-on-failure',
@@ -20,9 +19,9 @@ const config: PlaywrightTestConfig = {
     deviceScaleFactor: 0.75,
     launchOptions: {
       timeout: 5000,
-      slowMo: parseInt(process.env.SLOW_MO, 10),
+      slowMo: isMac ? 1000 : 0,
     },
-    headless: !!process.env.HEADLESS,
+    headless: !isMac,
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
     actionTimeout: 0,
