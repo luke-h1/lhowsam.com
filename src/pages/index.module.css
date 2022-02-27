@@ -7,17 +7,12 @@
   text-decoration: none;
 }
 
+
 .greeting {
   margin: 80px 0;
   width: 100%;
   line-height: 1.1;
   font-size: 48px;
-  span {
-    color: var(--primaryColor);
-  }
-  a {
-    text-decoration: none;
-  }
 }
 @media (min-width: 632px) {
   .greeting {
@@ -25,16 +20,26 @@
   }
 }
 
+.greeting span {
+  color: var(--primaryColor);
+}
+.greeting a {
+  text-decoration: none;
+}
+
 .title {
   color: var(--white);
   margin-bottom: 0px;
   margin-top: 8px;
-  &:hover {
-    color: var(--primaryColor);
-  }
 }
 
+
 .contact {
+  color: var(--primaryColor);
+}
+
+
+.title:hover {
   color: var(--primaryColor);
 }
 
