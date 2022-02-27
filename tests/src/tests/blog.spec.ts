@@ -21,14 +21,9 @@ test.describe('blog page works', () => {
   test('shows slug page correctly', async ({ page }) => {
     const gitPost = await page.locator('//h2[text()="Forcing git merges"]');
     gitPost.click();
-
     await page.waitForNavigation();
-    await page.waitForLoadState('domcontentloaded');
-    await page.waitForLoadState('networkidle');
 
-    expect(await page.locator('data-testid="blog-title"').innerText()).toBe(
-      'Forcing git merges',
-    );
+    expect(await page.locator('h1').innerText()).toBe('Forcing git merges');
 
     await page.locator('article').scrollIntoViewIfNeeded();
 

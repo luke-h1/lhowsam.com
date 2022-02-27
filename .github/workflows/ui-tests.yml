@@ -4,6 +4,8 @@ on:
     branches: [ main, dev ]
   pull_request:
     branches: [ main, dev ]
+env:
+  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 jobs:
   test:
     timeout-minutes: 60
