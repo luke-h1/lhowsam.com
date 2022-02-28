@@ -1,25 +1,32 @@
-name: UI tests (prod)
+name: CI / UI tests (production)
 on:
   workflow_dispatch:
+env: 
+  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 jobs:
   test:
-    timeout-minutes: 30
+    name: Cypress run
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-    - uses: luke-h1/checkout@v2
-    - uses: luke-h1/setup-node@v2
-      with:
-        node-version: '14.x'
+    
+      - name: Setup node
+        uses: luke-h1/setup-node@v2
+        with:
+          node-version: 14      
 
-    # https://github.com/actions/virtual-environments/issues/1187
-    - name: tune linux network
-      run: sudo ethtool -K eth0 tx off rx off
+      - name: Checkout
+        uses: luke-h1/checkout@v2
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Use latest npm version
+        run: npm i -g npm@latest
 
-    - name: Install Playwright
-      run: npx playwright install --with-deps
+      - name: Install dependencies 
+        run: npm ci
 
-    - name: Run prod tests
-      run: npm run test:prod
+      - name: Cypress run (prod)
+        uses: luke-h1/github-action@v2
+        with:
+          config: baseUrl=https://lhowsam.com
+          test: npm run cy:prod
+          wait-on: 'https://lhowsam.com'
