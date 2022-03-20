@@ -1,6 +1,6 @@
 .card {
   --card-spacing: 26px;
-
+  border: 2px solid #fff;
   background: var(--black);
 
   border-radius: 8px;
