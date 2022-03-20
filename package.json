@@ -68,7 +68,9 @@
     "stylelint-config-standard": "^25.0.0",
     "stylelint-prettier": "^2.0.0",
     "unified": "^10.1.2",
-    "unist-util-visit": "^4.1.0"
+    "unist-util-visit": "^4.1.0",
+    "referrer-policy": "1.2.0",
+    "helmet": "5.0.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
