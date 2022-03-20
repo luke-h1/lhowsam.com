@@ -70,7 +70,8 @@
     "unified": "^10.1.2",
     "unist-util-visit": "^4.1.0",
     "referrer-policy": "1.2.0",
-    "helmet": "5.0.2"
+    "helmet": "5.0.2",
+    "react-ga": "3.3.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
