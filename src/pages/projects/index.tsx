@@ -38,20 +38,18 @@ const ProjectIndexPage = ({ projects }: Props) => {
           projects.map(project => (
             <article key={project.id}>
               <header>
-                <Link href={`/projects/${project.slug}`}>
-                  <a>
-                    <h2 className={styles.title}>{project.title}</h2>
-                  </a>
-                </Link>
+                <a>
+                  <h2 className={styles.title}>{project.title}</h2>
+                </a>
                 <small className={styles.links}>
                   {project.githubUrl && (
                     <a href={project.githubUrl}>
-                      <AiFillGithub />
+                      <AiFillGithub color="#fff" />
                     </a>
                   )}
                   {project.siteUrl && (
                     <a href={project.siteUrl}>
-                      <FaLink />
+                      <FaLink color="#fff" />
                     </a>
                   )}
                 </small>
