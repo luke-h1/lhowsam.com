@@ -4,7 +4,6 @@ import projectService from '@src/services/projectService';
 import { Project } from '@src/types/project';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { AiFillGithub } from 'react-icons/ai';
 import { FaLink } from 'react-icons/fa';
