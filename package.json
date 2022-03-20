@@ -71,7 +71,7 @@
     "unist-util-visit": "^4.1.0",
     "referrer-policy": "1.2.0",
     "helmet": "5.0.2",
-    "react-ga": "3.3.0"
+    "react-ga4": "1.4.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
