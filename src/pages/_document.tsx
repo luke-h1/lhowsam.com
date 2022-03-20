@@ -1,4 +1,3 @@
-import { GA_TRACKING_ID } from '@src/utils/gtag';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 const keywords = [
@@ -21,10 +20,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-          />
           <meta name="keywords" content={[...keywords].join(', ')} />
 
           <link href="/icons/favicon-16x16.png" rel="icon" />
