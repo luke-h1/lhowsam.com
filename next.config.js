@@ -12,7 +12,7 @@ module.exports = {
     return '1';
   },
   images: {
-    domains: ['localhost', 'media.graphcms.com'],
+    domains: ['localhost', 'media.graphcms.com', 'media.graphassets.com.'],
     formats: ['image/avif', 'image/webp'],
   },
   webpack(config) {
