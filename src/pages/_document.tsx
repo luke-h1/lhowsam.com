@@ -50,6 +50,19 @@ export default class MyDocument extends Document {
             name="description"
             content="Luke Howsam is a QA engineer and software developer who specializes in Javascript, Typescript, GraphQL, cloud technologies & automated + manual testing"
           />
+
+          <script
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', "${process.env.NEXT_PUBLIC_GA_TRACKING_ID}");  
+              `,
+            }}
+          />
         </Head>
         <body>
           <Main />

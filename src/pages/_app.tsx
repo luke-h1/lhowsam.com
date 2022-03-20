@@ -1,23 +1,10 @@
-import { initGA, logPageView } from '@src/utils/analytics';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
-import { useEffect } from 'react';
 import '../styles/global.css';
 import '../styles/prism.css';
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`;
-
-  useEffect(() => {
-    initGA();
-    // `routeChangeComplete` won't run for the first page load unless the query string is
-    // hydrated later on, so here we log a page view if this is the first render and
-    // there's no query string
-    if (!router.asPath.includes('?')) {
-      logPageView();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   return (
     <>
