@@ -1,26 +1,13 @@
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
-import Script from 'next/script';
 import '../styles/global.css';
 import '../styles/prism.css';
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`;
+
   return (
     <>
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
-      >
-        {`
-             window.dataLayer = window.dataLayer || [];
-             function gtag(){dataLayer.push(arguments);}
-             gtag('js', new Date());
-
-             gtag('config', "${process.env.NEXT_PUBLIC_GA_TRACKING_ID}");
-            `}
-      </Script>
       <DefaultSeo
         titleTemplate="%s | lhowsam.com"
         title="lhowsam.com"
