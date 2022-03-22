@@ -20,10 +20,6 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
-          />
           <meta name="keywords" content={[...keywords].join(', ')} />
           <script
             // eslint-disable-next-line react/no-danger
