@@ -21,6 +21,19 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="keywords" content={[...keywords].join(', ')} />
+          <script
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${process.env.GA_TRACKING_ID}', {
+                page_path: window.location.pathname,
+              });
+            `,
+            }}
+          />
 
           <link href="/icons/favicon-16x16.png" rel="icon" />
           <link
