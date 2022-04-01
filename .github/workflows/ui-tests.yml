@@ -24,7 +24,7 @@ jobs:
         run: npm i -g npm@latest
 
       - name: Install dependencies 
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: Cypress run (local)
         uses: luke-h1/github-action@v2
