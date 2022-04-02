@@ -35,9 +35,5 @@
   "devDependencies": {
     "@sanity/cli": "^2.29.3",
     "@types/validator": "^13.7.1"
-  },
-  "nohoist": [
-    "@sanity/**",
-    "sanity-*"
-  ]
+  }
 }
