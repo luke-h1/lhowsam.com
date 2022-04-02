@@ -6,11 +6,9 @@ describe('blog page should work', () => {
   });
 
   it('shows blog posts', () => {
-    cy.get('h2').contains('Full stack deploy with Dokku').should('be.visible');
-    cy.get('h2').contains('Extending multiple classes in TypegraphQL').should('be.visible');
-    cy.get('h2').contains('Next.js SSR notes').should('be.visible');
-    cy.get('h2').contains('Forcing git merges').should('be.visible');
-    cy.get('h2').contains('First blog post').should('be.visible');
+    for (let i = 0; i < 7; i += 1) {
+      cy.get('h2').eq(i).should('be.visible').and('not.be.empty');
+    }
   });
 
   it('shows slug page correctly', () => {
