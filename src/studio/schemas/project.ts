@@ -25,6 +25,7 @@ const project: Document<Project> = {
       name: 'intro',
       title: 'Intro',
       type: 'text',
+      rows: 3,
       description: 'short intro of project post',
       validation: rule => rule.required(),
     },

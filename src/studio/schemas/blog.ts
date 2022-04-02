@@ -24,7 +24,8 @@ const blog: Document<Blog> = {
     {
       name: 'intro',
       title: 'Intro',
-      type: 'string',
+      type: 'text',
+      rows: 3,
       description: 'used for SEO tags',
       validation: rule => rule.required(),
     },
