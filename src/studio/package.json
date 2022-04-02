@@ -9,9 +9,6 @@
     "deploy": "sanity deploy",
     "tsc": "tsc --noEmit"
   },
-  "keywords": [
-    "sanity"
-  ],
   "dependencies": {
     "@sanity/base": "^2.29.3",
     "@sanity/components": "^2.14.0",
