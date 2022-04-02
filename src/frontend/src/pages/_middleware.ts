@@ -6,8 +6,8 @@ import { NextResponse } from 'next/server';
 export function middleware(req: NextRequest, ev: NextFetchEvent) {
   const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.media.graphcms.com *.media.graphassets.com *.twitter.com *.googletagmanager.com *.google-analytics.com;
-  child-src *.media.graphcms.com *.google.com *.media.graphassets.com *.googletagmanager.com *.google-analytics.com;
+  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.twitter.com *.googletagmanager.com *.google-analytics.com *.fonts.gstatic.com *.cdn.sanity.io;
+  child-src *.media.graphcms.com *.google.com *.googletagmanager.com *.google-analytics.com *.fonts.gstatic.com *.cdn.sanity.io;
   style-src 'self' 'unsafe-inline' *.googleapis.com;
   img-src * blob: data:;
   media-src 'none';
