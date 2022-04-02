@@ -22,8 +22,8 @@
   },
   "dependencies": {
     "lhowsam-studio": "0.1.0",
-    "groq": "2.15.0",
-    "@sanity/client": "^3.2.2",
+    "groq": "2.29.3",
+    "@sanity/client": "^3.3.0",
     "@sanity/image-url": "^1.0.1",
     "@mapbox/rehype-prism": "^0.8.0",
     "@mdx-js/react": "^2.1.0",
@@ -71,10 +71,7 @@
     "stylelint-config-standard": "^25.0.0",
     "stylelint-prettier": "^2.0.0",
     "unified": "^10.1.2",
-    "unist-util-visit": "^4.1.0",
-    "referrer-policy": "1.2.0",
-    "helmet": "5.0.2",
-    "react-ga": "3.3.0"
+    "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.3",
