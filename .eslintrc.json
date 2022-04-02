@@ -13,8 +13,11 @@
   "settings": {
     "import/resolver": {
       "typescript": {
-        "project": ["tsconfig.json"]
+        "project": ["src/**/tsconfig.json"]
       }
+    },
+    "next": {
+      "rootDir": "src/frontend"
     },
     "react": {
       "version": "detect"
@@ -44,7 +47,12 @@
         "tsx": "never"
       }
     ],
-    "import/no-unresolved": ["error"],
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": ["^(part|all):"]
+      }
+    ],
     "import/order": [
       "error",
       {
@@ -54,6 +62,12 @@
           "sibling",
           "index"
         ],
+        "pathGroups": [
+          {
+            "pattern": "@frontend/**",
+            "group": "internal"
+          }
+        ],
         "alphabetize": {
           "order": "asc"
         }
@@ -61,7 +75,12 @@
     ],
     "import/prefer-default-export": "off",
     "no-unsafe-finally": "off",
-    "no-underscore-dangle": ["error"],
+    "no-underscore-dangle": [
+      "error",
+      {
+        "allow": ["key", "_type", "_rev", "_id"]
+      }
+    ],
     "no-use-before-define": "off",
     "react/jsx-filename-extension": [
       "error",
@@ -71,16 +90,16 @@
     ],
     "react/jsx-one-expression-per-line": "off",
     "@typescript-eslint/ban-types": "off",
-    "react/function-component-definition": "off",
     "@next/next/no-img-element": "off",
     "react/jsx-props-no-spreading": "off",
+    "react/function-component-definition": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-wrap-multilines": ["error", { "prop": "ignore" }],
     "react/prop-types": "off",
     "import/no-extraneous-dependencies": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
     "react/state-in-constructor": "off",
-    "jsx-a11y/anchor-is-valid": "off",
     "react/no-unescaped-entities": [
       "error",
       {

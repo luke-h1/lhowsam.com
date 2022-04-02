@@ -1,9 +1,9 @@
-name: CI / UI tests
-on:
-  push:
-    branches: [dev]
-  pull_request:
-    branches: [dev, main]
+
+   
+name: CI / Nightly UI tests
+on: 
+  schedule:
+    - cron: '0 22 * * *'
 env:
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
 jobs:
@@ -15,24 +15,21 @@ jobs:
       - name: Setup node
         uses: luke-h1/setup-node@v2
         with:
-          node-version: 16
+          node-version: 16   
 
       - name: Checkout
         uses: luke-h1/checkout@v2
 
       - name: Use latest npm version
         run: npm i -g npm@latest
-
+        
       - name: Install dependencies 
         run: yarn
 
-      - name: Cypress run (local)
+      - name: Cypress run (prod)
         uses: luke-h1/github-action@v2
         with:
-          build: yarn build
-          start: yarn start
-          test: yarn cy:run
+          config: baseUrl=https://lhowsam.com
+          test: yarn cy:prod
           working-directory: src/frontend
-          wait-on: 'http://localhost:3000'
-        env:
-          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+          wait-on: 'https://lhowsam.com'
