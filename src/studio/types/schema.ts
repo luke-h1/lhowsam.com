@@ -1,5 +1,3 @@
-import { Document } from './sanity';
-
 export interface Blog {
   _id: string;
   _type: 'blog';
