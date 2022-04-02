@@ -1,6 +1,6 @@
 import { Document } from './sanity';
 
-export interface Blog extends Document<Blog> {
+export interface Blog {
   _id: string;
   _type: 'blog';
   _key: string;
@@ -14,7 +14,7 @@ export interface Blog extends Document<Blog> {
   source: { compiledSource: string }; // when md is serialized
 }
 
-export interface Project extends Document<Project> {
+export interface Project {
   _id: string;
   _type: 'project';
   key: string;
@@ -28,14 +28,14 @@ export interface Project extends Document<Project> {
   source: { compiledSource: string }; // when md is serialized
 }
 
-export interface TechStack extends Document<TechStack> {
+export interface TechStack {
   _id: string;
   _type: 'techStack';
   key: string;
   title: string;
 }
 
-export interface Tag extends Document<Tag> {
+export interface Tag {
   _id: string;
   _type: 'tag';
   key: string;
