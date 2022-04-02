@@ -17,7 +17,7 @@ My website & blog
 
 [![CI / UI tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml)
 
-[![CI / Nightly prod tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-prod-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-prod-tests.yml)
+[![CI / Nightly UI tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/nightly-ui-tests.yml)
 
 [![CI / build](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml)
 
