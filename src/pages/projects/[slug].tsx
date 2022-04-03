@@ -46,7 +46,7 @@ const ProjectSlugPage = ({ project, source }: Props) => {
           </div>
         </p>
         <article>
-          <MDXRemote {...source} />
+          <MDXRemote compiledSource={source.compiledSource} />
         </article>
       </div>
     </Page>
