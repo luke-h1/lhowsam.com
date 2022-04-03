@@ -19,12 +19,20 @@ const Card = ({ project }: CardProps) => {
           <p data-testid="project-intro">{project.intro}</p>
           <span>
             {project.githubUrl && (
-              <a href={project.githubUrl} data-testid="github-url">
+              <a
+                href={project.githubUrl}
+                data-testid="github-url"
+                aria-label={`Github repo of project: ${project.title}`}
+              >
                 <AiFillGithub />
               </a>
             )}
             {project.siteUrl && (
-              <a href={project.siteUrl} data-testid="site-url">
+              <a
+                href={project.siteUrl}
+                data-testid="site-url"
+                aria-label={`Deployed site: ${project.title}`}
+              >
                 <FaLink />
               </a>
             )}
