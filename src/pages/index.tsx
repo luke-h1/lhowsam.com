@@ -23,10 +23,8 @@ interface Props {
 const Home = ({ projects, posts }: Props) => {
   const router = useRouter();
   return (
-    <Page
-      className="container"
-    >
-       <NextSeo
+    <Page className="container">
+      <NextSeo
         title="Home"
         canonical={`https://lhowsam.com${router.asPath}`}
         description="Home"
@@ -118,8 +116,10 @@ const Home = ({ projects, posts }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projects = await projectService.getAllProjects();
-  const posts = await blogService.getRecentPosts();
+  const [posts, projects] = await Promise.all([
+    blogService.getRecentPosts(),
+    projectService.getAllProjects(),
+  ]);
 
   return {
     props: {
