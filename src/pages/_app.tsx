@@ -10,7 +10,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     <>
       <DefaultSeo
         titleTemplate="%s | lhowsam.com"
-        title="lhowsam.com"
+        title='lhowsam.com'
         canonical={canonicalUrl}
         openGraph={{
           profile: {

@@ -5,7 +5,6 @@
 module.exports = {
   swcMinify: true,
   reactStrictMode: true,
-  poweredByHeader: false,
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -13,15 +12,8 @@ module.exports = {
     return '1';
   },
   images: {
-    domains: ['localhost', 'media.graphcms.com', 'media.graphassets.com'],
+    domains: ['localhost', 'media.graphcms.com'],
     formats: ['image/avif', 'image/webp'],
-  },
-  webpack(config) {
-    config.module.rules.push({
-      test: /react-spring/,
-      sideEffects: true,
-    });
-    return config;
   },
   async redirects() {
     return [

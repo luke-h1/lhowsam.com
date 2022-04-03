@@ -15,7 +15,7 @@ jobs:
       - name: Setup node
         uses: luke-h1/setup-node@v2
         with:
-          node-version: 16      
+          node-version: 14      
 
       - name: Checkout
         uses: luke-h1/checkout@v2
@@ -27,12 +27,4 @@ jobs:
         run: npm ci
 
       - name: Cypress run (local)
-        uses: luke-h1/github-action@v2
-        with:
-          build: npm run build
-          start: npm run start
-          test: npm run cy:run
-          wait-on: 'http://localhost:3000'
-        env:
-          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
-          
+        run: npm run build && npx start-server-and-test http://localhost:3000 cy:run

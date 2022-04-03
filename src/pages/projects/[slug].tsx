@@ -1,9 +1,6 @@
-/* eslint-disable import/no-duplicates */
 import Page from '@src/components/Page';
-import blogService from '@src/services/blogService';
-import { Post } from '@src/types/post';
-import format from 'date-fns/format';
-import parseISO from 'date-fns/parseISO';
+import projectService from '@src/services/projectService';
+import { Project } from '@src/types/project';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
@@ -14,51 +11,40 @@ import Headings from 'remark-autolink-headings';
 import CodeTitle from 'remark-code-titles';
 
 interface Props {
-  post: Post;
+  project: Project;
   source: { compiledSource: string };
 }
 
-const BlogSlugPage = ({ post, source }: Props) => {
+const ProjectSlugPage = ({ project, source }: Props) => {
   const router = useRouter();
-
   return (
-    <Page ogImage={post.image.url}>
+    <Page>
       <NextSeo
-        title={post.title}
+        title={project.title}
         canonical={`https://lhowsam.com${router.asPath}`}
-        description={post.intro}
+        description={project.intro}
         openGraph={{
           defaultImageWidth: 1200,
           defaultImageHeight: 630,
-          images: [
-            {
-              url: post.image.url,
-              alt: post.title,
-              height: 1200,
-              width: 630,
-            },
-          ],
           url: `https://lhowsam.com${router.asPath}`,
-          title: `${post.title} | lhowsam.com`,
+          title: `${project.title} | lhowsam.com`,
         }}
       />
       <div className="container">
         <header>
-          <h1 data-testid="blog-title">{post.title}</h1>
+          <h1 data-testid="project-title">{project.title}</h1>
         </header>
         <p className="blog-meta">
-          <time dateTime={post.date}>
-            <small>{format(parseISO(post.date), 'MMMM d, yyyy')}</small>
-          </time>
+          Tech Stack:
+          <div className="tag-container">
+            {project.tech &&
+              project.tech.map(t => (
+                <span className="tag tag--pill tag--sm" key={t}>
+                  <small>{t}</small>
+                </span>
+              ))}
+          </div>
         </p>
-
-        <img
-          alt={post.title}
-          src={post.image.url}
-          style={{
-            maxWidth: '100%',
-          }}
-        />
         <article>
           <MDXRemote {...source} />
         </article>
@@ -66,11 +52,11 @@ const BlogSlugPage = ({ post, source }: Props) => {
     </Page>
   );
 };
-export default BlogSlugPage;
+export default ProjectSlugPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { posts } = await blogService.getPostsBySlug();
-  const paths = posts.map(({ slug }) => ({ params: { slug } }));
+  const { projects } = await projectService.getProjectsBySlug();
+  const paths = projects.map(({ slug }) => ({ params: { slug } }));
 
   return {
     paths,
@@ -85,25 +71,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       notFound: true,
     };
   }
-
-  const { post } = await blogService.getPost(params.slug as string);
-  if (!post) {
+  const { project } = await projectService.getProject(params.slug as string);
+  if (!project) {
     return {
       props: [],
       notFound: true,
     };
   }
-
-  const source = await serialize(post.content, {
+  const source = await serialize(project.content, {
     mdxOptions: {
       remarkPlugins: [CodeTitle, Headings],
       rehypePlugins: [mdxPrism],
     },
   });
-
   return {
     props: {
-      post,
+      project,
       source,
     },
     revalidate: 30 * 60,

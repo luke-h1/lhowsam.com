@@ -15,6 +15,7 @@ const getAllProjects = gql`
     projects(orderBy: id_DESC) {
       id
       title
+      slug
       intro
       tech
       siteUrl

@@ -1,4 +1,4 @@
-name: CI / Nightly prod tests 
+name: CI / Nightly tests 
 on: 
   schedule:
     - cron: '0 22 * * *'
@@ -13,7 +13,7 @@ jobs:
       - name: Setup node
         uses: luke-h1/setup-node@v2
         with:
-          node-version: 16      
+          node-version: 14      
 
       - name: Checkout
         uses: luke-h1/checkout@v2
@@ -24,9 +24,13 @@ jobs:
       - name: Install dependencies 
         run: npm ci
 
+      - name: jest 
+        run: npm run test
+
+      - name: Cypress run (local)
+        run: npm run build && npx start-server-and-test http://localhost:3000 cy:run
+        env:
+          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+
       - name: Cypress run (prod)
-        uses: luke-h1/github-action@v2
-        with:
-          config: baseUrl=https://lhowsam.com
-          test: npm run cy:prod
-          wait-on: 'https://lhowsam.com'
+        run: npm run cy:prod
