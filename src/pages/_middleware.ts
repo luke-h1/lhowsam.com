@@ -2,7 +2,7 @@
 import type { NextFetchEvent, NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
-export function middleware(req: NextRequest, ev: NextFetchEvent) {
+export function middleware(_req: NextRequest, _ev: NextFetchEvent) {
   const ContentSecurityPolicy = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline' *.twitter.com *.googletagmanager.com *.google-analytics.com *.fonts.gstatic.com *.media.graphassets.com;
