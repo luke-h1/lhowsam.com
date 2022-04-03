@@ -5,7 +5,7 @@ on:
   pull_request:
     branches: [dev, main]
 env:
-  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 jobs:
   test:
     name: Cypress run
@@ -15,7 +15,7 @@ jobs:
       - name: Setup node
         uses: luke-h1/setup-node@v2
         with:
-          node-version: 16
+          node-version: 16      
 
       - name: Checkout
         uses: luke-h1/checkout@v2
@@ -24,15 +24,15 @@ jobs:
         run: npm i -g npm@latest
 
       - name: Install dependencies 
-        run: yarn
+        run: npm ci
 
       - name: Cypress run (local)
         uses: luke-h1/github-action@v2
         with:
-          build: yarn build
-          start: yarn start
-          test: yarn cy:run
-          working-directory: src/frontend
+          build: npm run build
+          start: npm run start
+          test: npm run cy:run
           wait-on: 'http://localhost:3000'
         env:
-          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+          NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
+          
