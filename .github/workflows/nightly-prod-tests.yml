@@ -1,14 +1,12 @@
-name: CI / Build
-on:
-  push:
-    branches: [dev]
-  pull_request:
-    branches: [dev, main]
+name: CI / Nightly prod tests 
+on: 
+  schedule:
+    - cron: '0 22 * * *'
 env:
   NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 jobs:
   test:
-    name: Build
+    name: Cypress run
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -16,27 +14,19 @@ jobs:
         uses: luke-h1/setup-node@v2
         with:
           node-version: 16      
-      
+
       - name: Checkout
         uses: luke-h1/checkout@v2
 
       - name: Use latest npm version
         run: npm i -g npm@latest
-
-      - name: Install dependencies
+        
+      - name: Install dependencies 
         run: npm ci
 
-      - name: format
-        run: npm run format
-
-      - name: lint
-        run: npm run lint
-
-      - name: jest
-        run: npm run test
-
-      - name: tsc
-        run: npm run tsc
-
-      - name: build
-        run: npm run build
+      - name: Cypress run (prod)
+        uses: luke-h1/github-action@v2
+        with:
+          config: baseUrl=https://lhowsam.com
+          test: npm run cy:prod
+          wait-on: 'https://lhowsam.com'

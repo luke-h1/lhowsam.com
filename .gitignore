@@ -1,11 +1,19 @@
-node_modules
-.idea
-.vscode
-.env
-!.env.example
-.next
-build
-public
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+cypress/videos
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+# production
+/build
+
 # misc
 .DS_Store
 *.pem
@@ -16,6 +24,19 @@ yarn-debug.log*
 yarn-error.log*
 junit.xml
 tsconfig.tsbuildinfo
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.xml
+# vercel
 .vercel
-src/frontend/public/sitemap.xml
-src/frontend/public/robots.txt
+.env
+.env.*
+!.env.example
+cypress/screenshots/*
+public/sitemap.xml
+public/robots.txt
+junit.xml
