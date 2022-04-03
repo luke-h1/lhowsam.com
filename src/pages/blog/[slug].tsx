@@ -59,12 +59,9 @@ const BlogSlugPage = ({ post, source }: Props) => {
           alt={post.title}
           blurDataURL={post.image.url}
           src={post.image.url}
-          style={{
-            maxWidth: '100%',
-          }}
         />
         <article>
-          <MDXRemote {...source} />
+          <MDXRemote compiledSource={source.compiledSource} />
         </article>
       </div>
     </Page>
