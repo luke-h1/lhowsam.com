@@ -120,6 +120,7 @@
     {
       "files": ["**/*.js"],
       "rules": {
+        "import/extensions": "off",
         "@typescript-eslint/no-var-requires": "off",
         "global-require": "off",
         "import/no-dynamic-require": "off",

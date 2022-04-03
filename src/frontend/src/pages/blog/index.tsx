@@ -53,7 +53,7 @@ const BlogIndexPage = ({ posts }: Props) => {
       </main>
     </Page>
   );
-}
+};
 export default BlogIndexPage;
 
 export const getStaticProps: GetStaticProps = async () => {

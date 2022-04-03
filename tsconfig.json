@@ -5,6 +5,7 @@
     "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     "module": "esnext",
+    "target": "ES5",
     "moduleResolution": "node",
     "noEmit": true,
     "noImplicitAny": true,
@@ -13,19 +14,18 @@
     "strictNullChecks": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
-    "baseUrl": "./",
-    "jsx": "preserve",
-    "lib": [
-      "dom",
-      "DOM.iterable",
-      "esnext"
-    ],
     "skipLibCheck": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "sourceMap": true,
     "noFallthroughCasesInSwitch": true,
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "DOM.iterable",
+      "esnext"
+    ],
   },
   "exclude": ["node_modules"],
 }

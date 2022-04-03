@@ -40,5 +40,5 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       <Component {...pageProps} />
     </>
   );
-}
+};
 export default App;

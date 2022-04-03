@@ -67,7 +67,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
       </div>
     </Page>
   );
-}
+};
 export default BlogSlugPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {

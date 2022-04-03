@@ -52,5 +52,5 @@ const Card = ({ project }: CardProps) => {
       </a>
     </Link>
   );
-}
+};
 export default Card;

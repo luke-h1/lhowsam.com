@@ -52,7 +52,7 @@ const ProjectSlugPage = ({ project, source }: Props) => {
       </div>
     </Page>
   );
-}
+};
 export default ProjectSlugPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {

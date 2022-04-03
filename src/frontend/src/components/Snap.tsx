@@ -17,5 +17,5 @@ const Snap = ({ project }: Props) => {
       </div>
     </a>
   );
-}
+};
 export default Snap;

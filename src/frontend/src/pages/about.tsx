@@ -101,5 +101,5 @@ const AboutPage = () => {
       </article>
     </Page>
   );
-}
+};
 export default AboutPage;
