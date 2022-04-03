@@ -9,7 +9,6 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import CodeTitle from 'rehype-code-titles';
 
@@ -52,14 +51,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
           </time>
         </p>
 
-        <Image
-          width={600}
-          height={300}
-          priority
-          alt={post.title}
-          blurDataURL={post.image.url}
-          src={post.image.url}
-        />
+        <img alt={post.title} src={post.image.url} style={{ width: '100%' }} />
         <article>
           <MDXRemote compiledSource={source.compiledSource} />
         </article>
