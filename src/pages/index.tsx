@@ -56,6 +56,7 @@ const Home = ({ projects, posts }: Props) => {
                     >
                       <Image
                         placeholder="blur"
+                        priority
                         blurDataURL={post.image.url}
                         alt={`cover image for ${post.title}`}
                         className="corner-radius-8"
