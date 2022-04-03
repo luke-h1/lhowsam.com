@@ -10,8 +10,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import Headings from 'remark-autolink-headings';
-import CodeTitle from 'remark-code-titles';
+import CodeTitle from 'rehype-code-titles';
 
 interface Props {
   post: Post;
@@ -96,8 +95,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const source = await serialize(post.content, {
     mdxOptions: {
-      remarkPlugins: [CodeTitle, Headings],
-      rehypePlugins: [mdxPrism],
+      rehypePlugins: [mdxPrism, CodeTitle],
     },
   });
 
