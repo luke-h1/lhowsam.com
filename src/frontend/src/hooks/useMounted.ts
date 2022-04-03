@@ -11,7 +11,7 @@ export const useMounted = (effect?: EffectCallback, initialState = false) => {
     }
 
     return undefined;
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {

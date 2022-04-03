@@ -12,5 +12,5 @@ const SkillItem = ({ icon, text }: Props) => {
       <small>{text}</small>
     </li>
   );
-}
+};
 export default SkillItem;

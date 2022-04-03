@@ -115,7 +115,7 @@ const Home = ({ projects, posts }: Props) => {
       </ul>
     </Page>
   );
-}
+};
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {

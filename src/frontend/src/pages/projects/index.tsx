@@ -60,7 +60,7 @@ const ProjectIndexPage = ({ projects }: Props) => {
       </main>
     </Page>
   );
-}
+};
 export default ProjectIndexPage;
 
 export const getStaticProps: GetStaticProps = async () => {

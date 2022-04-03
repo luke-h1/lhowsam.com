@@ -30,5 +30,5 @@ const Page = ({ children, ogImage, className = 'container' }: Props) => {
       {children}
     </div>
   );
-}
+};
 export default Page;
