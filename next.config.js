@@ -15,13 +15,6 @@ module.exports = {
     domains: ['localhost', 'media.graphcms.com'],
     formats: ['image/avif', 'image/webp'],
   },
-  webpack(config) {
-    config.module.rules.push({
-      test: /react-spring/,
-      sideEffects: true,
-    });
-    return config;
-  },
   async redirects() {
     return [
       {
