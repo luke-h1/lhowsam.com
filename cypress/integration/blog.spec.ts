@@ -6,7 +6,7 @@ describe('blog page should work', () => {
   });
 
   it('shows blog posts', () => {
-    for (let i = 0; i < 7; i += 1) {
+    for (let i = 0; i < 8; i += 1) {
       cy.get('h2').eq(i).should('be.visible').and('not.be.empty');
     }
   });
