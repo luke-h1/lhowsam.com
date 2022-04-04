@@ -7,7 +7,8 @@ describe('projects', () => {
   it('shows project posts', () => {
     let links: string[] = []
 
-    for (let i = 0; i < 3; i += 1) {      
+    for (let i = 0; i < 3; i += 1) {
+      cy.get('h2').should('be.visible').and('not.be.empty')
       cy.get('article > header').eq(i).find('a').should('have.attr', 'href').then((l) => {
         links.push(`${Cypress.config().baseUrl}${l}`)
         cy.visit(links[i])
