@@ -2,7 +2,7 @@ name: CI / UI tests (production)
 on:
   workflow_dispatch:
   schedule: 
-    - cron: '0 */3 * * *'
+    - cron: '0 */12 * * *'
     
 env: 
   NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
