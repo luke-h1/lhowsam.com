@@ -15,6 +15,7 @@ import {
   SiNodedotjs as SiNodeDotJs,
   SiReact,
   SiGraphql,
+  SiDjango,
   SiCss3,
   SiStyledcomponents as SiStyledComponents,
   SiTypescript,
@@ -61,6 +62,7 @@ const AboutPage = () => {
           <SkillItem icon={SiNodeDotJs} text="Node.js" />
           <SkillItem icon={SiGraphql} text="GraphQL" />
           <SkillItem icon={SiPython} text="Python" />
+          <SkillItem icon={SiDjango} text="Django" />
           <SkillItem icon={SiCss3} text="CSS, SCSS" />
           <SkillItem icon={SiStyledComponents} text="styled-components" />
           <SkillItem icon={BiTestTube} text="Automated & manual testing" />
