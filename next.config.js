@@ -12,7 +12,7 @@ module.exports = {
     return '1';
   },
   images: {
-    domains: ['localhost', 'media.graphassets.com'],
+    domains: ['localhost', 'media.graphassets.com', 'media.graphcms.com'],
     formats: ['image/avif', 'image/webp'],
   },
   async redirects() {
