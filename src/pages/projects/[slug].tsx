@@ -1,9 +1,7 @@
-import Page from '@src/components/Page';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/project';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
@@ -18,7 +16,7 @@ interface Props {
 const ProjectSlugPage = ({ project, source }: Props) => {
   const router = useRouter();
   return (
-    <Page>
+    <>
       <NextSeo
         title={project.title}
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -30,26 +28,8 @@ const ProjectSlugPage = ({ project, source }: Props) => {
           title: `${project.title} | lhowsam.com`,
         }}
       />
-      <div className="container">
-        <header>
-          <h1 data-testid="project-title">{project.title}</h1>
-        </header>
-        <p className="blog-meta">
-          Tech Stack:
-          <div className="tag-container">
-            {project.tech &&
-              project.tech.map(t => (
-                <span className="tag tag--pill tag--sm" key={t}>
-                  <small>{t}</small>
-                </span>
-              ))}
-          </div>
-        </p>
-        <article>
-          <MDXRemote compiledSource={source.compiledSource} />
-        </article>
-      </div>
-    </Page>
+      hi
+    </>
   );
 };
 export default ProjectSlugPage;

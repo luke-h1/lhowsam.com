@@ -1,34 +1,41 @@
-import Nav from '@src/components/Nav';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import Header from '@src/components/Header';
+import PageTransition from '@src/components/PageTransition';
+import Link from 'next/link';
+import { ReactNode } from 'react';
+import styles from './page.module.scss';
 
-interface Props {
-  children: React.ReactNode;
-  className?: string;
-  ogImage?: string;
-}
-
-const Page = ({ children, ogImage, className = 'container' }: Props) => {
-  const router = useRouter();
-  return (
-    <div className={className}>
-      <Head>
-        <meta
-          name="twitter:site"
-          content={`${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`}
-        />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        {ogImage && (
-          <>
-            <meta name="twitter:image" content={ogImage} />
-            <meta property="og:image" content={ogImage} />
-          </>
-        )}
-      </Head>
-      <Nav />
-      {children}
-    </div>
-  );
+type PageProps = {
+  children: ReactNode;
 };
+
+const footerLinks = [
+  { name: 'Home', url: '/' },
+  { name: 'Twitter', url: 'https://twitter.com/LukeH_1999' },
+  { name: 'Contact', url: '/contact' },
+  { name: 'About', url: '/about' },
+  { name: 'GitHub', url: 'https://github.com/luke-h1' },
+  { name: 'Blog', url: '/blog' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/lukehowsam/' },
+];
+
+const Page = ({ children }: PageProps): JSX.Element => (
+  <div className={styles.container}>
+    <Header />
+    <main className={styles.main}>
+      <PageTransition>{children}</PageTransition>
+    </main>
+    <footer className={styles.footer}>
+      <ul className={styles.links}>
+        {footerLinks.map(link => (
+          <li key={link.name}>
+            <Link href={link.url}>
+              <a>{link.name}</a>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </footer>
+  </div>
+);
+
 export default Page;
