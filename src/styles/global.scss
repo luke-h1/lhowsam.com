@@ -198,3 +198,13 @@ h2 {
 .corner-radius-8 {
   border-radius: 8px;
 }
+.bordered-image {
+  border: 1px solid var(--grey) !important;
+  box-sizing: border-box !important;
+}
+.fill-image {
+  position: relative;
+
+  border-radius: 8px;
+  width: 100%;
+}

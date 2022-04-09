@@ -17,7 +17,10 @@ const BlogList = ({ posts }: Props) => {
           <li key={post.id}>
             <Link href={`/blog/${post.slug}`}>
               <a aria-label={post.title}>
-                <BlogImage src={post.image.url} alt={post.title} />
+                <BlogImage
+                  src={post.image.url}
+                  alt={`cover image for ${post.title}`}
+                />
               </a>
             </Link>
             <Link href={`/blog/${post.slug}`}>

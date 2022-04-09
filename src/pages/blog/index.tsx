@@ -34,6 +34,11 @@ const BlogIndexPage = ({ posts }: Props) => {
     return setSearch(e.target.value);
   };
 
+  const filteredPosts = posts.filter(post => {
+    const searchString = `${post.title.toLowerCase()} ${post.intro.toLowerCase()}`;
+    return searchString.includes(search.toLowerCase());
+  });
+
   return (
     <Page>
       <NextSeo
@@ -59,7 +64,7 @@ const BlogIndexPage = ({ posts }: Props) => {
           <FiSearch className={styles.inputIcon} />
         </div>
       </PageHeader>
-      <BlogList posts={posts} />
+      <BlogList posts={filteredPosts} />
     </Page>
   );
 };
