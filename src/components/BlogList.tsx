@@ -29,7 +29,7 @@ const BlogList = ({ posts }: Props) => {
               <time dateTime={post.date}>
                 {' '}
                 <small>{format(parseISO(post.date), 'MMMM d, yyyy')}</small>
-                &middot; {readingTime(post.content)}
+                &middot;
               </time>
             </p>
           </li>

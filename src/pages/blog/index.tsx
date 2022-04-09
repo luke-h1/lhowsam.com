@@ -1,4 +1,5 @@
 import Page from '@src/components/Page';
+import PageHeader from '@src/components/PageHeader';
 import blogService from '@src/services/blogService';
 import { Post } from '@src/types/post';
 import * as gtag from '@src/utils/gtag';
@@ -7,6 +8,10 @@ import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
+import { FiSearch } from 'react-icons/fi';
+import BlogList from '../../components/BlogList';
+import Input from '../../components/Input';
+import styles from './blog-index.module.scss';
 
 interface Props {
   posts: Post[];
@@ -42,7 +47,19 @@ const BlogIndexPage = ({ posts }: Props) => {
           title: `Blog | lhowsam.com`,
         }}
       />
-      hi
+      <PageHeader title="Blog">
+        <div className={styles.inputWrapper}>
+          <Input
+            className={styles.input}
+            value={search}
+            onChange={handleInputChange}
+            placeholder="Search posts"
+            type="search"
+          />
+          <FiSearch className={styles.inputIcon} />
+        </div>
+      </PageHeader>
+      <BlogList posts={posts} />
     </Page>
   );
 };

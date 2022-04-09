@@ -33,6 +33,9 @@ const getPostsQuery = gql`
       title
       intro
       date
+      image {
+        url
+      }
     }
   }
 `;
