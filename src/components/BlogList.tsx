@@ -13,7 +13,7 @@ const BlogList = ({ posts }: Props) => {
     <ul className={styles.list}>
       {posts &&
         posts.map(post => (
-          <li key={post.id}>
+          <li key={post.id} data-testid="blog-list">
             <Link href={`/blog/${post.slug}`}>
               <a aria-label={post.title}>
                 <BlogImage
@@ -23,7 +23,9 @@ const BlogList = ({ posts }: Props) => {
               </a>
             </Link>
             <Link href={`/blog/${post.slug}`}>
-              <a className={styles.title}>{post.title}</a>
+              <a className={styles.title} style={{ color: 'var(--text)' }}>
+                <h2>{post.title}</h2>
+              </a>
             </Link>
             <p className={styles.summary}>{post.intro}</p>
             <p className={styles.meta}>

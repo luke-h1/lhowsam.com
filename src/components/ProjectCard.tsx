@@ -10,7 +10,7 @@ interface Props {
 
 const ProjectCard = ({ project }: Props) => {
   return (
-    <div className={styles.project} data-testid="project-card">
+    <div className={styles.project} data-testid="project-list">
       <Link href={`/projects/${project.slug}`}>
         <a>
           <h2 className={styles.title} data-testid="project-title">
