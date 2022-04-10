@@ -10,8 +10,8 @@ type PageProps = {
 
 const footerLinks = [
   { name: 'Home', url: '/' },
-  { name: 'Twitter', url: 'https://twitter.com/LukeH_1999' },
   { name: 'Contact', url: '/contact' },
+  { name: 'Twitter', url: 'https://twitter.com/LukeH_1999' },
   { name: 'About', url: '/about' },
   { name: 'GitHub', url: 'https://github.com/luke-h1' },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/lukehowsam/' },

@@ -5,13 +5,11 @@ import React, { useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { FiCode } from 'react-icons/fi';
-import { useMounted } from '../hooks/useMounted';
 import Button from './Button';
 import ThemeChanger from './ThemeChanger';
 import classes from './nav.module.scss';
 
-const Header = () => {
-  const { isMounted } = useMounted();
+const Nav = () => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [size, setSize] = useState<{
     width: number | undefined;
@@ -95,4 +93,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Nav;
