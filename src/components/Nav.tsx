@@ -1,33 +1,92 @@
-import { NavLinks } from '@src/data/NavLinks';
-import classnames from 'classnames';
 import Link from 'next/link';
-import ThemeChanger from './ThemeChanger';
-import styles from './nav.module.scss';
+import { useRouter } from 'next/router';
+import React, { useEffect, useState } from 'react';
 
-interface NavProps {
-  className?: string;
-}
+import { AiOutlineClose } from 'react-icons/ai';
+import { BiMenuAltRight } from 'react-icons/bi';
 
-const Nav = ({ className }: NavProps) => {
+import classes from './nav.module.scss';
+import { FiCode } from 'react-icons/fi';
+
+const Header = () => {
+  const router = useRouter();
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [size, setSize] = useState<{ width: number; height: number }>({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      setSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (size.width > 768 && menuOpen) {
+      setMenuOpen(false);
+    }
+  }, [size.width, menuOpen]);
+
+  const menuToggleHandler = () => {
+    setMenuOpen(p => !p);
+  };
+
+  const ctaClickHandler = () => {
+    menuToggleHandler();
+    router.push('/contact');
+  };
+
   return (
-    <nav className={classnames(styles.nav, className)}>
-      <Link href="/">
-        <a className={styles.siteLogo}>
-          <span>Luke H</span>
-        </a>
-      </Link>
-      <ul>
-        {NavLinks &&
-          NavLinks.map(link => (
-            <li key={link.id}>
-              <Link href={link.slug}>
-                <a>{link.text}</a>
+    <header className={classes.header}>
+      <div className={classes.header__content}>
+        <Link href="/">
+          <a className={classes.header__content__logo}>
+            <FiCode />
+          </a>
+        </Link>
+        <nav
+          className={`${classes.header__content__nav} ${
+            menuOpen && size.width < 768 ? classes.isMenu : ''
+          }`}
+        >
+          <ul>
+            <li>
+              <Link href="/services" onClick={menuToggleHandler}>
+                Services
               </Link>
             </li>
-          ))}
-        <ThemeChanger />
-      </ul>
-    </nav>
+            <li>
+              <Link href="/portfolio" onClick={menuToggleHandler}>
+                Portfolio
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" onClick={() => menuToggleHandler}>
+                About
+              </Link>
+            </li>
+          </ul>
+          <button onClick={ctaClickHandler} type="button">
+            Contact
+          </button>
+        </nav>
+        <div className={classes.header__content__toggle}>
+          {!menuOpen ? (
+            <BiMenuAltRight onClick={menuToggleHandler} />
+          ) : (
+            <AiOutlineClose onClick={menuToggleHandler} />
+          )}
+        </div>
+      </div>
+    </header>
   );
 };
-export default Nav;
+
+export default Header;

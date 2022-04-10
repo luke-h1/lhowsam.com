@@ -1,4 +1,3 @@
-import Header from '@src/components/Header';
 import PageTransition from '@src/components/PageTransition';
 import Link from 'next/link';
 import { ReactNode } from 'react';
@@ -21,7 +20,6 @@ const footerLinks = [
 
 const Page = ({ children }: PageProps): JSX.Element => (
   <div className={styles.container}>
-    {/* <Header /> */}
     <Nav />
     <main className={styles.main}>
       <PageTransition>{children}</PageTransition>
