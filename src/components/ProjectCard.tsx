@@ -13,9 +13,13 @@ const ProjectCard = ({ project }: Props) => {
     <div className={styles.project}>
       <Link href={`/projects/${project.slug}`}>
         <a>
-          <h3 className={styles.title}>{project.title}</h3>
+          <h3 className={styles.title} data-testid="project-title">
+            {project.title}
+          </h3>
 
-          <p className={styles.description}>{project.intro}</p>
+          <p className={styles.description} data-testid="project-intro">
+            {project.intro}
+          </p>
         </a>
       </Link>
       <div className={styles.taglist} style={{ marginBottom: '15px' }}>
