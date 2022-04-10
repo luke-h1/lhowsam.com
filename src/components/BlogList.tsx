@@ -1,6 +1,5 @@
 import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
-import readingTime from 'reading-time';
 import { Post } from '../types/post';
 import BlogImage from './BlogImage';
 import styles from './bloglist.module.scss';

@@ -14,8 +14,8 @@ const BlogImage = ({ src, alt, className }: BlogImageProps) => {
       <Image
         src={src}
         alt={alt}
-        width={2024}
-        height={1012}
+        width={500}
+        height={250}
         layout="responsive"
         priority
       />
