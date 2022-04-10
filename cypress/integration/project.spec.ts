@@ -11,7 +11,7 @@ describe('projects', () => {
     
 
     for (let i = 0; i < 3; i += 1) {
-      cy.get('h2').eq(i).should('be.visible').and('not.be.empty');
+      cy.get('h4').eq(i).should('be.visible').and('not.be.empty');
       cy.get('[data-testid="project-list"]').eq(i).find('a').should('have.attr', 'href').then((l) => {
         links.push(`${Cypress.config().baseUrl}${l}`)
         cy.visit(links[i])
