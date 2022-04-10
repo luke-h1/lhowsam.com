@@ -35,7 +35,7 @@ const ProjectSlugPage = ({ project, source }: Props) => {
         }}
       />
       <PageHeader title={project.title}>
-        <Tags tags={project.tech} />
+        <Tags tags={project.tech} type="projects" />
       </PageHeader>
       <article className={styles.article}>
         <MDXRemote
