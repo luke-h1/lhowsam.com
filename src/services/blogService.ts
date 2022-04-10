@@ -58,6 +58,20 @@ const getPostQuery = gql`
   }
 `;
 
+const getPostByTagsQuery = gql`
+  query Post($tag: String!) {
+    posts(where: { tags: $tag }) {
+      id
+      slug
+      title
+      date
+      intro
+      content
+      tags
+    }
+  }
+`;
+
 const blogService = {
   async getPost(slug: string): Promise<{ post: Post }> {
     return cmsClient.request(getPostQuery, { slug });
@@ -70,6 +84,9 @@ const blogService = {
   },
   async getPostsBySlug(): Promise<{ posts: { slug: string }[] }> {
     return cmsClient.request(postsSlugsQuery);
+  },
+  async getPostsByTags(): Promise<{ posts: Post[] }> {
+    return cmsClient.request(getPostByTagsQuery);
   },
 };
 
