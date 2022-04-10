@@ -26,6 +26,7 @@ $headerHeight: 100px;
 .header {
   background: var(--bg);
   width: 100%;
+  margin-bottom: 80px;
   height: $headerHeight;
   padding: 0 1.5rem;
   @include breakpoint(md) {

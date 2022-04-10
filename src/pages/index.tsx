@@ -36,11 +36,13 @@ const Home = ({ projects }: Props) => {
       >
         <Button href="/about">More about me</Button>
       </PageHeader>
-      <h2 className="title">Featured Projects</h2>
       <ButtonGroup>
         <Button>Resume</Button>
         <Button href="/projects">View more</Button>
       </ButtonGroup>
+      <h3 className="title" style={{ marginBottom: '50px' }}>
+        Featured Projects
+      </h3>
       {projects &&
         projects.map(project => (
           <ProjectCard project={project} key={project.id} />
