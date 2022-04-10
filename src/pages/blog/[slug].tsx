@@ -61,7 +61,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
             {readingTime(source.compiledSource).text}
           </time>{' '}
         </p>
-        <Tags tags={post.tags} />
+        <Tags tags={post.tags} type="blog" />
       </PageHeader>
       <article className={styles.article}>
         <MDXRemote
@@ -69,7 +69,6 @@ const BlogSlugPage = ({ post, source }: Props) => {
           compiledSource={source.compiledSource}
         />
       </article>
-      <Tags tags={post.tags} />
     </Page>
   );
 };

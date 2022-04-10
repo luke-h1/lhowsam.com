@@ -5,18 +5,23 @@ import styles from './tags.module.scss';
 interface Props {
   tags: string[];
   testId?: string;
+  type: 'projects' | 'blog';
 }
 
-const Tags = ({ tags, testId }: Props) => {
+const Tags = ({ tags, testId, type }: Props) => {
   if (!tags.length) return null;
 
   return (
     <ul className={styles.tags}>
       {tags.map(tag => (
         <li key={tag} data-testid={testId}>
-          <Link href={`/blog/tags/${slugify(tag, { lower: true })}`}>
-            {`#${tag}`}
-          </Link>
+          {type === 'blog' ? (
+            <Link href={`/blog/tags/${slugify(tag, { lower: true })}`}>
+              {`#${tag}`}
+            </Link>
+          ) : (
+            <a style={{ cursor: 'pointer' }}>{`#${tag}`}</a>
+          )}
         </li>
       ))}
     </ul>

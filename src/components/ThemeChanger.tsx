@@ -1,13 +1,8 @@
-import { useMounted } from '@src/hooks/useMounted';
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon } from 'react-icons/fi';
-import styles from './themechanger.module.scss';
 
 const ThemeChanger = () => {
-  const { isMounted } = useMounted();
   const { theme, setTheme } = useTheme();
-
-  if (!isMounted) return <div className={styles.wrapper} />;
 
   return (
     <div>
