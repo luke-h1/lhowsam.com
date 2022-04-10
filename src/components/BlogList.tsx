@@ -29,9 +29,7 @@ const BlogList = ({ posts }: Props) => {
             <p className={styles.meta}>
               Published on{' '}
               <time dateTime={post.date}>
-                {' '}
                 <small>{format(parseISO(post.date), 'MMMM d, yyyy')}</small>
-                &middot;
               </time>
             </p>
           </li>

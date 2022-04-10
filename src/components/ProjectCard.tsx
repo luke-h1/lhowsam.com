@@ -1,9 +1,7 @@
 import { Project } from '@src/types/project';
-import cn from 'classnames';
-import Image from 'next/image';
 import Link from 'next/link';
 import { FaGithub, FaLink } from 'react-icons/fa';
-import Tag from './Tag';
+import Tags from './Tags';
 import styles from './projectcard.module.scss';
 
 interface Props {
@@ -20,8 +18,9 @@ const ProjectCard = ({ project }: Props) => {
           <p className={styles.description}>{project.intro}</p>
         </a>
       </Link>
-      <div className="taglist" style={{ marginBottom: '15px' }}>
-        {project.tech && project.tech.map(t => <Tag text={t} key={t} />)}
+      <div className={styles.taglist} style={{ marginBottom: '15px' }}>
+        {/* {project.tech && project.tech.map(t => <Tag text={t} key={t} />)} */}
+        <Tags tags={project.tech} />
       </div>
       <div className={styles.links}>
         {project.siteUrl && (

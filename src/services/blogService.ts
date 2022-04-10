@@ -33,6 +33,7 @@ const getPostsQuery = gql`
       title
       intro
       date
+      tags
       image {
         url
       }
@@ -49,6 +50,7 @@ const getPostQuery = gql`
       date
       intro
       content
+      tags
       image {
         url
       }
