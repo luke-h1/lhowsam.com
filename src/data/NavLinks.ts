@@ -22,6 +22,6 @@ export const NavLinks: { id: number; text: string; slug: string }[] = [
   {
     id: 5,
     text: 'Contact',
-    slug: '/contact'
-  }
+    slug: '/contact',
+  },
 ];

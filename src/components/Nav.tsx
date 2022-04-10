@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -5,8 +7,8 @@ import React, { useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { BiMenuAltRight } from 'react-icons/bi';
 
-import classes from './nav.module.scss';
 import { FiCode } from 'react-icons/fi';
+import classes from './nav.module.scss';
 
 const Header = () => {
   const router = useRouter();
@@ -24,8 +26,8 @@ const Header = () => {
       });
     };
     window.addEventListener('resize', handleResize);
-
     return () => window.removeEventListener('resize', handleResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -58,18 +60,18 @@ const Header = () => {
         >
           <ul>
             <li>
-              <Link href="/services" onClick={menuToggleHandler}>
-                Services
+              <Link href="/about" onClick={menuToggleHandler}>
+                <a onClick={menuToggleHandler}>About</a>
               </Link>
             </li>
             <li>
-              <Link href="/portfolio" onClick={menuToggleHandler}>
-                Portfolio
+              <Link href="/blog">
+                <a onClick={menuToggleHandler}>Blog</a>
               </Link>
             </li>
             <li>
-              <Link href="/about" onClick={() => menuToggleHandler}>
-                About
+              <Link href="/projects">
+                <a onClick={menuToggleHandler}>Projects</a>
               </Link>
             </li>
           </ul>
