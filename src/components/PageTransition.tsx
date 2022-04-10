@@ -1,7 +1,7 @@
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { ReactNode } from 'react';
 
-const variants = {
+const variants: Variants = {
   initial: {
     opacity: 0,
     y: 8,
