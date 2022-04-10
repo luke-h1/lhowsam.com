@@ -14,6 +14,7 @@ describe('blog page should work', () => {
         cy.visit(links[i])
         cy.get('h1').should('be.visible').and('not.be.empty');
         cy.get('img').should('be.visible')
+        cy.get('ul').find('li').should('be.visible').and('not.be.empty')
         cy.get('article').should('be.visible').and('not.be.empty')
         cy.visit('/blog');
         cy.get('h1').contains('Blog').should('be.visible')

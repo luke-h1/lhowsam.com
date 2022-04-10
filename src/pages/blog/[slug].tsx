@@ -61,6 +61,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
             {readingTime(source.compiledSource).text}
           </time>{' '}
         </p>
+        <Tags tags={post.tags} />
       </PageHeader>
       <article className={styles.article}>
         <MDXRemote
