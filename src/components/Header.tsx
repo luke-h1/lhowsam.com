@@ -5,7 +5,7 @@ import ThemeChanger from './ThemeChanger';
 import styles from './header.module.scss';
 
 const links = [
-  { name: 'Home', slug: '/' },
+  // { name: 'Home', slug: '/' },
   { name: 'About', slug: '/about' },
   { name: 'Blog', slug: '/blog' },
   { name: 'Projects', slug: '/projects' },
