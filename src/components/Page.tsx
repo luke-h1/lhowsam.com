@@ -14,8 +14,8 @@ const footerLinks = [
   { name: 'Contact', url: '/contact' },
   { name: 'About', url: '/about' },
   { name: 'GitHub', url: 'https://github.com/luke-h1' },
-  { name: 'Blog', url: '/blog' },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/lukehowsam/' },
+  { name: 'Blog', url: '/blog' },
 ];
 
 const Page = ({ children }: PageProps): JSX.Element => (
