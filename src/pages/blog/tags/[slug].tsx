@@ -38,7 +38,6 @@ export const getStaticPaths: GetStaticPaths = () => {
     fallback: 'blocking',
   };
 };
-// myString.replace(/^\w/, (c) => c.toUpperCase());
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const slug = params?.slug as string;
@@ -52,7 +51,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const formattedSlug = slug.replace(/^\w/, c => c.toUpperCase());
 
   const { posts } = await blogService.getPostsByTags(formattedSlug);
-
   return {
     props: {
       posts,

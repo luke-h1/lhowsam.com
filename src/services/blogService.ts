@@ -59,14 +59,14 @@ const getPostQuery = gql`
 `;
 
 const getPostByTagsQuery = gql`
-  query Post($tag: String!) {
-    posts(where: { tags: $tag }) {
-      slug
-      title
-      date
-      intro
-      content
-      tags
+  query Post($tag: Tags!) {
+    postsConnection(where: { tags: [$tag] }) {
+      edges {
+        node {
+          title
+          slug
+        }
+      }
     }
   }
 `;

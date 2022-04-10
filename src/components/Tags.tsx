@@ -9,7 +9,7 @@ interface Props {
   enabled?: boolean;
 }
 
-const Tags = ({ tags, testId, type, enabled = false }: Props) => {
+const Tags = ({ tags, testId, type, enabled = true }: Props) => {
   if (!tags.length) return null;
 
   return (
