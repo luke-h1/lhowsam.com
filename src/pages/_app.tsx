@@ -1,6 +1,7 @@
 import * as gtag from '@src/utils/gtag';
 import { AnimatePresence } from 'framer-motion';
 import '@src/styles/global.scss';
+import '@src/styles/prism.css';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 
