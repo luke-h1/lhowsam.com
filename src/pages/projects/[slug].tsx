@@ -1,12 +1,18 @@
+import components from '@src/components/Mdx';
+import Page from '@src/components/Page';
+import PageHeader from '@src/components/PageHeader';
+import Tags from '@src/components/Tags';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/project';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import Headings from 'rehype-autolink-headings';
 import CodeTitle from 'rehype-code-titles';
+import styles from './project-slug.module.scss';
 
 interface Props {
   project: Project;
@@ -16,7 +22,7 @@ interface Props {
 const ProjectSlugPage = ({ project, source }: Props) => {
   const router = useRouter();
   return (
-    <>
+    <Page>
       <NextSeo
         title={project.title}
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -28,8 +34,16 @@ const ProjectSlugPage = ({ project, source }: Props) => {
           title: `${project.title} | lhowsam.com`,
         }}
       />
-      hi
-    </>
+      <PageHeader title={project.title}>
+        <Tags tags={project.tech} />
+      </PageHeader>
+      <article className={styles.article}>
+        <MDXRemote
+          compiledSource={source.compiledSource}
+          components={components}
+        />
+      </article>
+    </Page>
   );
 };
 export default ProjectSlugPage;

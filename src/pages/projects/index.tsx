@@ -1,3 +1,6 @@
+import Page from '@src/components/Page';
+import PageHeader from '@src/components/PageHeader';
+import ProjectCard from '@src/components/ProjectCard';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/project';
 import { GetStaticProps } from 'next';
@@ -11,7 +14,7 @@ interface Props {
 const ProjectIndexPage = ({ projects }: Props) => {
   const router = useRouter();
   return (
-    <>
+    <Page>
       <NextSeo
         title="Projects"
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -23,8 +26,12 @@ const ProjectIndexPage = ({ projects }: Props) => {
           title: `Projects | lhowsam.com`,
         }}
       />
-      hi
-    </>
+      <PageHeader title="Projects" />
+      {projects &&
+        projects.map(project => (
+          <ProjectCard project={project} key={project.id} />
+        ))}
+    </Page>
   );
 };
 export default ProjectIndexPage;

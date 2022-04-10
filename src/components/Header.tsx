@@ -5,10 +5,11 @@ import ThemeChanger from './ThemeChanger';
 import styles from './header.module.scss';
 
 const links = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'Home', slug: '/' },
+  { name: 'About', slug: '/about' },
+  { name: 'Blog', slug: '/blog' },
+  { name: 'Projects', slug: '/projects' },
+  { name: 'Contact', slug: '/contact' },
 ];
 
 const Header = (): JSX.Element => {
@@ -25,14 +26,14 @@ const Header = (): JSX.Element => {
           </Link>
           <nav className={styles.nav}>
             <ol className={styles.links}>
-              {links.map(({ name, path }) => (
+              {links.map(({ name, slug }) => (
                 <li
-                  key={path}
+                  key={slug}
                   className={
-                    pathname === path ? styles.linkActive : styles.link
+                    pathname === slug ? styles.linkActive : styles.link
                   }
                 >
-                  <Link href={path}>
+                  <Link href={slug}>
                     <a>{name}</a>
                   </Link>
                 </li>
