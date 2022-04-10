@@ -18,24 +18,26 @@ const footerLinks = [
   { name: 'Blog', url: '/blog' },
 ];
 
-const Page = ({ children }: PageProps): JSX.Element => (
-  <div className={styles.container}>
-    <Nav />
-    <main className={styles.main}>
-      <PageTransition>{children}</PageTransition>
-    </main>
-    <footer className={styles.footer}>
-      <ul className={styles.links}>
-        {footerLinks.map(link => (
-          <li key={link.name}>
-            <Link href={link.url}>
-              <a>{link.name}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </footer>
-  </div>
-);
+const Page = ({ children }: PageProps): JSX.Element => {
+  return (
+    <div className={styles.container}>
+      <Nav />
+      <main className={styles.main}>
+        <PageTransition>{children}</PageTransition>
+      </main>
+      <footer className={styles.footer}>
+        <ul className={styles.links}>
+          {footerLinks.map(link => (
+            <li key={link.name}>
+              <Link href={link.url}>
+                <a>{link.name}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </footer>
+    </div>
+  );
+};
 
 export default Page;
