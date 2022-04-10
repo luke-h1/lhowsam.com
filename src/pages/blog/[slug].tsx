@@ -6,6 +6,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { serialize } from 'next-mdx-remote/serialize';
 import { useRouter } from 'next/router';
 import CodeTitle from 'rehype-code-titles';
+import styles from './blog-slug.module.scss';
 
 interface Props {
   post: Post;
