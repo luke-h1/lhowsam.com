@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import CustomImage from './Image';
 
-const CustomLink = (props: { href: string }) => {
+export const CustomLink = (props: { href: string }) => {
   const { href } = props;
   if (href?.startsWith('/')) {
     return (
