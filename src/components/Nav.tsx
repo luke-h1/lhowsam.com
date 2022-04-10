@@ -60,7 +60,7 @@ const Header = () => {
         >
           <ul>
             <li>
-              <Link href="/about" onClick={menuToggleHandler}>
+              <Link href="/about">
                 <a onClick={menuToggleHandler}>About</a>
               </Link>
             </li>
