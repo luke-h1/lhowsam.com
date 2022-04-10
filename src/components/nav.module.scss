@@ -1,7 +1,7 @@
 // colors
 $dark: rgb(29, 29, 29);
 $light: #fff;
-$primary: rgb(162, 162, 246);
+$primary: rgb(141, 141, 210);
 $bg: rgb(244, 244, 255);
 
 // spacing
@@ -35,7 +35,7 @@ $headerHeight: 100px;
 
   &__content {
     overflow: hidden;
-    color: $light;
+    color: var(--text);
     margin: 0 auto;
     max-width: 1920px;
     height: 100%;
@@ -49,7 +49,7 @@ $headerHeight: 100px;
       font-size: 2rem;
       font-weight: bold;
       text-decoration: none;
-      color: $light;
+      color: var(--text);
     }
 
     &__nav {
@@ -122,7 +122,7 @@ $headerHeight: 100px;
         font-size: 1rem;
         font-family: inherit;
         background: $primary;
-        color: $dark;
+        color: var(--text);
         border: 1px solid transparent;
         transition: 0.3s ease all;
 

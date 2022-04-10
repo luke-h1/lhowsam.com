@@ -1,22 +1,22 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
-
 import { AiOutlineClose } from 'react-icons/ai';
 import { BiMenuAltRight } from 'react-icons/bi';
-
 import { FiCode } from 'react-icons/fi';
 import Button from './Button';
+import ThemeChanger from './ThemeChanger';
 import classes from './nav.module.scss';
 
 const Header = () => {
-  const router = useRouter();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const [size, setSize] = useState<{ width: number; height: number }>({
-    width: 0,
-    height: 0,
+  const [size, setSize] = useState<{
+    width: number | undefined;
+    height: number | undefined;
+  }>({
+    width: undefined,
+    height: undefined,
   });
 
   useEffect(() => {
@@ -32,6 +32,8 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     if (size.width > 768 && menuOpen) {
       setMenuOpen(false);
     }
@@ -39,11 +41,6 @@ const Header = () => {
 
   const menuToggleHandler = () => {
     setMenuOpen(p => !p);
-  };
-
-  const ctaClickHandler = () => {
-    menuToggleHandler();
-    router.push('/contact');
   };
 
   return (
@@ -56,6 +53,8 @@ const Header = () => {
         </Link>
         <nav
           className={`${classes.header__content__nav} ${
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             menuOpen && size.width < 768 ? classes.isMenu : ''
           }`}
         >
@@ -80,6 +79,8 @@ const Header = () => {
             Contact
           </Button>
         </nav>
+        <ThemeChanger />
+
         <div className={classes.header__content__toggle}>
           {!menuOpen ? (
             <BiMenuAltRight onClick={menuToggleHandler} />
