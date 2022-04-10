@@ -23,7 +23,6 @@ const ProjectCard = ({ project }: Props) => {
         </a>
       </Link>
       <div className={styles.taglist} style={{ marginBottom: '15px' }}>
-        {/* {project.tech && project.tech.map(t => <Tag text={t} key={t} />)} */}
         <Tags tags={project.tech} testId="project-tag" type="projects" />
       </div>
       <div className={styles.links}>
