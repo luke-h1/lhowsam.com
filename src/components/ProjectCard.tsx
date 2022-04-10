@@ -24,7 +24,7 @@ const ProjectCard = ({ project }: Props) => {
       </Link>
       <div className={styles.taglist} style={{ marginBottom: '15px' }}>
         {/* {project.tech && project.tech.map(t => <Tag text={t} key={t} />)} */}
-        <Tags tags={project.tech} />
+        <Tags tags={project.tech} testId="project-tag" />
       </div>
       <div className={styles.links}>
         {project.siteUrl && (
@@ -33,7 +33,11 @@ const ProjectCard = ({ project }: Props) => {
           </a>
         )}
         {project.githubUrl && (
-          <a href={project.githubUrl} className={styles.link}>
+          <a
+            href={project.githubUrl}
+            className={styles.link}
+            data-testid="project-github"
+          >
             <FaGithub />
           </a>
         )}

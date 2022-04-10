@@ -9,9 +9,10 @@ describe('index', () => {
 
   it('should display projects', () => {
     for (let i = 0; i < 3; i+= 1) {
-      cy.getByTestId('project-title').eq(i).should('not.be.empty')
-      cy.getByTestId('project-intro').eq(i).should('not.be.empty')
-      cy.getByTestId('project-github').eq(i).should('be.visible')
+      cy.getByTestId('project-title').eq(i).should('not.be.empty').and('be.visible')
+      cy.getByTestId('project-intro').eq(i).should('not.be.empty').and('be.visible')
+      cy.getByTestId('project-github').eq(i).should('not.be.empty').and('be.visible')
+      cy.getByTestId('project-tag').eq(i).should('not.be.empty').and('be.visible')
     }
   })
 });
