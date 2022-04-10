@@ -77,7 +77,7 @@
   flex-direction: column;
   gap: 4px;
 
-  @media (min-width: 480px) {
+  @media (min-width: 300px) {
     flex-direction: row;
     gap: initial;
   }
