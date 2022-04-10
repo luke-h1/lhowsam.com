@@ -6,16 +6,17 @@ interface Props {
   tags: string[];
   testId?: string;
   type: 'projects' | 'blog';
+  enabled?: boolean;
 }
 
-const Tags = ({ tags, testId, type }: Props) => {
+const Tags = ({ tags, testId, type, enabled = false }: Props) => {
   if (!tags.length) return null;
 
   return (
     <ul className={styles.tags}>
       {tags.map(tag => (
         <li key={tag} data-testid={testId}>
-          {type === 'blog' ? (
+          {type === 'blog' && enabled ? (
             <Link href={`/blog/tags/${slugify(tag, { lower: true })}`}>
               {`#${tag}`}
             </Link>

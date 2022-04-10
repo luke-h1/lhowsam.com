@@ -61,7 +61,6 @@ const getPostQuery = gql`
 const getPostByTagsQuery = gql`
   query Post($tag: String!) {
     posts(where: { tags: $tag }) {
-      id
       slug
       title
       date
@@ -85,8 +84,10 @@ const blogService = {
   async getPostsBySlug(): Promise<{ posts: { slug: string }[] }> {
     return cmsClient.request(postsSlugsQuery);
   },
-  async getPostsByTags(): Promise<{ posts: Post[] }> {
-    return cmsClient.request(getPostByTagsQuery);
+  async getPostsByTags(tag: string): Promise<{ posts: Post[] }> {
+    return cmsClient.request(getPostByTagsQuery, {
+      tag,
+    });
   },
 };
 
