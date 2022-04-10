@@ -8,6 +8,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { BiMenuAltRight } from 'react-icons/bi';
 
 import { FiCode } from 'react-icons/fi';
+import Button from './Button';
 import classes from './nav.module.scss';
 
 const Header = () => {
@@ -75,9 +76,9 @@ const Header = () => {
               </Link>
             </li>
           </ul>
-          <button onClick={ctaClickHandler} type="button">
+          <Button href="/contact" type="button">
             Contact
-          </button>
+          </Button>
         </nav>
         <div className={classes.header__content__toggle}>
           {!menuOpen ? (
