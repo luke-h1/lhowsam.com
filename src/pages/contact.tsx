@@ -1,4 +1,3 @@
-import Button from '@src/components/Button';
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
 import { NextSeo } from 'next-seo';
