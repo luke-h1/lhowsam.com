@@ -44,7 +44,7 @@
     "graphql-request": "^4.0.0",
     "gray-matter": "^4.0.3",
     "mdx-prism": "^0.3.4",
-    "next": "^12.1.2",
+    "next": "^12.1.5",
     "next-mdx-remote": "^3.0.8",
     "next-seo": "^5.4.0",
     "next-sitemap": "^2.5.19",
