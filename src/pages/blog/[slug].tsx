@@ -64,12 +64,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
         <Tags tags={post.tags} type="blog" />
       </PageHeader>
       <article className={styles.article}>
-        <MDXRemote
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          components={components}
-          compiledSource={source.compiledSource}
-        />
+        <MDXRemote components={components} {...source} />
       </article>
     </Page>
   );

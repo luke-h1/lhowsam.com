@@ -38,10 +38,7 @@ const ProjectSlugPage = ({ project, source }: Props) => {
         <ProjectTags tags={project.tech} />
       </PageHeader>
       <article className={styles.article}>
-        <MDXRemote
-          compiledSource={source.compiledSource}
-          components={components}
-        />
+        <MDXRemote components={components} {...source} />
       </article>
     </Page>
   );
