@@ -27,4 +27,4 @@ jobs:
         run: yarn
 
       - name: Cypress run (local)
-        run: yarn workspace frontend build && npx start-server-and-test http://localhost:3000 yarn workspace frontend cy:run
+        run: yarn workspace frontend cy:ci
