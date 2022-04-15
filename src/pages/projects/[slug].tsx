@@ -53,9 +53,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  if (!params?.slug) {
+  if (!params?.slug?.length) {
     return {
-      props: [],
       notFound: true,
     };
   }

@@ -40,15 +40,13 @@ export const getStaticPaths: GetStaticPaths = () => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const slug = params?.slug as string;
-  if (!slug) {
+  if (!params?.slug?.length) {
     return {
-      props: [],
       notFound: true,
     };
   }
 
-  const { posts } = await postService.getPostsByTags(slug);
+  const { posts } = await postService.getPostsByTags(params.slug as string);
 
   return {
     props: {
