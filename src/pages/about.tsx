@@ -25,7 +25,7 @@ const AboutPage = () => {
           src="/images/luke.jpeg"
           className="corner-radius-8"
           width={250}
-          height={284}
+          height={305}
           priority
         />
       </div>

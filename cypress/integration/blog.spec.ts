@@ -22,7 +22,6 @@ describe('blog page should work', () => {
         cy.visit('/blog');
         cy.get('h1').contains('Blog').should('be.visible')
       })
-
     }
   })
 });

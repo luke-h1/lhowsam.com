@@ -4,6 +4,7 @@ import '@src/styles/global.scss';
 import '@src/styles/prism.css';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
+import '@fontsource/ibm-plex-sans';
 
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
