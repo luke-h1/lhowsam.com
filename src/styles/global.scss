@@ -1,27 +1,3 @@
-@font-face {
-  font-weight: 400;
-  font-family: 'GT Walsheim Pro';
-  font-style: normal;
-  src: url('/fonts/GTWalsheimPro-Regular.woff2') format('woff2');
-  font-display: optional;
-}
-
-@font-face {
-  font-weight: 500;
-  font-family: 'GT Walsheim Pro';
-  font-style: normal;
-  src: url('/fonts/GTWalsheimPro-Medium.woff2') format('woff2');
-  font-display: optional;
-}
-
-@font-face {
-  font-weight: 700;
-  font-family: 'GT Walsheim Pro';
-  font-style: normal;
-  src: url('/fonts/GTWalsheimPro-Bold.woff2') format('woff2');
-  font-display: optional;
-}
-
 :root {
   --bg: #fff;
   --text: #000;
@@ -34,9 +10,8 @@
   --border: rgba(0, 0, 0, 0.08);
   --borderActive: rgba(0, 0, 0, 0.25);
   --star: #fece02;
-  --fontFamily: 'GT Walsheim Pro', -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
+  --fontFamily: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   --boxBg: #f3f3f3;
   --siteWidth: 83ch;
   --inputBg: white;
