@@ -4,4 +4,12 @@ declare module '*module.css' {
   };
   export default styles;
 }
+
+declare module '*module.scss' {
+  const styles: {
+    [className: string]: string;
+  };
+  export default styles;
+}
+
 declare module 'mdx-prism';
