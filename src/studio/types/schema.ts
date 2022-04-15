@@ -5,6 +5,7 @@ export interface Post extends Document<Post> {
   _type: 'post';
   _key: string;
   title: string;
+  intro: string;
   slug: Slug;
   content: string;
   publishedAt: string;

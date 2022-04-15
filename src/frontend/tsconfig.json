@@ -3,9 +3,12 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@src/*": ["src/*"],
+      "@src/*": [
+        "src/*"
+      ]
     },
-    "incremental": true
+    "incremental": true,
+    "target": "es5"
   },
   "include": [
     "src",

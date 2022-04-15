@@ -4,10 +4,10 @@ import Page from '@src/components/Page';
 import ProjectCard from '@src/components/ProjectCard';
 import Skills from '@src/components/Skills';
 import projectService from '@src/services/projectService';
-import { Project } from '@src/types/project';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
+import { Project } from 'studio/types/schema';
 import PageHeader from '../components/PageHeader';
 
 interface Props {
@@ -45,7 +45,7 @@ const Home = ({ projects }: Props) => {
       </h3>
       {projects &&
         projects.map(project => (
-          <ProjectCard project={project} key={project.id} />
+          <ProjectCard project={project} key={project._id} />
         ))}
       <h3 className="title">Skills</h3>
       <Skills />
@@ -55,7 +55,7 @@ const Home = ({ projects }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { projects } = await projectService.getAllProjects();
+  const projects = await projectService.getAllProjects();
 
   return {
     props: {

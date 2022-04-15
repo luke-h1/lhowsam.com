@@ -3,7 +3,6 @@ import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
 import ProjectTags from '@src/components/ProjectTags';
 import projectService from '@src/services/projectService';
-import { Project } from '@src/types/project';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
@@ -12,6 +11,7 @@ import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import Headings from 'rehype-autolink-headings';
 import CodeTitle from 'rehype-code-titles';
+import { Project } from 'studio/types/schema';
 import styles from './project-slug.module.scss';
 
 interface Props {
@@ -38,10 +38,7 @@ const ProjectSlugPage = ({ project, source }: Props) => {
         <ProjectTags tags={project.tech} />
       </PageHeader>
       <article className={styles.article}>
-        <MDXRemote
-          compiledSource={source.compiledSource}
-          components={components}
-        />
+        <MDXRemote components={components} {...source} />
       </article>
     </Page>
   );
@@ -62,7 +59,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       notFound: true,
     };
   }
-  const { project } = await projectService.getProject(params.slug as string);
+  const project = await projectService.getProject(params.slug as string);
   if (!project) {
     return {
       props: [],

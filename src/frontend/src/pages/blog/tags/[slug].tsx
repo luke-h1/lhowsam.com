@@ -1,9 +1,9 @@
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
 import postService from '@src/services/postService';
-import { Post } from '@src/types/post';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
+import { Post } from 'studio/types/schema';
 import BlogList from '../../../components/BlogList';
 
 const FormattedSlug = ({ slug }: { slug: string }) => (
@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  const { posts } = await postService.getPostsByTags(slug);
+  const posts = await postService.getPostsByTags(slug);
 
   return {
     props: {

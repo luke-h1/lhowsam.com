@@ -1,6 +1,6 @@
-import { Project } from '@src/types/project';
 import Link from 'next/link';
 import { FaGithub, FaLink } from 'react-icons/fa';
+import { Project } from 'studio/types/schema';
 import ProjectTags from './ProjectTags';
 import styles from './projectcard.module.scss';
 
@@ -11,7 +11,7 @@ interface Props {
 const ProjectCard = ({ project }: Props) => {
   return (
     <div className={styles.project} data-testid="project-list">
-      <Link href={`/projects/${project.slug}`}>
+      <Link href={`/projects/${project.slug.current}`}>
         <a>
           <h4 className={styles.title} data-testid="project-title">
             {project.title}

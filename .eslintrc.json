@@ -69,6 +69,7 @@
         }
       }
     ],
+    "react/function-component-definition": "off",
     "import/prefer-default-export": "off",
     "no-unsafe-finally": "off",
     "no-underscore-dangle": [

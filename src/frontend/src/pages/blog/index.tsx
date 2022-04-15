@@ -1,7 +1,6 @@
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
 import postService from '@src/services/postService';
-import { Post } from '@src/types/post';
 import * as gtag from '@src/utils/gtag';
 import debounce from 'lodash/debounce';
 import { GetStaticProps } from 'next';
@@ -9,6 +8,7 @@ import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
+import { Post } from 'studio/types/schema';
 import BlogList from '../../components/BlogList';
 import Input from '../../components/Input';
 import styles from './blog-index.module.scss';
@@ -71,7 +71,7 @@ const BlogIndexPage = ({ posts }: Props) => {
 export default BlogIndexPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { posts } = await postService.getAllPosts();
+  const posts = await postService.getAllPosts();
 
   return {
     props: {

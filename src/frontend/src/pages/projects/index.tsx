@@ -2,10 +2,10 @@ import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
 import ProjectCard from '@src/components/ProjectCard';
 import projectService from '@src/services/projectService';
-import { Project } from '@src/types/project';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
+import { Project } from 'studio/types/schema';
 
 interface Props {
   projects: Project[];
@@ -29,7 +29,7 @@ const ProjectIndexPage = ({ projects }: Props) => {
       <PageHeader title="Projects" />
       {projects &&
         projects.map(project => (
-          <ProjectCard project={project} key={project.id} />
+          <ProjectCard project={project} key={project._id} />
         ))}
     </Page>
   );
@@ -37,7 +37,7 @@ const ProjectIndexPage = ({ projects }: Props) => {
 export default ProjectIndexPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { projects } = await projectService.getAllProjects();
+  const projects = await projectService.getAllProjects();
 
   return {
     props: {

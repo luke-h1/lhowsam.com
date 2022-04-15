@@ -22,6 +22,14 @@ const post: Document<Post> = {
       validation: rule => rule.required(),
     },
     {
+      name: 'intro',
+      title: 'Intro',
+      description: 'short intro of the blog post',
+      type: 'text',
+      rows: 3,
+      validation: rule => rule.required(),
+    },
+    {
       name: 'content',
       title: 'Content',
       description: 'Content of blog post',

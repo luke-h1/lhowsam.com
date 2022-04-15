@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import { Tag } from '@src/types/post';
 import Link from 'next/link';
+import { Tag } from 'studio/types/schema';
 import styles from './tags.module.scss';
 
 interface Props {
@@ -16,9 +16,11 @@ const Tags = ({ tags, testId, type }: Props) => {
   return (
     <ul className={styles.tags}>
       {tags.map(tag => (
-        <li key={tag.id} data-testid={testId}>
+        <li key={tag._id} data-testid={testId}>
           {type === 'blog' && (
-            <Link href={`/blog/tags/${tag.slug}`}>{`#${tag.title}`}</Link>
+            <Link
+              href={`/blog/tags/${tag.slug.current}`}
+            >{`#${tag.title}`}</Link>
           )}
         </li>
       ))}

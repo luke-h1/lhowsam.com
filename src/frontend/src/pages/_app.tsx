@@ -54,6 +54,8 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+      {/* @ts-ignore */}
       <Component {...pageProps} />
     </ThemeProvider>
   );

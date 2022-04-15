@@ -4,8 +4,8 @@ import components from '@src/components/Mdx';
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
 import Tags from '@src/components/Tags';
+import imageService from '@src/services/imageService';
 import postService from '@src/services/postService';
-import { Post } from '@src/types/post';
 import { format, parseISO } from 'date-fns';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -15,6 +15,7 @@ import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import readingTime from 'reading-time';
 import CodeTitle from 'rehype-code-titles';
+import { Post } from 'studio/types/schema';
 import styles from './blog-slug.module.scss';
 
 interface Props {
@@ -36,7 +37,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
           defaultImageHeight: 630,
           images: [
             {
-              url: post.image.url,
+              url: imageService.urlFor(post.image),
               alt: post.title,
               height: 1200,
               width: 630,
@@ -47,16 +48,16 @@ const BlogSlugPage = ({ post, source }: Props) => {
         }}
       />
       <BlogImage
-        src={post.image.url}
+        src={imageService.urlFor(post.image)}
         alt={post.title}
         className={styles.image}
       />
       <PageHeader title={post.title} compact>
         <p className={styles.meta}>
           Published on{' '}
-          <time dateTime={post.date}>
+          <time dateTime={post.publishedAt}>
             <small style={{ marginRight: '6px' }}>
-              {format(parseISO(post.date), 'MMMM d, yyyy')}
+              {format(parseISO(post.publishedAt), 'MMMM d, yyyy')}
             </small>
             {readingTime(source.compiledSource).text}
           </time>{' '}
@@ -64,12 +65,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
         <Tags tags={post.tags} type="blog" />
       </PageHeader>
       <article className={styles.article}>
-        <MDXRemote
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          components={components}
-          compiledSource={source.compiledSource}
-        />
+        <MDXRemote components={components} {...source} />
       </article>
     </Page>
   );
@@ -91,7 +87,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  const { post } = await postService.getPost(params.slug as string);
+  const post = await postService.getPost(params.slug as string);
   if (!post) {
     return {
       props: [],
