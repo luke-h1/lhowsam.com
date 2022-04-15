@@ -4,7 +4,7 @@ import components from '@src/components/Mdx';
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
 import Tags from '@src/components/Tags';
-import blogService from '@src/services/blogService';
+import postService from '@src/services/postService';
 import { Post } from '@src/types/post';
 import { format, parseISO } from 'date-fns';
 import mdxPrism from 'mdx-prism';
@@ -77,7 +77,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
 export default BlogSlugPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { posts } = await blogService.getPostsBySlug();
+  const { posts } = await postService.getPostsBySlug();
   const paths = posts.map(({ slug }) => ({ params: { slug } }));
 
   return {
@@ -94,7 +94,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  const { post } = await blogService.getPost(params.slug as string);
+  const { post } = await postService.getPost(params.slug as string);
   if (!post) {
     return {
       props: [],

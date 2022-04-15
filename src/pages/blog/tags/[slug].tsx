@@ -1,6 +1,6 @@
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
-import blogService from '@src/services/blogService';
+import postService from '@src/services/postService';
 import { Post } from '@src/types/post';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  const { posts } = await blogService.getPostsByTags(slug);
+  const { posts } = await postService.getPostsByTags(slug);
 
   return {
     props: {

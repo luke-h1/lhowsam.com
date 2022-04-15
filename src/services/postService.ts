@@ -92,7 +92,7 @@ const getPostByTagsQuery = gql`
   }
 `;
 
-const blogService = {
+const postService = {
   async getPost(slug: string): Promise<{ post: Post }> {
     return cmsClient.request(getPostQuery, { slug });
   },
@@ -112,4 +112,4 @@ const blogService = {
   },
 };
 
-export default blogService;
+export default postService;

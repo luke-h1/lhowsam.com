@@ -1,6 +1,6 @@
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
-import blogService from '@src/services/blogService';
+import postService from '@src/services/postService';
 import { Post } from '@src/types/post';
 import * as gtag from '@src/utils/gtag';
 import debounce from 'lodash/debounce';
@@ -71,11 +71,11 @@ const BlogIndexPage = ({ posts }: Props) => {
 export default BlogIndexPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = await blogService.getAllPosts();
+  const { posts } = await postService.getAllPosts();
 
   return {
     props: {
-      posts: posts.posts,
+      posts,
     },
     revalidate: 30 * 60,
   };

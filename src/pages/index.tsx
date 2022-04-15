@@ -55,11 +55,11 @@ const Home = ({ projects }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projects = await projectService.getAllProjects();
+  const { projects } = await projectService.getAllProjects();
 
   return {
     props: {
-      projects: projects.projects,
+      projects,
     },
     revalidate: 30 * 60,
   };
