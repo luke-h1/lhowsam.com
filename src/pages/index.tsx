@@ -37,7 +37,7 @@ const Home = ({ projects }: Props) => {
         <Button href="/about">More about me</Button>
       </PageHeader>
       <ButtonGroup>
-        <Button>Resume</Button>
+        <Button href="/static/resume.pdf">Resume</Button>
         <Button href="/projects">View more</Button>
       </ButtonGroup>
       <h3 className="title" style={{ marginBottom: '50px' }}>
