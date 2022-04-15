@@ -3,7 +3,7 @@
  */
 
 module.exports = {
-  swcMinify: false,
+  swcMinify: true,
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
