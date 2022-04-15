@@ -76,10 +76,12 @@ const Nav = () => {
                 <a onClick={menuToggleHandler}>Projects</a>
               </Link>
             </li>
+            <li>
+              <Link href="/contact">
+                <a onClick={menuToggleHandler}>Contact</a>
+              </Link>
+            </li>
           </ul>
-          <Button href="/contact" type="button">
-            Contact
-          </Button>
         </nav>
         {isMounted ? <ThemeChanger /> : <div />}
 
