@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+import { useMounted } from '@src/hooks/useMounted';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -10,6 +11,7 @@ import ThemeChanger from './ThemeChanger';
 import classes from './nav.module.scss';
 
 const Nav = () => {
+  const { isMounted } = useMounted();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [size, setSize] = useState<{
     width: number | undefined;
@@ -79,7 +81,7 @@ const Nav = () => {
             Contact
           </Button>
         </nav>
-        <ThemeChanger />
+        {isMounted ? <ThemeChanger /> : <div />}
 
         <div className={classes.header__content__toggle}>
           {!menuOpen ? (

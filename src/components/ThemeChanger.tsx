@@ -1,12 +1,8 @@
 import { useTheme } from 'next-themes';
 import { FiSun, FiMoon } from 'react-icons/fi';
-import { useMounted } from '../hooks/useMounted';
 
 const ThemeChanger = () => {
   const { theme, setTheme } = useTheme();
-  const { isMounted } = useMounted();
-
-  if (!isMounted) return null;
 
   return (
     <div>

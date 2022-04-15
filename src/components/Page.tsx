@@ -1,4 +1,3 @@
-import PageTransition from '@src/components/PageTransition';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import Nav from './Nav';
@@ -22,9 +21,7 @@ const Page = ({ children }: PageProps) => {
   return (
     <div className={styles.container}>
       <Nav />
-      <main className={styles.main}>
-        <PageTransition>{children}</PageTransition>
-      </main>
+      <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
         <ul className={styles.links}>
           {footerLinks.map(link => (
