@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import { Tag } from '@src/types/post';
 import Link from 'next/link';
 import styles from './tags.module.scss';

@@ -23,6 +23,8 @@ const ProjectCard = ({ project }: Props) => {
         </a>
       </Link>
       <div className={styles.taglist} style={{ marginBottom: '15px' }}>
+        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+        {/* @ts-ignore */}
         <Tags tags={project.tech} testId="project-tag" type="projects" />
       </div>
       <div className={styles.links}>
