@@ -24,7 +24,7 @@ jobs:
         run: npm i -g npm@latest
 
       - name: Install dependencies 
-        run: npm ci
+        run: yarn
 
       - name: Cypress run (local)
-        run: npm run build && npx start-server-and-test http://localhost:3000 cy:run
+        run: yarn workspace lhowsam-frontend build && npx start-server-and-test http://localhost:3000 yarn workspace lhowsam-frontend cy:run

@@ -6,7 +6,6 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "tsc": "tsc --noEmit",
     "gen-env": "gen-env-types .env -o src/types/env.d.ts -e .",
     "lint": "eslint \"./src/**/*.{js, jsx,ts,tsx}\" --quiet --fix && eslint \"./**/*.{js, jsx,ts,tsx}\" --quiet --fix",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx}\"",
@@ -21,6 +20,10 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
+    "lhowsam-studio": "0.1.0",
+    "@sanity/client": "^3.2.2",
+    "@sanity/image-url": "^1.0.1",
+    "groq": "2.15.0",
     "@fontsource/ibm-plex-sans": "^4.5.7",
     "@mapbox/rehype-prism": "^0.8.0",
     "@mdx-js/react": "^2.0.0",

@@ -8,7 +8,6 @@
     "prepare": "husky install",
     "clean": "lerna clean -y",
     "build": "yarn build",
-    "tsc": "yarn tsc",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx --quiet --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\""
