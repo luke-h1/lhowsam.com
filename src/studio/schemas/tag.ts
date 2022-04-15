@@ -20,10 +20,9 @@ const Tag: Document<TagType> = {
       description: 'slug for tag',
       validation: rule => rule.required(),
       options: {
-        source: 'title'
-      }
-      
-    }
+        source: 'title',
+      },
+    },
   ],
 };
 export default Tag;
