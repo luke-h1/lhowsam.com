@@ -13,6 +13,8 @@ const BlogImage = ({ src, alt, className }: BlogImageProps) => {
     <span className={classNames(styles.wrapper, className)}>
       <Image
         src={src}
+        blurDataURL={src}
+        placeholder="blur"
         alt={alt}
         width={500}
         height={230}

@@ -9,12 +9,13 @@ interface Props {
 
 const SkillItem = ({ icon, text }: Props) => {
   const theme = useTheme();
+
   return (
     <li>
       <span className={styles.bg}>
         {icon({
           className: styles.skillIcon,
-          fill: theme === 'light' ? '#000' : '#fff',
+          fill: theme.theme === 'light' ? '#000' : '#fff',
         })}
       </span>
       <div className={styles.flex}>
