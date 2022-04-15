@@ -5,9 +5,9 @@ import Link from 'next/link';
 import styles from './tags.module.scss';
 
 interface Props {
-  tags: Tag[];
   testId?: string;
   type: 'projects' | 'blog';
+  tags: Tag[];
 }
 
 const Tags = ({ tags, testId, type }: Props) => {

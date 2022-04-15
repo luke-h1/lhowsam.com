@@ -35,11 +35,15 @@ const ProjectSlugPage = ({ project, source }: Props) => {
         }}
       />
       <PageHeader title={project.title}>
+        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+        {/* @ts-ignore */}
         <Tags tags={project.tech} type="projects" />
       </PageHeader>
       <article className={styles.article}>
         <MDXRemote
           compiledSource={source.compiledSource}
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           components={components}
         />
       </article>
