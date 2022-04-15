@@ -3,6 +3,7 @@ import ButtonGroup from '@src/components/ButtonGroup';
 import Page from '@src/components/Page';
 import ProjectCard from '@src/components/ProjectCard';
 import Skills from '@src/components/Skills';
+import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
@@ -40,9 +41,9 @@ const Home = ({ projects }: Props) => {
         <Button href="/static/resume.pdf">Resume</Button>
         <Button href="/projects">View more</Button>
       </ButtonGroup>
-      <h3 className="title" style={{ marginBottom: '50px' }}>
+      <h2 className="title" style={{ marginBottom: '50px' }}>
         Featured Projects
-      </h3>
+      </h2>
       {projects &&
         projects.map(project => (
           <ProjectCard project={project} key={project._id} />
@@ -61,6 +62,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       projects,
     },
-    revalidate: 30 * 60,
+    revalidate: siteConfig.defaultRevalidate,
   };
 };

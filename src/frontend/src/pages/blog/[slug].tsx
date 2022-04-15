@@ -4,6 +4,7 @@ import components from '@src/components/Mdx';
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
 import Tags from '@src/components/Tags';
+import siteConfig from '@src/config/site';
 import imageService from '@src/services/imageService';
 import postService from '@src/services/postService';
 import { format, parseISO } from 'date-fns';
@@ -106,6 +107,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       post,
       source,
     },
-    revalidate: 30 * 60,
+    revalidate: siteConfig.defaultRevalidate,
   };
 };

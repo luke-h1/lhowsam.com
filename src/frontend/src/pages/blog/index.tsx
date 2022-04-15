@@ -1,5 +1,6 @@
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
+import siteConfig from '@src/config/site';
 import postService from '@src/services/postService';
 import * as gtag from '@src/utils/gtag';
 import debounce from 'lodash/debounce';
@@ -77,6 +78,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       posts,
     },
-    revalidate: 30 * 60,
+    revalidate: siteConfig.defaultRevalidate,
   };
 };

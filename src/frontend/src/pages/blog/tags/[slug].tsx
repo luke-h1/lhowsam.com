@@ -1,5 +1,6 @@
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
+import siteConfig from '@src/config/site';
 import postService from '@src/services/postService';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
@@ -54,6 +55,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       posts,
     },
-    revalidate: 30 * 60,
+    revalidate: siteConfig.defaultRevalidate,
   };
 };

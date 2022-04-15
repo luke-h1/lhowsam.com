@@ -2,6 +2,7 @@ import components from '@src/components/Mdx';
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
 import ProjectTags from '@src/components/ProjectTags';
+import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -76,6 +77,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       project,
       source,
     },
-    revalidate: 30 * 60,
+    revalidate: siteConfig.defaultRevalidate,
   };
 };

@@ -1,6 +1,7 @@
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
 import ProjectCard from '@src/components/ProjectCard';
+import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
@@ -43,6 +44,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       projects,
     },
-    revalidate: 30 * 60,
+    revalidate: siteConfig.defaultRevalidate,
   };
 };
