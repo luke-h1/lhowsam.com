@@ -1,8 +1,8 @@
 import { Document } from './sanity';
 
-export interface Blog extends Document<Blog> {
+export interface Post extends Document<Post> {
   _id: string;
-  _type: 'blog';
+  _type: 'post';
   _key: string;
   title: string;
   slug: Slug;

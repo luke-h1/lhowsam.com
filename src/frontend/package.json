@@ -1,5 +1,5 @@
 {
-  "name": "lhowsam-frontend",
+  "name": "frontend",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -20,7 +20,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
-    "lhowsam-studio": "0.1.0",
+    "studio": "0.1.0",
     "@sanity/client": "^3.2.2",
     "@sanity/image-url": "^1.0.1",
     "groq": "2.15.0",

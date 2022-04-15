@@ -1,8 +1,8 @@
 import { Document } from '../types/sanity';
-import { Blog } from '../types/schema';
+import { Post } from '../types/schema';
 
-const blog: Document<Blog> = {
-  name: 'blog',
+const post: Document<Post> = {
+  name: 'post',
   title: 'Blog Posts',
   type: 'document',
   fields: [
@@ -58,4 +58,4 @@ const blog: Document<Blog> = {
     },
   },
 };
-export default blog;
+export default post;
