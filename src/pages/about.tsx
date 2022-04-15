@@ -25,6 +25,8 @@ const AboutPage = () => {
           src="/images/luke.jpeg"
           className="corner-radius-8"
           width={250}
+          blurDataURL="/images/luke.jpeg"
+          placeholder="blur"
           height={305}
           priority
         />
