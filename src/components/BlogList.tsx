@@ -35,6 +35,7 @@ const BlogList = ({ posts }: Props) => {
                 <small>{format(parseISO(post.date), 'MMMM d, yyyy')}</small>
               </time>
             </p>
+
             <Tags tags={post.tags} type="blog" testId="blog-tag" />
           </li>
         ))}

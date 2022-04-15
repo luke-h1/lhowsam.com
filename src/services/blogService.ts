@@ -18,6 +18,11 @@ const recentPostsQuery = gql`
       title
       intro
       date
+      tags {
+        id
+        title
+        slug
+      }
       image {
         url
       }
@@ -33,7 +38,11 @@ const getPostsQuery = gql`
       title
       intro
       date
-      tags
+      tags {
+        id
+        title
+        slug
+      }
       image {
         url
       }
@@ -50,7 +59,11 @@ const getPostQuery = gql`
       date
       intro
       content
-      tags
+      tags {
+        id
+        title
+        slug
+      }
       image {
         url
       }
@@ -59,13 +72,21 @@ const getPostQuery = gql`
 `;
 
 const getPostByTagsQuery = gql`
-  query Post($tag: Tags!) {
-    postsConnection(where: { tags: [$tag] }) {
-      edges {
-        node {
-          title
-          slug
-        }
+  query Posts($tag: String!) {
+    posts(where: { tags_some: { slug: $tag } }) {
+      id
+      slug
+      title
+      date
+      intro
+      content
+      tags {
+        id
+        title
+        slug
+      }
+      image {
+        url
       }
     }
   }

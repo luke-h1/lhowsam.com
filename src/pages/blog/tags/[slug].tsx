@@ -48,9 +48,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  const formattedSlug = slug.replace(/^\w/, c => c.toUpperCase());
+  const { posts } = await blogService.getPostsByTags(slug);
 
-  const { posts } = await blogService.getPostsByTags(formattedSlug);
   return {
     props: {
       posts,
