@@ -1,4 +1,6 @@
+import { useTheme } from 'next-themes';
 import type { IconType } from 'react-icons';
+import styles from './Skillitem.module.scss';
 
 interface Props {
   icon: IconType;
@@ -6,11 +8,20 @@ interface Props {
 }
 
 const SkillItem = ({ icon, text }: Props) => {
+  const theme = useTheme();
   return (
     <li>
-      <span>{icon({ className: 'skill-icon' })}</span>
-      <small>{text}</small>
+      <span className={styles.bg}>
+        {icon({
+          className: styles.skillIcon,
+          fill: theme === 'light' ? '#000' : '#fff',
+        })}
+      </span>
+      <div className={styles.flex}>
+        <small className={styles.skillText}>{text}</small>
+      </div>
     </li>
   );
 };
+
 export default SkillItem;

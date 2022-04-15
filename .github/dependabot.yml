@@ -2,10 +2,11 @@ version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
-    target-branch: "feat/redesign"
+    target-branch: "dev"
     schedule:
       interval: "daily"
-      time: "12:30"
+      time: "10:00"
     open-pull-requests-limit: 300
     assignees: 
     - luke-h1
+

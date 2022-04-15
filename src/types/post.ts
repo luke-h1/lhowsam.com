@@ -5,8 +5,14 @@ export interface Post {
   intro: string;
   content: string;
   date: string;
-  tags: string[];
+  tags: Tag[];
   image: {
     url: string;
   };
+}
+
+export interface Tag {
+  id: number;
+  title: string;
+  slug: string;
 }

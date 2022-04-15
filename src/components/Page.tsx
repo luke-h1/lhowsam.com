@@ -1,34 +1,43 @@
-import Nav from '@src/components/Nav';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import PageTransition from '@src/components/PageTransition';
+import Link from 'next/link';
+import { ReactNode } from 'react';
+import Nav from './Nav';
+import styles from './page.module.scss';
 
-interface Props {
-  children: React.ReactNode;
-  className?: string;
-  ogImage?: string;
-}
+type PageProps = {
+  children: ReactNode;
+};
 
-const Page = ({ children, ogImage, className = 'container' }: Props) => {
-  const router = useRouter();
+const footerLinks = [
+  { name: 'Home', url: '/' },
+  { name: 'Contact', url: '/contact' },
+  { name: 'Twitter', url: 'https://twitter.com/LukeH_1999' },
+  { name: 'About', url: '/about' },
+  { name: 'GitHub', url: 'https://github.com/luke-h1' },
+  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/lukehowsam/' },
+  { name: 'Blog', url: '/blog' },
+];
+
+const Page = ({ children }: PageProps): JSX.Element => {
   return (
-    <div className={className}>
-      <Head>
-        <meta
-          name="twitter:site"
-          content={`${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`}
-        />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        {ogImage && (
-          <>
-            <meta name="twitter:image" content={ogImage} />
-            <meta property="og:image" content={ogImage} />
-          </>
-        )}
-      </Head>
+    <div className={styles.container}>
       <Nav />
-      {children}
+      <main className={styles.main}>
+        <PageTransition>{children}</PageTransition>
+      </main>
+      <footer className={styles.footer}>
+        <ul className={styles.links}>
+          {footerLinks.map(link => (
+            <li key={link.name}>
+              <Link href={link.url}>
+                <a>{link.name}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </footer>
     </div>
   );
 };
+
 export default Page;

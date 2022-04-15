@@ -1,16 +1,21 @@
 /* eslint-disable import/no-duplicates */
+import BlogImage from '@src/components/BlogImage';
+import components from '@src/components/Mdx';
 import Page from '@src/components/Page';
-import blogService from '@src/services/blogService';
+import PageHeader from '@src/components/PageHeader';
+import Tags from '@src/components/Tags';
+import postService from '@src/services/postService';
 import { Post } from '@src/types/post';
-import format from 'date-fns/format';
-import parseISO from 'date-fns/parseISO';
+import { format, parseISO } from 'date-fns';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
+import readingTime from 'reading-time';
 import CodeTitle from 'rehype-code-titles';
+import styles from './blog-slug.module.scss';
 
 interface Props {
   post: Post;
@@ -21,7 +26,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
   const router = useRouter();
 
   return (
-    <Page ogImage={post.image.url}>
+    <Page>
       <NextSeo
         title={post.title}
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -41,28 +46,38 @@ const BlogSlugPage = ({ post, source }: Props) => {
           title: `${post.title} | lhowsam.com`,
         }}
       />
-      <div className="container">
-        <header>
-          <h1 data-testid="blog-title">{post.title}</h1>
-        </header>
-        <p className="blog-meta">
+      <BlogImage
+        src={post.image.url}
+        alt={post.title}
+        className={styles.image}
+      />
+      <PageHeader title={post.title} compact>
+        <p className={styles.meta}>
+          Published on{' '}
           <time dateTime={post.date}>
-            <small>{format(parseISO(post.date), 'MMMM d, yyyy')}</small>
-          </time>
+            <small style={{ marginRight: '6px' }}>
+              {format(parseISO(post.date), 'MMMM d, yyyy')}
+            </small>
+            {readingTime(source.compiledSource).text}
+          </time>{' '}
         </p>
-
-        <img alt={post.title} src={post.image.url} style={{ width: '100%' }} />
-        <article>
-          <MDXRemote compiledSource={source.compiledSource} />
-        </article>
-      </div>
+        <Tags tags={post.tags} type="blog" />
+      </PageHeader>
+      <article className={styles.article}>
+        <MDXRemote
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          components={components}
+          compiledSource={source.compiledSource}
+        />
+      </article>
     </Page>
   );
 };
 export default BlogSlugPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { posts } = await blogService.getPostsBySlug();
+  const { posts } = await postService.getPostsBySlug();
   const paths = posts.map(({ slug }) => ({ params: { slug } }));
 
   return {
@@ -79,7 +94,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  const { post } = await blogService.getPost(params.slug as string);
+  const { post } = await postService.getPost(params.slug as string);
   if (!post) {
     return {
       props: [],

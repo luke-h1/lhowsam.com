@@ -1,0 +1,30 @@
+.text {
+  margin-bottom: 30px;
+  padding-top: 30px;
+  p {
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 27px;
+  }
+  a {
+    color: var(--brand);
+    transition: color 200ms ease-out;
+
+    &:hover,
+    &:focus {
+      color: var(--brandActive);
+    }
+  }
+}
+
+.photoContainer {
+  position: relative;
+
+  height: 280px;
+  width: 100%;
+}
+@media (min-width: 632px) {
+  .photoStackContainer {
+    width: auto;
+  }
+}

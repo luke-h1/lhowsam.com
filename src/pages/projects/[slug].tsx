@@ -1,4 +1,7 @@
+import components from '@src/components/Mdx';
 import Page from '@src/components/Page';
+import PageHeader from '@src/components/PageHeader';
+import ProjectTags from '@src/components/ProjectTags';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/project';
 import mdxPrism from 'mdx-prism';
@@ -9,6 +12,7 @@ import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import Headings from 'rehype-autolink-headings';
 import CodeTitle from 'rehype-code-titles';
+import styles from './project-slug.module.scss';
 
 interface Props {
   project: Project;
@@ -30,25 +34,15 @@ const ProjectSlugPage = ({ project, source }: Props) => {
           title: `${project.title} | lhowsam.com`,
         }}
       />
-      <div className="container">
-        <header>
-          <h1 data-testid="project-title">{project.title}</h1>
-        </header>
-        <p className="blog-meta">
-          Tech Stack:
-          <div className="tag-container">
-            {project.tech &&
-              project.tech.map(t => (
-                <span className="tag tag--pill tag--sm" key={t}>
-                  <small>{t}</small>
-                </span>
-              ))}
-          </div>
-        </p>
-        <article>
-          <MDXRemote compiledSource={source.compiledSource} />
-        </article>
-      </div>
+      <PageHeader title={project.title}>
+        <ProjectTags tags={project.tech} />
+      </PageHeader>
+      <article className={styles.article}>
+        <MDXRemote
+          compiledSource={source.compiledSource}
+          components={components}
+        />
+      </article>
     </Page>
   );
 };

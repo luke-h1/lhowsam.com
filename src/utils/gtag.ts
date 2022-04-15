@@ -8,8 +8,8 @@ declare global {
   }
 }
 
-export const pageview = (url: string) => {
-  window.gtag('config', GA_TRACKING_ID, {
+export const pageview = (url: string): void => {
+  window.gtag('config', process.env.NEXT_PUBLIC_GA_TRACKING_ID, {
     page_path: url,
   });
 };
@@ -21,13 +21,19 @@ export const event = ({
   value,
 }: {
   action: string;
-  category: string;
-  label: string;
-  value: string;
-}) => {
+  category?: string;
+  label?: string;
+  value?: string;
+}): void => {
   window.gtag('event', action, {
     event_category: category,
     event_label: label,
     value,
+  });
+};
+
+export const search = (value: string): void => {
+  window.gtag('event', 'search', {
+    search_term: value,
   });
 };

@@ -1,16 +1,32 @@
+import * as gtag from '@src/utils/gtag';
+import { AnimatePresence } from 'framer-motion';
+import '@src/styles/global.scss';
+import '@src/styles/prism.css';
 import { DefaultSeo } from 'next-seo';
+import { ThemeProvider } from 'next-themes';
+import '@fontsource/ibm-plex-sans';
+
 import type { AppProps } from 'next/app';
-import '../styles/global.css';
-import '../styles/prism.css';
+import Head from 'next/head';
+import { useEffect } from 'react';
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`;
 
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      gtag.pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
   return (
-    <>
+    <ThemeProvider defaultTheme="system">
       <DefaultSeo
         titleTemplate="%s | lhowsam.com"
-        title='lhowsam.com'
+        title="lhowsam.com"
         canonical={canonicalUrl}
         openGraph={{
           profile: {
@@ -36,9 +52,13 @@ const App = ({ Component, pageProps, router }: AppProps) => {
           cardType: 'summary_large_image',
         }}
       />
-
-      <Component {...pageProps} />
-    </>
+      <Head>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <AnimatePresence initial={false}>
+        <Component {...pageProps} />
+      </AnimatePresence>
+    </ThemeProvider>
   );
 };
 export default App;
