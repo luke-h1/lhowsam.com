@@ -1,9 +1,9 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable react/destructuring-assignment */
 import Link from 'next/link';
 import CustomImage from './Image';
 
-export const CustomLink = (props: { href: string }) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const CustomLink = (props: any) => {
   const { href } = props;
   if (href?.startsWith('/')) {
     return (

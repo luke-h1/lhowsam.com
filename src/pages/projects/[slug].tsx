@@ -1,7 +1,7 @@
 import components from '@src/components/Mdx';
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
-import Tags from '@src/components/Tags';
+import ProjectTags from '@src/components/ProjectTags';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/project';
 import mdxPrism from 'mdx-prism';
@@ -35,15 +35,11 @@ const ProjectSlugPage = ({ project, source }: Props) => {
         }}
       />
       <PageHeader title={project.title}>
-        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-        {/* @ts-ignore */}
-        <Tags tags={project.tech} type="projects" />
+        <ProjectTags tags={project.tech} />
       </PageHeader>
       <article className={styles.article}>
         <MDXRemote
           compiledSource={source.compiledSource}
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
           components={components}
         />
       </article>
