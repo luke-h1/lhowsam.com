@@ -12,7 +12,7 @@ const Tags = ({ tags, testId }: Props) => {
     <ul className={styles.tags}>
       {tags.map(tag => (
         <li key={tag} data-testid={testId}>
-          <a style={{ cursor: 'pointer' }}>{`#${tag}`}</a>
+          <span style={{ cursor: 'pointer' }}>{`#${tag}`}</span>
         </li>
       ))}
     </ul>

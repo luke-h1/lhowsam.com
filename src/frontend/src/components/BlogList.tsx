@@ -24,7 +24,7 @@ const BlogList = ({ posts }: Props) => {
                 />
               </a>
             </Link>
-            <Link href={`/blog/${post.slug}`}>
+            <Link href={`/blog/${post.slug.current}`}>
               <a className={styles.title} style={{ color: 'var(--text)' }}>
                 <h3>{post.title}</h3>
               </a>
