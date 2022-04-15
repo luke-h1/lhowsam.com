@@ -19,7 +19,7 @@ const BlogImage = ({ src, alt, className }: BlogImageProps) => {
         width={500}
         height={230}
         layout="responsive"
-        quality={80}
+        quality={70}
       />
     </span>
   );
