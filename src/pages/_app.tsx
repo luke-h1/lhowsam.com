@@ -1,5 +1,4 @@
 import * as gtag from '@src/utils/gtag';
-import { AnimatePresence } from 'framer-motion';
 import '@src/styles/global.scss';
 import '@src/styles/prism.css';
 import { DefaultSeo } from 'next-seo';
@@ -55,9 +54,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <AnimatePresence initial={false}>
-        <Component {...pageProps} />
-      </AnimatePresence>
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 };

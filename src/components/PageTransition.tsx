@@ -16,7 +16,7 @@ const variants: Variants = {
   },
 };
 
-const PageTransition = ({ children }: { children: ReactNode }): JSX.Element => (
+const PageTransition = ({ children }: { children: ReactNode }) => (
   <motion.div initial="initial" animate="enter" variants={variants}>
     {children}
   </motion.div>

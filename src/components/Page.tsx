@@ -18,7 +18,7 @@ const footerLinks = [
   { name: 'Blog', url: '/blog' },
 ];
 
-const Page = ({ children }: PageProps): JSX.Element => {
+const Page = ({ children }: PageProps) => {
   return (
     <div className={styles.container}>
       <Nav />

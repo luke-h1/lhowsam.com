@@ -77,11 +77,8 @@ const BlogSlugPage = ({ post, source }: Props) => {
 export default BlogSlugPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const { posts } = await postService.getPostsBySlug();
-  const paths = posts.map(({ slug }) => ({ params: { slug } }));
-
   return {
-    paths,
+    paths: [],
     fallback: 'blocking',
   };
 };

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import styles from './button.module.scss';
 
 type ButtonProps = {
-  children: JSX.Element | JSX.Element[] | string;
+  children: React.ReactNode;
   type?: 'button' | 'submit' | 'reset';
   href?: string;
   onClick?: () => void;
@@ -18,7 +18,7 @@ const Button = ({
   variant,
   onClick,
   disabled,
-}: ButtonProps): JSX.Element => {
+}: ButtonProps) => {
   const classes = cn(styles.button, styles[variant as keyof typeof variant]);
   if (onClick || !href) {
     return (
