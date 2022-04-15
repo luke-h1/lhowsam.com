@@ -15,9 +15,9 @@ const BlogImage = ({ src, alt, className }: BlogImageProps) => {
         src={src}
         alt={alt}
         width={500}
-        height={250}
+        height={230}
         layout="responsive"
-        priority
+        quality={80}
       />
     </span>
   );
