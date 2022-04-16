@@ -1,0 +1,13 @@
+.list {
+  li {
+    margin-bottom: 15px;
+
+    a {
+      font-weight: 500;
+      &:hover {
+        color: var(--brand);
+        text-decoration: underline;
+      }
+    }
+  }
+}
