@@ -38,9 +38,13 @@ const AboutPage = () => {
         </p>
         <p>
           Right now, I'm working as a software tester, doing automated + manual
-          testing on web & mobile applications
+          testing on web & mobile applications. I'm comfortable with both
+          frontend (React, Node, Next.js etc.) & devops tech stacks (Azure, AWS,
+          digitalocean, Ansible etc.), and I'm always keen to keep up with
+          industry trends and new technologies
         </p>
-        <p>In my spare time I love traveling, reading, and coding</p>
+
+        <p>In my spare time I love to travel, read, and code</p>
       </div>
       <Button href="/contact">Contact</Button>
     </Page>
