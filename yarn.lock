@@ -2392,7 +2392,7 @@
   resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-1.6.22.tgz#ae09b4744fddc74714ee9f9d6f17a66e77c43573"
   integrity sha512-TDoPum4SHdfPiGSAaRBw7ECyI8VaHpK8GJugbJIJuqyh6kzw9ZLJZW3HGL3NNrJGxcAixUvqROm+YuQOo5eXtg==
 
-"@mdx-js/react@^2.0.0":
+"@mdx-js/react@^2.0.0", "@mdx-js/react@^2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@mdx-js/react/-/react-2.1.1.tgz#c59d844fd61b776fea8673fb77405d4e14db48c5"
   integrity sha512-7zlZDf5xmWH8I0kFE4DG91COOkxjaW9DX5f1HWztZpFcVua2gJgMYfIkFaDpO/DH/tWi6Mz+OheW4194r15igg==
@@ -2828,7 +2828,7 @@
   resolved "https://registry.yarnpkg.com/@sanity/asset-utils/-/asset-utils-1.2.3.tgz#a90c7895c6506405d64c2363db131923ba1fa6ef"
   integrity sha512-0eOR0D6zcqd6nEmAGIJ93ibRGO6ocYzQ5aEuyYvngHy5MDDjUfC821UnF/YPIcxiMXg2DLDjWd4EPt9F8frKNQ==
 
-"@sanity/base@2.29.5", "@sanity/base@^2.29.1":
+"@sanity/base@2.29.5", "@sanity/base@^2.29.5":
   version "2.29.5"
   resolved "https://registry.yarnpkg.com/@sanity/base/-/base-2.29.5.tgz#f832b8d6669a8132a63e74249e752206182168be"
   integrity sha512-qj3cCpbQAWioESFjyXp0vSGC7ap+8gmfT+ZsKLDcKuyIcorCAgejaUMeQb3Xy2TPY9+HtZ1d7G2aO0mlBnBRaw==
@@ -2906,7 +2906,7 @@
     get-random-values "^1.2.2"
     lodash "^4.17.15"
 
-"@sanity/cli@^2.28.0":
+"@sanity/cli@^2.29.5":
   version "2.29.5"
   resolved "https://registry.yarnpkg.com/@sanity/cli/-/cli-2.29.5.tgz#694aa11c6604b4eb7a0db222d5536c07739f214b"
   integrity sha512-wAe9JOMWaClnJIE/TkJ06Fbbaln+/bvLCPU05ya3bU3CaK9uscH6f31kh4GunDZicMNSG9Hd8hVk/MqX0kkYYQ==
@@ -2938,7 +2938,7 @@
   resolved "https://registry.yarnpkg.com/@sanity/components/-/components-2.14.0.tgz#840d8e98fd55f35e2db2b211310c983b9f78cac4"
   integrity sha512-D8t7l+exvw1cg80m8yDZDRboAI6L827FeCacGjTOdElvgrR2shtsbepYui7ODfRgx9ynAceNDsQ1VSNnUgIHug==
 
-"@sanity/core@^2.28.1":
+"@sanity/core@^2.29.5":
   version "2.29.5"
   resolved "https://registry.yarnpkg.com/@sanity/core/-/core-2.29.5.tgz#a6a41c9e15981a6800b54e3494fb9173735b50bb"
   integrity sha512-JvGVvKDzkiSWJo8U2oYj8Ys9eJQHl7oPDYkjKvXd3hdB1LJ2axEdtgKwKYdRMe7EHeUAQ4UB8h1SKLwnN1cBPA==
@@ -3017,7 +3017,7 @@
     "@sanity/generate-help-url" "^3.0.0"
     lodash "^4.17.15"
 
-"@sanity/default-layout@^2.29.1":
+"@sanity/default-layout@^2.29.5":
   version "2.29.5"
   resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-2.29.5.tgz#02743ffe6e4191770b678e0d21c6e9c9db9f389c"
   integrity sha512-zqni5Dp/k6faO95Ugg480Hj3IDwrfbH+Cq3L1091RSjIHkeZ+/Fc1ohlRPeGRXu6vJ9BV0wBuc2eM/6UxmHFAQ==
@@ -3036,7 +3036,7 @@
     react-rx "^1.0.0-beta.6"
     rxjs "^6.5.3"
 
-"@sanity/default-login@^2.29.1":
+"@sanity/default-login@^2.29.5":
   version "2.29.5"
   resolved "https://registry.yarnpkg.com/@sanity/default-login/-/default-login-2.29.5.tgz#7b918528a61f9b5d23d0873f87fe3c85b82a11bc"
   integrity sha512-nRnsx700IG+VzX7W0jDbAPJPUFSlXYY6N5HFyj/Hpap3/n/8ISePedqPl562TyPvxXgxk1rC14Sg1YGj1oDYGw==
@@ -3049,7 +3049,7 @@
     prop-types "^15.6.0"
     rxjs "^6.5.3"
 
-"@sanity/desk-tool@^2.29.1":
+"@sanity/desk-tool@^2.29.5":
   version "2.29.5"
   resolved "https://registry.yarnpkg.com/@sanity/desk-tool/-/desk-tool-2.29.5.tgz#fce65085e17b54dc1b47c9b0a04a606da794ece3"
   integrity sha512-+147lzN0NzoyerG01Zg0SFIolb6PWtdupODhOyPz8bu86dE31aKTbxPGzqLYVtovRivb/KHGueJoVMgczWaDAQ==
@@ -3454,7 +3454,7 @@
     date-fns "^2.16.1"
     lodash "^4.17.15"
 
-"@sanity/vision@^2.29.1":
+"@sanity/vision@^2.29.5":
   version "2.29.5"
   resolved "https://registry.yarnpkg.com/@sanity/vision/-/vision-2.29.5.tgz#e99e0685a6099385418cd903f67873d45218021f"
   integrity sha512-EXCZa3J1qISiptiW+1zejX7F62g7BeI/U+O9GnvEPcVPuQEXUoAyNPeGrGHM0EMrYwDI0rwFPJjrl6Sju001FA==
@@ -13371,7 +13371,7 @@ next-tick@^1.1.0:
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.1.0.tgz#1836ee30ad56d67ef281b22bd199f709449b35eb"
   integrity sha512-CXdUiJembsNjuToQvxayPZF9Vqht7hewsvy2sOWafLvi2awflj9mOC6bHIg50orX8IJvWKY9wYQ/zB2kogPslQ==
 
-next@^12.0.0:
+next@^12.1.5:
   version "12.1.5"
   resolved "https://registry.yarnpkg.com/next/-/next-12.1.5.tgz#7a07687579ddce61ee519493e1c178d83abac063"
   integrity sha512-YGHDpyfgCfnT5GZObsKepmRnne7Kzp7nGrac07dikhutWQug7hHg85/+sPJ4ZW5Q2pDkb+n0FnmLkmd44htIJQ==
