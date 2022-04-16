@@ -54,7 +54,7 @@ const Nav = () => {
         </Link>
         <nav
           className={`${classes.header__content__nav} ${
-            menuOpen && size.width < 768 ? classes.isMenu : ''
+            menuOpen && size.width <= 768 ? classes.isMenu : ''
           }`}
         >
           <ul>
@@ -78,9 +78,15 @@ const Nav = () => {
                 <a onClick={menuToggleHandler}>Contact</a>
               </Link>
             </li>
+            {isMounted ? (
+              <li>
+                <ThemeChanger />
+              </li>
+            ) : (
+              <li />
+            )}
           </ul>
         </nav>
-        {isMounted ? <ThemeChanger /> : <div />}
 
         <div className={classes.header__content__toggle}>
           {!menuOpen ? (
