@@ -40,10 +40,7 @@ const AboutPage = () => {
           Right now, I'm working as a software tester, doing automated + manual
           testing on web & mobile applications
         </p>
-        <p>
-          In my spare time I love to travel and explore new places, being
-          outdoors and coding
-        </p>
+        <p>In my spare time I love traveling, reading, and coding</p>
       </div>
       <Button href="/contact">Contact</Button>
     </Page>

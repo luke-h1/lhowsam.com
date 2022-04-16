@@ -1,3 +1,4 @@
+import { DocumentIcon } from '@sanity/icons';
 import { Document } from '../types/sanity';
 import { Post } from '../types/schema';
 
@@ -5,6 +6,7 @@ const post: Document<Post> = {
   name: 'post',
   title: 'Blog Posts',
   type: 'document',
+  icon: DocumentIcon,
   fields: [
     {
       name: 'title',

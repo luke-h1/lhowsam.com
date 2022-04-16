@@ -238,6 +238,7 @@ export type Document<T extends Record<string, any>> = {
   title?: string;
   validation?: Validation;
   preview?: Preview;
+  icon?: ElementType;
   fieldsets?: Fieldset[];
   initialValue?: { [key: string]: any };
   orderings?: {

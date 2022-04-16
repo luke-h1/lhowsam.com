@@ -33,7 +33,7 @@ const Home = ({ projects }: Props) => {
       <PageHeader
         homePage
         title="Hey, I'm Luke"
-        description="I'm a software tester based in Sheffield, UK. I'm passionate about building &amp; testing software, and I'm always looking to learn more."
+        description="I currently work as a software tester where I do a mixture of automated & manual testing in an agile setting. I like building & testing projects that are scalable, performant & user friendly."
       >
         <Button href="/about">More about me</Button>
       </PageHeader>
