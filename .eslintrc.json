@@ -51,7 +51,7 @@
     "import/no-unresolved": [
       "error",
       {
-        "ignore": ["^(part|all):"] // eslint doesn't play nice with sanity imports
+        "ignore": ["^(part|all):"]
       }
     ],
     "import/order": [
