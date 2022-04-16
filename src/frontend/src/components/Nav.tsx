@@ -1,44 +1,42 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { useMounted } from '@src/hooks/useMounted';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { FiCode } from 'react-icons/fi';
+import { useMounted } from '../hooks/useMounted';
 import ThemeChanger from './ThemeChanger';
 import classes from './nav.module.scss';
 
 const Nav = () => {
-  const { onMounted, isMounted } = useMounted();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const { isMounted } = useMounted();
   const [size, setSize] = useState<{
     width: number;
     height: number;
   }>({
-    width: window.innerWidth || 0,
-    height: window.innerHeight || 0,
+    width: isMounted ? window.innerWidth : 0,
+    height: isMounted ? window.innerHeight : 0,
   });
 
   useEffect(() => {
-    onMounted(() => {
-      const handleResize = () => {
-        setSize({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
-      };
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    });
+    const handleResize = () => {
+      setSize({
+        width: isMounted ? window.innerWidth : 0,
+        height: isMounted ? window.innerHeight : 0,
+      });
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isMounted]);
 
   useEffect(() => {
     if (size.width > 768 && menuOpen) {
-      setMenuOpen(false);
+      setMenuOpen(!menuOpen);
     }
-  }, [size, menuOpen]);
+  }, [size.width, menuOpen]);
 
   const menuToggleHandler = () => {
     setMenuOpen(p => !p);
