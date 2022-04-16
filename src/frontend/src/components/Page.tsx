@@ -19,10 +19,9 @@ const footerLinks = [
 ];
 
 const Page = ({ children }: PageProps) => {
-  const { isMounted } = useMounted();
   return (
     <div className={styles.container}>
-      {isMounted && <Nav />}
+      <Nav />
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
         <ul className={styles.links}>
