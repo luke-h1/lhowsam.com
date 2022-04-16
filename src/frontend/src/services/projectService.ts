@@ -3,7 +3,7 @@ import { Project } from 'studio/types/schema';
 import cmsClient from '../utils/sanity';
 
 const listAllProjects = groq`
-  *[ _type == "project"] {
+  *[ _type == "project"] | order(order asc) {
     title,
     _id,
     intro,
