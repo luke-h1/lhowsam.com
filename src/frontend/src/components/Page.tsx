@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { ReactNode } from 'react';
+import { useMounted } from '../hooks/useMounted';
 import Nav from './Nav';
 import styles from './page.module.scss';
 
@@ -18,9 +19,10 @@ const footerLinks = [
 ];
 
 const Page = ({ children }: PageProps) => {
+  const { isMounted } = useMounted();
   return (
     <div className={styles.container}>
-      <Nav />
+      {isMounted && <Nav />}
       <main className={styles.main}>{children}</main>
       <footer className={styles.footer}>
         <ul className={styles.links}>

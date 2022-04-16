@@ -16,8 +16,8 @@ const Nav = () => {
     width: number;
     height: number;
   }>({
-    width: typeof window !== 'undefined' ? window.innerWidth : 0,
-    height: typeof window !== 'undefined' ? window.innerHeight : 0,
+    width: window.innerWidth || 0,
+    height: window.innerHeight || 0,
   });
 
   useEffect(() => {
@@ -32,13 +32,13 @@ const Nav = () => {
       return () => window.removeEventListener('resize', handleResize);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMounted]);
+  }, []);
 
   useEffect(() => {
     if (size.width > 768 && menuOpen) {
       setMenuOpen(false);
     }
-  }, [size.width, menuOpen]);
+  }, [size, menuOpen]);
 
   const menuToggleHandler = () => {
     setMenuOpen(p => !p);
