@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-// eslint-disable-next-line import/no-unresolved
 import schemaTypes from 'all:part:@sanity/base/schema-type';
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-// eslint-disable-next-line import/no-unresolved
 import createSchema from 'part:@sanity/base/schema-creator';
 import post from './post';
 import project from './project';
