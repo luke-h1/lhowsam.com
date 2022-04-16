@@ -57,6 +57,13 @@ const project: Document<Project> = {
       of: [{ type: 'reference', to: { type: 'techStack' } }],
       validation: rule => rule.required(),
     },
+    {
+      title: 'Order',
+      name: 'order',
+      type: 'number',
+      description: 'Order of project post',
+      validation: rule => rule.required(),
+    },
   ],
   preview: {
     select: {

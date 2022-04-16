@@ -25,6 +25,7 @@ export interface Project extends Document<Project> {
   tech: string[];
   siteUrl?: string;
   githubUrl: string;
+  order: number;
   source: { compiledSource: string }; // when md is serialized
 }
 
