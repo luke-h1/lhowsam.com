@@ -13,9 +13,9 @@ const ProjectCard = ({ project }: Props) => {
     <div className={styles.project} data-testid="project-list">
       <Link href={`/projects/${project.slug.current}`}>
         <a>
-          <h4 className={styles.title} data-testid="project-title">
+          <h3 className={styles.title} data-testid="project-title">
             {project.title}
-          </h4>
+          </h3>
 
           <p className={styles.description} data-testid="project-intro">
             {project.intro}
