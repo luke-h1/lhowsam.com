@@ -248,6 +248,7 @@ export type Document<T extends Record<string, any>> = {
   name: string;
   // @ts-ignore
   fields: FieldCollection<keyof T>;
+  icon?: ElementType;
   title?: string;
   validation?: Validation;
   preview?: Preview;

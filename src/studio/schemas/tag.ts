@@ -1,3 +1,4 @@
+import { TagIcon } from '@sanity/icons';
 import { Document } from '../sanity';
 import { Tag as TagType } from '../types/schema';
 
@@ -5,6 +6,7 @@ const Tag: Document<TagType> = {
   name: 'tag',
   title: 'Tags',
   type: 'document',
+  icon: TagIcon,
   fields: [
     {
       name: 'title',

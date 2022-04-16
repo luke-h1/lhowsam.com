@@ -6,36 +6,35 @@ import React, { useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { FiCode } from 'react-icons/fi';
-import Button from './Button';
 import ThemeChanger from './ThemeChanger';
 import classes from './nav.module.scss';
 
 const Nav = () => {
-  const { isMounted } = useMounted();
+  const { onMounted, isMounted } = useMounted();
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const [size, setSize] = useState<{
-    width: number | undefined;
-    height: number | undefined;
+    width: number;
+    height: number;
   }>({
-    width: undefined,
-    height: undefined,
+    width: typeof window !== 'undefined' ? window.innerWidth : 0,
+    height: typeof window !== 'undefined' ? window.innerHeight : 0,
   });
 
   useEffect(() => {
-    const handleResize = () => {
-      setSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    onMounted(() => {
+      const handleResize = () => {
+        setSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      };
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    });
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isMounted]);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     if (size.width > 768 && menuOpen) {
       setMenuOpen(false);
     }
@@ -55,8 +54,6 @@ const Nav = () => {
         </Link>
         <nav
           className={`${classes.header__content__nav} ${
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
             menuOpen && size.width < 768 ? classes.isMenu : ''
           }`}
         >

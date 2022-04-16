@@ -38,7 +38,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
           defaultImageHeight: 630,
           images: [
             {
-              url: imageService.urlFor(post.image),
+              url: imageService.urlFor(post.image.asset),
               alt: post.title,
               height: 1200,
               width: 630,
@@ -49,7 +49,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
         }}
       />
       <BlogImage
-        src={imageService.urlFor(post.image)}
+        src={imageService.urlFor(post.image.asset)}
         alt={post.title}
         className={styles.image}
       />
