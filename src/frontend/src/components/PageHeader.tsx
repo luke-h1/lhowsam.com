@@ -5,7 +5,6 @@ interface PageHeaderProps {
   description?: string | React.ReactNode;
   children?: React.ReactNode;
   compact?: boolean;
-  homePage?: boolean;
 }
 
 const PageHeader = ({
@@ -13,17 +12,9 @@ const PageHeader = ({
   description,
   children,
   compact,
-  homePage,
 }: PageHeaderProps) => (
   <div className={compact ? styles.wrapperCompact : styles.wrapper}>
-    <h1 className={styles.title}>
-      {homePage && (
-        <span className="wave" style={{ marginRight: '7px' }}>
-          👋
-        </span>
-      )}
-      {title}
-    </h1>
+    <h1 className={styles.title}>{title}</h1>
     {description && <p className={styles.description}>{description}</p>}
     {children}
   </div>
