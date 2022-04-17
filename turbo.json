@@ -3,18 +3,16 @@
   "baseBranch": "origin/dev",
   "pipeline": {
     "build": {
-      "outputs": [
-        "src/frontend/.next/**",
-        "src/studio/public/**"
-      ],
-      "dependsOn": [
-        "^build"
-      ]
+      "outputs": ["src/frontend/.next/**", "src/studio/public/**"],
+      "dependsOn": ["^build"]
+    },
+    "tsc": {
+      "dependsOn": [],
+      "outputs": [],
+      "cache": false
     },
     "lint": {
-      "dependsOn": [
-        "^build"
-      ],
+      "dependsOn": ["^build"],
       "outputs": []
     },
     "dev": {
