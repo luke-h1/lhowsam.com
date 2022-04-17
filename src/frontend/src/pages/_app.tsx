@@ -22,44 +22,49 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     };
   }, [router.events]);
   return (
-    <ThemeProvider defaultTheme="system">
-      <DefaultSeo
-        titleTemplate="%s | lhowsam.com"
-        title="lhowsam.com"
-        canonical={canonicalUrl}
-        openGraph={{
-          profile: {
-            firstName: 'Luke',
-            lastName: 'Howsam',
-            username: 'luke-h1',
-          },
-          type: 'website',
-          locale: 'en_GB',
-          url: canonicalUrl,
-          site_name: 'lhowsam.com',
-          images: [
-            {
-              url: `${process.env.NEXT_PUBLIC_SITE_URL}/icons/logo.png`,
-              alt: 'logo for lhowsam.com',
-              width: 1200,
-              height: 630,
+    <>
+      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+      {/* @ts-ignore */}
+      <ThemeProvider defaultTheme="system">
+        <DefaultSeo
+          titleTemplate="%s | lhowsam.com"
+          title="lhowsam.com"
+          canonical={canonicalUrl}
+          openGraph={{
+            profile: {
+              firstName: 'Luke',
+              lastName: 'Howsam',
+              username: 'luke-h1',
             },
-          ],
-        }}
-        twitter={{
-          site: '@lukeH_1999',
-          cardType: 'summary_large_image',
-        }}
-      />
-      <Head>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <PageTransition>
-        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-        {/* @ts-ignore */}
-        <Component {...pageProps} />
-      </PageTransition>
-    </ThemeProvider>
+            type: 'website',
+            locale: 'en_GB',
+            url: canonicalUrl,
+            site_name: 'lhowsam.com',
+            images: [
+              {
+                url: `${process.env.NEXT_PUBLIC_SITE_URL}/icons/logo.png`,
+                alt: 'logo for lhowsam.com',
+                width: 1200,
+                height: 630,
+              },
+            ],
+          }}
+          twitter={{
+            site: '@lukeH_1999',
+            cardType: 'summary_large_image',
+          }}
+        />
+        <Head>
+          <meta
+            name="viewport"
+            content="initial-scale=1.0, width=device-width"
+          />
+        </Head>
+        <PageTransition>
+          <Component {...pageProps} />
+        </PageTransition>
+      </ThemeProvider>
+    </>
   );
 };
 export default App;
