@@ -1,3 +1,4 @@
+import PageTransition from '@src/components/PageTransition';
 import * as gtag from '@src/utils/gtag';
 import '@src/styles/global.scss';
 import '@src/styles/prism.css';
@@ -53,9 +54,11 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-      {/* @ts-ignore */}
-      <Component {...pageProps} />
+      <PageTransition>
+        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
+        {/* @ts-ignore */}
+        <Component {...pageProps} />
+      </PageTransition>
     </ThemeProvider>
   );
 };

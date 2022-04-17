@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { ReactNode } from 'react';
-import { useMounted } from '../hooks/useMounted';
 import Nav from './Nav';
 import styles from './page.module.scss';
 

@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
+import { isServer } from '@src/hooks/isServer';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -39,7 +40,9 @@ const Nav = () => {
   }, [size.width, menuOpen]);
 
   const menuToggleHandler = () => {
-    setMenuOpen(p => !p);
+    if (size.width < 768 && menuOpen) {
+      setMenuOpen(!menuOpen);
+    }
   };
 
   return (
@@ -76,21 +79,15 @@ const Nav = () => {
                 <a onClick={menuToggleHandler}>Contact</a>
               </Link>
             </li>
-            {isMounted ? (
-              <li>
-                <ThemeChanger />
-              </li>
-            ) : (
-              <li />
-            )}
           </ul>
+          {!isServer() && <ThemeChanger />}
         </nav>
 
         <div className={classes.header__content__toggle}>
           {!menuOpen ? (
-            <BiMenuAltRight onClick={menuToggleHandler} />
+            <BiMenuAltRight onClick={() => setMenuOpen(!menuOpen)} />
           ) : (
-            <AiOutlineClose onClick={menuToggleHandler} />
+            <AiOutlineClose onClick={() => setMenuOpen(!menuOpen)} />
           )}
         </div>
       </div>

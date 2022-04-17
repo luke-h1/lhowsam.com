@@ -32,7 +32,6 @@ $headerHeight: 100px;
   @include breakpoint(md) {
     padding: 0 3rem;
   }
-  transition: 0.3s ease all;
 
   &__content {
     overflow: hidden;
@@ -68,7 +67,6 @@ $headerHeight: 100px;
       background: rgba(var(--bg), 0.9);
       backdrop-filter: blur(10px);
       transform: translate(0);
-      transition: 0.3s ease transform;
 
       @include breakpoint(md) {
         transform: none;
@@ -103,7 +101,6 @@ $headerHeight: 100px;
             color: inherit;
             padding: 0.75rem 1.25rem;
             border-radius: $borderRadius;
-            transition: 0.3s ease all;
 
             &:hover {
               background: rgba($light, 0.1);
@@ -125,8 +122,6 @@ $headerHeight: 100px;
         background: $primary;
         color: var(--text);
         border: 1px solid transparent;
-        transition: 0.3s ease all;
-
         &:hover {
           border-color: $primary;
           background: rgba($primary, 0.1);
