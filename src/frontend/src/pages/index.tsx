@@ -31,7 +31,6 @@ const Home = ({ projects }: Props) => {
         }}
       />
       <PageHeader
-        homePage
         title="Hey, I'm Luke"
         description="I currently work as a software tester where I do a mixture of automated & manual testing in an agile setting. I like building & testing projects that are scalable, performant & user friendly."
       >

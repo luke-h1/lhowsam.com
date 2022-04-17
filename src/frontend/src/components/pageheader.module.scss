@@ -37,3 +37,12 @@
     font-size: 19px;
   }
 }
+
+// currently disabled
+.wave {
+  display: inline-block;
+  animation-name: wave;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+}
