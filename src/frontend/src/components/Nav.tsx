@@ -76,14 +76,8 @@ const Nav = () => {
                 <a onClick={menuToggleHandler}>Contact</a>
               </Link>
             </li>
-            {isMounted ? (
-              <li>
-                <ThemeChanger />
-              </li>
-            ) : (
-              <li />
-            )}
           </ul>
+          <ThemeChanger />
         </nav>
 
         <div className={classes.header__content__toggle}>
