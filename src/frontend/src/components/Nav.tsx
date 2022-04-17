@@ -41,7 +41,7 @@ const Nav = () => {
 
   const menuToggleHandler = () => {
     if (size.width < 768 && menuOpen) {
-      setMenuOpen(p => !p);
+      setMenuOpen(!menuOpen);
     }
   };
 
@@ -85,9 +85,9 @@ const Nav = () => {
 
         <div className={classes.header__content__toggle}>
           {!menuOpen ? (
-            <BiMenuAltRight onClick={menuToggleHandler} />
+            <BiMenuAltRight onClick={() => setMenuOpen(!menuOpen)} />
           ) : (
-            <AiOutlineClose onClick={menuToggleHandler} />
+            <AiOutlineClose onClick={() => setMenuOpen(!menuOpen)} />
           )}
         </div>
       </div>
