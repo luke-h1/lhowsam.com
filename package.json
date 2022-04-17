@@ -15,7 +15,7 @@
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "start:studio": "yarn workspace studio start",
     "start:frontend": "yarn workspace frontend dev",
-    "check:node": "check-node-version --node 16 --npm 8"
+    "check:node": "./node_modules/.bin/check-node-version --node 16 --npm 8"
   },
   "workspaces": [
     "src/studio",
