@@ -20,22 +20,21 @@ const AboutPage = () => {
           title: `About | lhowsam.com`,
         }}
       />
-      <div className={styles.photoContainer}>
-        <Image
-          src="/images/luke.jpeg"
-          className="corner-radius-8"
-          width={250}
-          blurDataURL="/images/luke.jpeg"
-          placeholder="blur"
-          height={305}
-          priority
-        />
-      </div>
+      <Image
+        src="/images/luke.jpeg"
+        className="corner-radius-8"
+        width={250}
+        blurDataURL="/images/luke.jpeg"
+        placeholder="blur"
+        height={305}
+        priority
+      />
+
       <div className={styles.text}>
-        <p>
+        <h1>
           Hey 👋, I'm Luke. I'm a software tester & developer currently based in
           Sheffield, UK
-        </p>
+        </h1>
         <p>
           Right now, I'm working as a software tester, doing automated + manual
           testing on web & mobile applications. I'm comfortable with both
