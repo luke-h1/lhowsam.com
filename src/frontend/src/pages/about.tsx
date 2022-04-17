@@ -33,7 +33,7 @@ const AboutPage = () => {
       </div>
       <div className={styles.text}>
         <p>
-          Hi, I'm Luke. I'm a software tester & developer currently based in
+          Hey 👋, I'm Luke. I'm a software tester & developer currently based in
           Sheffield, UK
         </p>
         <p>
