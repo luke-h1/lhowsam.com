@@ -16,7 +16,6 @@ module.exports = {
     formats: ['image/avif', 'image/webp'],
   },
   async redirects() {
-    // nextjs-ssr-notes
     return [
       {
         source: '/blog/deploying-a-full-stack-app-via-dokku',
