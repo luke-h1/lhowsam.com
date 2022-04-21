@@ -28,6 +28,7 @@ const project: Document<Project> = {
       title: 'Intro',
       type: 'text',
       description: 'short intro of project post',
+      rows: 3,
       validation: rule => rule.required(),
     },
     {
@@ -42,6 +43,7 @@ const project: Document<Project> = {
       title: 'deployed site URL',
       type: 'string',
       description: 'Deployed project site URL',
+      validation: rule => rule.uri({ scheme: ['https'] }),
     },
     {
       name: 'githubUrl',
