@@ -24,7 +24,7 @@
     "studio": "0.1.0",
     "@sanity/client": "^3.2.2",
     "@sanity/image-url": "^1.0.1",
-    "groq": "2.15.0",
+    "groq": "2.29.3",
     "@fontsource/ibm-plex-sans": "^4.5.7",
     "@mapbox/rehype-prism": "^0.8.0",
     "@mdx-js/react": "^2.1.1",
