@@ -9403,15 +9403,15 @@ groq-js@^0.2.0:
   resolved "https://registry.yarnpkg.com/groq-js/-/groq-js-0.2.0.tgz#abd4870014a1ccdf0936d5d75a78063aff9197c0"
   integrity sha512-qJeuEgziddryH1ClsJvMoZM9aXNQbBViNZZrJwhHKr2wU8HGGM7uNWNVFglWXMX60MMaa2SClX3UohP76Ut68g==
 
-groq@2.15.0:
-  version "2.15.0"
-  resolved "https://registry.yarnpkg.com/groq/-/groq-2.15.0.tgz#d5618e0424c866a7998722d6ed441b3cc97e8de3"
-  integrity sha512-V3VLBLftaEylbeXDwb2VoGa87SFLGLbU9h6Lz7vuZK+wcs4Kk92qG3A8nWtsdCp63hYKft0/AaXuanbkch0GeA==
-
 groq@2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/groq/-/groq-2.2.6.tgz#8ec9f77b5beb5912c612b02e4beda1402a45e664"
   integrity sha512-UJ6zTwXYqp8PRrguMbYmBuFE+G4ZYdOeTT0qS1f35iQTb0ZfrbrzDiDRYk/N4ukuioAVjkLc8b0CECr1pk1uag==
+
+groq@2.29.3:
+  version "2.29.3"
+  resolved "https://registry.yarnpkg.com/groq/-/groq-2.29.3.tgz#e767152202ab6aad64b2c33dfc904ee4e4c16d8e"
+  integrity sha512-j3HFq8Qwg36rREp2Xl2vecUz47LX6cedD8cqq+JKX0iNj9yiwelOSKpRS5jxhkDZQv5xBAiqtpU2Ylv5DQ5g2A==
 
 gunzip-maybe@^1.4.1:
   version "1.4.2"
