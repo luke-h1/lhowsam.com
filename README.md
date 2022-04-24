@@ -10,7 +10,7 @@ My website & blog
 - [Jest](https://jestjs.io)
 - [MDX](https://github.com/mdx-js/mdx)
 - [Vercel](https://vercel.com)
-- [Sanity.io](https://sanity.io)
+- [GraphCMS](https://graphcms.com/)
 ## Tests
 [![CI / UI tests (production)](https://github.com/luke-h1/lhowsam.com/actions/workflows/prod-ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/prod-ui-tests.yml)
 
