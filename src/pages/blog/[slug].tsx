@@ -14,7 +14,9 @@ import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
+import rehypeAutoLinkHeadings from 'rehype-autolink-headings';
 import CodeTitle from 'rehype-code-titles';
+import rehypeSlug from 'rehype-slug';
 import styles from './blog-slug.module.scss';
 
 interface Props {
@@ -102,7 +104,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   }
   const source = await serialize(post.content, {
     mdxOptions: {
-      rehypePlugins: [mdxPrism, CodeTitle],
+      rehypePlugins: [mdxPrism, CodeTitle, rehypeAutoLinkHeadings, rehypeSlug],
     },
   });
 
