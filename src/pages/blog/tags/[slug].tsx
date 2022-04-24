@@ -23,7 +23,7 @@ const BlogTagPage = ({ posts }: Props) => {
   return (
     <Page>
       <NextSeo
-        title={`Post tagged with ${router.query.slug}`}
+        title={`Posts tagged with ${router.query.slug}`}
         canonical={`https://lhowsam.com${router.asPath}`}
         description="Home"
         openGraph={{
