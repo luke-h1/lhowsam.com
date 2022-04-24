@@ -5,7 +5,6 @@
 module.exports = {
   swcMinify: true,
   reactStrictMode: true,
-  productionBrowserSourceMaps: true,
   poweredByHeader: false,
   eslint: {
     ignoreDuringBuilds: true,
