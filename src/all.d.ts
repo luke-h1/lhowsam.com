@@ -4,4 +4,5 @@ declare module '*module.css' {
   };
   export default styles;
 }
-declare module 'mdx-prism';
+
+declare module '@mapbox/rehype-prism';

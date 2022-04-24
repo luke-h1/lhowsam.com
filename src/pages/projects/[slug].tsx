@@ -1,24 +1,24 @@
+import mdxPrism from '@mapbox/rehype-prism';
 import components from '@src/components/Mdx';
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
 import Tags from '@src/components/Tags';
 import siteConfig from '@src/config/site';
 import projectService, { Project } from '@src/services/projectService';
-import { mdxToHtml } from '@src/utils/mdToHtml';
-import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import { useMemo } from 'react';
+import CodeTitle from 'rehype-code-titles';
 import styles from './project-slug.module.scss';
 
 interface Props {
   project: Project;
-  source: string;
+  source: { compiledSource: string };
 }
 
 const ProjectSlugPage = ({ project, source }: Props) => {
-  const Component = useMemo(() => getMDXComponent(source), [source]);
   const router = useRouter();
   return (
     <Page>
@@ -37,7 +37,10 @@ const ProjectSlugPage = ({ project, source }: Props) => {
         <Tags tags={project.tags} type="projects" />
       </PageHeader>
       <article className={styles.article}>
-        <Component components={components} />
+        <MDXRemote
+          compiledSource={source.compiledSource}
+          components={components}
+        />{' '}
       </article>
     </Page>
   );
@@ -67,7 +70,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       notFound: true,
     };
   }
-  const source = await mdxToHtml(project.content);
+  const source = await serialize(project.content, {
+    mdxOptions: {
+      rehypePlugins: [mdxPrism, CodeTitle],
+    },
+  });
 
   return {
     props: {

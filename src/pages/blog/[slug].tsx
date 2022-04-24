@@ -1,5 +1,6 @@
 /* eslint-disable react/no-children-prop */
 /* eslint-disable import/no-duplicates */
+import mdxPrism from '@mapbox/rehype-prism';
 import BlogImage from '@src/components/BlogImage';
 import components from '@src/components/Mdx';
 import Page from '@src/components/Page';
@@ -7,23 +8,21 @@ import PageHeader from '@src/components/PageHeader';
 import Tags from '@src/components/Tags';
 import siteConfig from '@src/config/site';
 import postService, { Post } from '@src/services/postService';
-import { mdxToHtml } from '@src/utils/mdToHtml';
 import { format, parseISO } from 'date-fns';
-import { getMDXComponent } from 'mdx-bundler/client';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import { useMemo } from 'react';
+import CodeTitle from 'rehype-code-titles';
 import styles from './blog-slug.module.scss';
 
 interface Props {
   post: Post;
-  source: string;
+  source: { compiledSource: string };
 }
 
 const BlogSlugPage = ({ post, source }: Props) => {
-  const Component = useMemo(() => getMDXComponent(source), [source]);
-
   const router = useRouter();
 
   return (
@@ -64,7 +63,12 @@ const BlogSlugPage = ({ post, source }: Props) => {
         <Tags tags={post.tags} type="blog" />
       </PageHeader>
       <article className={styles.article}>
-        <Component components={components} />
+        <article>
+          <MDXRemote
+            compiledSource={source.compiledSource}
+            components={components}
+          />
+        </article>
       </article>
     </Page>
   );
@@ -96,7 +100,11 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       notFound: true,
     };
   }
-  const source = await mdxToHtml(post.content);
+  const source = await serialize(post.content, {
+    mdxOptions: {
+      rehypePlugins: [mdxPrism, CodeTitle],
+    },
+  });
 
   return {
     props: {
