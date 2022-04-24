@@ -5,14 +5,13 @@ on:
     - cron: '0 */12 * * *'
     
 env: 
-  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+  NEXT_PUBLIC_GRAPHCMS_URL: ${{ secrets.NEXT_PUBLIC_GRAPHCMS_URL }}
 jobs:
   test:
     name: Cypress run
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-    
       - name: Setup node
         uses: luke-h1/setup-node@v2
         with:
@@ -25,7 +24,7 @@ jobs:
         run: npm i -g npm@latest
 
       - name: Install dependencies 
-        run: yarn
+        run: npm ci
 
       - name: Cypress run (prod)
-        run: yarn workspace frontend cy:prod
+        run: npm run cy:prod
