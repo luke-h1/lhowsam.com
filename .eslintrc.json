@@ -1,4 +1,3 @@
-
 {
   "parser": "@typescript-eslint/parser",
   "extends": [
@@ -14,11 +13,8 @@
   "settings": {
     "import/resolver": {
       "typescript": {
-        "project": ["src/**/tsconfig.json"]
+        "project": ["tsconfig.json"]
       }
-    },
-    "next": {
-      "rootDir": "src/frontend"
     },
     "react": {
       "version": "detect"
@@ -48,36 +44,24 @@
         "tsx": "never"
       }
     ],
-    "import/no-unresolved": [
-      "error",
-      {
-        "ignore": ["^(part|all):"]
-      }
-    ],
+    "import/no-unresolved": ["error"],
     "import/order": [
       "error",
       {
-        "groups": [[ "builtin", "external", "internal" ], "parent", "sibling", "index"],
-        "pathGroups": [
-          {
-            "pattern": "@frontend/**",
-            "group": "internal"
-          }
+        "groups": [
+          ["builtin", "external", "internal"],
+          "parent",
+          "sibling",
+          "index"
         ],
         "alphabetize": {
           "order": "asc"
         }
       }
     ],
-    "react/function-component-definition": "off",
     "import/prefer-default-export": "off",
     "no-unsafe-finally": "off",
-    "no-underscore-dangle": [
-      "error",
-      {
-        "allow": ["key", "_type", "_rev", "_id"]
-      }
-    ],
+    "no-underscore-dangle": ["error"],
     "no-use-before-define": "off",
     "react/jsx-filename-extension": [
       "error",
@@ -87,15 +71,16 @@
     ],
     "react/jsx-one-expression-per-line": "off",
     "@typescript-eslint/ban-types": "off",
+    "react/function-component-definition": "off",
     "@next/next/no-img-element": "off",
     "react/jsx-props-no-spreading": "off",
-    "jsx-a11y/anchor-is-valid": "off",
     "react/jsx-wrap-multilines": ["error", { "prop": "ignore" }],
     "react/prop-types": "off",
     "import/no-extraneous-dependencies": "off",
     "react/react-in-jsx-scope": "off",
     "react/require-default-props": "off",
     "react/state-in-constructor": "off",
+    "jsx-a11y/anchor-is-valid": "off",
     "react/no-unescaped-entities": [
       "error",
       {
