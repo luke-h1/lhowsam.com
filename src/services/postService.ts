@@ -22,7 +22,7 @@ const getPost = gql`
   }
 `;
 
-const getPostByTagGql = gql`
+const getPostByTag = gql`
   query posts($keyword: String!) {
     posts(where: { tags_some: { slug_contains: $keyword } }) {
       content
@@ -43,7 +43,7 @@ const getPostByTagGql = gql`
   }
 `;
 
-const getAllPostsGql = gql`
+const getAllPosts = gql`
   query Posts {
     posts(orderBy: id_DESC) {
       content
@@ -96,11 +96,11 @@ const postService = {
   },
 
   async getAllPosts(): Promise<Post[]> {
-    const { posts } = await cmsClient.request(getAllPostsGql);
+    const { posts } = await cmsClient.request(getAllPosts);
     return posts;
   },
   async getPostsByTag(slug: string): Promise<Post[]> {
-    const { posts } = await cmsClient.request(getPostByTagGql, {
+    const { posts } = await cmsClient.request(getPostByTag, {
       keyword: slug,
     });
     return posts;

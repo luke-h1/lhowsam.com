@@ -3,7 +3,7 @@ import { gql } from 'graphql-request';
 
 const getRecentProjects = gql`
   query Projects {
-    projects(orderBy: id_DESC, limit: 3) {
+    projects(orderBy: id_DESC, first: 3) {
       id
       title
       slug
