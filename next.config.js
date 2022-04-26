@@ -14,7 +14,6 @@ module.exports = {
   },
   images: {
     domains: ['localhost', 'media.graphcms.com', 'media.graphassets.com'],
-    formats: ['image/avif', 'image/webp'],
   },
   async redirects() {
     return [
