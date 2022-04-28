@@ -39,6 +39,7 @@ export default class MyDocument extends Document {
             `,
             }}
           />
+          <link rel="icon" href="/favicon.ico" />
           <link href="/icons/favicon-16x16.png" rel="icon" />
           <link
             rel="icon"
