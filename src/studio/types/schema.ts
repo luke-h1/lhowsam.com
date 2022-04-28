@@ -11,7 +11,6 @@ export interface Post extends Document<Post> {
   publishedAt: string;
   image: Image;
   tags: Tag[];
-  source: { compiledSource: string }; // when md is serialized
 }
 
 export interface Project extends Document<Project> {
@@ -26,7 +25,6 @@ export interface Project extends Document<Project> {
   tags: Tag[];
   siteUrl?: string;
   githubUrl: string;
-  source: { compiledSource: string }; // when md is serialized
 }
 
 export interface TechStack extends Document<TechStack> {
