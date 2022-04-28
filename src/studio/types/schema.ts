@@ -21,6 +21,7 @@ export interface Project extends Document<Project> {
   title: string;
   intro: string;
   content: string;
+  order: number;
   slug: Slug;
   tags: Tag[];
   siteUrl?: string;
