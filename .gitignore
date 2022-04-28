@@ -15,6 +15,5 @@ yarn-error.log*
 junit.xml
 tsconfig.tsbuildinfo
 .vercel
-public/sitemap.xml
-public/robots.txt
-cypress/screenshots/
+src/frontend/public/sitemap.xml
+src/frontend/public/robots.txt
