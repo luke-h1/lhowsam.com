@@ -22,10 +22,9 @@ export interface Project extends Document<Project> {
   intro: string;
   content: string;
   slug: Slug;
-  tech: string[];
+  tags: Tag[];
   siteUrl?: string;
   githubUrl: string;
-  order: number;
   source: { compiledSource: string }; // when md is serialized
 }
 

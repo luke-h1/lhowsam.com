@@ -1,7 +1,6 @@
 import components from '@src/components/Mdx';
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
-import ProjectTags from '@src/components/ProjectTags';
 import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
 import mdxPrism from 'mdx-prism';
@@ -13,6 +12,7 @@ import { useRouter } from 'next/router';
 import Headings from 'rehype-autolink-headings';
 import CodeTitle from 'rehype-code-titles';
 import { Project } from 'studio/types/schema';
+import Tags from '../../components/Tags';
 import styles from './project-slug.module.scss';
 
 interface Props {
@@ -36,10 +36,13 @@ const ProjectSlugPage = ({ project, source }: Props) => {
         }}
       />
       <PageHeader title={project.title}>
-        <ProjectTags tags={project.tech} />
+        <Tags tags={project.tags} type="projects" />
       </PageHeader>
       <article className={styles.article}>
-        <MDXRemote components={components} {...source} />
+        <MDXRemote
+          compiledSource={source.compiledSource}
+          components={components}
+        />
       </article>
     </Page>
   );
@@ -67,11 +70,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       notFound: true,
     };
   }
+
   const source = await serialize(project.content, {
     mdxOptions: {
       rehypePlugins: [mdxPrism, CodeTitle, Headings],
     },
   });
+
   return {
     props: {
       project,

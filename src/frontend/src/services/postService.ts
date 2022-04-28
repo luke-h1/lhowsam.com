@@ -46,7 +46,7 @@ const getPostQuery = groq`
 }
 `;
 
-const getPostByTagsQuery = groq`
+const getPostByTagQuery = groq`
 *[_type == "post" && $keyword in tags[]->slug.current] {
   ...,
   tags[]-> {
@@ -72,8 +72,8 @@ const postService = {
   > {
     return cmsClient.fetch(recentPostsQuery);
   },
-  async getPostsByTags(tag: string): Promise<Post[]> {
-    return cmsClient.fetch(getPostByTagsQuery, {
+  async getPostsByTag(tag: string): Promise<Post[]> {
+    return cmsClient.fetch(getPostByTagQuery, {
       keyword: tag,
     });
   },

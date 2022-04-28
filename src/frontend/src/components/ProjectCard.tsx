@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { FaGithub, FaLink } from 'react-icons/fa';
 import { Project } from 'studio/types/schema';
-import ProjectTags from './ProjectTags';
+import Tags from './Tags';
 import styles from './projectcard.module.scss';
 
 interface Props {
@@ -23,7 +23,7 @@ const ProjectCard = ({ project }: Props) => {
         </a>
       </Link>
       <div className={styles.taglist} style={{ marginBottom: '15px' }}>
-        <ProjectTags tags={project.tech} testId="project-tag" />
+        <Tags tags={project.tags} testId="project-tag" type="projects" />
       </div>
       <div className={styles.links}>
         {project.siteUrl && (

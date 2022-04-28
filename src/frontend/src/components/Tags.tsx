@@ -11,16 +11,20 @@ interface Props {
 }
 
 const Tags = ({ tags, testId, type }: Props) => {
-  if (!tags.length) return null;
+  if (!tags.length) {
+    return null;
+  }
 
   return (
     <ul className={styles.tags}>
       {tags.map(tag => (
         <li key={tag._id} data-testid={testId}>
-          {type === 'blog' && (
+          {type === 'blog' ? (
             <Link
               href={`/blog/tags/${tag.slug.current}`}
             >{`#${tag.title}`}</Link>
+          ) : (
+            <a>#{tag.title}</a>
           )}
         </li>
       ))}

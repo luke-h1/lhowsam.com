@@ -1,3 +1,4 @@
+import BlogList from '@src/components/BlogList';
 import Page from '@src/components/Page';
 import PageHeader from '@src/components/PageHeader';
 import siteConfig from '@src/config/site';
@@ -5,7 +6,6 @@ import postService from '@src/services/postService';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { Post } from 'studio/types/schema';
-import BlogList from '../../../components/BlogList';
 
 const FormattedSlug = ({ slug }: { slug: string }) => (
   <span style={{ textTransform: 'capitalize' }}>{slug.replace('-', ' ')}</span>
@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     };
   }
 
-  const posts = await postService.getPostsByTags(slug);
+  const posts = await postService.getPostsByTag(slug);
 
   return {
     props: {

@@ -7,9 +7,8 @@ import createSchema from 'part:@sanity/base/schema-creator';
 import post from './post';
 import project from './project';
 import Tag from './tag';
-import techStack from './techStack';
 
 export default createSchema({
   name: 'default',
-  types: schemaTypes.concat([post, project, techStack, Tag]),
+  types: schemaTypes.concat([post, project, Tag]),
 });

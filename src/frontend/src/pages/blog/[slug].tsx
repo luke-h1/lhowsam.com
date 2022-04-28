@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable import/no-duplicates */
 import BlogImage from '@src/components/BlogImage';
 import components from '@src/components/Mdx';
@@ -14,7 +15,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import readingTime from 'reading-time';
+import Headings from 'rehype-autolink-headings';
 import CodeTitle from 'rehype-code-titles';
 import { Post } from 'studio/types/schema';
 import styles from './blog-slug.module.scss';
@@ -60,13 +61,15 @@ const BlogSlugPage = ({ post, source }: Props) => {
             <small style={{ marginRight: '6px' }}>
               {format(parseISO(post.publishedAt), 'MMMM d, yyyy')}
             </small>
-            {readingTime(source.compiledSource).text}
           </time>{' '}
         </p>
         <Tags tags={post.tags} type="blog" />
       </PageHeader>
       <article className={styles.article}>
-        <MDXRemote components={components} {...source} />
+        <MDXRemote
+          compiledSource={source.compiledSource}
+          components={components}
+        />
       </article>
     </Page>
   );
@@ -95,10 +98,9 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       notFound: true,
     };
   }
-
   const source = await serialize(post.content, {
     mdxOptions: {
-      rehypePlugins: [mdxPrism, CodeTitle],
+      rehypePlugins: [mdxPrism, CodeTitle, Headings],
     },
   });
 

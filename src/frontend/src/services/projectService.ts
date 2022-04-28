@@ -3,7 +3,7 @@ import { Project } from 'studio/types/schema';
 import cmsClient from '../utils/sanity';
 
 const listAllProjects = groq`
-  *[ _type == "project"] | order(order asc) {
+  *[ _type == "project"] | order(order desc) {
     title,
     _id,
     intro,
@@ -12,14 +12,37 @@ const listAllProjects = groq`
     slug {
       current
     },
-    "tech": tech[]->title
-  }
+    tags[] -> {
+    title,
+    slug
+  },  
+}
+`;
+
+const listRecentProjects = groq`
+*[ _type == "project"][0...3] | order(order desc) {
+  title,
+  _id,
+  intro,
+  githubUrl,
+  siteUrl,
+  slug {
+    current
+  },
+  tags[] -> {
+    title,
+    slug
+  },  
+}
 `;
 
 const getProjectQuery = groq`
 *[ _type == "project" && slug.current == $slug][0] {
   ...,
-  "tech": tech[]->title
+  tags[] -> {
+    title,
+    slug
+  },  
 }
 `;
 
@@ -33,6 +56,9 @@ const projectService = {
     return cmsClient.fetch(getProjectQuery, {
       slug,
     });
+  },
+  async getRecentProjects(): Promise<Project[]> {
+    return cmsClient.fetch(listRecentProjects);
   },
 };
 
