@@ -1,5 +1,5 @@
 import { TagIcon } from '@sanity/icons';
-import { Document } from '../sanity';
+import { Document } from '../types/sanity';
 import { Tag as TagType } from '../types/schema';
 
 const Tag: Document<TagType> = {
