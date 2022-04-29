@@ -3097,16 +3097,16 @@
     rxjs "^6.5.3"
 
 "@sanity/desk-tool@^2.29.5":
-  version "2.29.5"
-  resolved "https://registry.yarnpkg.com/@sanity/desk-tool/-/desk-tool-2.29.5.tgz#fce65085e17b54dc1b47c9b0a04a606da794ece3"
-  integrity sha512-+147lzN0NzoyerG01Zg0SFIolb6PWtdupODhOyPz8bu86dE31aKTbxPGzqLYVtovRivb/KHGueJoVMgczWaDAQ==
+  version "2.29.7"
+  resolved "https://registry.yarnpkg.com/@sanity/desk-tool/-/desk-tool-2.29.7.tgz#389283c58c08be3aba179e731b79fe33f345b404"
+  integrity sha512-fy9MjCCVJqynRw2Ges57vWydBJAiN3JfVUrGK/fMf248iFvDqiaKaTFl4YqqKUSQpDAozwiLxMfA12C9xlidlA==
   dependencies:
     "@reach/auto-id" "^0.13.2"
     "@sanity/client" "^3.2.0"
     "@sanity/data-aspects" "2.29.3"
     "@sanity/diff" "2.29.3"
     "@sanity/field" "2.29.5"
-    "@sanity/form-builder" "2.29.5"
+    "@sanity/form-builder" "2.29.6"
     "@sanity/generate-help-url" "^3.0.0"
     "@sanity/icons" "^1.2.6"
     "@sanity/react-hooks" "2.29.5"
@@ -3178,10 +3178,10 @@
     lodash "^4.17.15"
     sanity-diff-patch "^1.0.9"
 
-"@sanity/form-builder@2.29.5":
-  version "2.29.5"
-  resolved "https://registry.yarnpkg.com/@sanity/form-builder/-/form-builder-2.29.5.tgz#0b4bdc2e5be5d9ed135111ce5427ee084e52ac40"
-  integrity sha512-2bQoYnrwIQmGVFJrxZq2BVBKDpA1y3zk3KDXjzV79CKIxpyr1c2C7YNt2NsdpEY9UbHD46GXsTfcFLtB/uZw8A==
+"@sanity/form-builder@2.29.6":
+  version "2.29.6"
+  resolved "https://registry.yarnpkg.com/@sanity/form-builder/-/form-builder-2.29.6.tgz#968834124124a5e9bafcf5491d69839a6da5ef8a"
+  integrity sha512-mPMXTjT0W91fW0peW5AYIE5NMGbxpjm5NkS/IT4qjejhzMI0M9fXWZxnb9EhFZVirDvQ7T2+RbOWzLZOpAtuRg==
   dependencies:
     "@reach/auto-id" "^0.13.2"
     "@sanity/base" "2.29.5"
