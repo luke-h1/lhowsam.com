@@ -3065,9 +3065,9 @@
     lodash "^4.17.15"
 
 "@sanity/default-layout@^2.29.5":
-  version "2.29.5"
-  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-2.29.5.tgz#02743ffe6e4191770b678e0d21c6e9c9db9f389c"
-  integrity sha512-zqni5Dp/k6faO95Ugg480Hj3IDwrfbH+Cq3L1091RSjIHkeZ+/Fc1ohlRPeGRXu6vJ9BV0wBuc2eM/6UxmHFAQ==
+  version "2.29.7"
+  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-2.29.7.tgz#7ffe57e7cea1839bf469d49cd36a83a9274e1182"
+  integrity sha512-AmvYYAQZ7WOCpa1+HUBJkGFEIUL2UXW2lu1QzXsBDcvgZVOq0iVMDCXzr7wpMdVfC9loSkudGETmwO/PIT/OAA==
   dependencies:
     "@portabletext/react" "^1.0.0"
     "@sanity/asset-utils" "^1.2.0"
