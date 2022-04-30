@@ -9,7 +9,10 @@ const recentPostsQuery = groq`
   publishedAt,
   intro,
   image {
-    alt
+    alt,
+    asset {
+      _ref
+    },
   },
   tags[] -> {
     title,
@@ -28,7 +31,10 @@ const listAllPosts = groq`
     intro,
     publishedAt,
     image {
-      alt
+      alt,
+      asset {
+      _ref
+     },
     },
     tags[]-> {
       title,
@@ -44,8 +50,11 @@ const getPostQuery = groq`
 *[ _type == "post" && slug.current == $slug][0] {
   ...,
   image {
-    alt
-  }
+    alt,
+    asset {
+      _ref
+    },
+  },
   tags[]-> {
     title,
     slug
@@ -57,8 +66,11 @@ const getPostByTagQuery = groq`
 *[_type == "post" && $keyword in tags[]->slug.current] {
   ...,
   image {
-    alt
-  }
+    alt,
+    asset {
+      _ref
+    },
+  },
   tags[]-> {
   title,
     slug
@@ -73,7 +85,7 @@ const postService = {
     });
   },
   async getAllPosts(): Promise<
-    Pick<Post, 'title' | '_id' | 'content' | 'publishedAt' | 'slug'>[]
+    Pick<Post, 'title' | '_id' | 'content' | 'publishedAt' | 'slug' | 'image'>[]
   > {
     return cmsClient.fetch(listAllPosts);
   },
