@@ -28,7 +28,7 @@ const ProjectCard = ({ project }: Props) => {
       <div className={styles.links}>
         {project.siteUrl && (
           <a href={project.siteUrl} className={styles.link}>
-            <FaLink />
+            <FaLink aria-label="Deployed site link" />
           </a>
         )}
         {project.githubUrl && (
@@ -37,7 +37,7 @@ const ProjectCard = ({ project }: Props) => {
             className={styles.link}
             data-testid="project-github"
           >
-            <FaGithub />
+            <FaGithub aria-label="Github" />
           </a>
         )}
       </div>
