@@ -3,7 +3,6 @@ import * as gtag from '@src/utils/gtag';
 import '@src/styles/global.scss';
 import '@src/styles/prism.css';
 import { DefaultSeo } from 'next-seo';
-import { ThemeProvider } from 'next-themes';
 import '@fontsource/ibm-plex-sans';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -22,7 +21,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
     };
   }, [router.events]);
   return (
-    <ThemeProvider defaultTheme="system">
+    <>
       <DefaultSeo
         titleTemplate="%s | lhowsam.com"
         title="lhowsam.com"
@@ -55,11 +54,9 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <PageTransition>
-        {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-        {/* @ts-ignore */}
         <Component {...pageProps} />
       </PageTransition>
-    </ThemeProvider>
+    </>
   );
 };
 export default App;
