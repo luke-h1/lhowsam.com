@@ -24,5 +24,4 @@ describe('blog page should work', () => {
       })
     }
   })
-
 });
