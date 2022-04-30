@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
+import * as mdx from '@mdx-js/react';
 import Link from 'next/link';
 import CustomImage from './Image';
 
@@ -18,7 +19,7 @@ export const CustomLink = (props: any) => {
   return <a target="_blank" rel="noopener noreferrer" {...props} />;
 };
 
-const components = {
+const components: React.ComponentProps<typeof mdx.MDXProvider>['components'] = {
   a: CustomLink,
   Image: CustomImage,
   Link: CustomLink,
