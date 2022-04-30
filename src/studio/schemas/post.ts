@@ -1,6 +1,8 @@
 import { DocumentIcon } from '@sanity/icons';
 import { Document } from '../types/sanity';
 import { Post } from '../types/schema';
+import altField from './fields/altField';
+import slugField from './fields/slugField';
 
 const post: Document<Post> = {
   name: 'post',
@@ -14,15 +16,11 @@ const post: Document<Post> = {
       type: 'string',
       validation: rule => rule.required(),
     },
-    {
-      name: 'slug',
+    slugField({
       title: 'Slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-      },
-      validation: rule => rule.required(),
-    },
+      name: 'slug',
+      source: 'title',
+    }),
     {
       name: 'intro',
       title: 'Intro',
@@ -45,6 +43,7 @@ const post: Document<Post> = {
       options: {
         hotspot: true,
       },
+      fields: [altField()],
       validation: rule => rule.required(),
     },
     {

@@ -51,7 +51,7 @@ const BlogSlugPage = ({ post, source }: Props) => {
       />
       <BlogImage
         src={imageService.urlFor(post.image.asset)}
-        alt={post.title}
+        alt={post.image.alt ?? post.title}
         className={styles.image}
       />
       <PageHeader title={post.title} compact>
