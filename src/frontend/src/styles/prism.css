@@ -1,3 +1,5 @@
+pre,
+code,
 pre[class*='language-'],
 code[class*='language-'] {
   color: #d4d4d4;
@@ -19,7 +21,8 @@ code[class*='language-'] {
   -ms-hyphens: none;
   hyphens: none;
 }
-
+pre::selection,
+code::selection,
 pre[class*='language-']::selection,
 code[class*='language-']::selection,
 pre[class*='language-'] *::selection,
@@ -42,10 +45,11 @@ pre[class*='language-'] {
   background: #1e1e1e;
 }
 
-:not(pre) > code[class*='language-'] {
+:not(pre) > code[class*='language-'],
+code {
   padding: 0.1em 0.3em;
   border-radius: 0.3em;
-  color: #db4c69;
+  color: #fff;
   background: #1e1e1e;
 }
 /*********************************************************
@@ -264,6 +268,8 @@ code[class*='language-html'] {
 /*********************************************************
 * Line highlighting
 */
+pre,
+code,
 pre[class*='language-'] > code[class*='language-'] {
   position: relative;
   z-index: 1;

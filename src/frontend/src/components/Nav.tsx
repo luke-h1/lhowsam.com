@@ -7,7 +7,6 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { BiMenuAltRight } from 'react-icons/bi';
 import { FiCode } from 'react-icons/fi';
 import { useMounted } from '../hooks/useMounted';
-import ThemeChanger from './ThemeChanger';
 import classes from './nav.module.scss';
 
 const Nav = () => {
@@ -80,7 +79,6 @@ const Nav = () => {
               </Link>
             </li>
           </ul>
-          {!isServer() && <ThemeChanger />}
         </nav>
 
         <div className={classes.header__content__toggle}>
