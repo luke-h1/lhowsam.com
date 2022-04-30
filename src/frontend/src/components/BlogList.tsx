@@ -20,7 +20,7 @@ const BlogList = ({ posts }: Props) => {
               <a aria-label={post.title}>
                 <BlogImage
                   src={imageService.urlFor(post.image.asset)}
-                  alt={`cover image for ${post.title}`}
+                  alt={post.image.alt ?? post.title}
                 />
               </a>
             </Link>

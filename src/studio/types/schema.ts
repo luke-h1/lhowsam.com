@@ -26,14 +26,6 @@ export interface Project extends Document<Project> {
   siteUrl?: string;
   githubUrl: string;
 }
-
-export interface TechStack extends Document<TechStack> {
-  _id: string;
-  _type: 'techStack';
-  key: string;
-  title: string;
-}
-
 export interface Tag extends Document<Tag> {
   _id: string;
   _type: 'tag';
