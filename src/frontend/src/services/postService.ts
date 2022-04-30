@@ -8,7 +8,9 @@ const recentPostsQuery = groq`
   title,
   publishedAt,
   intro,
-  image,
+  image {
+    alt
+  },
   tags[] -> {
     title,
     slug
@@ -25,7 +27,9 @@ const listAllPosts = groq`
     _id,
     intro,
     publishedAt,
-    image,
+    image {
+      alt
+    },
     tags[]-> {
       title,
       slug
@@ -39,6 +43,9 @@ const listAllPosts = groq`
 const getPostQuery = groq`
 *[ _type == "post" && slug.current == $slug][0] {
   ...,
+  image {
+    alt
+  }
   tags[]-> {
     title,
     slug
@@ -49,6 +56,9 @@ const getPostQuery = groq`
 const getPostByTagQuery = groq`
 *[_type == "post" && $keyword in tags[]->slug.current] {
   ...,
+  image {
+    alt
+  }
   tags[]-> {
   title,
     slug

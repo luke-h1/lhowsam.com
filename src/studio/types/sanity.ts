@@ -67,6 +67,7 @@ export type TextField<Name extends string = string> = CommonFieldProps & {
   name: Name;
   type: 'text';
   rows?: number;
+  initialValue?: string;
 };
 
 export type BooleanField<Name extends string = string> = CommonFieldProps & {
@@ -155,11 +156,16 @@ type ReferenceField<Name extends string = string> = CommonFieldProps & {
   };
 };
 
-type ImageField<Name extends string = string> = CommonFieldProps & {
+type ImageField<
+  Name extends string = string,
+  Schema extends Record<string, any> = Record<string, any>,
+> = CommonFieldProps & {
   name: Name;
   type: 'image';
+  fields?: FieldCollection<keyof Schema extends string ? keyof Schema : never>;
   options?: {
     hotspot?: boolean;
+    accept?: string;
   };
 };
 
