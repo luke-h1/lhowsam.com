@@ -1,7 +1,6 @@
 import { DocumentIcon } from '@sanity/icons';
 import { Document } from '../types/sanity';
 import { Project } from '../types/schema';
-import slugField from './fields/slugField';
 
 const project: Document<Project> = {
   name: 'project',
@@ -15,11 +14,15 @@ const project: Document<Project> = {
       type: 'string',
       validation: rule => rule.required(),
     },
-    slugField({
-      title: 'Slug',
+    {
       name: 'slug',
-      source: 'title',
-    }),
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+      },
+      validation: rule => rule.required(),
+    },
     {
       name: 'intro',
       title: 'Intro',
