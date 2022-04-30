@@ -24,7 +24,7 @@ const Tags = ({ tags, testId, type }: Props) => {
               href={`/blog/tags/${tag.slug.current}`}
             >{`#${tag.title}`}</Link>
           ) : (
-            <a>#{tag.title}</a>
+            <span>#{tag.title}</span>
           )}
         </li>
       ))}
