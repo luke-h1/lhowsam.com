@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { isServer } from '@src/hooks/isServer';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
@@ -48,7 +47,7 @@ const Nav = () => {
     <header className={classes.header}>
       <div className={classes.header__content}>
         <Link href="/">
-          <a className={classes.header__content__logo}>
+          <a className={classes.header__content__logo} aria-label="home">
             <FiCode />
           </a>
         </Link>
