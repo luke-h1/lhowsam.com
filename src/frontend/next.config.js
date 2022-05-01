@@ -2,7 +2,9 @@
  * @type {import('next').NextConfig}
  */
 
-module.exports = {
+const withTranspileModules = require('next-transpile-modules');
+
+const nextConfig = {
   swcMinify: true,
   reactStrictMode: true,
   eslint: {
@@ -30,3 +32,5 @@ module.exports = {
     ];
   },
 };
+
+module.exports = withTranspileModules(['studio'])(nextConfig);
