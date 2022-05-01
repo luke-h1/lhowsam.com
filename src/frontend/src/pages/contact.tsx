@@ -20,10 +20,7 @@ const Contact = () => {
           title: `Contact | lhowsam.com`,
         }}
       />
-      <PageHeader
-        title="Contact"
-        description="Although I'm not currently looking for any new opportunities, my inbox is always open"
-      >
+      <PageHeader title="Contact" description="Get in touch">
         <p>There are a few ways you can get in touch:</p>
         <ul className={styles.list}>
           <li>
