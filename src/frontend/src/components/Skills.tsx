@@ -14,6 +14,7 @@ import {
   SiCss3,
   SiStyledcomponents as SiStyledComponents,
   SiTypescript,
+  SiPostgresql,
 } from 'react-icons/si';
 import SkillItem from './SkillItem';
 import styles from './skills.module.scss';
@@ -27,6 +28,7 @@ const Skills = () => {
       <SkillItem icon={SiNextDotJs} text="Next.js" />
       <SkillItem icon={SiNodeDotJs} text="Node.js" />
       <SkillItem icon={SiGraphql} text="GraphQL" />
+      <SkillItem icon={SiPostgresql} text="SQL" />
       <SkillItem icon={SiPython} text="Python" />
       <SkillItem icon={SiDjango} text="Django" />
       <SkillItem icon={SiCss3} text="CSS, SCSS" />
