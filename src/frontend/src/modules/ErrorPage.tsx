@@ -24,9 +24,10 @@ const ErrorPage = ({ statusCode }: Props) => {
               In the meantime, feel free to create a{' '}
               <a
                 href="https://github.com/luke-h1/lhowsam.com"
-                style={{ color: '#3867d6;' }}
+                rel="noopener noreferrer"
               >
-                PR{' '}
+                {' '}
+                PR
               </a>
               for this site if you spot a bug or mistake
             </p>
