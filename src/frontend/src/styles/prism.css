@@ -52,6 +52,10 @@ code {
   color: #fff;
   background: #1e1e1e;
 }
+:not(pre) > code {
+  padding: 0.1em 0.3em;
+}
+
 /*********************************************************
 * Tokens
 */
