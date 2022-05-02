@@ -1,5 +1,3 @@
-/* eslint-disable no-param-reassign */
-/* eslint-disable import/no-duplicates */
 import BlogImage from '@src/components/BlogImage';
 import components from '@src/components/Mdx';
 import Page from '@src/components/Page';
