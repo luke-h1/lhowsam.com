@@ -51,7 +51,7 @@
     "next-mdx-remote": "^4.0.3",
     "next-seo": "^5.4.0",
     "next-sitemap": "^2.5.20",
-    "next-themes": "^0.0.15",
+    "next-themes": "^0.2.0",
     "next-transpile-modules": "^9.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
