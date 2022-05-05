@@ -2,6 +2,14 @@ import groq from 'groq';
 import { Post } from 'studio/types/schema';
 import cmsClient from '../utils/sanity';
 
+const slugsQuery = groq`
+*[_type == "post"] {
+  slug {
+    current
+  },
+}
+`;
+
 const recentPostsQuery = groq`
 *[ _type == "post"][0...3] | order(publishedAt desc) {
   _id,
@@ -79,6 +87,9 @@ const getPostByTagQuery = groq`
 `;
 
 const postService = {
+  async getSlugs(): Promise<Post[]> {
+    return cmsClient.fetch(slugsQuery);
+  },
   async getPost(slug: string): Promise<Post> {
     return cmsClient.fetch(getPostQuery, {
       slug,
