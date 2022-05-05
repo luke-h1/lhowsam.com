@@ -2,6 +2,14 @@ import groq from 'groq';
 import { Project } from 'studio/types/schema';
 import cmsClient from '../utils/sanity';
 
+const slugsQuery = groq`
+*[_type == "project"] {
+  slug {
+    current
+  }
+}
+`;
+
 const listAllProjects = groq`
   *[ _type == "project"] | order(order asc) {
     title,
@@ -59,6 +67,9 @@ const projectService = {
   },
   async getRecentProjects(): Promise<Project[]> {
     return cmsClient.fetch(listRecentProjects);
+  },
+  async getSlugs(): Promise<Project[]> {
+    return cmsClient.fetch(slugsQuery);
   },
 };
 
