@@ -41,8 +41,10 @@
     "@sanity/cli": "^2.29.5",
     "@types/validator": "^13.7.1"
   },
-  "nohoist": [
-    "@sanity/**",
-    "sanity-*"
-  ]
+  "workspaces": {
+    "nohoist": [
+      "@sanity/**",
+      "sanity-*"
+    ]
+  }
 }
