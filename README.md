@@ -19,6 +19,13 @@ My website & blog
 
 [![CI / build](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml)
 
+
+## environments
+[staging](https://lhowsam-staging.vercel.app)
+
+[production](https://lhowsam.com)
+
+
 ## Inspirations
  - [leerob](https://github.com/leerob)
  - [mxstbr](https://github.com/mxstbr/mxstbr.com)
