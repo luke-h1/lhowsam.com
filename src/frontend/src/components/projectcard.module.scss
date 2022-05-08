@@ -86,10 +86,10 @@
 .link {
   display: inline-flex;
   align-items: center;
-  color: var(--brand);
   font-weight: 400;
   font-size: 16px;
   transition: color 200ms ease-out;
+  color: #fff;
 
   @media (min-width: 480px) {
     font-size: 18px;
