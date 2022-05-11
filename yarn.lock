@@ -3127,13 +3127,13 @@
     lodash "^4.17.15"
 
 "@sanity/default-layout@^2.29.5":
-  version "2.29.8"
-  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-2.29.8.tgz#379b8abc1dd918220755a7e99f31da46ec19c0bf"
-  integrity sha512-GYEFVgJo0iVDeGSJcA54Xzuj28r7HnDX+dgvEK2oFNp4a5yBrk29YslHT7F5rsUoJCeGfQI1R/LRkMYoDDoIGA==
+  version "2.30.0"
+  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-2.30.0.tgz#640f90ac4a6bb1e77b7b3b576b054176adc455d3"
+  integrity sha512-wNNa0LD9plkETMKfFJRBTCuAve3a8kr7/mhbiXMULYLQpCVD77DL6/FXVPG5jKKGodN4oCGiIhcRFBUYP0xANQ==
   dependencies:
     "@portabletext/react" "^1.0.0"
     "@sanity/asset-utils" "^1.2.0"
-    "@sanity/base" "2.29.8"
+    "@sanity/base" "2.30.0"
     "@sanity/client" "^3.2.0"
     "@sanity/generate-help-url" "^3.0.0"
     "@sanity/icons" "^1.2.6"
