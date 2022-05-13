@@ -35,7 +35,7 @@ const project: Document<Project> = {
       name: 'content',
       title: 'Content',
       type: 'markdown',
-      description: 'long content of project post',
+      description: 'Content of project post',
       validation: rule => rule.required(),
     },
     {

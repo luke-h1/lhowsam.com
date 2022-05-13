@@ -12,7 +12,7 @@ const Tag: Document<TagType> = {
       name: 'title',
       title: 'Title',
       type: 'string',
-      description: 'Tag description (i.e. next.js, React etc.)',
+      description: 'Tag title (i.e. Next.js, React etc.)',
       validation: rule => rule.required(),
     },
     {
