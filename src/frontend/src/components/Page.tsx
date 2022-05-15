@@ -15,6 +15,7 @@ const footerLinks = [
   { name: 'GitHub', url: 'https://github.com/luke-h1' },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/lukehowsam/' },
   { name: 'Blog', url: '/blog' },
+  { name: 'Projects', url: '/projects' },
 ];
 
 const Page = ({ children }: PageProps) => {
