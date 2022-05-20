@@ -16753,10 +16753,10 @@ sanity-plugin-order-documents@^0.0.22:
     react-select "^5.2.1"
     react-tippy "^1.4.0"
 
-sass@1.50.0:
-  version "1.50.0"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.50.0.tgz#3e407e2ebc53b12f1e35ce45efb226ea6063c7c8"
-  integrity sha512-cLsD6MEZ5URXHStxApajEh7gW189kkjn4Rc8DQweMyF+o5HF5nfEz8QYLMlPsTOD88DknatTmBWkOcw5/LnJLQ==
+sass@1.52.0:
+  version "1.52.0"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.52.0.tgz#3dc755ff459858ce7062887181648701f028c4f5"
+  integrity sha512-6EnTglag2oVD8sNJCxUi2Jd3ICH9tJ5Mqudt/gIZNBR2uKJUBZuTpW9O1t04SkDLP7VFa76FCWTV2rwchqM8Kw==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
