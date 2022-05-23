@@ -13253,9 +13253,9 @@ next-seo@^5.4.0:
   integrity sha512-R9DhajPwJnR/lsF2hZ8cN8uqr5CVITsRrCG1AF5+ufcaybKYOvnH8sH9MaH4/hpkps3PQ9H71S7J7SPYixAYzQ==
 
 next-sitemap@^2.5.20:
-  version "2.5.23"
-  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.5.23.tgz#fbe408ed835911d604a41861e3c46a366a00ebf5"
-  integrity sha512-2MxuYsghAMULZIysC3cwecVceL5eCDlDqiHaOnB+OSiFV7B+0t+xKZJ93nHpJlj+Gcs8NAs1I7fRWKEddMZkZA==
+  version "2.5.24"
+  resolved "https://registry.yarnpkg.com/next-sitemap/-/next-sitemap-2.5.24.tgz#d408a6d8117f0bafaa136da00a2a799de0b0ddd9"
+  integrity sha512-0VxakyucWKS5DfJjQhBtKRPcoAIFdQUwhchhp80yt+XW51Pv97w7Nrs1NyCAxpKyAPszs9KCzGlEeHXyT+wJFA==
   dependencies:
     "@corex/deepmerge" "^2.6.148"
     minimist "^1.2.6"
