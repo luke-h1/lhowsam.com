@@ -5,6 +5,10 @@
 const withTranspileModules = require('next-transpile-modules');
 
 const nextConfig = {
+  experimental: {
+    legacyBrowsers: false,
+    browsersListForSwc: true,
+  },
   swcMinify: true,
   reactStrictMode: true,
   eslint: {
