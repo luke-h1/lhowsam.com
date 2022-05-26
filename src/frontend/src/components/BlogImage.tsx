@@ -10,7 +10,10 @@ interface BlogImageProps {
 
 const BlogImage = ({ src, alt, className }: BlogImageProps) => {
   return (
-    <span className={classNames(styles.wrapper, className)}>
+    <span
+      className={classNames(styles.wrapper, className)}
+      data-testid="blog-image"
+    >
       <Image
         src={src}
         blurDataURL={src}
