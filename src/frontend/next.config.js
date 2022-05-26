@@ -35,6 +35,22 @@ const nextConfig = {
       },
     ];
   },
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  webpack: (config, { dev, isServer, ...options }) => {
+    if (process.env.ANALYZE) {
+      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+      config.plugins.push(
+        new BundleAnalyzerPlugin({
+          analyzerMode: 'static',
+          reportFilename: options.isServer
+            ? '../analyze/server.html'
+            : '../analyze/client.html',
+        }),
+      );
+    }
+    return config;
+  },
 };
 
 module.exports = withTranspileModules(['studio'])(nextConfig);
