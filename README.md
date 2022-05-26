@@ -19,6 +19,8 @@ My website & blog
 
 [![CI / build](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml)
 
+[![Analyze Bundle](https://github.com/luke-h1/lhowsam.com/actions/workflows/analyze.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/analyze.yml)
+
 ## Inspirations
  - [leerob](https://github.com/leerob)
  - [mxstbr](https://github.com/mxstbr/mxstbr.com)
