@@ -14,11 +14,8 @@
   "settings": {
     "import/resolver": {
       "typescript": {
-        "project": ["src/*/tsconfig.json"]
+        "project": ["tsconfig.json"]
       }
-    },
-    "next": {
-      "rootDir": "src/frontend"
     },
     "react": {
       "version": "detect"
