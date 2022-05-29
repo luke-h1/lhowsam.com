@@ -24,7 +24,7 @@ jobs:
         run: npm i -g npm@latest
 
       - name: Install dependencies 
-        run: yarn
+        run: npm ci
 
       - name: Cypress run (local)
-        run: yarn workspace frontend cy:ci
+        run: npm run cy:ci
