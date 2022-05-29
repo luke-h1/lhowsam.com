@@ -109,7 +109,17 @@
     "showDetails": true
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,jsx,ts,tsx,css,scss,html}": "prettier --write"
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix --quiet"
+    ],
+    "*.{js,jsx,ts,tsx,css,scss,html}": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "defaultScope": "global"
+    }
   }
 }
