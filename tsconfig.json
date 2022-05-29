@@ -13,19 +13,21 @@
     "strictNullChecks": true,
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
-    "baseUrl": "./",
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "DOM.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "DOM.iterable", "esnext"],
     "skipLibCheck": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "sourceMap": true,
     "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"]
+    },
+    "incremental": true,
+    "target": "es5"
   },
-  "exclude": ["node_modules"],
+  "include": ["src", "next-env.d.ts"],
+  "exclude": ["node_modules", ".next"]
 }

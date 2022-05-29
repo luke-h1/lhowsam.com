@@ -24,19 +24,19 @@ jobs:
         run: npm i -g npm@latest
 
       - name: Install dependencies
-        run: yarn
+        run: npm ci
 
       - name: format
-        run: yarn format
+        run: npm run format
 
       - name: lint
-        run: yarn lint
+        run: npm run lint
 
       - name: jest
-        run: yarn test
+        run: npm run test
 
       - name: tsc
-        run: yarn tsc
+        run: npm run tsc
 
       - name: build
-        run: yarn build
+        run: npm run build
