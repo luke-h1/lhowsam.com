@@ -53,17 +53,16 @@
     "next": "^12.1.5",
     "next-mdx-remote": "^4.0.3",
     "next-seo": "^5.4.0",
-    "next-sitemap": "^2.5.20",
+    "next-sitemap": "^2.5.28",
     "next-transpile-modules": "^9.0.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
-    "react-spring": "^9.4.4",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-code-titles": "^1.0.3",
     "rehype-parse": "^8.0.4",
     "rehype-slug": "^5.0.1",
     "sass": "1.52.1",
-    "sharp": "^0.30.1",
+    "sharp": "^0.30.6",
     "stylelint": "^14.5.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
@@ -92,7 +91,7 @@
     "eslint-plugin-react": "^7.27.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "8.0.1",
-    "lint-staged": "12.4.2",
+    "lint-staged": "12.4.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.0.2",
     "jest-environment-jsdom": "^28.0.2",
@@ -110,7 +109,17 @@
     "showDetails": true
   },
   "lint-staged": {
-    "*.js": "eslint --cache --fix",
-    "*.{js,jsx,ts,tsx,css,scss,html}": "prettier --write"
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix --quiet"
+    ],
+    "*.{js,jsx,ts,tsx,css,scss,html}": [
+      "prettier --write"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog",
+      "defaultScope": "global"
+    }
   }
 }
