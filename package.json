@@ -28,7 +28,7 @@
     "@fontsource/ibm-plex-sans": "^4.5.7",
     "@mapbox/rehype-prism": "^0.8.0",
     "@next/eslint-plugin-next": "^12.1.5",
-    "@sanity/client": "^3.2.2",
+    "@sanity/client": "^3.3.1",
     "@sanity/image-url": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.27.0",
