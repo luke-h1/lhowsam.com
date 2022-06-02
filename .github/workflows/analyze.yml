@@ -6,6 +6,9 @@ on:
     branches:
       - dev
   workflow_dispatch:
+  pull_request_target: 
+    branches:
+      - dev
 env:
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
 
