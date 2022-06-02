@@ -2,11 +2,13 @@ name: Analyze Bundle
 
 on:
   pull_request:
+  push:
     branches:
       - dev
-  push:
-
   workflow_dispatch:
+  pull_request_target: 
+    branches:
+      - dev
 env:
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
 
@@ -26,7 +28,7 @@ jobs:
         run: npm i -g npm@latest
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn
 
       - name: Build next.js app
         run: npm run build
