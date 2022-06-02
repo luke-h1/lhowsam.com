@@ -3,11 +3,10 @@ name: Analyze Bundle (Comment)
 on:
   workflow_run:
     workflows: ["Analyze Bundle"]
-    types:
-      - completed 
-  pull_request_target: 
     branches:
       - dev
+    types:
+      - completed 
 
 jobs:
   comment:
