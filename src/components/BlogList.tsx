@@ -1,7 +1,7 @@
 import imageService from '@src/services/imageService';
+import { Post } from '@src/types/sanity';
 import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
-import { Post } from '@src/types/sanity';
 import BlogImage from './BlogImage';
 import Tags from './Tags';
 import styles from './bloglist.module.scss';

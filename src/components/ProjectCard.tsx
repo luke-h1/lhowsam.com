@@ -1,6 +1,6 @@
+import { Project } from '@src/types/sanity';
 import Link from 'next/link';
 import { FaGithub, FaLink } from 'react-icons/fa';
-import { Project } from '@src/types/sanity';
 import Tags from './Tags';
 import styles from './projectcard.module.scss';
 
