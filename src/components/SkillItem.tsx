@@ -4,12 +4,13 @@ import styles from './Skillitem.module.scss';
 interface Props {
   icon: IconType;
   text: string;
+  testId?: string;
 }
 
-const SkillItem = ({ icon, text }: Props) => {
+const SkillItem = ({ icon, text, testId }: Props) => {
   return (
     <li>
-      <span className={styles.bg}>
+      <span className={styles.bg} data-testid={testId}>
         {icon({
           className: styles.skillIcon,
           fill: '#000',
