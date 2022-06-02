@@ -4,7 +4,10 @@ on:
   workflow_run:
     workflows: ["Analyze Bundle"]
     types:
-      - completed
+      - completed 
+  pull_request_target: 
+    branches:
+      - dev
 
 jobs:
   comment:
