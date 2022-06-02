@@ -1,6 +1,9 @@
 name: Analyze Bundle (Comment)
 
 on:
+  push:
+    branches:
+      - dev
   workflow_run:
     workflows: ["Analyze Bundle"]
     branches:
