@@ -28,7 +28,7 @@ jobs:
         run: npm i -g npm@latest
 
       - name: Install dependencies
-        run: yarn
+        run: npm ci
 
       - name: Build next.js app
         run: npm run build
