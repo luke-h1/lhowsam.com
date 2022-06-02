@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import Link from 'next/link';
 import { Tag } from '@src/types/sanity';
+import Link from 'next/link';
 import styles from './tags.module.scss';
 
 interface Props {
@@ -21,6 +21,7 @@ const Tags = ({ tags, testId, type }: Props) => {
         <li key={tag._id} data-testid={testId}>
           {type === 'blog' ? (
             <Link
+              data-testid={`${tag.slug.current}-tag`}
               href={`/blog/tags/${tag.slug.current}`}
             >{`#${tag.title}`}</Link>
           ) : (
