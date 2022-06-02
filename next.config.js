@@ -3,11 +3,7 @@
  */
 
 const nextConfig = {
-  experimental: {
-    legacyBrowsers: false,
-    browsersListForSwc: true,
-  },
-  swcMinify: true,
+  swcMinify: false,
   reactStrictMode: true,
   eslint: {
     ignoreDuringBuilds: true,
