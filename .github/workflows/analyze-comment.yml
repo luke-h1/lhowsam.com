@@ -3,10 +3,8 @@ name: Analyze Bundle (Comment)
 on:
   workflow_run:
     workflows: ["Analyze Bundle"]
-    branches:
-      - dev
     types:
-      - completed 
+      - completed
 
 jobs:
   comment:

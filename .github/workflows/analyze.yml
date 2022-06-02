@@ -2,11 +2,13 @@ name: Analyze Bundle
 
 on:
   pull_request:
+  push:
     branches:
       - dev
-  push:
-
   workflow_dispatch:
+  pull_request_target: 
+    branches-ignore: 
+      - main
 env:
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
 
