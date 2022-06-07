@@ -99,7 +99,7 @@
     "jest": "^28.0.2",
     "jest-environment-jsdom": "^28.1.1",
     "jest-junit": "^13.1.0",
-    "jest-resolve": "^28.0.3",
+    "jest-resolve": "^28.1.1",
     "jest-serializer-html": "^7.1.0",
     "jest-watch-typeahead": "^1.0.0",
     "lint-staged": "13.0.0",
