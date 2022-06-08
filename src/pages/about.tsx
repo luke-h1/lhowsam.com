@@ -32,11 +32,11 @@ const AboutPage = () => {
 
       <div className={styles.text}>
         <h1>
-          Hey 👋, I'm Luke. I'm a software engineer currently based in
+          Hey 👋, I'm Luke. I'm a Software Engineer currently based in
           Sheffield, UK
         </h1>
         <p>
-          Right now, I'm working as a software engineer. I'm comfortable with
+          Right now, I'm working as a Software Engineer. I'm comfortable with
           both frontend (React, Node, GraphQL, Next.js etc.) & devops tech
           stacks (Azure, AWS, digitalocean, Ansible etc.), and I'm always keen
           to keep up with industry trends and new technologies
