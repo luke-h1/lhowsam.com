@@ -32,15 +32,14 @@ const AboutPage = () => {
 
       <div className={styles.text}>
         <h1>
-          Hey 👋, I'm Luke. I'm a software tester & developer currently based in
+          Hey 👋, I'm Luke. I'm a software engineer currently based in
           Sheffield, UK
         </h1>
         <p>
-          Right now, I'm working as a software tester, doing automated + manual
-          testing on web & mobile applications. I'm comfortable with both
-          frontend (React, Node, Next.js etc.) & devops tech stacks (Azure, AWS,
-          digitalocean, Ansible etc.), and I'm always keen to keep up with
-          industry trends and new technologies
+          Right now, I'm working as a software engineer. I'm comfortable with
+          both frontend (React, Node, GraphQL, Next.js etc.) & devops tech
+          stacks (Azure, AWS, digitalocean, Ansible etc.), and I'm always keen
+          to keep up with industry trends and new technologies
         </p>
 
         <p>In my spare time I love to travel, read, and code</p>

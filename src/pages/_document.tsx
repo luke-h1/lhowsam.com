@@ -4,7 +4,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document';
 const keywords = [
   'Luke Howsam',
   'Developer',
-  'Software Tester',
+  'Software developer',
   'React',
   'Node',
   'Typescript',
@@ -66,7 +66,7 @@ export default class MyDocument extends Document {
           />
           <meta
             name="description"
-            content="Luke Howsam is a QA engineer and software developer who specializes in Javascript, Typescript, GraphQL, cloud technologies & automated + manual testing"
+            content="Luke Howsam is a software engineer and software developer who specializes in Javascript, Typescript, GraphQL, cloud technologies & automated + manual testing"
           />
         </Head>
         <body>
