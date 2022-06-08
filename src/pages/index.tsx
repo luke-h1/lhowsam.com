@@ -34,7 +34,7 @@ const Home = ({ projects }: Props) => {
         title="Hey, I'm Luke"
         description="I currently work as a Software Engineer. I like building projects that are scalable, performant & user friendly."
       >
-        g<Button href="/about">More about me</Button>
+        <Button href="/about">More about me</Button>
       </PageHeader>
       <ButtonGroup>
         <Button href="/static/resume.pdf">Resume</Button>
