@@ -3,7 +3,6 @@ node_modules
 !.env.example
 .next
 build
-public
 # misc
 .DS_Store
 *.pem
@@ -15,7 +14,7 @@ yarn-error.log*
 junit.xml
 tsconfig.tsbuildinfo
 .vercel
-src/frontend/public/sitemap.xml
-src/frontend/public/robots.txt
+sitemap.xml
+robots.txt
 analyze/
 .eslintcache
