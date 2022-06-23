@@ -65,7 +65,7 @@
     "rehype-parse": "^8.0.4",
     "rehype-slug": "^5.0.1",
     "sass": "1.52.2",
-    "sharp": "^0.30.6",
+    "sharp": "^0.30.7",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
