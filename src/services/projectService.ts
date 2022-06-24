@@ -12,11 +12,7 @@ const slugsQuery = groq`
 
 const listAllProjects = groq`
   *[ _type == "project"] | order(order asc) {
-    title,
-    _id,
-    intro,
-    githubUrl,
-    siteUrl,
+    ...,
     slug {
       current
     },
@@ -29,14 +25,7 @@ const listAllProjects = groq`
 
 const listRecentProjects = groq`
 *[ _type == "project"][1...4] | order(order asc) {
-  title,
-  _id,
-  intro,
-  githubUrl,
-  siteUrl,
-  slug {
-    current
-  },
+  ...,
   tags[] -> {
     title,
     slug
@@ -55,9 +44,7 @@ const getProjectQuery = groq`
 `;
 
 const projectService = {
-  async getAllProjects(): Promise<
-    Pick<Project, 'title' | '_id' | 'siteUrl' | 'githubUrl' | 'slug'>[]
-  > {
+  async getAllProjects(): Promise<Project[]> {
     return cmsClient.fetch(listAllProjects);
   },
   async getProject(slug: string): Promise<Project> {

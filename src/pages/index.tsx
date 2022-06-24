@@ -54,7 +54,7 @@ const Home = ({ projects }: Props) => {
 };
 export default Home;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const projects = await projectService.getRecentProjects();
 
   return {

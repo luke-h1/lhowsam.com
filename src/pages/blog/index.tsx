@@ -71,7 +71,7 @@ const BlogIndexPage = ({ posts }: Props) => {
 };
 export default BlogIndexPage;
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const posts = await postService.getAllPosts();
 
   return {

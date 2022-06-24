@@ -12,10 +12,7 @@ const slugsQuery = groq`
 
 const recentPostsQuery = groq`
 *[ _type == "post"][0...3] | order(publishedAt desc) {
-  _id,
-  title,
-  publishedAt,
-  intro,
+  ...,
   image {
     alt,
     asset {
@@ -34,10 +31,7 @@ const recentPostsQuery = groq`
 
 const listAllPosts = groq`
   *[ _type == "post"] | order(publishedAt desc) {
-    title,
-    _id,
-    intro,
-    publishedAt,
+    ...,
     image {
       alt,
       asset {
@@ -95,14 +89,10 @@ const postService = {
       slug,
     });
   },
-  async getAllPosts(): Promise<
-    Pick<Post, 'title' | '_id' | 'content' | 'publishedAt' | 'slug' | 'image'>[]
-  > {
+  async getAllPosts(): Promise<Post[]> {
     return cmsClient.fetch(listAllPosts);
   },
-  async getRecentPosts(): Promise<
-    Pick<Post, 'title' | 'publishedAt' | 'content' | 'slug'>[]
-  > {
+  async getRecentPosts(): Promise<Post[]> {
     return cmsClient.fetch(recentPostsQuery);
   },
   async getPostsByTag(tag: string): Promise<Post[]> {
