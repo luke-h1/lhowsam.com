@@ -98,7 +98,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.1",
     "jest-environment-jsdom": "^28.1.1",
-    "jest-junit": "^13.1.0",
+    "jest-junit": "^14.0.0",
     "jest-resolve": "^28.1.1",
     "jest-serializer-html": "^7.1.0",
     "jest-watch-typeahead": "^1.0.0",
