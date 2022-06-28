@@ -7,7 +7,7 @@ interface Props {
   height: number;
   alt: string;
   caption?: string;
-  layout: 'fill' | 'fixed' | 'intrinsic' | 'responsive' | 'raw' | undefined;
+  layout: 'fill' | 'fixed' | 'intrinsic' | 'responsive' | undefined;
 }
 
 const CustomImage = ({
