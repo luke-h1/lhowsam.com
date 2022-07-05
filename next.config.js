@@ -8,6 +8,10 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    legacyBrowsers: false,
+    images: { allowFutureImage: true },
+  },
   generateBuildId: async () => {
     return '1';
   },
