@@ -29,7 +29,7 @@
   "dependencies": {
     "@fontsource/ibm-plex-sans": "^4.5.11",
     "@mapbox/rehype-prism": "^0.8.0",
-    "@next/eslint-plugin-next": "^12.2.0",
+    "@next/eslint-plugin-next": "^12.2.1",
     "@sanity/client": "^3.3.2",
     "@sanity/image-url": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^5.30.5",
