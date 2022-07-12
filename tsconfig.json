@@ -26,7 +26,7 @@
       "@src/*": ["src/*"]
     },
     "incremental": true,
-    "target": "es5"
+    "target": "es6"
   },
   "include": ["src", "next-env.d.ts"],
   "exclude": ["node_modules", ".next"]

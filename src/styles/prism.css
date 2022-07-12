@@ -3,32 +3,33 @@ code,
 pre[class*='language-'],
 code[class*='language-'] {
   color: #d4d4d4;
-  font-size: 13px;
-  text-shadow: none;
+  direction: ltr;
   font-family: Menlo, Monaco, Consolas, 'Andale Mono', 'Ubuntu Mono',
     'Courier New', monospace;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  line-height: 1.5;
-  -moz-tab-size: 4;
-  -o-tab-size: 4;
-  tab-size: 4;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
+  font-size: 13px;
   hyphens: none;
+  hyphens: none;
+  hyphens: none;
+  hyphens: none;
+  line-height: 1.5;
+  tab-size: 4;
+  tab-size: 4;
+  tab-size: 4;
+  text-align: left;
+  text-shadow: none;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
 }
+
 pre::selection,
 code::selection,
 pre[class*='language-']::selection,
 code[class*='language-']::selection,
 pre[class*='language-'] *::selection,
 code[class*='language-'] *::selection {
-  text-shadow: none;
   background: #264f78;
+  text-shadow: none;
 }
 
 @media print {
@@ -39,19 +40,20 @@ code[class*='language-'] *::selection {
 }
 
 pre[class*='language-'] {
-  padding: 1em;
+  background: #1e1e1e;
   margin: 0.5em 0;
   overflow: auto;
-  background: #1e1e1e;
+  padding: 1em;
 }
 
 :not(pre) > code[class*='language-'],
 code {
+  background: #1e1e1e;
   /* padding: 0.1em 0.3em; */
   border-radius: 0.3em;
   color: #fff;
-  background: #1e1e1e;
 }
+
 :not(pre) > code {
   padding: 0.1em 0.3em;
 }

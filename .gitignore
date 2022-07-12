@@ -18,3 +18,6 @@ sitemap.xml
 robots.txt
 analyze/
 .eslintcache
+screenshots
+tsconfig.tsbuildinfo
+*.xml

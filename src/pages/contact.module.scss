@@ -4,10 +4,15 @@
 
     a {
       font-weight: 500;
+
       &:hover {
         color: var(--brand);
         text-decoration: underline;
       }
     }
   }
+}
+
+.contact {
+  margin-bottom: 2rem;
 }

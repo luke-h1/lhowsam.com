@@ -1,0 +1,33 @@
+@use '@src/styles/_mixins';
+
+.wrapper {
+  @include mixins.flex;
+  flex-grow: column wrap;
+  gap: 1.4rem;
+  height: auto;
+  margin: 4rem -1.2rem;
+  position: relative;
+  width: auto;
+
+  @include mixins.mediaquery('sm') {
+    margin: 4rem -2rem;
+  }
+
+  .nextImage {
+    height: 100%;
+    position: relative;
+    width: auto;
+  }
+
+  .image {
+    border-radius: 2rem;
+    max-width: 100%;
+  }
+
+  .caption {
+    font-size: 1.4rem;
+    font-style: italic;
+    opacity: 0.6;
+    padding: 0 1rem;
+  }
+}
