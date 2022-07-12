@@ -1,21 +1,19 @@
-import BlogImage from '@src/components/BlogImage';
-import components from '@src/components/Mdx';
-import Page from '@src/components/Page';
-import PageHeader from '@src/components/PageHeader';
-import Tags from '@src/components/Tags';
+import BlogImage from '@src/components/BlogImage/BlogImage';
+import Page from '@src/components/Page/Page';
+import PageHeader from '@src/components/PageHeader/PageHeader';
+import Tags from '@src/components/Tags/Tags';
 import siteConfig from '@src/config/site';
 import imageService from '@src/services/imageService';
 import postService from '@src/services/postService';
 import { Post } from '@src/types/sanity';
+import { rehypePlugins } from '@src/utils/markdown';
 import { format, parseISO } from 'date-fns';
-import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import Headings from 'rehype-autolink-headings';
-import CodeTitle from 'rehype-code-titles';
+import readingTime from 'reading-time';
 import styles from './blog-slug.module.scss';
 
 interface Props {
@@ -47,27 +45,26 @@ const BlogSlugPage = ({ post, source }: Props) => {
           title: `${post.title} | lhowsam.com`,
         }}
       />
-      <BlogImage
-        src={imageService.urlFor(post.image.asset)}
-        alt={post.image.alt ?? post.title}
-        className={styles.image}
-      />
-      <PageHeader title={post.title} compact>
-        <p className={styles.meta}>
-          Published on{' '}
-          <time dateTime={post.publishedAt}>
-            <small style={{ marginRight: '6px' }}>
-              {format(parseISO(post.publishedAt), 'MMMM d, yyyy')}
-            </small>
-          </time>{' '}
-        </p>
-        <Tags tags={post.tags} type="blog" />
-      </PageHeader>
+
       <article className={styles.article}>
-        <MDXRemote
-          compiledSource={source.compiledSource}
-          components={components}
-        />
+        <PageHeader title={post.title} compact>
+          <BlogImage
+            src={imageService.urlFor(post.image.asset)}
+            alt={post.image.alt ?? post.title}
+            className={styles.image}
+          />
+          <p className={styles.meta}>
+            Published on{' '}
+            <time dateTime={post.publishedAt}>
+              <small style={{ marginRight: '6px' }}>
+                {format(parseISO(post.publishedAt), 'MMMM d, yyyy')}
+              </small>
+            </time>{' '}
+          </p>
+          <p className={styles.meta}>{readingTime(post.content).text}</p>
+          <Tags tags={post.tags} type="blog" />
+        </PageHeader>
+        <MDXRemote compiledSource={source.compiledSource} />
       </article>
     </Page>
   );
@@ -98,7 +95,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
   const source = await serialize(post.content, {
     mdxOptions: {
-      rehypePlugins: [mdxPrism, CodeTitle, Headings],
+      rehypePlugins,
     },
   });
 

@@ -1,18 +1,15 @@
-import components from '@src/components/Mdx';
-import Page from '@src/components/Page';
-import PageHeader from '@src/components/PageHeader';
+import Page from '@src/components/Page/Page';
+import PageHeader from '@src/components/PageHeader/PageHeader';
+import Tags from '@src/components/Tags/Tags';
 import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/sanity';
-import mdxPrism from 'mdx-prism';
+import { rehypePlugins } from '@src/utils/markdown';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import Headings from 'rehype-autolink-headings';
-import CodeTitle from 'rehype-code-titles';
-import Tags from '../../components/Tags';
 import styles from './project-slug.module.scss';
 
 interface Props {
@@ -35,14 +32,10 @@ const ProjectSlugPage = ({ project, source }: Props) => {
           title: `${project.title} | lhowsam.com`,
         }}
       />
-      <PageHeader title={project.title}>
-        <Tags tags={project.tags} type="projects" />
-      </PageHeader>
       <article className={styles.article}>
-        <MDXRemote
-          compiledSource={source.compiledSource}
-          components={components}
-        />
+        <PageHeader title={project.title} />
+        <Tags tags={project.tags} type="projects" />
+        <MDXRemote compiledSource={source.compiledSource} />
       </article>
     </Page>
   );
@@ -73,7 +66,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
 
   const source = await serialize(project.content, {
     mdxOptions: {
-      rehypePlugins: [mdxPrism, CodeTitle, Headings],
+      rehypePlugins,
     },
   });
 

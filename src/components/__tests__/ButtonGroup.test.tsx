@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import ButtonGroup from '../ButtonGroup';
+import ButtonGroup from '../ButtonGroup/ButtonGroup';
 
 describe('ButtonGroup', () => {
   it('renders correctly with children & className', () => {

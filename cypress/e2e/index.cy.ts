@@ -12,7 +12,6 @@ describe('index', () => {
       cy.getByTestId('project-title').eq(i).should('not.be.empty').and('be.visible')
       cy.getByTestId('project-intro').eq(i).should('not.be.empty').and('be.visible')
       cy.getByTestId('project-github').eq(i).should('not.be.empty').and('be.visible')
-      cy.getByTestId('project-tag').eq(i).should('not.be.empty').and('be.visible')
     }
   })
 });

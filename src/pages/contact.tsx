@@ -1,5 +1,5 @@
-import Page from '@src/components/Page';
-import PageHeader from '@src/components/PageHeader';
+import Page from '@src/components/Page/Page';
+import PageHeader from '@src/components/PageHeader/PageHeader';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import styles from './contact.module.scss';
@@ -21,7 +21,9 @@ const Contact = () => {
         }}
       />
       <PageHeader title="Contact" description="Get in touch">
-        <p>There are a few ways you can get in touch:</p>
+        <p className={styles.contact}>
+          I'm not currently looking for a new role but my inbox is always open
+        </p>
         <ul className={styles.list}>
           <li>
             <a

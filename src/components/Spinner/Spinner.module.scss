@@ -1,0 +1,51 @@
+@use '@src/styles/_mixins';
+
+.spinner {
+  --color: var(--green-100);
+  --size: 2rem;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  .ring {
+    display: inline-block;
+    height: calc(var(--size) * 3);
+    position: relative;
+    width: calc(var(--size) * 3);
+
+    div {
+      animation: loading 0.6s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+      border: calc(var(--size) / 4) solid var(--color);
+      border-color: var(--color) transparent transparent transparent;
+      border-radius: 50%;
+      display: block;
+      height: calc(var(--size) * 2);
+      margin: 8px;
+      position: absolute;
+      width: calc(var(--size) * 2);
+
+      &:nth-child(1) {
+        animation-delay: -0.15s;
+      }
+
+      &:nth-child(2) {
+        animation-delay: -0.1s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: -0.05s;
+      }
+    }
+  }
+}
+
+@keyframes loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}

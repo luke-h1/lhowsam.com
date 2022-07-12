@@ -1,5 +1,7 @@
-import Page from '@src/components/Page';
-import PageHeader from '@src/components/PageHeader';
+import Input from '@src/components/Input/Input';
+import Page from '@src/components/Page/Page';
+import PageHeader from '@src/components/PageHeader/PageHeader';
+import PostList from '@src/components/PostList/PostList';
 import siteConfig from '@src/config/site';
 import postService from '@src/services/postService';
 import { Post } from '@src/types/sanity';
@@ -10,9 +12,7 @@ import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
 import { FiSearch } from 'react-icons/fi';
-import BlogList from '../../components/BlogList';
-import Input from '../../components/Input';
-import styles from './blog-index.module.scss';
+import styles from './index.module.scss';
 
 interface Props {
   posts: Post[];
@@ -53,19 +53,18 @@ const BlogIndexPage = ({ posts }: Props) => {
           title: `Blog | lhowsam.com`,
         }}
       />
-      <PageHeader title="Blog">
-        <div className={styles.inputWrapper}>
-          <Input
-            className={styles.input}
-            value={search}
-            onChange={handleInputChange}
-            placeholder="Search posts"
-            type="search"
-          />
-          <FiSearch className={styles.inputIcon} />
-        </div>
-      </PageHeader>
-      <BlogList posts={filteredPosts} />
+      <PageHeader title="Blog" />
+      <div className={styles.inputWrapper}>
+        <Input
+          className={styles.input}
+          value={search}
+          onChange={handleInputChange}
+          placeholder="Search posts"
+          type="search"
+        />
+      </div>
+
+      <PostList posts={filteredPosts} />
     </Page>
   );
 };

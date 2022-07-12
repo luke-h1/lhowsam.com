@@ -1,0 +1,27 @@
+.skillIcon {
+  color: #fff;
+  margin-right: 1rem;
+}
+
+.skillText {
+  align-items: left;
+  font-size: 13px;
+  text-align: left;
+}
+
+.bg {
+  padding: 5px;
+
+  > svg {
+    fill: var(--text) !important;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.flex {
+  align-items: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}

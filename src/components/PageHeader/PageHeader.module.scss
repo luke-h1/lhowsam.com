@@ -1,0 +1,48 @@
+.wrapper {
+  margin-bottom: 50px;
+
+  @media (min-width: 480px) {
+    margin-bottom: 90px;
+  }
+}
+
+.wrapperCompact {
+  margin-bottom: 0;
+
+  @media (min-width: 480px) {
+    margin-bottom: 40px;
+  }
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-bottom: 12px;
+
+  @media (min-width: 480px) {
+    font-size: 38px;
+    margin-bottom: 15px;
+  }
+}
+
+.description {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  opacity: 0.8;
+
+  @media (min-width: 480px) {
+    font-size: 19px;
+  }
+}
+
+// currently disabled
+.wave {
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  animation-name: wave;
+  display: inline-block;
+  transform-origin: 70% 70%;
+}
