@@ -9,16 +9,14 @@ interface Props {
 
 const ProjectItem = ({ project }: Props) => {
   return (
-    <Link
-      href={`/projects/${project.slug.current}`}
-      className={styles.thumbnail}
-      passHref
-    >
-      <span className={styles.thumbnail} data-testid="project-item">
-        <div className={styles.content}>
-          <h3 className={styles.title} data-testid="project-title">
-            {project.title}
-          </h3>
+    <div className={styles.thumbnail}>
+      <span className={styles.thumbnail}>
+        <div className={styles.content} data-testid="project-item">
+          <Link href={`/projects/${project.slug.current}`} passHref>
+            <h3 className={styles.title} data-testid="project-title">
+              {project.title}
+            </h3>
+          </Link>
 
           <p className={styles.excerpt} data-testid="project-intro">
             {project.intro}
@@ -27,7 +25,12 @@ const ProjectItem = ({ project }: Props) => {
           <div className={styles.stack}>
             <div className={styles.links}>
               {project.siteUrl && (
-                <a href={project.siteUrl} className={styles.link}>
+                <a
+                  href={project.siteUrl}
+                  className={styles.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <FiExternalLink aria-label="Deployed site link" />
                 </a>
               )}
@@ -35,6 +38,8 @@ const ProjectItem = ({ project }: Props) => {
                 <a
                   href={project.githubUrl}
                   className={styles.link}
+                  target="_blank"
+                  rel="noreferrer"
                   data-testid="project-github"
                 >
                   <FiGithub aria-label="Github" />
@@ -44,7 +49,7 @@ const ProjectItem = ({ project }: Props) => {
           </div>
         </div>
       </span>
-    </Link>
+    </div>
   );
 };
 
