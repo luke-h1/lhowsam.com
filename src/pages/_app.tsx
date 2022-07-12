@@ -1,12 +1,11 @@
-import PageTransition from '@src/components/PageTransition';
 import * as gtag from '@src/utils/gtag';
-import '@src/styles/global.scss';
-import '@src/styles/prism.css';
 import { DefaultSeo } from 'next-seo';
-import '@fontsource/ibm-plex-sans';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useEffect } from 'react';
+import '@fontsource/poppins';
+import '@src/styles/global.scss';
+import '@src/styles/prism.css';
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`;
@@ -53,9 +52,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <PageTransition>
-        <Component {...pageProps} />
-      </PageTransition>
+      <Component {...pageProps} />
     </>
   );
 };

@@ -1,0 +1,61 @@
+@use '@src/styles/_mixins';
+
+.projects {
+  @include mixins.flex(center, flex-start);
+  flex-wrap: wrap;
+  gap: 3.5rem;
+  width: 100%;
+
+  @include mixins.mediaquery('md') {
+    gap: 5rem;
+  }
+
+  .empty {
+    @include mixins.flex;
+    width: 100%;
+
+    .avatar {
+      width: 25rem;
+
+      @include mixins.mediaquery('lg') {
+        width: 30rem;
+      }
+
+      @include mixins.mediaquery('xl') {
+        width: 35rem;
+      }
+    }
+  }
+
+  .loading {
+    padding: 4rem 0;
+    position: relative;
+    width: 100%;
+
+    & > div {
+      --color: var(--blue-100);
+    }
+  }
+
+  .list {
+    @include mixins.flex(center, flex-start);
+    flex-wrap: wrap;
+    gap: 5rem 4rem;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    .hit {
+      @include mixins.flex(flex-start, flex-start);
+      flex: 0 1 46rem;
+      flex-flow: column wrap;
+    }
+  }
+}
+
+@media all and (min-width: 924px) {
+  .projects .list {
+    justify-content: space-between;
+  }
+}

@@ -1,15 +1,14 @@
-import Button from '@src/components/Button';
-import ButtonGroup from '@src/components/ButtonGroup';
-import Page from '@src/components/Page';
-import ProjectCard from '@src/components/ProjectCard';
-import Skills from '@src/components/Skills';
+import Button from '@src/components/Button/Button';
+import Page from '@src/components/Page/Page';
+import PageHeader from '@src/components/PageHeader/PageHeader';
+import ProjectItem from '@src/components/ProjectItem/ProjectItem';
+import Skills from '@src/components/Skills/Skills';
 import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/sanity';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import PageHeader from '../components/PageHeader';
 
 interface Props {
   projects: Project[];
@@ -36,19 +35,22 @@ const Home = ({ projects }: Props) => {
       >
         <Button href="/about">More about me</Button>
       </PageHeader>
-      <ButtonGroup>
-        <Button href="/static/resume.pdf">Resume</Button>
-        <Button href="/projects">View more</Button>
-      </ButtonGroup>
-      <h2 className="title" style={{ marginBottom: '50px' }}>
-        Featured Projects
-      </h2>
-      {projects &&
-        projects.map(project => (
-          <ProjectCard project={project} key={project._id} />
-        ))}
-      <h3 className="title">Skills</h3>
-      <Skills />
+      <div className="flex">
+        <h2
+          className="title"
+          style={{ marginBottom: '50px', marginTop: '50px', textAlign: 'left' }}
+        >
+          Featured Projects
+        </h2>
+        <div className="project-container">
+          {projects &&
+            projects.map(project => (
+              <ProjectItem project={project} key={project._id} />
+            ))}
+        </div>
+        <h3 className="title">Skills</h3>
+        <Skills />
+      </div>
     </Page>
   );
 };

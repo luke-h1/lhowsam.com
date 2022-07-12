@@ -1,0 +1,32 @@
+@use '@src/styles/_mixins';
+
+.link {
+  .text {
+    background-image: linear-gradient(currentcolor, currentcolor);
+    background-position: 0% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1.7px;
+    color: var(--blue-200);
+    padding: 0;
+    transition: background-size 0.25s ease;
+
+    &:hover,
+    &:focus {
+      background-size: 100% 1.7px;
+    }
+  }
+
+  .icon {
+    padding: 0 0.7rem;
+    white-space: nowrap;
+
+    svg {
+      display: inline;
+      width: 10px;
+
+      path {
+        stroke: var(--blue-200);
+      }
+    }
+  }
+}

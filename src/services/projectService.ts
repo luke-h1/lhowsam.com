@@ -39,7 +39,7 @@ const getProjectQuery = groq`
   tags[] -> {
     title,
     slug
-  },  
+  },
 }
 `;
 

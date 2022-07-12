@@ -1,0 +1,93 @@
+@use '@src/styles/_mixins';
+
+.wrapper {
+  @include mixins.flex;
+  flex-flow: column wrap;
+  margin: 0 auto;
+  max-width: var(--siteWidth);
+  padding: 3rem 0;
+  width: 100%;
+
+  @include mixins.mediaquery('sm') {
+    padding: 3rem 4rem;
+  }
+
+  .header {
+    display: grid;
+    grid-template-columns: auto;
+
+    @include mixins.mediaquery('sm') {
+      grid-template-columns: 1fr auto 1fr;
+      width: 100%;
+    }
+
+    .logo {
+      transform: scale(0);
+
+      @include mixins.mediaquery('sm') {
+        position: static;
+        transform: scale(1);
+      }
+    }
+
+    .right {
+      @include mixins.flex;
+      gap: 4.5rem;
+      justify-self: end;
+
+      .theme {
+        cursor: pointer;
+        display: none;
+        position: relative;
+        transform: scale(0.6);
+        width: fit-content;
+
+        @include mixins.mediaquery('sm') {
+          display: block;
+        }
+      }
+
+      .contact {
+        @include mixins.flex;
+        color: var(--black-100);
+        display: none;
+        font-weight: 600;
+        gap: 1.1rem;
+        justify-self: end;
+
+        @include mixins.mediaquery('sm') {
+          display: flex;
+        }
+
+        &:hover svg {
+          transform: translate(5px, -7px) rotate(20deg);
+        }
+
+        svg {
+          transition: transform 0.2s ease-out;
+          width: 1.6rem;
+
+          path {
+            fill: var(--black-100);
+          }
+        }
+      }
+    }
+  }
+
+  .main {
+    @include mixins.flex;
+    flex-flow: column wrap;
+    margin: 4.5rem 0;
+    padding: 0 2rem;
+    width: 100%;
+
+    @include mixins.mediaquery('sm') {
+      padding: 0;
+    }
+
+    @include mixins.mediaquery('lg') {
+      margin: 5rem 0;
+    }
+  }
+}

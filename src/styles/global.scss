@@ -1,39 +1,12 @@
-:root {
-  --bg: #0e0e10;
-  --text: #fff;
-  --textTinted: rgba(174, 174, 174, 0.5);
-  --brand: #5c17c4;
-  --brandActive: #6b25d4;
-  --brandTinted: rgba(86, 114, 227, 0.2);
-  --brandTintedActive: #7f4ec9;
-  --headerBg: #ffffff;
-  --border: rgba(0, 0, 0, 0.08);
-  --borderActive: rgba(0, 0, 0, 0.25);
-  --star: #fece02;
-  --fontFamily: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
-  --boxBg: #f3f3f3;
-  --siteWidth: 83ch;
-  --inputBg: white;
-  --likeButton: rgba(0, 0, 0, 0.05);
-  --likeButtonHover: rgba(0, 0, 0, 0.1);
-  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  --secondary: #caca28;
-  --transparent: rgba(255, 255, 255, 0);
+@use './_mixins';
+@use './_typography';
+@use './_mdx';
+@use './_theme';
+@use './variables';
+@use './reset';
 
-  --divider-alpha: 0.12;
-  --divider-opaque: 9, 17, 34;
-  --divider: rgba(var(--divider-opaque), var(--divider-alpha, 0.12));
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: var(--fontFamily);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  scroll-behavior: smooth;
 }
 
 a {
@@ -41,31 +14,82 @@ a {
   text-decoration: none;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin-top: 0;
-}
-
 body {
-  color: var(--text);
-  background-color: var(--bg);
+  color: var(--black-100);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  margin: 0;
+  overflow-x: hidden;
+  padding: 0;
+  width: 100%;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover);
+  }
 }
 
-h2 {
-  margin-bottom: 30px;
-  font-weight: 800;
-  font-size: 32px;
-  letter-spacing: -0.3px;
-
-  @media (min-width: 480px) {
-    margin-bottom: 55px;
+* {
+  &::selection {
+    background-color: var(--selection-background);
+    color: var(--selection-color);
   }
+}
+
+// screen readers
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+}
+
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+  clip: auto !important;
+  clip-path: none !important;
+  clip-path: none !important;
+  height: auto !important;
+  margin: auto !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  width: auto !important;
+}
+
+.corner-radius-8 {
+  border-radius: 8px;
+}
+
+.bordered-image {
+  border: 1px solid var(--grey) !important;
+  box-sizing: border-box !important;
+}
+
+.fill-image {
+  border-radius: 8px;
+  position: relative;
+  width: 100%;
 }
 
 .title {
   font-size: 32px;
+  text-align: left;
 }
 
 @keyframes bounce {
@@ -90,61 +114,12 @@ h2 {
   }
 }
 
-.sr-only {
-  position: absolute;
-  top: auto;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-@keyframes wave {
-  from,
-  50%,
-  to {
-    transform: rotate(0deg);
-  }
-  10%,
-  30% {
-    transform: rotate(-10deg);
-  }
-  20% {
-    transform: rotate(12deg);
-  }
-  40% {
-    transform: rotate(9deg);
-  }
-}
-
-.fullWidth {
-  width: 100%;
-  margin-bottom: 40px;
-
-  @media (min-width: 480px) {
-    margin-bottom: 75px;
-  }
-}
-
-.intro {
+.flex {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-
-  @media (max-width: 600px) {
-  }
+  flex-direction: column;
+  justify-content: left;
 }
 
-.corner-radius-8 {
-  border-radius: 8px;
-}
-.bordered-image {
-  border: 1px solid var(--grey) !important;
-  box-sizing: border-box !important;
-}
-.fill-image {
-  position: relative;
-
-  border-radius: 8px;
-  width: 100%;
+.project-container {
+  margin-bottom: 2rem;
 }
