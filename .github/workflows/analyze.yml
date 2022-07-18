@@ -2,8 +2,8 @@ name: Analyze Bundle
 
 on:
   pull_request:
-    branches:
-      - '!main'
+    branches-ignore:
+      - main  
   push:
     branches:
       - dev
