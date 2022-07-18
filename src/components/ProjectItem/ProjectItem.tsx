@@ -13,9 +13,9 @@ const ProjectItem = ({ project }: Props) => {
       <span className={styles.thumbnail}>
         <div className={styles.content} data-testid="project-item">
           <Link href={`/projects/${project.slug.current}`} passHref>
-            <h3 className={styles.title} data-testid="project-title">
+            <a className={styles.title} data-testid="project-title">
               {project.title}
-            </h3>
+            </a>
           </Link>
 
           <p className={styles.excerpt} data-testid="project-intro">
