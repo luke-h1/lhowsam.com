@@ -13,7 +13,6 @@ My website & blog
 - [Sanity.io](https://sanity.io)
 
 
-<hr />
 
 [![CI / build](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml)
 
