@@ -8,7 +8,7 @@ describe('projects', () => {
     let links: string[] = []
 
     for (let i = 0; i < 3; i += 1) {
-      cy.get('h3').eq(i).should('be.visible').and('not.be.empty');
+      cy.get('a').eq(i).should('be.visible').and('not.be.empty');
       cy.get('[data-testid="project-title"]').eq(i).should('have.attr', 'href').then((l) => {
         links.push(`${Cypress.config().baseUrl}${l}`)
         cy.visit(links[i])
