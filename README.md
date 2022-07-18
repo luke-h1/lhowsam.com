@@ -11,21 +11,10 @@ My website & blog
 - [MDX](https://github.com/mdx-js/mdx)
 - [Vercel](https://vercel.com)
 - [Sanity.io](https://sanity.io)
-## Tests
-[![CI / UI tests (production)](https://github.com/luke-h1/lhowsam.com/actions/workflows/prod-ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/prod-ui-tests.yml)
 
-[![CI / UI tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml)
 
+<hr />
 
 [![CI / build](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml)
 
-
-## Studio
-
-https://github.com/luke-h1/lhowsam-studio
-
-## Inspirations
- - [leerob](https://github.com/leerob)
- - [mxstbr](https://github.com/mxstbr/mxstbr.com)
- - [prismicio](https://github.com/prismicio/nextjs-blog)
- 
+[![CI / UI tests (production)](https://github.com/luke-h1/lhowsam.com/actions/workflows/prod-ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/prod-ui-tests.yml)
