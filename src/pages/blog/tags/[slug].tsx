@@ -1,6 +1,6 @@
-import Page from '@src/components/Page/Page';
-import PageHeader from '@src/components/PageHeader/PageHeader';
-import PostList from '@src/components/PostList/PostList';
+import Page from '@src/components/Page';
+import PageHeader from '@src/components/PageHeader';
+import PostList from '@src/components/PostList';
 import siteConfig from '@src/config/site';
 import postService from '@src/services/postService';
 import { Post } from '@src/types/sanity';

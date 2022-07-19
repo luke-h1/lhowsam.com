@@ -1,5 +1,5 @@
-import Page from '@src/components/Page/Page';
-import PageHeader from '@src/components/PageHeader/PageHeader';
+import Page from '@src/components/Page';
+import PageHeader from '@src/components/PageHeader';
 import { AxiosError } from 'axios';
 import { NextPageContext } from 'next';
 import NotFoundPage from './NotFoundPage';

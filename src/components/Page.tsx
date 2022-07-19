@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { ReactNode } from 'react';
 import { FiCode } from 'react-icons/fi';
-import Nav from '../Nav/Nav';
+import Nav from './Nav';
 import styles from './Page.module.scss';
 
 interface Props {

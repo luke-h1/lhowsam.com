@@ -1,6 +1,6 @@
 import { Tag } from '@src/types/sanity';
 import { render, screen } from '@testing-library/react';
-import Tags from '../Tags/Tags';
+import Tags from '../Tags';
 
 describe('Tags', () => {
   const tags: Tag[] = [

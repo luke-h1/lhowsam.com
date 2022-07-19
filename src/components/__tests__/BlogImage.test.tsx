@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import BlogImage from '../BlogImage/BlogImage';
+import BlogImage from '../BlogImage';
 
 describe('blogImage', () => {
   it('renders correctly with src & alt', () => {

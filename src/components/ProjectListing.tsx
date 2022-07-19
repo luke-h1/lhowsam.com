@@ -1,5 +1,5 @@
 import { Project } from '@src/types/sanity';
-import ProjectItem from '../ProjectItem/ProjectItem';
+import ProjectItem from './ProjectItem';
 import styles from './ProjectListing.module.scss';
 
 interface Props {

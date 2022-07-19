@@ -1,8 +1,8 @@
-import Button from '@src/components/Button/Button';
-import Page from '@src/components/Page/Page';
-import PageHeader from '@src/components/PageHeader/PageHeader';
-import ProjectItem from '@src/components/ProjectItem/ProjectItem';
-import Skills from '@src/components/Skills/Skills';
+import Button from '@src/components/Button';
+import Page from '@src/components/Page';
+import PageHeader from '@src/components/PageHeader';
+import ProjectItem from '@src/components/ProjectItem';
+import Skills from '@src/components/Skills';
 import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/sanity';

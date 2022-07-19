@@ -1,6 +1,6 @@
-import Page from '@src/components/Page/Page';
-import PageHeader from '@src/components/PageHeader/PageHeader';
-import ProjectListing from '@src/components/ProjectListing/ProjectListing';
+import Page from '@src/components/Page';
+import PageHeader from '@src/components/PageHeader';
+import ProjectListing from '@src/components/ProjectListing';
 import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/sanity';

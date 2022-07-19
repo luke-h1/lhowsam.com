@@ -1,8 +1,8 @@
-import Button from '@src/components/Button/Button';
-import ButtonGroup from '@src/components/ButtonGroup/ButtonGroup';
-import Page from '@src/components/Page/Page';
-import PageHeader from '@src/components/PageHeader/PageHeader';
-import Skills from '@src/components/Skills/Skills';
+import Button from '@src/components/Button';
+import ButtonGroup from '@src/components/ButtonGroup';
+import Page from '@src/components/Page';
+import PageHeader from '@src/components/PageHeader';
+import Skills from '@src/components/Skills';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
