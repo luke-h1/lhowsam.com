@@ -5,8 +5,8 @@ import RSS from 'rss';
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const feed = new RSS({
     title: 'Luke Howsam',
-    site_url: process.env.NEXT_PUBLIC_SITE_URL,
-    feed_url: `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
+    site_url: process.env.NEXT_PUBLIC_URL,
+    feed_url: `${process.env.NEXT_PUBLIC_URL}/feed.xml`,
   });
 
   const posts = await postService.getAllPosts();
@@ -14,7 +14,7 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
   posts?.map(post => {
     return feed.item({
       title: post.title,
-      url: `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${post.slug.current}`,
+      url: `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug.current}`,
       date: post.publishedAt,
       description: post.intro,
     });
