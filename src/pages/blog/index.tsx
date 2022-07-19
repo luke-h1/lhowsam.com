@@ -1,7 +1,7 @@
-import Input from '@src/components/Input/Input';
-import Page from '@src/components/Page/Page';
-import PageHeader from '@src/components/PageHeader/PageHeader';
-import PostList from '@src/components/PostList/PostList';
+import Input from '@src/components/Input';
+import Page from '@src/components/Page';
+import PageHeader from '@src/components/PageHeader';
+import PostList from '@src/components/PostList';
 import siteConfig from '@src/config/site';
 import postService from '@src/services/postService';
 import { Post } from '@src/types/sanity';
@@ -11,7 +11,6 @@ import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
-import { FiSearch } from 'react-icons/fi';
 import styles from './index.module.scss';
 
 interface Props {

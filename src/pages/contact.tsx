@@ -1,5 +1,5 @@
-import Page from '@src/components/Page/Page';
-import PageHeader from '@src/components/PageHeader/PageHeader';
+import Page from '@src/components/Page';
+import PageHeader from '@src/components/PageHeader';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import styles from './contact.module.scss';
