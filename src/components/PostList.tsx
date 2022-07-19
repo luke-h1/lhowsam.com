@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
 import readingTime from 'reading-time';
-import BlogImage from '../BlogImage/BlogImage';
-import Tags from '../Tags/Tags';
+import BlogImage from './BlogImage';
+import Tags from './Tags';
 import styles from './postlist.module.scss';
 
 interface Props {

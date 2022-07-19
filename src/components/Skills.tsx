@@ -16,7 +16,7 @@ import {
   SiTypescript,
   SiPostgresql,
 } from 'react-icons/si';
-import SkillItem from '../SkillItem/SkillItem';
+import SkillItem from './SkillItem';
 import styles from './Skills.module.scss';
 
 const Skills = () => {

@@ -1,3 +1,4 @@
+import PageTransition from '@src/components/PageTransition';
 import * as gtag from '@src/utils/gtag';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
@@ -52,7 +53,9 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Component {...pageProps} />
+      <PageTransition>
+        <Component {...pageProps} />
+      </PageTransition>
     </>
   );
 };
