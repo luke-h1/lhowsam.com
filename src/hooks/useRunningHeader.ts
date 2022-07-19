@@ -5,6 +5,7 @@ const options = {
   threshold: 1,
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const useRunningHeader = (el: HTMLElement | null) => {
   const [id, setId] = useState('');
   // const [progresss, setProgress] = useState(0);
