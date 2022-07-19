@@ -80,6 +80,15 @@ const getPostByTagQuery = groq`
 }
 `;
 
+const getTagSlugsQuery = groq`
+*[_type == "post"] {
+  ...,
+  tags[]-> {
+    slug
+  },
+}
+`;
+
 const postService = {
   async getSlugs(): Promise<Post[]> {
     return cmsClient.fetch(slugsQuery);
@@ -99,6 +108,9 @@ const postService = {
     return cmsClient.fetch(getPostByTagQuery, {
       keyword: tag,
     });
+  },
+  async getTagSlugs(): Promise<Post[]> {
+    return cmsClient.fetch(getTagSlugsQuery);
   },
 };
 

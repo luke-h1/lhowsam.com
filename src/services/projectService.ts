@@ -1,4 +1,4 @@
-import { Project } from '@src/types/sanity';
+import { Project, Tag } from '@src/types/sanity';
 import groq from 'groq';
 import cmsClient from '../utils/sanity';
 
