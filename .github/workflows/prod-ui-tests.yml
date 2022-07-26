@@ -2,7 +2,7 @@ name: CI / UI tests (production)
 on:
   workflow_dispatch:
   schedule: 
-    - cron: '0 */7 * * *'
+    - cron: '0 */8 * * *'
     
 env: 
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
