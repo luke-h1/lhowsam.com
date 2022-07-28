@@ -1,3 +1,4 @@
+import Footer from '@src/components/Footer/Footer';
 import { isServer } from '@src/hooks/isServer';
 import * as gtag from '@src/utils/gtag';
 import { AnimatePresence } from 'framer-motion';
@@ -6,6 +7,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useEffect } from 'react';
 import '@fontsource/poppins';
+import '@src/styles/global.scss';
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`;
@@ -65,6 +67,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         onExitComplete={() => onExitComplete}
       >
         <Component {...pageProps} />
+        <Footer />
       </AnimatePresence>
     </>
   );
