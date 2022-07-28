@@ -1,0 +1,10 @@
+@import '@src/styles/partials/_mixins.scss';
+@import '@src/styles/variables.scss';
+
+.pageLayout {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
