@@ -33,6 +33,7 @@ const SocialList = () => {
         >
           <AiFillLinkedin />
         </a>
+        <span className={styles.socialName}>LinkedIn</span>
       </li>
     </ul>
   );

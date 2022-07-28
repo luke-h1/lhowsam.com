@@ -1,3 +1,4 @@
+import Page from '@src/components/Page';
 import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/sanity';
@@ -24,7 +25,9 @@ const Home = ({ projects }: Props) => {
           title: `Home | lhowsam.com`,
         }}
       />
-      <div>yo</div>
+      <Page title="Home" showHero>
+        yo
+      </Page>
     </>
   );
 };

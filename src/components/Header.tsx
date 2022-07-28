@@ -30,6 +30,7 @@ const Header = ({ showHero, title }: Props) => {
         >
           <div className={styles.presentation}>
             <div className={styles.profileImage}>
+              {/* TODO: LH - replace headshot with something that fits better */}
               <Image
                 src="/images/luke.jpeg"
                 alt="Luke Howsam"
