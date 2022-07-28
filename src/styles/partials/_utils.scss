@@ -1,0 +1,22 @@
+@import './_mixins.scss';
+
+.container {
+  width: 100%;
+  max-width: 100%;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin: 0 auto;
+
+  @include media(md) {
+    max-width: 900px;
+    padding: 0 auto;
+  }
+
+  @include media(lg) {
+    max-width: 1050px;
+  }
+
+  // @include media(xl) {
+  //   max-width: 1170px;
+  // }
+}

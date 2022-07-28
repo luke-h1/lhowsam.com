@@ -1,44 +1,61 @@
-@use '@src/styles/_mixins.scss';
+@import '@src/styles/partials/_mixins.scss';
+@import '@src/styles/partials/_utils.scss';
+@import '@src/styles/variables.scss';
 
 .nav {
-  background-color: var(--gray-100);
-  border-radius: 2rem;
-  padding: 0.4rem 0.55rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($black, 0.5);
+  position: sticky;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
 
-  .list {
-    @include mixins.flex;
-    gap: 0.8rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
 
-    @include mixins.mediaquery('lg') {
-      gap: 2rem;
+  span {
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 700;
+  }
+
+  @include media(md) {
+    height: 80px;
+  }
+
+  @include media(lg) {
+    height: 96px;
+  }
+}
+
+.navbarLinks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    height: auto;
+    a {
+      font-size: 18px;
+      line-height: 24px;
+      padding: 4px 6px;
+      opacity: 1;
+
+      &:hover {
+        opacity: 0.64;
+      }
     }
-
-    .link {
-      @include mixins.flex;
-      border-radius: 16px;
-      color: var(--black-100);
-      font-size: 1.4rem;
-      font-weight: 700;
-      padding: 0.45rem 1.5rem;
-      position: relative;
-
-      .label {
-        z-index: 1;
-      }
-
-      .active {
-        background-color: var(--white-100);
-        border-radius: 16px;
-        height: 100%;
-        left: 0;
-        position: absolute;
-        right: 0;
-        top: 0;
-        z-index: 0;
-      }
+    & + li {
+      margin-left: 4px;
     }
   }
 }

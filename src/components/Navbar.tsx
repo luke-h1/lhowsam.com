@@ -1,59 +1,50 @@
-import { motion } from 'framer-motion';
+import { AnimateSharedLayout } from 'framer-motion';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
 import styles from './Navbar.module.scss';
 
-const routes: { id: number; text: string; slug: string }[] = [
+const links: { id: number; name: string; href: string }[] = [
   {
     id: 1,
-    text: 'Home',
-    slug: '/',
+    name: 'About',
+    href: '/about',
   },
   {
     id: 2,
-    text: 'About',
-    slug: '/about',
+    name: 'Projects',
+    href: '/projects',
   },
   {
-    id: 3,
-    text: 'Blog',
-    slug: '/blog',
-  },
-  {
-    id: 4,
-    text: 'Projects',
-    slug: '/projects',
+    id: 1,
+    name: 'Blog',
+    href: '/blog',
   },
 ];
 
 const Navbar = () => {
-  const { pathname } = useRouter();
-
   return (
-    <nav className={styles.nav}>
-      <ul className={styles.list}>
-        {routes &&
-          routes.map(route => (
-            <li key={route.id} className={styles.link}>
-              <Link href={route.slug}>
-                <a className={styles.label}>{route.text}</a>
-              </Link>
-              {pathname === route.slug ||
-                (pathname.startsWith(route.slug) && route.slug !== '/' && (
-                  <motion.div
-                    className={styles.active}
-                    layoutId="active"
-                    transition={{
-                      type: 'spring',
-                      stiffness: 270,
-                      damping: 20,
-                    }}
-                  />
+    <AnimateSharedLayout>
+      <nav className={styles.nav}>
+        <div className={styles.container}>
+          <div className={styles.navbar}>
+            <Link href="/" scroll={false}>
+              <a className={styles.linkTitle}>
+                <span>Luke H</span>
+              </a>
+            </Link>
+            <ul className={styles.navbarLinks}>
+              {links &&
+                links.map(link => (
+                  <li key={link.id}>
+                    <Link href={link.href}>
+                      <a>{link.name}</a>
+                    </Link>
+                  </li>
                 ))}
-            </li>
-          ))}
-      </ul>
-    </nav>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </AnimateSharedLayout>
   );
 };
 
