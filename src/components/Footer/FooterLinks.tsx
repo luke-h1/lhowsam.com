@@ -1,4 +1,3 @@
-import { AnimateSharedLayout } from 'framer-motion';
 import Link from 'next/link';
 import styles from './Footer.module.scss';
 
@@ -27,18 +26,16 @@ const links: { id: number; name: string; href: string }[] = [
 
 const FooterLinks = () => {
   return (
-    <AnimateSharedLayout>
-      <ul className={styles.pageList}>
-        {links &&
-          links.map(link => (
-            <li key={link.id}>
-              <Link href={link.href} scroll={false}>
-                <a>{link.name}</a>
-              </Link>
-            </li>
-          ))}
-      </ul>
-    </AnimateSharedLayout>
+    <ul className={styles.pageList}>
+      {links &&
+        links.map(link => (
+          <li key={link.id}>
+            <Link href={link.href} scroll={false}>
+              <a>{link.name}</a>
+            </Link>
+          </li>
+        ))}
+    </ul>
   );
 };
 

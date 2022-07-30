@@ -1,4 +1,3 @@
-import { AnimateSharedLayout } from 'framer-motion';
 import Link from 'next/link';
 import styles from './Navbar.module.scss';
 
@@ -22,29 +21,27 @@ const links: { id: number; name: string; href: string }[] = [
 
 const Navbar = () => {
   return (
-    <AnimateSharedLayout>
-      <nav className={styles.nav}>
-        <div className={styles.container}>
-          <div className={styles.navbar}>
-            <Link href="/" scroll={false}>
-              <a className={styles.linkTitle}>
-                <span>Luke H</span>
-              </a>
-            </Link>
-            <ul className={styles.navbarLinks}>
-              {links &&
-                links.map(link => (
-                  <li key={link.id}>
-                    <Link href={link.href}>
-                      <a>{link.name}</a>
-                    </Link>
-                  </li>
-                ))}
-            </ul>
-          </div>
+    <nav className={styles.nav}>
+      <div className={styles.container}>
+        <div className={styles.navbar}>
+          <Link href="/" scroll={false}>
+            <a className={styles.linkTitle}>
+              <span>Luke H</span>
+            </a>
+          </Link>
+          <ul className={styles.navbarLinks}>
+            {links &&
+              links.map(link => (
+                <li key={link.id}>
+                  <Link href={link.href}>
+                    <a>{link.name}</a>
+                  </Link>
+                </li>
+              ))}
+          </ul>
         </div>
-      </nav>
-    </AnimateSharedLayout>
+      </div>
+    </nav>
   );
 };
 

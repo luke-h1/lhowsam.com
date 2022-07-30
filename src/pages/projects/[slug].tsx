@@ -36,7 +36,7 @@ const BlogPostPage = ({ project, source }: Props) => {
       />
       <div className={styles.headerPost}>
         <div className={styles.container}>
-          <Tags tags={project.tags} />
+          <Tags tags={project.tags} key={project._id} />
         </div>
       </div>
       <div className={styles.container}>

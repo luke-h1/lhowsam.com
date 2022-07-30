@@ -3,7 +3,6 @@ import styles from './Tags.module.scss';
 
 interface Props {
   tags: Tag[];
-  // type: 'project' | 'post';
 }
 
 const Tags = ({ tags }: Props) => {
@@ -11,7 +10,7 @@ const Tags = ({ tags }: Props) => {
     <div className={styles.tags}>
       {tags &&
         tags.map(tag => (
-          <p key={tag.key} className={styles.tag}>
+          <p className={styles.tag} key={tag._id}>
             {tag.title}
           </p>
         ))}
