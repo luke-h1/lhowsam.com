@@ -3,6 +3,8 @@ import { FiTwitter } from 'react-icons/fi';
 import styles from './SocialList.module.scss';
 
 const SocialList = () => {
+  const iconSize = 21;
+
   return (
     <ul className={styles.socialMedia}>
       <li>
@@ -11,7 +13,7 @@ const SocialList = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <FiTwitter />
+          <FiTwitter size={iconSize} />
         </a>
         <span className={styles.socialName}>Twitter</span>
       </li>
@@ -21,7 +23,7 @@ const SocialList = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <AiFillGithub />
+          <AiFillGithub size={iconSize} />
         </a>
         <span className={styles.socialName}>Github</span>
       </li>
@@ -31,7 +33,7 @@ const SocialList = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <AiFillLinkedin />
+          <AiFillLinkedin size={iconSize} />
         </a>
         <span className={styles.socialName}>LinkedIn</span>
       </li>

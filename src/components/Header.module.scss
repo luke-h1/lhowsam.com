@@ -105,3 +105,15 @@
   font-size: 15px;
   line-height: 2;
 }
+
+.button {
+  width: fit-content;
+  background-color: $dark;
+  padding: 0.75rem 1.2rem;
+  border-radius: 4px;
+  color: $light;
+
+  &:hover {
+    background-color: $light-dark;
+  }
+}
