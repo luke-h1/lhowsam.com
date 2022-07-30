@@ -24,7 +24,6 @@ const Header = ({ showHero, title }: Props) => {
         >
           <div className={styles.presentation}>
             <div className={styles.profileImage}>
-              {/* TODO: LH - replace headshot with something that fits better */}
               <Image
                 src="/images/luke.jpeg"
                 alt="Luke Howsam"
@@ -33,8 +32,8 @@ const Header = ({ showHero, title }: Props) => {
                 placeholder="blur"
                 quality={100}
                 priority
-                width={270}
-                height={270}
+                width={240}
+                height={280}
               />
             </div>
             <div className={styles.sidePresentation}>
