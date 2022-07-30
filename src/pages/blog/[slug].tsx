@@ -6,7 +6,7 @@ import postService from '@src/services/postService';
 import { Post } from '@src/types/sanity';
 import mdxToHtml from '@src/utils/mdx';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemote } from 'next-mdx-remote';
 import styles from './slug.module.scss';
 
 interface Props {
@@ -81,7 +81,6 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     };
   }
   const source = await mdxToHtml(post.content);
-  console.log(source);
 
   return {
     props: {
