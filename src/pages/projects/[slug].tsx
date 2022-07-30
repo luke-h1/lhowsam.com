@@ -8,6 +8,8 @@ import { Project } from '@src/types/sanity';
 import mdxToHtml from '@src/utils/mdx';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import styles from '../blog/slug.module.scss';
 
 interface Props {
@@ -18,8 +20,20 @@ interface Props {
 }
 
 const BlogPostPage = ({ project, source }: Props) => {
+  const router = useRouter();
   return (
     <Page title={project.title}>
+      <NextSeo
+        title={project.title}
+        canonical={`https://lhowsam.com${router.asPath}`}
+        description={project.intro}
+        openGraph={{
+          defaultImageWidth: 1200,
+          defaultImageHeight: 630,
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `${project.title} | lhowsam.com`,
+        }}
+      />
       <div className={styles.headerPost}>
         <div className={styles.container}>
           <Tags tags={project.tags} />

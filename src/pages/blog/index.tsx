@@ -1,5 +1,4 @@
 import Page from '@src/components/Page';
-import PostCard from '@src/components/PostCard';
 import PostItem from '@src/components/PostItem';
 import siteConfig from '@src/config/site';
 import postService from '@src/services/postService';
@@ -7,6 +6,7 @@ import { Post } from '@src/types/sanity';
 import * as gtag from '@src/utils/gtag';
 import debounce from 'lodash/debounce';
 import { GetStaticProps } from 'next';
+import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import { ChangeEvent, useCallback, useState } from 'react';
 import styles from './index.module.scss';
@@ -16,6 +16,7 @@ interface Props {
 }
 
 const BlogPage = ({ posts }: Props) => {
+  const router = useRouter();
   const [search, setSearch] = useState<string>('');
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -38,6 +39,17 @@ const BlogPage = ({ posts }: Props) => {
 
   return (
     <Page showHero={false} title="Blog">
+      <NextSeo
+        title="Blog"
+        canonical={`https://lhowsam.com${router.asPath}`}
+        description="My blog posts"
+        openGraph={{
+          defaultImageWidth: 1200,
+          defaultImageHeight: 630,
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `Blog | lhowsam.com`,
+        }}
+      />
       <div className={styles.search}>
         <input
           aria-label="Search blog articles"
