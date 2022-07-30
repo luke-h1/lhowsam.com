@@ -59,7 +59,7 @@ ErrorPage.getInitialProps = ({ res, err: error }: NextPageContext): Props => {
   }
   return {
     error,
-    statusCode: 500,
+    statusCode: statusCode ?? 500,
   };
 };
 export default ErrorPage;
