@@ -21,6 +21,7 @@ export interface Project {
   key: string;
   title: string;
   intro: string;
+  image: Image;
   content: string;
   order: number;
   slug: Slug;

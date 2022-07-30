@@ -15,7 +15,7 @@ const Footer = () => {
         </div>
       </div>
       <p className={styles.aboutFooter}>
-        © {new Date().getFullYear()}, Built with Next, Typescript & Sanity.io
+        MIT {new Date().getFullYear()}, Built with Next, Typescript & Sanity.io
       </p>
     </footer>
   );

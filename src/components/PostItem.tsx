@@ -1,6 +1,5 @@
 import imageService from '@src/services/imageService';
 import { Post } from '@src/types/sanity';
-import { formatISO } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './PostItem.module.scss';
@@ -22,7 +21,7 @@ const PostItem = ({ post }: Props) => {
             <span className={styles.month}>
               {post.publishedAt.split('T')[0].split('-')[1]}
             </span>
-            <span className={styles.month}>
+            <span className={styles.year}>
               {post.publishedAt.split('T')[0].split('-')[0]}
             </span>
           </div>

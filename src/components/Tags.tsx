@@ -11,7 +11,7 @@ const Tags = ({ tags }: Props) => {
     <div className={styles.tags}>
       {tags &&
         tags.map(tag => (
-          <p key={tag._id} className={styles.tag}>
+          <p key={tag.key} className={styles.tag}>
             {tag.title}
           </p>
         ))}
