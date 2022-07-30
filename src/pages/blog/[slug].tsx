@@ -1,4 +1,5 @@
 import Page from '@src/components/Page';
+import Share from '@src/components/Share';
 import Tags from '@src/components/Tags';
 import siteConfig from '@src/config/site';
 import imageService from '@src/services/imageService';
@@ -42,7 +43,10 @@ const BlogPostPage = ({ post, source }: Props) => {
         <div className={styles.postLayout}>
           <div className={styles.socialShare}>
             <span>Share</span>
-            share goes here
+            <Share
+              title={post.title}
+              link={`${process.env.NEXT_PUBLIC_URL}/blog/${post.slug.current}`}
+            />
           </div>
           <article className={styles.article}>
             <div>

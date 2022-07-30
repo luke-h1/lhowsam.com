@@ -107,7 +107,7 @@ interface CustomProps<LinkOptions> {
    * URL of the shared page
    */
   url: string;
-  style: CSSProperties;
+  style?: CSSProperties;
   windowWidth?: number;
   windowHeight?: number;
   windowPosition?: WindowPosition;
