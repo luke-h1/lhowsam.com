@@ -1,4 +1,6 @@
 import Page from '@src/components/Page';
+import PostCard from '@src/components/PostCard';
+import PostItem from '@src/components/PostItem';
 import siteConfig from '@src/config/site';
 import postService from '@src/services/postService';
 import { Post } from '@src/types/sanity';
@@ -14,7 +16,6 @@ interface Props {
 }
 
 const BlogPage = ({ posts }: Props) => {
-  const router = useRouter();
   const [search, setSearch] = useState<string>('');
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -45,13 +46,24 @@ const BlogPage = ({ posts }: Props) => {
           type="text"
         />
       </div>
+      <div className={styles.postListing}>
+        {filteredPosts && (
+          <ul>
+            {filteredPosts.map(post => (
+              <li key={post._id}>
+                <PostItem post={post} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </Page>
   );
 };
 
 export default BlogPage;
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const posts = await postService.getAllPosts();
 
   return {

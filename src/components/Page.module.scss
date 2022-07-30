@@ -1,10 +1,22 @@
 @import '@src/styles/partials/_mixins.scss';
+@import '@src/styles/partials/_utils.scss';
 @import '@src/styles/variables.scss';
 
-.pageLayout {
+.main {
   display: flex;
   flex-direction: column;
   position: relative;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   width: 100%;
   height: 100%;
+  @extend .container;
+
+  &.center {
+    height: -webkit-fill-available;
+    min-height: -webkit-fill-available;
+    justify-content: center;
+    padding-top: unset;
+    padding-bottom: unset;
+  }
 }

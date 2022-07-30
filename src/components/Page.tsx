@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import { motion, Variants } from 'framer-motion';
 import { ReactNode } from 'react';
 import Header from './Header';
@@ -7,6 +8,8 @@ interface Props {
   children: ReactNode;
   title: string;
   showHero?: boolean;
+  center?: boolean;
+  header?: boolean;
 }
 
 const variants: Variants = {
@@ -15,10 +18,10 @@ const variants: Variants = {
   exit: { opacity: 0, x: 0, y: -100 },
 };
 
-const Page = ({ children, title, showHero }: Props) => {
+const Page = ({ children, title, showHero, center, header = true }: Props) => {
   return (
     <>
-      <Header showHero={showHero} title={title} />
+      {header && <Header showHero={showHero} title={title} />}
       <motion.main
         initial="hiden"
         animate="enter"
@@ -26,7 +29,9 @@ const Page = ({ children, title, showHero }: Props) => {
         variants={variants}
         transition={{ type: 'linear' }}
       >
-        <div className={styles.container}>{children}</div>
+        <div className={classNames(styles.main, center && styles.center)}>
+          {children}
+        </div>
       </motion.main>
     </>
   );
