@@ -1,4 +1,4 @@
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Header.module.scss';
@@ -10,12 +10,6 @@ interface Props {
   title?: string;
 }
 
-const variants: Variants = {
-  hidden: { opacity: 0, x: -200, y: 0 },
-  enter: { opacity: 1, x: 0, y: 0 },
-  exit: { opacity: 0, x: 0, y: -100 },
-};
-
 const Header = ({ showHero, title }: Props) => {
   return (
     <header className={styles.header}>
@@ -26,7 +20,6 @@ const Header = ({ showHero, title }: Props) => {
           initial="hidden"
           animate="enter"
           exit="exit"
-          variants={variants}
           transition={{ type: 'linear' }}
         >
           <div className={styles.presentation}>
@@ -69,7 +62,6 @@ const Header = ({ showHero, title }: Props) => {
           initial="hidden"
           animate="enter"
           exit="exit"
-          variants={variants}
           transition={{ type: 'linear' }}
         >
           <div className={styles.container}>

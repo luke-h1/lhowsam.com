@@ -1,6 +1,4 @@
-import { isServer } from '@src/hooks/isServer';
 import * as gtag from '@src/utils/gtag';
-import { AnimatePresence } from 'framer-motion';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -20,12 +18,6 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       router.events.off('routeChangeComplete', handleRouteChange);
     };
   }, [router.events]);
-
-  const onExitComplete = () => {
-    if (!isServer()) {
-      window.scrollTo(0, 0);
-    }
-  };
 
   return (
     <>
@@ -60,13 +52,8 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <AnimatePresence
-        exitBeforeEnter
-        initial={false}
-        onExitComplete={() => onExitComplete}
-      >
-        <Component {...pageProps} />
-      </AnimatePresence>
+
+      <Component {...pageProps} />
     </>
   );
 };
