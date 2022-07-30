@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import { motion, Variants } from 'framer-motion';
 import { ReactNode } from 'react';
+import Footer from './Footer/Footer';
 import Header from './Header';
 import styles from './Page.module.scss';
 
@@ -10,6 +11,7 @@ interface Props {
   showHero?: boolean;
   center?: boolean;
   header?: boolean;
+  footer?: boolean;
 }
 
 const variants: Variants = {
@@ -18,7 +20,14 @@ const variants: Variants = {
   exit: { opacity: 0, x: 0, y: -100 },
 };
 
-const Page = ({ children, title, showHero, center, header = true }: Props) => {
+const Page = ({
+  children,
+  title,
+  showHero,
+  center,
+  header = true,
+  footer = true,
+}: Props) => {
   return (
     <>
       {header && <Header showHero={showHero} title={title} />}
@@ -33,6 +42,7 @@ const Page = ({ children, title, showHero, center, header = true }: Props) => {
           {children}
         </div>
       </motion.main>
+      {footer && <Footer />}
     </>
   );
 };

@@ -67,7 +67,6 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         onExitComplete={() => onExitComplete}
       >
         <Component {...pageProps} />
-        <Footer />
       </AnimatePresence>
     </>
   );
