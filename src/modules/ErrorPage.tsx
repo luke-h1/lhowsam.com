@@ -1,7 +1,6 @@
 import Page from '@src/components/Page';
 import { AxiosError } from 'axios';
 import { NextPageContext } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import NotFoundPage from './NotFoundPage';
 import styles from './notfound.module.scss';
