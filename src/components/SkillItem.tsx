@@ -10,12 +10,7 @@ interface Props {
 const SkillItem = ({ icon, text, testId }: Props) => {
   return (
     <li>
-      <span
-        className={styles.bg}
-        data-testid={testId}
-        key={`${text}-${testId}`}
-        aria-label={text}
-      >
+      <span className={styles.bg} data-testid={testId} aria-label={text}>
         {icon({
           className: styles.skillIcon,
           fill: '#fff',

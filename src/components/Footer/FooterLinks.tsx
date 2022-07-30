@@ -8,17 +8,17 @@ const links: { id: number; name: string; href: string }[] = [
     href: '/about',
   },
   {
-    id: 1,
+    id: 2,
     name: 'Projects',
     href: '/projects',
   },
   {
-    id: 1,
+    id: 3,
     name: 'Blog',
     href: '/blog',
   },
   {
-    id: 1,
+    id: 4,
     name: 'Uses',
     href: '/uses',
   },

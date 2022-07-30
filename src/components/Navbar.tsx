@@ -13,7 +13,7 @@ const links: { id: number; name: string; href: string }[] = [
     href: '/projects',
   },
   {
-    id: 1,
+    id: 3,
     name: 'Blog',
     href: '/blog',
   },

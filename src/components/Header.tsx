@@ -14,7 +14,6 @@ const Header = ({ showHero, title }: Props) => {
   return (
     <header className={styles.header}>
       <Navbar />
-
       {showHero ? (
         <motion.div
           initial="hidden"
