@@ -1,4 +1,6 @@
 import Page from '@src/components/Page';
+import ProjectItem from '@src/components/ProjectItem';
+import Skills from '@src/components/Skills';
 import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/sanity';
@@ -26,8 +28,13 @@ const Home = ({ projects }: Props) => {
         }}
       />
       <Page title="Home" showHero>
+        <h2 style={{ marginBottom: '2.5rem' }}>Highlighted projects</h2>
         {projects &&
-          projects.map(project => <p key={project._id}>{project.title}</p>)}
+          projects.map(project => (
+            <ProjectItem key={project._id} project={project} />
+          ))}
+        <h4 className="title">Skills</h4>
+        <Skills />
       </Page>
     </>
   );
