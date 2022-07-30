@@ -11,8 +11,8 @@ interface Props {
 
 const PostItem = ({ post }: Props) => {
   return (
-    <Link href={`/blog/${post.slug.current}`}>
-      <a className={styles.post}>
+    <Link href={`/blog/${post.slug.current}`} passHref>
+      <a className={styles.post} data-testid="post-title">
         <div className={styles.dateThumb}>
           <div className={styles.date}>
             <span className={styles.day}>

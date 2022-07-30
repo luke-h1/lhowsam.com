@@ -10,10 +10,14 @@ interface Props {
 const ProjectItem = ({ project }: Props) => {
   return (
     <div className={styles.project} key={project.title}>
-      <Link href={`/projects/${project.slug.current}`}>
-        <a>
-          <h3 className={styles.title}>{project.title}</h3>
-          <p className={styles.description}>{project.intro}</p>
+      <Link href={`/projects/${project.slug.current}`} passHref>
+        <a data-testid="project-link">
+          <h3 className={styles.title} data-testid="project-title">
+            {project.title}
+          </h3>
+          <p className={styles.description} data-testid="project-intro">
+            {project.intro}
+          </p>
         </a>
       </Link>
 
@@ -25,7 +29,11 @@ const ProjectItem = ({ project }: Props) => {
           </a>
         )}
         {project.githubUrl && (
-          <a href={project.githubUrl} className={styles.link}>
+          <a
+            href={project.githubUrl}
+            className={styles.link}
+            data-testid="project-github"
+          >
             View source
             <AiFillGithub />
           </a>

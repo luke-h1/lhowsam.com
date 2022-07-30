@@ -37,7 +37,7 @@ const Header = ({ showHero, title }: Props) => {
             </div>
             <div className={styles.sidePresentation}>
               <h1 className={styles.profilePresentation}>
-                Hey{' '}
+                Hey
                 <span aria-hidden aria-label="wave">
                   👋
                 </span>{' '}
