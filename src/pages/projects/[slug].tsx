@@ -38,20 +38,6 @@ const BlogPostPage = ({ project, source }: Props) => {
         <div className={styles.container}>
           <Tags tags={project.tags} />
         </div>
-        <div className={styles.thumbnail}>
-          <img
-            src={imageService.urlFor(project.image.asset)}
-            alt={project.image.alt ?? project.title}
-            loading="lazy"
-            width="1170"
-          />
-          <img
-            src={imageService.urlFor(project.image.asset)}
-            alt={project.image.alt ?? project.title}
-            loading="lazy"
-            width="1170"
-          />
-        </div>
       </div>
       <div className={styles.container}>
         <div className={styles.postLayout}>
