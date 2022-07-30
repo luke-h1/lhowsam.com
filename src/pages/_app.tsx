@@ -1,4 +1,3 @@
-import Footer from '@src/components/Footer/Footer';
 import { isServer } from '@src/hooks/isServer';
 import * as gtag from '@src/utils/gtag';
 import { AnimatePresence } from 'framer-motion';
