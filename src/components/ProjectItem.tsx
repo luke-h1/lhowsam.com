@@ -11,9 +11,11 @@ const ProjectItem = ({ project }: Props) => {
   return (
     <div className={styles.project} key={project.title}>
       <Link href={`/projects/${project.slug.current}`}>
-        <h3 className={styles.title}>{project.title}</h3>
+        <a>
+          <h3 className={styles.title}>{project.title}</h3>
+          <p className={styles.description}>{project.intro}</p>
+        </a>
       </Link>
-      <p className={styles.description}>{project.intro}</p>
 
       <div className={styles.links}>
         {project.siteUrl && (

@@ -4,23 +4,23 @@ import styles from './Footer.module.scss';
 const links: { id: number; name: string; href: string }[] = [
   {
     id: 1,
+    name: 'Home',
+    href: '/',
+  },
+  {
+    id: 2,
     name: 'About',
     href: '/about',
   },
   {
-    id: 2,
+    id: 3,
     name: 'Projects',
     href: '/projects',
   },
   {
-    id: 3,
+    id: 4,
     name: 'Blog',
     href: '/blog',
-  },
-  {
-    id: 4,
-    name: 'Uses',
-    href: '/uses',
   },
 ];
 

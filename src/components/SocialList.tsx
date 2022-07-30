@@ -19,7 +19,7 @@ const SocialList = () => {
       </li>
       <li>
         <a
-          href="http://github.com/luke-h1"
+          href="https://github.com/luke-h1"
           target="_blank"
           rel="noopener noreferrer"
         >
