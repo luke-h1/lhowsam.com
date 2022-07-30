@@ -2,7 +2,6 @@ import Page from '@src/components/Page';
 import Share from '@src/components/Share';
 import Tags from '@src/components/Tags';
 import siteConfig from '@src/config/site';
-import imageService from '@src/services/imageService';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/sanity';
 import mdxToHtml from '@src/utils/mdx';
