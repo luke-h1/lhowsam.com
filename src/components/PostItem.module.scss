@@ -4,7 +4,9 @@
 .post {
   display: flex;
   flex-direction: column;
-
+  &:last-child {
+    margin-bottom: 3rem;
+  }
   & + .post {
     margin-top: 60px;
   }
