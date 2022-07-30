@@ -50,10 +50,8 @@ const TagPage = ({ posts }: Props) => {
 export default TagPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const tags = await postService.getTagSlugs();
-  const paths = tags.map(tag => ({ params: { slug: tag.slug.current } }));
   return {
-    paths,
+    paths: [],
     fallback: 'blocking',
   };
 };
