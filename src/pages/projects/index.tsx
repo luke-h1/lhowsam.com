@@ -1,6 +1,5 @@
 import Page from '@src/components/Page';
-import PageHeader from '@src/components/PageHeader';
-import ProjectListing from '@src/components/ProjectListing';
+import ProjectItem from '@src/components/ProjectItem';
 import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/sanity';
@@ -12,14 +11,14 @@ interface Props {
   projects: Project[];
 }
 
-const ProjectsPage = ({ projects }: Props) => {
+const ProjectPage = ({ projects }: Props) => {
   const router = useRouter();
   return (
-    <Page>
+    <Page title="Projects">
       <NextSeo
         title="Projects"
         canonical={`https://lhowsam.com/${router.asPath}`}
-        description="My projects"
+        description="Projects"
         openGraph={{
           defaultImageWidth: 1200,
           defaultImageHeight: 630,
@@ -27,11 +26,15 @@ const ProjectsPage = ({ projects }: Props) => {
           title: `Projects | lhowsam.com`,
         }}
       />
-      <PageHeader title="Projects" />
-      <ProjectListing projects={projects} />
+      {projects &&
+        projects.map(project => (
+          <ProjectItem project={project} key={project._id} />
+        ))}
     </Page>
   );
 };
+
+export default ProjectPage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const projects = await projectService.getAllProjects();
@@ -43,5 +46,3 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     revalidate: siteConfig.defaultRevalidate,
   };
 };
-
-export default ProjectsPage;

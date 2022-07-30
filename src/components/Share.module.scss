@@ -1,0 +1,56 @@
+@import '@src/styles/variables.scss';
+@import '@src/styles/partials/_mixins.scss';
+
+.socialShareButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 32px;
+
+  button {
+    opacity: 1;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 24px;
+    margin-right: 16px;
+    margin-left: 16px;
+
+    & + button {
+      margin-left: 16px;
+      margin-top: 0;
+    }
+
+    svg {
+      circle {
+        fill: $primary;
+      }
+
+      path {
+        fill: $black;
+      }
+    }
+    &:hover {
+      opacity: 0.72;
+    }
+  }
+
+  @include media(md) {
+    flex-direction: column;
+    justify-content: center;
+
+    button {
+      width: 32px;
+      height: 32px;
+      margin-bottom: 0;
+      margin-right: 0;
+      margin-left: 0;
+
+      & + button {
+        margin-left: 0;
+        margin-top: 12px;
+      }
+    }
+  }
+}

@@ -1,35 +1,21 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import { Tag } from '@src/types/sanity';
-import Link from 'next/link';
 import styles from './Tags.module.scss';
 
 interface Props {
-  testId?: string;
-  type: 'projects' | 'blog';
   tags: Tag[];
 }
 
-const Tags = ({ tags, testId, type }: Props) => {
-  if (!tags.length) {
-    return null;
-  }
-
+const Tags = ({ tags }: Props) => {
   return (
-    <ul className={styles.tags}>
-      {tags.map(tag => (
-        <li key={tag._id} data-testid={testId}>
-          {type === 'blog' ? (
-            <Link
-              data-testid={`${tag.slug.current}-tag`}
-              href={`/blog/tags/${tag.slug.current}`}
-            >{`#${tag.title}`}</Link>
-          ) : (
-            <span>{`#${tag.title}`}</span>
-          )}
-        </li>
-      ))}
-    </ul>
+    <div className={styles.tags}>
+      {tags &&
+        tags.map(tag => (
+          <p className={styles.tag} key={tag._id}>
+            {tag.title}
+          </p>
+        ))}
+    </div>
   );
 };
+
 export default Tags;

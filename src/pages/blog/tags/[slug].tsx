@@ -1,42 +1,53 @@
 import Page from '@src/components/Page';
-import PageHeader from '@src/components/PageHeader';
-import PostList from '@src/components/PostList';
+import PostItem from '@src/components/PostItem';
 import siteConfig from '@src/config/site';
 import postService from '@src/services/postService';
 import { Post } from '@src/types/sanity';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import styles from '../index.module.scss';
-
-const FormattedSlug = ({ slug }: { slug: string }) => (
-  <span style={{ textTransform: 'capitalize' }}>{slug.replace('-', ' ')}</span>
-);
 
 interface Props {
   posts: Post[];
 }
 
-const BlogTagPage = ({ posts }: Props) => {
+const TagPage = ({ posts }: Props) => {
   const router = useRouter();
 
   const slug = router.query.slug as string;
 
   return (
-    <Page>
-      <PageHeader
-        title={<FormattedSlug slug={slug} />}
-        description={`Posts tagged with ${slug.replace('-', ' ')}`}
-      >
-        <div className={styles.posts}>
-          <div className={styles.main}>
-            <PostList posts={posts} />
-          </div>
-        </div>
-      </PageHeader>
+    <Page title={`Posts taged with ${slug.replace('-', ' ')}`}>
+      <NextSeo
+        title={`Blog posts tagged with ${slug.replace('-', ' ')}`}
+        canonical={`https://lhowsam.com/${router.asPath}`}
+        description={`Blog posts tagged with ${slug.replace('-', ' ')} (${
+          posts.length
+        } posts)`}
+        openGraph={{
+          defaultImageWidth: 1200,
+          defaultImageHeight: 630,
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `Post tags | lhowsam.com`,
+        }}
+      />
+      <div className={styles.postListing}>
+        {posts && (
+          <ul>
+            {posts.map(post => (
+              <li key={post._id}>
+                <PostItem post={post} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </Page>
   );
 };
-export default BlogTagPage;
+
+export default TagPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const tags = await postService.getTagSlugs();

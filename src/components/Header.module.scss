@@ -1,0 +1,120 @@
+@import '@src/styles/partials/_mixins.scss';
+@import '@src/styles/partials/_utils.scss';
+@import '@src/styles/variables.scss';
+
+.header {
+  width: 100%;
+  height: auto;
+}
+
+.titlePage {
+  font-size: 40px;
+  line-height: 1.5;
+  margin-top: 24px;
+  margin-bottom: 24px;
+
+  @include media(sm) {
+    margin-bottom: 32px;
+  }
+
+  @include media(md) {
+    margin-bottom: 48px;
+  }
+}
+
+.presentation {
+  width: 940px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  text-align: center;
+  align-items: center;
+
+  @include media(sm) {
+    display: flex;
+    padding: 40px 40px 80px;
+  }
+
+  @include media(md) {
+    padding: 70px 60px 80px;
+    text-align: left;
+    flex-direction: row;
+  }
+
+  @include media(lg) {
+    padding: 100px 10px;
+  }
+}
+
+.profileImage {
+  width: 180px;
+  height: 180px;
+  padding: 16px;
+  // border-radius: 50%;
+  margin: 0 auto;
+  border: 1px solid $dark;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+
+  @include media(sm) {
+    padding: 32px;
+    width: 270px;
+    height: 270px;
+    padding: 20px;
+    margin-bottom: 10px;
+    margin: 0;
+  }
+
+  img {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+}
+
+.sidePresentation {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+
+  @include media(sm) {
+    padding-left: 30px;
+  }
+}
+
+.profilePresentation {
+  font-size: 30px;
+  color: $light;
+  margin-bottom: 20px;
+  font-weight: 400;
+
+  @include media(sm) {
+    font-size: 27px;
+    margin-bottom: 25px;
+  }
+
+  @include media(md) {
+    font-size: 27px;
+    margin-bottom: 15px;
+  }
+}
+
+.profileDescription {
+  color: $light;
+  font-size: 15px;
+  line-height: 2;
+}
+
+.button {
+  width: fit-content;
+  background-color: $dark;
+  padding: 0.75rem 1.2rem;
+  border-radius: 4px;
+  color: $light;
+
+  &:hover {
+    background-color: $light-dark;
+  }
+}

@@ -4,7 +4,7 @@ describe('index', () => {
   });
 
   it('should render correctly', () => {
-    cy.get('h1').contains("Hey, I'm Luke").should('be.visible')
+    cy.get('p').contains("I currently work as a Software Engineer.").should('be.visible')
   })
 
   it('should display projects', () => {

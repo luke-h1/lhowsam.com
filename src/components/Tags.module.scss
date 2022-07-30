@@ -1,32 +1,25 @@
+@import '@src/styles/variables.scss';
+@import '@src/styles/partials/_mixins.scss';
+@import '@src/styles/partials/_utils.scss';
+
 .tags {
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
-  list-style: none;
-  margin: 0 auto;
-  margin-bottom: 60px;
-  padding-left: 0;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 16px;
 
-  li {
-    margin: 0 15px;
+  p {
+    display: block;
+    margin-right: 30px;
+    font-size: 14px;
+    font-weight: 400;
+    color: $pink;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
 
-    &:first-of-type {
-      margin-left: 0;
-    }
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-
-    a,
-    span {
-      opacity: 0.7;
-      transition: opacity 250ms ease-out;
-
-      &:hover,
-      &:focus {
-        opacity: 1;
-      }
-    }
+  @include media(md) {
+    margin-bottom: 0;
   }
 }

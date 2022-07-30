@@ -1,7 +1,5 @@
-import Input from '@src/components/Input';
 import Page from '@src/components/Page';
-import PageHeader from '@src/components/PageHeader';
-import PostList from '@src/components/PostList';
+import PostItem from '@src/components/PostItem';
 import siteConfig from '@src/config/site';
 import postService from '@src/services/postService';
 import { Post } from '@src/types/sanity';
@@ -10,14 +8,14 @@ import debounce from 'lodash/debounce';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import { useCallback, useState } from 'react';
+import { ChangeEvent, useCallback, useState } from 'react';
 import styles from './index.module.scss';
 
 interface Props {
   posts: Post[];
 }
 
-const BlogIndexPage = ({ posts }: Props) => {
+const BlogPage = ({ posts }: Props) => {
   const router = useRouter();
   const [search, setSearch] = useState<string>('');
 
@@ -27,7 +25,7 @@ const BlogIndexPage = ({ posts }: Props) => {
     [],
   );
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
     if (e.target.value.length > 0) {
       trackSearch(e.target.value);
     }
@@ -40,7 +38,7 @@ const BlogIndexPage = ({ posts }: Props) => {
   });
 
   return (
-    <Page>
+    <Page showHero={false} title="Blog">
       <NextSeo
         title="Blog"
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -52,24 +50,32 @@ const BlogIndexPage = ({ posts }: Props) => {
           title: `Blog | lhowsam.com`,
         }}
       />
-      <PageHeader title="Blog" />
-      <div className={styles.inputWrapper}>
-        <Input
-          className={styles.input}
-          value={search}
+      <div className={styles.search}>
+        <input
+          aria-label="Search blog articles"
+          placeholder="Search articles"
           onChange={handleInputChange}
-          placeholder="Search posts"
-          type="search"
+          type="text"
         />
       </div>
-
-      <PostList posts={filteredPosts} />
+      <div className={styles.postListing}>
+        {filteredPosts && (
+          <ul>
+            {filteredPosts.map(post => (
+              <li key={post._id}>
+                <PostItem post={post} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </Page>
   );
 };
-export default BlogIndexPage;
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
+export default BlogPage;
+
+export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const posts = await postService.getAllPosts();
 
   return {
