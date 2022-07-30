@@ -26,7 +26,8 @@ const Home = ({ projects }: Props) => {
         }}
       />
       <Page title="Home" showHero>
-        yo
+        {projects &&
+          projects.map(project => <p key={project._id}>{project.title}</p>)}
       </Page>
     </>
   );
