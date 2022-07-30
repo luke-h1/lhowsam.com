@@ -1,22 +1,58 @@
+import Page from '@src/components/Page';
+import Tags from '@src/components/Tags';
 import siteConfig from '@src/config/site';
+import imageService from '@src/services/imageService';
 import postService from '@src/services/postService';
 import { Post } from '@src/types/sanity';
 import mdxToHtml from '@src/utils/mdx';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import { MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import styles from './slug.module.scss';
 
 interface Props {
   post: Post;
-  source: Promise<{
-    mdxSource: MDXRemoteSerializeResult<
-      Record<string, unknown>,
-      Record<string, string>
-    >;
-  }>;
+  source: {
+    compiledSource: string;
+  };
 }
 
 const BlogPostPage = ({ post, source }: Props) => {
-  return <div>post page</div>;
+  return (
+    <Page title={post.title}>
+      <div className={styles.headerPost}>
+        <div className={styles.container}>
+          <Tags tags={post.tags} />
+        </div>
+        <div className={styles.thumbnail}>
+          <img
+            src={imageService.urlFor(post.image.asset)}
+            alt={post.image.alt ?? post.title}
+            loading="lazy"
+            width="1170"
+          />
+          <img
+            src={imageService.urlFor(post.image.asset)}
+            alt={post.image.alt ?? post.title}
+            loading="lazy"
+            width="1170"
+          />
+        </div>
+      </div>
+      <div className={styles.container}>
+        <div className={styles.postLayout}>
+          <div className={styles.socialShare}>
+            <span>Share</span>
+            share goes here
+          </div>
+          <article className={styles.article}>
+            <div>
+              <MDXRemote compiledSource={source.compiledSource} />
+            </div>
+          </article>
+        </div>
+      </div>
+    </Page>
+  );
 };
 
 export default BlogPostPage;
@@ -44,7 +80,8 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
       notFound: true,
     };
   }
-  const source = mdxToHtml(post.content);
+  const source = await mdxToHtml(post.content);
+  console.log(source);
 
   return {
     props: {

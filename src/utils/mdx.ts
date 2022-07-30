@@ -5,7 +5,9 @@ import rehypePrism from 'rehype-prism-plus';
 import rehypeSlug from 'rehype-slug';
 import remarkGfm from 'remark-gfm';
 
-export default async function mdxToHtml(source: string) {
+export default async function mdxToHtml(
+  source: string,
+): Promise<{ compiledSource: string }> {
   const mdxSource = await serialize(source, {
     mdxOptions: {
       remarkPlugins: [remarkGfm],
@@ -25,7 +27,5 @@ export default async function mdxToHtml(source: string) {
       format: 'mdx',
     },
   });
-  return {
-    mdxSource,
-  };
+  return mdxSource;
 }
