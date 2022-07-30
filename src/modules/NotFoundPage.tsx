@@ -7,18 +7,17 @@ const NotFoundPage = () => {
   return (
     <Page title="Error" header={false} footer={false}>
       <div className={styles.doubleContent}>
+        <div className={styles.sideImage}>
+          <div className={styles.containerImage}>
+            <h1>404</h1>
+          </div>
+        </div>
         <div className={styles.sideContent}>
-          <h1>404 page not found</h1>
+          <h1>page not found</h1>
           <h3 aria-label="404 page not not found">
             Looks like this page doesn't exist
           </h3>
-
           <ul>
-            <p>If you typed the web address, check it's correct.</p>
-            <p>
-              If you cut and pasted the web address, check you copied the entire
-              address.
-            </p>{' '}
             <p>
               If you got to this page by clicking a link or button and ended up
               on this page please either:

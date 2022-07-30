@@ -21,10 +21,15 @@ const ErrorPage = ({ statusCode }: Props) => {
       return (
         <Page title="Error" header={false} footer={false}>
           <div className={styles.doubleContent}>
+            <div className={styles.sideImage}>
+              <div className={styles.containerImage}>
+                <h1>{statusCode}</h1>
+              </div>
+            </div>
             <div className={styles.sideContent}>
               <h1>There's a problem with the site</h1>
-              <h3>If this issue persists please either:</h3>
               <ul>
+                <p>If this issue persists please either:</p>
                 <li>
                   <a href="https://github.com/luke-h1/lhowsam.com/issues/new">
                     Raise a Github issue

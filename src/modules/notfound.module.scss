@@ -25,6 +25,9 @@
   .containerImage {
     width: 100%;
     min-width: 100%;
+    h1 {
+      font-size: 110px;
+    }
 
     @include media(md) {
       width: 360px;
@@ -41,8 +44,8 @@
 .sideContent {
   margin-left: 0;
   margin-top: 40px;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
   flex-direction: column;
   text-align: left;
   display: flex;
