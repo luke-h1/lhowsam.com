@@ -1,7 +1,3 @@
-import Page from '@src/components/Page';
-
-const AboutPage = () => {
-  return <Page title="About Me">About</Page>;
-};
+import AboutPage from '@src/modules/About';
 
 export default AboutPage;

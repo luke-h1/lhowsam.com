@@ -19,6 +19,7 @@ image {
   },
 },
 tags[] -> {
+  ...,
   title,
   slug
 },
@@ -55,6 +56,7 @@ const getTagSlugsQuery = groq`
 *[_type == "post"] {
   ...,
   tags[]-> {
+    ...,
     slug
   },
 }
