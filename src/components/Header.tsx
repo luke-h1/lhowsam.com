@@ -32,7 +32,7 @@ const Header = ({ showHero, title }: Props) => {
                 quality={100}
                 priority
                 width={240}
-                height={280}
+                height={255}
               />
             </div>
             <div className={styles.sidePresentation}>
