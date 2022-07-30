@@ -68,11 +68,12 @@
     tab-size: 4;
     text-size-adjust: 100%;
   }
+  margin-bottom: 4rem;
 }
 
 @media (max-width: 740px) {
   .skillGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-bottom: 60px;
+    // margin-bottom: 60px;
   }
 }

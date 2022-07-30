@@ -1,6 +1,4 @@
-import Button from '@src/components/Button';
 import Page from '@src/components/Page';
-import PageHeader from '@src/components/PageHeader';
 import ProjectItem from '@src/components/ProjectItem';
 import Skills from '@src/components/Skills';
 import siteConfig from '@src/config/site';
@@ -17,7 +15,7 @@ interface Props {
 const Home = ({ projects }: Props) => {
   const router = useRouter();
   return (
-    <Page>
+    <>
       <NextSeo
         title="Home"
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -29,29 +27,16 @@ const Home = ({ projects }: Props) => {
           title: `Home | lhowsam.com`,
         }}
       />
-      <PageHeader
-        title="Hey, I'm Luke"
-        description="I currently work as a Software Engineer. I like building projects that are scalable, performant & user friendly."
-      >
-        <Button href="/about">More about me</Button>
-      </PageHeader>
-      <div className="flex">
-        <h2
-          className="title"
-          style={{ marginBottom: '50px', marginTop: '50px', textAlign: 'left' }}
-        >
-          Featured Projects
-        </h2>
-        <div className="project-container">
-          {projects &&
-            projects.map(project => (
-              <ProjectItem project={project} key={project._id} />
-            ))}
-        </div>
-        <h3 className="title">Skills</h3>
+      <Page title="Home" showHero>
+        <h2 style={{ marginBottom: '2.5rem' }}>Highlighted projects</h2>
+        {projects &&
+          projects.map(project => (
+            <ProjectItem key={project._id} project={project} />
+          ))}
+        <h4 className="title">Skills</h4>
         <Skills />
-      </div>
-    </Page>
+      </Page>
+    </>
   );
 };
 export default Home;

@@ -1,31 +1,28 @@
-import BlogImage from '@src/components/BlogImage';
 import Page from '@src/components/Page';
-import PageHeader from '@src/components/PageHeader';
+import Share from '@src/components/Share';
 import Tags from '@src/components/Tags';
 import siteConfig from '@src/config/site';
 import imageService from '@src/services/imageService';
 import postService from '@src/services/postService';
 import { Post } from '@src/types/sanity';
-import { rehypePlugins } from '@src/utils/markdown';
-import { format, parseISO } from 'date-fns';
+import mdxToHtml from '@src/utils/mdx';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import readingTime from 'reading-time';
-import styles from './blog-slug.module.scss';
+import styles from './slug.module.scss';
 
 interface Props {
   post: Post;
-  source: { compiledSource: string };
+  source: {
+    compiledSource: string;
+  };
 }
 
-const BlogSlugPage = ({ post, source }: Props) => {
+const BlogPostPage = ({ post, source }: Props) => {
   const router = useRouter();
-
   return (
-    <Page>
+    <Page title={post.title}>
       <NextSeo
         title={post.title}
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -45,31 +42,46 @@ const BlogSlugPage = ({ post, source }: Props) => {
           title: `${post.title} | lhowsam.com`,
         }}
       />
-
-      <article className={styles.article}>
-        <PageHeader title={post.title} compact>
-          <BlogImage
+      <div className={styles.headerPost}>
+        <div className={styles.container}>
+          <Tags tags={post.tags} />
+        </div>
+        <div className={styles.thumbnail}>
+          <img
             src={imageService.urlFor(post.image.asset)}
             alt={post.image.alt ?? post.title}
-            className={styles.image}
+            loading="lazy"
+            width="1170"
           />
-          <p className={styles.meta}>
-            Published on{' '}
-            <time dateTime={post.publishedAt}>
-              <small style={{ marginRight: '6px' }}>
-                {format(parseISO(post.publishedAt), 'MMMM d, yyyy')}
-              </small>
-            </time>{' '}
-          </p>
-          <p className={styles.meta}>{readingTime(post.content).text}</p>
-          <Tags tags={post.tags} type="blog" />
-        </PageHeader>
-        <MDXRemote compiledSource={source.compiledSource} />
-      </article>
+          <img
+            src={imageService.urlFor(post.image.asset)}
+            alt={post.image.alt ?? post.title}
+            loading="lazy"
+            width="1170"
+          />
+        </div>
+      </div>
+      <div className={styles.container}>
+        <div className={styles.postLayout}>
+          <div className={styles.socialShare}>
+            <span>Share</span>
+            <Share
+              title={post.title}
+              link={`${process.env.NEXT_PUBLIC_URL}/blog/${post.slug.current}`}
+            />
+          </div>
+          <article className={styles.article}>
+            <div>
+              <MDXRemote compiledSource={source.compiledSource} />
+            </div>
+          </article>
+        </div>
+      </div>
     </Page>
   );
 };
-export default BlogSlugPage;
+
+export default BlogPostPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await postService.getSlugs();
@@ -83,24 +95,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   if (!params?.slug) {
-    return {
-      props: [],
-      notFound: true,
-    };
+    return { props: {}, notFound: true };
   }
 
   const post = await postService.getPost(params.slug as string);
+
   if (!post) {
     return {
       props: [],
       notFound: true,
     };
   }
-  const source = await serialize(post.content, {
-    mdxOptions: {
-      rehypePlugins,
-    },
-  });
+  const source = await mdxToHtml(post.content);
 
   return {
     props: {

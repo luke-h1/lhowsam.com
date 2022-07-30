@@ -1,26 +1,28 @@
 import Page from '@src/components/Page';
-import PageHeader from '@src/components/PageHeader';
+import Share from '@src/components/Share';
 import Tags from '@src/components/Tags';
 import siteConfig from '@src/config/site';
+import imageService from '@src/services/imageService';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/sanity';
-import { rehypePlugins } from '@src/utils/markdown';
+import mdxToHtml from '@src/utils/mdx';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import styles from './project-slug.module.scss';
+import styles from '../blog/slug.module.scss';
 
 interface Props {
   project: Project;
-  source: { compiledSource: string };
+  source: {
+    compiledSource: string;
+  };
 }
 
-const ProjectSlugPage = ({ project, source }: Props) => {
+const BlogPostPage = ({ project, source }: Props) => {
   const router = useRouter();
   return (
-    <Page>
+    <Page title={project.title}>
       <NextSeo
         title={project.title}
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -32,15 +34,32 @@ const ProjectSlugPage = ({ project, source }: Props) => {
           title: `${project.title} | lhowsam.com`,
         }}
       />
-      <article className={styles.article}>
-        <PageHeader title={project.title} />
-        <Tags tags={project.tags} type="projects" />
-        <MDXRemote compiledSource={source.compiledSource} />
-      </article>
+      <div className={styles.headerPost}>
+        <div className={styles.container}>
+          <Tags tags={project.tags} key={project._id} />
+        </div>
+      </div>
+      <div className={styles.container}>
+        <div className={styles.postLayout}>
+          <div className={styles.socialShare}>
+            <span>Share</span>
+            <Share
+              title={project.title}
+              link={`${process.env.NEXT_PUBLIC_URL}/projects/${project.slug.current}`}
+            />
+          </div>
+          <article className={styles.article}>
+            <div>
+              <MDXRemote compiledSource={source.compiledSource} />
+            </div>
+          </article>
+        </div>
+      </div>
     </Page>
   );
 };
-export default ProjectSlugPage;
+
+export default BlogPostPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const projects = await projectService.getSlugs();
@@ -56,24 +75,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   if (!params?.slug) {
-    return {
-      props: [],
-      notFound: true,
-    };
+    return { props: {}, notFound: true };
   }
+
   const project = await projectService.getProject(params.slug as string);
+
   if (!project) {
     return {
       props: [],
       notFound: true,
     };
   }
-
-  const source = await serialize(project.content, {
-    mdxOptions: {
-      rehypePlugins,
-    },
-  });
+  const source = await mdxToHtml(project.content);
 
   return {
     props: {
