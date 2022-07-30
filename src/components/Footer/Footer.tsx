@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import SocialList from '../SocialList';
 import styles from './Footer.module.scss';
 import FooterLinks from './FooterLinks';
@@ -7,7 +8,9 @@ const Footer = () => {
     <footer className={styles.container}>
       <div className={styles.contentFooter}>
         <div className={styles.presentation}>
-          <h3>Luke H</h3>
+          <Link href="/">
+            <h3>Luke H</h3>
+          </Link>
           <SocialList />
         </div>
         <div className={styles.menuFooter}>

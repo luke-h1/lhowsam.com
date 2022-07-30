@@ -83,8 +83,11 @@
     margin-right: 8px;
   }
   a {
-    color: $pink;
     text-decoration: none;
+    color: $light;
+    &:hover {
+      color: $pink;
+    }
   }
 
   @media (min-width: 480px) {
