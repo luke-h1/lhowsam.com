@@ -8,9 +8,6 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    legacyBrowsers: false,
-  },
   generateBuildId: async () => {
     return '1';
   },
@@ -50,12 +47,6 @@ const nextConfig = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
-    // Fix for a long-running react-spring bug. https://github.com/pmndrs/react-spring/issues/1078#issuecomment-743698325
-    config.module.rules.push({
-      test: /react-spring/,
-      sideEffects: true,
-    });
-
     return config;
   },
 };

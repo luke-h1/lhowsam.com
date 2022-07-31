@@ -10,45 +10,73 @@ const slugsQuery = groq`
 }
 `;
 
-const postFields = `
-...,
-image {
-  alt,
-  asset {
-    _ref
-  },
-},
-tags[] -> {
-  ...,
-  title,
-  slug
-},
-slug {
-  current
-},
-`;
-
 const recentPostsQuery = groq`
 *[ _type == "post"][0...3] | order(publishedAt desc) {
-  ${postFields}
+  ...,
+  image {
+    alt,
+    asset {
+      _ref
+    },
+  },
+  tags[] -> {
+    title,
+    slug
+  },
+  slug {
+    current
+  },
 }
 `;
 
 const listAllPosts = groq`
   *[ _type == "post"] | order(publishedAt desc) {
-    ${postFields}
+    ...,
+    image {
+      alt,
+      asset {
+      _ref
+     },
+    },
+    tags[]-> {
+      title,
+      slug
+   },
+    slug {
+      current
+    },
   }
 `;
 
 const getPostQuery = groq`
 *[ _type == "post" && slug.current == $slug][0] {
-  ${postFields}
+  ...,
+  image {
+    alt,
+    asset {
+      _ref
+    },
+  },
+  tags[]-> {
+    title,
+    slug
+  },
 }
 `;
 
 const getPostByTagQuery = groq`
 *[_type == "post" && $keyword in tags[]->slug.current] {
-  ${postFields}
+  ...,
+  image {
+    alt,
+    asset {
+      _ref
+    },
+  },
+  tags[]-> {
+  title,
+    slug
+  },
 }
 `;
 
@@ -56,7 +84,6 @@ const getTagSlugsQuery = groq`
 *[_type == "post"] {
   ...,
   tags[]-> {
-    ...,
     slug
   },
 }

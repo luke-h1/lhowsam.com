@@ -1,26 +1,26 @@
 import Link from 'next/link';
 import styles from './Footer.module.scss';
 
-const links: { id: number; name: string; href: string }[] = [
+const links: { id: number; name: string; slug: string }[] = [
   {
     id: 1,
     name: 'Home',
-    href: '/',
+    slug: '/',
   },
   {
     id: 2,
     name: 'About',
-    href: '/about',
+    slug: '/about',
   },
   {
     id: 3,
     name: 'Projects',
-    href: '/projects',
+    slug: '/projects',
   },
   {
     id: 4,
     name: 'Blog',
-    href: '/blog',
+    slug: '/blog',
   },
 ];
 
@@ -30,9 +30,7 @@ const FooterLinks = () => {
       {links &&
         links.map(link => (
           <li key={link.id}>
-            <Link href={link.href} scroll={false}>
-              <a>{link.name}</a>
-            </Link>
+            <Link href={link.slug}>{link.name}</Link>
           </li>
         ))}
     </ul>
