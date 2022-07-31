@@ -1,6 +1,6 @@
-@import '@src/styles/partials/_mixins.scss';
-@import '@src/styles/partials/_utils.scss';
-@import '@src/styles/variables.scss';
+@import '../styles/partials/_mixins.scss';
+@import '../styles/partials/_utils.scss';
+@import '../styles/variables.scss';
 
 .nav {
   top: 0;
@@ -13,6 +13,13 @@
   -webkit-backdrop-filter: blur(10px);
 }
 
+.logo {
+  cursor: pointer;
+  &:hover {
+    color: $pink;
+  }
+}
+
 .navbar {
   display: flex;
   flex-direction: row;
@@ -20,7 +27,7 @@
   align-items: center;
   height: 64px;
 
-  span {
+  a {
     font-size: 26px;
     line-height: 32px;
     font-weight: 700;

@@ -34,8 +34,6 @@ const ProjectPage = ({ projects }: Props) => {
   );
 };
 
-export default ProjectPage;
-
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const projects = await projectService.getAllProjects();
 
@@ -46,3 +44,5 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     revalidate: siteConfig.defaultRevalidate,
   };
 };
+
+export default ProjectPage;
