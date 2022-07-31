@@ -1,7 +1,6 @@
 import Page from '@src/components/Page';
 import Skills from '@src/components/Skills';
 import Image from 'next/image';
-import Link from 'next/link';
 import styles from './About.module.scss';
 
 const AboutPage = () => {

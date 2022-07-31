@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Header.module.scss';
 import Navbar from './Navbar';
@@ -22,8 +21,8 @@ const Header = ({ showHero, title }: Props) => {
           transition={{ type: 'linear' }}
         >
           <div className={styles.presentation}>
-            <div className={styles.profileImage}>
-              <Image
+            {/* <div className={styles.profileImage}> */}
+            {/* <Image
                 src="/images/luke.jpeg"
                 alt="Luke Howsam"
                 blurDataURL="/images/luke.jpeg"
@@ -33,15 +32,16 @@ const Header = ({ showHero, title }: Props) => {
                 priority
                 width={240}
                 height={255}
-              />
-            </div>
+              /> */}
+            {/* </div> */}
             <div className={styles.sidePresentation}>
               <h1 className={styles.profilePresentation}>
                 Hey
                 <span aria-hidden aria-label="wave">
+                  {' '}
                   👋
                 </span>{' '}
-                , I'm <b>Luke</b>
+                , I'm Luke
               </h1>
               <p className={styles.profileDescription}>
                 I currently work as a Software Engineer. I like building +

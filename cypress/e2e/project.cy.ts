@@ -5,7 +5,7 @@ describe('projects', () => {
   });
 
   it('shows project posts & project slug pages correctly', () => {
-    let links: string[] = []
+    const links: string[] = []
 
     for (let i = 0; i < 3; i += 1) {
       cy.get('a').eq(i).should('be.visible').and('not.be.empty');

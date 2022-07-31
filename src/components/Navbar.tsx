@@ -1,21 +1,22 @@
 import Link from 'next/link';
+import { FiCode } from 'react-icons/fi';
 import styles from './Navbar.module.scss';
 
-const links: { id: number; name: string; href: string }[] = [
+const links: { id: number; name: string; slug: string }[] = [
   {
     id: 1,
     name: 'About',
-    href: '/about',
+    slug: '/about',
   },
   {
     id: 2,
     name: 'Projects',
-    href: '/projects',
+    slug: '/projects',
   },
   {
     id: 3,
     name: 'Blog',
-    href: '/blog',
+    slug: '/blog',
   },
 ];
 
@@ -24,18 +25,14 @@ const Navbar = () => {
     <nav className={styles.nav}>
       <div className={styles.container}>
         <div className={styles.navbar}>
-          <Link href="/" scroll={false}>
-            <a className={styles.linkTitle}>
-              <span>Luke H</span>
-            </a>
+          <Link href="/">
+            <FiCode fontSize="29.5px" className={styles.logo} />
           </Link>
           <ul className={styles.navbarLinks}>
             {links &&
               links.map(link => (
                 <li key={link.id}>
-                  <Link href={link.href}>
-                    <a>{link.name}</a>
-                  </Link>
+                  <Link href={link.slug}>{link.name}</Link>
                 </li>
               ))}
           </ul>

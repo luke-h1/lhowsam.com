@@ -5,7 +5,7 @@ describe('blog page should work', () => {
   });
 
   it('shows listing of blog posts & slug page correctly', () => {
-    let links: string[] = []
+    const links: string[] = []
 
     for (let i = 0; i < 8; i += 1) {
       cy.get('h2').eq(i).should('be.visible').and('not.be.empty');
