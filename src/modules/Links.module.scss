@@ -1,0 +1,17 @@
+@import '../styles/variables.scss';
+
+.main {
+  ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    margin-bottom: 24px;
+    a {
+      &:hover {
+        color: $pink;
+      }
+    }
+  }
+}
