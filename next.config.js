@@ -8,6 +8,9 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  experimental: {
+    legacyBrowsers: false,
+  },
   generateBuildId: async () => {
     return '1';
   },

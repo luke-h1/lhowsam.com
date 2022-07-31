@@ -12,6 +12,7 @@ const SocialList = () => {
           href="https://twitter.com/LukeH_1999"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Link to my Twitter profile"
         >
           <FiTwitter size={iconSize} />
         </a>
@@ -22,6 +23,7 @@ const SocialList = () => {
           href="https://github.com/luke-h1"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Link to my Github profile"
         >
           <AiFillGithub size={iconSize} />
         </a>
@@ -32,6 +34,7 @@ const SocialList = () => {
           href="https://www.linkedin.com/in/lukehowsam"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Link to my LinkedIn profile"
         >
           <AiFillLinkedin size={iconSize} />
         </a>
