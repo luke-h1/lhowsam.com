@@ -18,15 +18,15 @@ describe('navbar', () => {
 
     // 2nd link (projects)
     cy.contains('Projects').should('be.visible').click();
-
+    cy.wait(500);
     cy.get('h1').contains('Projects').should('be.visible');
     cy.url().should('include', '/projects');
     cy.go('back')
     cy.wait(500);
     cy.url().should('include', '/');
     cy.get('h2').contains('Highlighted projects').should('be.visible')
-
     cy.contains('Projects').should('be.visible').click();
+    cy.wait(500);
 
 
     // 3rd link (Blog)
@@ -35,6 +35,7 @@ describe('navbar', () => {
     cy.get('h2').contains('Highlighted projects').should('be.visible')
     cy.url().should('include', '/');
     cy.contains('Blog').should('be.visible').click();
+    cy.wait(500);
     cy.url().should('include', '/blog');
     cy.get('h1').contains('Blog').should('be.visible');
 
