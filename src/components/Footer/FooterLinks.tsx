@@ -22,6 +22,11 @@ const links: { id: number; name: string; slug: string }[] = [
     name: 'Blog',
     slug: '/blog',
   },
+  {
+    id: 5,
+    name: 'Links',
+    slug: '/links',
+  },
 ];
 
 const FooterLinks = () => {
