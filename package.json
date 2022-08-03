@@ -42,7 +42,7 @@
     "check-node-version": "^4.2.1",
     "classnames": "^2.3.1",
     "clsx": "^1.2.1",
-    "cypress": "10.3.1",
+    "cypress": "10.4.0",
     "cypress-multi-reporters": "^1.6.1",
     "date-fns": "^2.29.1",
     "framer-motion": "^6.5.1",
