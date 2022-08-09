@@ -8,7 +8,7 @@
     "moduleResolution": "node",
     "noEmit": true,
     "noImplicitAny": true,
-    "noImplicitReturns": false,
+    "noImplicitReturns": true,
     "strict": true,
     "strictNullChecks": true,
     "experimentalDecorators": true,
