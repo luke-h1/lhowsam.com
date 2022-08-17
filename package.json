@@ -45,7 +45,7 @@
     "cypress": "10.5.0",
     "cypress-multi-reporters": "^1.6.1",
     "date-fns": "^2.29.1",
-    "framer-motion": "^7.1.2",
+    "framer-motion": "^7.2.0",
     "gen-env-types": "^1.3.4",
     "groq": "2.29.3",
     "lodash": "^4.17.21",
