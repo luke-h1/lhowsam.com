@@ -78,6 +78,14 @@ export default BlogPage;
 export const getStaticProps: GetStaticProps<{ posts: Post[] }> = async () => {
   const posts = await postService.getAllPosts();
 
+  if (!posts.length) {
+    return {
+      props: {
+        posts: [],
+      },
+    };
+  }
+
   return {
     props: {
       posts,
