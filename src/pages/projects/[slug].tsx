@@ -68,13 +68,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  if (!params?.slug) {
-    return {
-      props: [],
-      notFound: true,
-    };
-  }
-  const project = await projectService.getProject(params.slug as string);
+  const project = await projectService.getProject(params?.slug as string);
+
   if (!project) {
     return {
       props: [],
