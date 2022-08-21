@@ -20,6 +20,7 @@
     "cy:open": "./node_modules/.bin/cypress open",
     "cy:prod": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress run",
     "cy:prod-open": "CYPRESS_BASE_URL=https://lhowsam.com ./node_modules/.bin/cypress open",
+    "cy:preview": "CYPRESS_BASE_URL=https://luke-h-portfolio-luke-h1.vercel.app ./node_modules/.bin/cypress run",
     "test": "jest --passWithNoTests",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test:watch": "jest --watch",
