@@ -8,7 +8,7 @@ import debounce from 'lodash/debounce';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import { ChangeEvent, useCallback, useState } from 'react';
+import { ChangeEvent, Suspense, useCallback, useState } from 'react';
 import styles from './index.module.scss';
 
 interface Props {
@@ -59,15 +59,17 @@ const BlogPage = ({ posts }: Props) => {
         />
       </div>
       <div className={styles.postListing}>
-        {filteredPosts && (
-          <ul>
-            {filteredPosts.map(post => (
-              <li key={post._id}>
-                <PostItem post={post} />
-              </li>
-            ))}
-          </ul>
-        )}
+        <Suspense fallback={null}>
+          {filteredPosts && (
+            <ul>
+              {filteredPosts.map(post => (
+                <li key={post._id}>
+                  <PostItem post={post} />
+                </li>
+              ))}
+            </ul>
+          )}
+        </Suspense>
       </div>
     </Page>
   );

@@ -7,6 +7,7 @@ import { Project } from '@src/types/sanity';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
+import { Suspense } from 'react';
 
 interface Props {
   projects: Project[];
@@ -29,12 +30,14 @@ const Home = ({ projects }: Props) => {
       />
       <Page title="Home" showHero>
         <h2 style={{ marginBottom: '2.5rem' }}>Highlighted projects</h2>
-        {projects &&
-          projects.map(project => (
-            <ProjectItem key={project._id} project={project} />
-          ))}
-        <h4 className="title">Skills</h4>
-        <Skills />
+        <Suspense fallback={null}>
+          {projects &&
+            projects.map(project => (
+              <ProjectItem key={project._id} project={project} />
+            ))}
+          <h4 className="title">Skills</h4>
+          <Skills />
+        </Suspense>
       </Page>
     </>
   );
