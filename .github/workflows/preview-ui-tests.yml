@@ -37,5 +37,5 @@ jobs:
       - name: Install dependencies 
         run: npm ci
 
-      - name: Cypress run (prod)
+      - name: Cypress run (preview)
         run: npm run cy:preview
