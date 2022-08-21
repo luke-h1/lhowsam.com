@@ -9,7 +9,9 @@ const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
     '^@src/(.*)$': '<rootDir>/src/$1',
-    '^&studio/(.*)$': '../studio/$1',
+  },
+  transform: {
+    '^.+\\.(t|j)sx?$': ['@swc/jest'],
   },
   testMatch: [
     '<rootDir>/src/**/*.(test).{js,jsx,ts,tsx}',
