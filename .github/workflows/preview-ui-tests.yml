@@ -1,4 +1,4 @@
-name: CI / UI tests (production)
+name: CI / UI tests (preview)
 on:
   workflow_dispatch:
 env: 
