@@ -1,3 +1,4 @@
+import Ga from '@src/components/Ga';
 import * as gtag from '@src/utils/gtag';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
@@ -52,6 +53,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
+      <Ga />
       <Component {...pageProps} />
     </>
   );
