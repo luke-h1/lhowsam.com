@@ -64,6 +64,10 @@ const nextConfig = {
     domains: ['localhost', 'cdn.sanity.io'],
     formats: ['image/avif', 'image/webp'],
   },
+  experimental: {
+    browsersListForSwc: true,
+    legacyBrowsers: false,
+  },
   async redirects() {
     return [
       {
