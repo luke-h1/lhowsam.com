@@ -18,3 +18,9 @@ My website & blog
 [![CI / build](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml)
 
 [![CI / UI tests (production)](https://github.com/luke-h1/lhowsam.com/actions/workflows/prod-ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/prod-ui-tests.yml)
+
+[![CI / UI tests (preview)](https://github.com/luke-h1/lhowsam.com/actions/workflows/preview-ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/preview-ui-tests.yml)
+
+[![CodeQL](https://github.com/luke-h1/lhowsam.com/actions/workflows/codeql.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/codeql.yml)
+
+[![Dependency Review](https://github.com/luke-h1/lhowsam.com/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/dependency-review.yml)
