@@ -73,7 +73,7 @@
     "@commitlint/cli": "^17.0.3",
     "@commitlint/config-conventional": "^17.0.3",
     "@svgr/webpack": "^6.3.1",
-    "@swc/core": "^1.2.241",
+    "@swc/core": "^1.2.242",
     "@swc/jest": "^0.2.22",
     "@testing-library/dom": "^8.17.1",
     "@testing-library/jest-dom": "^5.16.5",
