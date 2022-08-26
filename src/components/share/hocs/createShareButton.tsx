@@ -2,6 +2,7 @@ import { Ref, forwardRef } from 'react';
 import ShareButton, { Props as ShareButtonProps } from '../ShareButton';
 
 function createShareButton<
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   OptionProps extends Record<string, any>,
   LinkOptions = OptionProps,
 >(
@@ -21,7 +22,7 @@ function createShareButton<
     const passedProps = { ...props };
 
     // remove keys from passed props that are passed as `opts`;
-    const optsKey = Object.keys(opts);
+    const optsKey = Object.keys(opts as object);
     optsKey.forEach(key => {
       delete (passedProps as never)[key];
     });
