@@ -51,7 +51,7 @@ jobs:
           if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
             prod="--prod"
           fi
-          npx vercel --token ${VERCEL_TOKEN} $prod
+          npx vercel -f --token ${VERCEL_TOKEN} $prod
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
