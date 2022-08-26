@@ -1,4 +1,4 @@
-name: "Deploy"
+name: Deploy staging
 on:
   push:
     branches:
@@ -48,24 +48,15 @@ jobs:
       - name: install vercel
         run: npm i -g vercel
 
-      - name: Deploy
+      - name: Deploy dev
+        if: contains( github.ref, 'dev')
         run: |
-          prod=""
-          if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
-            prod="--prod"
-          fi
-          vc -f --token ${VERCEL_TOKEN} $prod
+          vc -f --token ${VERCEL_TOKEN}
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
 
-      - name: UI tests 
-        run: | 
-          sleep 15
-          if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
-            npm run cy:prod
-          fi
-          if [[ ${GITHUB_REF} == "refs/heads/dev" ]]; then
-            npm run cy:preview
-          fi
+      - name: UI tests preview
+        if: contains( github.ref, 'dev') 
+        run: npm run cy:preview
