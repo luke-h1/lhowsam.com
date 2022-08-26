@@ -45,13 +45,16 @@ jobs:
       - name: intergration tests (local)
         run: npx start-server-and-test http://localhost:3000 cy:run
 
+      - name: install vercel
+        run: npm i -g vercel
+
       - name: Deploy
         run: |
           prod=""
           if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
             prod="--prod"
           fi
-          npx vercel -f --token ${VERCEL_TOKEN} $prod
+          vc -f --token ${VERCEL_TOKEN} $prod
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
