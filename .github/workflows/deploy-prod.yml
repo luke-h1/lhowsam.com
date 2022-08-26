@@ -46,7 +46,6 @@ jobs:
         run: npm i -g vercel
 
       - name: Deploy prod
-        if: contains( github.ref, 'main')
         run: vc -f --prod --token ${VERCEL_TOKEN}
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
@@ -54,5 +53,4 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
 
       - name: UI tests production
-        if: contains( github.ref, 'main') 
         run: npm run cy:prod
