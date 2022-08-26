@@ -62,6 +62,7 @@ jobs:
 
       - name: UI tests 
         run: | 
+          sleep 15
           if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
             npm run cy:prod
           fi
