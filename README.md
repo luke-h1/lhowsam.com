@@ -23,7 +23,7 @@ My website & blog
 
 [![Deploy production](https://github.com/luke-h1/lhowsam.com/actions/workflows/deploy-prod.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/deploy-prod.yml)
 
-[![Deploy staging](https://github.com/luke-h1/lhowsam.com/actions/workflows/deploy-dev.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/deploy-dev.yml)
+[![Deploy preview](https://github.com/luke-h1/lhowsam.com/actions/workflows/deploy-preview.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/deploy-preview.yml)
 
 [![CodeQL](https://github.com/luke-h1/lhowsam.com/actions/workflows/codeql.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/codeql.yml)
 
