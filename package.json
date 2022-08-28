@@ -7,8 +7,6 @@
     "build": "next build",
     "vercel:build": "vercel build",
     "vercel:dev": "vercel dev",
-    "deploy:dev": "vc -f -d",
-    "deploy:prod": "vc -f --prod -d",
     "start": "next start",
     "tsc": "tsc --noEmit",
     "gen-env": "gen-env-types .env -o src/types/env.d.ts -e .",
