@@ -3,7 +3,7 @@ const siteUrl = process.env.NEXT_PUBLIC_URL;
 function getPolicies() {
   switch (siteUrl) {
     case 'https://lhowsam.com':
-    case 'www.lhowsam.com':
+    case 'https://www.lhowsam.com':
       return [{ userAgent: '*', allow: '/' }];
 
     default:

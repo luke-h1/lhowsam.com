@@ -1,4 +1,4 @@
-name: Deploy staging
+name: Deploy preview
 on:
   push:
     branches:
@@ -48,7 +48,7 @@ jobs:
       - name: install vercel
         run: npm i -g vercel
 
-      - name: Deploy dev
+      - name: Deploy preview
         if: contains( github.ref, 'dev')
         run: |
           vc -f --token ${VERCEL_TOKEN}
