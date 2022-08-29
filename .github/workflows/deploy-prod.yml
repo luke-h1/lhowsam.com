@@ -45,7 +45,7 @@ jobs:
       - name: install vercel
         run: npm i -g vercel
 
-      - name: Deploy prod
+      - name: Deploy production
         run: vc -f --prod --token ${VERCEL_TOKEN}
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
