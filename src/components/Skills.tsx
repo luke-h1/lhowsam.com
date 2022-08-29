@@ -15,6 +15,10 @@ import {
   SiStyledcomponents as SiStyledComponents,
   SiTypescript,
   SiPostgresql,
+  SiNpm,
+  SiYarn,
+  SiCypress,
+  SiJest,
 } from 'react-icons/si';
 import SkillItem from './SkillItem';
 import styles from './Skills.module.scss';
@@ -37,6 +41,10 @@ const Skills = () => {
       <SkillItem icon={SiDocker} text="Docker" />
       <SkillItem icon={SiGit} text="Git, Github, Gitlab" />
       <SkillItem icon={SiAtlassian} text="Jira, Trello, confluence etc." />
+      <SkillItem icon={SiNpm} text="npm" />
+      <SkillItem icon={SiYarn} text="yarn" />
+      <SkillItem icon={SiCypress} text="Cypress" />
+      <SkillItem icon={SiJest} text="Jest" />
     </ul>
   );
 };
