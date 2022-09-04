@@ -52,6 +52,10 @@
     "next-mdx-remote": "^4.1.0",
     "next-seo": "^5.5.0",
     "next-sitemap": "3.1.21",
+    "next-sanity": "^0.6.0",
+    "@sanity/webhook": "^2.0.0",
+    "sanity": "dev-preview",
+    "sanity-plugin-markdown": "^3.0.0-v3-studio.0",
     "next-transpile-modules": "^9.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -64,9 +68,12 @@
     "rss": "^1.2.2",
     "sass": "^1.54.8",
     "sharp": "^0.30.7",
-    "webpack-bundle-analyzer": "^4.6.1"
+    "@sanity/icons": "^1.3.4",
+    "webpack-bundle-analyzer": "^4.6.1",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
+    "@types/validator": "^13.7.6",
     "@commitlint/cli": "^17.1.2",
     "@commitlint/config-conventional": "^17.1.0",
     "@svgr/webpack": "^6.3.1",
