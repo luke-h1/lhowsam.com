@@ -4,8 +4,8 @@
 import { defineConfig } from 'cypress';
 
 export default defineConfig({
-  blockHosts: 'www.google-analytics.com',
-  defaultCommandTimeout: 4000,
+  blockHosts: ['*.google-analytics.com', '*.googletagmanager.com'],
+  defaultCommandTimeout: 5000,
   video: false,
   retries: {
     runMode: 1,
