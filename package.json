@@ -63,7 +63,7 @@
     "remark-gfm": "^3.0.1",
     "rss": "^1.2.2",
     "sass": "^1.54.8",
-    "sharp": "^0.30.7",
+    "sharp": "^0.31.0",
     "webpack-bundle-analyzer": "^4.6.1"
   },
   "devDependencies": {
