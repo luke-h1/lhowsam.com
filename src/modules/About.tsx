@@ -18,7 +18,7 @@ const AboutPage = () => {
               quality={100}
               width={300}
               height={340}
-              loading="lazy"
+              loading="eager"
             />
           </div>
         </div>
