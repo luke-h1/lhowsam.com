@@ -33,7 +33,7 @@
     "@fontsource/poppins": "^4.5.9",
     "@mapbox/rehype-prism": "^0.8.0",
     "@next/eslint-plugin-next": "^12.3.0",
-    "@sanity/client": "^3.3.6",
+    "@sanity/client": "^3.4.1",
     "@sanity/image-url": "^1.0.1",
     "@typescript-eslint/eslint-plugin": "^5.36.2",
     "@typescript-eslint/parser": "^5.36.2",
