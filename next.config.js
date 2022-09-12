@@ -57,9 +57,6 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  generateBuildId: async () => {
-    return '1';
-  },
   images: {
     domains: ['localhost', 'cdn.sanity.io'],
     formats: ['image/avif', 'image/webp'],
