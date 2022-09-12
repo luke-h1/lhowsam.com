@@ -22,9 +22,8 @@ const listAllProjects = groq`
   },  
 }
 `;
-
 const listRecentProjects = groq`
-*[ _type == "project"][1...4] | order(order asc) {
+*[ _type == "project" && title in ["Storify", "My website", "Automation"]] | order(order asc) {
   ...,
   tags[] -> {
     title,
