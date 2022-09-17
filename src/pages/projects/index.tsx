@@ -1,5 +1,5 @@
 import Page from '@src/components/Page';
-import Projects from '@src/components/Projects';
+import PostItem from '@src/components/PostItem';
 import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/sanity';
@@ -26,7 +26,8 @@ const ProjectPage = ({ projects }: Props) => {
           title: `Projects | lhowsam.com`,
         }}
       />
-      <Projects projects={projects} />
+      {projects &&
+        projects.map(project => <PostItem post={project} key={project._id} />)}
     </Page>
   );
 };

@@ -1,5 +1,5 @@
+import FeaturedProjects from '@src/components/FeaturedProjects';
 import Page from '@src/components/Page';
-import Projects from '@src/components/Projects';
 import Skills from '@src/components/Skills';
 import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
@@ -31,7 +31,7 @@ const Home = ({ projects }: Props) => {
         <h2 style={{ marginBottom: '2.5rem', fontSize: '2rem' }}>
           Highlighted projects
         </h2>
-        <Projects projects={projects} />
+        <FeaturedProjects projects={projects} />
         <h4 className="title">Skills</h4>
         <Skills />
       </Page>

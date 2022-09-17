@@ -5,7 +5,7 @@ interface Props {
   projects: Project[];
 }
 
-const Projects = ({ projects }: Props) => {
+const FeaturedProjects = ({ projects }: Props) => {
   return (
     <section style={{ marginBottom: '12rem' }}>
       <div>
@@ -18,4 +18,4 @@ const Projects = ({ projects }: Props) => {
   );
 };
 
-export default Projects;
+export default FeaturedProjects;
