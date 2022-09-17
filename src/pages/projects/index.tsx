@@ -1,5 +1,5 @@
 import Page from '@src/components/Page';
-import ProjectItem from '@src/components/ProjectItem';
+import Projects from '@src/components/Projects';
 import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
 import { Project } from '@src/types/sanity';
@@ -26,10 +26,7 @@ const ProjectPage = ({ projects }: Props) => {
           title: `Projects | lhowsam.com`,
         }}
       />
-      {projects &&
-        projects.map(project => (
-          <ProjectItem project={project} key={project._id} />
-        ))}
+      <Projects projects={projects} />
     </Page>
   );
 };

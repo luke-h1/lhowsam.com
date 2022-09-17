@@ -23,6 +23,7 @@ export interface Project {
   intro: string;
   content: string;
   order: number;
+  image: Image;
   slug: Slug;
   tags: Tag[];
   siteUrl?: string;

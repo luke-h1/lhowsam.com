@@ -1,0 +1,133 @@
+@import '../styles/partials/mixins.scss';
+@import '../styles/variables.scss';
+
+$card-title-padding-tablet: 2.5rem;
+
+.projectPreview {
+  @include media-between(sm, lg) {
+    margin-bottom: 10rem;
+  }
+
+  @include media(lg) {
+    margin-bottom: 6rem;
+  }
+
+  margin-bottom: 5rem;
+
+  &:nth-of-type(even) {
+    .cardContainer {
+      @include media(lg) {
+        order: 2;
+      }
+    }
+
+    .descriptionContainer {
+      @include media(lg) {
+        order: 1;
+      }
+    }
+  }
+
+  .content {
+    @include media(lg) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+  }
+
+  .cardContainer {
+    @include media-between(sm, lg) {
+      height: 22rem;
+    }
+
+    @include media(lg) {
+      flex: 0 0 50%;
+      height: 18rem;
+    }
+
+    margin-bottom: 3rem;
+    height: 14rem;
+
+    .cardTitle {
+      @include media-between(sm, lg) {
+        padding: $card-title-padding-tablet;
+      }
+
+      @include media(lg) {
+        padding: $card-title-padding-tablet / 1.5;
+      }
+
+      z-index: 2;
+      font-size: 1.8rem;
+      line-height: 1;
+      padding: 1rem;
+    }
+  }
+
+  .descriptionContainer {
+    @include media-between(sm, lg) {
+      justify-content: space-between;
+      max-width: 35rem;
+      padding-left: $card-title-padding-tablet;
+      margin-top: 4.5rem;
+    }
+
+    @include media(lg) {
+      flex: 0 0 40%;
+      margin-top: 0;
+      flex-wrap: wrap;
+      justify-content: unset;
+      align-items: flex-start;
+    }
+
+    @include media-above(sm) {
+      display: flex;
+    }
+  }
+
+  .linksContainer {
+    @include media-between(sm, lg) {
+      order: 1;
+      flex: 0 0 25%;
+      display: block;
+    }
+
+    @include media(lg) {
+      flex: 0 0 100%;
+      height: auto;
+    }
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+    margin-top: 1.25rem;
+    & > * {
+      margin: 0 0.75rem 1rem 0;
+    }
+  }
+
+  .contentContainer {
+    @include media-between(sm, lg) {
+      order: 0;
+      flex: 0 0 60%;
+    }
+
+    .textContainer {
+      @include media-between(sm, lg) {
+        margin-bottom: 2.5rem;
+      }
+
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+.tagsContainer {
+  margin-bottom: 2rem;
+}
+
+.break {
+  border: 1.5px solid $pink;
+}

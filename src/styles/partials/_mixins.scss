@@ -49,3 +49,37 @@ $breakpoints: (
     }
   }
 }
+
+@mixin media-below($b) {
+  @if not map-has-key($breakpoints, $b) {
+    @error "No value could be retrieved from `#{$b}`." + "Available breakpoints: #{map-keys($breakpoints)}";
+  }
+
+  @media (max-width: #{map-get($breakpoints, $b) - 1px}) {
+    @content;
+  }
+}
+
+@mixin media-above($b) {
+  @if not map-has-key($breakpoints, $b) {
+    @error "No value could be retrieved from `#{$b}`." + "Available breakpoints: #{map-keys($breakpoints)}";
+  }
+
+  @media (min-width: #{map-get($breakpoints, $b) + 1px}) {
+    @content;
+  }
+}
+
+@mixin media-between($b1, $b2) {
+  @if not map-has-key($breakpoints, $b1) {
+    @error "No value could be retrieved from `#{$b1}`." + "Available breakpoints: #{map-keys($breakpoints)}";
+  }
+
+  @if not map-has-key($breakpoints, $b2) {
+    @error "No value could be retrieved from `#{$b2}`." + "Available breakpoints: #{map-keys($breakpoints)}";
+  }
+
+  @media (min-width: #{map-get($breakpoints, $b1) + 1px}) and (max-width: #{map-get($breakpoints, $b2) -1px}) {
+    @content;
+  }
+}
