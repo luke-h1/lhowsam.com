@@ -14,9 +14,11 @@ const ProjectPreview = ({ project }: Props) => {
     <div className={styles.projectPreview}>
       <div className={styles.content}>
         <div className={styles.cardContainer}>
-          <Link href={`/projects/${project.slug.current}`}>
-            <a>
-              <h4 className={styles.cardTitle}>{project.title}</h4>
+          <Link href={`/projects/${project.slug.current}`} passHref>
+            <a data-testid="project-link">
+              <h4 className={styles.cardTitle} data-testid="project-title">
+                {project.title}
+              </h4>
               <Image
                 src={imageService.urlFor(project.image.asset)}
                 width="400px"
@@ -31,7 +33,7 @@ const ProjectPreview = ({ project }: Props) => {
         <div className={styles.descriptionContainer}>
           <div className={styles.contentContainer}>
             <div className={styles.textContainer}>
-              <p>{project.intro}</p>
+              <p data-testid="project-intro">{project.intro}</p>
             </div>
 
             <div className={styles.tagsContainer}>
@@ -44,7 +46,12 @@ const ProjectPreview = ({ project }: Props) => {
                 </a>
               )}
               {project.githubUrl && (
-                <a href={project.githubUrl} color="pink" className="button">
+                <a
+                  href={project.githubUrl}
+                  color="pink"
+                  className="button"
+                  data-testid="project-github"
+                >
                   View on GitHub
                 </a>
               )}
