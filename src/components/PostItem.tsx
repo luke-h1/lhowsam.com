@@ -1,4 +1,5 @@
 import { Post } from '@src/types/sanity';
+import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
 import styles from './PostItem.module.scss';
 import Tags from './Tags';
@@ -14,7 +15,14 @@ const PostItem = ({ post }: Props) => {
         <div className={styles.postDetails}>
           <h2 className={styles.postTitle}>{post.title}</h2>
           <p className={styles.postDescription}>{post.intro}</p>
-          <Tags tags={post.tags} />
+          <p className={styles.meta}>
+            <time dateTime={post.publishedAt}>
+              <small>
+                {format(parseISO(post.publishedAt), 'MMMM d, yyyy')}
+              </small>
+            </time>
+          </p>{' '}
+          <Tags tags={post.tags} key={post._id} />
         </div>
       </a>
     </Link>

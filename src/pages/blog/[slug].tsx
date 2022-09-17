@@ -6,6 +6,7 @@ import imageService from '@src/services/imageService';
 import postService from '@src/services/postService';
 import { Post } from '@src/types/sanity';
 import mdxToHtml from '@src/utils/mdx';
+import { format, parseISO } from 'date-fns';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
@@ -44,7 +45,14 @@ const BlogPostPage = ({ post, source }: Props) => {
       />
       <div className={styles.headerPost}>
         <div className={styles.container}>
-          <Tags tags={post.tags} />
+          <p className={styles.meta}>
+            <time dateTime={post.publishedAt}>
+              <small>
+                {format(parseISO(post.publishedAt), 'MMMM d, yyyy')}
+              </small>
+            </time>
+          </p>
+          <Tags tags={post.tags} key={post._id} />
         </div>
         <div className={styles.thumbnail}>
           <img

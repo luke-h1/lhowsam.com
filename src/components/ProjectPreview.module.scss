@@ -63,6 +63,10 @@ $card-title-padding-tablet: 2.5rem;
       font-size: 1.8rem;
       line-height: 1;
       padding: 1rem;
+
+      &:hover {
+        color: $pink;
+      }
     }
   }
 

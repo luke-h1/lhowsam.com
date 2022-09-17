@@ -1,6 +1,7 @@
 import imageService from '@src/services/imageService';
 import { Project } from '@src/types/sanity';
 import Image from 'next/image';
+import Link from 'next/link';
 import styles from './ProjectPreview.module.scss';
 import Tags from './Tags';
 
@@ -13,15 +14,19 @@ const ProjectPreview = ({ project }: Props) => {
     <div className={styles.projectPreview}>
       <div className={styles.content}>
         <div className={styles.cardContainer}>
-          <h4 className={styles.cardTitle}>{project.title}</h4>
-          <Image
-            src={imageService.urlFor(project.image.asset)}
-            width="400px"
-            height="255px"
-            placeholder="blur"
-            blurDataURL={imageService.urlFor(project.image.asset)}
-            className="curved-image"
-          />
+          <Link href={`/projects/${project.slug.current}`}>
+            <a>
+              <h4 className={styles.cardTitle}>{project.title}</h4>
+              <Image
+                src={imageService.urlFor(project.image.asset)}
+                width="400px"
+                height="255px"
+                placeholder="blur"
+                blurDataURL={imageService.urlFor(project.image.asset)}
+                className="curved-image"
+              />
+            </a>
+          </Link>
         </div>
         <div className={styles.descriptionContainer}>
           <div className={styles.contentContainer}>
@@ -30,7 +35,7 @@ const ProjectPreview = ({ project }: Props) => {
             </div>
 
             <div className={styles.tagsContainer}>
-              <Tags tags={project.tags} />
+              <Tags tags={project.tags} key={project._id} />
             </div>
             <div className={styles.linksContainer}>
               {project.siteUrl && (
