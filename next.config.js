@@ -77,6 +77,11 @@ const nextConfig = {
         destination: '/blog/next-js-ssr-notes',
         permanent: true,
       },
+      {
+        source: '/projects/blog-subscription',
+        destination: '/projects/blog-subscriptions',
+        permanent: true,
+      },
     ];
   },
   async headers() {
