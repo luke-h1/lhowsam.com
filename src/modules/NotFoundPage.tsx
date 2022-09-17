@@ -34,7 +34,7 @@ const NotFoundPage = () => {
           </ul>
           <br />
           <Link href="/">
-            <a className={styles.button}>Home</a>
+            <a className="button">Home</a>
           </Link>
         </div>
       </div>

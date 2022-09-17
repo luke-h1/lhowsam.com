@@ -1,5 +1,5 @@
 import Page from '@src/components/Page';
-import ProjectItem from '@src/components/ProjectItem';
+import Projects from '@src/components/Projects';
 import Skills from '@src/components/Skills';
 import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
@@ -28,11 +28,10 @@ const Home = ({ projects }: Props) => {
         }}
       />
       <Page title="Home" showHero>
-        <h2 style={{ marginBottom: '2.5rem' }}>Highlighted projects</h2>
-        {projects &&
-          projects.map(project => (
-            <ProjectItem key={project._id} project={project} />
-          ))}
+        <h2 style={{ marginBottom: '2.5rem', fontSize: '2rem' }}>
+          Highlighted projects
+        </h2>
+        <Projects projects={projects} />
         <h4 className="title">Skills</h4>
         <Skills />
       </Page>
