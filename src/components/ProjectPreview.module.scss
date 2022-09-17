@@ -38,17 +38,18 @@ $card-title-padding-tablet: 2.5rem;
   }
 
   .cardContainer {
-    @include media-between(sm, lg) {
-      height: 22rem;
-    }
+    height: 18rem !important; // anything lower and intro gets hidden by image
+    // (!important probs not necessary)
+
+    // @include media-between(sm, lg) {
+    //   height: 22rem;
+    // }
 
     @include media(lg) {
       flex: 0 0 50%;
       height: 18rem;
     }
-
-    margin-bottom: 3rem;
-    height: 14rem;
+    margin-bottom: 3.5rem;
 
     .cardTitle {
       @include media-between(sm, lg) {
@@ -82,8 +83,8 @@ $card-title-padding-tablet: 2.5rem;
       flex: 0 0 40%;
       margin-top: 0;
       flex-wrap: wrap;
-      justify-content: unset;
-      align-items: flex-start;
+      // justify-content: unset;
+      align-items: flex-end;
     }
 
     @include media-above(sm) {
@@ -102,7 +103,6 @@ $card-title-padding-tablet: 2.5rem;
       flex: 0 0 100%;
       height: auto;
     }
-
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 1.25rem;
@@ -126,12 +126,4 @@ $card-title-padding-tablet: 2.5rem;
       margin-bottom: 2rem;
     }
   }
-}
-
-.tagsContainer {
-  margin-bottom: 2rem;
-}
-
-.break {
-  border: 1.5px solid $pink;
 }
