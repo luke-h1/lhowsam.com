@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { AiOutlineLink, AiFillGithub } from 'react-icons/ai';
 import styles from './ProjectItem.module.scss';
 import Tags from './Tags';
+import VisuallyHidden from './VisuallyHidden';
 
 interface Props {
   project: Project;
@@ -29,6 +30,7 @@ const ProjectItem = ({ project }: Props) => {
         {project.siteUrl && (
           <a href={project.siteUrl} className={styles.link}>
             Deployed project
+            <VisuallyHidden>{`${' '} ${project.title}`}</VisuallyHidden>
             <AiOutlineLink />
           </a>
         )}
@@ -39,6 +41,7 @@ const ProjectItem = ({ project }: Props) => {
             data-testid="project-github"
           >
             View source
+            <VisuallyHidden>{`${' '} for ${project.title}`}</VisuallyHidden>
             <AiFillGithub />
           </a>
         )}
