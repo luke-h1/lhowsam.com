@@ -1,5 +1,5 @@
-import FeaturedProjects from '@src/components/FeaturedProjects';
 import Page from '@src/components/Page';
+import ProjectPreview from '@src/components/ProjectPreview';
 import Skills from '@src/components/Skills';
 import siteConfig from '@src/config/site';
 import projectService from '@src/services/projectService';
@@ -31,7 +31,12 @@ const Home = ({ projects }: Props) => {
         <h2 style={{ marginBottom: '2.5rem', fontSize: '2rem' }}>
           Highlighted projects
         </h2>
-        <FeaturedProjects projects={projects} />
+        <div className="flex-center">
+          {projects &&
+            projects.map(project => (
+              <ProjectPreview project={project} key={project._id} />
+            ))}
+        </div>
         <h4 className="title">Skills</h4>
         <Skills />
       </Page>
