@@ -36,6 +36,7 @@ const PostItem = ({ post }: Props) => {
               width={170}
               height={170}
               loading="eager"
+              priority
             />
           </div>
         </div>
