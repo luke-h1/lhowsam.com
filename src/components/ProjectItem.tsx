@@ -2,6 +2,7 @@ import { Project } from '@src/types/sanity';
 import Link from 'next/link';
 import { AiOutlineLink, AiFillGithub } from 'react-icons/ai';
 import styles from './ProjectItem.module.scss';
+import Tags from './Tags';
 
 interface Props {
   project: Project;
@@ -20,6 +21,9 @@ const ProjectItem = ({ project }: Props) => {
           </p>
         </a>
       </Link>
+      <div className={styles.tags}>
+        <Tags tags={project.tags} />
+      </div>
 
       <div className={styles.links}>
         {project.siteUrl && (
