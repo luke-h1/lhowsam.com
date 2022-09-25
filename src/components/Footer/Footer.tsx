@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import NowPlaying from '../NowPlaying';
 import SocialList from '../SocialList';
 import styles from './Footer.module.scss';
 import FooterLinks from './FooterLinks';
@@ -17,9 +18,11 @@ const Footer = () => {
           <FooterLinks />
         </div>
       </div>
+
       <p className={styles.aboutFooter}>
         MIT {new Date().getFullYear()}, Built with Next, Typescript & Sanity.io
       </p>
+      <NowPlaying />
     </footer>
   );
 };

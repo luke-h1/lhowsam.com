@@ -23,7 +23,7 @@ const ProjectItem = ({ project }: Props) => {
         </a>
       </Link>
       <div className={styles.tags}>
-        <Tags tags={project.tags} />
+        <Tags tags={project.tags} key={project._id} />
       </div>
 
       <div className={styles.links}>
