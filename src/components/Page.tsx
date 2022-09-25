@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { ReactNode } from 'react';
+import { ReactNode, Suspense } from 'react';
 import Footer from './Footer/Footer';
 import Header from './Header';
 import styles from './Page.module.scss';
@@ -29,7 +29,7 @@ const Page = ({
           {children}
         </div>
       </main>
-      {footer && <Footer />}
+      <Suspense fallback={null}>{footer && <Footer />}</Suspense>
     </>
   );
 };
