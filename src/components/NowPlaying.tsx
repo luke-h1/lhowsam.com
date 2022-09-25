@@ -1,8 +1,8 @@
 import { useMounted } from '@src/hooks/useMounted';
 import spotifyService from '@src/services/spotifyService';
 import { Song } from '@src/types/spotify';
+import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
-import { useQuery } from 'react-query';
 import styles from './NowPlaying.module.scss';
 
 function truncate(str: string, num: number): string {
