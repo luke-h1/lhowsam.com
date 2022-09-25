@@ -1,12 +1,16 @@
 import Ga from '@src/components/Ga';
 import * as gtag from '@src/utils/gtag';
+import {
+  Hydrate,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import '@fontsource/poppins';
 import '@src/styles/global.scss';
-import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`;
