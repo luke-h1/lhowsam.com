@@ -2,9 +2,11 @@ import Page from '@src/components/Page';
 import Skills from '@src/components/Skills';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import styles from './About.module.scss';
 
 const AboutPage = () => {
+  const router = useRouter();
   return (
     <>
       <NextSeo
