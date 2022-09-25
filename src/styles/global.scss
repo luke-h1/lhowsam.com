@@ -68,10 +68,6 @@ li {
   margin-bottom: 0.6em;
 }
 
-.title {
-  font-size: 28px;
-}
-
 .sr-only {
   position: absolute !important;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
@@ -81,4 +77,41 @@ li {
   height: 1px !important;
   width: 1px !important;
   overflow: hidden;
+}
+
+.title {
+  color: $primary;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  position: relative;
+  margin-bottom: 30px;
+  width: fit-content;
+
+  &:after {
+    content: '';
+    width: 50%;
+    height: 1px;
+    background-color: $primary;
+    display: block;
+    margin-top: 8px;
+  }
+}
+.gradientText {
+  background: $textGradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.button {
+  width: fit-content;
+  background-color: $dark;
+  padding: 0.75rem 1.2rem;
+  margin-bottom: 12px;
+  border-radius: 4px;
+  color: $light;
+
+  &:hover {
+    background-color: $light-dark;
+  }
 }

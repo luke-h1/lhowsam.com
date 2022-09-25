@@ -13,7 +13,7 @@ describe('navbar', () => {
     cy.get('h1').contains('About').should('be.visible');
     cy.go('back');
     cy.wait(500);
-    cy.get('p').contains('I currently work as a Software Engineer.').should('be.visible');
+    cy.get('p').contains('I\'m a Software Engineer currently based in Sheffield, UK').should('be.visible');
     cy.url().should('include', '/');
 
     // 2nd link (projects)
