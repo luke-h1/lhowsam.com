@@ -21,9 +21,6 @@
     font-size: 26px;
     line-height: 2;
     margin-bottom: 8px;
-    &:hover {
-      cursor: pointer;
-    }
   }
 
   @include media(sm) {
