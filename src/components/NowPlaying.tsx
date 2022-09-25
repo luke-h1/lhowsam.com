@@ -1,8 +1,8 @@
 import { useMounted } from '@src/hooks/useMounted';
+import spotifyService from '@src/services/spotifyService';
 import { Song } from '@src/types/spotify';
-import fetcher from '@src/utils/fetcher';
 import Image from 'next/image';
-import useSWR from 'swr';
+import { useQuery } from 'react-query';
 import styles from './NowPlaying.module.scss';
 
 function truncate(str: string, num: number): string {
@@ -33,11 +33,14 @@ export const NowPlayingIcon = ({
 
 const NowPlaying = () => {
   const { isMounted } = useMounted();
-  const { data, error } = useSWR<Song>(`/now-playing`, fetcher);
+  const { data, isLoading, error } = useQuery<Song>(['nowPlaying'], () =>
+    spotifyService.nextNowPlaying(),
+  );
+
   const nowPlaying = `${data?.title} - ${data?.artist}`;
   return isMounted ? (
     <div className={styles.wrapper}>
-      {data?.isPlaying && !error ? (
+      {!isLoading && data?.isPlaying && !error ? (
         <a
           className={styles.widget}
           href={data?.songUrl}

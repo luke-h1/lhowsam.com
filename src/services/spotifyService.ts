@@ -47,6 +47,10 @@ const spotifyService = {
       },
     });
   },
+  async nextNowPlaying() {
+    const response = await fetch(`${window.location.origin}/api/now-playing`);
+    return response.json();
+  },
 };
 
 export default spotifyService;
