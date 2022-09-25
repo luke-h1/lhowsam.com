@@ -59,7 +59,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   images: {
-    domains: ['localhost', 'cdn.sanity.io'],
+    remotePatterns: [{ hostname: 'cdn.sanity.io' }, { hostname: 'localhost' }],
     formats: ['image/avif', 'image/webp'],
   },
   experimental: {
