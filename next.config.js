@@ -4,7 +4,7 @@
 
 const ContentSecurityPolicy = `
  default-src 'self';
- script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com;
+ script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com *.vercel.live/;
  child-src *.youtube.com *.google.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com;
  style-src 'self' 'unsafe-inline' *.googleapis.com;
  img-src * blob: data: https://*.googletagmanager.com;
