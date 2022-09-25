@@ -3,7 +3,7 @@ export default async function fetcher(
   method: string,
   data: unknown,
 ) {
-  return fetch(`${process.env.NEXT_PUBLIC_URL}/api/${url}`, {
+  return fetch(`${window.location.origin}/api${url}`, {
     method,
     headers: {
       'Content-Type': 'application/json',
