@@ -1,11 +1,12 @@
-import { getNowPlaying } from '@src/utils/spotify';
+import spotifyService from '@src/services/spotifyService';
+import { SongItem } from '@src/types/spotify';
 
 export const config = {
   runtime: 'experimental-edge',
 };
 
 export default async function handler() {
-  const response = await getNowPlaying();
+  const response = await spotifyService.getNowPlaying();
 
   if (response.status === 204 || response.status > 400) {
     return new Response(JSON.stringify({ isPlaying: false }), {
@@ -15,7 +16,7 @@ export default async function handler() {
       },
     });
   }
-  const song = await response.json();
+  const song = (await response.json()) as SongItem;
 
   if (!song.item) {
     return new Response(JSON.stringify({ isPlaying: false }), {
