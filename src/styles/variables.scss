@@ -12,3 +12,15 @@ $pink: #ff6ad0;
 
 $blue: #00a0e1;
 $green: #00b849;
+
+$textGradient: linear-gradient(to right, #05ffd1, #3b74ff);
+
+// Layout
+$container-max-content-size: 1040px;
+$container-md-content-size: 952px;
+$container-sm-content-size: 600px;
+
+// Breakpoints
+$breakpoint-sm: 768px;
+$breakpoint-md: $container-md-content-size;
+$breakpoint-lg: $container-max-content-size;

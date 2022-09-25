@@ -1,6 +1,7 @@
 import Page from '@src/components/Page';
 import Skills from '@src/components/Skills';
 import Image from 'next/image';
+// import Link from 'next/link';
 import styles from './About.module.scss';
 
 const AboutPage = () => {
@@ -31,16 +32,17 @@ const AboutPage = () => {
           <p>
             Right now, I'm working as a Software Engineer. I'm comfortable with
             both frontend (React, Node, GraphQL, Next.js etc.) &amp; devops tech
-            stacks (Azure, AWS, digitalocean, Ansible etc.), and I'm always keen
-            to keep up with industry trends and new technologies.
+            stacks (Azure, AWS, digitalocean, Ansible etc.). I'm always keen to
+            keep up with industry trends and new technologies.
           </p>
           <p>In my spare time I love to travel, read, and code</p>
           <br />
-          <h2>Skills</h2>
-          <Skills />
           {/* <Link href="/static/resume.pdf">
             <a className={styles.button}>Resume</a>
           </Link> */}
+          {/* <h2 style={{ marginTop: '4rem' }}>Skills</h2> */}
+          <h2 className="title">Skills:</h2>
+          <Skills />
         </div>
       </div>
     </Page>
