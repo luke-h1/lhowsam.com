@@ -4,7 +4,7 @@ import styles from './Hero.module.scss';
 
 const Hero = () => {
   return (
-    <section className={styles.section_header}>
+    <section>
       <Container size="md">
         <p className={styles.text}>Hey 👋, my name is Luke</p>
         <h1 className={styles.bigTitle}>
