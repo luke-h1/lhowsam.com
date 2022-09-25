@@ -28,12 +28,14 @@ const Home = ({ projects }: Props) => {
         }}
       />
       <Page title="Home" showHero>
-        <h2 style={{ marginBottom: '2.5rem' }}>Highlighted projects</h2>
+        <h2 style={{ marginBottom: '2.5rem' }} className="title">
+          Highlighted projects:
+        </h2>
         {projects &&
           projects.map(project => (
             <ProjectItem key={project._id} project={project} />
           ))}
-        <h4 className="title">Skills</h4>
+        <h4 className="title">Skills:</h4>
         <Skills />
       </Page>
     </>
