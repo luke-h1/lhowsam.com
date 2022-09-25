@@ -20,7 +20,9 @@ const LinkPage = () => {
       />
       <Page title="Links">
         <div className={styles.main}>
-          <h2 style={{ marginBottom: '2.5rem' }}>Affiliate links</h2>
+          <h2 style={{ marginBottom: '2.5rem' }} className="title">
+            Affiliate links:
+          </h2>
           <p>
             This page is a collection of a few of my affiliate links I have
             where you can get things like free cloud credits.
