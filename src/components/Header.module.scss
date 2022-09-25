@@ -23,15 +23,15 @@
 }
 
 .presentation {
-  width: 940px;
+  width: 1000px;
   max-width: 100%;
   margin: 0 auto;
   padding: 40px 24px 80px;
   display: flex;
   flex-direction: column;
-  -webkit-box-align: center;
-  text-align: center;
-  align-items: center;
+  -webkit-box-align: left;
+  text-align: left;
+  align-items: left;
 
   @include media(sm) {
     display: flex;
@@ -49,72 +49,11 @@
   }
 }
 
-.profileImage {
-  width: 180px;
-  height: 180px;
-  padding: 16px;
-  // border-radius: 50%;
-  margin: 0 auto;
-  border: 1px solid $dark;
-  flex-shrink: 0;
-  margin-bottom: 20px;
-
-  @include media(sm) {
-    padding: 32px;
-    width: 270px;
-    height: 270px;
-    padding: 20px;
-    margin-bottom: 10px;
-    margin: 0;
-  }
-
-  img {
-    border-radius: 8px;
-    overflow: hidden;
-  }
-}
-
 .sidePresentation {
   display: flex;
   flex-direction: column;
   padding-left: 0;
-
   @include media(sm) {
     padding-left: 30px;
-  }
-}
-
-.profilePresentation {
-  font-size: 40px !important;
-  color: $light;
-  margin-bottom: 20px;
-  font-weight: 700;
-
-  @include media(sm) {
-    font-size: 27px;
-    margin-bottom: 25px;
-  }
-
-  @include media(md) {
-    font-size: 27px;
-    margin-bottom: 15px;
-  }
-}
-
-.profileDescription {
-  color: $light;
-  font-size: 15px;
-  line-height: 2;
-}
-
-.button {
-  width: fit-content;
-  background-color: $dark;
-  padding: 0.75rem 1.2rem;
-  border-radius: 4px;
-  color: $light;
-
-  &:hover {
-    background-color: $light-dark;
   }
 }

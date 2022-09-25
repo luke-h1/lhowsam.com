@@ -1,0 +1,16 @@
+@import '../styles/variables.scss';
+
+.common {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.content-size-lg {
+  max-width: $container-max-content-size;
+  @extend .common;
+}
+
+.content-size-md {
+  max-width: $container-md-content-size;
+  @extend .common;
+}

@@ -4,14 +4,15 @@ describe('index', () => {
   });
 
   it('should render correctly', () => {
-    cy.get('p').contains("I currently work as a Software Engineer.").should('be.visible')
+    cy.get('p').contains("I'm a Software Engineer currently based in Sheffield, UK.").should('be.visible')
   })
 
   it('should display projects', () => {
-    for (let i = 0; i < 3; i+= 1) {
+    for (let i = 0; i < 3; i += 1) {
       cy.getByTestId('project-title').eq(i).should('not.be.empty').and('be.visible')
       cy.getByTestId('project-intro').eq(i).should('not.be.empty').and('be.visible')
       cy.getByTestId('project-github').eq(i).should('not.be.empty').and('be.visible')
     }
   })
 });
+
