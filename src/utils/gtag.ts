@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
+export const { GA_TRACKING_ID } = process.env;
+
 declare global {
   // eslint-disable-next-line no-unused-vars
   interface Window {
@@ -8,7 +10,7 @@ declare global {
 }
 
 export const pageview = (url: string): void => {
-  window.gtag('config', process.env.GA_TRACKING_ID, {
+  window.gtag('config', GA_TRACKING_ID, {
     page_path: url,
   });
 };
