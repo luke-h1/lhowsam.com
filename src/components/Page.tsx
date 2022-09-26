@@ -1,8 +1,10 @@
 import classNames from 'classnames';
-import { ReactNode, Suspense } from 'react';
-import Footer from './Footer/Footer';
+import dynamic from 'next/dynamic';
+import { ReactNode } from 'react';
 import Header from './Header';
 import styles from './Page.module.scss';
+
+const Footer = dynamic(() => import('@src/components/Footer/Footer'));
 
 interface Props {
   children: ReactNode;
@@ -29,7 +31,7 @@ const Page = ({
           {children}
         </div>
       </main>
-      <Suspense fallback={null}>{footer && <Footer />}</Suspense>
+      {footer && <Footer />}
     </>
   );
 };

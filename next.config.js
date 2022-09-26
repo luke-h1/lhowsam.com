@@ -1,7 +1,6 @@
 /**
  * @type {import('next').NextConfig}
  */
-const { withSentryConfig } = require('@sentry/nextjs');
 
 const ContentSecurityPolicy = `
  default-src 'self';
@@ -52,19 +51,12 @@ const securityHeaders = [
   },
 ];
 
-const sentryWebpackPluginOptions = {
-  dryRun: process.env.VERCEL_ENV !== 'production',
-};
-
 const nextConfig = {
   swcMinify: true,
   reactStrictMode: true,
   poweredByHeader: false,
   eslint: {
     ignoreDuringBuilds: true,
-  },
-  sentry: {
-    hideSourceMaps: true,
   },
   images: {
     remotePatterns: [
@@ -121,4 +113,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions);
+module.exports = nextConfig;
