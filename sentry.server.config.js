@@ -9,7 +9,7 @@ Sentry.init({
   // Adjust this value in production, or use tracesSampler for greater control
   tracesSampleRate: 1.0,
   allowUrls: ['https://lhowsam.com', 'https://www.lhowsam.com'],
-  enabled: process.env.NODE_ENV === 'production',
+  enabled: process.env.VERCEL_ENV === 'production',
   // ...
   // Note: if you want to override the automatic release value, do not set a
   // `release` value here - use the environment variable `SENTRY_RELEASE`, so
