@@ -10,6 +10,7 @@ const handler = async () => {
       status: 200,
       headers: {
         'content-type': 'application/json',
+        'cache-control': 'public, s-maxage=60, stale-while-revalidate=30',
       },
     });
   }
@@ -20,6 +21,7 @@ const handler = async () => {
       status: 200,
       headers: {
         'content-type': 'application/json',
+        'cache-control': 'public, s-maxage=60, stale-while-revalidate=30',
       },
     });
   }
