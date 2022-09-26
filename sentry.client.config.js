@@ -8,5 +8,7 @@ Sentry.init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
   tracesSampleRate: 1.0,
   allowUrls: ['https://lhowsam.com', 'https://www.lhowsam.com'],
-  enabled: process.env.VERCEL_ENV === 'production',
+  enabled:
+    process.env.VERCEL_ENV === 'production' &&
+    process.env.NEXT_PUBLIC_URL === 'https://lhowsam.com',
 });
