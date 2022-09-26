@@ -21,3 +21,5 @@ analyze/
 screenshots
 tsconfig.tsbuildinfo
 *.xml
+# Sentry
+.sentryclirc

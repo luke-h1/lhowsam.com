@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/nextjs';
 import Page from '@src/components/Page';
 import { AxiosError } from 'axios';
 import { NextPageContext } from 'next';
@@ -51,12 +52,15 @@ const ErrorPage = ({ statusCode }: Props) => {
   }
 };
 
-ErrorPage.getInitialProps = ({ res, err: error }: NextPageContext): Props => {
+ErrorPage.getInitialProps = async ({
+  res,
+  err: error,
+}: NextPageContext): Promise<Props> => {
   let statusCode = res?.statusCode;
 
   if (error) {
     const axiosError = error as AxiosError;
-
+    await Sentry.captureUnderscoreErrorException(error);
     if (axiosError.isAxiosError) {
       statusCode = axiosError.response?.status;
     }

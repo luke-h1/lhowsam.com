@@ -1,11 +1,8 @@
+import { withSentry } from '@sentry/nextjs';
 import spotifyService from '@src/services/spotifyService';
 import { SongItem } from '@src/types/spotify';
 
-export const config = {
-  runtime: 'experimental-edge',
-};
-
-export default async function handler() {
+const handler = async () => {
   const response = await spotifyService.getNowPlaying();
 
   if (response.status === 204 || response.status > 400) {
@@ -51,4 +48,6 @@ export default async function handler() {
       },
     },
   );
-}
+};
+
+export default withSentry(handler);
