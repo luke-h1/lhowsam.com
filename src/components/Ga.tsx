@@ -1,4 +1,3 @@
-import { GA_TRACKING_ID } from '@src/utils/gtag';
 import Script from 'next/script';
 
 const Ga = () => {
@@ -6,14 +5,14 @@ const Ga = () => {
     <>
       <Script
         strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
       />
       <Script id="ga">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', '${GA_TRACKING_ID}', {
+          gtag('config', '${process.env.GA_TRACKING_ID}', {
             page_path: window.location.pathname,
           });
         `}
