@@ -27,7 +27,11 @@ const Page = ({
     <>
       {header && <Header showHero={showHero} title={title} />}
       <main>
-        <div className={classNames(styles.main, center && styles.center)}>
+        <div
+          className={classNames(styles.main, {
+            [styles.center]: center,
+          })}
+        >
           {children}
         </div>
       </main>
