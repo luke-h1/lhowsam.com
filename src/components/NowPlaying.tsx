@@ -1,6 +1,6 @@
-import { useMounted } from '@src/hooks/useMounted';
-import spotifyService from '@src/services/spotifyService';
-import { Song } from '@src/types/spotify';
+import { useMounted } from '@frontend/hooks/useMounted';
+import spotifyService from '@frontend/services/spotifyService';
+import { Song } from '@frontend/types/spotify';
 import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 import styles from './NowPlaying.module.scss';

@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import Header from './Header';
 import styles from './Page.module.scss';
 
-const Footer = dynamic(() => import('@src/components/Footer/Footer'));
+const Footer = dynamic(() => import('@frontend/components/Footer/Footer'));
 
 interface Props {
   children: ReactNode;

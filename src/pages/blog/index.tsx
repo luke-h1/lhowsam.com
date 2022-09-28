@@ -1,9 +1,9 @@
-import Page from '@src/components/Page';
-import PostItem from '@src/components/PostItem';
-import siteConfig from '@src/config/site';
-import postService from '@src/services/postService';
-import { Post } from '@src/types/sanity';
-import * as gtag from '@src/utils/gtag';
+import Page from '@frontend/components/Page';
+import PostItem from '@frontend/components/PostItem';
+import siteConfig from '@frontend/config/site';
+import postService from '@frontend/services/postService';
+import { Post } from '@frontend/types/sanity';
+import * as gtag from '@frontend/utils/gtag';
 import debounce from 'lodash/debounce';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';

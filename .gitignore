@@ -20,6 +20,7 @@ analyze/
 .eslintcache
 screenshots
 tsconfig.tsbuildinfo
-*.xml
 # Sentry
 .sentryclirc
+sitemap.xml
+sitemap-0.xml

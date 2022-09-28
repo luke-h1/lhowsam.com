@@ -1,4 +1,4 @@
-import postService from '@src/services/postService';
+import postService from '@frontend/services/postService';
 import { GetServerSideProps } from 'next';
 import RSS from 'rss';
 

@@ -1,4 +1,4 @@
-import { GA_TRACKING_ID } from '@src/utils/gtag';
+import { GA_TRACKING_ID } from '@frontend/utils/gtag';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 
 const keywords = [

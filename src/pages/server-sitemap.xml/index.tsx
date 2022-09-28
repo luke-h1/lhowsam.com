@@ -1,5 +1,5 @@
-import postService from '@src/services/postService';
-import projectService from '@src/services/projectService';
+import postService from '@frontend/services/postService';
+import projectService from '@frontend/services/projectService';
 import { GetServerSideProps } from 'next';
 import { ISitemapField, getServerSideSitemap } from 'next-sitemap';
 
