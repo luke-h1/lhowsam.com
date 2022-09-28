@@ -47,9 +47,10 @@ const AboutPage = () => {
             <br />
             <p>
               Right now, I'm working as a Software Engineer. I'm comfortable
-              with both frontend (React, Node, GraphQL, Next.js etc.) &amp;
-              devops tech stacks (Azure, AWS, digitalocean, Ansible etc.). I'm
-              always keen to keep up with industry trends and new technologies.
+              with both frontend/backend (React, Node, Next.js, Python, Django
+              etc.) &amp; devops tech stacks (Azure, AWS, digitalocean, Ansible
+              etc.). I'm always keen to keep up with industry trends and new
+              technologies.
             </p>
             <p>In my spare time I love to travel, read, and code</p>
             <br />
