@@ -23,7 +23,7 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@src/*": ["src/*"]
+      "@frontend/*": ["src/*"]
     },
     "incremental": true,
     "target": "es6"

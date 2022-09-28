@@ -1,4 +1,4 @@
-import objectToGetParams from '@src/utils/objectToGetParams';
+import objectToGetParams from '@frontend/utils/objectToGetParams';
 import createShareButton from './hocs/createShareButton';
 
 interface Options {

@@ -1,3 +1,3 @@
-import LinkPage from '@src/modules/Links';
+import LinkPage from '@frontend/modules/Links';
 
 export default LinkPage;

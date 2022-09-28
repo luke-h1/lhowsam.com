@@ -1,3 +1,3 @@
-import NotFoundPage from '@src/modules/NotFoundPage';
+import NotFoundPage from '@frontend/modules/NotFoundPage';
 
 export default NotFoundPage;

@@ -1,4 +1,4 @@
-import { Post } from '@src/types/sanity';
+import { Post } from '@frontend/types/sanity';
 import groq from 'groq';
 import studioClient from '../utils/sanity';
 

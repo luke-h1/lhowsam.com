@@ -1,4 +1,4 @@
-import { Tag } from '@src/types/sanity';
+import { Tag } from '@frontend/types/sanity';
 import styles from './Tags.module.scss';
 
 interface Props {

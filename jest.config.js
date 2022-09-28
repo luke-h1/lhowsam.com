@@ -8,7 +8,7 @@ const createJestConfig = nextJest({
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
-    '^@src/(.*)$': '<rootDir>/src/$1',
+    '^@frontend/(.*)$': '<rootDir>/frontend/$1',
   },
   transform: {
     '^.+\\.(t|j)sx?$': ['@swc/jest'],

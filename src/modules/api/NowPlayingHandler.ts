@@ -1,5 +1,5 @@
-import spotifyService from '@src/services/spotifyService';
-import { SongItem } from '@src/types/spotify';
+import spotifyService from '@frontend/services/spotifyService';
+import { SongItem } from '@frontend/types/spotify';
 import { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(

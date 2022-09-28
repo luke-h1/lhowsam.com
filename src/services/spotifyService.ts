@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
 
-import { Song } from '@src/types/spotify';
+import { Song } from '@frontend/types/spotify';
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
