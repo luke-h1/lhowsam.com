@@ -1,4 +1,4 @@
-import * as gtag from '@src/utils/gtag';
+import * as gtag from '@frontend/utils/gtag';
 import {
   Hydrate,
   QueryClient,
@@ -9,7 +9,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import '@fontsource/poppins';
-import '@src/styles/global.scss';
+import '@frontend/styles/global.scss';
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`;

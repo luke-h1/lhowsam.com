@@ -1,9 +1,9 @@
-import Page from '@src/components/Page';
-import ProjectItem from '@src/components/ProjectItem';
-import Skills from '@src/components/Skills';
-import siteConfig from '@src/config/site';
-import projectService from '@src/services/projectService';
-import { Project } from '@src/types/sanity';
+import Page from '@frontend/components/Page';
+import ProjectItem from '@frontend/components/ProjectItem';
+import Skills from '@frontend/components/Skills';
+import siteConfig from '@frontend/config/site';
+import projectService from '@frontend/services/projectService';
+import { Project } from '@frontend/types/sanity';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';

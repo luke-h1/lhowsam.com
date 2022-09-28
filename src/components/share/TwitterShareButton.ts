@@ -1,5 +1,5 @@
-import assert from '@src/utils/assert';
-import objectToGetParams from '@src/utils/objectToGetParams';
+import assert from '@frontend/utils/assert';
+import objectToGetParams from '@frontend/utils/objectToGetParams';
 import createShareButton from './hocs/createShareButton';
 
 function twitterLink(

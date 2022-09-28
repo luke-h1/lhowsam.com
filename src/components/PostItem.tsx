@@ -1,5 +1,5 @@
-import imageService from '@src/services/imageService';
-import { Post } from '@src/types/sanity';
+import imageService from '@frontend/services/imageService';
+import { Post } from '@frontend/types/sanity';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './PostItem.module.scss';

@@ -1,4 +1,4 @@
-import { Project } from '@src/types/sanity';
+import { Project } from '@frontend/types/sanity';
 import groq from 'groq';
 import studioClient from '../utils/sanity';
 

@@ -1,4 +1,4 @@
-import { Project } from '@src/types/sanity';
+import { Project } from '@frontend/types/sanity';
 import Link from 'next/link';
 import { AiOutlineLink, AiFillGithub } from 'react-icons/ai';
 import styles from './ProjectItem.module.scss';

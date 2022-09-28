@@ -1,3 +1,3 @@
-import ErrorPage from '@src/modules/ErrorPage';
+import ErrorPage from '@frontend/modules/ErrorPage';
 
 export default ErrorPage;

@@ -1,10 +1,10 @@
-import Page from '@src/components/Page';
-import Share from '@src/components/Share';
-import Tags from '@src/components/Tags';
-import siteConfig from '@src/config/site';
-import projectService from '@src/services/projectService';
-import { Project } from '@src/types/sanity';
-import mdxToHtml from '@src/utils/mdx';
+import Page from '@frontend/components/Page';
+import Share from '@frontend/components/Share';
+import Tags from '@frontend/components/Tags';
+import siteConfig from '@frontend/config/site';
+import projectService from '@frontend/services/projectService';
+import { Project } from '@frontend/types/sanity';
+import mdxToHtml from '@frontend/utils/mdx';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
