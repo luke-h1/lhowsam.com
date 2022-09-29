@@ -2,20 +2,38 @@
 @import '../styles/partials/mixins.scss';
 
 .socialShareButtons {
-  display: flex;
   align-items: center;
-  justify-content: space-around;
+  display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: space-around;
   margin-top: 32px;
 
+  @include media(md) {
+    flex-direction: column;
+    justify-content: center;
+
+    button {
+      height: 32px;
+      margin-bottom: 0;
+      margin-left: 0;
+      margin-right: 0;
+      width: 32px;
+
+      & + button {
+        margin-left: 0;
+        margin-top: 12px;
+      }
+    }
+  }
+
   button {
-    opacity: 1;
-    width: 40px;
     height: 40px;
     margin-bottom: 24px;
-    margin-right: 16px;
     margin-left: 16px;
+    margin-right: 16px;
+    opacity: 1;
+    width: 40px;
 
     & + button {
       margin-left: 16px;
@@ -31,26 +49,9 @@
         fill: $black;
       }
     }
+
     &:hover {
       opacity: 0.72;
-    }
-  }
-
-  @include media(md) {
-    flex-direction: column;
-    justify-content: center;
-
-    button {
-      width: 32px;
-      height: 32px;
-      margin-bottom: 0;
-      margin-right: 0;
-      margin-left: 0;
-
-      & + button {
-        margin-left: 0;
-        margin-top: 12px;
-      }
     }
   }
 }

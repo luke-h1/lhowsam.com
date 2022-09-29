@@ -3,28 +3,28 @@
 code[class*='language-'],
 pre[class*='language-'] {
   color: #abb2bf;
-  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  direction: ltr;
   font-family: 'Fira Code', 'Fira Mono', Menlo, Consolas, 'DejaVu Sans Mono',
     monospace;
-  direction: ltr;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  line-height: 1.5;
-  -moz-tab-size: 2;
-  -o-tab-size: 2;
-  tab-size: 2;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
   hyphens: none;
+  hyphens: none;
+  hyphens: none;
+  hyphens: none;
+  line-height: 1.5;
+  tab-size: 2;
+  tab-size: 2;
+  tab-size: 2;
+  text-align: left;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
 }
 
 /* Selection */
-code[class*='language-']::-moz-selection,
-code[class*='language-'] *::-moz-selection,
-pre[class*='language-'] *::-moz-selection {
+code[class*='language-']::selection,
+code[class*='language-'] *::selection,
+pre[class*='language-'] *::selection {
   background: #3e4451;
   color: inherit;
   text-shadow: none;
@@ -40,16 +40,16 @@ pre[class*='language-'] *::selection {
 
 /* Code blocks */
 pre[class*='language-'] {
-  padding: 1em;
+  border-radius: 0.3em;
   margin: 0.5em 0;
   overflow: auto;
-  border-radius: 0.3em;
+  padding: 1em;
 }
 
 /* Inline code */
 :not(pre) > code[class*='language-'] {
-  padding: 0.2em 0.3em;
   border-radius: 0.3em;
+  padding: 0.2em 0.3em;
   white-space: normal;
 }
 
@@ -232,10 +232,10 @@ pre[class*='language-'] {
 /* Selectors should have higher specificity than those in the plugins' default stylesheets */
 
 /* Show Invisibles plugin overrides */
-.token.token.tab:not(:empty):before,
-.token.token.cr:before,
-.token.token.lf:before,
-.token.token.space:before {
+.token.token.tab:not(:empty)::before,
+.token.token.cr::before,
+.token.token.lf::before,
+.token.token.space::before {
   color: rgba(171, 178, 191, 0.15);
   text-shadow: none;
 }
@@ -251,9 +251,9 @@ div.code-toolbar > .toolbar.toolbar > .toolbar-item > button,
 div.code-toolbar > .toolbar.toolbar > .toolbar-item > a,
 div.code-toolbar > .toolbar.toolbar > .toolbar-item > span {
   background: #3a3f4b;
+  border-radius: 0.3em;
   color: #828997;
   padding: 0.1em 0.4em;
-  border-radius: 0.3em;
 }
 
 div.code-toolbar > .toolbar.toolbar > .toolbar-item > button:hover,
@@ -273,20 +273,20 @@ div.code-toolbar > .toolbar.toolbar > .toolbar-item > span:focus {
 }
 
 /* Default line numbers in Line Highlight plugin */
-.line-highlight.line-highlight:before,
-.line-highlight.line-highlight[data-end]:after {
+.line-highlight.line-highlight::before,
+.line-highlight.line-highlight[data-end]::after {
   background: #3a3f4b;
-  color: #abb2bf;
-  padding: 0.1em 0.6em;
   border-radius: 0.3em;
   box-shadow: 0 2px 0 0 rgba(0, 0, 0, 0.2); /* same as Toolbar plugin default */
+  color: #abb2bf;
+  padding: 0.1em 0.6em;
 }
 
 /* Hovering over a linkable line number (in the gutter area) */
 /* Requires Line Numbers plugin as well */
 pre[id].linkable-line-numbers.linkable-line-numbers
   span.line-numbers-rows
-  > span:hover:before {
+  > span:hover::before {
   background-color: rgba(153, 187, 255, 0.04);
 }
 
@@ -298,8 +298,8 @@ pre[id].linkable-line-numbers.linkable-line-numbers
 }
 
 /* Stuff in the gutter */
-.line-numbers .line-numbers-rows > span:before,
-.command-line .command-line-prompt > span:before {
+.line-numbers .line-numbers-rows > span::before,
+.command-line .command-line-prompt > span::before {
   color: #636d83;
 }
 
@@ -336,9 +336,9 @@ pre > code.diff-highlight .token.token.deleted:not(.prefix) {
   background-color: rgba(255, 82, 102, 0.15);
 }
 
-pre.diff-highlight > code .token.token.deleted:not(.prefix)::-moz-selection,
-pre.diff-highlight > code .token.token.deleted:not(.prefix) *::-moz-selection,
-pre > code.diff-highlight .token.token.deleted:not(.prefix)::-moz-selection,
+pre.diff-highlight > code .token.token.deleted:not(.prefix)::selection,
+pre.diff-highlight > code .token.token.deleted:not(.prefix) *::selection,
+pre > code.diff-highlight .token.token.deleted:not(.prefix)::selection,
 pre > code.diff-highlight .token.token.deleted:not(.prefix) *::-moz-selection {
   background-color: rgba(251, 86, 105, 0.25);
 }
@@ -355,9 +355,9 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) {
   background-color: rgba(26, 255, 91, 0.15);
 }
 
-pre.diff-highlight > code .token.token.inserted:not(.prefix)::-moz-selection,
-pre.diff-highlight > code .token.token.inserted:not(.prefix) *::-moz-selection,
-pre > code.diff-highlight .token.token.inserted:not(.prefix)::-moz-selection,
+pre.diff-highlight > code .token.token.inserted:not(.prefix)::selection,
+pre.diff-highlight > code .token.token.inserted:not(.prefix) *::selection,
+pre > code.diff-highlight .token.token.inserted:not(.prefix)::selection,
 pre > code.diff-highlight .token.token.inserted:not(.prefix) *::-moz-selection {
   background-color: rgba(56, 224, 98, 0.25);
 }
@@ -372,20 +372,20 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 /* Previewers plugin overrides */
 /* Based on https://github.com/atom-community/atom-ide-datatip/blob/master/styles/atom-ide-datatips.less and https://github.com/atom/atom/blob/master/packages/one-dark-ui */
 /* Border around popup */
-.prism-previewer.prism-previewer:before,
+.prism-previewer.prism-previewer::before,
 .prism-previewer-gradient.prism-previewer-gradient div {
   border-color: #262931;
 }
 
 /* Angle and time should remain as circles and are hence not included */
-.prism-previewer-color.prism-previewer-color:before,
+.prism-previewer-color.prism-previewer-color::before,
 .prism-previewer-gradient.prism-previewer-gradient div,
-.prism-previewer-easing.prism-previewer-easing:before {
+.prism-previewer-easing.prism-previewer-easing::before {
   border-radius: 0.3em;
 }
 
 /* Triangles pointing to the code */
-.prism-previewer.prism-previewer:after {
+.prism-previewer.prism-previewer::after {
   border-top-color: #262931;
 }
 
@@ -394,8 +394,8 @@ pre > code.diff-highlight .token.token.inserted:not(.prefix) *::selection {
 }
 
 /* Background colour within the popup */
-.prism-previewer-angle.prism-previewer-angle:before,
-.prism-previewer-time.prism-previewer-time:before,
+.prism-previewer-angle.prism-previewer-angle::before,
+.prism-previewer-time.prism-previewer-time::before,
 .prism-previewer-easing.prism-previewer-easing {
   background: #31363f;
 }

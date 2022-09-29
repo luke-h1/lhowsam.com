@@ -5,15 +5,15 @@
 }
 
 .widget {
-  display: inline-flex;
   align-items: center;
+  background-color: #1f1e1d;
+  border-radius: 30px;
+  display: inline-flex;
+  font-size: 12px;
+  font-weight: 500;
   margin: 0 auto;
   margin-bottom: 30px;
   padding: 7px 14px;
-  font-weight: 500;
-  font-size: 12px;
-  background-color: #1f1e1d;
-  border-radius: 30px;
   transition: transform 300ms ease-out;
 
   &:hover,
@@ -37,22 +37,22 @@
 }
 
 .icon {
-  position: relative;
   display: inline-flex;
-  justify-content: space-between;
-  width: 13px;
   height: 13px;
+  justify-content: space-between;
   margin-right: 8px;
+  position: relative;
+  width: 13px;
 
   & > span {
-    width: 3px;
-    height: 100%;
+    animation: bounce 2.2s ease infinite alternate;
     background-color: $green;
     border-radius: 3px;
+    content: '';
+    height: 100%;
     transform-origin: bottom;
     transition: opacity 0.3s ease-out;
-    animation: bounce 2.2s ease infinite alternate;
-    content: '';
+    width: 3px;
 
     &:nth-of-type(2) {
       animation-delay: -2.2s;
@@ -65,14 +65,14 @@
 }
 
 .cover {
-  position: absolute;
-  top: 0;
-  right: 0;
+  border-radius: 2px;
   bottom: 0;
   left: 0;
-  overflow: hidden;
-  border-radius: 2px;
   opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
   transition: opacity 0.3s ease-out;
 }
 

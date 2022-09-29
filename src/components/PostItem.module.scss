@@ -4,16 +4,10 @@
 .post {
   display: flex;
   flex-direction: column;
-  &:last-child {
-    margin-bottom: 3rem;
-  }
-  & + .post {
-    margin-top: 60px;
-  }
 
   @include media(sm) {
-    flex-direction: row;
     align-items: flex-start;
+    flex-direction: row;
 
     &:hover {
       .date {
@@ -21,8 +15,8 @@
       }
 
       .thumb {
-        transition: all 0.3s ease-in-out !important;
         top: 0;
+        transition: all 0.3s ease-in-out !important;
       }
     }
   }
@@ -34,79 +28,87 @@
       margin-top: 120px;
     }
   }
+
+  &:last-child {
+    margin-bottom: 3rem;
+  }
+
+  & + .post {
+    margin-top: 60px;
+  }
 }
 
 .dateThumb {
-  width: 100%;
-
   height: 100%;
   margin-bottom: 24px;
   margin-right: 0;
-
-  .date {
-    display: none;
-  }
-
-  .thumb img {
-    transition: all 0.3s ease-in-out !important;
-    object-fit: cover;
-  }
+  width: 100%;
 
   @include media(sm) {
-    position: relative;
+    flex-shrink: 0;
+    height: 170px;
     margin-bottom: 0;
     margin-right: 45px;
-    flex-shrink: 0;
     overflow: hidden;
-    height: 170px;
+    position: relative;
     width: 170px;
 
     .date {
-      width: 170px;
-      height: 170px;
-      position: absolute;
+      align-items: center;
+      -webkit-box-align: center;
+      -webkit-box-pack: center;
       display: flex;
       flex-direction: column;
-      -webkit-box-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
+      height: 170px;
       justify-content: center;
+      position: absolute;
       top: 0;
+      width: 170px;
 
       span {
+        color: $light;
         font-size: 80px;
         font-weight: 700;
+        height: 100%;
+        height: auto;
+        line-height: 1;
         text-align: center;
         width: 100%;
-        height: 100%;
-        line-height: 1;
-        color: $light;
-        height: auto;
 
         &.month {
-          font-weight: 400;
           font-size: 18px;
+          font-weight: 400;
           line-height: 2;
         }
+
         &.year {
-          font-weight: 400;
           font-size: 18px;
+          font-weight: 400;
           line-height: 2;
         }
       }
     }
 
     .thumb {
-      width: 170px;
       height: 170px;
 
       position: absolute;
       top: -100%;
+      width: 170px;
 
       img {
         object-fit: cover;
       }
     }
+  }
+
+  .date {
+    display: none;
+  }
+
+  .thumb img {
+    object-fit: cover;
+    transition: all 0.3s ease-in-out !important;
   }
 }
 
@@ -116,26 +118,26 @@
 }
 
 .postTitle {
+  color: $light;
   font-size: 21px;
   font-weight: 700;
   margin-bottom: 10px;
-  color: $light;
 }
 
 .postDescription {
-  font-size: 14px;
   color: $light;
+  font-size: 14px;
   line-height: 2;
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .readMore {
-  margin-top: 10px;
+  color: $light;
   font-size: 16px;
   font-weight: 600;
-  color: $light;
-  margin-bottom: 0;
   line-height: 1.5;
+  margin-bottom: 0;
+  margin-top: 10px;
 
   @include media(md) {
     font-size: 14px;
@@ -143,35 +145,35 @@
 }
 
 .promoCard {
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   justify-content: center;
   margin-bottom: 32px;
   position: relative;
-  z-index: 5;
   width: 100%;
+  z-index: 5;
 
   @include media(md) {
-    max-width: 200px;
     margin-bottom: 48px;
+    max-width: 200px;
   }
 
   &::before {
+    background: #000;
+    border-radius: 8px;
     content: '';
     display: block;
-    position: absolute;
-    background: #000;
-    width: calc(100% + 24px);
     height: calc(100% + 32px);
-    z-index: -1;
-    top: 50%;
     left: 50%;
-    border-radius: 8px;
     opacity: 0;
+    position: absolute;
+    top: 50%;
     transform: translate(-50%, -50%);
     transition: opacity 0.3s ease;
+    width: calc(100% + 24px);
+    z-index: -1;
   }
 
   &:hover {
@@ -182,8 +184,8 @@
 }
 
 .imagePromo {
-  max-width: 100%;
   margin-bottom: 24px;
+  max-width: 100%;
   object-fit: cover;
 
   @include media(md) {
