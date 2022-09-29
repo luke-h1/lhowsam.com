@@ -33,6 +33,9 @@ jobs:
 
       - name: lint
         run: npm run lint
+  
+      - name: lint style
+        run: npm run lint:style
 
       - name: jest
         run: npm run test
