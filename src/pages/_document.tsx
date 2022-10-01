@@ -27,7 +27,7 @@ export default class MyDocument extends Document {
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
-          <meta name="keywords" content={[...keywords].join(', ')} />
+          <meta name="keywords" content={keywords.join(', ')} />
           <script
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
@@ -41,7 +41,6 @@ export default class MyDocument extends Document {
             `,
             }}
           />
-          <meta name="keywords" content={[...keywords].join(', ')} />
           <link rel="icon" href="/favicon.ico" />
           <link href="/icons/favicon-16x16.png" rel="icon" />
           <link
