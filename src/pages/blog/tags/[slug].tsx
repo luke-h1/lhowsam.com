@@ -17,14 +17,14 @@ const TagPage = ({ posts }: Props) => {
 
   const slug = router.query.slug as string;
 
+  const formattedSlug = slug.replace('-', ' ');
+
   return (
-    <Page title={`Posts taged with ${slug.replace('-', ' ')}`}>
+    <Page title={`Posts taged with ${formattedSlug}`}>
       <NextSeo
-        title={`Blog posts tagged with ${slug.replace('-', ' ')}`}
+        title={`Blog posts tagged with ${formattedSlug}`}
         canonical={`https://lhowsam.com/${router.asPath}`}
-        description={`Blog posts tagged with ${slug.replace('-', ' ')} (${
-          posts.length
-        } posts)`}
+        description={`Blog posts tagged with ${formattedSlug} (${posts.length} posts)`}
         openGraph={{
           defaultImageWidth: 1200,
           defaultImageHeight: 630,
