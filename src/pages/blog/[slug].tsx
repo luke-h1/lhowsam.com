@@ -21,6 +21,7 @@ interface Props {
 
 const BlogPostPage = ({ post, source }: Props) => {
   const router = useRouter();
+
   return (
     <Page title={post.title}>
       <NextSeo
@@ -40,6 +41,11 @@ const BlogPostPage = ({ post, source }: Props) => {
           ],
           url: `https://lhowsam.com${router.asPath}`,
           title: `${post.title} | lhowsam.com`,
+          article: {
+            authors: ['Luke Howsam'],
+            publishedTime: post.publishedAt,
+            tags: post.tags.map(tag => tag.title),
+          },
         }}
       />
       <div className={styles.headerPost}>
