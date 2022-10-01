@@ -32,10 +32,10 @@ const AboutPage = () => {
                 alt="Luke Howsam"
                 layout="fixed"
                 placeholder="blur"
+                priority
                 quality={100}
                 width={300}
                 height={340}
-                loading="eager"
               />
             </div>
           </div>
