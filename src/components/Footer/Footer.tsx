@@ -1,3 +1,4 @@
+import NowPlaying from '../NowPlaying';
 import SocialList from '../SocialList';
 import styles from './Footer.module.scss';
 import FooterLinks from './FooterLinks';
@@ -18,6 +19,7 @@ const Footer = () => {
       <p className={styles.aboutFooter}>
         MIT {new Date().getFullYear()}, Built with Next, Typescript & Sanity.io
       </p>
+      <NowPlaying />
     </footer>
   );
 };
