@@ -12,6 +12,7 @@ const SkillItem = ({ icon, text, testId }: Props) => {
     <li>
       <span className={styles.bg} data-testid={testId}>
         {icon({
+          size: 30,
           className: styles.skillIcon,
           fill: '#fff',
         })}
