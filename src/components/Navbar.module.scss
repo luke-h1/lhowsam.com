@@ -3,35 +3,30 @@
 @import '../styles/variables.scss';
 
 .nav {
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba($black, 0.5);
-  position: sticky;
-  z-index: 999;
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba($black, 0.5);
+  left: 0;
+  position: sticky;
+  right: 0;
+  top: 0;
+  z-index: 999;
 }
 
 .logo {
   cursor: pointer;
+
   &:hover {
     color: $pink;
   }
 }
 
 .navbar {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
   height: 64px;
-
-  a {
-    font-size: 26px;
-    line-height: 32px;
-    font-weight: 700;
-  }
+  justify-content: space-between;
 
   @include media(md) {
     height: 80px;
@@ -40,27 +35,35 @@
   @include media(lg) {
     height: 96px;
   }
+
+  a {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 32px;
+  }
 }
 
 .navbarLinks {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  padding: 0;
   list-style-type: none;
+  padding: 0;
 
   li {
     height: auto;
+
     a {
       font-size: 18px;
       line-height: 24px;
-      padding: 4px 6px;
       opacity: 1;
+      padding: 4px 6px;
 
       &:hover {
         opacity: 0.64;
       }
     }
+
     & + li {
       margin-left: 4px;
     }

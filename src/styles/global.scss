@@ -3,14 +3,14 @@
 
 html,
 body {
-  font-family: 'Popins', sans-serif;
   background-color: $black;
   color: $light;
+  font-family: 'Popins', sans-serif;
 }
 
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 a {
@@ -20,14 +20,14 @@ a {
 
 p {
   line-height: 2;
-  margin: 0px 0px 1.7em;
+  margin: 0 0 1.7em;
 }
 
 img {
+  border-radius: 2px;
+  height: auto;
   max-width: 100%;
   width: 100%;
-  height: auto;
-  border-radius: 2px;
 }
 
 *,
@@ -58,58 +58,59 @@ div {
 }
 
 ul {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 ol,
 li {
-  margin-top: 0.6em;
   margin-bottom: 0.6em;
+  margin-top: 0.6em;
 }
 
 .sr-only {
-  position: absolute !important;
+  border: 0 !important;
   clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
   clip: rect(1px, 1px, 1px, 1px);
-  padding: 0 !important;
-  border: 0 !important;
   height: 1px !important;
-  width: 1px !important;
   overflow: hidden;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
 }
 
 .title {
   color: $primary;
   font-weight: 500;
   letter-spacing: 0.14em;
-  position: relative;
   margin-bottom: 30px;
+  position: relative;
   width: fit-content;
 
-  &:after {
-    content: '';
-    width: 50%;
-    height: 1px;
+  &::after {
     background-color: $primary;
+    content: '';
     display: block;
+    height: 1px;
     margin-top: 8px;
+    width: 50%;
   }
 }
+
 .gradientText {
   background: $textGradient;
-  -webkit-background-clip: text;
+  background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .button {
-  width: fit-content;
   background-color: $dark;
-  padding: 0.75rem 1.2rem;
-  margin-bottom: 12px;
   border-radius: 4px;
   color: $light;
+  margin-bottom: 12px;
+  padding: 0.75rem 1.2rem;
+  width: fit-content;
 
   &:hover {
     background-color: $light-dark;

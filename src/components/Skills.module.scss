@@ -31,6 +31,7 @@
   list-style: none;
   margin: 0;
   margin-bottom: calc(1rem * var(--tw-space-y-reverse));
+  margin-bottom: 4rem;
   margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
   padding: 0;
   text-size-adjust: 100%;
@@ -68,7 +69,6 @@
     tab-size: 4;
     text-size-adjust: 100%;
   }
-  margin-bottom: 4rem;
 }
 
 @media (max-width: 740px) {

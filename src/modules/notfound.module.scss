@@ -4,11 +4,11 @@
 
 .doubleContent {
   @extend .container;
+  align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 50vh;
+  justify-content: center;
   @include media(md) {
     flex-direction: row;
   }
@@ -23,43 +23,51 @@
   }
 
   .containerImage {
-    width: 100%;
     min-width: 100%;
-    h1 {
-      font-size: 110px;
-    }
+    width: 100%;
 
     @include media(md) {
-      width: 360px;
       position: sticky;
       top: 80px;
+      width: 360px;
     }
 
     @include media(lg) {
       top: 96px;
     }
+
+    h1 {
+      font-size: 110px;
+    }
   }
 }
 
 .sideContent {
+  align-items: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
   margin-left: 0;
   margin-top: 40px;
-  align-items: left;
-  justify-content: left;
-  flex-direction: column;
   text-align: left;
-  display: flex;
   width: 100%;
+  @include media(md) {
+    margin-left: 40px;
+    margin-top: 0;
+  }
+
   h1 {
     margin-bottom: 15px;
   }
+
   ul {
     margin-top: 24px;
   }
+
   ul,
   li {
-    margin-bottom: 15px;
     list-style-type: none;
+    margin-bottom: 15px;
   }
 
   &:last-child {
@@ -74,17 +82,13 @@
       opacity: 0.64;
     }
   }
-  @include media(md) {
-    margin-top: 0;
-    margin-left: 40px;
-  }
 
   .button {
-    width: fit-content;
     background-color: $dark;
-    padding: 0.75rem 1.2rem;
     border-radius: 4px;
     color: $light;
+    padding: 0.75rem 1.2rem;
+    width: fit-content;
 
     &:hover {
       background-color: $light-dark;

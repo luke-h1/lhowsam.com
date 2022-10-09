@@ -6,11 +6,11 @@
 }
 
 .content-size-lg {
-  max-width: $container-max-content-size;
   @extend .common;
+  max-width: $container-max-content-size;
 }
 
 .content-size-md {
-  max-width: $container-md-content-size;
   @extend .common;
+  max-width: $container-md-content-size;
 }

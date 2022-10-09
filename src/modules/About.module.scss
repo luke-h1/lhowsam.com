@@ -5,11 +5,11 @@
 .doubleContent {
   display: flex;
   flex-direction: column;
+  margin-bottom: 4rem;
 
   @include media(md) {
     flex-direction: row;
   }
-  margin-bottom: 4rem;
 }
 
 .sideImage {
@@ -21,13 +21,13 @@
   }
 
   .containerImage {
-    width: 100%;
     min-width: 100%;
+    width: 100%;
 
     @include media(md) {
-      width: 360px;
       position: sticky;
       top: 80px;
+      width: 360px;
     }
 
     @include media(lg) {
@@ -37,12 +37,12 @@
 }
 
 .sideContent {
-  margin-top: 40px;
   margin-left: 0;
+  margin-top: 40px;
 
   @include media(md) {
-    margin-top: 0;
     margin-left: 40px;
+    margin-top: 0;
   }
 
   p {
@@ -51,12 +51,13 @@
     }
   }
 }
+
 .button {
-  width: fit-content;
   background-color: $dark;
-  padding: 0.75rem 1.2rem;
   border-radius: 4px;
   color: $light;
+  padding: 0.75rem 1.2rem;
+  width: fit-content;
 
   &:hover {
     background-color: $light-dark;

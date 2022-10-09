@@ -2,22 +2,22 @@
 @import '../styles/variables.scss';
 
 .socialMedia {
-  display: inline-flex;
-  list-style-type: none;
-  justify-content: center;
   align-items: center;
+  display: inline-flex;
+  justify-content: center;
+  list-style-type: none;
   margin-top: 50px;
   padding: 0;
 
   @include media(md) {
-    justify-content: left;
     align-items: flex-start;
+    justify-content: left;
   }
 
   a {
+    display: block;
     height: 22px;
     line-height: 22px;
-    display: block;
   }
 
   li {
@@ -29,49 +29,49 @@
 
     &:hover {
       .socialName {
-        opacity: 1;
-        visibility: visible;
-        position: absolute;
         bottom: calc(100% + 5px);
+        opacity: 1;
+        position: absolute;
+        visibility: visible;
       }
     }
   }
 
   img {
-    padding: 0.2em;
-    max-width: 22px;
     height: 22px;
+    max-width: 22px;
+    padding: 0.2em;
   }
 
   .socialName {
-    position: absolute;
     background-color: $black;
-    pointer-events: none;
-    padding: 0.4rem 0.8rem;
     border-radius: 3px;
+    bottom: 90%;
+    box-shadow: rgba(255, 255, 255, 0.01) 0 4px 15px;
     color: $light;
     font-size: 13px;
-    bottom: 90%;
     left: 50%;
     opacity: 0;
-    white-space: nowrap;
-    visibility: hidden;
-    z-index: 999;
-    box-shadow: rgba(255, 255, 255, 0.01) 0px 4px 15px;
-    transform: translate3d(-50%, 0px, 0px);
+    padding: 0.4rem 0.8rem;
+    pointer-events: none;
+    position: absolute;
+    transform: translate3d(-50%, 0, 0);
     transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+    visibility: hidden;
+    white-space: nowrap;
+    z-index: 999;
 
-    &:after {
-      content: '';
-      position: absolute;
-      width: 0px;
-      height: 0px;
-      border-top: 6px solid $black;
-      border-right: 6px solid transparent;
+    &::after {
       border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid $black;
       bottom: -6px;
+      content: '';
+      height: 0;
       left: 50%;
+      position: absolute;
       transform: translateX(-50%);
+      width: 0;
     }
   }
 }
