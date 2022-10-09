@@ -13,7 +13,7 @@ describe('navbar', () => {
     cy.get('h1').contains('About').should('be.visible');
     cy.go('back');
     cy.wait(500);
-    cy.get('p').contains('I\'m a Software Engineer currently based in Sheffield, UK').should('be.visible');
+    cy.get('span').contains("I'm a Software Engineer").should('be.visible')
     cy.url().should('include', '/');
 
     // 2nd link (projects)
@@ -24,7 +24,7 @@ describe('navbar', () => {
     cy.go('back')
     cy.wait(500);
     cy.url().should('include', '/');
-    cy.get('h2').contains('Highlighted projects').should('be.visible')
+    cy.get('h2').contains('Recent posts:').should('be.visible')
     cy.contains('Projects').should('be.visible').click();
     cy.wait(500);
 
@@ -32,7 +32,7 @@ describe('navbar', () => {
     // 3rd link (Blog)
     cy.go('back');
     cy.wait(500);
-    cy.get('h2').contains('Highlighted projects').should('be.visible')
+    cy.get('h2').contains('Recent posts:').should('be.visible')
     cy.url().should('include', '/');
     cy.contains('Blog').should('be.visible').click();
     cy.wait(500);

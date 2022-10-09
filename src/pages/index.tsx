@@ -1,18 +1,17 @@
 import Page from '@frontend/components/Page';
-import ProjectItem from '@frontend/components/ProjectItem';
-import Skills from '@frontend/components/Skills';
+import PostItem from '@frontend/components/PostItem';
 import siteConfig from '@frontend/config/site';
-import projectService from '@frontend/services/projectService';
-import { Project } from '@frontend/types/sanity';
+import postService from '@frontend/services/postService';
+import { Post } from '@frontend/types/sanity';
 import { GetStaticProps } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 
 interface Props {
-  projects: Project[];
+  posts: Post[];
 }
 
-const Home = ({ projects }: Props) => {
+const Home = ({ posts }: Props) => {
   const router = useRouter();
   return (
     <>
@@ -29,14 +28,9 @@ const Home = ({ projects }: Props) => {
       />
       <Page title="Home" showHero>
         <h2 style={{ marginBottom: '2.5rem' }} className="title">
-          Highlighted projects:
+          Recent posts:
         </h2>
-        {projects &&
-          projects.map(project => (
-            <ProjectItem key={project._id} project={project} />
-          ))}
-        <h4 className="title">Skills:</h4>
-        <Skills />
+        {posts && posts.map(post => <PostItem key={post._id} post={post} />)}
       </Page>
     </>
   );
@@ -44,11 +38,11 @@ const Home = ({ projects }: Props) => {
 export default Home;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const projects = await projectService.getRecentProjects();
+  const posts = await postService.getRecentPosts();
 
   return {
     props: {
-      projects,
+      posts,
     },
     revalidate: siteConfig.defaultRevalidate,
   };

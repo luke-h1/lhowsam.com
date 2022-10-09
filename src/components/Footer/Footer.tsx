@@ -1,7 +1,9 @@
-import NowPlaying from '../NowPlaying';
+import dynamic from 'next/dynamic';
 import SocialList from '../SocialList';
 import styles from './Footer.module.scss';
 import FooterLinks from './FooterLinks';
+
+const NowPlaying = dynamic(() => import('@frontend/components/NowPlaying'));
 
 const Footer = () => {
   return (

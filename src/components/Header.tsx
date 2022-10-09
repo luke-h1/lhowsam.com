@@ -1,8 +1,8 @@
+import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import styles from './Header.module.scss';
 import Hero from './Hero';
 import Navbar from './Navbar';
-import SocialList from './SocialList';
 
 interface Props {
   showHero?: boolean;
@@ -11,7 +11,7 @@ interface Props {
 
 const Header = ({ showHero, title }: Props) => {
   return (
-    <header className={styles.header}>
+    <header className={classNames(styles.header, styles.container)}>
       <Navbar />
       {showHero ? (
         <motion.div
@@ -23,7 +23,6 @@ const Header = ({ showHero, title }: Props) => {
           <div className={styles.presentation}>
             <div className={styles.sidePresentation}>
               <Hero />
-              <SocialList />
             </div>
           </div>
         </motion.div>
