@@ -47,9 +47,10 @@ const NowPlaying = () => {
           target="_blank"
           rel="noreferrer noopener"
           title={`Currently listening to ${nowPlaying} on spotify`}
+          aria-label={`Currently listening to ${nowPlaying} on spotify`}
         >
           <NowPlayingIcon albumImageUrl={data.albumImageUrl} />
-          {truncate(nowPlaying, 46)}
+          {truncate(nowPlaying, 50)}
         </a>
       ) : (
         <span className={styles.widgetHidden}>Not playing</span>

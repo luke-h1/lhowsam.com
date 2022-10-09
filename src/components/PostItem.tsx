@@ -41,9 +41,11 @@ const PostItem = ({ post }: Props) => {
           </div>
         </div>
         <div className={styles.postDetails}>
-          <Tags tags={post.tags} />
+          <Tags tags={post.tags} testId="post-tags" />
           <h2 className={styles.postTitle}>{post.title}</h2>
-          <p className={styles.postDescription}>{post.intro}</p>
+          <p className={styles.postDescription} data-testid="post-intro">
+            {post.intro}
+          </p>
         </div>
       </a>
     </Link>
