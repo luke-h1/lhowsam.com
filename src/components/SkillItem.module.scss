@@ -11,6 +11,10 @@
 
 .bg {
   padding: 5px;
+  > svg {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 }
 
 .flex {
