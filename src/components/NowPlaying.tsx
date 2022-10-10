@@ -50,7 +50,7 @@ const NowPlaying = () => {
           aria-label={`Currently listening to ${nowPlaying} on spotify`}
         >
           <NowPlayingIcon albumImageUrl={data.albumImageUrl} />
-          {truncate(nowPlaying, 50)}
+          {truncate(nowPlaying, 70)}
         </a>
       ) : (
         <span className={styles.widgetHidden}>Not playing</span>
