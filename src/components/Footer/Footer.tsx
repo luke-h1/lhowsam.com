@@ -1,9 +1,6 @@
-import dynamic from 'next/dynamic';
 import SocialList from '../SocialList';
 import styles from './Footer.module.scss';
 import FooterLinks from './FooterLinks';
-
-const NowPlaying = dynamic(() => import('@frontend/components/NowPlaying'));
 
 const Footer = () => {
   return (
@@ -21,7 +18,6 @@ const Footer = () => {
       <p className={styles.aboutFooter}>
         MIT {new Date().getFullYear()}, Built with Next, Typescript & Sanity.io
       </p>
-      <NowPlaying />
     </footer>
   );
 };
