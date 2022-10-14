@@ -12,7 +12,7 @@ import '@fontsource/poppins';
 import '@frontend/styles/global.scss';
 
 const App = ({ Component, pageProps, router }: AppProps) => {
-  const canonicalUrl = `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`;
+  const canonicalUrl = `${process.env.NEXT_PUBLIC_URL}${router.asPath}`;
   const [queryClient] = useState(() => new QueryClient());
 
   useEffect(() => {
@@ -48,7 +48,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
             site_name: 'lhowsam.com',
             images: [
               {
-                url: `${process.env.NEXT_PUBLIC_SITE_URL}/icons/logo.png`,
+                url: `${process.env.NEXT_PUBLIC_URL}/icons/logo.png`,
                 alt: 'logo for lhowsam.com',
                 width: 1200,
                 height: 630,
