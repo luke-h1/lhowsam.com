@@ -16,12 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup node
-        uses: luke-h1/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16 
 
       - name: Checkout
-        uses: luke-h1/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Use latest npm version
         run: npm i -g npm@latest
@@ -37,13 +37,13 @@ jobs:
         working-directory: .
 
       - name: Upload bundle
-        uses: luke-h1/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           path: .next/analyze/__bundle_analysis.json
           name: bundle_analysis.json
 
       - name: Download base branch bundle stats
-        uses: luke-h1/action-download-artifact@v2
+        uses: actions/action-download-artifact@v3
         if: success() && github.event.number
         with:
           workflow: analyze.yml
@@ -56,7 +56,7 @@ jobs:
         run: ls -laR .next/analyze/base && npx -p nextjs-bundle-analysis compare
 
       - name: Upload analysis comment
-        uses: luke-h1/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: analysis_comment.txt
           path: .next/analyze/__bundle_analysis_comment.txt
@@ -65,7 +65,7 @@ jobs:
         run: echo ${{ github.event.number }} > ./pr_number
 
       - name: Upload PR number
-        uses: luke-h1/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: pr_number
           path: ./pr_number
