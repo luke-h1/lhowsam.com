@@ -43,7 +43,7 @@ jobs:
           name: bundle_analysis.json
 
       - name: Download base branch bundle stats
-        uses: actions/action-download-artifact@v3
+        uses: luke-h1/action-download-artifact@v2
         if: success() && github.event.number
         with:
           workflow: analyze.yml
