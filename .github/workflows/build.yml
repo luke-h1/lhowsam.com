@@ -14,12 +14,12 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Setup node
-        uses: luke-h1/setup-node@v2
+        uses: actions/setup-node@v3
         with:
           node-version: 16
 
       - name: setup cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
           path: |
@@ -32,7 +32,7 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
               
       - name: Checkout
-        uses: luke-h1/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Use latest npm version
         run: npm i -g npm@latest
