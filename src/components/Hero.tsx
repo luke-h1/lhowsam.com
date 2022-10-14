@@ -13,7 +13,7 @@ const Hero = () => {
           <Link href="/about">
             <a className="button">More about me</a>
           </Link>
-          <Link href="/static/cv.pdf">
+          <Link href="/static/cv-latest.pdf">
             <a className="button">Resume</a>
           </Link>
         </ButtonGroup>
