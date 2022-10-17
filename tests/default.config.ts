@@ -1,5 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-const defaultConfig: Partial<Cypress.ConfigOptions<any>> = {
+import * as Cypress from 'cypress';
+
+const defaultConfig: Omit<Cypress.ConfigOptions<unknown>, 'e2e'> = {
   blockHosts: ['*.google-analytics.com', '*.googletagmanager.com'],
   defaultCommandTimeout: 5000,
   video: false,
