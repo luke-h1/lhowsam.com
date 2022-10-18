@@ -2,6 +2,7 @@ import Page from '@frontend/components/Page';
 import Skills from '@frontend/components/Skills';
 import { NextSeo } from 'next-seo';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 // import Link from 'next/link';
 import styles from './About.module.scss';
@@ -54,10 +55,11 @@ const AboutPage = () => {
             </p>
             <p>In my spare time I love to travel, read, and code</p>
             <br />
-            {/* <Link href="/static/resume.pdf">
-            <a className={styles.button}>Resume</a>
-          </Link> */}
-            {/* <h2 style={{ marginTop: '4rem' }}>Skills</h2> */}
+            <div className={styles.resume}>
+              <Link href="/static/cv-latest.pdf">
+                <a className={styles.button}>Resume</a>
+              </Link>
+            </div>
             <h2 className="title">Skills:</h2>
             <Skills />
           </div>
