@@ -33,7 +33,11 @@ const TagPage = ({ posts }: Props) => {
         }}
       />
       <div className={styles.postListing}>
-        {posts && (
+        {!posts.length ? (
+          <div style={{ marginBottom: '6rem' }}>
+            <h2>{`No posts tagged with '${formattedSlug}'`}</h2>
+          </div>
+        ) : (
           <ul>
             {posts.map(post => (
               <li key={post._id}>
