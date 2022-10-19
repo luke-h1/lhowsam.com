@@ -63,7 +63,8 @@
     "rss": "^1.2.2",
     "sass": "^1.55.0",
     "sharp": "^0.31.1",
-    "webpack-bundle-analyzer": "^4.6.1"
+    "webpack-bundle-analyzer": "^4.6.1",
+    "react-icons": "^4.6.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.1.2",
@@ -103,14 +104,14 @@
     "jest-watch-typeahead": "^2.2.0",
     "lint-staged": "13.0.3",
     "prettier": "^2.7.1",
-    "react-icons": "^4.6.0",
     "start-server-and-test": "^1.14.0",
     "stylelint": "^14.14.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^29.0.0",
     "stylelint-prettier": "^2.0.0",
-    "typescript": "^4.8.4"
+    "typescript": "^4.8.4",
+    "vercel": "^28.4.12"
   },
   "nextBundleAnalysis": {
     "budget": null,
