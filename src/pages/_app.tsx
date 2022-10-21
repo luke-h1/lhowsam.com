@@ -1,4 +1,5 @@
 import * as gtag from '@frontend/utils/gtag';
+import { isPreview } from '@frontend/utils/isPreview';
 import {
   Hydrate,
   QueryClient,
@@ -36,6 +37,8 @@ const App = ({ Component, pageProps, router }: AppProps) => {
           titleTemplate="%s | lhowsam.com"
           title="lhowsam.com"
           canonical={canonicalUrl}
+          dangerouslySetAllPagesToNoFollow={isPreview}
+          dangerouslySetAllPagesToNoIndex={isPreview}
           openGraph={{
             profile: {
               firstName: 'Luke',
