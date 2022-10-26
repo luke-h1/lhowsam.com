@@ -63,7 +63,7 @@
     "rss": "^1.2.2",
     "sass": "^1.55.0",
     "sharp": "^0.31.1",
-    "webpack-bundle-analyzer": "^4.6.1",
+    "webpack-bundle-analyzer": "^4.7.0",
     "react-icons": "^4.6.0"
   },
   "devDependencies": {
