@@ -31,7 +31,6 @@ const AboutPage = () => {
                 src="/images/luke.jpeg"
                 blurDataURL="/images/luke.jpeg"
                 alt="Luke Howsam"
-                layout="fixed"
                 placeholder="blur"
                 priority
                 quality={100}
@@ -56,8 +55,8 @@ const AboutPage = () => {
             <p>In my spare time I love to travel, read, and code</p>
             <br />
             <div className={styles.resume}>
-              <Link href="/static/cv-latest.pdf">
-                <a className={styles.button}>Resume</a>
+              <Link href="/static/cv-latest.pdf" className={styles.button}>
+                Resume
               </Link>
             </div>
             <h2 className="title">Skills:</h2>

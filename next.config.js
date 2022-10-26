@@ -52,7 +52,6 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
-  swcMinify: true,
   reactStrictMode: true,
   poweredByHeader: false,
   eslint: {
@@ -65,10 +64,6 @@ const nextConfig = {
       { hostname: 'i.scdn.co' },
     ],
     formats: ['image/avif', 'image/webp'],
-  },
-  experimental: {
-    browsersListForSwc: true,
-    legacyBrowsers: false,
   },
   async redirects() {
     return [

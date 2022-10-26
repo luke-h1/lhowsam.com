@@ -25,14 +25,16 @@ const Navbar = () => {
     <nav className={styles.nav}>
       <div className={styles.container}>
         <div className={styles.navbar}>
-          <Link href="/">
+          <Link href="/" legacyBehavior>
             <FiCode fontSize="29.5px" className={styles.logo} />
           </Link>
           <ul className={styles.navbarLinks}>
             {links &&
               links.map(link => (
                 <li key={link.id}>
-                  <Link href={link.slug}>{link.name}</Link>
+                  <Link href={link.slug} legacyBehavior>
+                    {link.name}
+                  </Link>
                 </li>
               ))}
           </ul>

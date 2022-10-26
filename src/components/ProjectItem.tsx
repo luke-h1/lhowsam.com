@@ -12,15 +12,17 @@ interface Props {
 const ProjectItem = ({ project }: Props) => {
   return (
     <div className={styles.project} key={project.title}>
-      <Link href={`/projects/${project.slug.current}`} passHref>
-        <a data-testid="project-link">
-          <h3 className={styles.title} data-testid="project-title">
-            {project.title}
-          </h3>
-          <p className={styles.description} data-testid="project-intro">
-            {project.intro}
-          </p>
-        </a>
+      <Link
+        href={`/projects/${project.slug.current}`}
+        passHref
+        data-testid="project-link"
+      >
+        <h3 className={styles.title} data-testid="project-title">
+          {project.title}
+        </h3>
+        <p className={styles.description} data-testid="project-intro">
+          {project.intro}
+        </p>
       </Link>
       <div className={styles.tags}>
         <Tags tags={project.tags} key={project._id} />
