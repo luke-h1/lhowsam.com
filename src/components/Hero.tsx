@@ -10,11 +10,11 @@ const Hero = () => {
       <span className={styles.description}>I'm a Software Engineer</span>
       <span className={styles.learnMore}>
         <ButtonGroup>
-          <Link href="/about">
-            <a className="button">More about me</a>
+          <Link href="/about" className="button">
+            More about me
           </Link>
-          <Link href="/static/cv-latest.pdf">
-            <a className="button">Resume</a>
+          <Link href="/static/cv-latest.pdf" className="button">
+            Resume
           </Link>
         </ButtonGroup>
       </span>

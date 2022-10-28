@@ -1,9 +1,11 @@
 import * as gtag from '@frontend/utils/gtag';
+import { isPreview } from '@frontend/utils/isPreview';
 import {
   Hydrate,
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
+import { Analytics } from '@vercel/analytics/react';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -36,6 +38,8 @@ const App = ({ Component, pageProps, router }: AppProps) => {
           titleTemplate="%s | lhowsam.com"
           title="lhowsam.com"
           canonical={canonicalUrl}
+          dangerouslySetAllPagesToNoFollow={isPreview}
+          dangerouslySetAllPagesToNoIndex={isPreview}
           openGraph={{
             profile: {
               firstName: 'Luke',
@@ -67,6 +71,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
           />
         </Head>
         <Component {...pageProps} />
+        <Analytics />
       </Hydrate>
     </QueryClientProvider>
   );
