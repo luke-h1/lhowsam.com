@@ -5,6 +5,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
+import { Analytics } from '@vercel/analytics/react';
 import { DefaultSeo } from 'next-seo';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
@@ -70,6 +71,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
           />
         </Head>
         <Component {...pageProps} />
+        <Analytics />
       </Hydrate>
     </QueryClientProvider>
   );
