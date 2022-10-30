@@ -1,5 +1,4 @@
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
-import { FiTwitter } from 'react-icons/fi';
 import styles from './SocialList.module.scss';
 
 const SocialList = () => {
@@ -7,17 +6,6 @@ const SocialList = () => {
 
   return (
     <ul className={styles.socialMedia}>
-      <li>
-        <a
-          href="https://twitter.com/LukeH_1999"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Link to my Twitter profile"
-        >
-          <FiTwitter size={iconSize} />
-        </a>
-        <span className={styles.socialName}>Twitter</span>
-      </li>
       <li>
         <a
           href="https://github.com/luke-h1"
