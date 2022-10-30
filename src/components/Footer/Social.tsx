@@ -5,16 +5,6 @@ const Social = () => {
     <ul className={styles.socialList}>
       <li>
         <a
-          href="https://twitter.com/LukeH_1999"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="Link to my Twitter profile"
-        >
-          Twitter
-        </a>
-      </li>
-      <li>
-        <a
           href="http://github.com/luke-h1"
           target="_blank"
           rel="noopener noreferrer"

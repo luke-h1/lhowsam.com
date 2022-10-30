@@ -1,3 +1,4 @@
+import { FiCode } from 'react-icons/fi';
 import SocialList from '../SocialList';
 import styles from './Footer.module.scss';
 import FooterLinks from './FooterLinks';
@@ -7,7 +8,7 @@ const Footer = () => {
     <footer className={styles.container}>
       <div className={styles.contentFooter}>
         <div className={styles.presentation}>
-          <h3>Luke H</h3>
+          <FiCode fontSize="29.5px" />
           <SocialList />
         </div>
         <div className={styles.menuFooter}>
