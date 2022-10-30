@@ -41,8 +41,8 @@ const ErrorPage = ({ statusCode }: Props) => {
                 </li>
               </ul>
               <br />
-              <Link href="/">
-                <a className={styles.button}>Home</a>
+              <Link href="/" className={styles.button}>
+                Home
               </Link>
             </div>
           </div>

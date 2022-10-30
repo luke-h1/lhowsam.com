@@ -16,6 +16,7 @@ const ProjectItem = ({ project }: Props) => {
         href={`/projects/${project.slug.current}`}
         passHref
         data-testid="project-link"
+        legacyBehavior
       >
         <h3 className={styles.title} data-testid="project-title">
           {project.title}

@@ -16,6 +16,7 @@ const PostItem = ({ post }: Props) => {
       passHref
       className={styles.post}
       data-testid="post-title"
+      legacyBehavior
     >
       <div className={styles.dateThumb}>
         <div className={styles.date}>
