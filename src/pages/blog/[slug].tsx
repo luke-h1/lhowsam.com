@@ -56,13 +56,13 @@ const BlogPostPage = ({ post, source }: Props) => {
           <img
             src={imageService.urlFor(post.image.asset)}
             alt={post.image.alt ?? post.title}
-            loading="lazy"
+            loading="eager"
             width="1170"
           />
           <img
             src={imageService.urlFor(post.image.asset)}
             alt={post.image.alt ?? post.title}
-            loading="lazy"
+            loading="eager"
             width="1170"
           />
         </div>
