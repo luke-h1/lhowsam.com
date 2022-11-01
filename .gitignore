@@ -25,3 +25,5 @@ tsconfig.tsbuildinfo
 sitemap.xml
 sitemap-0.xml
 .vscode
+.sanity
+dist
