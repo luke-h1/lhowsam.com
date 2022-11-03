@@ -112,7 +112,7 @@
     "stylelint-config-standard": "^29.0.0",
     "stylelint-prettier": "^2.0.0",
     "typescript": "^4.8.4",
-    "vercel": "^28.4.12"
+    "vercel": "^28.4.14"
   },
   "nextBundleAnalysis": {
     "budget": null,
