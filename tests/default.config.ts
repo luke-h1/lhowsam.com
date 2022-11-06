@@ -2,8 +2,13 @@
 import * as Cypress from 'cypress';
 
 const defaultConfig: Omit<Cypress.ConfigOptions<unknown>, 'e2e'> = {
-  blockHosts: ['*.google-analytics.com', '*.googletagmanager.com'],
+  blockHosts: [
+    '*.google-analytics.com',
+    '*.googletagmanager.com',
+    '*.vercel.analytics.com',
+  ],
   defaultCommandTimeout: 5000,
+  nodeVersion: 'system',
   video: false,
   retries: {
     runMode: 1,
