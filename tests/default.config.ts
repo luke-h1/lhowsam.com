@@ -8,7 +8,6 @@ const defaultConfig: Omit<Cypress.ConfigOptions<unknown>, 'e2e'> = {
     '*.vercel.analytics.com',
   ],
   defaultCommandTimeout: 5000,
-  nodeVersion: 'system',
   video: false,
   retries: {
     runMode: 1,

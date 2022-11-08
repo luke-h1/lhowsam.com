@@ -6,6 +6,11 @@ $breakpoints: (
   xl: 1400px,
 ) !default;
 
+/* 
+  example of getting $breakpoints: 
+  min-width: map-get($breakpoints, 'md');
+*/
+
 @mixin media($breakpoint, $map: $breakpoints) {
   @if type-of($map) == map {
     @if map-has-key($map, $breakpoint) {
@@ -23,6 +28,13 @@ $breakpoints: (
 @mixin media-max($breakpoint) {
   $max-width: get-next($breakpoint, $map: $breakpoints);
   @media (max-width: ($max-width -1)) {
+    @content;
+  }
+}
+
+@mixin media-min($breakpoint) {
+  $min-width: get-next($breakpoint, $map: $breakpoints);
+  @media (min-width: ($min-width -1)) {
     @content;
   }
 }
