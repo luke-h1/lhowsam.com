@@ -14,6 +14,11 @@
     align-items: flex-start;
   }
 
+  @include media(sm) {
+    justify-content: left;
+    align-items: flex-start;
+  }
+
   a {
     height: 22px;
     line-height: 22px;
