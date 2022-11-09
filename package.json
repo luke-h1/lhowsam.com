@@ -63,7 +63,7 @@
     "rehype-slug": "^5.1.0",
     "remark-gfm": "^3.0.1",
     "rss": "^1.2.2",
-    "sass": "^1.56.0",
+    "sass": "^1.56.1",
     "sharp": "^0.31.2",
     "webpack-bundle-analyzer": "^4.7.0"
   },
