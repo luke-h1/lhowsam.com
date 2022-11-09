@@ -1,7 +1,7 @@
 import Page from '@frontend/components/Page';
 import Skills from '@frontend/components/Skills';
 import { NextSeo } from 'next-seo';
-import Image from 'next/image';
+import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 // import Link from 'next/link';
@@ -31,6 +31,7 @@ const AboutPage = () => {
                 src="/images/luke.jpeg"
                 blurDataURL="/images/luke.jpeg"
                 alt="Luke Howsam"
+                layout="fixed"
                 placeholder="blur"
                 priority
                 quality={100}
