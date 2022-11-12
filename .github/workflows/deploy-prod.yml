@@ -50,6 +50,7 @@ jobs:
           start: npm run start
           wait-on: "http://localhost:3000"
           command: npm run cy:run
+          install: false
 
       - name: Deploy production
         run: vc -f --prod --token ${VERCEL_TOKEN}
