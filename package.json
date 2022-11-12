@@ -18,6 +18,7 @@
     "cy:prod": "./node_modules/.bin/cypress run --config-file tests/production.config.ts",
     "cy:prod-open": "./node_modules/.bin/cypress open --config-file tests/production.config.ts",
     "cy:preview": "./node_modules/.bin/cypress run --config-file tests/preview.config.ts",
+    "cy:ci": "wait-on http://localhost:3000 && cy:run",
     "test": "jest --passWithNoTests",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test:watch": "jest --watch",
@@ -64,6 +65,7 @@
     "rss": "^1.2.2",
     "sass": "^1.56.1",
     "sharp": "^0.31.2",
+    "wait-on": "^6.0.1",
     "webpack-bundle-analyzer": "^4.7.0"
   },
   "devDependencies": {
@@ -104,7 +106,6 @@
     "jest-watch-typeahead": "^2.2.0",
     "lint-staged": "13.0.3",
     "prettier": "^2.7.1",
-    "start-server-and-test": "^1.14.0",
     "stylelint": "^14.14.1",
     "stylelint-config-prettier": "^9.0.4",
     "stylelint-config-sass-guidelines": "^9.0.1",

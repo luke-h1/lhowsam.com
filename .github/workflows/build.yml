@@ -56,4 +56,4 @@ jobs:
         run: npm run build
         
       - name: intergration tests (local)
-        run: npx start-server-and-test http://localhost:3000 cy:run
+        run: npm run cy:ci
