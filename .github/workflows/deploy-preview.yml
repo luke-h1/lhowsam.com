@@ -20,7 +20,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Use latest npm version
         run: npm i -g npm@latest
@@ -43,8 +43,14 @@ jobs:
       - name: build
         run: npm run build
         
-      - name: intergration tests (local)
-        run: npx start-server-and-test http://localhost:3000 cy:run
+      - name: UI tests (local)
+        uses: cypress-io/github-action@v3
+        with:
+          browser: chrome
+          start: npm run start
+          wait-on: "http://localhost:3000"
+          command: npm run cy:run
+          install: false
 
       - name: Deploy preview
         if: contains( github.ref, 'dev')
