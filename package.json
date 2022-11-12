@@ -18,7 +18,6 @@
     "cy:prod": "./node_modules/.bin/cypress run --config-file tests/production.config.ts",
     "cy:prod-open": "./node_modules/.bin/cypress open --config-file tests/production.config.ts",
     "cy:preview": "./node_modules/.bin/cypress run --config-file tests/preview.config.ts",
-    "cy:ci": "concurrently \"npm run build && npm run start\" \"wait-on http://localhost:3000 && npm run cy:run\"",
     "test": "jest --passWithNoTests",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test:watch": "jest --watch",

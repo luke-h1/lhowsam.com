@@ -55,5 +55,10 @@ jobs:
       - name: build
         run: npm run build
         
-      - name: intergration tests (local)
-        run: npm run cy:ci
+      - name: UI tests (local)
+        uses: cypress-io/github-action@v3
+        with:
+          browser: chrome
+          start: npm run start
+          wait-on: "http://localhost:3000"
+          command: npm run cy:run
