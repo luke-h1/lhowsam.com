@@ -13,7 +13,6 @@
     "lint": "eslint \"./src/**/*.{js, jsx,ts,tsx}\" --quiet --fix && eslint \"./**/*.{js, jsx,ts,tsx}\" --quiet --fix",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
-    "cy:ci": "npm run build && ./node_modules/.bin/start-server-and-test http://localhost:3000 cy:run",
     "cy:run": "./node_modules/.bin/cypress run --config-file tests/local.config.ts",
     "cy:open": "./node_modules/.bin/cypress open --config-file tests/local.config.ts",
     "cy:prod": "./node_modules/.bin/cypress run --config-file tests/production.config.ts",
