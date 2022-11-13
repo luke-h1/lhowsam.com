@@ -25,3 +25,7 @@ tsconfig.tsbuildinfo
 sitemap.xml
 sitemap-0.xml
 .vscode
+/test-results/
+/playwright-report/
+/playwright/.cache/
+test-results
