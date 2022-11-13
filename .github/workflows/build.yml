@@ -30,7 +30,15 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-              
+
+      - name: Cache playwright binaries
+        uses: actions/cache@v3
+        id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: cache-playwright-linux-1.19.2
+
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -55,11 +63,15 @@ jobs:
       - name: build
         run: npm run build
         
-      - name: UI tests (local)
-        uses: cypress-io/github-action@v3
+      - name: Install Playwright Browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps
+
+      - name: local UI tests
+        run: npm run e2e:local
+      - uses: actions/upload-artifact@v3
+        if: always()
         with:
-          browser: chrome
-          start: npm run start
-          wait-on: "http://localhost:3000"
-          command: npm run cy:run
-          install: false
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30

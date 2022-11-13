@@ -43,6 +43,7 @@ const Skills = () => {
       <SkillItem icon={SiNpm} text="npm" />
       <SkillItem icon={SiYarn} text="yarn" />
       <SkillItem icon={SiCypress} text="Cypress" />
+      <SkillItem icon={BiTestTube} text="Playwright" />
       <SkillItem icon={SiJest} text="Jest" />
     </ul>
   );

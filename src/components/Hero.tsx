@@ -6,8 +6,12 @@ import SocialList from './SocialList';
 const Hero = () => {
   return (
     <section className={styles.heroContainer}>
-      <span className={styles.name}>Hey 👋, I'm Luke</span>
-      <span className={styles.description}>I'm a Software Engineer</span>
+      <span className={styles.name} id="name">
+        Hey 👋, I'm Luke
+      </span>
+      <span className={styles.description} id="intro">
+        I'm a Software Engineer
+      </span>
       <span className={styles.learnMore}>
         <ButtonGroup>
           <Link href="/about" className="button">
