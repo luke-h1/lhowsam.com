@@ -51,6 +51,7 @@ jobs:
 
       - name: Preview UI tests
         run: npm run e2e:preview
+        
       - uses: actions/upload-artifact@v3
         if: always()
         with:

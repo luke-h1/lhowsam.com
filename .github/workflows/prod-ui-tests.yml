@@ -53,6 +53,7 @@ jobs:
 
       - name: Prod UI tests
         run: npm run e2e:prod
+        
       - uses: actions/upload-artifact@v3
         if: always()
         with:
