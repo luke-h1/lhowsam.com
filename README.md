@@ -6,7 +6,7 @@ My website & blog
 - [React](https://github.com/facebook/react)
 - [Next](https://github.com/vercel/next.js)
 - [Typescript](https://github.com/Microsoft/TypeScript)
-- [Cypress](https://cypress.io)
+- [Playwright](https://playwright.dev/)
 - [Jest](https://jestjs.io)
 - [MDX](https://github.com/mdx-js/mdx)
 - [Vercel](https://vercel.com)
