@@ -43,7 +43,7 @@ jobs:
             ~/.cache/ms-playwright
           key: '${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}'
           restore-keys: |
-            ${{ runner.os }}-playwright-
+            ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}
 
       - name: Use latest npm version
         run: npm i -g npm@latest

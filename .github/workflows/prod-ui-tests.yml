@@ -36,9 +36,7 @@ jobs:
         with:
           path: |
             ~/.cache/ms-playwright
-          key: '${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}'
-          restore-keys: |
-            ${{ runner.os }}-playwright-
+          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
 
       - name: Checkout
         uses: actions/checkout@v3
