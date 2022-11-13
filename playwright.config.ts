@@ -26,7 +26,7 @@ const config: PlaywrightTestConfig = {
   fullyParallel: true,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  reporter: 'html',
+  reporter: [['list'], ['html'], ['github']],
   workers: 4,
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
