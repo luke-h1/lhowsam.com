@@ -26,8 +26,8 @@ const config: PlaywrightTestConfig = {
   fullyParallel: true,
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  reporter: 'html',
-  workers: 2,
+  reporter: [['list'], ['html'], ['github']],
+  workers: 4,
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
@@ -47,8 +47,8 @@ const config: PlaywrightTestConfig = {
   outputDir: 'test-results/',
   webServer:
     // eslint-disable-next-line no-constant-condition
-    process.env.BASE_URL !== 'luke-h-portfolio-luke-h1.vercel.app' ||
-    'lhowsam.com'
+    process.env.BASE_URL !== 'https://luke-h-portfolio-luke-h1.vercel.app' ||
+    'https://lhowsam.com'
       ? {
           command: 'npm run start',
           port: 3000,

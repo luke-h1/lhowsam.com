@@ -11,7 +11,7 @@ const slugsQuery = groq`
 `;
 
 const recentPostsQuery = groq`
-*[ _type == "post"][0...3] | order(publishedAt desc) {
+*[ _type == "post"] | order(publishedAt desc) [0...3] {
   ...,
   image {
     alt,

@@ -72,6 +72,7 @@ jobs:
 
       - name: local UI tests
         run: npm run e2e:local
+
       - uses: actions/upload-artifact@v3
         if: always()
         with:
@@ -88,6 +89,7 @@ jobs:
 
       - name: Prod UI tests
         run: npm run e2e:prod
+        
       - uses: actions/upload-artifact@v3
         if: always()
         with:
