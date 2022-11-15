@@ -50,7 +50,6 @@ const config: PlaywrightTestConfig = {
       command: 'npm run start',
       port: 3000,
       timeout: 20000,
-      url: 'http://localhost:3000',
     },
   ],
 };
