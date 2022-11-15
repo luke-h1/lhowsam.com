@@ -45,16 +45,14 @@ const config: PlaywrightTestConfig = {
     },
   ],
   outputDir: 'test-results/',
-  webServer:
-    // eslint-disable-next-line no-constant-condition
-    process.env.BASE_URL !== 'https://luke-h-portfolio-luke-h1.vercel.app' ||
-    'https://lhowsam.com'
-      ? {
-          command: 'npm run start',
-          port: 3000,
-          timeout: 20000,
-        }
-      : undefined,
+  webServer: [
+    {
+      command: 'npm run start',
+      port: 3000,
+      timeout: 20000,
+      url: 'http://localhost:3000',
+    },
+  ],
 };
 
 export default config;
