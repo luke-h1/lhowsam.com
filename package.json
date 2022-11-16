@@ -42,7 +42,7 @@
     "classnames": "^2.3.2",
     "concurrently": "^7.5.0",
     "date-fns": "^2.29.3",
-    "framer-motion": "^7.6.6",
+    "framer-motion": "^7.6.7",
     "gen-env-types": "^1.3.4",
     "groq": "2.33.2",
     "lodash": "^4.17.21",
@@ -50,7 +50,7 @@
     "next": "^13.0.3",
     "next-mdx-remote": "^4.2.0",
     "next-seo": "^5.14.1",
-    "next-sitemap": "3.1.31",
+    "next-sitemap": "3.1.32",
     "next-transpile-modules": "^10.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -71,7 +71,7 @@
     "@commitlint/config-conventional": "^17.2.0",
     "@playwright/test": "^1.27.1",
     "@svgr/webpack": "^6.5.1",
-    "@swc/core": "^1.3.17",
+    "@swc/core": "^1.3.18",
     "@swc/jest": "^0.2.23",
     "@testing-library/dom": "8.19.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -110,8 +110,8 @@
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-config-standard": "^29.0.0",
     "stylelint-prettier": "^2.0.0",
-    "typescript": "^4.8.4",
-    "vercel": "^28.5.1"
+    "typescript": "^4.9.3",
+    "vercel": "^28.5.3"
   },
   "nextBundleAnalysis": {
     "budget": null,
