@@ -29,3 +29,5 @@ sitemap-0.xml
 /playwright-report/
 /playwright/.cache/
 test-results
+.vscode
+.idea
