@@ -45,7 +45,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-playwright-${{ steps.playwright-version.outputs.version }}
 
-      - name: Use latest npm version
+      - name: Install npm
         run: npm i -g npm@8
 
       - name: Install dependencies 

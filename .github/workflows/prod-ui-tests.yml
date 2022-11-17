@@ -41,7 +41,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Use latest npm version
+      - name: Install npm
         run: npm i -g npm@8
 
       - name: Install dependencies 
