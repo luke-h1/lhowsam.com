@@ -20,7 +20,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
 
       - name: setup cache
         uses: actions/cache@v3
@@ -41,10 +41,10 @@ jobs:
         with:
           path: |
             ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-playwright-
 
       - name: Use latest npm version
-        run: npm i -g npm@latest
+        run: npm i -g npm@8
 
       - name: Install dependencies 
         run: npm ci
@@ -65,7 +65,6 @@ jobs:
         run: npm run build
         
       - name: Install Playwright Browsers
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps
 
       - name: local UI tests
