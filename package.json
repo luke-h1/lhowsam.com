@@ -25,7 +25,7 @@
     "test:snapshot": "jest --updateSnapshot",
     "analyze": "ANALYZE=true next build",
     "prepare": "husky install",
-    "check:node": "check-node-version --node 16 --npm 8",
+    "check:node": "check-node-version --node 18 --npm 9",
     "preinstall": "npm run check:node",
     "postbuild": "next-sitemap"
   },
