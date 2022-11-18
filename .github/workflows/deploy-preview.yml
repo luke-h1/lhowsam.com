@@ -20,7 +20,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: setup cache
         uses: actions/cache@v3
@@ -43,9 +43,8 @@ jobs:
             ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-
 
-      - name: Use latest npm version
+      - name: Install npm
         run: npm i -g npm@8
-
       - name: Install dependencies 
         run: npm ci
 
