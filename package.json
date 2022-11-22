@@ -67,7 +67,7 @@
     "webpack-bundle-analyzer": "^4.7.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.2.0",
+    "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.2.0",
     "@playwright/test": "^1.28.0",
     "@svgr/webpack": "^6.5.1",
