@@ -84,7 +84,7 @@
     "@types/react": "18.0.25",
     "@types/rss": "^0.0.29",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
-    "@typescript-eslint/parser": "^5.43.0",
+    "@typescript-eslint/parser": "^5.44.0",
     "eslint": "^8.27.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "^13.0.4",
