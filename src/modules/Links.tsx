@@ -1,4 +1,4 @@
-import Page from '@frontend/components/Page';
+import Page from '@frontend/components/Page/Page';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import styles from './Links.module.scss';
