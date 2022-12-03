@@ -2,8 +2,8 @@ import imageService from '@frontend/services/imageService';
 import { Post } from '@frontend/types/sanity';
 import Image from 'next/image';
 import Link from 'next/link';
+import Tags from '../Tags/Tags';
 import styles from './PostItem.module.scss';
-import Tags from './Tags';
 
 interface Props {
   post: Post;

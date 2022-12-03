@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import dynamic from 'next/dynamic';
 import { ReactNode } from 'react';
-import Header from './Header';
+import Header from '../Header/Header';
 import styles from './Page.module.scss';
 
 const Footer = dynamic(() => import('@frontend/components/Footer/Footer'));

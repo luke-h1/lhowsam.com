@@ -1,4 +1,4 @@
-import Page from '@frontend/components/Page';
+import Page from '@frontend/components/Page/Page';
 import { AxiosError } from 'axios';
 import { NextPageContext } from 'next';
 import Link from 'next/link';

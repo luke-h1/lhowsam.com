@@ -1,4 +1,4 @@
-import Page from '@frontend/components/Page';
+import Page from '@frontend/components/Page/Page';
 import Link from 'next/link';
 import styles from './notfound.module.scss';
 

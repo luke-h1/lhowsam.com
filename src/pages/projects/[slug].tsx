@@ -1,6 +1,6 @@
-import Page from '@frontend/components/Page';
+import Page from '@frontend/components/Page/Page';
 import Share from '@frontend/components/Share';
-import Tags from '@frontend/components/Tags';
+import Tags from '@frontend/components/Tags/Tags';
 import siteConfig from '@frontend/config/site';
 import projectService from '@frontend/services/projectService';
 import { Project } from '@frontend/types/sanity';

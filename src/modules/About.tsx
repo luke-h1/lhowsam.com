@@ -1,5 +1,5 @@
-import Page from '@frontend/components/Page';
-import Skills from '@frontend/components/Skills';
+import Page from '@frontend/components/Page/Page';
+import Skills from '@frontend/components/Skills/Skills';
 import { NextSeo } from 'next-seo';
 import Image from 'next/legacy/image';
 import Link from 'next/link';

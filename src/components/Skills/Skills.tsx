@@ -19,7 +19,7 @@ import {
   SiCypress,
   SiJest,
 } from 'react-icons/si';
-import SkillItem from './SkillItem';
+import SkillItem from '../SkillItem/SkillItem';
 import styles from './Skills.module.scss';
 
 const Skills = () => {
