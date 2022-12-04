@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import ButtonGroup from './ButtonGroup';
+import ButtonGroup from '../ButtonGroup/ButtonGroup';
+import SocialList from '../SocialList/SocialList';
 import styles from './Hero.module.scss';
-import SocialList from './SocialList';
 
 const Hero = () => {
   return (

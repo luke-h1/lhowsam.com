@@ -1,5 +1,5 @@
-import Page from '@frontend/components/Page';
-import ProjectItem from '@frontend/components/ProjectItem';
+import Page from '@frontend/components/Page/Page';
+import ProjectItem from '@frontend/components/ProjectItem/ProjectItem';
 import siteConfig from '@frontend/config/site';
 import projectService from '@frontend/services/projectService';
 import { Project } from '@frontend/types/sanity';

@@ -1,9 +1,9 @@
 import { Project } from '@frontend/types/sanity';
 import Link from 'next/link';
 import { AiOutlineLink, AiFillGithub } from 'react-icons/ai';
+import Tags from '../Tags/Tags';
+import VisuallyHidden from '../VisuallyHidden/VisuallyHidden';
 import styles from './ProjectItem.module.scss';
-import Tags from './Tags';
-import VisuallyHidden from './VisuallyHidden';
 
 interface Props {
   project: Project;

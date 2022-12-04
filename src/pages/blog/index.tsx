@@ -1,5 +1,5 @@
-import Page from '@frontend/components/Page';
-import PostItem from '@frontend/components/PostItem';
+import Page from '@frontend/components/Page/Page';
+import PostItem from '@frontend/components/PostItem/PostItem';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';

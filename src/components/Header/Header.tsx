@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import Hero from '../Hero/Hero';
+import Navbar from '../Navbar/Navbar';
 import styles from './Header.module.scss';
-import Hero from './Hero';
-import Navbar from './Navbar';
 
 interface Props {
   showHero?: boolean;

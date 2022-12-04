@@ -1,5 +1,5 @@
 import { FiCode } from 'react-icons/fi';
-import SocialList from '../SocialList';
+import SocialList from '../SocialList/SocialList';
 import styles from './Footer.module.scss';
 import FooterLinks from './FooterLinks';
 
