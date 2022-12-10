@@ -18,56 +18,65 @@ jobs:
         with:
           node-version: 18.12.1
 
+      - uses: pnpm/action-setup@v2
+        name: Install pnpm
+        id: pnpm-install
+        with:
+          version: 7
+          run_install: false
+
+      - name: Get pnpm store directory
+        id: pnpm-cache
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
       - name: setup cache
         uses: actions/cache@v3
         with:
-          # See here for caching with `yarn` https://github.com/actions/cache/blob/main/examples.md#node---yarn or you can leverage caching with actions/setup-node https://github.com/actions/setup-node
           path: |
             ~/.npm
             ${{ github.workspace }}/.next/cache
           # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
+          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
-
-      - name: Cache playwright binaries
-        uses: actions/cache@v3
-        id: playwright-cache
-        with:
-          path: |
-            ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-
+            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install npm
-        run: npm i -g npm@8
-
       - name: Install dependencies
-        run: npm ci
+        run: pnpm i
 
       - name: format
-        run: npm run format
+        run: pnpm run format
 
       - name: lint
-        run: npm run lint
+        run: pnpm run lint
 
       - name: jest
-        run: npm run test
+        run: pnpm run test
 
       - name: tsc
-        run: npm run tsc
+        run: pnpm run tsc
 
       - name: build
-        run: npm run build
+        run: pnpm run build
         
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: pnpx playwright install --with-deps
 
       - name: local UI tests
-        run: npm run e2e:local
+        run: pnpm run e2e:local
         
       - uses: actions/upload-artifact@v3
         if: always()
