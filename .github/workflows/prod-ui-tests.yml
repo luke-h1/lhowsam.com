@@ -55,7 +55,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install dependencies 
-        run: pnpm ci
+        run: pnpm i
 
       - name: Install Playwright Browsers
         run: pnpx playwright install --with-deps
