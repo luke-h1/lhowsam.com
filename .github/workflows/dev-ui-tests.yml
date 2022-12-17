@@ -1,4 +1,4 @@
-name: CI / UI tests (preview)
+name: CI / UI tests (development)
 on:
   workflow_dispatch:
 env: 
@@ -57,7 +57,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Preview UI tests
+      - name: Dev UI tests
         run: pnpm run e2e:preview
         
       - uses: actions/upload-artifact@v3
