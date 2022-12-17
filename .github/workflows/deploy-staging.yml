@@ -8,7 +8,7 @@ env:
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
 
 jobs:
   deploy: 
@@ -88,10 +88,10 @@ jobs:
       - name: Deploy preview
         if: contains( github.ref, 'dev')
         run: |
-          vc -f --token ${VERCEL_TOKEN}
+          vc -f --prod --token ${VERCEL_TOKEN}
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_DEV_PROJECT_ID: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
 
       - name: Preview UI tests
