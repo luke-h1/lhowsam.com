@@ -1,22 +1,27 @@
-name: CI / UI tests (production)
+name: Deploy development
 on:
+  push:
+    branches:
+      - dev
   workflow_dispatch:
-  schedule: 
-    - cron: '0 */12 * * *'
-env: 
+env:
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-  
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
+
 jobs:
-  test:
-    name: e2e prod
+  deploy: 
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    name: Deploy
     steps:
+      - uses: actions/checkout@v3
+
       - name: Setup node
         uses: actions/setup-node@v3
         with:
           node-version: 18.12.1
-          
+
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
@@ -50,18 +55,47 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
-
-      - name: Checkout
-        uses: actions/checkout@v3
-
       - name: Install dependencies 
         run: pnpm i --no-frozen-lockfile
 
+      - name: format
+        run: pnpm run format
+
+      - name: lint
+        run: pnpm run lint
+
+      - name: jest
+        run: pnpm run test
+
+      - name: tsc
+        run: pnpm run tsc
+
+      - name: build
+        run: pnpm run build
+        
       - name: Install Playwright Browsers
         run: pnpx playwright install --with-deps
 
-      - name: Prod UI tests
-        run: pnpm run e2e:prod
+      - name: local UI tests
+        run: pnpm run e2e:local
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+      - name: Deploy dev
+        if: contains( github.ref, 'dev')
+        run: |
+          vc -f --prod --token ${VERCEL_TOKEN}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+          VERCEL_DEV_PROJECT_ID: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+
+      - name: Dev UI tests
+        run: pnpm run e2e:preview
         
       - uses: actions/upload-artifact@v3
         if: always()
