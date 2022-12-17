@@ -57,7 +57,7 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-      - name: Dev UI tests
+      - name: dev UI tests
         run: pnpm run e2e:preview
         
       - uses: actions/upload-artifact@v3
