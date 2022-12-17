@@ -1,4 +1,4 @@
-name: CI / UI tests (development)
+name: CI / UI tests (dev)
 on:
   workflow_dispatch:
 env: 
@@ -6,7 +6,7 @@ env:
 
 jobs:
   test:
-    name: e2e preview
+    name: e2e dev
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
