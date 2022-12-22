@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-// import Link from 'next/link';
+import Balancer from 'react-wrap-balancer';
 import styles from './About.module.scss';
 
 const AboutPage = () => {
@@ -42,8 +42,10 @@ const AboutPage = () => {
           </div>
           <div className={styles.sideContent}>
             <h1>
-              Hey 👋, I'm Luke. I'm a Software Engineer currently based in
-              Sheffield, UK
+              <Balancer>
+                Hey 👋, I'm Luke. I'm a Software Engineer currently based in
+                Sheffield, UK
+              </Balancer>
             </h1>
             <br />
             <p>
