@@ -68,9 +68,6 @@ jobs:
       - name: build
         run: pnpm run build
         
-      - name: Install Playwright Browsers
-        run: pnpx playwright install --with-deps
-
       - name: local UI tests
         run: pnpm run e2e:local
         
