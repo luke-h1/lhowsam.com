@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
+import Balancer from 'react-wrap-balancer';
 import Hero from '../Hero/Hero';
 import Navbar from '../Navbar/Navbar';
 import styles from './Header.module.scss';
@@ -34,7 +35,11 @@ const Header = ({ showHero, title }: Props) => {
           transition={{ type: 'linear' }}
         >
           <div className={styles.container}>
-            {title && <h1 className={styles.titlePage}>{title}</h1>}
+            {title && (
+              <Balancer>
+                <h1 className={styles.titlePage}>{title}</h1>
+              </Balancer>
+            )}
           </div>
         </motion.div>
       )}

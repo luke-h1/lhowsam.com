@@ -15,6 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy
     steps:
+      # https://github.com/actions/virtual-environments/issues/1187
+      - name: tune linux network
+        run: sudo ethtool -K eth0 tx off rx off
+
       - uses: actions/checkout@v3
 
       - name: Setup node
@@ -55,13 +59,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
-      - name: Install moreutils
-        run: sudo apt install moreutils
-        
-      # https://github.com/actions/virtual-environments/issues/1187
-      - name: tune linux network
-        run: sudo ethtool -K eth0 tx off rx off            
-
       - name: Install dependencies 
         run: pnpm i
 
@@ -81,7 +78,7 @@ jobs:
         run: pnpm run build
         
       - name: Install Playwright Browsers
-        run: ./node_modules/.bin/playwright install --with-deps        
+        run: ./node_modules/.bin/playwright install --with-deps chromium
 
       - name: local UI tests
         run: pnpm run e2e:local
