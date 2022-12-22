@@ -29,6 +29,13 @@ jobs:
           name: pr_number
           path: pr_number
 
+      - name: Install moreutils
+        run: sudo apt install moreutils
+        
+      # https://github.com/actions/virtual-environments/issues/1187
+      - name: tune linux network
+        run: sudo ethtool -K eth0 tx off rx off            
+
       - name: Get comment body
         id: get-comment-body
         if: success()

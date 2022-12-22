@@ -56,8 +56,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Install moreutils
+        run: sudo apt install moreutils
+        
+      # https://github.com/actions/virtual-environments/issues/1187
+      - name: tune linux network
+        run: sudo ethtool -K eth0 tx off rx off            
+
+
       - name: Install dependencies
-        run: pnpm i --no-frozen-lockfile
+        run: pnpm i
 
       - name: Build next.js app
         run: pnpm run build

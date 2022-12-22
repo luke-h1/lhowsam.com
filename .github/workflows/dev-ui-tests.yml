@@ -50,12 +50,19 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v3
+        
+      - name: Install moreutils
+        run: sudo apt install moreutils
+        
+      # https://github.com/actions/virtual-environments/issues/1187
+      - name: tune linux network
+        run: sudo ethtool -K eth0 tx off rx off            
 
       - name: Install dependencies 
-        run: pnpm i --no-frozen-lockfile
+        run: pnpm i
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        run: ./node_modules/.bin/playwright install --with-deps        
 
       - name: dev UI tests
         run: pnpm run e2e:preview
