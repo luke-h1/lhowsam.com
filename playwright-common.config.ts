@@ -10,7 +10,7 @@ import { devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-const config: PlaywrightTestConfig = {
+const commonConfig: PlaywrightTestConfig = {
   testDir: './e2e',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
@@ -45,13 +45,6 @@ const config: PlaywrightTestConfig = {
     },
   ],
   outputDir: 'test-results/',
-  webServer: [
-    {
-      command: 'npm run start',
-      port: 3000,
-      timeout: 20000,
-    },
-  ],
 };
 
-export default config;
+export default commonConfig;
