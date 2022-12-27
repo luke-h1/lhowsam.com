@@ -8,9 +8,8 @@ export default function middleware(req: NextRequest) {
       const basicAuth = req.headers.get('Authorization')?.split(' ')[1];
       const url = req.nextUrl;
       if (basicAuth) {
-        const [username, password] = Buffer.from(basicAuth, 'base64')
-          .toString()
-          .split(':');
+        // get username and password from basic auth without using Buffer
+        const [username, password] = atob(basicAuth).split(':');
 
         if (
           username === process.env.BASIC_AUTH_USER &&
