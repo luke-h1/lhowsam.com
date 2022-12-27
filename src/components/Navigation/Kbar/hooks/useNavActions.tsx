@@ -35,13 +35,13 @@ const useNavActions = () => {
         perform: () => router.push('/projects'),
         section: 'navigation',
       },
-      {
-        id: 'links',
-        name: 'Links',
-        keywords: 'links',
-        perform: () => router.push('/links'),
-        section: 'navigation',
-      },
+      // {
+      //   id: 'links',
+      //   name: 'Links',
+      //   keywords: 'links',
+      //   perform: () => router.push('/links'),
+      //   section: 'navigation',
+      // },
     ],
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
