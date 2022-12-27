@@ -107,10 +107,15 @@ test.describe('kbar', () => {
 
     // actions (go back)
     await page.keyboard.press('ArrowDown');
+    await sleep(500);
     await page.keyboard.press('ArrowDown');
+    await sleep(500);
     await page.keyboard.press('ArrowDown');
+    await sleep(500);
     await page.keyboard.press('ArrowDown');
+    await sleep(500);
     await page.keyboard.press('ArrowDown');
+    await sleep(500);
     await page.keyboard.press('Enter');
     await sleep(1000);
 
