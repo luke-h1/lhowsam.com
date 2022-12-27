@@ -27,7 +27,7 @@ const commonConfig: PlaywrightTestConfig = {
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   reporter: [['list'], ['html'], ['github']],
-  workers: 8,
+  workers: 6,
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,

@@ -8,6 +8,8 @@ test.describe('kbar', () => {
   test.beforeEach(async ({ browser }) => {
     page = await browser.newPage();
     await page.goto(baseUrl);
+    await page.waitForLoadState('networkidle');
+    await sleep(100);
   });
 
   test('should open kbar when clicking the command k button', async () => {
@@ -39,9 +41,8 @@ test.describe('kbar', () => {
     ).toBeVisible();
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('Enter');
-    await page.waitForNavigation();
+    await sleep(500);
     await expect(page.locator('xpath=//h1').first()).toHaveText('About');
-
     await expect(
       page.locator('xpath=//*[@id="kbar-navigation"]//div').first(),
     ).not.toBeVisible();
@@ -60,7 +61,7 @@ test.describe('kbar', () => {
     await page.keyboard.press('ArrowDown');
     await sleep(500);
     await page.keyboard.press('Enter');
-    await page.waitForNavigation();
+    await sleep(500);
     await expect(page.locator('xpath=//h1').first()).toHaveText('Blog');
 
     await expect(
@@ -84,7 +85,7 @@ test.describe('kbar', () => {
     await page.keyboard.press('ArrowDown');
     await sleep(500);
     await page.keyboard.press('Enter');
-    await page.waitForNavigation();
+    await sleep(500);
     await expect(page.locator('xpath=//h1').first()).toHaveText('Projects');
 
     await expect(
@@ -110,16 +111,12 @@ test.describe('kbar', () => {
 
     // actions (go back)
     await page.keyboard.press('ArrowDown');
-    await sleep(500);
     await page.keyboard.press('ArrowDown');
-    await sleep(500);
     await page.keyboard.press('ArrowDown');
-    await sleep(500);
     await page.keyboard.press('ArrowDown');
-    await sleep(500);
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('Enter');
-    await page.waitForNavigation();
+    await sleep(1000);
 
     await expect(page.locator('xpath=//h1').first()).toHaveText('Blog');
   });
