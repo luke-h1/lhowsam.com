@@ -26,7 +26,7 @@ test.describe('kbar', () => {
     await page.keyboard.down('Meta');
     await page.keyboard.press('KeyK');
     await page.keyboard.up('Meta');
-    await sleep(1000);
+    await sleep(2000);
     await expect(
       page.locator('xpath=//*[@id="kbar-navigation"]//div').first(),
     ).toBeVisible();
@@ -41,8 +41,9 @@ test.describe('kbar', () => {
       page.locator('xpath=//*[@id="kbar-navigation"]//div').first(),
     ).toBeVisible();
     await page.keyboard.press('ArrowDown');
-    await page.keyboard.press('Enter');
     await sleep(500);
+    await page.keyboard.press('Enter');
+    await sleep(2000);
     await expect(page.locator('xpath=//h1').first()).toHaveText('About');
     await expect(
       page.locator('xpath=//*[@id="kbar-navigation"]//div').first(),
@@ -58,9 +59,12 @@ test.describe('kbar', () => {
       page.locator('xpath=//*[@id="kbar-navigation"]//div').first(),
     ).toBeVisible();
     await page.keyboard.press('ArrowDown');
-    await page.keyboard.press('ArrowDown');
-    await page.keyboard.press('Enter');
     await sleep(500);
+
+    await page.keyboard.press('ArrowDown');
+    await sleep(500);
+    await page.keyboard.press('Enter');
+    await sleep(2000);
     await expect(page.locator('xpath=//h1').first()).toHaveText('Blog');
 
     await expect(
@@ -78,10 +82,13 @@ test.describe('kbar', () => {
     ).toBeVisible();
 
     await page.keyboard.press('ArrowDown');
-    await page.keyboard.press('ArrowDown');
-    await page.keyboard.press('ArrowDown');
-    await page.keyboard.press('Enter');
     await sleep(500);
+    await page.keyboard.press('ArrowDown');
+    await sleep(500);
+    await page.keyboard.press('ArrowDown');
+    await sleep(500);
+    await page.keyboard.press('Enter');
+    await sleep(2000);
     await expect(page.locator('xpath=//h1').first()).toHaveText('Projects');
 
     await expect(
@@ -107,12 +114,17 @@ test.describe('kbar', () => {
 
     // actions (go back)
     await page.keyboard.press('ArrowDown');
+    await sleep(500);
     await page.keyboard.press('ArrowDown');
+    await sleep(500);
     await page.keyboard.press('ArrowDown');
+    await sleep(500);
     await page.keyboard.press('ArrowDown');
+    await sleep(500);
     await page.keyboard.press('ArrowDown');
+    await sleep(500);
     await page.keyboard.press('Enter');
-    await sleep(1000);
+    await sleep(2000);
 
     await expect(page.locator('xpath=//h1').first()).toHaveText('Blog');
   });
