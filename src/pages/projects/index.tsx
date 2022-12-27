@@ -1,3 +1,4 @@
+import Heading from '@frontend/components/Heading/Heading';
 import Page from '@frontend/components/Page/Page';
 import ProjectItem from '@frontend/components/ProjectItem/ProjectItem';
 import siteConfig from '@frontend/config/site';
@@ -11,10 +12,11 @@ interface Props {
   projects: Project[];
 }
 
-const ProjectPage = ({ projects }: Props) => {
+const ProjectIndexPage = ({ projects }: Props) => {
   const router = useRouter();
+
   return (
-    <Page title="Projects">
+    <Page>
       <NextSeo
         title="Projects"
         canonical={`https://lhowsam.com/${router.asPath}`}
@@ -26,6 +28,7 @@ const ProjectPage = ({ projects }: Props) => {
           title: `Projects | lhowsam.com`,
         }}
       />
+      <Heading as="h1">Projects</Heading>
       {projects &&
         projects.map(project => (
           <ProjectItem project={project} key={project._id} />
@@ -33,9 +36,18 @@ const ProjectPage = ({ projects }: Props) => {
     </Page>
   );
 };
+export default ProjectIndexPage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const projects = await projectService.getAllProjects();
+
+  if (!projects.length) {
+    return {
+      props: {
+        projects: [],
+      },
+    };
+  }
 
   return {
     props: {
@@ -44,5 +56,3 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     revalidate: siteConfig.defaultRevalidate,
   };
 };
-
-export default ProjectPage;

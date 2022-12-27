@@ -1,4 +1,5 @@
-import * as gtag from '@frontend/utils/gtag';
+import HeaderContextProvider from '@frontend/context/HeaderContext';
+import gtagService from '@frontend/utils/gtag';
 import { isDevelopment } from '@frontend/utils/isDevelopment';
 import {
   Hydrate,
@@ -13,13 +14,15 @@ import { useEffect, useState } from 'react';
 import '@fontsource/poppins';
 import '@frontend/styles/global.scss';
 
-const App = ({ Component, pageProps, router }: AppProps) => {
+type Props = AppProps<{ dehydratedState: unknown }>;
+
+const App = ({ Component, pageProps, router }: Props) => {
   const canonicalUrl = `${process.env.NEXT_PUBLIC_URL}${router.asPath}`;
   const [queryClient] = useState(() => new QueryClient());
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      gtag.pageview(url);
+      gtagService.pageView(url);
     };
     router.events.on('routeChangeComplete', handleRouteChange);
     return () => {
@@ -29,11 +32,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Hydrate
-        state={
-          (pageProps as unknown as { dehydratedState: never }).dehydratedState
-        }
-      >
+      <Hydrate state={pageProps.dehydratedState}>
         <DefaultSeo
           titleTemplate="%s | lhowsam.com"
           title="lhowsam.com"
@@ -67,10 +66,12 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         <Head>
           <meta
             name="viewport"
-            content="initial-scale=1.0, width=device-width"
+            content="width=device-width, user-scalable=yes, initial-scale=1.0, viewport-fit=cover"
           />
         </Head>
-        <Component {...pageProps} />
+        <HeaderContextProvider>
+          <Component {...pageProps} />
+        </HeaderContextProvider>
         <Analytics />
       </Hydrate>
     </QueryClientProvider>

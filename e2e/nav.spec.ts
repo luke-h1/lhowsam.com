@@ -10,7 +10,7 @@ test.describe('nav', () => {
   });
 
   test('should navigate correctly without errors', async () => {
-    await expect(page.locator('nav')).toBeVisible();
+    await expect(page.locator('[data-testid="main-nav"]')).toBeVisible();
     expect(page.url()).toContain('/');
 
     // 1st link (about)
@@ -21,7 +21,7 @@ test.describe('nav', () => {
     expect(page.url()).toContain('/about');
 
     await page.goBack();
-    await expect(page.locator('span').first()).toHaveText("Hey 👋, I'm Luke");
+    await expect(page.locator("text='Hey 👋, I'm Luke'")).toBeVisible();
     expect(page.url()).toContain('/');
 
     // 2nd link (projects)

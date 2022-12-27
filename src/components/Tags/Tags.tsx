@@ -11,7 +11,7 @@ const Tags = ({ tags, testId }: Props) => {
     <div className={styles.tags} data-testid={testId}>
       {tags &&
         tags.map(tag => (
-          <p className={styles.tag} key={tag._id}>
+          <p className={styles.tag} key={`${tag.slug.current}-${tag._id}`}>
             {tag.title}
           </p>
         ))}

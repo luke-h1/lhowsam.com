@@ -1,12 +1,16 @@
-@import '../../styles/variables.scss';
+@import '../../styles/partials/mixins.scss';
 
+.projectItemLink {
+  color: #fff;
+  text-decoration: none;
+}
 .project {
   width: 100%;
   margin-bottom: 40px;
   h3 {
     cursor: pointer;
     &:hover {
-      color: $pink;
+      color: var(--pink);
     }
   }
 
@@ -29,7 +33,7 @@
   margin-bottom: 20px;
   padding-bottom: 50%;
   overflow: hidden;
-  background-color: $black;
+  background-color: var(--black);
   border-radius: 15px;
 
   @media (min-width: 890px) {
@@ -86,12 +90,13 @@
 
   & > a {
     margin-right: 8px;
+    color: #fff;
   }
   a {
     text-decoration: none;
-    color: $light;
+    color: #fff;
     &:hover {
-      color: $pink;
+      color: var(--pink);
     }
   }
 
@@ -104,7 +109,7 @@
 .link {
   display: inline-flex;
   align-items: center;
-  color: $pink;
+  color: var(--pink);
   font-weight: 400;
   font-size: 16px;
   transition: color 200ms ease-out;

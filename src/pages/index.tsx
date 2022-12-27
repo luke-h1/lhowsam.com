@@ -1,5 +1,6 @@
+import Hero from '@frontend/components/Hero/Hero';
 import Page from '@frontend/components/Page/Page';
-import PostItem from '@frontend/components/PostItem/PostItem';
+import RecentPosts from '@frontend/components/RecentPosts/RecentPosts';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
@@ -11,10 +12,11 @@ interface Props {
   posts: Post[];
 }
 
-const Home = ({ posts }: Props) => {
+const Indexpage = ({ posts }: Props) => {
   const router = useRouter();
+
   return (
-    <>
+    <Page>
       <NextSeo
         title="Home"
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -26,19 +28,25 @@ const Home = ({ posts }: Props) => {
           title: `Home | lhowsam.com`,
         }}
       />
-      <Page title="Home" showHero>
-        <h2 style={{ marginBottom: '2.5rem' }} className="title">
-          Recent posts:
-        </h2>
-        {posts && posts.map(post => <PostItem key={post._id} post={post} />)}
-      </Page>
-    </>
+      <Hero title="Hey 👋, I'm Luke" description="I'm a Software Engineer" />
+
+      <RecentPosts posts={posts} />
+    </Page>
   );
 };
-export default Home;
+export default Indexpage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const posts = await postService.getRecentPosts();
+
+  if (!posts.length) {
+    return {
+      props: {
+        posts: [],
+        tags: [],
+      },
+    };
+  }
 
   return {
     props: {
