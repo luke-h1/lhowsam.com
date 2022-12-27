@@ -14,7 +14,7 @@ test.describe('about', () => {
 
     await expect(page.locator('img')).toBeVisible();
 
-    await expect(page.locator('h2').first()).toHaveText('Skills:');
+    await expect(page.locator('text=Skills:')).toBeVisible();
 
     await expect(page.locator('text=Resume')).toHaveAttribute(
       'href',
