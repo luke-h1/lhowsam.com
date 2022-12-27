@@ -13,7 +13,6 @@ const useHelperActions = () => {
       {
         id: 'undo',
         name: 'go back',
-        shortcut: ['Backspace'],
         keywords: 'go back',
         perform: () => router.back(),
         section: 'Actions',
@@ -22,15 +21,11 @@ const useHelperActions = () => {
       {
         id: 'copy',
         name: 'Copy URL',
-        shortcut: ['u'],
         keywords: 'copy',
         perform: () =>
-          navigator.clipboard
-            .writeText(`${process.env.NEXT_PUBLIC_URL}${router.pathname}`)
-            // eslint-disable-next-line @typescript-eslint/no-empty-function
-            .then(() => {})
-            .catch(),
-
+          navigator.clipboard.writeText(
+            `${process.env.NEXT_PUBLIC_URL}${router.pathname}`,
+          ),
         section: 'Actions',
         icon: <LinkIcon />,
       },
