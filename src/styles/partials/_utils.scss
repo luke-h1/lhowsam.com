@@ -1,4 +1,4 @@
-@import './mixins.scss';
+@import './mixins';
 
 .container {
   width: 100%;
@@ -7,12 +7,12 @@
   padding-right: 24px;
   margin: 0 auto;
 
-  @include media(md) {
+  @include mediaquery('md') {
     max-width: 900px;
     padding: 0 auto;
   }
 
-  @include media(lg) {
+  @include mediaquery('lg') {
     max-width: 1050px;
   }
 

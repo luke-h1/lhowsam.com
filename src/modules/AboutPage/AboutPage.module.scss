@@ -1,0 +1,66 @@
+@import '../../styles/partials/mixins';
+@import '../../styles/partials/utils';
+
+.doubleContent {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+
+  @include mediaquery('md') {
+    flex-direction: row;
+  }
+  margin-bottom: 4rem;
+
+  p {
+    font-size: 18px;
+    line-height: 1.65;
+  }
+}
+
+.sideImage {
+  position: relative;
+  width: 100%;
+
+  @include mediaquery('md') {
+    max-width: 360px;
+  }
+
+  .containerImage {
+    margin-top: 12rem !important;
+    width: 100%;
+    min-width: 100%;
+    @include mediaquery('md') {
+      width: 360px;
+      position: sticky;
+      top: 80px;
+    }
+
+    @include mediaquery('lg') {
+      top: 96px;
+    }
+  }
+}
+
+.sideContent {
+  margin-top: 40px;
+  margin-left: 0;
+
+  @include mediaquery('md') {
+    margin-top: 0;
+    margin-left: 40px;
+  }
+
+  p {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+}
+
+.resume {
+  margin-bottom: 4rem;
+}

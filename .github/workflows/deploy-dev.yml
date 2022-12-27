@@ -9,6 +9,8 @@ env:
   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
+  BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
+  BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
 
 jobs:
   deploy: 
@@ -60,7 +62,7 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
       - name: Install dependencies 
-        run: pnpm i
+        run: pnpm i --no-frozen-lockfile
 
       - name: format
         run: pnpm run format
@@ -99,8 +101,11 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
 
       - name: Dev UI tests
-        run: pnpm run e2e:preview
-        
+        run: pnpm run e2e:dev
+        env:
+          BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
+          BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
+
       - uses: actions/upload-artifact@v3
         if: always()
         with:

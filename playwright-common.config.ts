@@ -27,10 +27,11 @@ const commonConfig: PlaywrightTestConfig = {
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   reporter: [['list'], ['html'], ['github']],
-  workers: 4,
+  workers: 6,
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
+    navigationTimeout: 10000,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
     trace: 'on-first-retry',

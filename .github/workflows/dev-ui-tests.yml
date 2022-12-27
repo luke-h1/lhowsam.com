@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
 env: 
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+  BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
+  BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
 
 jobs:
   test:
@@ -56,13 +58,16 @@ jobs:
         uses: actions/checkout@v3
         
       - name: Install dependencies 
-        run: pnpm i
+        run: pnpm i --no-frozen-lockfile
 
       - name: Install Playwright Browsers
         run: ./node_modules/.bin/playwright install --with-deps chromium
 
       - name: dev UI tests
-        run: pnpm run e2e:preview
+        run: pnpm run e2e:dev
+        env:
+          BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
+          BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
         
       - uses: actions/upload-artifact@v3
         if: always()

@@ -1,3 +1,3 @@
-import AboutPage from '@frontend/modules/About';
+import AboutPage from '@frontend/modules/AboutPage/AboutPage';
 
 export default AboutPage;

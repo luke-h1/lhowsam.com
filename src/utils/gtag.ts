@@ -9,32 +9,28 @@ declare global {
   }
 }
 
-export const pageview = (url: string): void => {
-  window.gtag('config', GA_TRACKING_ID, {
-    page_path: url,
-  });
+const gtagService = {
+  pageView: (url: string) => {
+    window.gtag('config', GA_TRACKING_ID, {
+      page_path: url,
+    });
+  },
+  event: (
+    action: string,
+    category?: string,
+    label?: string,
+    value?: string,
+  ) => {
+    window.gtag('event', action, {
+      event_category: category,
+      event_label: label,
+      value,
+    });
+  },
+  search: (value: string) => {
+    window.gtag('event', 'search', {
+      search_term: value,
+    });
+  },
 };
-
-export const event = ({
-  action,
-  category,
-  label,
-  value,
-}: {
-  action: string;
-  category?: string;
-  label?: string;
-  value?: string;
-}): void => {
-  window.gtag('event', action, {
-    event_category: category,
-    event_label: label,
-    value,
-  });
-};
-
-export const search = (value: string): void => {
-  window.gtag('event', 'search', {
-    search_term: value,
-  });
-};
+export default gtagService;

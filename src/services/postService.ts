@@ -11,7 +11,7 @@ const slugsQuery = groq`
 `;
 
 const recentPostsQuery = groq`
-*[ _type == "post"] | order(publishedAt desc) [0...3] {
+*[ _type == "post"] | order(publishedAt desc) [0..2] {
   ...,
   image {
     alt,
@@ -89,6 +89,21 @@ const getTagSlugsQuery = groq`
 }
 `;
 
+const getRecommendedPosts = groq`
+*[_type == "post" && $id != _id][0..1] {
+  ...,
+  _id,
+  image {
+    alt,
+    asset {
+      _ref
+    },
+  },
+  tags[]-> {
+    slug
+  },
+}`;
+
 const postService = {
   async getSlugs(): Promise<Post[]> {
     return studioClient.fetch(slugsQuery);
@@ -111,6 +126,11 @@ const postService = {
   },
   async getTagSlugs(): Promise<Post[]> {
     return studioClient.fetch(getTagSlugsQuery);
+  },
+  async getRecommendedPosts(id: string): Promise<Post[]> {
+    return studioClient.fetch(getRecommendedPosts, {
+      id,
+    });
   },
 };
 

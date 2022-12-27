@@ -1,0 +1,245 @@
+@import './mixins';
+
+.mdx-marker {
+  background: var(--gray-100);
+  display: block;
+  margin-right: -3.2rem;
+  margin-left: -3.2rem;
+  padding-right: 1em;
+  padding-left: 2.4rem;
+  border-left: 4px solid var(--red);
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+video,
+iframe {
+  @include mediaquery('lg') {
+    border-radius: 10px !important;
+  }
+}
+
+.content {
+  blockquote {
+    border-left: 4px solid var(--green);
+    padding: 2rem;
+    background: var(--green-200);
+    margin: 3rem 0;
+    border-radius: 4px;
+    color: var(--green);
+
+    p:not([data-codeTitle]),
+    a,
+    code,
+    em {
+      margin: 0;
+      color: var(--green) !important;
+    }
+  }
+
+  p:not([data-codeTitle]) {
+    font-size: 1.8rem;
+    line-height: 1.6;
+    color: var(--dark-200);
+
+    @include mediaquery('lg') {
+      font-size: 1.9rem;
+    }
+
+    @include mediaquery('xl') {
+      font-size: 2rem;
+    }
+  }
+
+  pre[class*='language-'],
+  pre {
+    font-size: 1.5rem;
+    line-height: 1.7;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 0.8rem 0.8rem;
+
+    // max-width: 98rem;
+    grid-column: 1 / 4;
+    align-self: center;
+    justify-self: center;
+    grid-column: 1 / 4 !important;
+    padding: 2rem 3.2rem;
+    // background: var(--dark-100);
+    // color: var(--white-100);
+    background: #0e1d29;
+    // color: #bdddff;
+    color: #eee;
+    border: none;
+    tab-size: 2;
+    hyphens: none;
+    direction: ltr;
+    text-align: left;
+    white-space: pre;
+    scrollbar-width: thin;
+    scrollbar-color: var(--black-100) transparent;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 1;
+    margin: 0;
+
+    @include mediaquery('lg') {
+      border-radius: 0 0 1rem 1rem;
+      height: auto;
+      padding: 3.2rem;
+      display: block;
+      font-size: 1.8rem;
+    }
+  }
+
+  code {
+    font-weight: 500;
+    overflow: auto;
+    display: block;
+    color: #bdddff;
+    color: #eee;
+    padding-bottom: 1rem;
+
+    @include mediaquery('lg') {
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #2f3c45;
+        border-radius: 12px;
+      }
+    }
+  }
+
+  .language-css > code,
+  .language-sass > code,
+  .language-scss > code {
+    color: #fd9170;
+  }
+
+  :not(pre) > code {
+    padding: 4.5px 6px;
+    border: none;
+    border-radius: 4px;
+    background: #0e1d29;
+    color: #7f90a4;
+    letter-spacing: -0.5px;
+    font-size: 1.6rem;
+    display: inline;
+    margin: 2px;
+    padding-bottom: 0;
+    @include mediaquery('lg') {
+      font-size: 1.7rem;
+    }
+  }
+
+  a:not(.categoryLink):not(.share):not(.githubEditLink):not(.regulation-link) {
+    text-decoration: none;
+    border-bottom: 2px solid #262b32;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 3.6rem;
+
+    @include mediaquery('lg') {
+      font-size: 1.9rem;
+      line-height: 3.7rem;
+    }
+
+    @include mediaquery('xl') {
+      font-size: 2rem;
+      line-height: 3.8rem;
+    }
+  }
+
+  ol {
+    list-style: none;
+    counter-reset: item;
+    color: var(--white);
+
+    li {
+      font-size: 1.8rem;
+      line-height: 3.6rem;
+      position: relative;
+      counter-increment: item;
+      color: var(--white);
+
+      @include mediaquery('lg') {
+        font-size: 1.9rem;
+        line-height: 3.7rem;
+      }
+
+      @include mediaquery('xl') {
+        font-size: 2rem;
+        line-height: 3.8rem;
+      }
+
+      &::before {
+        content: counter(item) '. ';
+        position: absolute;
+        width: 1.6rem;
+        height: 1.6rem;
+        top: 2rem;
+        left: -2.2rem;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: var(--blue-300);
+        line-height: 0;
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    color: var(--white);
+
+    li {
+      font-size: 1.8rem;
+      line-height: 3.6rem;
+      position: relative;
+      color: var(--white);
+
+      @include mediaquery('lg') {
+        font-size: 1.9rem;
+        line-height: 3.7rem;
+      }
+
+      @include mediaquery('xl') {
+        font-size: 2rem;
+        line-height: 3.8rem;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 1.6rem;
+        height: 1.6rem;
+        background: url('/icons/arrow-right.svg');
+        background-repeat: no-repeat;
+        top: 1.8rem;
+        left: -2.2rem;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  p:not([data-codeTitle]) {
+    font-size: 1.8rem;
+    line-height: 1.7;
+    color: var(--white);
+
+    @include mediaquery('lg') {
+      font-size: 1.9rem;
+    }
+
+    @include mediaquery('xl') {
+      font-size: 2rem;
+    }
+  }
+}

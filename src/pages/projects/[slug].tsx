@@ -1,27 +1,32 @@
+/* eslint-disable react/no-unstable-nested-components */
 import Page from '@frontend/components/Page/Page';
-import Share from '@frontend/components/Share';
-import Tags from '@frontend/components/Tags/Tags';
-import siteConfig from '@frontend/config/site';
+import ContentRenderer from '@frontend/components/mdx/ContentRenderer';
+import customMdxComponents from '@frontend/components/mdx/MdxComponents';
 import projectService from '@frontend/services/projectService';
 import { Project } from '@frontend/types/sanity';
-import mdxToHtml from '@frontend/utils/mdx';
+import mdxToHtml, { MdxResult } from '@frontend/utils/mdxToHtml';
+import { MDXProvider } from '@mdx-js/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
-import { NextSeo } from 'next-seo';
+import { ArticleJsonLd, NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import styles from '../blog/slug.module.scss';
+import { useEffect } from 'react';
+import readingTime from 'reading-time';
 
 interface Props {
+  transformedMdx: MdxResult;
   project: Project;
-  source: {
-    compiledSource: string;
-  };
 }
 
-const BlogPostPage = ({ project, source }: Props) => {
+const ProjectSlugPage = ({ project, transformedMdx }: Props) => {
   const router = useRouter();
+
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual';
+  }, []);
+
   return (
-    <Page title={project.title}>
+    <Page>
       <NextSeo
         title={project.title}
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -33,32 +38,42 @@ const BlogPostPage = ({ project, source }: Props) => {
           title: `${project.title} | lhowsam.com`,
         }}
       />
-      <div className={styles.headerPost}>
-        <div className={styles.container}>
-          <Tags tags={project.tags} key={project._id} />
-        </div>
-      </div>
-      <div className={styles.container}>
-        <div className={styles.postLayout}>
-          <div className={styles.socialShare}>
-            <span>Share</span>
-            <Share
-              title={project.title}
-              link={`${process.env.NEXT_PUBLIC_URL}/projects/${project.slug.current}`}
-            />
-          </div>
-          <article className={styles.article}>
-            <div>
-              <MDXRemote compiledSource={source.compiledSource} />
-            </div>
-          </article>
-        </div>
-      </div>
+      <ArticleJsonLd
+        url={`https://lhowsam.com${router.asPath}`}
+        authorName="Luke Howsam"
+        description={project.intro}
+        publisherLogo="https://lhowsam.com/static/images/logo.png"
+        publisherName="lhowsam.com"
+        title={project.title}
+        isAccessibleForFree
+        type="Article"
+        datePublished=""
+        images={[]}
+      />
+      <main>
+        <MDXProvider
+          components={{
+            customMdxComponents,
+          }}
+        >
+          <ContentRenderer
+            type="project"
+            frontMatter={{
+              intro: project.intro,
+              published: true,
+              readingTime: readingTime(project.content).text,
+              title: project.title,
+            }}
+          >
+            <MDXRemote {...transformedMdx.compiledSource} />
+          </ContentRenderer>
+        </MDXProvider>
+      </main>
     </Page>
   );
 };
 
-export default BlogPostPage;
+export default ProjectSlugPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -77,13 +92,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     };
   }
 
-  const source = await mdxToHtml(project.content);
+  const transformedMdx = await mdxToHtml(project.content);
 
   return {
     props: {
       project,
-      source,
+      transformedMdx,
     },
-    revalidate: siteConfig.defaultRevalidate,
   };
 };
