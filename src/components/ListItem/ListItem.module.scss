@@ -1,0 +1,106 @@
+@import '../../styles/partials/mixins.scss';
+
+.item {
+  margin-bottom: 4.5rem;
+
+  display: flex;
+  justify-content: center;
+  transition: 0.2s tranform ease;
+  $root: &;
+
+  @include mediaquery('sm') {
+    margin-bottom: 5.5rem;
+  }
+
+  @include mediaquery('lg') {
+    margin-bottom: 6.5rem;
+  }
+
+  @include mediaquery('xl') {
+    margin-bottom: 0;
+    margin-right: 4rem;
+  }
+
+  &:first-of-type {
+    @include mediaquery('xl') {
+      display: none;
+    }
+  }
+
+  &:last-of-type {
+    margin-right: 0;
+    margin-bottom: 0;
+
+    @include mediaquery('xl') {
+      display: none;
+      border-radius: 200px;
+      background: #705df2;
+      @media (hover: hover) {
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      .link {
+        padding: 12px 30px;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.link {
+  font-size: 2.4rem;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  color: #fff;
+  transition: all 0.3s;
+  position: relative;
+
+  @include mediaquery('xl') {
+    font-weight: 500;
+  }
+
+  &::after {
+    content: '';
+    height: 2px;
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+    transform-origin: left;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    display: none;
+    position: absolute;
+    background-color: #262b32;
+
+    @media (hover: hover) {
+      display: block;
+    }
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      &::after {
+        transform: scaleX(100%);
+      }
+    }
+  }
+
+  @include mediaquery('sm') {
+    font-size: 2.6rem;
+  }
+
+  @include mediaquery('lg') {
+    font-size: 2.8rem;
+  }
+
+  @include mediaquery('xl') {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+}

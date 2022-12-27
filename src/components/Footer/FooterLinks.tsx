@@ -31,13 +31,11 @@ const links: { id: number; name: string; slug: string }[] = [
 
 const FooterLinks = () => {
   return (
-    <ul className={styles.pageList}>
+    <ul className={styles.pageList} data-testid="footer-nav">
       {links &&
         links.map(link => (
           <li key={link.id}>
-            <Link href={link.slug} legacyBehavior>
-              {link.name}
-            </Link>
+            <Link href={link.slug}>{link.name}</Link>
           </li>
         ))}
     </ul>

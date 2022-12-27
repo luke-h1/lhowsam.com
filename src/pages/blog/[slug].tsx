@@ -1,29 +1,33 @@
 import Page from '@frontend/components/Page/Page';
-import Share from '@frontend/components/Share';
-import Tags from '@frontend/components/Tags/Tags';
-import siteConfig from '@frontend/config/site';
+import ContentRenderer from '@frontend/components/mdx/ContentRenderer';
+import customMdxComponents from '@frontend/components/mdx/MdxComponents';
 import imageService from '@frontend/services/imageService';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
-import mdxToHtml from '@frontend/utils/mdx';
+import mdxToHtml, { MdxResult } from '@frontend/utils/mdxToHtml';
+import { MDXProvider } from '@mdx-js/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
-import { NextSeo } from 'next-seo';
+import { ArticleJsonLd, NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import styles from './slug.module.scss';
+import { useEffect } from 'react';
+import readingTime from 'reading-time';
 
 interface Props {
+  transformedMdx: MdxResult;
   post: Post;
-  source: {
-    compiledSource: string;
-  };
+  recommendedPosts: Post[];
 }
 
-const BlogPostPage = ({ post, source }: Props) => {
+const BlogSlugPage = ({ post, transformedMdx, recommendedPosts }: Props) => {
   const router = useRouter();
 
+  useEffect(() => {
+    window.history.scrollRestoration = 'manual';
+  }, []);
+
   return (
-    <Page title={post.title}>
+    <Page>
       <NextSeo
         title={post.title}
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -48,46 +52,48 @@ const BlogPostPage = ({ post, source }: Props) => {
           },
         }}
       />
-      <div className={styles.headerPost}>
-        <div className={styles.container}>
-          <Tags tags={post.tags} />
-        </div>
-        <div className={styles.thumbnail}>
-          <img
-            src={imageService.urlFor(post.image.asset)}
-            alt={post.image.alt ?? post.title}
-            loading="eager"
-            width="1170"
-          />
-          <img
-            src={imageService.urlFor(post.image.asset)}
-            alt={post.image.alt ?? post.title}
-            loading="eager"
-            width="1170"
-          />
-        </div>
-      </div>
-      <div className={styles.container}>
-        <div className={styles.postLayout}>
-          <div className={styles.socialShare}>
-            <span>Share</span>
-            <Share
-              title={post.title}
-              link={`${process.env.NEXT_PUBLIC_URL}/blog/${post.slug.current}`}
-            />
-          </div>
-          <article className={styles.article}>
-            <div>
-              <MDXRemote compiledSource={source.compiledSource} />
-            </div>
-          </article>
-        </div>
-      </div>
+      <ArticleJsonLd
+        url={`https://lhowsam.com${router.asPath}`}
+        authorName="Luke Howsam"
+        dateModified={post.publishedAt}
+        datePublished={post.publishedAt}
+        description={post.intro}
+        images={[imageService.urlFor(post.image.asset)]}
+        publisherLogo="https://lhowsam.com/static/images/logo.png"
+        publisherName="lhowsam.com"
+        title={post.title}
+        type="BlogPosting"
+      />
+      <main>
+        <MDXProvider
+          components={{
+            customMdxComponents,
+          }}
+        >
+          <ContentRenderer
+            type="post"
+            recommendedPosts={{
+              posts: recommendedPosts,
+              tags: post.tags,
+            }}
+            frontMatter={{
+              image: post.image,
+              intro: post.intro,
+              published: true,
+              readingTime: readingTime(post.content).text,
+              title: post.title,
+              publishedAt: post.publishedAt,
+            }}
+          >
+            <MDXRemote {...transformedMdx.compiledSource} key={post._id} />
+          </ContentRenderer>
+        </MDXProvider>
+      </main>
     </Page>
   );
 };
 
-export default BlogPostPage;
+export default BlogSlugPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -98,6 +104,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const post = await postService.getPost(params?.slug as string);
+  const recommendedPosts = await postService.getRecommendedPosts(post._id);
 
   if (!post) {
     return {
@@ -105,13 +112,23 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
       notFound: true,
     };
   }
-  const source = await mdxToHtml(post.content);
+  const transformedMdx = await mdxToHtml(post.content);
+
+  if (!recommendedPosts) {
+    return {
+      props: {
+        post,
+        recommendedPosts: [],
+        transformedMdx,
+      },
+    };
+  }
 
   return {
     props: {
       post,
-      source,
+      recommendedPosts,
+      transformedMdx,
     },
-    revalidate: siteConfig.defaultRevalidate,
   };
 };

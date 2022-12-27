@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import '../../styles/partials/mixins.scss';
 
 .wrapper {
   text-align: center;
@@ -47,7 +47,7 @@
   & > span {
     width: 3px;
     height: 100%;
-    background-color: $green;
+    background-color: var(--green);
     border-radius: 3px;
     transform-origin: bottom;
     transition: opacity 0.3s ease-out;

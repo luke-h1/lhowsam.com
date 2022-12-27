@@ -2,7 +2,6 @@ import { Project } from '@frontend/types/sanity';
 import Link from 'next/link';
 import { AiOutlineLink, AiFillGithub } from 'react-icons/ai';
 import Tags from '../Tags/Tags';
-import VisuallyHidden from '../VisuallyHidden/VisuallyHidden';
 import styles from './ProjectItem.module.scss';
 
 interface Props {
@@ -16,6 +15,7 @@ const ProjectItem = ({ project }: Props) => {
         href={`/projects/${project.slug.current}`}
         passHref
         data-testid="project-link"
+        className={styles.projectItemLink}
       >
         <h3 className={styles.title} data-testid="project-title">
           {project.title}
@@ -32,7 +32,7 @@ const ProjectItem = ({ project }: Props) => {
         {project.siteUrl && (
           <a href={project.siteUrl} className={styles.link}>
             Deployed project
-            <VisuallyHidden>{`${' '} ${project.title}`}</VisuallyHidden>
+            <span className="visually-hidden">{`${' '} ${project.title}`}</span>
             <AiOutlineLink />
           </a>
         )}
@@ -43,7 +43,9 @@ const ProjectItem = ({ project }: Props) => {
             data-testid="project-github"
           >
             View source
-            <VisuallyHidden>{`${' '} for ${project.title}`}</VisuallyHidden>
+            <span className="visually-hidden">{`${' '} for ${
+              project.title
+            }`}</span>
             <AiFillGithub />
           </a>
         )}

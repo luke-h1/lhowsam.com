@@ -14,7 +14,7 @@ test.describe('blog', () => {
   test('shows a listing of blog posts & slug page correctly', async () => {
     const links: string[] = [];
 
-    const posts = await page.$$('data-testid=post-title');
+    const posts = await page.$$('data-testid=post-link');
 
     for (let i = 0; i < posts.length; i += 1) {
       await expect(page.locator('h2').nth(i)).toBeVisible();
@@ -24,7 +24,7 @@ test.describe('blog', () => {
       await expect(page.locator('p').nth(i)).not.toBeEmpty();
 
       const link = await page
-        .locator('[data-testid="post-title"]')
+        .locator('[data-testid="post-link"]')
         .nth(i)
         .getAttribute('href');
 
@@ -35,7 +35,14 @@ test.describe('blog', () => {
       await expect(page.locator('h1')).not.toBeEmpty();
 
       await expect(page.locator('img').first()).toBeVisible();
-      await expect(page.locator('article')).toBeVisible();
+      await expect(page.locator('article').first()).toBeVisible();
+
+      await expect(
+        page.locator('[data-testid="recommended-post-title"]'),
+      ).toBeVisible();
+      await expect(
+        page.locator('[data-testid="recommended-post-title"]'),
+      ).not.toBeEmpty();
 
       await page.goto(`${baseUrl}/blog`);
 

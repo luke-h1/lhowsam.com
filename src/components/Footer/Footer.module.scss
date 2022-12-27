@@ -1,12 +1,11 @@
-@import '../../styles/partials/mixins.scss';
-@import '../../styles/partials/utils.scss';
-@import '../../styles/variables.scss';
+@import '../../styles/partials/mixins';
 
 .contentFooter {
   display: flex;
   flex-direction: column;
+  padding: 12px;
 
-  @include media(sm) {
+  @include mediaquery('sm') {
     flex-direction: row;
   }
 }
@@ -15,6 +14,7 @@
   width: 100%;
   display: inline-flex;
   flex-direction: column;
+  margin-left: 10px;
 
   h3 {
     text-align: center;
@@ -23,7 +23,7 @@
     margin-bottom: 8px;
   }
 
-  @include media(sm) {
+  @include mediaquery('sm') {
     flex-direction: column;
     width: 40%;
 
@@ -36,7 +36,7 @@
     }
   }
 
-  @include media(md) {
+  @include mediaquery('md') {
     width: 50%;
   }
 }
@@ -45,12 +45,11 @@
   width: 100%;
   display: inline-flex;
   flex-direction: row;
-
+  font-size: 16px;
   ul {
     margin-top: 32px;
     list-style-type: none;
     flex: 1;
-
     li {
       display: inline-flex;
       justify-content: center;
@@ -60,18 +59,18 @@
       width: 50%;
 
       a {
-        color: $primary;
+        color: #ccc;
         opacity: 0.72;
 
         &:hover {
-          color: $pink;
+          color: var(--pink);
           opacity: 1;
         }
       }
     }
   }
 
-  @include media(sm) {
+  @include mediaquery('sm') {
     flex-direction: column;
     width: 60%;
 
@@ -84,7 +83,7 @@
     }
   }
 
-  @include media(md) {
+  @include mediaquery('md') {
     width: 50%;
   }
 }
@@ -92,11 +91,11 @@
 .aboutFooter {
   text-align: center;
   position: relative;
-  color: $primary;
+  color: #ccc;
   font-size: 15px;
   border-top-width: 1px;
   border-top-style: solid;
-  border-top-color: rgba($dark, 0.4);
+  border-top-color: rgba(var(--dark), 0.4);
   padding-top: 32px;
   margin-top: 32px;
 }
