@@ -57,9 +57,7 @@ test.describe('kbar', () => {
       page.locator('xpath=//*[@id="kbar-navigation"]//div').first(),
     ).toBeVisible();
     await page.keyboard.press('ArrowDown');
-    await sleep(500);
     await page.keyboard.press('ArrowDown');
-    await sleep(500);
     await page.keyboard.press('Enter');
     await sleep(500);
     await expect(page.locator('xpath=//h1').first()).toHaveText('Blog');
@@ -79,11 +77,8 @@ test.describe('kbar', () => {
     ).toBeVisible();
 
     await page.keyboard.press('ArrowDown');
-    await sleep(500);
     await page.keyboard.press('ArrowDown');
-    await sleep(500);
     await page.keyboard.press('ArrowDown');
-    await sleep(500);
     await page.keyboard.press('Enter');
     await sleep(500);
     await expect(page.locator('xpath=//h1').first()).toHaveText('Projects');
