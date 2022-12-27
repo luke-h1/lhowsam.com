@@ -5,7 +5,7 @@ import { sleep } from './utils/sleep';
 let page: Page;
 
 test.describe('kbar', () => {
-  test.beforeAll(async ({ browser }) => {
+  test.beforeEach(async ({ browser }) => {
     page = await browser.newPage();
     await page.goto(baseUrl);
   });
@@ -31,7 +31,7 @@ test.describe('kbar', () => {
     await page.keyboard.press('Escape');
   });
 
-  test('should navigate correctly', async () => {
+  test('should navigate to about page', async () => {
     // about
     await page.click('[data-testid="kbar-toggle"]');
     await expect(
@@ -39,6 +39,7 @@ test.describe('kbar', () => {
     ).toBeVisible();
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('Enter');
+    await page.waitForNavigation();
     await expect(page.locator('xpath=//h1').first()).toHaveText('About');
 
     await expect(
@@ -46,7 +47,9 @@ test.describe('kbar', () => {
     ).not.toBeVisible();
 
     await page.goto(baseUrl);
+  });
 
+  test('should navigate to blog page', async () => {
     // Blog
     await page.click('[data-testid="kbar-toggle"]');
     await expect(
@@ -57,6 +60,7 @@ test.describe('kbar', () => {
     await page.keyboard.press('ArrowDown');
     await sleep(500);
     await page.keyboard.press('Enter');
+    await page.waitForNavigation();
     await expect(page.locator('xpath=//h1').first()).toHaveText('Blog');
 
     await expect(
@@ -64,7 +68,9 @@ test.describe('kbar', () => {
     ).not.toBeVisible();
 
     await page.goto(baseUrl);
+  });
 
+  test('should navigate to project page', async () => {
     // Projects
     await page.click('[data-testid="kbar-toggle"]');
     await expect(
@@ -78,6 +84,7 @@ test.describe('kbar', () => {
     await page.keyboard.press('ArrowDown');
     await sleep(500);
     await page.keyboard.press('Enter');
+    await page.waitForNavigation();
     await expect(page.locator('xpath=//h1').first()).toHaveText('Projects');
 
     await expect(
@@ -85,6 +92,17 @@ test.describe('kbar', () => {
     ).not.toBeVisible();
 
     await page.goto(baseUrl);
+    await page.click('[data-testid="kbar-toggle"]');
+    await expect(
+      page.locator('xpath=//*[@id="kbar-navigation"]//div').first(),
+    ).toBeVisible();
+    await page.goto(baseUrl);
+  });
+
+  test('can use actions correctly', async () => {
+    await page.goto(`${baseUrl}/blog`);
+    await page.goto(`${baseUrl}/projects`);
+
     await page.click('[data-testid="kbar-toggle"]');
     await expect(
       page.locator('xpath=//*[@id="kbar-navigation"]//div').first(),
@@ -101,7 +119,8 @@ test.describe('kbar', () => {
     await sleep(500);
     await page.keyboard.press('ArrowDown');
     await page.keyboard.press('Enter');
+    await page.waitForNavigation();
 
-    await expect(page.locator('xpath=//h1').first()).toHaveText('Projects');
+    await expect(page.locator('xpath=//h1').first()).toHaveText('Blog');
   });
 });

@@ -38,10 +38,19 @@ test.describe('blog', () => {
       await expect(page.locator('article').first()).toBeVisible();
 
       await expect(
-        page.locator('[data-testid="recommended-post-title"]'),
+        page.locator('[data-testid="recommended-post-title"]').nth(0),
       ).toBeVisible();
+
       await expect(
-        page.locator('[data-testid="recommended-post-title"]'),
+        page.locator('[data-testid="recommended-post-title"]').nth(0),
+      ).not.toBeEmpty();
+
+      await expect(
+        page.locator('[data-testid="recommended-post-title"]').nth(1),
+      ).toBeVisible();
+
+      await expect(
+        page.locator('[data-testid="recommended-post-title"]').nth(1),
       ).not.toBeEmpty();
 
       await page.goto(`${baseUrl}/blog`);
