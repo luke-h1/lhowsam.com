@@ -3,7 +3,7 @@
 .primary {
   font-weight: bold;
   font-style: normal !important;
-  font-size: 5rem;
+  font-size: 6rem;
   max-width: 100%;
   color: var(--pink);
   opacity: 1;
@@ -11,24 +11,24 @@
   width: 100%;
   text-align: center;
   position: relative;
-  margin-bottom: 6rem;
   margin-top: 2rem;
+  margin-bottom: 3.5rem;
 
   @include mediaquery('xs') {
-    font-size: 6rem;
-    margin-bottom: 8rem;
+    // font-size: 6rem;
+    // margin-bottom: 8rem;
   }
 
   @include mediaquery('sm') {
-    font-size: 8rem;
-    margin-bottom: 9rem;
+    // font-size: 8rem;
+    // margin-bottom: 9rem;
   }
 
   @include mediaquery('xl') {
-    font-size: 6.4rem;
+    // font-size: 6.4rem;
     padding-top: 10rem;
     padding-bottom: 10rem;
-    margin-bottom: 10rem;
+    // margin-bottom: 10rem;
   }
 
   &::before {

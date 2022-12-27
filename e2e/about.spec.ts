@@ -12,13 +12,13 @@ test.describe('about', () => {
   test('should render correctly', async () => {
     await expect(page.locator('h1').first()).toHaveText('About');
 
-    // await expect(page.locator('img')).toBeVisible();
+    await expect(page.locator('img')).toBeVisible();
 
-    // await expect(page.locator('h2').first()).toHaveText('Skills:');
+    await expect(page.locator('h2').first()).toHaveText('Skills:');
 
-    // await expect(page.locator('text=resume')).toHaveAttribute(
-    //   'href',
-    //   '/static/cv-latest.pdf',
-    // );
+    await expect(page.locator('text=Resume')).toHaveAttribute(
+      'href',
+      '/static/cv-latest.pdf',
+    );
   });
 });
