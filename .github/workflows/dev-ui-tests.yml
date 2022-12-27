@@ -3,6 +3,8 @@ on:
   workflow_dispatch:
 env: 
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+  BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
+  BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
 
 jobs:
   test:
@@ -63,6 +65,9 @@ jobs:
 
       - name: dev UI tests
         run: pnpm run e2e:dev
+        env:
+          BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
+          BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
         
       - uses: actions/upload-artifact@v3
         if: always()
