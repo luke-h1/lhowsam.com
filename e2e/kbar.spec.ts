@@ -14,6 +14,7 @@ test.describe('kbar', () => {
 
   test('should open kbar when clicking the command k button', async () => {
     await page.click('[data-testid="kbar-toggle"]');
+    await sleep(1000);
     await expect(
       page.locator('xpath=//*[@id="kbar-navigation"]//div').first(),
     ).toBeVisible();
@@ -25,7 +26,7 @@ test.describe('kbar', () => {
     await page.keyboard.down('Meta');
     await page.keyboard.press('KeyK');
     await page.keyboard.up('Meta');
-
+    await sleep(1000);
     await expect(
       page.locator('xpath=//*[@id="kbar-navigation"]//div').first(),
     ).toBeVisible();
