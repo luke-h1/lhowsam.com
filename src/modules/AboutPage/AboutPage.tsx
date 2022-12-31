@@ -1,3 +1,4 @@
+import ButtonGroup from '@frontend/components/ButtonGroup/ButtonGroup';
 import Heading from '@frontend/components/Heading/Heading';
 import Page from '@frontend/components/Page/Page';
 import Skills from '@frontend/components/Skills/Skills';
@@ -59,11 +60,14 @@ const AboutPage = () => {
             </p>
             <p>In my spare time I love to travel, read, and code</p>
             <br />
-            <div className={styles.resume}>
+            <ButtonGroup>
               <Link href="/static/cv-latest.pdf" className="button">
                 Resume
               </Link>
-            </div>
+              <a href="mailto:luke.howsam@yahoo.com" className="button">
+                Get in touch
+              </a>
+            </ButtonGroup>
             <h2 className="title">Skills:</h2>
             <Skills />
           </div>
