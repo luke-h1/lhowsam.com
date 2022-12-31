@@ -9,7 +9,7 @@ interface Props {
 const RecentPosts = ({ posts }: Props) => {
   return (
     <div className={styles.main}>
-      <h2 className={styles.title}>Recent Posts</h2>
+      <h2 className={styles.title}>Recent blog posts</h2>
       {posts &&
         posts.map(post => <RecentPostItem key={post._id} post={post} />)}
     </div>
