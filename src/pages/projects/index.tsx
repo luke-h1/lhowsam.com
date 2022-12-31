@@ -31,7 +31,10 @@ const ProjectIndexPage = ({ projects }: Props) => {
       <Heading as="h1">Projects</Heading>
       {projects &&
         projects.map(project => (
-          <ProjectItem project={project} key={project._id} />
+          <div key={project._id}>
+            <ProjectItem project={project} key={project._id} />
+            <hr className="break" />
+          </div>
         ))}
     </Page>
   );
