@@ -1,5 +1,5 @@
-import Hero from '@frontend/components/Hero/Hero';
-import Page from '@frontend/components/Page/Page';
+import Hero from '@frontend/components/Hero';
+import Page from '@frontend/components/Page';
 import RecentPosts from '@frontend/components/RecentPosts/RecentPosts';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
@@ -29,7 +29,6 @@ const Indexpage = ({ posts }: Props) => {
         }}
       />
       <Hero title="Hey 👋, I'm Luke" description="I'm a Software Engineer" />
-
       <RecentPosts posts={posts} />
     </Page>
   );

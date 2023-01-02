@@ -1,0 +1,10 @@
+@import '../styles/partials/mixins.scss';
+
+.gridItem {
+  width: 100%;
+  align-self: start;
+  margin-bottom: 8rem;
+  justify-self: center;
+
+  // @include mediaquery('xl') {}
+}

@@ -1,4 +1,4 @@
-import Tags from '@frontend/components/Tags/Tags';
+import Tags from '@frontend/components/Tags';
 import { Post } from '@frontend/types/sanity';
 import Link from 'next/link';
 import styles from './RecentPostItem.module.scss';

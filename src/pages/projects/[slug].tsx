@@ -1,5 +1,4 @@
-/* eslint-disable react/no-unstable-nested-components */
-import Page from '@frontend/components/Page/Page';
+import Page from '@frontend/components/Page';
 import ContentRenderer from '@frontend/components/mdx/ContentRenderer';
 import customMdxComponents from '@frontend/components/mdx/MdxComponents';
 import projectService from '@frontend/services/projectService';
@@ -10,8 +9,6 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { ArticleJsonLd, NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import readingTime from 'reading-time';
 
 interface Props {
   transformedMdx: MdxResult;
@@ -20,10 +17,6 @@ interface Props {
 
 const ProjectSlugPage = ({ project, transformedMdx }: Props) => {
   const router = useRouter();
-
-  useEffect(() => {
-    window.history.scrollRestoration = 'manual';
-  }, []);
 
   return (
     <Page>
@@ -56,15 +49,7 @@ const ProjectSlugPage = ({ project, transformedMdx }: Props) => {
             customMdxComponents,
           }}
         >
-          <ContentRenderer
-            type="project"
-            frontMatter={{
-              intro: project.intro,
-              published: true,
-              readingTime: readingTime(project.content).text,
-              title: project.title,
-            }}
-          >
+          <ContentRenderer data={project}>
             <MDXRemote {...transformedMdx.compiledSource} />
           </ContentRenderer>
         </MDXProvider>

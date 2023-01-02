@@ -1,5 +1,5 @@
-import Page from '@frontend/components/Page/Page';
-import TagPost from '@frontend/components/TagPost/TagPost';
+import Page from '@frontend/components/Page';
+import TagPost from '@frontend/components/TagPost';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
@@ -10,6 +10,7 @@ import { useRouter } from 'next/router';
 interface Props {
   posts: Post[];
 }
+
 const TagPage = ({ posts }: Props) => {
   const router = useRouter();
   const slug = router.query.slug as string;

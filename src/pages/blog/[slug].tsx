@@ -1,4 +1,4 @@
-import Page from '@frontend/components/Page/Page';
+import Page from '@frontend/components/Page';
 import ContentRenderer from '@frontend/components/mdx/ContentRenderer';
 import customMdxComponents from '@frontend/components/mdx/MdxComponents';
 import imageService from '@frontend/services/imageService';
@@ -10,8 +10,6 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote } from 'next-mdx-remote';
 import { ArticleJsonLd, NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import readingTime from 'reading-time';
 
 interface Props {
   transformedMdx: MdxResult;
@@ -21,10 +19,6 @@ interface Props {
 
 const BlogSlugPage = ({ post, transformedMdx, recommendedPosts }: Props) => {
   const router = useRouter();
-
-  useEffect(() => {
-    window.history.scrollRestoration = 'manual';
-  }, []);
 
   return (
     <Page>
@@ -71,18 +65,10 @@ const BlogSlugPage = ({ post, transformedMdx, recommendedPosts }: Props) => {
           }}
         >
           <ContentRenderer
-            type="post"
+            data={post}
             recommendedPosts={{
               posts: recommendedPosts,
               tags: post.tags,
-            }}
-            frontMatter={{
-              image: post.image,
-              intro: post.intro,
-              published: true,
-              readingTime: readingTime(post.content).text,
-              title: post.title,
-              publishedAt: post.publishedAt,
             }}
           >
             <MDXRemote {...transformedMdx.compiledSource} key={post._id} />

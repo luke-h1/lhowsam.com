@@ -1,7 +1,7 @@
-import ButtonGroup from '@frontend/components/ButtonGroup/ButtonGroup';
-import Heading from '@frontend/components/Heading/Heading';
-import Page from '@frontend/components/Page/Page';
-import Skills from '@frontend/components/Skills/Skills';
+import ButtonGroup from '@frontend/components/ButtonGroup';
+import Heading from '@frontend/components/Heading';
+import Page from '@frontend/components/Page';
+import Skills from '@frontend/components/Skills';
 import { NextSeo } from 'next-seo';
 import Image from 'next/legacy/image';
 import Link from 'next/link';
