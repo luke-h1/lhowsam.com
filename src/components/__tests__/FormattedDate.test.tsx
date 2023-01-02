@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import FormattedDate from '../FormattedDate/FormattedDate';
+import FormattedDate from '../FormattedDate';
 
 describe('FormattedDate', () => {
   describe('using default format', () => {

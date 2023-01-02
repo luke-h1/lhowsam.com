@@ -1,4 +1,4 @@
-import { SkipLink } from '../SkipLink/SkipLink';
+import { SkipLink } from '../SkipLink';
 import Navbar from './Navbar/Navbar';
 import styles from './Navigation.module.scss';
 

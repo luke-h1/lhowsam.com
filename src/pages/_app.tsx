@@ -1,4 +1,3 @@
-import HeaderContextProvider from '@frontend/context/HeaderContext';
 import gtagService from '@frontend/utils/gtag';
 import { isDevelopment } from '@frontend/utils/isDevelopment';
 import {
@@ -69,9 +68,7 @@ const App = ({ Component, pageProps, router }: Props) => {
             content="width=device-width, user-scalable=yes, initial-scale=1.0, viewport-fit=cover"
           />
         </Head>
-        <HeaderContextProvider>
-          <Component {...pageProps} />
-        </HeaderContextProvider>
+        <Component {...pageProps} />
         <Analytics />
       </Hydrate>
     </QueryClientProvider>

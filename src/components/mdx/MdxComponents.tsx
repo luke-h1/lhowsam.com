@@ -1,8 +1,4 @@
 import Image from 'next/image';
-import { DetailedHTMLProps, HTMLAttributes } from 'react';
-import Sparkles from '../Sparkles/Sparkles';
-
-import { Code } from './Code/Code';
 import Heading from './Heading/Heading';
 import Highlight from './Highlight/Highlight';
 
@@ -24,11 +20,6 @@ const getHeadingProps = ({ children, url }: HeadingComponentProps) => {
 };
 
 const customMdxComponents = {
-  pre: (
-    props: DetailedHTMLProps<HTMLAttributes<HTMLPreElement>, HTMLPreElement>,
-  ) => {
-    return <Code {...props} />;
-  },
   h2: (props: HeadingComponentProps) => (
     <Heading as="h2" {...getHeadingProps(props)} />
   ),
@@ -45,7 +36,6 @@ const customMdxComponents = {
     <Heading as="h6" {...getHeadingProps(props)} />
   ),
   img: ({ alt, src }: ImageProps) => <Image src={src} alt={alt ?? ''} />,
-  Sparkles,
   Image,
   Highlight,
 };

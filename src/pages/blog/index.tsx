@@ -1,5 +1,5 @@
-import Blog from '@frontend/components/Blog/Blog';
-import Page from '@frontend/components/Page/Page';
+import Blog from '@frontend/components/Blog';
+import Page from '@frontend/components/Page';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import tagService from '@frontend/services/tagService';
