@@ -99,3 +99,9 @@
   padding-top: 32px;
   margin-top: 32px;
 }
+
+.footerLink {
+  &:hover {
+    cursor: pointer;
+  }
+}
