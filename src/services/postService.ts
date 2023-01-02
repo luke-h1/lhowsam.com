@@ -90,7 +90,7 @@ const getTagSlugsQuery = groq`
 `;
 
 const getRecommendedPosts = groq`
-*[_type == "post" && $id != _id][0..1] {
+*[_type == "post" && $id != _id] {
   ...,
   _id,
   image {
@@ -128,9 +128,16 @@ const postService = {
     return studioClient.fetch(getTagSlugsQuery);
   },
   async getRecommendedPosts(id: string): Promise<Post[]> {
-    return studioClient.fetch(getRecommendedPosts, {
+    const recommendedPosts = await studioClient.fetch(getRecommendedPosts, {
       id,
     });
+
+    const randomPosts = [...Array(recommendedPosts.length).keys()]
+      .sort(() => Math.random() - 0.5)
+      .slice(0, 2)
+      .map(i => recommendedPosts[i]);
+
+    return randomPosts;
   },
 };
 

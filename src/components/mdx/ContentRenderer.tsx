@@ -40,7 +40,7 @@ const ContentRenderer = ({ children, recommendedPosts, data }: Props) => {
       <section className={classNames(styles.content, 'content')}>
         {children}
         <div className={styles.recommended}>
-          <h2 className={styles.recommendedHeading}>Recommended posts</h2>
+          <h2 className={styles.recommendedHeading}>Other posts</h2>
           <div className={styles.recommendedPosts}>
             <PostListing
               posts={recommendedPosts?.posts}
