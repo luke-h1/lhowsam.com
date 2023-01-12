@@ -5,7 +5,9 @@ on:
     - cron: '0 */12 * * *'
 env: 
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-  
+  NODE_VERSION: 18.12.1
+  PNPM_VERSION: 7.24.3
+
 jobs:
   test:
     name: e2e prod
@@ -19,13 +21,13 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 18.12.1
+          node-version: ${{ env.NODE_VERSION }}
           
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 7
+          version: ${{ env.PNPM_VERSION }}
           run_install: false
 
       - name: Get pnpm store directory
