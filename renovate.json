@@ -1,13 +1,28 @@
 {
-  "extends": ["config:base"],
+  "extends": [
+    "config:base"
+  ],
   "packageRules": [
     {
-      "updateTypes": ["minor", "patch"],
+      "updateTypes": [
+        "minor",
+        "patch"
+      ],
       "automerge": false
     }
   ],
   "timezone": "Europe/London",
   "schedule": [
-    "0 9 * * *"
-  ]
+    // https://breejs.github.io/later/parsers.html#text
+    "every day at 9am"
+  ],
+  "vulnerabilityAlerts": {
+    "labels": [
+      "security"
+    ],
+    "automerge": false,
+    "assignees": [
+      "@luke-h1"
+    ]
+  }
 }
