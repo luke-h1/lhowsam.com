@@ -13,7 +13,6 @@
   ],
   "timezone": "Europe/London",
   "schedule": [
-    // https://breejs.github.io/later/parsers.html#text
     "every day at 9am"
   ],
   "vulnerabilityAlerts": {
