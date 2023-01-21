@@ -23,8 +23,8 @@ specifiers:
   '@types/jest': ^29.2.4
   '@types/lodash': ^4.14.191
   '@types/node': 18.11.18
-  '@types/react': 18.0.26
-  '@types/rss': ^0.0.29
+  '@types/react': 18.0.27
+  '@types/rss': ^0.0.30
   '@types/testing-library__dom': ^7.5.0
   '@types/testing-library__jest-dom': ^5.14.5
   '@types/testing-library__react': ^10.2.0
@@ -54,7 +54,7 @@ specifiers:
   framer-motion: ^8.0.2
   gen-env-types: ^1.3.4
   gray-matter: ^4.0.3
-  groq: 3.2.3
+  groq: 3.2.4
   husky: 8.0.3
   identity-obj-proxy: ^3.0.0
   jest: ^29.3.1
@@ -73,6 +73,7 @@ specifiers:
   next-mdx-remote: ^3.0.8
   next-seo: ^5.15.0
   next-sitemap: 3.1.45
+  only-allow: ^1.1.1
   parse-numeric-range: ^1.3.0
   prettier: ^2.8.1
   react: ^18.2.0
@@ -115,7 +116,7 @@ dependencies:
   framer-motion: 8.0.2_biqbaboplfbrettd7655fr4n2y
   gen-env-types: 1.3.4
   gray-matter: 4.0.3
-  groq: 3.2.3
+  groq: 3.2.4
   kbar: 0.1.0-beta.39_biqbaboplfbrettd7655fr4n2y
   lodash: 4.17.21
   mdx-prism: 0.3.4
@@ -123,6 +124,7 @@ dependencies:
   next-mdx-remote: 3.0.8_biqbaboplfbrettd7655fr4n2y
   next-seo: 5.15.0_7jnwqgtpcnwg4nzft4b6xlzlfi
   next-sitemap: 3.1.45_next@13.1.2
+  only-allow: 1.1.1
   parse-numeric-range: 1.3.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -147,18 +149,18 @@ devDependencies:
   '@testing-library/dom': 8.19.1
   '@testing-library/jest-dom': 5.16.5
   '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
-  '@testing-library/react-hooks': 8.0.1_ib3m5ricvtkl2cll7qpr2f6lvq
+  '@testing-library/react-hooks': 8.0.1_5ndqzdd6t4rivxsukjv3i3ak2q
   '@testing-library/user-event': 14.4.3_ua4wuun3fnehcjqtqj2e2ldgpe
   '@types/body-scroll-lock': 3.1.0
   '@types/jest': 29.2.4
   '@types/lodash': 4.14.191
   '@types/node': 18.11.18
-  '@types/react': 18.0.26
-  '@types/rss': 0.0.29
+  '@types/react': 18.0.27
+  '@types/rss': 0.0.30
   '@types/testing-library__dom': 7.5.0
   '@types/testing-library__jest-dom': 5.14.5
   '@types/testing-library__react': 10.2.0_biqbaboplfbrettd7655fr4n2y
-  '@types/testing-library__react-hooks': 4.0.0_ib3m5ricvtkl2cll7qpr2f6lvq
+  '@types/testing-library__react-hooks': 4.0.0_5ndqzdd6t4rivxsukjv3i3ak2q
   '@types/testing-library__user-event': 4.2.0_ua4wuun3fnehcjqtqj2e2ldgpe
   '@typescript-eslint/eslint-plugin': 5.47.0_ncmi6noazr3nzas7jxykisekym
   '@typescript-eslint/parser': 5.47.0_lzzuuodtsqwxnvqeq4g4likcqa
@@ -2155,7 +2157,7 @@ packages:
       react: '>=16'
     dependencies:
       '@types/mdx': 2.0.3
-      '@types/react': 18.0.26
+      '@types/react': 18.0.27
       react: 18.2.0
     dev: false
 
@@ -2817,7 +2819,7 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react-hooks/8.0.1_ib3m5ricvtkl2cll7qpr2f6lvq:
+  /@testing-library/react-hooks/8.0.1_5ndqzdd6t4rivxsukjv3i3ak2q:
     resolution: {integrity: sha512-Aqhl2IVmLt8IovEVarNDFuJDVWVvhnr9/GCU6UUnrYXwgDFF9h2L2o2P9KBni1AST5sT6riAyoukFLyjQUgD/g==}
     engines: {node: '>=12'}
     peerDependencies:
@@ -2834,7 +2836,7 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.20.7
-      '@types/react': 18.0.26
+      '@types/react': 18.0.27
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-error-boundary: 3.1.4_react@18.2.0
@@ -3042,11 +3044,11 @@ packages:
   /@types/react-dom/18.0.10:
     resolution: {integrity: sha512-E42GW/JA4Qv15wQdqJq8DL4JhNpB3prJgjgapN3qJT9K2zO5IIAQh4VXvCEDupoqAwnz0cY4RlXeC/ajX5SFHg==}
     dependencies:
-      '@types/react': 18.0.26
+      '@types/react': 18.0.27
     dev: true
 
-  /@types/react/18.0.26:
-    resolution: {integrity: sha512-hCR3PJQsAIXyxhTNSiDFY//LhnMZWpNNr5etoCqx/iUfGc5gXWtQR2Phl908jVR6uPXacojQWTg4qRpkxTuGug==}
+  /@types/react/18.0.27:
+    resolution: {integrity: sha512-3vtRKHgVxu3Jp9t718R9BuzoD4NcQ8YJ5XRzsSKxNDiDonD2MXIT1TmSkenxuCycZJoQT5d2vE8LwWJxBC1gmA==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.2
@@ -3057,8 +3059,8 @@ packages:
     dependencies:
       '@types/node': 18.11.18
 
-  /@types/rss/0.0.29:
-    resolution: {integrity: sha512-9hAYKyOcoxWqkJMue6bi0fcNXxjJiRutVvqyImy732LmTCxRz9BYPmSmujG7uddK0ZEP/35K3QVZ0sfAVyPnQw==}
+  /@types/rss/0.0.30:
+    resolution: {integrity: sha512-RnWs98qajbcAZqie6EWYraJ2N+1Q1Wy9KN7HcVPJ//sYJGVjLjvkChZdeQPwf88xAcNUCcLXt6Zz3kiid7s/yw==}
     dev: true
 
   /@types/scheduler/0.16.2:
@@ -3085,11 +3087,11 @@ packages:
       '@types/jest': 29.2.4
     dev: true
 
-  /@types/testing-library__react-hooks/4.0.0_ib3m5ricvtkl2cll7qpr2f6lvq:
+  /@types/testing-library__react-hooks/4.0.0_5ndqzdd6t4rivxsukjv3i3ak2q:
     resolution: {integrity: sha512-UzZUXthQtVjDruR2YA+hqg9ux5AfmZ8Kaw+QDungax+T7wb/5NC4x7YOpIqRx7oY3KksGQ69bzNE/xwzb5NslQ==}
     deprecated: This is a stub types definition. @testing-library/react-hooks provides its own type definitions, so you do not need this installed.
     dependencies:
-      '@testing-library/react-hooks': 8.0.1_ib3m5ricvtkl2cll7qpr2f6lvq
+      '@testing-library/react-hooks': 8.0.1_5ndqzdd6t4rivxsukjv3i3ak2q
     transitivePeerDependencies:
       - '@types/react'
       - react
@@ -6592,8 +6594,8 @@ packages:
       strip-bom-string: 1.0.0
     dev: false
 
-  /groq/3.2.3:
-    resolution: {integrity: sha512-e/u4Q2lCPXGfZzZYfcSKXgAFp8Js2s5ERgJ7Ixw9dHCIZ55mYx7T51Sd7Zr+isMF5b6x4o3SonDN88rRKp6QUg==}
+  /groq/3.2.4:
+    resolution: {integrity: sha512-7VFwYRFW/S1hbr0zfjJgcyzxNIajztc1M2LPVyS0AuRNurlQQZg5iuJnYTHPdQXfhNK5CNiousvXg4EacBv3Lw==}
     engines: {node: '>=14'}
     dev: false
 
@@ -9154,6 +9156,14 @@ packages:
     dependencies:
       mimic-fn: 4.0.0
     dev: true
+
+  /only-allow/1.1.1:
+    resolution: {integrity: sha512-WE01hpInLQUF3MKK7vhu4p1VZLKb4rL4d+CI3rwwwsToXELx6YawNFhZy3rVU3rpQpI9kF9zFMk4OjB3xwXdJA==}
+    hasBin: true
+    dependencies:
+      boxen: 4.2.0
+      which-pm-runs: 1.1.0
+    dev: false
 
   /open/6.4.0:
     resolution: {integrity: sha512-IFenVPgF70fSm1keSd2iDBIDIBZkroLeuffXq+wKTzTJlBpesFWojV9lb8mzOfaAzM1sr7HQHuO0vtV0zYekGg==}
@@ -12009,6 +12019,11 @@ packages:
 
   /which-module/2.0.0:
     resolution: {integrity: sha512-B+enWhmw6cjfVC7kS8Pj9pCrKSc5txArRyaYGe088shv/FGWH+0Rjx/xPgtsWfsUtS27FkP697E4DDhgrgoc0Q==}
+    dev: false
+
+  /which-pm-runs/1.1.0:
+    resolution: {integrity: sha512-n1brCuqClxfFfq/Rb0ICg9giSZqCS+pLtccdag6C2HyufBrh3fBOiy9nb6ggRMvWOVH5GrdJskj5iGTZNxd7SA==}
+    engines: {node: '>=4'}
     dev: false
 
   /which-typed-array/1.1.9:

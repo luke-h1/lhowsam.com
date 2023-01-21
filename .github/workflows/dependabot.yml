@@ -5,7 +5,11 @@ updates:
     target-branch: "dev"
     schedule:
       interval: "daily"
-      time: "10:00"
+      time: "09:00"
+      timezone: "Europe/London"
     open-pull-requests-limit: 300
     assignees: 
     - luke-h1
+    rebase-strategy: "enabled"
+    labels:
+    - "dependencies"
