@@ -2,10 +2,6 @@
   "name": "root",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "18.12.1",
-    "pnpm": "7.25.1"
-  },
   "scripts": {
     "clean": "rm -rf node_modules",
     "dev": "next dev",
@@ -30,8 +26,9 @@
     "test:watch": "jest --watch",
     "test:snapshot": "jest --updateSnapshot",
     "analyze": "ANALYZE=true next build",
+    "check:node": "check-node-version --node 18.12.1 --pnpm 7.25.1",
     "prepare": "husky install",
-    "preinstall": "only-allow pnpm",
+    "preinstall": "pnpm run check:node",
     "postbuild": "next-sitemap"
   },
   "dependencies": {
@@ -45,6 +42,7 @@
     "@vercel/analytics": "^0.1.6",
     "axios": "^1.2.1",
     "body-scroll-lock": "4.0.0-beta.0",
+    "check-node-version": "^4.2.1",
     "classnames": "^2.3.2",
     "codesandbox": "^2.2.3",
     "copy-to-clipboard": "^3.3.3",
