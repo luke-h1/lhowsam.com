@@ -10,6 +10,6 @@ updates:
     open-pull-requests-limit: 300
     assignees: 
     - luke-h1
-    rebase-strategy: "enabled"
+    rebase-strategy: "auto"
     labels:
     - "dependencies"
