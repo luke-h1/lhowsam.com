@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-curly-brace-presence */
 import Box from '@frontend/components/Box/Box';
 import Heading from '@frontend/components/Heading/Heading';
+import List from '@frontend/components/List/List';
+import PostCard from '@frontend/components/PostCard/PostCard';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
 import siteConfig from '@frontend/config/site';
@@ -50,17 +52,31 @@ const Indexpage = ({ posts }: Props) => {
           color="foregroundNeutral"
           style={{
             display: 'inline-flex',
+            marginBottom: '4rem',
           }}
         >
           <Balancer ratio={0.25}>
             Hey, I&apos;m Luke. I like to work on big codebases where high
             quality & maintainability are the norm. I currently like to work
-            with React, Next.js, Typescript & design systems. I'm always keen
-            to keep up with industry trends and new technologies.
+            with React, Next.js, Typescript & design systems. I'm always keen to
+            keep up with industry trends and new technologies.
           </Balancer>
         </Text>
       </Box>
       <Spacer height="xxxl" />
+      <Box
+        as="section"
+        maxWidth={{ md: 'text' }}
+        marginX="auto"
+      >
+        <header>
+          <Heading fontSize="xl">Recent Posts</Heading>
+        </header>
+        <Spacer height="xxl" />
+        <List>
+          {posts && posts.map(post => <PostCard post={post} key={post._id} />)}
+        </List>
+      </Box>
     </>
   );
 };
