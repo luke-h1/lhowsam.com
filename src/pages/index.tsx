@@ -1,6 +1,3 @@
-import Hero from '@frontend/components/Hero';
-import Page from '@frontend/components/Page';
-import RecentPosts from '@frontend/components/RecentPosts/RecentPosts';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
@@ -16,7 +13,7 @@ const Indexpage = ({ posts }: Props) => {
   const router = useRouter();
 
   return (
-    <Page>
+    <>
       <NextSeo
         title="Home"
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -28,9 +25,8 @@ const Indexpage = ({ posts }: Props) => {
           title: `Home | lhowsam.com`,
         }}
       />
-      <Hero title="Hey 👋, I'm Luke" description="I'm a Software Engineer" />
-      <RecentPosts posts={posts} />
-    </Page>
+    yo
+    </>
   );
 };
 export default Indexpage;
