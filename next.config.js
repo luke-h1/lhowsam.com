@@ -88,6 +88,12 @@ const nextConfig = {
         source: '/(.*)',
         headers: securityHeaders,
       },
+      {
+        source: '/fonts/:path*',
+        headers: {
+          'Cache-Control': 'public, max-age=31536000, immutable',
+        }
+      }
     ];
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
