@@ -1,21 +1,22 @@
-/* eslint-disable react/no-unknown-property */
 /* eslint-disable no-shadow */
-import { isServer } from '@frontend/hooks/isServer';
+/* eslint-disable react/no-unknown-property */
 import { Command, useCommandState } from 'cmdk';
 import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { useRouter } from 'next/router';
-import { Dispatch, ReactNode, SetStateAction, useEffect } from 'react';
+import * as React from 'react';
 import {
   Linkedin,
+  GitHub,
   Sun,
   Moon,
-  Circle,
-  GitHub,
   Monitor,
   Home,
   Edit,
   Copy,
+  Coffee,
+  Activity,
+  Repeat,
 } from 'react-feather';
 import tinykeys from 'tinykeys';
 import { toast } from '../Toast/Toast';
@@ -25,81 +26,83 @@ const themes = {
   system: 'System',
   dark: 'Dark',
   light: 'Light',
-} as const;
-
-// const links: { id: number; name: string; slug: string }[] = [
-//   { id: 1, name: 'Home', slug: '/' },
-//   { id: 2, name: 'About', slug: '/about' },
-//   { id: 3, name: 'Blog', slug: '/blog' },
-//   { id: 4, name: 'Projects', slug: '/projects' },
-// ];
+};
 
 type Theme = keyof typeof themes;
 
-interface ItemProps {
+const CommandItem = ({
+  onSelect,
+  value,
+  children,
+}: {
   onSelect?: (value: string) => void;
   value: string;
-  children: ReactNode;
-}
-
-const CommandItem = ({ children, value, onSelect }: ItemProps) => {
+  children: React.ReactNode;
+}) => {
   const currentValue = useCommandState(state => state.value);
   return (
     <Command.Item onSelect={onSelect} value={value}>
       <span className="content">{children}</span>
-      {currentValue === value && (
+      {currentValue === value ? (
         <motion.span
           layoutId="highlight"
           className="highlight"
-          transition={{ duration: 0.2 }}
+          transition={{
+            duration: 0.2,
+          }}
         />
-      )}
+      ) : null}
     </Command.Item>
   );
 };
 
-interface MenuProps {
+const CommandMenu = ({
+  open,
+  setOpen,
+}: {
   open: boolean;
-  setOpen: Dispatch<SetStateAction<boolean>>;
-}
-
-const CommandMenu = ({ open, setOpen }: MenuProps) => {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}) => {
   const router = useRouter();
   const { setTheme } = useTheme();
 
-  // Toggle menu when command k is pressed
-  useEffect(() => {
+  // Toggle the menu when ⌘K is pressed
+  React.useEffect(() => {
     const unsubscribe = tinykeys(window, {
-      '$mod+KeyK': () => setOpen(open => !open),
+      '$mod+KeyK': () => {
+        setOpen(open => !open);
+      },
     });
-    return () => unsubscribe();
+    return () => {
+      unsubscribe();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const handleSetTheme = (theme: string) => {
-    setTheme(theme);
+  const handleSetTheme = (val: string) => {
+    setTheme(val);
     setOpen(false);
     toast({
-      content: `Theme set to ${themes[theme as Theme]}`,
+      content: `${themes[val as Theme]} theme enabled`,
     });
   };
 
   const handleCopyUrl = () => {
-    if (!isServer && navigator.clipboard) {
-      navigator.clipboard.writeText(window.location.href);
-      setOpen(false);
-      toast({
-        content: 'Copied URL to clipboard',
-      });
-    }
+    navigator.clipboard.writeText(window.location.href);
+    setOpen(false);
+    toast({ content: 'Copied URL to clipboard' });
   };
 
   return (
-    <Command.Dialog open={open} onOpenChange={setOpen} label="Command Menu">
+    <Command.Dialog
+      open={open}
+      onOpenChange={setOpen}
+      label="Global Command Menu"
+    >
       <div cmdk-header="">
         <Command.Input placeholder="Type a command or search..." />
         <button
-          aria-label="Close Command Menu"
+          aria-label="Close command menu"
           cmdk-header-esc=""
           onClick={() => setOpen(false)}
           tabIndex={-1}
@@ -109,7 +112,8 @@ const CommandMenu = ({ open, setOpen }: MenuProps) => {
         </button>
       </div>
       <Command.List>
-        <Command.Empty>No results found</Command.Empty>
+        <Command.Empty>No results found.</Command.Empty>
+
         <Command.Group heading="Navigation">
           <CommandItem
             onSelect={() => {
@@ -121,52 +125,79 @@ const CommandMenu = ({ open, setOpen }: MenuProps) => {
             <Home />
             <span>Home</span>
           </CommandItem>
-          <CommandItem onSelect={() => router.push('/about')} value="about">
-            <Circle />
+          <CommandItem
+            onSelect={() => {
+              router.push('/about');
+              setOpen(false);
+            }}
+            value="about"
+          >
+            <Coffee />
             <span>About</span>
           </CommandItem>
-          <CommandItem onSelect={() => router.push('/blog')} value="blog">
+
+          <CommandItem
+            onSelect={() => {
+              router.push('/blog');
+              setOpen(false);
+            }}
+            value="blog"
+          >
             <Edit />
             <span>Blog</span>
           </CommandItem>
+
           <CommandItem
-            onSelect={() => router.push('/projects')}
+            onSelect={() => {
+              router.push('/projects');
+              setOpen(false);
+            }}
             value="projects"
           >
-            <Monitor />
+            <Activity />
             <span>Projects</span>
           </CommandItem>
-        </Command.Group>
-        <Command.Group heading="Contact">
+
           <CommandItem
-            onSelect={() =>
-              window.open('https://www.linkedin.com/in/lukehowsam')
-            }
-            value="Linkedin"
+            onSelect={() => {
+              router.push('/uses');
+              setOpen(false);
+            }}
+            value="uses"
           >
-            <Linkedin />
-            <span>Linkedin</span>
+            <Repeat />
+            <span>uses</span>
           </CommandItem>
+        </Command.Group>
+
+        <Command.Group heading="Connect">
           <CommandItem
-            onSelect={() => window.open('https://github.com/luke-h1')}
-            value="Github"
+            onSelect={() => window.open('https://github.com/luke-h1', '_blank')}
+            value="github"
           >
             <GitHub />
             <span>Github</span>
           </CommandItem>
+          <CommandItem
+            onSelect={() =>
+              window.open('https://www.linkedin.com/in/lukehowsam/', '_blank')
+            }
+            value="linkedin"
+          >
+            <Linkedin />
+            <span>LinkedIn</span>
+          </CommandItem>
         </Command.Group>
+
         <Command.Group heading="Appearance">
-          <CommandItem onSelect={() => handleSetTheme('system')} value="system">
-            <Monitor />
-            <span>System</span>
+          <CommandItem onSelect={handleSetTheme} value="system">
+            <Monitor /> <span>System</span>
           </CommandItem>
-          <CommandItem onSelect={() => handleSetTheme('dark')} value="dark">
-            <Moon />
-            <span>Dark</span>
+          <CommandItem onSelect={handleSetTheme} value="light">
+            <Sun /> <span>Light</span>
           </CommandItem>
-          <CommandItem onSelect={() => handleSetTheme('light')} value="light">
-            <Sun />
-            <span>Light</span>
+          <CommandItem onSelect={handleSetTheme} value="dark">
+            <Moon /> <span>Dark</span>
           </CommandItem>
         </Command.Group>
         <Command.Group heading="Commands">
@@ -179,4 +210,5 @@ const CommandMenu = ({ open, setOpen }: MenuProps) => {
     </Command.Dialog>
   );
 };
+
 export default CommandMenu;

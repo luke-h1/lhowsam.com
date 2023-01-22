@@ -4,43 +4,23 @@ import { globalStyle, keyframes } from '@vanilla-extract/css';
 import { calc } from '@vanilla-extract/css-utils';
 
 const fadeIn = keyframes({
-  '0%': {
-    opacity: '0',
-  },
-  '100%': {
-    opacity: '1',
-  },
+  '0%': { opacity: '0' },
+  '100%': { opacity: '1' },
 });
 
 const fadeOut = keyframes({
-  '0%': {
-    opacity: '1',
-  },
-  '100%': {
-    opacity: '0',
-  },
+  '0%': { opacity: '1' },
+  '100%': { opacity: '0' },
 });
 
 const enter = keyframes({
-  '0%': {
-    opacity: '0',
-    transform: 'scale(.85) translateX(-50%)',
-  },
-  '100%': {
-    opacity: '1',
-    transform: 'scale(1) translateX(-50%)',
-  },
+  '0%': { opacity: '0', transform: 'scale(.85) translateX(-50%)' },
+  '100%': { opacity: '1', transform: 'scale(1) translateX(-50%)' },
 });
 
 const exit = keyframes({
-  '0%': {
-    opacity: '1',
-    transform: 'scale(1) translateX(-50%)',
-  },
-  '100%': {
-    opacity: '0',
-    transform: 'scale(.95) translateX(-50%)',
-  },
+  '0%': { opacity: '1', transform: 'scale(1) translateX(-50%)' },
+  '100%': { opacity: '0', transform: 'scale(.95) translateX(-50%)' },
 });
 
 globalStyle('[cmdk-overlay]', {
@@ -53,7 +33,7 @@ globalStyle('[cmdk-overlay]', {
 globalStyle('[cmdk-dialog]', {
   transformOrigin: '0 0',
   position: 'fixed',
-  top: typography.spacing.xxxl,
+  top: typography.spacing.xxxxl,
   left: '50%',
   transform: 'translateX(-50%)',
   maxWidth: 640,
@@ -142,7 +122,7 @@ globalStyle('*:not([hidden]) + [cmdk-group]', {
 globalStyle('[cmdk-group-heading]', {
   position: 'relative',
   userSelect: 'none',
-  fontSize: typography.fontSize.sm,
+  fontSize: typography.fontSize.xs,
   color: theme.color.foregroundNeutral,
   paddingInline: typography.spacing.md,
   marginBlockEnd: typography.spacing.sm,
@@ -182,7 +162,7 @@ globalStyle('[cmdk-item] svg', {
   transitionDelay: '0.1s',
 });
 
-globalStyle('[cmdk-item][aria-selected="true"] svg', {
+globalStyle("[cmdk-item][aria-selected='true'] svg", {
   color: theme.color.foreground,
 });
 
