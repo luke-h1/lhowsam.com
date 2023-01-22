@@ -13,6 +13,7 @@ specifiers:
   '@radix-ui/react-tooltip': ^1.0.0
   '@sanity/client': ^4.0.0
   '@sanity/image-url': ^1.0.1
+  '@sindresorhus/slugify': ^2.1.1
   '@svgr/webpack': ^6.5.1
   '@swc/core': ^1.3.24
   '@swc/jest': ^0.2.24
@@ -122,6 +123,7 @@ dependencies:
   '@radix-ui/react-tooltip': 1.0.3_5ndqzdd6t4rivxsukjv3i3ak2q
   '@sanity/client': 4.0.1
   '@sanity/image-url': 1.0.1
+  '@sindresorhus/slugify': 2.1.1
   '@tanstack/react-query': 4.22.3_biqbaboplfbrettd7655fr4n2y
   '@vanilla-extract/babel-plugin': 1.2.0
   '@vanilla-extract/css': 1.9.2
@@ -2795,6 +2797,21 @@ packages:
   /@sindresorhus/is/0.14.0:
     resolution: {integrity: sha512-9NET910DNaIPngYnLLPeg+Ogzqsi9uM4mSboU5y6p8S5DzMTVEsJZrawi+BoDNUVBa2DhJqQYUFvMDfgU062LQ==}
     engines: {node: '>=6'}
+
+  /@sindresorhus/slugify/2.1.1:
+    resolution: {integrity: sha512-XokPHZ+q6FtQGEi1hnfvARVJJVPEhwHQTPHPPuNHaN6zcHjzYNynhhHMopa1wNPqLAFOwpsbintunEqWecXJMg==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@sindresorhus/transliterate': 1.6.0
+      escape-string-regexp: 5.0.0
+    dev: false
+
+  /@sindresorhus/transliterate/1.6.0:
+    resolution: {integrity: sha512-doH1gimEu3A46VX6aVxpHTeHrytJAG6HgdxntYnCFiIFHEM/ZGpG8KiZGBChchjQmG0XFIBL552kBTjVcMZXwQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      escape-string-regexp: 5.0.0
+    dev: false
 
   /@sinonjs/commons/1.8.6:
     resolution: {integrity: sha512-Ky+XkAkqPZSm3NLBeUng77EBQl3cmeJhITaGHdYH8kjVB+aun3S4XBRti2zt17mtt0mIUDiNxYeoJm6drVvBJQ==}
