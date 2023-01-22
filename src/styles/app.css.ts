@@ -32,3 +32,15 @@ globalStyle('.container', {
   paddingInline: typography.spacing.lg,
   paddingBlock: typography.spacing.xxxxl,
 });
+
+globalStyle('ul:not([class])', {
+  listStyleType: 'disc',
+  display: 'grid',
+  paddingInlineStart: typography.spacing.md,
+  gap: typography.spacing.sm,
+});
+
+globalStyle('ul:not([class]) ul:not([class])', {
+  marginTop: typography.spacing.sm,
+  listStyleType: 'circle',
+});
