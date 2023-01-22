@@ -25,7 +25,7 @@ const Indexpage = ({ posts }: Props) => {
           title: `Home | lhowsam.com`,
         }}
       />
-    yo
+      yo
     </>
   );
 };

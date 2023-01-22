@@ -1,6 +1,9 @@
+import "the-new-css-reset";
 import Banner from '@frontend/components/Banner/Banner';
+import CommandMenu from '@frontend/components/CommandMenu/CommandMenu';
 import Gradient from '@frontend/components/Graident/Gradient';
 import SkipLink from '@frontend/components/SkipLink/SkipLink';
+import { Toaster } from '@frontend/components/Toast/Toast';
 import gtagService from '@frontend/utils/gtag';
 import { isDevelopment } from '@frontend/utils/isDevelopment';
 import { ToastProvider } from '@radix-ui/react-toast';
@@ -18,6 +21,7 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import '@fontsource/poppins';
+import '@frontend/styles/app.css';
 
 type Props = AppProps<{ dehydratedState: unknown }>;
 
@@ -90,6 +94,8 @@ const App = ({ Component, pageProps, router }: Props) => {
                   <main id="main">
                     <Component {...pageProps} />
                   </main>
+                  <CommandMenu open={open} setOpen={setOpen} />
+                  <Toaster />
                 </div>
               </TooltipProvider>
             </ToastProvider>

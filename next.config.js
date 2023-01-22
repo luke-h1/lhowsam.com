@@ -53,6 +53,12 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=()',
   },
 ];
+const fontheaders = [
+  {
+    key: 'Cache-Control',
+    value: 'public, max-age=31536000, immutable',
+  },
+];
 
 const nextConfig = {
   reactStrictMode: true,
@@ -89,11 +95,9 @@ const nextConfig = {
         headers: securityHeaders,
       },
       {
-        source: '/fonts/:path*',
-        headers: {
-          'Cache-Control': 'public, max-age=31536000, immutable',
-        }
-      }
+        source: '/fonts/inter-var-latin.woff2',
+        headers: fontheaders,
+      },
     ];
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

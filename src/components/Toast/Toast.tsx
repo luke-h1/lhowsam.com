@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import * as ToastPrimitive from '@radix-ui/react-toast';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { nanoid } from 'nanoid';
@@ -47,7 +48,7 @@ const useStore = create<ToastStore>(set => ({
   },
 }));
 
-export const toasts = (...args: Parameters<ToastStore['toast']>) => {
+export const toast = (...args: Parameters<ToastStore['toast']>) => {
   return useStore.getState().toast(...args);
 };
 

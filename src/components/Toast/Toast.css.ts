@@ -75,6 +75,6 @@ export const closeHighlight = style({
 });
 
 export const closeIcon = style({
-    position: 'relative',
-    zIndex: 1,
-})
+  position: 'relative',
+  zIndex: 1,
+});
