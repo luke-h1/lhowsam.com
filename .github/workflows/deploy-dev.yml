@@ -64,7 +64,7 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
       - name: Install dependencies 
-        run: pnpm i --no-frozen-lockfile
+        run: pnpm i
 
       - name: format
         run: pnpm run format
