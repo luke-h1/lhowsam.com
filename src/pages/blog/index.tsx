@@ -2,8 +2,8 @@
 /* eslint-disable no-param-reassign */
 import Box from '@frontend/components/Box/Box';
 import Heading from '@frontend/components/Heading/Heading';
-import Link from '@frontend/components/Link/Link';
 import List from '@frontend/components/List/List';
+import PostCard from '@frontend/components/PostCard/PostCard';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
 import siteConfig from '@frontend/config/site';
@@ -53,35 +53,7 @@ const BlogIndexPage: NextPage<Props> = ({ posts }) => {
               <List>
                 {posts &&
                   posts.map(post => (
-                    <List.Item key={post._id}>
-                      <Box
-                        display="flex"
-                        flexDirection={{
-                          xs: 'column',
-                          sm: 'row-reverse',
-                        }}
-                        alignItems={{ sm: 'center' }}
-                        justifyContent={{ sm: 'space-between' }}
-                        gap="sm"
-                        maxWidth="text"
-                      >
-                        <Text
-                          as="time"
-                          dateTime={post.publishedAt}
-                          color="foregroundNeutral"
-                          fontSize="sm"
-                        >
-                          {post.publishedAt}
-                        </Text>
-                        <Heading>
-                          <Link href={`/blog/${post.slug.current}`}>
-                            {post.title}
-                          </Link>
-                        </Heading>
-                      </Box>
-                      <Spacer height={{ xs: 'sm', sm: 'md' }} />
-                      <Text color="foregroundNeutral">{post.intro}</Text>
-                    </List.Item>
+                    <PostCard post={post} key={`${post._id}-${post.title}`} />
                   ))}
               </List>
             </Box>

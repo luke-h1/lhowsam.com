@@ -8,7 +8,7 @@ import Text from '@frontend/components/Text/Text';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
-import { GetStaticProps } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
 import Balancer from 'react-wrap-balancer';
@@ -17,7 +17,7 @@ interface Props {
   posts: Post[];
 }
 
-const Indexpage = ({ posts }: Props) => {
+const Indexpage: NextPage<Props> = ({ posts }) => {
   const router = useRouter();
 
   return (
@@ -64,11 +64,7 @@ const Indexpage = ({ posts }: Props) => {
         </Text>
       </Box>
       <Spacer height="xxxl" />
-      <Box
-        as="section"
-        maxWidth={{ md: 'text' }}
-        marginX="auto"
-      >
+      <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
         <header>
           <Heading fontSize="xl">Recent Posts</Heading>
         </header>

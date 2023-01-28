@@ -6,6 +6,7 @@ import Heading from './Heading/Heading';
 import ImageCarousel from './ImageCarousel/ImageCarousel';
 import Link from './Link/Link';
 import Text from './Text/Text';
+import YoutubeEmbed from './YoutubeEmbed/YoutubeEmbed';
 
 const Components = {
   ImageCarousel,
@@ -22,6 +23,7 @@ const Components = {
       />
     );
   },
+  YoutubeEmbed,
   a: (props: any) => <Link {...props} variant="highlight" />,
   p: (props: any) => <Text {...props} />,
   h2: (props: any) => (
