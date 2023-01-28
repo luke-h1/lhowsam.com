@@ -77,6 +77,16 @@ const nextConfig = {
         destination: '/blog/next-js-ssr-notes',
         permanent: true,
       },
+      {
+        source: '/studio',
+        destination: 'https://cms.lhowsam.com',
+        permanent: true,
+      },
+      {
+        source: '/dev',
+        destination: 'https://dev.lhowsam.com',
+        permanent: true,
+      },
     ];
   },
   async headers() {

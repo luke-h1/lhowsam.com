@@ -2,7 +2,8 @@ name: Deploy development
 on:
   push:
     branches:
-      - dev
+      # - dev
+      - next
   workflow_dispatch:
 env:
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
@@ -64,7 +65,7 @@ jobs:
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
       - name: Install dependencies 
-        run: pnpm i --no-frozen-lockfile
+        run: pnpm i
 
       - name: format
         run: pnpm run format
