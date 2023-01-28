@@ -7,11 +7,15 @@ import * as styles from './Link.css';
 interface Props extends LinkProps {
   children: ReactNode;
   variant?: 'highlight' | 'neutral';
+  className?: string;
 }
 
-const Link = ({ children, variant = 'neutral', ...rest }: Props) => {
+const Link = ({ children, variant = 'neutral', className, ...rest }: Props) => {
   return (
-    <NextLink className={classNames(styles.variants[variant])} {...rest}>
+    <NextLink
+      className={classNames(styles.variants[variant], className)}
+      {...rest}
+    >
       {children}
     </NextLink>
   );
