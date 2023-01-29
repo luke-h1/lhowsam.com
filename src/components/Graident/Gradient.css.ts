@@ -9,11 +9,11 @@ export const root = style({
   maxWidth: 1200,
   transform: 'translate3d(0, -50%, 0)',
   transformOrigin: 'top center',
-  '@media': {
-    'screen and (max-width: 768px)': {
-      display: 'none',
-    },
-  },
+  // '@media': {
+  //   'screen and (max-width: 768px)': {
+  //     display: 'none',
+  //   },
+  // },
 });
 
 export const blob = style({
