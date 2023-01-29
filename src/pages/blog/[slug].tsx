@@ -73,10 +73,10 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
             width={950}
             height={330}
             priority
+            placeholder="blur"
             blurDataURL={imageService.urlFor(post.image.asset)}
             style={{
               borderRadius: '0.5rem',
-              // fit the image to the container
               objectFit: 'contain',
             }}
             alt={post.image.alt ?? post.title}
