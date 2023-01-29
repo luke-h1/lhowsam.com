@@ -9,8 +9,8 @@ import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import { GetStaticProps, NextPage } from 'next';
-import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 import Balancer from 'react-wrap-balancer';
 
 interface Props {
@@ -70,7 +70,10 @@ const Indexpage: NextPage<Props> = ({ posts }) => {
         </header>
         <Spacer height="xxl" />
         <List>
-          {posts && posts.map(post => <PostCard post={post} key={post._id} />)}
+          {posts &&
+            posts.map(post => (
+              <PostCard post={post} key={`${post._id}-${post.title}`} />
+            ))}
         </List>
       </Box>
     </>

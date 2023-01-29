@@ -1,4 +1,4 @@
-import "the-new-css-reset";
+import 'the-new-css-reset';
 import Banner from '@frontend/components/Banner/Banner';
 import CommandMenu from '@frontend/components/CommandMenu/CommandMenu';
 import Gradient from '@frontend/components/Graident/Gradient';
@@ -15,13 +15,14 @@ import {
 } from '@tanstack/react-query';
 import { Analytics } from '@vercel/analytics/react';
 import { MotionConfig } from 'framer-motion';
-import { DefaultSeo } from 'next-seo';
-import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { DefaultSeo } from 'next-seo';
+import { ThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
 import '@fontsource/poppins';
 import '@frontend/styles/app.css';
+import '@frontend/styles/code.scss';
 
 type Props = AppProps<{ dehydratedState: unknown }>;
 

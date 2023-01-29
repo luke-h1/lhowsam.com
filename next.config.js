@@ -4,6 +4,8 @@
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 
 const withVanillaExtract = createVanillaExtractPlugin();
+const CopyPlugin = require('copy-webpack-plugin');
+const path = require('path');
 
 const ContentSecurityPolicy = `
  default-src 'self';
@@ -117,6 +119,21 @@ const nextConfig = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
+    /**
+     * Copying the whole npm package of shiki to static/shiki because it
+     * loads some files from a "cdn" in the browser (semi-hacky)
+     * @see https://github.com/shikijs/shiki#specify-a-custom-root-directory
+     */
+    config.plugins.push(
+      new CopyPlugin({
+        patterns: [
+          {
+            from: path.resolve(path.dirname(require.resolve('shiki')), '..'),
+            to: 'static/shiki/',
+          },
+        ],
+      }),
+    );
     return config;
   },
 };

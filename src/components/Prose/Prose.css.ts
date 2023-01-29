@@ -59,6 +59,7 @@ globalStyle('pre[data-language]', {
   border: '1px solid',
   borderColor: theme.color.border,
   borderRadius: typography.radius.md,
+  paddingLeft: typography.spacing.lg,
 });
 
 globalStyle('[data-rehype-pretty-code-title] + pre[data-language]', {
