@@ -11,6 +11,7 @@ import mdxToHtml from '@frontend/utils/mdxToHtml';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 interface Props {
@@ -56,9 +57,28 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
         marginX="auto"
         textAlign={{ md: 'center' }}
       >
-        <Heading fontSize="xxl" as="h1">
+        <Heading
+          fontSize="xxl"
+          as="h1"
+          style={{
+            marginBottom: '1rem',
+          }}
+        >
           {post.title}
         </Heading>
+        <Box>
+          <Image
+            src={imageService.urlFor(post.image.asset)}
+            width={950}
+            height={330}
+            style={{
+              borderRadius: '0.5rem',
+              // fit the image to the container
+              objectFit: 'contain',
+            }}
+            alt={post.image.alt ?? post.title}
+          />
+        </Box>
         <Spacer height="sm" />
         <Text as="time" dateTime={post.publishedAt} color="foregroundNeutral">
           {post.publishedAt}
