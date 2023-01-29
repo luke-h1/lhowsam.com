@@ -72,6 +72,8 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
             src={imageService.urlFor(post.image.asset)}
             width={950}
             height={330}
+            priority
+            blurDataURL={imageService.urlFor(post.image.asset)}
             style={{
               borderRadius: '0.5rem',
               // fit the image to the container
