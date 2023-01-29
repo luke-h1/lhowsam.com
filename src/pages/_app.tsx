@@ -22,7 +22,7 @@ import { ThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
 import '@fontsource/poppins';
 import '@frontend/styles/app.css';
-import '@frontend/styles/code.scss';
+import '@frontend/styles/tokyo-night-dark.min.css';
 
 type Props = AppProps<{ dehydratedState: unknown }>;
 
@@ -81,11 +81,7 @@ const App = ({ Component, pageProps, router }: Props) => {
           />
         </Head>
         <MotionConfig reducedMotion="user">
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            disableTransitionOnChange
-          >
+          <ThemeProvider attribute="class" defaultTheme="system">
             <ToastProvider>
               <TooltipProvider>
                 <SkipLink />

@@ -5,8 +5,8 @@ import Skills from '@frontend/components/Skills/Skills';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
 import { theme } from '@frontend/styles/theme.css';
-import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 import { GitHub, Linkedin } from 'react-feather';
 import Balancer from 'react-wrap-balancer';
 

@@ -7,8 +7,8 @@ import siteConfig from '@frontend/config/site';
 import projectService from '@frontend/services/projectService';
 import { Project } from '@frontend/types/sanity';
 import { GetStaticProps, NextPage } from 'next';
-import { NextSeo } from 'next-seo';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 
 interface Props {
   projects: Project[];

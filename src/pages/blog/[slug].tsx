@@ -1,4 +1,5 @@
 import Box from '@frontend/components/Box/Box';
+import FormattedDate from '@frontend/components/FormattedDate';
 import Heading from '@frontend/components/Heading/Heading';
 import Components from '@frontend/components/MDXComponents';
 import Prose from '@frontend/components/Prose/Prose';
@@ -9,10 +10,10 @@ import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { NextSeo } from 'next-seo';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { NextSeo } from 'next-seo';
 
 interface Props {
   post: Post;
@@ -81,14 +82,17 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
         </Box>
         <Spacer height="sm" />
         <Text as="time" dateTime={post.publishedAt} color="foregroundNeutral">
-          {post.publishedAt}
+          <FormattedDate>{post.publishedAt}</FormattedDate>
         </Text>
       </Box>
 
       <Spacer height="xxxl" />
       <Box maxWidth="text" marginX="auto">
         <Prose>
-          <MDXRemote components={Components} {...compiledSource} />
+          <MDXRemote
+            components={Components}
+            compiledSource={compiledSource.compiledSource}
+          />
         </Prose>
       </Box>
     </article>

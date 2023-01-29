@@ -2,8 +2,8 @@
 /* eslint-disable react/no-unknown-property */
 import { Command, useCommandState } from 'cmdk';
 import { motion } from 'framer-motion';
-import { useTheme } from 'next-themes';
 import { useRouter } from 'next/router';
+import { useTheme } from 'next-themes';
 import * as React from 'react';
 import {
   Linkedin,

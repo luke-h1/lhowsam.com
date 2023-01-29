@@ -4,7 +4,7 @@ import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import rehypeCodeTitles from 'rehype-code-titles';
-import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeHighlight from 'rehype-highlight';
 import remarkGfm from 'remark-gfm';
 import remarkCodeTitle from './remarkCodeTitle';
 
@@ -16,14 +16,14 @@ export default async function mdxToHtml(source: string): Promise<MdxResult> {
   const { data } = matter(source);
 
   const html = await serialize(source, {
+    parseFrontmatter: true,
     mdxOptions: {
       remarkPlugins: [remarkCodeTitle, remarkGfm],
       rehypePlugins: [
-        rehypeCodeTitles,
-        [rehypePrettyCode],
-        rehypeAccessibleEmojis,
+        [rehypeHighlight, rehypeCodeTitles, rehypeAccessibleEmojis],
       ],
     },
+
     scope: data,
   });
 
