@@ -7,33 +7,49 @@ import siteConfig from '@frontend/config/site';
 import projectService from '@frontend/services/projectService';
 import { Project } from '@frontend/types/sanity';
 import { GetStaticProps, NextPage } from 'next';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 
 interface Props {
   projects: Project[];
 }
 
 const ProjectPage: NextPage<Props> = ({ projects }) => {
+  const router = useRouter();
   return (
-    <Box
-      as="header"
-      textAlign={{ md: 'center' }}
-      maxWidth="container"
-      marginX="auto"
-    >
-      <Heading fontSize={{ xs: 'xxl', sm: 'xxxl' }} as="h1">
-        Projects
-      </Heading>
-      <Spacer height="sm" />
-      <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
-        {projects &&
-          projects.map(project => (
-            <List key={project._id}>
-              <Spacer height="xxl" />
-              <ProjectItem project={project} />
-            </List>
-          ))}
+    <>
+      <NextSeo
+        title="Projects"
+        canonical={`https://lhowsam.com/${router.asPath}`}
+        description="Projects"
+        openGraph={{
+          defaultImageWidth: 1200,
+          defaultImageHeight: 630,
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `Projects | lhowsam.com`,
+        }}
+      />
+      <Box
+        as="header"
+        textAlign={{ md: 'center' }}
+        maxWidth="container"
+        marginX="auto"
+      >
+        <Heading fontSize={{ xs: 'xxl', sm: 'xxxl' }} as="h1">
+          Projects
+        </Heading>
+        <Spacer height="sm" />
+        <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
+          {projects &&
+            projects.map(project => (
+              <List key={project._id}>
+                <Spacer height="xxl" />
+                <ProjectItem project={project} />
+              </List>
+            ))}
+        </Box>
       </Box>
-    </Box>
+    </>
   );
 };
 
