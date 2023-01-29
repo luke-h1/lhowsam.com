@@ -2,7 +2,6 @@ import { theme } from '@frontend/styles/theme.css';
 import { style, styleVariants } from '@vanilla-extract/css';
 
 export const root = style({
-  textDecoration: 'underline',
   ':focus': {
     outline: 'transparent',
   },

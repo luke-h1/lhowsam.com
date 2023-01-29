@@ -8,12 +8,22 @@ interface Props extends LinkProps {
   children: ReactNode;
   variant?: 'highlight' | 'neutral';
   className?: string;
+  textDecoration?: 'underline' | 'none';
 }
 
-const Link = ({ children, variant = 'neutral', className, ...rest }: Props) => {
+const Link = ({
+  children,
+  variant = 'neutral',
+  className,
+  textDecoration = 'underline',
+  ...rest
+}: Props) => {
   return (
     <NextLink
       className={classNames(styles.variants[variant], className)}
+      style={{
+        textDecoration,
+      }}
       {...rest}
     >
       {children}
