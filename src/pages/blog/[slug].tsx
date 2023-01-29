@@ -1,0 +1,103 @@
+import Box from '@frontend/components/Box/Box';
+import Heading from '@frontend/components/Heading/Heading';
+import Components from '@frontend/components/MDXComponents';
+import Prose from '@frontend/components/Prose/Prose';
+import Spacer from '@frontend/components/Spacer/Spacer';
+import Text from '@frontend/components/Text/Text';
+import imageService from '@frontend/services/imageService';
+import postService from '@frontend/services/postService';
+import { Post } from '@frontend/types/sanity';
+import mdxToHtml from '@frontend/utils/mdxToHtml';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
+
+interface Props {
+  post: Post;
+  compiledSource: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
+}
+
+const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
+  const router = useRouter();
+
+  return (
+    <article>
+      <NextSeo
+        title={post.title}
+        canonical={`https://lhowsam.com${router.asPath}`}
+        description={post.intro}
+        openGraph={{
+          defaultImageWidth: 1200,
+          defaultImageHeight: 630,
+          images: [
+            {
+              url: imageService.urlFor(post.image.asset),
+              alt: post.title,
+              height: 1200,
+              width: 630,
+            },
+          ],
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `${post.title} | lhowsam.com`,
+          article: {
+            authors: ['Luke Howsam'],
+            publishedTime: post.publishedAt,
+            tags: post.tags.map(tag => tag.title),
+          },
+        }}
+      />
+      <Box
+        as="header"
+        maxWidth="text"
+        marginX="auto"
+        textAlign={{ md: 'center' }}
+      >
+        <Heading fontSize="xxl" as="h1">
+          {post.title}
+        </Heading>
+        <Spacer height="sm" />
+        <Text as="time" dateTime={post.publishedAt} color="foregroundNeutral">
+          {post.publishedAt}
+        </Text>
+      </Box>
+
+      <Spacer height="xxxl" />
+      <Box maxWidth="text" marginX="auto">
+        <Prose>
+          <MDXRemote components={Components} {...compiledSource} />
+        </Prose>
+      </Box>
+    </article>
+  );
+};
+export default PostPage;
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  return {
+    paths: [],
+    fallback: 'blocking',
+  };
+};
+
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+  const post = await postService.getPost(params?.slug as string);
+
+  if (!post) {
+    return {
+      props: [],
+      notFound: true,
+    };
+  }
+  const { compiledSource } = await mdxToHtml(post.content);
+
+  return {
+    props: {
+      post,
+      compiledSource,
+    },
+  };
+};
