@@ -14,11 +14,7 @@ const ProjectItem = ({ project }: Props) => {
   return (
     <article>
       <div className={styles.content}>
-        <Link
-          href={`/projects/${project.slug.current}`}
-          variant="neutral"
-          textDecoration="none"
-        >
+        <Link href={`/projects/${project.slug.current}`} variant="neutral">
           <h2>{project.title}</h2>
           <p>{project.intro}</p>
         </Link>

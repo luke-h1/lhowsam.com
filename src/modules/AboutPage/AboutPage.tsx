@@ -76,11 +76,7 @@ const AboutPage = () => {
                 marginTop: '1rem',
               }}
             >
-              <Link
-                href="/static/cv-latest.pdf"
-                variant="highlight"
-                textDecoration="none"
-              >
+              <Link href="/static/cv-latest.pdf" variant="highlight">
                 Resume
               </Link>
             </Text>
