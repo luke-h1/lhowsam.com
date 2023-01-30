@@ -11,6 +11,9 @@ export const root = style({
     outlineOffset: '2px',
     outlineColor: theme.color.outline,
   },
+  ':hover': {
+    textDecoration: 'underline',
+  },
 });
 
 export const variants = styleVariants({

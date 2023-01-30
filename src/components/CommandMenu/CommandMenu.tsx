@@ -16,7 +16,6 @@ import {
   Copy,
   Coffee,
   Activity,
-  Repeat,
 } from 'react-feather';
 import tinykeys from 'tinykeys';
 import { toast } from '../Toast/Toast';
@@ -158,7 +157,7 @@ const CommandMenu = ({
             <span>Projects</span>
           </CommandItem>
 
-          <CommandItem
+          {/* <CommandItem
             onSelect={() => {
               router.push('/uses');
               setOpen(false);
@@ -167,7 +166,7 @@ const CommandMenu = ({
           >
             <Repeat />
             <span>uses</span>
-          </CommandItem>
+          </CommandItem> */}
         </Command.Group>
 
         <Command.Group heading="Connect">
@@ -180,7 +179,7 @@ const CommandMenu = ({
           </CommandItem>
           <CommandItem
             onSelect={() =>
-              window.open('https://www.linkedin.com/in/lukehowsam/', '_blank')
+              window.open('https://www.linkedin.com/in/lu§kehowsam/', '_blank')
             }
             value="linkedin"
           >

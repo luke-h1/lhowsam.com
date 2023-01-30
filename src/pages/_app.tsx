@@ -1,6 +1,7 @@
 import 'the-new-css-reset';
 import Banner from '@frontend/components/Banner/Banner';
 import CommandMenu from '@frontend/components/CommandMenu/CommandMenu';
+import Footer from '@frontend/components/Footer/Footer';
 import Gradient from '@frontend/components/Graident/Gradient';
 import SkipLink from '@frontend/components/SkipLink/SkipLink';
 import { Toaster } from '@frontend/components/Toast/Toast';
@@ -93,6 +94,7 @@ const App = ({ Component, pageProps, router }: Props) => {
                   <CommandMenu open={open} setOpen={setOpen} />
                   <Toaster />
                 </div>
+                <Footer />
               </TooltipProvider>
             </ToastProvider>
           </ThemeProvider>

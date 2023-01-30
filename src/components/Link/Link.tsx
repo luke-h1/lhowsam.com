@@ -8,7 +8,6 @@ type Props = {
   children: ReactNode;
   variant?: 'highlight' | 'neutral';
   className?: string;
-  textDecoration?: 'underline' | 'none';
   href: string;
 } & Omit<LinkProps, 'href'>;
 
@@ -16,7 +15,6 @@ const Link = ({
   children,
   variant = 'neutral',
   className,
-  textDecoration = 'underline',
   href,
   ...props
 }: Props) => {
@@ -29,9 +27,6 @@ const Link = ({
         rel={isAbsolute ? 'noopener noreferrer' : undefined}
         target={isAbsolute ? '_blank' : undefined}
         className={classNames(styles.variants[variant], className)}
-        style={{
-          textDecoration,
-        }}
         {...props}
         href={href}
       >
@@ -44,9 +39,6 @@ const Link = ({
     <NextLink
       href={href}
       className={classNames(styles.variants[variant], className)}
-      style={{
-        textDecoration,
-      }}
       {...props}
     >
       {children}
