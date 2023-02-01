@@ -1,13 +1,8 @@
 /* eslint-disable no-case-declarations */
-import fs from 'fs';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export default function middleware(req: NextRequest) {
-  // read the file
-  const file = fs.readFileSync('./.env', 'utf8');
-  console.log('file', file);
-
   switch (process.env.NEXT_PUBLIC_URL) {
     case 'https://dev.lhowsam.com':
       const basicAuth = req.headers.get('Authorization')?.split(' ')[1];
