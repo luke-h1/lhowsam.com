@@ -25,13 +25,13 @@ const links: FooterLink[] = [
   },
   {
     id: 3,
-    text: 'Contact',
-    href: '/contact',
+    text: 'Blog',
+    href: '/blog',
   },
   {
     id: 4,
-    text: 'Blog',
-    href: '/blog',
+    text: 'Projects',
+    href: '/projects',
   },
 ];
 

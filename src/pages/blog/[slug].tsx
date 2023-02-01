@@ -7,7 +7,6 @@ import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
 import imageService from '@frontend/services/imageService';
 import postService from '@frontend/services/postService';
-import { theme } from '@frontend/styles/theme.css';
 import { Post } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
@@ -84,12 +83,6 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
             alt={post.image.alt ?? post.title}
           />
         </Box>
-        <dl
-          style={{
-            borderColor: theme.color.borderFaint,
-            border: '1px solid',
-          }}
-        />
         <Spacer height="sm" />
         <Text as="time" dateTime={post.publishedAt} color="foregroundNeutral">
           <FormattedDate>{post.publishedAt}</FormattedDate>
