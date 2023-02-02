@@ -59,8 +59,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         
-      - name: Install dependencies 
-        run: pnpm i
+      - name: Install dependencies
+        run: pnpm i --no-frozen-lockfile
 
       - name: Install Playwright Browsers
         run: ./node_modules/.bin/playwright install --with-deps chromium
