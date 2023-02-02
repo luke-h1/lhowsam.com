@@ -35,6 +35,27 @@ const PostCard = ({ post }: Props) => {
       </Box>
       <Spacer height={{ xs: 'sm', sm: 'md' }} />
       <Text color="foregroundNeutral">{post.intro}</Text>
+      <Spacer height={{ xs: 'sm', sm: 'md' }} />
+      <Box flexGrow={1}>
+        <Box
+          flexShrink={0}
+          display="flex"
+          flexDirection={{
+            sm: 'row-reverse',
+          }}
+          alignItems={{ sm: 'flex-end' }}
+          justifyContent={{ sm: 'flex-end' }}
+          gap="sm"
+          maxWidth="text"
+        >
+          {post.tags.length > 0 &&
+            post.tags.slice(0, 3).map(tag => (
+              <Text fontSize="sm" color="foregroundAction" key={tag._id}>
+                {tag.title}
+              </Text>
+            ))}
+        </Box>
+      </Box>
     </List.Item>
   );
 };

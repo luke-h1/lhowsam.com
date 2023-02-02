@@ -7,6 +7,7 @@ export const viewport = style({
   right: typography.spacing.md,
   bottom: typography.spacing.md,
   display: 'grid',
+  zIndex: 10,
 });
 
 export const root = style({
