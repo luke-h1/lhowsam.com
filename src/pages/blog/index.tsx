@@ -10,14 +10,28 @@ import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import { NextPage } from 'next';
+import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 
 interface Props {
   posts: Record<string, Post[]>;
 }
 
 const BlogIndexPage: NextPage<Props> = ({ posts }) => {
+  const router = useRouter();
   return (
     <>
+      <NextSeo
+        title="Blog"
+        canonical={`https://lhowsam.com${router.asPath}`}
+        description="My blog posts"
+        openGraph={{
+          defaultImageWidth: 1200,
+          defaultImageHeight: 630,
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `Blog | lhowsam.com`,
+        }}
+      />
       <Box
         as="header"
         textAlign={{ md: 'center' }}
