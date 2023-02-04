@@ -50,7 +50,7 @@ const PostCard = ({ post }: Props) => {
         >
           {post.tags.length > 0 &&
             post.tags.slice(0, 3).map(tag => (
-              <Text fontSize="sm" color="foregroundAction" key={tag._id}>
+              <Text fontSize="sm" color="foregroundNeutral" key={tag._id}>
                 {tag.title}
               </Text>
             ))}
