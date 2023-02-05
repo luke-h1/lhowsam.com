@@ -83,7 +83,7 @@ jobs:
         run: ./node_modules/.bin/playwright install --with-deps chromium
 
       - name: local UI tests
-        run: pnpm run e2e:local
+        run: pnpm e2e:local
 
       - uses: actions/upload-artifact@v3
         if: always()
