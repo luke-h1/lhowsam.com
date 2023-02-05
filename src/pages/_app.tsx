@@ -1,23 +1,35 @@
+import 'the-new-css-reset';
+import Banner from '@frontend/components/Banner/Banner';
+import CommandMenu from '@frontend/components/CommandMenu/CommandMenu';
+import Footer from '@frontend/components/Footer/Footer';
+import Gradient from '@frontend/components/Graident/Gradient';
+import SkipLink from '@frontend/components/SkipLink/SkipLink';
+import { Toaster } from '@frontend/components/Toast/Toast';
 import gtagService from '@frontend/utils/gtag';
 import { isDevelopment } from '@frontend/utils/isDevelopment';
+import { ToastProvider } from '@radix-ui/react-toast';
+import { TooltipProvider } from '@radix-ui/react-tooltip';
 import {
   Hydrate,
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
 import { Analytics } from '@vercel/analytics/react';
-import { DefaultSeo } from 'next-seo';
+import { MotionConfig } from 'framer-motion';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import { DefaultSeo } from 'next-seo';
+import { ThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
-import '@fontsource/poppins';
-import '@frontend/styles/global.scss';
+import '@frontend/styles/app.css';
+import '@frontend/styles/tokyo-night-dark.min.css';
 
 type Props = AppProps<{ dehydratedState: unknown }>;
 
 const App = ({ Component, pageProps, router }: Props) => {
   const canonicalUrl = `${process.env.NEXT_PUBLIC_URL}${router.asPath}`;
   const [queryClient] = useState(() => new QueryClient());
+  const [open, setOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -68,7 +80,25 @@ const App = ({ Component, pageProps, router }: Props) => {
             content="width=device-width, user-scalable=yes, initial-scale=1.0, viewport-fit=cover"
           />
         </Head>
-        <Component {...pageProps} />
+        <MotionConfig reducedMotion="user">
+          <ThemeProvider attribute="class" defaultTheme="system">
+            <ToastProvider>
+              <TooltipProvider>
+                <SkipLink />
+                <Gradient />
+                <div className="container">
+                  <Banner setOpen={setOpen} />
+                  <main id="main">
+                    <Component {...pageProps} />
+                  </main>
+                  <CommandMenu open={open} setOpen={setOpen} />
+                  <Toaster />
+                </div>
+                <Footer />
+              </TooltipProvider>
+            </ToastProvider>
+          </ThemeProvider>
+        </MotionConfig>
         <Analytics />
       </Hydrate>
     </QueryClientProvider>

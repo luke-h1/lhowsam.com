@@ -2,8 +2,7 @@ name: Deploy development
 on:
   push:
     branches:
-      # - dev
-      - next
+      - dev
   workflow_dispatch:
 env:
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
@@ -64,7 +63,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
 
-      - name: Install dependencies
+      - name: Install dependencies 
         run: pnpm i --no-frozen-lockfile
 
       - name: format
@@ -86,7 +85,8 @@ jobs:
         run: ./node_modules/.bin/playwright install --with-deps chromium
 
       - name: local UI tests
-        run: pnpm run e2e:local
+        run: BASE_URL='http://localhost:3000' ./node_modules/.bin/playwright test --config=playwright-ci.config.ts
+        
       - uses: actions/upload-artifact@v3
         if: always()
         with:

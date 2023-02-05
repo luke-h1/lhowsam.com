@@ -1,22 +1,27 @@
-import Hero from '@frontend/components/Hero';
-import Page from '@frontend/components/Page';
-import RecentPosts from '@frontend/components/RecentPosts/RecentPosts';
+/* eslint-disable react/jsx-curly-brace-presence */
+import Box from '@frontend/components/Box/Box';
+import Heading from '@frontend/components/Heading/Heading';
+import List from '@frontend/components/List/List';
+import PostCard from '@frontend/components/PostCard/PostCard';
+import Spacer from '@frontend/components/Spacer/Spacer';
+import Text from '@frontend/components/Text/Text';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
-import { GetStaticProps } from 'next';
-import { NextSeo } from 'next-seo';
+import { GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
+import Balancer from 'react-wrap-balancer';
 
 interface Props {
   posts: Post[];
 }
 
-const Indexpage = ({ posts }: Props) => {
+const Indexpage: NextPage<Props> = ({ posts }) => {
   const router = useRouter();
 
   return (
-    <Page>
+    <>
       <NextSeo
         title="Home"
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -28,9 +33,50 @@ const Indexpage = ({ posts }: Props) => {
           title: `Home | lhowsam.com`,
         }}
       />
-      <Hero title="Hey 👋, I'm Luke" description="I'm a Software Engineer" />
-      <RecentPosts posts={posts} />
-    </Page>
+      <Box
+        as="header"
+        textAlign={{ md: 'center' }}
+        maxWidth="container"
+        marginX="auto"
+      >
+        <Heading fontSize={{ xs: 'xxl', sm: 'xxxl' }} as="h1">
+          Luke{' '}
+          <span role="separator" aria-orientation="vertical">
+            {'//'}
+          </span>{' '}
+          Software Engineer
+        </Heading>
+        <Spacer height="md" />
+        <Text
+          fontSize={{ xs: 'lg', sm: 'xl' }}
+          color="foregroundNeutral"
+          style={{
+            display: 'inline-flex',
+            marginBottom: '4rem',
+          }}
+        >
+          <Balancer ratio={0.25} data-testid="intro">
+            Hey, I&apos;m Luke. I like to work on big codebases where high
+            quality & maintainability are the norm. I currently like to work
+            with React, Next.js, Typescript & design systems. I'm always keen to
+            keep up with industry trends and new technologies.
+          </Balancer>
+        </Text>
+      </Box>
+      <Spacer height="xxxl" />
+      <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
+        <header>
+          <Heading fontSize="xl">Recent Posts</Heading>
+        </header>
+        <Spacer height="xxl" />
+        <List>
+          {posts &&
+            posts.map(post => (
+              <PostCard post={post} key={`${post._id}-${post.title}`} />
+            ))}
+        </List>
+      </Box>
+    </>
   );
 };
 export default Indexpage;
@@ -42,7 +88,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     return {
       props: {
         posts: [],
-        tags: [],
       },
     };
   }

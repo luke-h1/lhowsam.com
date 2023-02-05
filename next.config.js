@@ -1,6 +1,9 @@
 /**
  * @type {import('next').NextConfig}
  */
+const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
+
+const withVanillaExtract = createVanillaExtractPlugin();
 
 const ContentSecurityPolicy = `
  default-src 'self';
@@ -50,6 +53,12 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=()',
   },
 ];
+const fontheaders = [
+  {
+    key: 'Cache-Control',
+    value: 'public, max-age=31536000, immutable',
+  },
+];
 
 const nextConfig = {
   reactStrictMode: true,
@@ -77,16 +86,6 @@ const nextConfig = {
         destination: '/blog/next-js-ssr-notes',
         permanent: true,
       },
-      {
-        source: '/studio',
-        destination: 'https://cms.lhowsam.com',
-        permanent: true,
-      },
-      {
-        source: '/dev',
-        destination: 'https://dev.lhowsam.com',
-        permanent: true,
-      },
     ];
   },
   async headers() {
@@ -94,6 +93,10 @@ const nextConfig = {
       {
         source: '/(.*)',
         headers: securityHeaders,
+      },
+      {
+        source: '/fonts/inter-var-latin.woff2',
+        headers: fontheaders,
       },
     ];
   },
@@ -118,4 +121,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withVanillaExtract(nextConfig);

@@ -17,11 +17,14 @@ test.describe('project', () => {
     const projects = await page.$$('data-testid=project-link');
 
     for (let i = 0; i < projects.length; i += 1) {
-      await expect(page.locator('h3').nth(i)).toBeVisible();
-      await expect(page.locator('h3').nth(i)).not.toBeEmpty();
-
-      await expect(page.locator('p').nth(i)).toBeVisible();
+      await expect(
+        page.locator('[data-testid="project-title"]').nth(i),
+      ).toBeVisible();
       await expect(page.locator('p').nth(i)).not.toBeEmpty();
+
+      await expect(
+        page.locator('[data-testid="github"]').nth(i),
+      ).not.toBeEmpty();
 
       const link = await page
         .locator('[data-testid="project-link"]')
@@ -34,7 +37,8 @@ test.describe('project', () => {
 
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('h1')).not.toBeEmpty();
-      await expect(page.locator('article')).toBeVisible();
+
+      await expect(page.locator('[class="prose"]')).toBeVisible();
 
       await page.goto(`${baseUrl}/projects`);
     }
