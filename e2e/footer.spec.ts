@@ -8,36 +8,65 @@ test.describe('footer', () => {
   test.beforeAll(async ({ browser }) => {
     page = await browser.newPage();
     await page.goto(baseUrl);
+
+    // scroll to footer
+    await page.evaluate(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    });
   });
 
   test('should navigate correctly without errors', async () => {
-    const footer = await page.locator('[data-testid="footer"]');
-
-    await expect(footer).toBeVisible();
-
-    await expect(page.locator('[data-testid="footer-nav"]')).toBeVisible();
-
-    const homeLink = page.locator('[data-testid="footer-nav"] >> text=Home');
-    await expect(homeLink).toBeVisible();
+    await expect(page.locator('[data-testid="footer"]')).toBeVisible();
 
     // blog
-    const blogLink = page.locator('[data-testid="footer-nav"] >> text=Blog');
-    await expect(blogLink).toBeVisible();
-    await blogLink.click();
+    await page.click('[data-testid="footer"] >> text="Blog"');
     await expect(page.locator('h1').first()).toHaveText('Blog');
+    await page.goBack();
 
     // about
-    const aboutLink = page.locator('[data-testid="footer-nav"] >> text=About');
-    await expect(aboutLink).toBeVisible();
-    await aboutLink.click();
+    await page.click('[data-testid="footer"] >> text="About"');
     await expect(page.locator('h1').first()).toHaveText('About');
+    await page.goBack();
 
     // projects
-    const projectsLink = page.locator(
-      '[data-testid="footer-nav"] >> text=Projects',
-    );
-    await expect(projectsLink).toBeVisible();
-    await projectsLink.click();
+    await page.click('[data-testid="footer"] >> text="Projects"');
     await expect(page.locator('h1').first()).toHaveText('Projects');
+    await page.goBack();
+  });
+
+  test('has correct links', async () => {
+    await expect(page.locator('[data-testid="footer"]')).toBeVisible();
+
+    // github
+    await expect(
+      page.locator('[data-testid="footer"] >> text="Github"'),
+    ).toBeVisible();
+
+    // LinkedIn
+    await expect(
+      page.locator('[data-testid="footer"] >> text="Linkedin"'),
+    ).toBeVisible();
+
+    // Email
+    await expect(
+      page.locator('[data-testid="footer"] >> text="Email"'),
+    ).toBeVisible();
+  });
+
+  test('theme switcher switches theme correctly', async () => {
+    // select menu id = theme-select
+    await expect(page.locator('[id="theme-select"]')).toBeVisible();
+
+    // dark
+    await page.selectOption('[id="theme-select"]', 'dark');
+    await expect(page.locator('html')).toHaveAttribute('class', 'dark');
+
+    // light
+    await page.selectOption('[id="theme-select"]', 'light');
+    await expect(page.locator('html')).toHaveAttribute('class', 'light');
+
+    // system
+    await page.selectOption('[id="theme-select"]', 'light');
+    await expect(page.locator('html')).toHaveAttribute('class', 'light');
   });
 });

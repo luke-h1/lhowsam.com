@@ -55,7 +55,12 @@ const socialLinks: FooterLink[] = [
 
 const Footer = () => {
   return (
-    <Box as="article" className={styles.root} maxWidth={{ md: 'text' }}>
+    <Box
+      as="article"
+      className={styles.root}
+      maxWidth={{ md: 'text' }}
+      data-testid="footer"
+    >
       <div className={styles.container}>
         <div>
           <Heading color="foregroundAction">Navigate</Heading>

@@ -84,7 +84,12 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
           />
         </Box>
         <Spacer height="sm" />
-        <Text as="time" dateTime={post.publishedAt} color="foregroundNeutral">
+        <Text
+          as="time"
+          dateTime={post.publishedAt}
+          color="foregroundNeutral"
+          data-testid="time"
+        >
           <FormattedDate>{post.publishedAt}</FormattedDate>
         </Text>
       </Box>

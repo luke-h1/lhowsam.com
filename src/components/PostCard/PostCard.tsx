@@ -12,7 +12,7 @@ interface Props {
 
 const PostCard = ({ post }: Props) => {
   return (
-    <List.Item key={post._id}>
+    <List.Item>
       <Box
         display="flex"
         flexDirection={{ xs: 'column', sm: 'row-reverse' }}
@@ -26,15 +26,20 @@ const PostCard = ({ post }: Props) => {
           dateTime={post.publishedAt}
           color="foregroundNeutral"
           fontSize="sm"
+          data-testid="post-date"
         >
           {post.publishedAt}
         </Text>
         <Heading>
-          <Link href={`/blog/${post.slug.current}`}>{post.title}</Link>
+          <Link href={`/blog/${post.slug.current}`} data-testid="post-title">
+            {post.title}
+          </Link>
         </Heading>
       </Box>
       <Spacer height={{ xs: 'sm', sm: 'md' }} />
-      <Text color="foregroundNeutral">{post.intro}</Text>
+      <Text color="foregroundNeutral" data-testid="post-intro">
+        {post.intro}
+      </Text>
       <Spacer height={{ xs: 'sm', sm: 'md' }} />
       <Box flexGrow={1}>
         <Box
@@ -50,7 +55,12 @@ const PostCard = ({ post }: Props) => {
         >
           {post.tags.length > 0 &&
             post.tags.slice(0, 3).map(tag => (
-              <Text fontSize="sm" color="foregroundNeutral" key={tag._id}>
+              <Text
+                fontSize="sm"
+                color="foregroundNeutral"
+                key={tag._id}
+                data-testid="post-tags"
+              >
                 {tag.title}
               </Text>
             ))}

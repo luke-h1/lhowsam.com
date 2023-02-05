@@ -55,7 +55,7 @@ const Indexpage: NextPage<Props> = ({ posts }) => {
             marginBottom: '4rem',
           }}
         >
-          <Balancer ratio={0.25}>
+          <Balancer ratio={0.25} data-testid="intro">
             Hey, I&apos;m Luke. I like to work on big codebases where high
             quality & maintainability are the norm. I currently like to work
             with React, Next.js, Typescript & design systems. I'm always keen to
@@ -88,7 +88,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     return {
       props: {
         posts: [],
-        tags: [],
       },
     };
   }

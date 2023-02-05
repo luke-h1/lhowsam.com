@@ -14,8 +14,12 @@ const ProjectItem = ({ project }: Props) => {
   return (
     <article>
       <div className={styles.content}>
-        <Link href={`/projects/${project.slug.current}`} variant="neutral">
-          <h2>{project.title}</h2>
+        <Link
+          href={`/projects/${project.slug.current}`}
+          variant="neutral"
+          data-testid="project-link"
+        >
+          <h2 data-testid="project-title">{project.title}</h2>
           <p>{project.intro}</p>
         </Link>
         <br />
@@ -34,7 +38,7 @@ const ProjectItem = ({ project }: Props) => {
         )}
         {project.githubUrl && (
           <Link href={project.githubUrl} className={styles.anchor}>
-            <Text>Github</Text>
+            <Text data-testid="github">Github</Text>
           </Link>
         )}
       </Box>

@@ -59,7 +59,7 @@ const BlogIndexPage: NextPage<Props> = ({ posts }) => {
             {i > 0 && <Spacer height="xxxxl" />}
             <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
               <header>
-                <Heading fontSize="xl" id={year}>
+                <Heading fontSize="xl" id={year} data-testid={`post-${year}`}>
                   {year}
                 </Heading>
               </header>
