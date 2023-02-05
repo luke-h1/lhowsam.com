@@ -50,15 +50,17 @@ const AboutPage = () => {
             color="foregroundNeutral"
             style={{
               display: 'inline-flex',
-              marginBottom: '1rem',
             }}
           >
             <Balancer ratio={0.25}>
               Hey 👋, I'm Luke. I'm a Software Engineer currently based in
-              Sheffield, UK{' '}
+              Sheffield, UK. I'm comfortable with both frontend/backend (React,
+              Node, Next.js, Python, Django etc.) & devops tech stacks (Azure,
+              AWS, digitalocean, Ansible etc.). I'm always keen to keep up with
+              industry trends and new technologies.
             </Balancer>
           </Text>
-          <Box as="div" style={{ marginBottom: '2rem' }}>
+          <Box as="div" style={{ marginBottom: '2rem', marginTop: '2rem' }}>
             <Link href="https://www.linkedin.com/in/lukehowsam">
               <Linkedin
                 size={20}
@@ -71,33 +73,13 @@ const AboutPage = () => {
             <Link href="https://github.com/luke-h1">
               <GitHub size={20} />
             </Link>
-            <Text
-              style={{
-                marginTop: '1rem',
-              }}
-            >
+            <Text>
               <Link href="/static/cv-latest.pdf" variant="highlight">
                 Resume
               </Link>
             </Text>
           </Box>
-          <Box style={{ marginBottom: '2rem' }}>
-            <Text
-              fontSize={{ xs: 'lg', sm: 'xl' }}
-              color="foregroundNeutral"
-              style={{
-                maxWidth: 'text',
-                textAlign: 'left',
-                marginBottom: '0.75rem',
-              }}
-            >
-              Right now, I'm working as a Software Engineer. I'm comfortable
-              with both frontend/backend (React, Node, Next.js, Python, Django
-              etc.) & devops tech stacks (Azure, AWS, digitalocean, Ansible
-              etc.). I'm always keen to keep up with industry trends and new
-              technologies.
-            </Text>
-          </Box>
+          <Box style={{ marginBottom: '2rem' }} />
           <Box as="div">
             <Heading
               fontSize={{ xs: 'xxl', sm: 'xxxl' }}

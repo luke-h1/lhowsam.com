@@ -12,6 +12,7 @@ import { Post } from '@frontend/types/sanity';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
+import { Fragment } from 'react';
 
 interface Props {
   posts: Record<string, Post[]>;
@@ -55,7 +56,7 @@ const BlogIndexPage: NextPage<Props> = ({ posts }) => {
         .reverse()
         // eslint-disable-next-line no-shadow
         .map(([year, posts], i) => (
-          <>
+          <Fragment key={year}>
             {i > 0 && <Spacer height="xxxxl" />}
             <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
               <header>
@@ -71,7 +72,7 @@ const BlogIndexPage: NextPage<Props> = ({ posts }) => {
                   ))}
               </List>
             </Box>
-          </>
+          </Fragment>
         ))}
     </>
   );
