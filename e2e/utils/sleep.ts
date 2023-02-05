@@ -1,3 +1,4 @@
-export const sleep = (ms: number) =>
+export const sleep = (ms: number) => {
   // eslint-disable-next-line no-promise-executor-return
-  new Promise(resolve => setTimeout(resolve, ms));
+  return new Promise(resolve => setTimeout(resolve, ms));
+};

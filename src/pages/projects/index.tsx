@@ -1,22 +1,23 @@
-import Heading from '@frontend/components/Heading';
-import Page from '@frontend/components/Page';
-import ProjectItem from '@frontend/components/ProjectItem';
+import Box from '@frontend/components/Box/Box';
+import Heading from '@frontend/components/Heading/Heading';
+import List from '@frontend/components/List/List';
+import ProjectItem from '@frontend/components/ProjectItem/ProjectItem';
+import Spacer from '@frontend/components/Spacer/Spacer';
 import siteConfig from '@frontend/config/site';
 import projectService from '@frontend/services/projectService';
 import { Project } from '@frontend/types/sanity';
-import { GetStaticProps } from 'next';
-import { NextSeo } from 'next-seo';
+import { GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 
 interface Props {
   projects: Project[];
 }
 
-const ProjectIndexPage = ({ projects }: Props) => {
+const ProjectPage: NextPage<Props> = ({ projects }) => {
   const router = useRouter();
-
   return (
-    <Page>
+    <>
       <NextSeo
         title="Projects"
         canonical={`https://lhowsam.com/${router.asPath}`}
@@ -28,18 +29,31 @@ const ProjectIndexPage = ({ projects }: Props) => {
           title: `Projects | lhowsam.com`,
         }}
       />
-      <Heading as="h1">Projects</Heading>
-      {projects &&
-        projects.map(project => (
-          <div key={project._id}>
-            <ProjectItem project={project} key={project._id} />
-            <hr className="break" />
-          </div>
-        ))}
-    </Page>
+      <Box
+        as="header"
+        textAlign={{ md: 'center' }}
+        maxWidth="container"
+        marginX="auto"
+      >
+        <Heading fontSize={{ xs: 'xxl', sm: 'xxxl' }} as="h1">
+          Projects
+        </Heading>
+        <Spacer height="sm" />
+        <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
+          {projects &&
+            projects.map(project => (
+              <List key={project._id}>
+                <Spacer height="xxl" />
+                <ProjectItem project={project} />
+              </List>
+            ))}
+        </Box>
+      </Box>
+    </>
   );
 };
-export default ProjectIndexPage;
+
+export default ProjectPage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const projects = await projectService.getAllProjects();

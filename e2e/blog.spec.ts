@@ -11,10 +11,20 @@ test.describe('blog', () => {
     await expect(page.locator('h1').first()).toHaveText('Blog');
   });
 
-  test('shows a listing of blog posts & slug page correctly', async () => {
+  test('orders blog posts by year correctly', async () => {
+    const years = ['2023', '2022', '2021', '2020'];
+
+    for (let i = 0; i < years.length; i += 1) {
+      // const locator = `[id="${years[i]}"}]`
+      await expect(page.locator(`[id="${years[i]}"]`)).toBeVisible();
+      await expect(page.locator(`[id="${years[i]}"]`)).toHaveText(years[i]);
+    }
+  });
+
+  test('renders index & slug pages correctly', async () => {
     const links: string[] = [];
 
-    const posts = await page.$$('data-testid=post-link');
+    const posts = await page.$$('data-testid=post-title');
 
     for (let i = 0; i < posts.length; i += 1) {
       await expect(page.locator('h2').nth(i)).toBeVisible();
@@ -24,7 +34,7 @@ test.describe('blog', () => {
       await expect(page.locator('p').nth(i)).not.toBeEmpty();
 
       const link = await page
-        .locator('[data-testid="post-link"]')
+        .locator('[data-testid="post-title"]')
         .nth(i)
         .getAttribute('href');
 
@@ -34,24 +44,9 @@ test.describe('blog', () => {
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('h1')).not.toBeEmpty();
 
-      await expect(page.locator('img').first()).toBeVisible();
-      await expect(page.locator('article').first()).toBeVisible();
+      await expect(page.locator('[data-testid="time"]')).toBeVisible();
 
-      await expect(
-        page.locator('[data-testid="recommended-post-title"]').nth(0),
-      ).toBeVisible();
-
-      await expect(
-        page.locator('[data-testid="recommended-post-title"]').nth(0),
-      ).not.toBeEmpty();
-
-      await expect(
-        page.locator('[data-testid="recommended-post-title"]').nth(1),
-      ).toBeVisible();
-
-      await expect(
-        page.locator('[data-testid="recommended-post-title"]').nth(1),
-      ).not.toBeEmpty();
+      await expect(page.locator('[class="prose"]')).toBeVisible();
 
       await page.goto(`${baseUrl}/blog`);
 

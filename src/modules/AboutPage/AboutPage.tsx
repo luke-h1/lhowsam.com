@@ -1,17 +1,17 @@
-import ButtonGroup from '@frontend/components/ButtonGroup';
-import Heading from '@frontend/components/Heading';
-import Page from '@frontend/components/Page';
-import Skills from '@frontend/components/Skills';
-import { NextSeo } from 'next-seo';
-import Image from 'next/legacy/image';
-import Link from 'next/link';
+import Box from '@frontend/components/Box/Box';
+import Heading from '@frontend/components/Heading/Heading';
+import Link from '@frontend/components/Link/Link';
+import Skills from '@frontend/components/Skills/Skills';
+import Spacer from '@frontend/components/Spacer/Spacer';
+import Text from '@frontend/components/Text/Text';
+import { theme } from '@frontend/styles/theme.css';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
+import { GitHub, Linkedin } from 'react-feather';
 import Balancer from 'react-wrap-balancer';
-import styles from './AboutPage.module.scss';
 
 const AboutPage = () => {
   const router = useRouter();
-
   return (
     <>
       <NextSeo
@@ -25,54 +25,76 @@ const AboutPage = () => {
           title: `About | lhowsam.com`,
         }}
       />
-      <Page>
-        <Heading as="h1">About</Heading>
-        <div className={styles.doubleContent}>
-          <div className={styles.sideImage}>
-            <div className={styles.containerImage}>
-              <Image
-                src="/images/luke.jpeg"
-                blurDataURL="/images/luke.jpeg"
-                alt="Luke Howsam"
-                layout="fixed"
-                placeholder="blur"
-                priority
-                quality={100}
-                width={300}
-                height={340}
+      <Box
+        as="header"
+        textAlign={{ md: 'center' }}
+        maxWidth="container"
+        marginX="auto"
+      >
+        <Heading fontSize={{ xs: 'xxl', sm: 'xxxl' }} as="h1">
+          About
+        </Heading>
+        <Spacer height="md" />
+        {/* <Box as="section" marginX="auto">
+          <Image
+            src="/images/luke.jpeg"
+            alt="Luke Howsam"
+            width={175}
+            height={200}
+            className={styles.image}
+          />
+        </Box> */}
+        <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
+          <Text
+            fontSize={{ xs: 'lg', sm: 'xl' }}
+            color="foregroundNeutral"
+            style={{
+              display: 'inline-flex',
+            }}
+          >
+            <Balancer ratio={0.25}>
+              Hey 👋, I'm Luke. I'm a Software Engineer currently based in
+              Sheffield, UK. I'm comfortable with both frontend/backend (React,
+              Node, Next.js, Python, Django etc.) & devops tech stacks (Azure,
+              AWS, digitalocean, Ansible etc.). I'm always keen to keep up with
+              industry trends and new technologies.
+            </Balancer>
+          </Text>
+          <Box as="div" style={{ marginBottom: '2rem', marginTop: '2rem' }}>
+            <Link href="https://www.linkedin.com/in/lukehowsam">
+              <Linkedin
+                size={20}
+                color={theme.color.foreground}
+                style={{
+                  marginRight: '1rem',
+                }}
               />
-            </div>
-          </div>
-          <div className={styles.sideContent}>
-            <h2>
-              <Balancer>
-                Hey 👋, I'm Luke. I'm a Software Engineer currently based in
-                Sheffield, UK
-              </Balancer>
-            </h2>
-            <hr />
-            <p>
-              Right now, I'm working as a Software Engineer. I'm comfortable
-              with both frontend/backend (React, Node, Next.js, Python, Django
-              etc.) &amp; devops tech stacks (Azure, AWS, digitalocean, Ansible
-              etc.). I'm always keen to keep up with industry trends and new
-              technologies.
-            </p>
-            <p>In my spare time I love to travel, read, and code</p>
-            <br />
-            <ButtonGroup>
-              <Link href="/static/cv-latest.pdf" className="button">
+            </Link>
+            <Link href="https://github.com/luke-h1">
+              <GitHub size={20} />
+            </Link>
+            <Text>
+              <Link href="/static/cv-latest.pdf" variant="highlight">
                 Resume
               </Link>
-              <a href="mailto:luke.howsam@yahoo.com" className="button">
-                Get in touch
-              </a>
-            </ButtonGroup>
-            <h2 className="title">Skills:</h2>
+            </Text>
+          </Box>
+          <Box style={{ marginBottom: '2rem' }} />
+          <Box as="div">
+            <Heading
+              fontSize={{ xs: 'xxl', sm: 'xxxl' }}
+              as="h3"
+              style={{
+                textAlign: 'left',
+                marginBottom: '2rem',
+              }}
+            >
+              Skills
+            </Heading>
             <Skills />
-          </div>
-        </div>
-      </Page>
+          </Box>
+        </Box>
+      </Box>
     </>
   );
 };

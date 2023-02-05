@@ -1,27 +1,33 @@
-import Page from '@frontend/components/Page';
-import ContentRenderer from '@frontend/components/mdx/ContentRenderer';
-import customMdxComponents from '@frontend/components/mdx/MdxComponents';
+import Box from '@frontend/components/Box/Box';
+import FormattedDate from '@frontend/components/FormattedDate';
+import Heading from '@frontend/components/Heading/Heading';
+import Components from '@frontend/components/MDXComponents';
+import Prose from '@frontend/components/Prose/Prose';
+import Spacer from '@frontend/components/Spacer/Spacer';
+import Text from '@frontend/components/Text/Text';
 import imageService from '@frontend/services/imageService';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
-import mdxToHtml, { MdxResult } from '@frontend/utils/mdxToHtml';
-import { MDXProvider } from '@mdx-js/react';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { MDXRemote } from 'next-mdx-remote';
-import { ArticleJsonLd, NextSeo } from 'next-seo';
+import mdxToHtml from '@frontend/utils/mdxToHtml';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { NextSeo } from 'next-seo';
 
 interface Props {
-  transformedMdx: MdxResult;
   post: Post;
-  recommendedPosts: Post[];
+  compiledSource: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
 }
 
-const BlogSlugPage = ({ post, transformedMdx, recommendedPosts }: Props) => {
+const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
   const router = useRouter();
 
   return (
-    <Page>
+    <article>
       <NextSeo
         title={post.title}
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -46,40 +52,61 @@ const BlogSlugPage = ({ post, transformedMdx, recommendedPosts }: Props) => {
           },
         }}
       />
-      <ArticleJsonLd
-        url={`https://lhowsam.com${router.asPath}`}
-        authorName="Luke Howsam"
-        dateModified={post.publishedAt}
-        datePublished={post.publishedAt}
-        description={post.intro}
-        images={[imageService.urlFor(post.image.asset)]}
-        publisherLogo="https://lhowsam.com/static/images/logo.png"
-        publisherName="lhowsam.com"
-        title={post.title}
-        type="BlogPosting"
-      />
-      <main>
-        <MDXProvider
-          components={{
-            customMdxComponents,
+      <Box
+        as="header"
+        maxWidth="text"
+        marginX="auto"
+        textAlign={{ md: 'center' }}
+      >
+        <Heading
+          fontSize="xxl"
+          as="h1"
+          style={{
+            marginBottom: '1rem',
           }}
         >
-          <ContentRenderer
-            data={post}
-            recommendedPosts={{
-              posts: recommendedPosts,
-              tags: post.tags,
+          {post.title}
+        </Heading>
+
+        <Box>
+          <Image
+            src={imageService.urlFor(post.image.asset)}
+            width={950}
+            height={330}
+            priority
+            placeholder="blur"
+            blurDataURL={imageService.urlFor(post.image.asset)}
+            style={{
+              borderRadius: '0.5rem',
+              objectFit: 'contain',
             }}
-          >
-            <MDXRemote {...transformedMdx.compiledSource} key={post._id} />
-          </ContentRenderer>
-        </MDXProvider>
-      </main>
-    </Page>
+            alt={post.image.alt ?? post.title}
+          />
+        </Box>
+        <Spacer height="sm" />
+        <Text
+          as="time"
+          dateTime={post.publishedAt}
+          color="foregroundNeutral"
+          data-testid="time"
+        >
+          <FormattedDate>{post.publishedAt}</FormattedDate>
+        </Text>
+      </Box>
+
+      <Spacer height="xxxl" />
+      <Box maxWidth="text" marginX="auto">
+        <Prose>
+          <MDXRemote
+            components={Components}
+            compiledSource={compiledSource.compiledSource}
+          />
+        </Prose>
+      </Box>
+    </article>
   );
 };
-
-export default BlogSlugPage;
+export default PostPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -90,7 +117,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const post = await postService.getPost(params?.slug as string);
-  const recommendedPosts = await postService.getRecommendedPosts(post._id);
 
   if (!post) {
     return {
@@ -98,23 +124,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
       notFound: true,
     };
   }
-  const transformedMdx = await mdxToHtml(post.content);
-
-  if (!recommendedPosts) {
-    return {
-      props: {
-        post,
-        recommendedPosts: [],
-        transformedMdx,
-      },
-    };
-  }
+  const { compiledSource } = await mdxToHtml(post.content);
 
   return {
     props: {
       post,
-      recommendedPosts,
-      transformedMdx,
+      compiledSource,
     },
   };
 };

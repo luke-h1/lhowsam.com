@@ -11,9 +11,9 @@ test.describe('index', () => {
   });
 
   test('should render correctly', async () => {
-    await expect(page.locator("text='Hey 👋, I'm Luke'")).toBeVisible();
+    await expect(page.locator('[data-testid="intro"]')).toBeVisible();
 
-    await expect(page.locator("text='I'm a Software Engineer'")).toBeVisible();
+    await expect(page.locator("text='Recent Posts'")).toBeVisible();
   });
 
   test('should display posts', async () => {
@@ -21,6 +21,11 @@ test.describe('index', () => {
       await expect(
         page.locator('[data-testid="post-title"]').nth(i),
       ).toBeVisible();
+
+      await expect(
+        page.locator('[data-testid="post-date"]').nth(i),
+      ).toBeVisible();
+
       await expect(
         page.locator('[data-testid="post-intro"]').nth(i),
       ).toBeVisible();
@@ -31,6 +36,11 @@ test.describe('index', () => {
       await expect(
         page.locator('[data-testid="post-title"]').nth(i),
       ).not.toHaveText('');
+
+      await expect(
+        page.locator('[data-testid="post-date"]').nth(i),
+      ).not.toHaveText('');
+
       await expect(
         page.locator('[data-testid="post-intro"]').nth(i),
       ).not.toHaveText('');

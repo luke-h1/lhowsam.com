@@ -1,25 +1,29 @@
-import Page from '@frontend/components/Page';
-import ContentRenderer from '@frontend/components/mdx/ContentRenderer';
-import customMdxComponents from '@frontend/components/mdx/MdxComponents';
+import Box from '@frontend/components/Box/Box';
+import Heading from '@frontend/components/Heading/Heading';
+import Components from '@frontend/components/MDXComponents';
+import Prose from '@frontend/components/Prose/Prose';
+import Spacer from '@frontend/components/Spacer/Spacer';
 import projectService from '@frontend/services/projectService';
 import { Project } from '@frontend/types/sanity';
-import mdxToHtml, { MdxResult } from '@frontend/utils/mdxToHtml';
-import { MDXProvider } from '@mdx-js/react';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { MDXRemote } from 'next-mdx-remote';
-import { ArticleJsonLd, NextSeo } from 'next-seo';
+import mdxToHtml from '@frontend/utils/mdxToHtml';
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { NextSeo } from 'next-seo';
 
 interface Props {
-  transformedMdx: MdxResult;
   project: Project;
+  compiledSource: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
 }
 
-const ProjectSlugPage = ({ project, transformedMdx }: Props) => {
+const PostPage: NextPage<Props> = ({ project, compiledSource }) => {
   const router = useRouter();
 
   return (
-    <Page>
+    <article>
       <NextSeo
         title={project.title}
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -29,36 +33,41 @@ const ProjectSlugPage = ({ project, transformedMdx }: Props) => {
           defaultImageHeight: 630,
           url: `https://lhowsam.com${router.asPath}`,
           title: `${project.title} | lhowsam.com`,
+          article: {
+            authors: ['Luke Howsam'],
+          },
         }}
       />
-      <ArticleJsonLd
-        url={`https://lhowsam.com${router.asPath}`}
-        authorName="Luke Howsam"
-        description={project.intro}
-        publisherLogo="https://lhowsam.com/static/images/logo.png"
-        publisherName="lhowsam.com"
-        title={project.title}
-        isAccessibleForFree
-        type="Article"
-        datePublished=""
-        images={[]}
-      />
-      <main>
-        <MDXProvider
-          components={{
-            customMdxComponents,
+      <Box
+        as="header"
+        maxWidth="text"
+        marginX="auto"
+        textAlign={{ md: 'center' }}
+      >
+        <Heading
+          fontSize="xxl"
+          as="h1"
+          style={{
+            marginBottom: '1rem',
           }}
         >
-          <ContentRenderer data={project}>
-            <MDXRemote {...transformedMdx.compiledSource} />
-          </ContentRenderer>
-        </MDXProvider>
-      </main>
-    </Page>
+          {project.title}
+        </Heading>
+        <Spacer height="sm" />
+      </Box>
+      <Spacer height="xxxl" />
+      <Box maxWidth="text" marginX="auto">
+        <Prose>
+          <MDXRemote
+            components={Components}
+            compiledSource={compiledSource.compiledSource}
+          />
+        </Prose>
+      </Box>
+    </article>
   );
 };
-
-export default ProjectSlugPage;
+export default PostPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
@@ -77,12 +86,12 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
     };
   }
 
-  const transformedMdx = await mdxToHtml(project.content);
+  const { compiledSource } = await mdxToHtml(project.content);
 
   return {
     props: {
       project,
-      transformedMdx,
+      compiledSource,
     },
   };
 };
