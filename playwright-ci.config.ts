@@ -12,6 +12,7 @@ import commonConfig from './playwright-common.config';
  */
 const config: PlaywrightTestConfig = {
   ...commonConfig,
+  workers: 10,
   webServer: [
     {
       command: 'npm run start',

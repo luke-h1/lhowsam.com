@@ -54,7 +54,6 @@ test.describe('footer', () => {
   });
 
   test('theme switcher switches theme correctly', async () => {
-    // select menu id = theme-select
     await expect(page.locator('[id="theme-select"]')).toBeVisible();
 
     // dark
