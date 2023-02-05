@@ -1,7 +1,10 @@
 import { test, expect, Page } from '@playwright/test';
 import { baseUrl } from './config/baseUrl';
+import { getMetaKey } from './utils/keys';
 
 let page: Page;
+
+const key = getMetaKey();
 
 test.describe('command menu', () => {
   test.beforeAll(async ({ browser }) => {
@@ -34,14 +37,14 @@ test.describe('command menu', () => {
   });
 
   test('CMD+K opens command menu when CMD+K is pressed', async () => {
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
     await expect(page.locator('[role="listbox"]')).toBeVisible();
   });
 
   test('renders navigation items correctly', async () => {
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
     await expect(page.locator('[role="listbox"]')).toBeVisible();
@@ -57,7 +60,7 @@ test.describe('command menu', () => {
   });
 
   test('navigation items navigate correctly', async () => {
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
     await expect(page.locator('[role="listbox"]')).toBeVisible();
@@ -70,7 +73,7 @@ test.describe('command menu', () => {
       'Luke // Software Engineer',
     );
 
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
     await expect(page.locator('[role="listbox"]')).toBeVisible();
@@ -79,7 +82,7 @@ test.describe('command menu', () => {
     await expect(page.locator('h1').first()).toHaveText('About');
     await page.goBack();
 
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
     await expect(page.locator('[role="listbox"]')).toBeVisible();
@@ -88,7 +91,7 @@ test.describe('command menu', () => {
     await expect(page.locator('h1').first()).toHaveText('Blog');
     await page.goBack();
 
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
     await expect(page.locator('[role="listbox"]')).toBeVisible();
@@ -97,14 +100,14 @@ test.describe('command menu', () => {
     await expect(page.locator('h1').first()).toHaveText('Projects');
     await page.goBack();
 
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
     await expect(page.locator('[role="listbox"]')).toBeVisible();
   });
 
   test('Appearance items changes theme correctly', async () => {
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
     await expect(page.locator('[role="listbox"]')).toBeVisible();
@@ -118,7 +121,7 @@ test.describe('command menu', () => {
     await page.focus('body');
     await expect(page.locator('text=Dark theme enabled').first()).toBeVisible();
 
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
     await expect(page.locator('[role="listbox"]')).toBeVisible();
@@ -134,7 +137,7 @@ test.describe('command menu', () => {
 
     await page.focus('body');
 
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
     await expect(page.locator('[role="listbox"]')).toBeVisible();
@@ -150,7 +153,7 @@ test.describe('command menu', () => {
   });
 
   test('Commands item copies currently URL to clipboard', async () => {
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
 
@@ -171,7 +174,7 @@ test.describe('command menu', () => {
   });
 
   test('renders Connect items correctly', async () => {
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
     await expect(page.locator('[role="listbox"]')).toBeVisible();
@@ -186,7 +189,7 @@ test.describe('command menu', () => {
 
   test('renders Appearance items correctly', async () => {
     await page.focus('body');
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
     await expect(page.locator('[role="listbox"]')).toBeVisible();
@@ -201,7 +204,7 @@ test.describe('command menu', () => {
   });
 
   test('renders Commands items correctly', async () => {
-    await page.keyboard.press('Meta+K', {
+    await page.keyboard.press(`${key}+K`, {
       delay: 300,
     });
     await expect(page.locator('[role="listbox"]')).toBeVisible();
