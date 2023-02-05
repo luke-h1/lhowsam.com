@@ -15,6 +15,7 @@
     "lint:style": "stylelint --fix src/**/*.{scss,css}",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
+    "e2e:local-ci": "BASE_URL='http://localhost:3000' ./node_modules/.bin/playwright test --config=playwright-ci.config.ts",
     "e2e:local": "BASE_URL='http://localhost:3000' ./node_modules/.bin/playwright test --config=playwright-common.config.ts",
     "e2e:local-open": "BASE_URL='http://localhost:3000' ./node_modules/.bin/playwright test --headed --config=playwright-common.config.ts",
     "e2e:dev": "BASE_URL='https://dev.lhowsam.com' ./node_modules/.bin/playwright test --config=playwright-dev.config.ts",

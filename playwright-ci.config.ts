@@ -12,12 +12,12 @@ import commonConfig from './playwright-common.config';
  */
 const config: PlaywrightTestConfig = {
   ...commonConfig,
-  workers: 4,
   webServer: [
     {
-      command: 'npm run start',
+      command: 'pnpm start',
       port: 3000,
       timeout: 20000,
+      reuseExistingServer: true,
     },
   ],
 };
