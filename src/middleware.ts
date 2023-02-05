@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server';
 
 export default function middleware(req: NextRequest) {
   switch (process.env.NEXT_PUBLIC_URL) {
-    case 'https://dev.lhowsam.com':
+    case 'https://dev.lhowsam.com': {
       const basicAuth = req.headers.get('Authorization')?.split(' ')[1];
       const url = req.nextUrl;
       if (basicAuth) {
@@ -19,6 +19,7 @@ export default function middleware(req: NextRequest) {
       }
       url.pathname = '/api/basicauth';
       return NextResponse.rewrite(url);
+    }
 
     // production
     default:

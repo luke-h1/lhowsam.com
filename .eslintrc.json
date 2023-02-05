@@ -93,6 +93,7 @@
     ],
     "react/jsx-one-expression-per-line": "off",
     "@typescript-eslint/ban-types": "off",
+    "no-case-declarations": "error",
     "@next/next/no-img-element": "off",
     "react/jsx-props-no-spreading": "off",
     "jsx-a11y/anchor-is-valid": "off",
