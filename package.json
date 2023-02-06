@@ -72,7 +72,7 @@
     "react-feather": "^2.0.10",
     "react-icons": "^4.7.1",
     "react-lite-youtube-embed": "^2.3.52",
-    "react-wrap-balancer": "^0.3.0",
+    "react-wrap-balancer": "^0.4.0",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-code-titles": "^1.1.0",
     "rehype-highlight": "^6.0.0",
