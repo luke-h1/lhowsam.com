@@ -102,7 +102,7 @@
     "@types/body-scroll-lock": "^3.1.0",
     "@types/jest": "^29.2.4",
     "@types/lodash": "^4.14.191",
-    "@types/node": "18.11.19",
+    "@types/node": "18.13.0",
     "@types/react": "18.0.27",
     "@types/rss": "^0.0.30",
     "@types/testing-library__dom": "^7.5.0",
