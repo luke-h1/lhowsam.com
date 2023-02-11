@@ -94,6 +94,9 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
+      - name: install production dependencies
+        run: pnpm i --production --no-frozen-lockfile
+
       - name: Deploy dev
         if: contains( github.ref, 'dev')
         run: |

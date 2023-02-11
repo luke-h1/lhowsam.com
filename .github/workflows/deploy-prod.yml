@@ -92,6 +92,9 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
+      - name: install production dependencies
+        run: pnpm i --production --no-frozen-lockfile
+
       - name: Deploy production
         run: vc -f --prod --token ${VERCEL_TOKEN}
         env:
