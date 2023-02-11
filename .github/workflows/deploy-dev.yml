@@ -12,7 +12,7 @@ env:
   BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
   BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
   NODE_VERSION: 18.12.1
-  PNPM_VERSION: 7.25.1
+  PNPM_VERSION: 7.27.0
 
 jobs:
   deploy: 
