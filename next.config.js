@@ -66,7 +66,6 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  swcMinify: true,
   eslint: {
     ignoreDuringBuilds: true,
   },
