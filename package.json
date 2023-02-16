@@ -37,7 +37,7 @@
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-toast": "^1.0.0",
     "@radix-ui/react-tooltip": "^1.0.0",
-    "@sanity/client": "^4.0.0",
+    "@sanity/client": "^5.2.1",
     "@sanity/image-url": "^1.0.1",
     "@tanstack/react-query": "4.24.6",
     "@vanilla-extract/babel-plugin": "^1.1.7",
