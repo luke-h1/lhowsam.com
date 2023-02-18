@@ -1,5 +1,4 @@
 const siteConfig = {
-  // defaultRevalidate: 30 * 30, // 15 minutes
-  defaultRevalidate: 1
+  defaultRevalidate: 30 * 30, // 15 minutes
 };
 export default siteConfig;
