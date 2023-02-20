@@ -39,7 +39,7 @@
     "@radix-ui/react-tooltip": "^1.0.0",
     "@sanity/client": "^5.2.1",
     "@sanity/image-url": "^1.0.1",
-    "@tanstack/react-query": "4.24.6",
+    "@tanstack/react-query": "4.24.9",
     "@vanilla-extract/babel-plugin": "^1.1.7",
     "@vanilla-extract/css": "^1.7.2",
     "@vanilla-extract/css-utils": "^0.1.2",
