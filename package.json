@@ -47,7 +47,7 @@
     "@vanilla-extract/recipes": "^0.3.0",
     "@vanilla-extract/sprinkles": "^1.4.1",
     "@vercel/analytics": "^0.1.6",
-    "@vercel/og": "^0.1.0",
+    "@vercel/og": "^0.2.0",
     "axios": "^1.2.1",
     "husky": "8.0.3",
     "check-node-version": "^4.2.1",
