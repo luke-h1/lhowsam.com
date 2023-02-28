@@ -14,7 +14,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
-import '@frontend/styles/tokyo-night-dark.min.css';
 
 interface Props {
   post: Post;
