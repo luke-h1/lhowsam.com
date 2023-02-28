@@ -22,7 +22,6 @@ import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
 import '@frontend/styles/app.css';
-import '@frontend/styles/tokyo-night-dark.min.css';
 
 const Footer = dynamic(() => import('@frontend/components/Footer/Footer'));
 
