@@ -2,16 +2,21 @@
 import Box from '@frontend/components/Box/Box';
 import Heading from '@frontend/components/Heading/Heading';
 import List from '@frontend/components/List/List';
-import PostCard from '@frontend/components/PostCard/PostCard';
+// import PostCard from '@frontend/components/PostCard/PostCard';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import { GetStaticProps, NextPage } from 'next';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import Balancer from 'react-wrap-balancer';
+
+const PostCard = dynamic(
+  () => import('@frontend/components/PostCard/PostCard'),
+);
 
 interface Props {
   posts: Post[];
