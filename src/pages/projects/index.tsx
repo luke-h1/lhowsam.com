@@ -1,14 +1,18 @@
 import Box from '@frontend/components/Box/Box';
 import Heading from '@frontend/components/Heading/Heading';
 import List from '@frontend/components/List/List';
-import ProjectItem from '@frontend/components/ProjectItem/ProjectItem';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import siteConfig from '@frontend/config/site';
 import projectService from '@frontend/services/projectService';
 import { Project } from '@frontend/types/sanity';
 import { GetStaticProps, NextPage } from 'next';
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
+
+const ProjectItem = dynamic(
+  () => import('@frontend/components/ProjectItem/ProjectItem'),
+);
 
 interface Props {
   projects: Project[];

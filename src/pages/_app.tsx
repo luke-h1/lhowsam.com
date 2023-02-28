@@ -1,7 +1,6 @@
 import 'the-new-css-reset';
 import Banner from '@frontend/components/Banner/Banner';
 import CommandMenu from '@frontend/components/CommandMenu/CommandMenu';
-import Footer from '@frontend/components/Footer/Footer';
 import Gradient from '@frontend/components/Graident/Gradient';
 import SkipLink from '@frontend/components/SkipLink/SkipLink';
 import { Toaster } from '@frontend/components/Toast/Toast';
@@ -17,12 +16,15 @@ import {
 import { Analytics } from '@vercel/analytics/react';
 import { MotionConfig } from 'framer-motion';
 import type { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
 import { useEffect, useState } from 'react';
 import '@frontend/styles/app.css';
 import '@frontend/styles/tokyo-night-dark.min.css';
+
+const Footer = dynamic(() => import('@frontend/components/Footer/Footer'));
 
 type Props = AppProps<{ dehydratedState: unknown }>;
 

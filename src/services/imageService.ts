@@ -7,7 +7,7 @@ import studioClient from '../utils/sanity';
 const imageService = {
   urlFor: (source: SanityImageSource): string => {
     const builder = imageUrlBuilder(studioClient);
-    return builder.image(source).url();
+    return builder.image(source).quality(80).url();
   },
 };
 
