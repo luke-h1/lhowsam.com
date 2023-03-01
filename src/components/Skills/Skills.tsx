@@ -18,6 +18,8 @@ import {
   SiYarn,
   SiCypress,
   SiJest,
+  SiAmazonaws,
+  SiMicrosoftazure,
 } from 'react-icons/si';
 import SkillItem from '../SkillItem/SkillItem';
 import styles from './Skills.module.scss';
@@ -45,6 +47,8 @@ const Skills = () => {
       <SkillItem icon={SiCypress} text="Cypress" />
       <SkillItem icon={BiTestTube} text="Playwright" />
       <SkillItem icon={SiJest} text="Jest" />
+      <SkillItem icon={SiAmazonaws} text="AWS" />
+      <SkillItem icon={SiMicrosoftazure} text="Azure" />
     </ul>
   );
 };
