@@ -9,7 +9,7 @@ import imageService from '@frontend/services/imageService';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { GetStaticPaths, NextPage } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
@@ -100,6 +100,8 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
           <MDXRemote
             components={Components}
             compiledSource={compiledSource.compiledSource}
+            scope={undefined}
+            frontmatter={undefined}
           />
         </Prose>
       </Box>
@@ -115,7 +117,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+export const getStaticProps = async ({
+  params,
+}: {
+  params?: { slug: string };
+}) => {
   const post = await postService.getPost(params?.slug as string);
 
   if (!post) {
