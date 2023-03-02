@@ -6,7 +6,7 @@ import Spacer from '@frontend/components/Spacer/Spacer';
 import projectService from '@frontend/services/projectService';
 import { Project } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { GetStaticPaths, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
@@ -61,6 +61,8 @@ const PostPage: NextPage<Props> = ({ project, compiledSource }) => {
           <MDXRemote
             components={Components}
             compiledSource={compiledSource.compiledSource}
+            scope={undefined}
+            frontmatter={undefined}
           />
         </Prose>
       </Box>
@@ -76,7 +78,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+export const getStaticProps = async ({
+  params,
+}: {
+  params?: { slug: string };
+}) => {
   const project = await projectService.getProject(params?.slug as string);
 
   if (!project) {
