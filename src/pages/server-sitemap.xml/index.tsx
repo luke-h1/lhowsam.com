@@ -1,7 +1,7 @@
 import postService from '@frontend/services/postService';
 import projectService from '@frontend/services/projectService';
 import { GetServerSideProps } from 'next';
-import { ISitemapField, getServerSideSitemap } from 'next-sitemap';
+import { ISitemapField, getServerSideSitemapLegacy } from 'next-sitemap';
 
 export const getServerSideProps: GetServerSideProps = async ctx => {
   const lastmod = new Date().toISOString();
@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
 
   const fields: ISitemapField[] = [...postFields, ...projectFields];
 
-  return getServerSideSitemap(ctx, fields);
+  return getServerSideSitemapLegacy(ctx, fields);
 };
 
 export default (): undefined => undefined;
