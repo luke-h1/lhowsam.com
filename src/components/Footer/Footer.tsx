@@ -63,7 +63,7 @@ const Footer = () => {
     >
       <div className={styles.container}>
         <div>
-          <Heading color="foregroundAction">Navigate</Heading>
+          <Heading color="foregroundNeutral">Navigate</Heading>
           <Spacer height="md" />
           <ul className={styles.links}>
             {links &&
@@ -75,7 +75,7 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <Heading color="foregroundAction">Get in touch</Heading>
+          <Heading color="foregroundNeutral">Get in touch</Heading>
           <Spacer height="md" />
           <ul className={styles.links}>
             {socialLinks &&
