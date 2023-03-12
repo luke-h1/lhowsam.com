@@ -2,7 +2,6 @@
 import Box from '@frontend/components/Box/Box';
 import Heading from '@frontend/components/Heading/Heading';
 import List from '@frontend/components/List/List';
-// import PostCard from '@frontend/components/PostCard/PostCard';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
 import siteConfig from '@frontend/config/site';
