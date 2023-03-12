@@ -60,7 +60,7 @@ const AboutPage = () => {
               industry trends and new technologies.
             </Balancer>
           </Text>
-          <Box as="div" style={{ marginBottom: '2rem', marginTop: '2rem' }}>
+          <Box as="div" style={{ marginBottom: '3rem', marginTop: '2rem' }}>
             <Link href="https://www.linkedin.com/in/lukehowsam">
               <Linkedin
                 size={20}
@@ -73,11 +73,12 @@ const AboutPage = () => {
             <Link href="https://github.com/luke-h1">
               <GitHub size={20} />
             </Link>
-            <Text>
-              <Link href="/static/cv-latest.pdf" variant="highlight">
-                Resume
-              </Link>
-            </Text>
+
+            <Box as="div" marginTop="md">
+              <Text>
+                <Link href="/static/cv-latest.pdf">Resume</Link>
+              </Text>
+            </Box>
           </Box>
           <Box style={{ marginBottom: '2rem' }} />
           <Box as="div">

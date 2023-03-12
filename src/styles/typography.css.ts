@@ -16,6 +16,7 @@ export const typography = createGlobalTheme(':root', {
   },
   fontWeight: {
     normal: '400',
+    semiBold: '500',
     bold: '575',
   },
   spacing: {
