@@ -3,6 +3,9 @@ import { theme } from './theme.css';
 import { typography } from './typography.css';
 
 const space = typography.spacing;
+const columns = ['1', '2', '3', '4', '-1'] as const;
+const rows = ['1', '-1'] as const;
+
 export type Space = keyof typeof space;
 
 const { radius, fontSize, fontWeight, contentWidth } = typography;
@@ -11,12 +14,12 @@ export type FontSize = keyof typeof fontSize;
 export type FontWeight = keyof typeof fontWeight;
 export type MaxWidth = keyof typeof contentWidth;
 
-const columns = {
-  '1/1': 'repeat(1, 1fr)',
-  '1/2': 'repeat(2, 1fr)',
-  '1/3': 'repeat(3, 1fr)',
-  '1/4': 'repeat(4, 1fr)',
-} as const;
+// const columns = {
+//   '1/1': 'repeat(1, 1fr)',
+//   '1/2': 'repeat(2, 1fr)',
+//   '1/3': 'repeat(3, 1fr)',
+//   '1/4': 'repeat(4, 1fr)',
+// } as const;
 
 const responsiveProperties = defineProperties({
   conditions: {
@@ -51,6 +54,10 @@ const responsiveProperties = defineProperties({
     rowGap: space,
     columnGap: space,
     gridTemplateColumns: columns,
+    gridColumnStart: columns,
+    gridColumnEnd: columns,
+    gridRowStart: rows,
+    gridRowEnd: rows,
     aspectRatio: ['1/1', '4/3'],
     maxWidth: contentWidth,
     width: space,
