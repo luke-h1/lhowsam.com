@@ -2,7 +2,8 @@ import { createGlobalTheme } from '@vanilla-extract/css';
 
 export const typography = createGlobalTheme(':root', {
   font: {
-    sans: "'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
+    poppins:
+      "'Poppins', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
     mono: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
   },
   fontSize: {

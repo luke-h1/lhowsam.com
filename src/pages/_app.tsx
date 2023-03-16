@@ -5,7 +5,7 @@ import Footer from '@frontend/components/Footer/Footer';
 import Gradient from '@frontend/components/Graident/Gradient';
 import SkipLink from '@frontend/components/SkipLink/SkipLink';
 import { Toaster } from '@frontend/components/Toast/Toast';
-import gtagService from '@frontend/utils/gtag';
+import { useMounted } from '@frontend/hooks/useMounted';
 import { isDevelopment } from '@frontend/utils/isDevelopment';
 import { ToastProvider } from '@radix-ui/react-toast';
 import { TooltipProvider } from '@radix-ui/react-tooltip';
@@ -20,9 +20,10 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import '@frontend/styles/app.css';
 import '@frontend/styles/tokyo-night-dark.min.css';
+import '@fontsource/poppins';
 
 type Props = AppProps<{ dehydratedState: unknown }>;
 
@@ -31,15 +32,15 @@ const App = ({ Component, pageProps, router }: Props) => {
   const [queryClient] = useState(() => new QueryClient());
   const [open, setOpen] = useState<boolean>(false);
 
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      gtagService.pageView(url);
-    };
-    router.events.on('routeChangeComplete', handleRouteChange);
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange);
-    };
-  }, [router.events]);
+  useMounted(() => {
+    import('@frontend/services/googleAnalyticsService').then(
+      ({ initGoogleAnalytics, logPageView }) => {
+        initGoogleAnalytics(process.env.GA_TRACKING_ID);
+        logPageView();
+        router.events.on('routeChangeComplete', logPageView);
+      },
+    );
+  });
 
   return (
     <QueryClientProvider client={queryClient}>
