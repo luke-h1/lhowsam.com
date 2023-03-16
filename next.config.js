@@ -50,12 +50,6 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=()',
   },
 ];
-const fontheaders = [
-  {
-    key: 'Cache-Control',
-    value: 'public, max-age=31536000, immutable',
-  },
-];
 
 /**
  * @type {import('next').NextConfig}
@@ -63,9 +57,6 @@ const fontheaders = [
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  experimental: {
-    appDir: true,
-  },
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -97,10 +88,6 @@ const nextConfig = {
         source: '/(.*)',
         headers: securityHeaders,
       },
-      {
-        source: '/fonts/inter-var-latin.woff2',
-        headers: fontheaders,
-      },
     ];
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -120,6 +107,7 @@ const nextConfig = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
+
     return config;
   },
 };
