@@ -1,6 +1,6 @@
 import ReactGA from 'react-ga4';
 
-let initialised = false;
+let initialised = process.env.NEXT_PUBLIC_URL === 'https://lhowsam.com';
 let gaTrackingId = '';
 
 export const googleAnalyticsCookies = ['_ga', '_gid', '_gat'] as const;
