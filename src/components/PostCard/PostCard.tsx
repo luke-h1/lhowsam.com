@@ -58,7 +58,7 @@ const PostCard = ({ post }: Props) => {
               <Text
                 fontSize="sm"
                 color="foregroundNeutral"
-                key={tag._id}
+                key={`${tag.title}-${tag.slug.current}`}
                 data-testid="post-tags"
               >
                 {tag.title}
