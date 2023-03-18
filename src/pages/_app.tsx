@@ -35,7 +35,7 @@ const App = ({ Component, pageProps, router }: Props) => {
   useMounted(() => {
     import('@frontend/services/googleAnalyticsService').then(
       ({ initGoogleAnalytics, logPageView }) => {
-        initGoogleAnalytics(process.env.GA_TRACKING_ID);
+        initGoogleAnalytics(process.env.NEXT_PUBLIC_GA_TRACKING_ID);
         logPageView();
         router.events.on('routeChangeComplete', logPageView);
       },
