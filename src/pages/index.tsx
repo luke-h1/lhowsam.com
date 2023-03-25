@@ -5,9 +5,9 @@ import List from '@frontend/components/List/List';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
 import siteConfig from '@frontend/config/site';
-import postService from '@frontend/services/postService';
-import { Post } from '@frontend/types/sanity';
-import { GetStaticProps, NextPage } from 'next';
+import postQueries from '@frontend/queries/postQueries';
+import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
+import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
@@ -17,12 +17,13 @@ const PostCard = dynamic(
   () => import('@frontend/components/PostCard/PostCard'),
 );
 
-interface Props {
-  posts: Post[];
-}
-
-const Indexpage: NextPage<Props> = ({ posts }) => {
+const Indexpage: NextPage = () => {
   const router = useRouter();
+
+  const { data: posts } = useQuery({
+    ...postQueries.getRecentPosts(),
+    staleTime: siteConfig.defaultRevalidate,
+  });
 
   return (
     <>
@@ -85,20 +86,20 @@ const Indexpage: NextPage<Props> = ({ posts }) => {
 };
 export default Indexpage;
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const posts = await postService.getRecentPosts();
-
-  if (!posts.length) {
-    return {
-      props: {
-        posts: [],
+export const getStaticProps = async () => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: siteConfig.defaultRevalidate,
       },
-    };
-  }
+    },
+  });
+
+  await Promise.all([queryClient.prefetchQuery(postQueries.getRecentPosts())]);
 
   return {
     props: {
-      posts,
+      dehydratedState: dehydrate(queryClient),
     },
     revalidate: siteConfig.defaultRevalidate,
   };

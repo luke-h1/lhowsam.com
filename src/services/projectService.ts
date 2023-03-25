@@ -1,6 +1,6 @@
 import { Project } from '@frontend/types/sanity';
 import groq from 'groq';
-import studioClient from '../utils/sanity';
+import { sanityClient } from './Client/sanity';
 
 const slugsQuery = groq`
 *[_type == "project"] {
@@ -12,6 +12,7 @@ const slugsQuery = groq`
 
 const listAllProjects = groq`
   *[ _type == "project"] | order(order asc) {
+    _id,
     title,
     intro,
     githubUrl,
@@ -47,18 +48,18 @@ const getProjectQuery = groq`
 
 const projectService = {
   async getAllProjects(): Promise<Project[]> {
-    return studioClient.fetch(listAllProjects);
+    return sanityClient.fetch(listAllProjects);
   },
   async getProject(slug: string): Promise<Project> {
-    return studioClient.fetch(getProjectQuery, {
+    return sanityClient.fetch(getProjectQuery, {
       slug,
     });
   },
   async getRecentProjects(): Promise<Project[]> {
-    return studioClient.fetch(listRecentProjects);
+    return sanityClient.fetch(listRecentProjects);
   },
   async getSlugs(): Promise<Project[]> {
-    return studioClient.fetch(slugsQuery);
+    return sanityClient.fetch(slugsQuery);
   },
 };
 

@@ -5,10 +5,12 @@ import Components from '@frontend/components/MDXComponents';
 import Prose from '@frontend/components/Prose/Prose';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
+import siteConfig from '@frontend/config/site';
+import postQueries from '@frontend/queries/postQueries';
 import imageService from '@frontend/services/imageService';
-import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
+import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 import { GetStaticPaths, NextPage } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -16,15 +18,23 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
 
 interface Props {
-  post: Post;
   compiledSource: MDXRemoteSerializeResult<
     Record<string, unknown>,
     Record<string, string>
   >;
 }
 
-const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
+const PostPage: NextPage<Props> = ({ compiledSource }) => {
   const router = useRouter();
+
+  const { slug } = router.query;
+
+  const { data } = useQuery({
+    ...postQueries.getPost(slug as string),
+    staleTime: siteConfig.defaultRevalidate,
+  });
+
+  const post = data as Post;
 
   return (
     <article>
@@ -122,19 +132,23 @@ export const getStaticProps = async ({
 }: {
   params?: { slug: string };
 }) => {
-  const post = await postService.getPost(params?.slug as string);
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: siteConfig.defaultRevalidate,
+      },
+    },
+  });
 
-  if (!post) {
-    return {
-      props: [],
-      notFound: true,
-    };
-  }
+  const post = await queryClient.fetchQuery(
+    postQueries.getPost(params?.slug as string),
+  );
+
   const { compiledSource } = await mdxToHtml(post.content);
 
   return {
     props: {
-      post,
+      dehydratedState: dehydrate(queryClient),
       compiledSource,
     },
   };

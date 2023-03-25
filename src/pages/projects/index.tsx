@@ -4,18 +4,20 @@ import List from '@frontend/components/List/List';
 import ProjectItem from '@frontend/components/ProjectItem/ProjectItem';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import siteConfig from '@frontend/config/site';
-import projectService from '@frontend/services/projectService';
-import { Project } from '@frontend/types/sanity';
+import projectQueries from '@frontend/queries/projectQueries';
+import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query';
 import { GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 
-interface Props {
-  projects: Project[];
-}
-
-const ProjectPage: NextPage<Props> = ({ projects }) => {
+const ProjectPage: NextPage = () => {
   const router = useRouter();
+
+  const { data: projects } = useQuery({
+    ...projectQueries.getAllProjects(),
+    staleTime: siteConfig.defaultRevalidate,
+  });
+
   return (
     <>
       <NextSeo
@@ -42,9 +44,9 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
         <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
           {projects &&
             projects.map(project => (
-              <List key={project._id}>
+              <List key={`${project._id}-${project.title}`}>
                 <Spacer height="xxl" />
-                <ProjectItem project={project} />
+                <ProjectItem project={project} key={project._id} />
               </List>
             ))}
         </Box>
@@ -55,20 +57,22 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
 
 export default ProjectPage;
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const projects = await projectService.getAllProjects();
-
-  if (!projects.length) {
-    return {
-      props: {
-        projects: [],
+export const getStaticProps: GetStaticProps = async () => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: siteConfig.defaultRevalidate,
       },
-    };
-  }
+    },
+  });
+
+  await Promise.all([
+    queryClient.prefetchQuery(projectQueries.getAllProjects()),
+  ]);
 
   return {
     props: {
-      projects,
+      dehydratedState: dehydrate(queryClient),
     },
     revalidate: siteConfig.defaultRevalidate,
   };
