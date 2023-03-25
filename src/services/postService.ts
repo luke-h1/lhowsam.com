@@ -12,7 +12,14 @@ const slugsQuery = groq`
 
 const recentPostsQuery = groq`
 *[ _type == "post"] | order(publishedAt desc) [0..2] {
-  ...,
+  _createdAt,
+  _id,
+    image {
+      ...,
+    },
+  title,
+  intro,  
+  publishedAt,
   image {
     alt,
     asset {
@@ -21,7 +28,10 @@ const recentPostsQuery = groq`
   },
   tags[] -> {
     title,
-    slug
+    slug {
+      ...,
+      
+    }
   },
   slug {
     current
@@ -64,46 +74,6 @@ const getPostQuery = groq`
 }
 `;
 
-const getPostByTagQuery = groq`
-*[_type == "post" && $keyword in tags[]->slug.current] {
-  ...,
-  image {
-    alt,
-    asset {
-      _ref
-    },
-  },
-  tags[]-> {
-  title,
-    slug
-  },
-}
-`;
-
-const getTagSlugsQuery = groq`
-*[_type == "post"] {
-  ...,
-  tags[]-> {
-    slug
-  },
-}
-`;
-
-const getRecommendedPosts = groq`
-*[_type == "post" && $id != _id] {
-  ...,
-  _id,
-  image {
-    alt,
-    asset {
-      _ref
-    },
-  },
-  tags[]-> {
-    slug
-  },
-}`;
-
 const postService = {
   async getSlugs(): Promise<Post[]> {
     return studioClient.fetch(slugsQuery);
@@ -118,26 +88,6 @@ const postService = {
   },
   async getRecentPosts(): Promise<Post[]> {
     return studioClient.fetch(recentPostsQuery);
-  },
-  async getPostsByTag(tag: string): Promise<Post[]> {
-    return studioClient.fetch(getPostByTagQuery, {
-      keyword: tag,
-    });
-  },
-  async getTagSlugs(): Promise<Post[]> {
-    return studioClient.fetch(getTagSlugsQuery);
-  },
-  async getRecommendedPosts(id: string): Promise<Post[]> {
-    const recommendedPosts = await studioClient.fetch(getRecommendedPosts, {
-      id,
-    });
-
-    const randomPosts = [...Array(recommendedPosts.length).keys()]
-      .sort(() => Math.random() - 0.5)
-      .slice(0, 2)
-      .map(i => recommendedPosts[i]);
-
-    return randomPosts;
   },
 };
 

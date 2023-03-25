@@ -12,7 +12,10 @@ const slugsQuery = groq`
 
 const listAllProjects = groq`
   *[ _type == "project"] | order(order asc) {
-    ...,
+    title,
+    intro,
+    githubUrl,
+    siteUrl,
     slug {
       current
     },
