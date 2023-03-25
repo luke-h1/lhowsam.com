@@ -9,11 +9,6 @@ import { useMounted } from '@frontend/hooks/useMounted';
 import { isDevelopment } from '@frontend/utils/isDevelopment';
 import { ToastProvider } from '@radix-ui/react-toast';
 import { TooltipProvider } from '@radix-ui/react-tooltip';
-import {
-  Hydrate,
-  QueryClient,
-  QueryClientProvider,
-} from '@tanstack/react-query';
 import { Analytics } from '@vercel/analytics/react';
 import { MotionConfig } from 'framer-motion';
 import type { AppProps } from 'next/app';
@@ -29,7 +24,6 @@ type Props = AppProps<{ dehydratedState: unknown }>;
 
 const App = ({ Component, pageProps, router }: Props) => {
   const canonicalUrl = `${process.env.NEXT_PUBLIC_URL}${router.asPath}`;
-  const [queryClient] = useState(() => new QueryClient());
   const [open, setOpen] = useState<boolean>(false);
 
   useMounted(() => {
@@ -43,66 +37,64 @@ const App = ({ Component, pageProps, router }: Props) => {
   });
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
-        <DefaultSeo
-          titleTemplate="%s | lhowsam.com"
-          title="lhowsam.com"
-          canonical={canonicalUrl}
-          dangerouslySetAllPagesToNoFollow={isDevelopment}
-          dangerouslySetAllPagesToNoIndex={isDevelopment}
-          openGraph={{
-            profile: {
-              firstName: 'Luke',
-              lastName: 'Howsam',
-              username: 'luke-h1',
+    <>
+      <DefaultSeo
+        titleTemplate="%s | lhowsam.com"
+        title="lhowsam.com"
+        canonical={canonicalUrl}
+        dangerouslySetAllPagesToNoFollow={isDevelopment}
+        dangerouslySetAllPagesToNoIndex={isDevelopment}
+        openGraph={{
+          profile: {
+            firstName: 'Luke',
+            lastName: 'Howsam',
+            username: 'luke-h1',
+          },
+          type: 'website',
+          locale: 'en_GB',
+          url: canonicalUrl,
+          site_name: 'lhowsam.com',
+          images: [
+            {
+              url: `${process.env.NEXT_PUBLIC_URL}/icons/logo.png`,
+              alt: 'logo for lhowsam.com',
+              width: 1200,
+              height: 630,
             },
-            type: 'website',
-            locale: 'en_GB',
-            url: canonicalUrl,
-            site_name: 'lhowsam.com',
-            images: [
-              {
-                url: `${process.env.NEXT_PUBLIC_URL}/icons/logo.png`,
-                alt: 'logo for lhowsam.com',
-                width: 1200,
-                height: 630,
-              },
-            ],
-          }}
-          twitter={{
-            site: '@lukeH_1999',
-            cardType: 'summary_large_image',
-          }}
+          ],
+        }}
+        twitter={{
+          site: '@lukeH_1999',
+          cardType: 'summary_large_image',
+        }}
+      />
+      <Head>
+        <meta
+          name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0, viewport-fit=cover"
         />
-        <Head>
-          <meta
-            name="viewport"
-            content="width=device-width, user-scalable=yes, initial-scale=1.0, viewport-fit=cover"
-          />
-        </Head>
-        <MotionConfig reducedMotion="user">
-          <ThemeProvider attribute="class" defaultTheme="system">
-            <ToastProvider>
-              <TooltipProvider>
-                <SkipLink />
-                <Gradient />
-                <div className="container">
-                  <Banner setOpen={setOpen} />
-                  <main id="main">
-                    <Component {...pageProps} />
-                  </main>
-                  <CommandMenu open={open} setOpen={setOpen} />
-                  <Toaster />
-                </div>
-                <Footer />
-              </TooltipProvider>
-            </ToastProvider>
-          </ThemeProvider>
-        </MotionConfig>
-        <Analytics />
-      </Hydrate>
-    </QueryClientProvider>
+      </Head>
+      <MotionConfig reducedMotion="user">
+        <ThemeProvider attribute="class" defaultTheme="system">
+          <ToastProvider>
+            <TooltipProvider>
+              <SkipLink />
+              <Gradient />
+              <div className="container">
+                <Banner setOpen={setOpen} />
+                <main id="main">
+                  <Component {...pageProps} />
+                </main>
+                <CommandMenu open={open} setOpen={setOpen} />
+                <Toaster />
+              </div>
+              <Footer />
+            </TooltipProvider>
+          </ToastProvider>
+        </ThemeProvider>
+      </MotionConfig>
+      <Analytics />
+    </>
   );
 };
 export default App;
