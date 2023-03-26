@@ -1,6 +1,6 @@
 import { Post } from '@frontend/types/sanity';
 import groq from 'groq';
-import studioClient from '../utils/sanity';
+import studioClient from '../utils/sanity.client';
 
 const slugsQuery = groq`
 *[_type == "post"] {
@@ -58,7 +58,7 @@ const listAllPosts = groq`
   }
 `;
 
-const getPostQuery = groq`
+export const getPostQuery = groq`
 *[ _type == "post" && slug.current == $slug][0] {
   ...,
   image {
