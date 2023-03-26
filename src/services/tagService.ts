@@ -1,5 +1,5 @@
 import { Tag } from '@frontend/types/sanity';
-import studioClient from '@frontend/utils/sanity';
+import studioClient from '@frontend/utils/sanity.client';
 import groq from 'groq';
 
 const allTagsQuery = groq`

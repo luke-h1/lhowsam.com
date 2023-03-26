@@ -1,6 +1,6 @@
 import { Project } from '@frontend/types/sanity';
 import groq from 'groq';
-import studioClient from '../utils/sanity';
+import studioClient from '../utils/sanity.client';
 
 const slugsQuery = groq`
 *[_type == "project"] {

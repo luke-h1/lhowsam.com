@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Box from '@frontend/components/Box/Box';
 import FormattedDate from '@frontend/components/FormattedDate';
 import Heading from '@frontend/components/Heading/Heading';
@@ -6,24 +7,33 @@ import Prose from '@frontend/components/Prose/Prose';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
 import imageService from '@frontend/services/imageService';
-import postService from '@frontend/services/postService';
+import postService, { getPostQuery } from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
+import { usePreview } from '@frontend/utils/sanity.preview';
 import { GetStaticPaths, NextPage } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
+import { useEffect, useState } from 'react';
 
 interface Props {
   post: Post;
+  preview: boolean;
+  queryParams?: { slug: string };
   compiledSource: MDXRemoteSerializeResult<
     Record<string, unknown>,
     Record<string, string>
   >;
 }
 
-const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
+const PostPage: NextPage<Props> = ({
+  post,
+  compiledSource,
+  preview,
+  queryParams,
+}) => {
   const router = useRouter();
 
   return (
@@ -119,9 +129,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps = async ({
   params,
+  preview = false,
 }: {
   params?: { slug: string };
+  preview?: boolean;
 }) => {
+  const queryParams = { slug: params?.slug ?? '' };
+
+  if (preview) {
+    return {
+      props: {
+        preview,
+        queryParams,
+      },
+    };
+  }
+
   const post = await postService.getPost(params?.slug as string);
 
   if (!post) {
@@ -134,6 +157,7 @@ export const getStaticProps = async ({
 
   return {
     props: {
+      preview,
       post,
       compiledSource,
     },
