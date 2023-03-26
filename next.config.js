@@ -7,7 +7,6 @@ const ContentSecurityPolicy = `
  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com;
  child-src *.youtube.com *.google.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com;
  style-src 'self' 'unsafe-inline' *.googleapis.com;
- frame-src 'self' https://cms.lhowsam.com;
  img-src * blob: data: https://*.googletagmanager.com;
  media-src 'none';
  connect-src *;
