@@ -10,30 +10,21 @@ import imageService from '@frontend/services/imageService';
 import postService, { getPostQuery } from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
-import { usePreview } from '@frontend/utils/sanity.preview';
 import { GetStaticPaths, NextPage } from 'next';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
-import { useEffect, useState } from 'react';
 
 interface Props {
   post: Post;
-  preview: boolean;
-  queryParams?: { slug: string };
   compiledSource: MDXRemoteSerializeResult<
     Record<string, unknown>,
     Record<string, string>
   >;
 }
 
-const PostPage: NextPage<Props> = ({
-  post,
-  compiledSource,
-  preview,
-  queryParams,
-}) => {
+const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
   const router = useRouter();
 
   return (
