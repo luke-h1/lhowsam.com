@@ -7,6 +7,7 @@ env:
   BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
   NODE_VERSION: 18.12.1
   PNPM_VERSION: 7.27.0
+  TZ: Europe/London
 
 jobs:
   test:
