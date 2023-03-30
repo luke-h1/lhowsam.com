@@ -7,7 +7,6 @@ env:
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
   NODE_VERSION: 18.12.1
   PNPM_VERSION: 7.27.0
-  TZ: Europe/London
 
 jobs:
   test:
