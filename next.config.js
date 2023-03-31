@@ -51,6 +51,13 @@ const securityHeaders = [
   },
 ];
 
+const fontheaders = [
+  {
+    key: 'Cache-Control',
+    value: 'public, max-age=31536000, immutable',
+  },
+];
+
 /**
  * @type {import('next').NextConfig}
  */
@@ -87,6 +94,10 @@ const nextConfig = {
       {
         source: '/(.*)',
         headers: securityHeaders,
+      },
+      {
+        source: '/fonts/inter-var-latin.woff2',
+        headers: fontheaders,
       },
     ];
   },

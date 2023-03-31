@@ -9,6 +9,7 @@ export const root = style({
   left: typography.spacing.sm,
   padding: typography.spacing.sm,
   transform: `translateY(${calc.subtract('-100%', typography.spacing.sm)})`,
+  zIndex: 100,
   ':focus': {
     outlineWidth: '2px',
     outlineStyle: 'solid',

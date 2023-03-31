@@ -92,7 +92,7 @@ globalStyle('[cmdk-header-esc]', {
 
 globalStyle('[cmdk-input]', {
   position: 'relative',
-  fontFamily: typography.font.poppins,
+  fontFamily: typography.font.sans,
   fontSize: typography.fontSize.md,
   width: '100%',
   padding: typography.spacing.md,
