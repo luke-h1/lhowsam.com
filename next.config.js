@@ -69,7 +69,6 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
-    legacyBrowsers: false,
     webVitalsAttribution: ['CLS', 'LCP'],
   },
   images: {
