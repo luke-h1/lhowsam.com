@@ -52,7 +52,7 @@ const BlogIndexPage: NextPage<Props> = ({ posts }) => {
           color="foregroundNeutral"
           style={{ display: 'inline-flex' }}
         >
-          I write about web development, testing, devops & more
+          I write about web development, testing, DevOps & more
         </Text>
       </Box>
       <Spacer height="xxxxl" />
