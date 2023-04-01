@@ -1,9 +1,11 @@
 import type { NextApiHandler, NextApiRequest, NextApiResponse } from 'next';
 
-export function withMethods(methods: string[], handler: NextApiHandler) {
+type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE' | 'OPTIONS' | 'HEAD';
+
+export function withMethods(methods: Method[], handler: NextApiHandler) {
   // eslint-disable-next-line func-names
   return async function (req: NextApiRequest, res: NextApiResponse) {
-    if (!methods.includes(req.method as string)) {
+    if (!methods.includes(req.method as Method)) {
       return res.status(405).end();
     }
 
