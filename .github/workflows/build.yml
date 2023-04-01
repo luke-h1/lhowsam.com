@@ -52,7 +52,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ~/.npm
+            ~/.pnpm
             ${{ github.workspace }}/.next/cache
           # Generate a new cache whenever packages or source files change.
           key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
