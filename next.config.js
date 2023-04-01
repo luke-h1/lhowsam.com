@@ -70,6 +70,7 @@ const nextConfig = {
   },
   experimental: {
     legacyBrowsers: false,
+    webVitalsAttribution: ['CLS', 'LCP'],
   },
   images: {
     remotePatterns: [
