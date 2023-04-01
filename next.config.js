@@ -1,4 +1,5 @@
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
+const OptimizePlugin = require('optimize-plugin');
 
 const withVanillaExtract = createVanillaExtractPlugin();
 
@@ -69,6 +70,7 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
+    legacyBrowsers: false,
     webVitalsAttribution: ['CLS', 'LCP'],
   },
   images: {
@@ -122,6 +124,7 @@ const nextConfig = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
+    config.plugins.push(new OptimizePlugin({}));
 
     return config;
   },
