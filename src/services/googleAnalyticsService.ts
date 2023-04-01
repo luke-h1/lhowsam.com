@@ -1,3 +1,4 @@
+import { NextWebVitalsMetric } from 'next/app';
 import ReactGA from 'react-ga4';
 
 let initialised = false;
@@ -90,4 +91,15 @@ export function logOutboundLink(label: string, url: string, newTab?: boolean) {
     },
     hitCallback(),
   );
+}
+
+export function logWebVitals(metric: NextWebVitalsMetric) {
+  const { value, label, name, id } = metric;
+  ReactGA.event({
+    category: label === 'web-vital' ? 'Web Vitals' : 'Next.js custom metric',
+    value: Math.round(name === 'CLS' ? value * 1000 : value), // values must be integers
+    label: id, // id unique to current page load
+    nonInteraction: true, // avoids affecting bounce rate.
+    action: name, // (Required) string - Type of interaction (e.g. 'play')
+  });
 }

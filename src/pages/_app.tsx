@@ -16,7 +16,7 @@ import {
 } from '@tanstack/react-query';
 import { Analytics } from '@vercel/analytics/react';
 import { MotionConfig } from 'framer-motion';
-import type { AppProps } from 'next/app';
+import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
@@ -24,6 +24,15 @@ import { useState } from 'react';
 import '@frontend/styles/app.css';
 import '@frontend/styles/tokyo-night-dark.min.css';
 import '@fontsource/poppins';
+
+export function reportWebVitals(metric: NextWebVitalsMetric) {
+  import('@frontend/services/googleAnalyticsService').then(
+    ({ logWebVitals, initGoogleAnalytics }) => {
+      initGoogleAnalytics(process.env.NEXT_PUBLIC_GA_TRACKING_ID);
+      logWebVitals(metric);
+    },
+  );
+}
 
 type Props = AppProps<{ dehydratedState: unknown }>;
 
