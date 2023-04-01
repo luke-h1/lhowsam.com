@@ -44,7 +44,6 @@ export default class MyDocument extends Document {
             type="font/woff2"
             crossOrigin="anonymous"
           />
-          <link rel="manifest" href="/manifest.json" />
           <meta name="theme-color" content="#ffffff" />
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
           <meta content="#ffffff" name="theme-color" />
