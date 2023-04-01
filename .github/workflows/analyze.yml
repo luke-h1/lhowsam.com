@@ -8,6 +8,9 @@ on:
   workflow_dispatch:
 env:
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+  NODE_VERSION: 18.12.1
+  PNPM_VERSION: 8.1.0
+
 jobs:
   analyze:
     runs-on: ubuntu-latest
@@ -19,13 +22,13 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 18.12.1
+          node-version: ${{ env.NODE_VERSION }}
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         id: pnpm-install
         with:
-          version: 7
+          version: ${{ env.PNPM_VERSION }}
           run_install: false
 
       - name: Get pnpm store directory
