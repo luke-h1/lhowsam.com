@@ -64,8 +64,13 @@ const fontheaders = [
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  swcMinify: true,
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  experimental: {
+    legacyBrowsers: false,
+    webVitalsAttribution: ['CLS', 'LCP'],
   },
   images: {
     remotePatterns: [
