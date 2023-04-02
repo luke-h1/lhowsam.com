@@ -23,7 +23,7 @@ const ThemeToggle = () => {
         id="theme-system"
         onClick={() => setTheme('system')}
       >
-        <VisuallyHidden>System</VisuallyHidden>
+        <VisuallyHidden>Change theme to system mode</VisuallyHidden>
         <Monitor width="0.9em" />
         {theme === 'system' && (
           <motion.span
@@ -41,7 +41,7 @@ const ThemeToggle = () => {
         id="theme-light"
         onClick={() => setTheme('light')}
       >
-        <VisuallyHidden>Light</VisuallyHidden>
+        <VisuallyHidden>Change theme to light mode</VisuallyHidden>
         <Sun width="0.9em" />
         {theme === 'light' && (
           <motion.span
@@ -59,7 +59,7 @@ const ThemeToggle = () => {
         id="theme-dark"
         type="button"
       >
-        <VisuallyHidden>Dark</VisuallyHidden>
+        <VisuallyHidden>Change theme to dark mode</VisuallyHidden>
         <Moon width=".9em" />
         {theme === 'dark' && (
           <motion.span
