@@ -54,18 +54,19 @@ test.describe('footer', () => {
   });
 
   test('theme switcher switches theme correctly', async () => {
-    await expect(page.locator('[id="theme-select"]')).toBeVisible();
-
-    // dark
-    await page.selectOption('[id="theme-select"]', 'dark');
-    await expect(page.locator('html')).toHaveAttribute('class', 'dark');
-
     // light
-    await page.selectOption('[id="theme-select"]', 'light');
+    await expect(page.locator('[id="theme-light"]')).toBeVisible();
+    await page.click('[id="theme-light"]');
     await expect(page.locator('html')).toHaveAttribute('class', 'light');
 
+    // dark
+    await expect(page.locator('[id="theme-dark"]')).toBeVisible();
+    await page.click('[id="theme-dark"]');
+    await expect(page.locator('html')).toHaveAttribute('class', 'dark');
+
     // system
-    await page.selectOption('[id="theme-select"]', 'light');
+    await expect(page.locator('[id="theme-system"]')).toBeVisible();
+    await page.click('[id="theme-system"]');
     await expect(page.locator('html')).toHaveAttribute('class', 'light');
   });
 });

@@ -70,7 +70,7 @@ globalStyle('[cmdk-root]', {
   width: '100%',
   backgroundColor: theme.color.surface,
   border: `1px solid ${theme.color.border}`,
-  borderRadius: typography.radius.md,
+  borderRadius: typography.radii.md,
 });
 
 globalStyle('[cmdk-header]', {
@@ -85,7 +85,7 @@ globalStyle('[cmdk-header-esc]', {
   fontSize: typography.fontSize.xs,
   padding: `${typography.spacing.xs} ${typography.spacing.sm}`,
   color: theme.color.foregroundNeutral,
-  borderRadius: typography.radius.md,
+  borderRadius: typography.radii.md,
   cursor: 'pointer',
   border: `1px solid ${theme.color.border}`,
 });
@@ -151,7 +151,7 @@ globalStyle('[cmdk-item] .content', {
 globalStyle('[cmdk-item] .highlight', {
   position: 'absolute',
   inset: `0 ${typography.spacing.sm}`,
-  borderRadius: typography.radius.md,
+  borderRadius: typography.radii.md,
   backgroundColor: theme.color.surfaceHover,
 });
 

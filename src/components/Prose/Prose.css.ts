@@ -47,7 +47,7 @@ globalStyle('[data-rehype-pretty-code-title]', {
   backgroundColor: theme.color.surface,
   border: '1px solid',
   borderColor: theme.color.border,
-  borderRadius: typography.radius.md,
+  borderRadius: typography.radii.md,
   borderBottomLeftRadius: 0,
   borderBottomRightRadius: 0,
   fontSize: typography.fontSize.sm,
@@ -58,7 +58,7 @@ globalStyle('pre[data-language]', {
   backgroundColor: theme.color.surface,
   border: '1px solid',
   borderColor: theme.color.border,
-  borderRadius: typography.radius.md,
+  borderRadius: typography.radii.md,
   paddingLeft: typography.spacing.lg,
 });
 

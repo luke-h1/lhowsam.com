@@ -5,7 +5,7 @@ import { style } from '@vanilla-extract/css';
 export const root = style({
   position: 'relative',
   overflow: 'hidden',
-  borderRadius: typography.radius.lg,
+  borderRadius: typography.radii.lg,
 });
 
 export const carousel = style({
@@ -53,7 +53,7 @@ export const disc = style({
   background: theme.color.surface,
   display: 'grid',
   placeItems: 'center',
-  borderRadius: typography.radius.full,
+  borderRadius: typography.radii.full,
   selectors: {
     [`${button}:focus &`]: {
       outline: 'transparent',
@@ -81,7 +81,7 @@ export const dot = style({
   width: typography.spacing.sm,
   height: typography.spacing.sm,
   backgroundColor: theme.color.surface,
-  borderRadius: typography.radius.full,
+  borderRadius: typography.radii.full,
   pointerEvents: 'auto',
   ':focus': {
     outline: 'transparent',

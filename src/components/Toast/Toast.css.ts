@@ -18,7 +18,7 @@ export const root = style({
   padding: typography.spacing.md,
   backgroundColor: theme.color.surface,
   border: `1px solid ${theme.color.border}`,
-  borderRadius: typography.radius.md,
+  borderRadius: typography.radii.md,
 });
 
 export const title = style({
@@ -39,7 +39,7 @@ export const close = style({
   height: typography.spacing.xxl,
   display: 'grid',
   placeItems: 'center',
-  borderRadius: typography.radius.md,
+  borderRadius: typography.radii.md,
   cursor: 'pointer',
   transitionTimingFunction: 'ease-in-out',
   transitionDuration: '200ms',
@@ -59,7 +59,7 @@ export const closeHighlight = style({
   position: 'absolute',
   inset: 0,
   backgroundColor: theme.color.surfaceHover,
-  borderRadius: typography.radius.md,
+  borderRadius: typography.radii.md,
   opacity: 0,
   transform: 'scale(0)',
   transition: 'all ease-in-out 200ms',
