@@ -4,7 +4,7 @@ import Link from '../Link/Link';
 import Spacer from '../Spacer/Spacer';
 import Text from '../Text/Text';
 import * as styles from './Footer.css';
-import ThemeSelect from './ThemeSelect/ThemeSelect';
+import ThemeToggle from './ThemeToggle/ThemeToggle';
 
 interface FooterLink {
   id: number;
@@ -87,7 +87,7 @@ const Footer = () => {
           </ul>
         </div>
         <div>
-          <ThemeSelect />
+          <ThemeToggle />
         </div>
         <div className={styles.copy}>
           <Text color="foregroundNeutral" fontSize="sm">
