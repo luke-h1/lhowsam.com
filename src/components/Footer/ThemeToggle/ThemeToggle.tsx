@@ -1,4 +1,5 @@
 import VisuallyHidden from '@frontend/components/VisuallyHidden/VisuallyHidden';
+import { useMounted } from '@frontend/hooks/useMounted';
 import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { Monitor, Sun, Moon } from 'react-feather';
@@ -6,6 +7,11 @@ import * as styles from './ThemeToggle.css';
 
 const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
+  const { isMounted } = useMounted();
+
+  if (!isMounted) {
+    return <div className={styles.root} />;
+  }
 
   return (
     <motion.div className={styles.root} layout layoutRoot>
