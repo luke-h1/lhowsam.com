@@ -20,6 +20,7 @@ const ThemeToggle = () => {
           styles.toggleVariant[theme === 'system' ? 'active' : 'initial']
         }
         type="button"
+        id="theme-system"
         onClick={() => setTheme('system')}
       >
         <VisuallyHidden>System</VisuallyHidden>
@@ -37,6 +38,7 @@ const ThemeToggle = () => {
           styles.toggleVariant[theme === 'light' ? 'active' : 'initial']
         }
         type="button"
+        id="theme-light"
         onClick={() => setTheme('light')}
       >
         <VisuallyHidden>Light</VisuallyHidden>
@@ -54,17 +56,18 @@ const ThemeToggle = () => {
           styles.toggleVariant[theme === 'dark' ? 'active' : 'initial']
         }
         onClick={() => setTheme('dark')}
+        id="theme-dark"
         type="button"
       >
         <VisuallyHidden>Dark</VisuallyHidden>
         <Moon width=".9em" />
-        {theme === 'dark' ? (
+        {theme === 'dark' && (
           <motion.span
             className={styles.shadow}
             layout
             layoutId="theme-toggle-shadow"
           />
-        ) : null}
+        )}
       </button>
     </motion.div>
   );

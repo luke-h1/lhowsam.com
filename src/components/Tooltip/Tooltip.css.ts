@@ -14,7 +14,7 @@ const slideUp = keyframes({
 
 export const content = style({
   padding: typography.spacing.sm,
-  borderRadius: typography.radius.md,
+  borderRadius: typography.radii.md,
   fontSize: typography.fontSize.sm,
   backgroundColor: theme.color.surface, // surface strong potentially
   //   color: theme.color. // foreground high contrast potentially

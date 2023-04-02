@@ -8,8 +8,8 @@ const rows = ['1', '-1'] as const;
 
 export type Space = keyof typeof space;
 
-const { radius, fontSize, fontWeight, contentWidth } = typography;
-export type Radius = keyof typeof radius;
+const { radii, fontSize, fontWeight, contentWidth } = typography;
+export type Radius = keyof typeof radii;
 export type FontSize = keyof typeof fontSize;
 export type FontWeight = keyof typeof fontWeight;
 export type MaxWidth = keyof typeof contentWidth;
@@ -79,7 +79,7 @@ const responsiveProperties = defineProperties({
 const unresponsiveProperties = defineProperties({
   properties: {
     color: theme.color,
-    borderRadius: radius,
+    borderRadius: radii,
     border: { true: `1px solid ${theme.color.border}` },
     flexShrink: [0],
     flexGrow: [0, 1],

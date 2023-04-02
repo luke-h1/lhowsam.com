@@ -23,7 +23,7 @@ export const banner = style({
 export const avatar = style({
   position: 'relative',
   display: 'inline-flex',
-  borderRadius: typography.radius.lg,
+  borderRadius: typography.radii.lg,
   border: `1px solid ${theme.color.border}`,
   overflow: 'hidden',
   ':focus': {
@@ -63,7 +63,7 @@ export const toggle = style({
   height: typography.spacing.xxxl,
   display: 'grid',
   placeItems: 'center',
-  borderRadius: typography.radius.md,
+  borderRadius: typography.radii.md,
   cursor: 'pointer',
   transitionTimingFunction: 'ease-in-out',
   transitionDuration: '200ms',
@@ -83,7 +83,7 @@ export const toggleHighlight = style({
   position: 'absolute',
   inset: 0,
   backgroundColor: theme.color.surfaceHover,
-  borderRadius: typography.radius.md,
+  borderRadius: typography.radii.md,
   zIndex: '-1',
   opacity: 0,
   transform: 'scale(0)',

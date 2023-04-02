@@ -31,7 +31,7 @@ export const typography = createGlobalTheme(':root', {
     xxxxl: '4rem',
     auto: 'auto',
   },
-  radius: {
+  radii: {
     sm: '2px',
     md: '6px',
     lg: '10px',

@@ -22,6 +22,7 @@
     "e2e:dev-open": "BASE_URL='https://dev.lhowsam.com' ./node_modules/.bin/playwright test  --headed --config=playwright-dev.config.ts",
     "e2e:prod": "BASE_URL='https://lhowsam.com' ./node_modules/.bin/playwright test --config=playwright-common.config.ts",
     "e2e:prod-open": "BASE_URL='https://lhowsam.com' ./node_modules/.bin/playwright test --headed  --config=playwright-common.config.ts",
+    "e2e:install-browsers": "./node_modules/.bin/playwright install --with-deps chromium",
     "test": "jest",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test:watch": "jest --watch",

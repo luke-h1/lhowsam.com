@@ -13,7 +13,7 @@ export const root = style({
   height: '2.125rem',
   paddingLeft: typography.spacing.xs,
   paddingRight: typography.spacing.xs,
-  borderRadius: typography.radius.full,
+  borderRadius: typography.radii.full,
 });
 
 globalStyle(`.dark ${root}::before`, {

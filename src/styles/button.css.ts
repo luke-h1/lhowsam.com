@@ -16,7 +16,7 @@ export const buttonStyles = recipe({
     fontWeight: typography.fontWeight.semiBold,
     border: '1px solid',
     borderColor: 'transparent',
-    borderRadius: typography.radius.lg,
+    borderRadius: typography.radii.lg,
   },
   variants: {
     type: {
