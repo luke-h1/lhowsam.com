@@ -1,13 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import * as React from 'react';
+
+import {
+  ComponentPropsWithoutRef,
+  ElementType,
+  JSXElementConstructor,
+} from 'react';
 
 // Source: https://github.com/emotion-js/emotion/blob/master/packages/styled-base/types/helper.d.ts
 // A more precise version of just React.ComponentPropsWithoutRef on its own
 export type PropsOf<
-  C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>,
-> = JSX.LibraryManagedAttributes<C, React.ComponentPropsWithoutRef<C>>;
+  C extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>,
+> = JSX.LibraryManagedAttributes<C, ComponentPropsWithoutRef<C>>;
 
-type AsProp<C extends React.ElementType> = {
+type AsProp<C extends ElementType> = {
   /**
    * An override of the default HTML tag.
    * Can also be another React component.
@@ -31,7 +36,7 @@ export type ExtendableProps<
  * attributes like aria roles. The component (`C`) must be passed in.
  */
 export type InheritableElementProps<
-  C extends React.ElementType,
+  C extends ElementType,
   Props = {},
 > = ExtendableProps<PropsOf<C>, Props>;
 
@@ -40,7 +45,7 @@ export type InheritableElementProps<
  * the passed in `as` prop will determine which props can be included
  */
 export type PolymorphicComponentProps<
-  C extends React.ElementType,
+  C extends ElementType,
   Props = {},
 > = InheritableElementProps<C, Props & AsProp<C>>;
 
