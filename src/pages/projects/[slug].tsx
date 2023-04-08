@@ -19,7 +19,7 @@ interface Props {
   >;
 }
 
-const PostPage: NextPage<Props> = ({ project, compiledSource }) => {
+const ProjectSlugPage: NextPage<Props> = ({ project, compiledSource }) => {
   const router = useRouter();
 
   return (
@@ -69,7 +69,7 @@ const PostPage: NextPage<Props> = ({ project, compiledSource }) => {
     </article>
   );
 };
-export default PostPage;
+export default ProjectSlugPage;
 
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
