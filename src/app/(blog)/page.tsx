@@ -1,42 +1,41 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
-/* eslint-disable no-param-reassign */
 import Box from '@frontend/components/Box/Box';
 import Heading from '@frontend/components/Heading/Heading';
 import List from '@frontend/components/List/List';
+import PostCard from '@frontend/components/PostCard/PostCard';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
-import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
-import { NextPage } from 'next';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
-import { NextSeo } from 'next-seo';
 import { Fragment } from 'react';
 
-const PostCard = dynamic(
-  () => import('@frontend/components/PostCard/PostCard'),
-);
+const BlogIndexPage = async () => {
+  // need length check
+  const posts = await postService.getAllPosts();
 
-interface Props {
-  posts: Record<string, Post[]>;
-}
+  const allPosts = posts.sort((a, b) => {
+    if (a.publishedAt < b.publishedAt) {
+      return 1;
+    }
 
-const BlogIndexPage: NextPage<Props> = ({ posts }) => {
-  const router = useRouter();
+    if (a.publishedAt > b.publishedAt) {
+      return -1;
+    }
+    return 0;
+  });
+
+  const postsByYear: Record<string, Post[]> = {};
+
+  allPosts.forEach(post => {
+    const year = new Date(post.publishedAt).getFullYear();
+    if (!postsByYear[year]) {
+      postsByYear[year] = [];
+    }
+
+    postsByYear[year].push(post);
+  });
+
   return (
     <>
-      <NextSeo
-        title="Blog"
-        canonical={`https://lhowsam.com${router.asPath}`}
-        description="My blog posts"
-        openGraph={{
-          defaultImageWidth: 1200,
-          defaultImageHeight: 630,
-          url: `https://lhowsam.com${router.asPath}`,
-          title: `Blog | lhowsam.com`,
-        }}
-      />
       <Box
         as="header"
         textAlign={{ md: 'center' }}
@@ -56,7 +55,7 @@ const BlogIndexPage: NextPage<Props> = ({ posts }) => {
         </Text>
       </Box>
       <Spacer height="xxxxl" />
-      {Object.entries(posts)
+      {Object.entries(postsByYear)
         .reverse()
         // eslint-disable-next-line no-shadow
         .map(([year, posts], i) => (
@@ -81,43 +80,4 @@ const BlogIndexPage: NextPage<Props> = ({ posts }) => {
     </>
   );
 };
-
 export default BlogIndexPage;
-
-export const getStaticProps = async () => {
-  const posts = await postService.getAllPosts();
-  if (!posts.length) {
-    return {
-      props: {
-        posts: [],
-      },
-    };
-  }
-
-  const allPosts = posts.sort((a, b) => {
-    if (a.publishedAt < b.publishedAt) {
-      return 1;
-    }
-    if (a.publishedAt > b.publishedAt) {
-      return -1;
-    }
-    return 0;
-  });
-
-  const postsByYear: Record<string, Post[]> = {};
-
-  allPosts.forEach(post => {
-    const year = new Date(post.publishedAt).getFullYear();
-    if (!postsByYear[year]) {
-      postsByYear[year] = [];
-    }
-    postsByYear[year].push(post);
-  });
-
-  return {
-    props: {
-      posts: postsByYear,
-    },
-    revalidate: siteConfig.defaultRevalidate,
-  };
-};

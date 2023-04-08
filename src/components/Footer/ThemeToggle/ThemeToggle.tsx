@@ -1,3 +1,5 @@
+'use client';
+
 import VisuallyHidden from '@frontend/components/VisuallyHidden/VisuallyHidden';
 import { useMounted } from '@frontend/hooks/useMounted';
 import { motion } from 'framer-motion';

@@ -1,10 +1,15 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/no-unknown-property */
+
+'use client';
+
+import { useNavigationContext } from '@frontend/context/NavigationContext';
 import { Command, useCommandState } from 'cmdk';
 import { motion } from 'framer-motion';
+
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
-import * as React from 'react';
+import { ReactNode, useEffect } from 'react';
 import {
   Linkedin,
   GitHub,
@@ -36,7 +41,7 @@ const CommandItem = ({
 }: {
   onSelect?: (value: string) => void;
   value: string;
-  children: React.ReactNode;
+  children: ReactNode;
 }) => {
   const currentValue = useCommandState(state => state.value);
   return (
@@ -55,18 +60,13 @@ const CommandItem = ({
   );
 };
 
-const CommandMenu = ({
-  open,
-  setOpen,
-}: {
-  open: boolean;
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
-}) => {
+const CommandMenu = () => {
+  const { open, setOpen } = useNavigationContext();
   const router = useRouter();
   const { setTheme } = useTheme();
 
   // Toggle the menu when ⌘K is pressed
-  React.useEffect(() => {
+  useEffect(() => {
     const unsubscribe = tinykeys(window, {
       '$mod+KeyK': () => {
         setOpen(open => !open);

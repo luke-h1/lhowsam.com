@@ -1,3 +1,5 @@
+'use client';
+
 import classNames from 'classnames';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import * as styles from './Gradient.css';
