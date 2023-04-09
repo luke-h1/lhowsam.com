@@ -1,10 +1,11 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/no-unknown-property */
+import { useNavigationContext } from '@frontend/context/NavigationContext';
 import { Command, useCommandState } from 'cmdk';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
-import { ReactNode, Dispatch, SetStateAction, useEffect } from 'react';
+import { ReactNode, useEffect } from 'react';
 import {
   Linkedin,
   GitHub,
@@ -55,15 +56,10 @@ const CommandItem = ({
   );
 };
 
-const CommandMenu = ({
-  open,
-  setOpen,
-}: {
-  open: boolean;
-  setOpen: Dispatch<SetStateAction<boolean>>;
-}) => {
+const CommandMenu = () => {
   const router = useRouter();
   const { setTheme } = useTheme();
+  const { open, setOpen } = useNavigationContext();
 
   // Toggle the menu when ⌘K is pressed
   useEffect(() => {
@@ -180,7 +176,7 @@ const CommandMenu = ({
           </CommandItem>
           <CommandItem
             onSelect={() =>
-              window.open('https://www.linkedin.com/in/lu§kehowsam/', '_blank')
+              window.open('https://www.linkedin.com/in/lukehowsam/', '_blank')
             }
             value="linkedin"
           >

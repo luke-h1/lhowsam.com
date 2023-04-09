@@ -5,6 +5,7 @@ import Footer from '@frontend/components/Footer/Footer';
 import Gradient from '@frontend/components/Graident/Gradient';
 import SkipLink from '@frontend/components/SkipLink/SkipLink';
 import { Toaster } from '@frontend/components/Toast/Toast';
+import { NavigationContextProvider } from '@frontend/context/NavigationContext';
 import { useMounted } from '@frontend/hooks/useMounted';
 import { isDevelopment } from '@frontend/utils/isDevelopment';
 import { ToastProvider } from '@radix-ui/react-toast';
@@ -39,7 +40,6 @@ type Props = AppProps<{ dehydratedState: unknown }>;
 const App = ({ Component, pageProps, router }: Props) => {
   const canonicalUrl = `${process.env.NEXT_PUBLIC_URL}${router.asPath}`;
   const [queryClient] = useState(() => new QueryClient());
-  const [open, setOpen] = useState<boolean>(false);
 
   useMounted(() => {
     import('@frontend/services/googleAnalyticsService').then(
@@ -96,14 +96,16 @@ const App = ({ Component, pageProps, router }: Props) => {
               <TooltipProvider>
                 <SkipLink />
                 <Gradient />
-                <div className="container">
-                  <Banner setOpen={setOpen} />
-                  <main id="main">
-                    <Component {...pageProps} />
-                  </main>
-                  <CommandMenu open={open} setOpen={setOpen} />
-                  <Toaster />
-                </div>
+                <NavigationContextProvider>
+                  <div className="container">
+                    <Banner />
+                    <main id="main">
+                      <Component {...pageProps} />
+                    </main>
+                    <CommandMenu />
+                    <Toaster />
+                  </div>
+                </NavigationContextProvider>
                 <Footer />
               </TooltipProvider>
             </ToastProvider>
