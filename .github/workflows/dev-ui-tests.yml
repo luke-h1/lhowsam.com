@@ -1,4 +1,4 @@
-name: CI / UI tests (dev)
+name: UI tests (dev)
 on:
   workflow_dispatch:
 env: 

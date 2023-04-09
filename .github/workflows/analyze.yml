@@ -67,7 +67,7 @@ jobs:
         run: pnpm run build
 
       - name: Analyze bundle
-        run: npx -p nextjs-bundle-analysis report
+        run: npx -p nextjs-bundle-analysis@0.4.0 report
         working-directory: .
 
       - name: Upload bundle
