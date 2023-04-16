@@ -1,13 +1,12 @@
+'use client';
+
+import { useNavigationContext } from '@frontend/context/NavigationContext';
 import Link from 'next/link';
-import { Dispatch, SetStateAction } from 'react';
 import VisuallyHidden from '../VisuallyHidden/VisuallyHidden';
 import * as styles from './Banner.css';
 
-interface Props {
-  setOpen: Dispatch<SetStateAction<boolean>>;
-}
-
-const Banner = ({ setOpen }: Props) => {
+const Banner = () => {
+  const { setOpen } = useNavigationContext();
   return (
     <header className={styles.banner}>
       <Link href="/" className={styles.avatar}>

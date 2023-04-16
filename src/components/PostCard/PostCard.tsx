@@ -12,7 +12,7 @@ interface Props {
 
 const PostCard = ({ post }: Props) => {
   return (
-    <List.Item>
+    <List.Item key={post._id}>
       <Box
         display="flex"
         flexDirection={{ xs: 'column', sm: 'row-reverse' }}

@@ -63,6 +63,7 @@ const nextConfig = {
   },
   experimental: {
     webVitalsAttribution: ['CLS', 'LCP'],
+    appDir: true,
   },
   images: {
     remotePatterns: [
