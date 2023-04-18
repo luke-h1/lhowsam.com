@@ -14,7 +14,6 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import { Analytics } from '@vercel/analytics/react';
 import { MotionConfig } from 'framer-motion';
 import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import Head from 'next/head';
@@ -109,7 +108,6 @@ const App = ({ Component, pageProps, router }: Props) => {
             </ToastProvider>
           </ThemeProvider>
         </MotionConfig>
-        <Analytics />
       </Hydrate>
     </QueryClientProvider>
   );
