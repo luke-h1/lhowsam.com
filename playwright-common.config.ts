@@ -19,8 +19,8 @@ const commonConfig: PlaywrightTestConfig = {
   },
   name: 'lhowsam.com E2E Tests',
   shard: {
-    current: 0,
-    total: 1,
+    current: 1,
+    total: 3,
   },
   expect: {
     /**
