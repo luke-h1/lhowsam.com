@@ -1,7 +1,6 @@
 /* eslint-disable no-shadow */
 /* eslint-disable react/no-unknown-property */
 import { Command, useCommandState } from 'cmdk';
-import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
 import { ReactNode, Dispatch, SetStateAction, useEffect } from 'react';
@@ -42,15 +41,7 @@ const CommandItem = ({
   return (
     <Command.Item onSelect={onSelect} value={value}>
       <span className="content">{children}</span>
-      {currentValue === value ? (
-        <motion.span
-          layoutId="highlight"
-          className="highlight"
-          transition={{
-            duration: 0.2,
-          }}
-        />
-      ) : null}
+      {currentValue === value ? <span className="highlight" /> : null}
     </Command.Item>
   );
 };

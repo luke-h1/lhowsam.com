@@ -14,7 +14,6 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import { MotionConfig } from 'framer-motion';
 import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
@@ -89,25 +88,23 @@ const App = ({ Component, pageProps, router }: Props) => {
             content="width=device-width, user-scalable=yes, initial-scale=1.0, viewport-fit=cover"
           />
         </Head>
-        <MotionConfig reducedMotion="user">
-          <ThemeProvider attribute="class" defaultTheme="system">
-            <ToastProvider>
-              <TooltipProvider>
-                <SkipLink />
-                <Gradient />
-                <div className="container">
-                  <Banner setOpen={setOpen} />
-                  <main id="main">
-                    <Component {...pageProps} />
-                  </main>
-                  <CommandMenu open={open} setOpen={setOpen} />
-                  <Toaster />
-                </div>
-                <Footer />
-              </TooltipProvider>
-            </ToastProvider>
-          </ThemeProvider>
-        </MotionConfig>
+        <ThemeProvider attribute="class" defaultTheme="system">
+          <ToastProvider>
+            <TooltipProvider>
+              <SkipLink />
+              <Gradient />
+              <div className="container">
+                <Banner setOpen={setOpen} />
+                <main id="main">
+                  <Component {...pageProps} />
+                </main>
+                <CommandMenu open={open} setOpen={setOpen} />
+                <Toaster />
+              </div>
+              <Footer />
+            </TooltipProvider>
+          </ToastProvider>
+        </ThemeProvider>
       </Hydrate>
     </QueryClientProvider>
   );

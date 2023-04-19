@@ -60,16 +60,19 @@ const listAllPosts = groq`
 
 export const getPostQuery = groq`
 *[ _type == "post" && slug.current == $slug][0] {
-  ...,
+  title,
+  intro,  
+  publishedAt,
+  content,
   image {
     alt,
     asset {
-      _ref
-    },
-  },
+    ...,
+   },
+ },
   tags[]-> {
-    title,
-    slug
+   title,
+   slug
   },
 }
 `;
