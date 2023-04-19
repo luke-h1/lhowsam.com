@@ -2,13 +2,11 @@
 import type { ImageProps } from 'next/legacy/image';
 import Image from 'next/legacy/image';
 import Heading from './Heading/Heading';
-import ImageCarousel from './ImageCarousel/ImageCarousel';
 import Link from './Link/Link';
 import Text from './Text/Text';
 import YoutubeEmbed from './YoutubeEmbed/YoutubeEmbed';
 
 const Components = {
-  ImageCarousel,
   Image: (props: ImageProps & { rounded?: boolean }) => {
     const { rounded = true } = props;
     return (

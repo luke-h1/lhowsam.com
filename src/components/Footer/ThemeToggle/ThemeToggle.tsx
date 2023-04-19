@@ -1,6 +1,5 @@
 import VisuallyHidden from '@frontend/components/VisuallyHidden/VisuallyHidden';
 import { useMounted } from '@frontend/hooks/useMounted';
-import { motion } from 'framer-motion';
 import { useTheme } from 'next-themes';
 import { Monitor, Sun, Moon } from 'react-feather';
 import * as styles from './ThemeToggle.css';
@@ -14,7 +13,7 @@ const ThemeToggle = () => {
   }
 
   return (
-    <motion.div className={styles.root} layout layoutRoot>
+    <div className={styles.root}>
       <button
         className={
           styles.toggleVariant[theme === 'system' ? 'active' : 'initial']
@@ -25,13 +24,7 @@ const ThemeToggle = () => {
       >
         <VisuallyHidden>Change theme to system mode</VisuallyHidden>
         <Monitor width="0.9em" />
-        {theme === 'system' && (
-          <motion.span
-            className={styles.shadow}
-            layout
-            layoutId="theme-toggle-shadow"
-          />
-        )}
+        {theme === 'system' && <span className={styles.shadow} />}
       </button>
       <button
         className={
@@ -43,13 +36,7 @@ const ThemeToggle = () => {
       >
         <VisuallyHidden>Change theme to light mode</VisuallyHidden>
         <Sun width="0.9em" />
-        {theme === 'light' && (
-          <motion.span
-            className={styles.shadow}
-            layout
-            layoutId="theme-toggle-shadow"
-          />
-        )}
+        {theme === 'light' && <span className={styles.shadow} />}
       </button>
       <button
         className={
@@ -61,15 +48,9 @@ const ThemeToggle = () => {
       >
         <VisuallyHidden>Change theme to dark mode</VisuallyHidden>
         <Moon width=".9em" />
-        {theme === 'dark' && (
-          <motion.span
-            className={styles.shadow}
-            layout
-            layoutId="theme-toggle-shadow"
-          />
-        )}
+        {theme === 'dark' && <span className={styles.shadow} />}
       </button>
-    </motion.div>
+    </div>
   );
 };
 export default ThemeToggle;

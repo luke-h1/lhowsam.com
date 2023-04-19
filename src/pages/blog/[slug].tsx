@@ -8,7 +8,7 @@ import Prose from '@frontend/components/Prose/Prose';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
 import imageService from '@frontend/services/imageService';
-import postService, { getPostQuery } from '@frontend/services/postService';
+import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
 import { GetStaticPaths, NextPage } from 'next';
@@ -120,22 +120,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps = async ({
   params,
-  preview = false,
 }: {
   params?: { slug: string };
-  preview?: boolean;
 }) => {
-  const queryParams = { slug: params?.slug ?? '' };
-
-  if (preview) {
-    return {
-      props: {
-        preview,
-        queryParams,
-      },
-    };
-  }
-
   const post = await postService.getPost(params?.slug as string);
 
   if (!post) {
@@ -148,7 +135,6 @@ export const getStaticProps = async ({
 
   return {
     props: {
-      preview,
       post,
       compiledSource,
     },
