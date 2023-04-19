@@ -1,6 +1,9 @@
 query Project($slug: StringFilter!) {
   allProject(where: { slug: { current: $slug } }) {
-    ...ProjectFragment
     content
+    ...ProjectFragment
+    slug {
+      current
+    }
   }
 }

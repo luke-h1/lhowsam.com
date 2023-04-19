@@ -1,11 +1,12 @@
 fragment ImageFragment on Image {
   _key
-  _type
   asset {
-    title
-    altText
+    _id
+    _type
+    originalFilename
+    url
     source {
-      name
+      id
       url
     }
   }

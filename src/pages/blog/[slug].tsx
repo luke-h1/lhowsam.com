@@ -11,6 +11,7 @@ import { Post } from '@frontend/graphql/generated/generated';
 import imageService from '@frontend/services/imageService';
 import postService from '@frontend/services/postService';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
+import omit from 'lodash/omit';
 import { GetStaticPaths, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
@@ -49,7 +50,7 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
           article: {
             authors: ['Luke Howsam'],
             publishedTime: post.publishedAt,
-            tags: post.tags.map(tag => tag.title),
+            tags: post.tags?.map(tag => tag.title),
           },
         }}
       />
@@ -123,7 +124,9 @@ export const getStaticProps = async ({
 }: {
   params?: { slug: string };
 }) => {
-  const { post } = await postService.getPost(params?.slug as string);
+  const post = await postService.getPost(params?.slug as string);
+
+  console.log('post', omit(post, 'content'));
 
   if (!post) {
     return {

@@ -10,5 +10,6 @@ query Posts {
     tags {
       ...TagFragment
     }
+    content
   }
 }

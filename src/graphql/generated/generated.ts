@@ -960,14 +960,15 @@ export type TagSorting = {
 export type ImageFragmentFragment = {
   __typename?: 'Image';
   _key?: string | null;
-  _type?: string | null;
   asset?: {
     __typename?: 'SanityImageAsset';
-    title?: string | null;
-    altText?: string | null;
+    _id?: string | null;
+    _type?: string | null;
+    originalFilename?: string | null;
+    url?: string | null;
     source?: {
       __typename?: 'SanityAssetSourceData';
-      name?: string | null;
+      id?: string | null;
       url?: string | null;
     } | null;
   } | null;
@@ -983,18 +984,30 @@ export type PostFragmentFragment = {
   image?: {
     __typename?: 'Image';
     _key?: string | null;
-    _type?: string | null;
     asset?: {
       __typename?: 'SanityImageAsset';
-      title?: string | null;
-      altText?: string | null;
+      _id?: string | null;
+      _type?: string | null;
+      originalFilename?: string | null;
+      url?: string | null;
       source?: {
         __typename?: 'SanityAssetSourceData';
-        name?: string | null;
+        id?: string | null;
         url?: string | null;
       } | null;
     } | null;
   } | null;
+  tags?: Array<{
+    __typename?: 'Tag';
+    _id?: string | null;
+    title?: string | null;
+    slug?: {
+      __typename?: 'Slug';
+      _key?: string | null;
+      _type?: string | null;
+      source?: string | null;
+    } | null;
+  } | null> | null;
 };
 
 export type ProjectFragmentFragment = {
@@ -1035,18 +1048,30 @@ export type PostQuery = {
     image?: {
       __typename?: 'Image';
       _key?: string | null;
-      _type?: string | null;
       asset?: {
         __typename?: 'SanityImageAsset';
-        title?: string | null;
-        altText?: string | null;
+        _id?: string | null;
+        _type?: string | null;
+        originalFilename?: string | null;
+        url?: string | null;
         source?: {
           __typename?: 'SanityAssetSourceData';
-          name?: string | null;
+          id?: string | null;
           url?: string | null;
         } | null;
       } | null;
     } | null;
+    tags?: Array<{
+      __typename?: 'Tag';
+      _id?: string | null;
+      title?: string | null;
+      slug?: {
+        __typename?: 'Slug';
+        _key?: string | null;
+        _type?: string | null;
+        source?: string | null;
+      } | null;
+    } | null> | null;
   }>;
 };
 
@@ -1056,6 +1081,7 @@ export type PostsQuery = {
   __typename?: 'RootQuery';
   allPost: Array<{
     __typename?: 'Post';
+    content?: string | null;
     _id?: string | null;
     _type?: string | null;
     title?: string | null;
@@ -1082,14 +1108,15 @@ export type PostsQuery = {
     image?: {
       __typename?: 'Image';
       _key?: string | null;
-      _type?: string | null;
       asset?: {
         __typename?: 'SanityImageAsset';
-        title?: string | null;
-        altText?: string | null;
+        _id?: string | null;
+        _type?: string | null;
+        originalFilename?: string | null;
+        url?: string | null;
         source?: {
           __typename?: 'SanityAssetSourceData';
-          name?: string | null;
+          id?: string | null;
           url?: string | null;
         } | null;
       } | null;
@@ -1111,6 +1138,7 @@ export type ProjectQuery = {
     intro?: string | null;
     siteUrl?: string | null;
     githubUrl?: string | null;
+    slug?: { __typename?: 'Slug'; current?: string | null } | null;
   }>;
 };
 
@@ -1177,14 +1205,15 @@ export type RecentPostsQuery = {
     image?: {
       __typename?: 'Image';
       _key?: string | null;
-      _type?: string | null;
       asset?: {
         __typename?: 'SanityImageAsset';
-        title?: string | null;
-        altText?: string | null;
+        _id?: string | null;
+        _type?: string | null;
+        originalFilename?: string | null;
+        url?: string | null;
         source?: {
           __typename?: 'SanityAssetSourceData';
-          name?: string | null;
+          id?: string | null;
           url?: string | null;
         } | null;
       } | null;
@@ -1195,14 +1224,26 @@ export type RecentPostsQuery = {
 export const ImageFragmentFragmentDoc = gql`
   fragment ImageFragment on Image {
     _key
-    _type
     asset {
-      title
-      altText
+      _id
+      _type
+      originalFilename
+      url
       source {
-        name
+        id
         url
       }
+    }
+  }
+`;
+export const TagFragmentFragmentDoc = gql`
+  fragment TagFragment on Tag {
+    _id
+    title
+    slug {
+      _key
+      _type
+      source
     }
   }
 `;
@@ -1216,8 +1257,12 @@ export const PostFragmentFragmentDoc = gql`
     image {
       ...ImageFragment
     }
+    tags {
+      ...TagFragment
+    }
   }
   ${ImageFragmentFragmentDoc}
+  ${TagFragmentFragmentDoc}
 `;
 export const ProjectFragmentFragmentDoc = gql`
   fragment ProjectFragment on Project {
@@ -1226,17 +1271,6 @@ export const ProjectFragmentFragmentDoc = gql`
     intro
     siteUrl
     githubUrl
-  }
-`;
-export const TagFragmentFragmentDoc = gql`
-  fragment TagFragment on Tag {
-    _id
-    title
-    slug {
-      _key
-      _type
-      source
-    }
   }
 `;
 export const PostDocument = gql`
@@ -1274,6 +1308,7 @@ export const PostsDocument = gql`
       tags {
         ...TagFragment
       }
+      content
     }
   }
   ${PostFragmentFragmentDoc}
@@ -1291,8 +1326,11 @@ export function usePostsQuery(
 export const ProjectDocument = gql`
   query Project($slug: StringFilter!) {
     allProject(where: { slug: { current: $slug } }) {
-      ...ProjectFragment
       content
+      ...ProjectFragment
+      slug {
+        current
+      }
     }
   }
   ${ProjectFragmentFragmentDoc}

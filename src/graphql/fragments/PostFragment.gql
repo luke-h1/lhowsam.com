@@ -7,4 +7,7 @@ fragment PostFragment on Post {
   image {
     ...ImageFragment
   }
+  tags {
+    ...TagFragment
+  }
 }

@@ -1,6 +1,6 @@
 import {
+  Post,
   PostDocument,
-  PostQuery,
   PostQueryVariables,
   PostsDocument,
   PostsQuery,
@@ -12,8 +12,8 @@ import {
 import cmsClient from './Client/cmsClient';
 
 const postService = {
-  async getPost(slug: string) {
-    const { allPost } = await cmsClient.request<PostQuery, PostQueryVariables>(
+  async getPost(slug: string): Promise<Post> {
+    const { allPost } = await cmsClient.request<PostsQuery, PostQueryVariables>(
       PostDocument,
       {
         slug: {
@@ -22,9 +22,7 @@ const postService = {
       },
     );
 
-    return {
-      post: allPost[0],
-    };
+    return allPost[0];
   },
 
   async getPosts() {

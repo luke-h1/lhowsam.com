@@ -1,6 +1,6 @@
 import {
+  Project,
   ProjectDocument,
-  ProjectQuery,
   ProjectQueryVariables,
   ProjectsDocument,
   ProjectsQuery,
@@ -9,9 +9,9 @@ import {
 import cmsClient from './Client/cmsClient';
 
 const projectService = {
-  async getProject(slug: string) {
+  async getProject(slug: string): Promise<Project> {
     const { allProject } = await cmsClient.request<
-      ProjectQuery,
+      ProjectsQuery,
       ProjectQueryVariables
     >(ProjectDocument, {
       slug: {
@@ -19,7 +19,7 @@ const projectService = {
       },
     });
 
-    return allProject;
+    return allProject[0];
   },
 
   async getProjects() {
