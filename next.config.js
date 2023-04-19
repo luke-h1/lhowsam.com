@@ -61,6 +61,8 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  excludeDefaultMomentLocales: true,
+  compress: true,
   experimental: {
     webVitalsAttribution: ['CLS', 'LCP'],
   },
