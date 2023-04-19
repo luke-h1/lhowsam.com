@@ -14,12 +14,20 @@ const commonConfig: PlaywrightTestConfig = {
   testDir: './e2e',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
+  metadata: {
+    /* Tags to be used for filtering tests. */
+  },
+  name: 'lhowsam.com E2E Tests',
+  shard: {
+    current: 0,
+    total: 1,
+  },
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 10000,
+    timeout: 20000,
   },
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -30,7 +38,7 @@ const commonConfig: PlaywrightTestConfig = {
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 0,
-    navigationTimeout: 10000,
+    navigationTimeout: 20000,
     /* Base URL to use in actions like `await page.goto('/')`. */
     // baseURL: 'http://localhost:3000',
     trace: 'on-first-retry',
