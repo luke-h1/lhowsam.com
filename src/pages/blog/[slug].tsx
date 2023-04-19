@@ -7,9 +7,9 @@ import Components from '@frontend/components/MDXComponents';
 import Prose from '@frontend/components/Prose/Prose';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
+import { Post } from '@frontend/graphql/generated/generated';
 import imageService from '@frontend/services/imageService';
 import postService from '@frontend/services/postService';
-import { Post } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
 import { GetStaticPaths, NextPage } from 'next';
 import { useRouter } from 'next/router';
@@ -123,7 +123,7 @@ export const getStaticProps = async ({
 }: {
   params?: { slug: string };
 }) => {
-  const post = await postService.getPost(params?.slug as string);
+  const { post } = await postService.getPost(params?.slug as string);
 
   if (!post) {
     return {

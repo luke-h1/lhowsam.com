@@ -1,0 +1,14 @@
+query Posts {
+  allPost {
+    ...PostFragment
+    slug {
+      _key
+      _type
+      source
+      current
+    }
+    tags {
+      ...TagFragment
+    }
+  }
+}

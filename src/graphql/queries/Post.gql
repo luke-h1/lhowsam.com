@@ -1,0 +1,9 @@
+query Post($slug: StringFilter!) {
+  allPost(where: { slug: { current: $slug } }) {
+    content
+    ...PostFragment
+    image {
+      ...ImageFragment
+    }
+  }
+}

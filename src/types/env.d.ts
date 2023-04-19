@@ -7,6 +7,7 @@ declare global {
       SPOTIFY_CLIENT_SECRET: string;
       SPOTIFY_REFRESH_TOKEN: string;
       NEXT_PUBLIC_GA_TRACKING_ID: string;
+      NEXT_PUBLIC_SANITY_GQL_URL: string;
     }
   }
 }

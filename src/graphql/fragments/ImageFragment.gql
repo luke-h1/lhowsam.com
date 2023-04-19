@@ -1,0 +1,12 @@
+fragment ImageFragment on Image {
+  _key
+  _type
+  asset {
+    title
+    altText
+    source {
+      name
+      url
+    }
+  }
+}

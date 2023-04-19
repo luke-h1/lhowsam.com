@@ -1,0 +1,10 @@
+fragment PostFragment on Post {
+  _id
+  _type
+  title
+  intro
+  publishedAt
+  image {
+    ...ImageFragment
+  }
+}

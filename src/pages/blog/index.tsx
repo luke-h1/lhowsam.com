@@ -6,8 +6,8 @@ import List from '@frontend/components/List/List';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
 import siteConfig from '@frontend/config/site';
+import { Post } from '@frontend/graphql/generated/generated';
 import postService from '@frontend/services/postService';
-import { Post } from '@frontend/types/sanity';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
@@ -85,7 +85,7 @@ const BlogIndexPage: NextPage<Props> = ({ posts }) => {
 export default BlogIndexPage;
 
 export const getStaticProps = async () => {
-  const posts = await postService.getAllPosts();
+  const posts = await postService.getPosts();
   if (!posts.length) {
     return {
       props: {

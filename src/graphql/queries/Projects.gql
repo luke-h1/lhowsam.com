@@ -1,0 +1,13 @@
+query Projects {
+  allProject {
+    ...ProjectFragment
+    slug {
+      _key
+      source
+      current
+    }
+    tags {
+      ...TagFragment
+    }
+  }
+}

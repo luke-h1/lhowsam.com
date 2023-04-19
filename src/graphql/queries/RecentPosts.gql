@@ -1,0 +1,14 @@
+query RecentPosts {
+  allPost(limit: 3, sort: { publishedAt: DESC }) {
+    ...PostFragment
+    slug {
+      _key
+      _type
+      source
+      current
+    }
+    tags {
+      ...TagFragment
+    }
+  }
+}
