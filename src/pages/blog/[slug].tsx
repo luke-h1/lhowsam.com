@@ -90,7 +90,7 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
           color="foregroundNeutral"
           data-testid="time"
         >
-          <FormattedDate>{post.publishedAt}</FormattedDate>
+          <FormattedDate>{post.date}</FormattedDate>
         </Text>
       </Box>
 
