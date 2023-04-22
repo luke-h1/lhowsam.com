@@ -47,7 +47,7 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
           title: `${post.title} | lhowsam.com`,
           article: {
             authors: ['Luke Howsam'],
-            publishedTime: post.publishedAt,
+            publishedTime: post.date,
             tags: post.tags?.map(tag => tag.title),
           },
         }}
