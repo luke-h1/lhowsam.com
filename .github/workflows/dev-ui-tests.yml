@@ -1,8 +1,6 @@
 name: UI tests (dev)
 on:
   workflow_dispatch:
-  schedule: 
-    - cron: '0 */2 * * *'
 env: 
   HYGRAPH_URL: ${{ secrets.HYGRAPH_URL }}
   BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
