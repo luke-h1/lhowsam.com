@@ -1,4 +1,4 @@
-import { Post } from '@frontend/types/sanity';
+import { Post } from '@frontend/graphql/generated/generated';
 import Box from '../Box/Box';
 import Heading from '../Heading/Heading';
 import Link from '../Link/Link';
@@ -31,7 +31,7 @@ const PostCard = ({ post }: Props) => {
           {post.publishedAt}
         </Text>
         <Heading>
-          <Link href={`/blog/${post.slug.current}`} data-testid="post-title">
+          <Link href={`/blog/${post.slug}`} data-testid="post-title">
             {post.title}
           </Link>
         </Heading>
@@ -58,7 +58,7 @@ const PostCard = ({ post }: Props) => {
               <Text
                 fontSize="sm"
                 color="foregroundNeutral"
-                key={`${tag.title}-${tag.slug.current}`}
+                key={`${tag.title}-${tag.slug}`}
                 data-testid="post-tags"
               >
                 {tag.title}
