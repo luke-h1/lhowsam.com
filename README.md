@@ -7,7 +7,10 @@ My website & blog
 - [Next](https://github.com/vercel/next.js)
 - [Typescript](https://github.com/Microsoft/TypeScript)
 - [Playwright](https://playwright.dev/)
+- [Jest](https://jestjs.io)
+- [MDX](https://github.com/mdx-js/mdx)
 - [Vercel](https://vercel.com)
+- [Sanity.io](https://sanity.io)
 
 
 <br />

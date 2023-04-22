@@ -1,5 +1,0 @@
-query Project($slug: String!) {
-  project(where: { slug: $slug }) {
-    ...ProjectFragment
-  }
-}

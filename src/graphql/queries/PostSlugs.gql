@@ -1,5 +1,0 @@
-query PostSlugs {
-  posts {
-    slug
-  }
-}

@@ -15,6 +15,7 @@ test.describe('blog', () => {
     const years = ['2023', '2022', '2021', '2020'];
 
     for (let i = 0; i < years.length; i += 1) {
+      // const locator = `[id="${years[i]}"}]`
       await expect(page.locator(`[id="${years[i]}"]`)).toBeVisible();
       await expect(page.locator(`[id="${years[i]}"]`)).toHaveText(years[i]);
     }

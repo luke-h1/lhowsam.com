@@ -6,8 +6,8 @@ import List from '@frontend/components/List/List';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
 import siteConfig from '@frontend/config/site';
-import { Post } from '@frontend/graphql/generated/generated';
 import postService from '@frontend/services/postService';
+import { Post } from '@frontend/types/sanity';
 import { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
@@ -72,7 +72,7 @@ const BlogIndexPage: NextPage<Props> = ({ posts }) => {
               <List>
                 {posts &&
                   posts.map(post => (
-                    <PostCard post={post} key={`${post.id}-${post.title}`} />
+                    <PostCard post={post} key={`${post._id}-${post.title}`} />
                   ))}
               </List>
             </Box>
@@ -85,7 +85,7 @@ const BlogIndexPage: NextPage<Props> = ({ posts }) => {
 export default BlogIndexPage;
 
 export const getStaticProps = async () => {
-  const posts = await postService.getPosts();
+  const posts = await postService.getAllPosts();
   if (!posts.length) {
     return {
       props: {
@@ -95,10 +95,10 @@ export const getStaticProps = async () => {
   }
 
   const allPosts = posts.sort((a, b) => {
-    if (a.date < b.date) {
+    if (a.publishedAt < b.publishedAt) {
       return 1;
     }
-    if (a.date > b.date) {
+    if (a.publishedAt > b.publishedAt) {
       return -1;
     }
     return 0;
@@ -107,7 +107,7 @@ export const getStaticProps = async () => {
   const postsByYear: Record<string, Post[]> = {};
 
   allPosts.forEach(post => {
-    const year = new Date(post.date).getFullYear();
+    const year = new Date(post.publishedAt).getFullYear();
     if (!postsByYear[year]) {
       postsByYear[year] = [];
     }
