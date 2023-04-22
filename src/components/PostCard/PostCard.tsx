@@ -23,12 +23,12 @@ const PostCard = ({ post }: Props) => {
       >
         <Text
           as="time"
-          dateTime={post.publishedAt}
+          dateTime={post.date}
           color="foregroundNeutral"
           fontSize="sm"
           data-testid="post-date"
         >
-          {post.publishedAt}
+          {post.date}
         </Text>
         <Heading>
           <Link href={`/blog/${post.slug}`} data-testid="post-title">

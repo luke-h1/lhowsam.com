@@ -15,7 +15,7 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
     return feed.item({
       title: post.title,
       url: `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug}`,
-      date: post.publishedAt,
+      date: post.date,
       description: post.intro,
     });
   });

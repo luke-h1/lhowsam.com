@@ -86,7 +86,7 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
         <Spacer height="sm" />
         <Text
           as="time"
-          dateTime={post.publishedAt}
+          dateTime={post.date}
           color="foregroundNeutral"
           data-testid="time"
         >
