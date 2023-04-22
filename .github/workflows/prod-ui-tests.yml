@@ -4,7 +4,7 @@ on:
   schedule: 
     - cron: '0 */12 * * *'
 env: 
-  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+  HYGRAPH_URL: ${{ secrets.HYGRAPH_URL }}
   NODE_VERSION: 18.15.0
   PNPM_VERSION: 8.1.0
 
