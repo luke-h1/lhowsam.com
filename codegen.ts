@@ -4,7 +4,7 @@ const config: CodegenConfig = {
   overwrite: true,
   schema: [
     {
-      [process.env.NEXT_PUBLIC_SANITY_GQL_URL as string]: {
+      [process.env.SANITY_GQL_URL as string]: {
         // headers: { Authorization: `Bearer ${process.env.CMS_PROD_TOKEN}` },
       },
     },

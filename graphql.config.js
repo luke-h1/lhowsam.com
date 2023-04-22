@@ -9,7 +9,7 @@ module.exports = {
       extensions: {
         endpoints: {
           default: {
-            url: process.env.NEXT_PUBLIC_SANITY_GQL_URL,
+            url: process.env.SANITY_GQL_URL,
             headers: {},
           },
         },
