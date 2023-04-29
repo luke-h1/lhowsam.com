@@ -1,0 +1,5 @@
+fragment TagFragment on Tag {
+  id
+  title
+  slug
+}

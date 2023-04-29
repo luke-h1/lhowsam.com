@@ -1,7 +1,7 @@
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      NEXT_PUBLIC_SANITY_PROJECT_ID: string;
+      HYGRAPH_URL: string;
       NEXT_PUBLIC_URL: string;
       SPOTIFY_CLIENT_ID: string;
       SPOTIFY_CLIENT_SECRET: string;
