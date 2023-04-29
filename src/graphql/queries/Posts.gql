@@ -1,0 +1,8 @@
+query Posts {
+  posts {
+    ...PostFragment
+    tags {
+      ...TagFragment
+    }
+  }
+}

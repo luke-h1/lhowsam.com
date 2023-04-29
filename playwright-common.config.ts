@@ -18,10 +18,6 @@ const commonConfig: PlaywrightTestConfig = {
     /* Tags to be used for filtering tests. */
   },
   name: 'lhowsam.com E2E Tests',
-  shard: {
-    current: 1,
-    total: 3,
-  },
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.

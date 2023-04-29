@@ -4,8 +4,8 @@ import List from '@frontend/components/List/List';
 import ProjectItem from '@frontend/components/ProjectItem/ProjectItem';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import siteConfig from '@frontend/config/site';
+import { Project } from '@frontend/graphql/generated/generated';
 import projectService from '@frontend/services/projectService';
-import { Project } from '@frontend/types/sanity';
 import { GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
@@ -42,7 +42,7 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
         <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
           {projects &&
             projects.map(project => (
-              <List key={project._id}>
+              <List key={project.id}>
                 <Spacer height="xxl" />
                 <ProjectItem project={project} />
               </List>
@@ -56,7 +56,7 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
 export default ProjectPage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const projects = await projectService.getAllProjects();
+  const projects = await projectService.getProjects();
 
   if (!projects.length) {
     return {
