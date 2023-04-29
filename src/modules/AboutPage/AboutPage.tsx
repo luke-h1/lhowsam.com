@@ -76,7 +76,7 @@ const AboutPage = () => {
 
             <Box as="div" marginTop="md">
               <Text>
-                <Link href="/static/cv.pdf">Resume</Link>
+                <Link href="/static/cv-latest.pdf">Resume</Link>
               </Text>
             </Box>
           </Box>

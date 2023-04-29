@@ -22,7 +22,7 @@ test.describe('about', () => {
 
     await expect(page.locator('text=Resume')).toHaveAttribute(
       'href',
-      '/static/cv.pdf',
+      '/static/cv-latest.pdf',
     );
   });
 });

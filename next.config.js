@@ -64,11 +64,14 @@ const nextConfig = {
   experimental: {
     webVitalsAttribution: ['CLS', 'LCP'],
   },
+  env: {
+    HYGRAPH_URL: process.env.HYGRAPH_URL,
+  },
   images: {
     remotePatterns: [
-      { hostname: 'cdn.sanity.io' },
       { hostname: 'localhost' },
       { hostname: 'i.scdn.co' },
+      { hostname: 'media.graphassets.com' },
     ],
     formats: ['image/avif', 'image/webp'],
   },

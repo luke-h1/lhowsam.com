@@ -1,0 +1,13 @@
+fragment PostFragment on Post {
+  id
+  title
+  intro
+  slug
+  date
+  tags {
+    ...TagFragment
+  }
+  image {
+    url
+  }
+}

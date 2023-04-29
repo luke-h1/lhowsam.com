@@ -18,11 +18,9 @@ import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
 import { ThemeProvider } from 'next-themes';
-import NProgress from 'nprogress';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import '@frontend/styles/app.css';
 import '@frontend/styles/tokyo-night-dark.min.css';
-import 'nprogress/nprogress.css';
 import '@fontsource/poppins';
 
 export function reportWebVitals(metric: NextWebVitalsMetric) {
@@ -51,21 +49,6 @@ const App = ({ Component, pageProps, router }: Props) => {
     );
   });
 
-  useEffect(() => {
-    const handleRouteStart = () => NProgress.start();
-    const handleRouteDone = () => NProgress.done();
-
-    router.events.on('routeChangeStart', handleRouteStart);
-    router.events.on('routeChangeComplete', handleRouteDone);
-    router.events.on('routeChangeError', handleRouteDone);
-
-    return () => {
-      router.events.off('routeChangeStart', handleRouteStart);
-      router.events.off('routeChangeComplete', handleRouteDone);
-      router.events.off('routeChangeError', handleRouteDone);
-    };
-  }, [router.events]);
-
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={pageProps.dehydratedState}>
@@ -73,8 +56,8 @@ const App = ({ Component, pageProps, router }: Props) => {
           titleTemplate="%s | lhowsam.com"
           title="lhowsam.com"
           canonical={canonicalUrl}
-          dangerouslySetAllPagesToNoFollow={isDevelopment}
-          dangerouslySetAllPagesToNoIndex={isDevelopment}
+          dangerouslySetAllPagesToNoFollow={true}
+          dangerouslySetAllPagesToNoIndex={true}
           openGraph={{
             profile: {
               firstName: 'Luke',

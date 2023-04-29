@@ -1,26 +1,22 @@
-name: Build
+name: UI tests
 on:
-  push:
-    branches: [dev]
-  pull_request:
-    branches: [dev, main]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */6 * * *'
 env:
-  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-  NODE_VERSION: 18.16.0
+  HYGRAPH_URL: ${{ secrets.HYGRAPH_URL }}
+  NODE_VERSION: 18.15.0
   PNPM_VERSION: 8.1.0
 
 jobs:
   test:
-    name: Build
+    name: e2e prod
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - name: Install moreutils
-        run: sudo apt install moreutils
-        
       # https://github.com/actions/virtual-environments/issues/1187
       - name: tune linux network
-        run: sudo ethtool -K eth0 tx off rx off            
+        run: sudo ethtool -K eth0 tx off rx off
 
       - name: Setup node
         uses: actions/setup-node@v3
@@ -66,27 +62,12 @@ jobs:
       - name: Install dependencies
         run: pnpm i --no-frozen-lockfile
 
-      - name: format
-        run: pnpm run format
-
-      - name: lint
-        run: pnpm run lint
-
-      - name: jest
-        run: pnpm run test
-
-      - name: tsc
-        run: pnpm run tsc
-
-      - name: build
-        run: pnpm run build
-
       - name: Install Playwright Browsers
         run: ./node_modules/.bin/playwright install --with-deps chromium
 
-      - name: local UI tests
-        run: pnpm e2e:local-ci
- 
+      - name: prod UI tests
+        run: pnpm run e2e:prod || exit 1
+
       - uses: actions/upload-artifact@v3
         if: always()
         with:

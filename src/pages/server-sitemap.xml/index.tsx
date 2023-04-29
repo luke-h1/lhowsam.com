@@ -13,11 +13,11 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
 
   const [postFields, projectFields] = await Promise.all([
     posts.map(post => ({
-      loc: `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug.current}`,
+      loc: `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug}`,
       lastmod,
     })),
     projects.map(project => ({
-      loc: `${process.env.NEXT_PUBLIC_URL}/projects/${project.slug.current}`,
+      loc: `${process.env.NEXT_PUBLIC_URL}/projects/${project.slug}`,
       lastmod,
     })),
   ]);
