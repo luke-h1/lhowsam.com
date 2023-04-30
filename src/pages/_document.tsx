@@ -23,14 +23,7 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="keywords" content={keywords.join(', ')} />
-          <link rel="icon" href="/favicon.ico" />
-          <link href="/icons/favicon-16x16.png" rel="icon" />
-          <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="/icons/maskable.png"
-          />
+          <link rel="icon" href="/icons/favicon.ico" />
           <link
             rel="icon"
             type="image/png"
