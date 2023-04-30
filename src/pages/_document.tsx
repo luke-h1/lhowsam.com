@@ -51,8 +51,6 @@ export default class MyDocument extends Document {
             name="description"
             content="Luke Howsam is a software engineer and software developer who specializes in Javascript, Typescript, GraphQL, cloud technologies & automated + manual testing"
           />
-
-          <link rel="manifest" href="/icons/site.webmanifest.json" />
         </Head>
         <body>
           <Main />
