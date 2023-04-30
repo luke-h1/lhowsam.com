@@ -1,5 +1,5 @@
-import { Project } from '@frontend/graphql/generated/generated';
 import { theme } from '@frontend/styles/theme.css';
+import { Project } from '@frontend/types/sanity';
 import Box from '../Box/Box';
 import Link from '../Link/Link';
 import Spacer from '../Spacer/Spacer';
@@ -15,7 +15,7 @@ const ProjectItem = ({ project }: Props) => {
     <article>
       <div className={styles.content}>
         <Link
-          href={`/projects/${project.slug}`}
+          href={`/projects/${project.slug.current}`}
           variant="neutral"
           data-testid="project-link"
         >

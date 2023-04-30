@@ -7,8 +7,9 @@ import Components from '@frontend/components/MDXComponents';
 import Prose from '@frontend/components/Prose/Prose';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
-import { Post } from '@frontend/graphql/generated/generated';
+import imageService from '@frontend/services/imageService';
 import postService from '@frontend/services/postService';
+import { Post } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
 import { GetStaticPaths, NextPage } from 'next';
 import { useRouter } from 'next/router';
@@ -37,7 +38,7 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
           defaultImageHeight: 630,
           images: [
             {
-              url: post.image.url,
+              url: imageService.urlFor(post.image.asset),
               alt: post.title,
               height: 1200,
               width: 630,
@@ -47,8 +48,8 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
           title: `${post.title} | lhowsam.com`,
           article: {
             authors: ['Luke Howsam'],
-            publishedTime: post.date,
-            tags: post.tags?.map(tag => tag.title),
+            publishedTime: post.publishedAt,
+            tags: post.tags.map(tag => tag.title),
           },
         }}
       />
@@ -70,27 +71,27 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
 
         <Box>
           <Image
-            src={post.image.url}
+            src={imageService.urlFor(post.image.asset)}
             width={950}
             height={330}
             priority
             placeholder="blur"
-            blurDataURL={post?.image.url}
+            blurDataURL={imageService.urlFor(post.image.asset)}
             style={{
               borderRadius: '0.5rem',
               objectFit: 'contain',
             }}
-            alt={post.title}
+            alt={post.image.alt ?? post.title}
           />
         </Box>
         <Spacer height="sm" />
         <Text
           as="time"
-          dateTime={post.date}
+          dateTime={post.publishedAt}
           color="foregroundNeutral"
           data-testid="time"
         >
-          <FormattedDate>{post.date}</FormattedDate>
+          <FormattedDate>{post.publishedAt}</FormattedDate>
         </Text>
       </Box>
 
@@ -116,6 +117,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     fallback: 'blocking',
   };
 };
+
 export const getStaticProps = async ({
   params,
 }: {

@@ -22,6 +22,7 @@ import NProgress from 'nprogress';
 import { useEffect, useState } from 'react';
 import '@frontend/styles/app.css';
 import '@frontend/styles/tokyo-night-dark.min.css';
+import 'nprogress/nprogress.css';
 import '@fontsource/poppins';
 
 export function reportWebVitals(metric: NextWebVitalsMetric) {

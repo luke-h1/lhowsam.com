@@ -1,5 +1,0 @@
-query RecentPosts {
-  posts(first: 3, orderBy: date_DESC) {
-    ...PostFragment
-  }
-}

@@ -10,6 +10,7 @@ My website & blog
 - [Jest](https://jestjs.io)
 - [MDX](https://github.com/mdx-js/mdx)
 - [Vercel](https://vercel.com)
+- [Sanity.io](https://sanity.io)
 
 
 <br />

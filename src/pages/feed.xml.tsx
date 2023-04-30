@@ -9,13 +9,13 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
     feed_url: `${process.env.NEXT_PUBLIC_URL}/feed.xml`,
   });
 
-  const posts = await postService.getPosts();
+  const posts = await postService.getAllPosts();
 
   posts?.map(post => {
     return feed.item({
       title: post.title,
-      url: `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug}`,
-      date: post.date,
+      url: `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug.current}`,
+      date: post.publishedAt,
       description: post.intro,
     });
   });
