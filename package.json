@@ -73,7 +73,7 @@
     "react-ga4": "^2.1.0",
     "react-icons": "^4.8.0",
     "react-lite-youtube-embed": "^2.3.52",
-    "react-wrap-balancer": "^0.4.1",
+    "react-wrap-balancer": "^0.5.0",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-code-titles": "^1.2.0",
     "rehype-highlight": "^6.0.0",
