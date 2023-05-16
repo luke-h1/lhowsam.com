@@ -56,7 +56,7 @@
     "dotenv": "^16.0.3",
     "gen-env-types": "^1.3.4",
     "gray-matter": "^4.0.3",
-    "groq": "3.10.3",
+    "groq": "3.11.0",
     "husky": "8.0.3",
     "lodash": "^4.17.21",
     "nanoid": "^4.0.2",
