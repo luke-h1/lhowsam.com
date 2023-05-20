@@ -54,7 +54,7 @@ jobs:
           echo "pr-number=$pr_number" >> $GITHUB_OUTPUT
 
       - name: Find Comment
-        uses: luke-h1/find-comment@v1
+        uses: luke-h1/find-comment@v2
         if: success()
         id: fc
         with:
