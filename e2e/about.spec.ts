@@ -14,7 +14,7 @@ test.describe('about', () => {
 
     await expect(
       page.locator(
-        "text=Hey 👋, I'm Luke. I'm a Software Engineer currently based in Sheffield, UK",
+        "text=Hey, I'm Luke. I'm a Software Engineer currently based in the UK.",
       ),
     ).toBeVisible();
 
