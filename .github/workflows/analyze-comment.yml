@@ -54,7 +54,7 @@ jobs:
           echo "pr-number=$pr_number" >> $GITHUB_OUTPUT
 
       - name: Find Comment
-        uses: luke-h1/find-comment@v1
+        uses: luke-h1/find-comment@v2
         if: success()
         id: fc
         with:
@@ -62,14 +62,14 @@ jobs:
           body-includes: "<!-- __NEXTJS_BUNDLE -->"
 
       - name: Create Comment
-        uses: luke-h1/create-or-update-comment@v1.4.4
+        uses: luke-h1/create-or-update-comment@v2.0.0
         if: success() && steps.fc.outputs.comment-id == 0
         with:
           issue-number: ${{ steps.get-comment-body.outputs.pr-number }}
           body: ${{ steps.get-comment-body.outputs.body }}
 
       - name: Update Comment
-        uses: luke-h1/create-or-update-comment@v1.4.4
+        uses: luke-h1/create-or-update-comment@v2.0.0
         if: success() && steps.fc.outputs.comment-id != 0
         with:
           issue-number: ${{ steps.get-comment-body.outputs.pr-number }}

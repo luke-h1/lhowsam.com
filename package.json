@@ -34,7 +34,7 @@
     "postbuild": "next-sitemap"
   },
   "dependencies": {
-    "@fontsource/poppins": "^4.5.10",
+    "@fontsource/poppins": "^5.0.0",
     "@next/eslint-plugin-next": "^13.4.3",
     "@radix-ui/colors": "^0.1.8",
     "@radix-ui/react-toast": "^1.1.3",

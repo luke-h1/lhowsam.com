@@ -1,4 +1,5 @@
 import Box from '@frontend/components/Box/Box';
+import Connect from '@frontend/components/Connect/Connect';
 import Heading from '@frontend/components/Heading/Heading';
 import Link from '@frontend/components/Link/Link';
 import Skills from '@frontend/components/Skills/Skills';
@@ -8,7 +9,6 @@ import { theme } from '@frontend/styles/theme.css';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import { GitHub, Linkedin } from 'react-feather';
-import Balancer from 'react-wrap-balancer';
 
 const AboutPage = () => {
   const router = useRouter();
@@ -45,21 +45,18 @@ const AboutPage = () => {
           />
         </Box> */}
         <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
-          <Text
-            fontSize={{ xs: 'lg', sm: 'xl' }}
-            color="foregroundNeutral"
-            style={{
-              display: 'inline-flex',
-            }}
-          >
-            <Balancer ratio={0.25}>
-              Hey 👋, I'm Luke. I'm a Software Engineer currently based in
-              Sheffield, UK. I'm comfortable with both frontend/backend (React,
-              Node, Next.js, Python, Django etc.) & devops tech stacks (Azure,
-              AWS, digitalocean, Ansible etc.). I'm always keen to keep up with
-              industry trends and new technologies.
-            </Balancer>
+          <Text fontSize={{ xs: 'lg', sm: 'xl' }} color="foregroundNeutral">
+            Hey, I'm Luke. I'm a Software Engineer currently based in the UK.
+            I'm comfortable with both frontend/backend technologies (React,
+            Next.js Python, Node etc.) and I'm always keen to keep up with
+            industry trends and new technologies.
           </Text>
+          <Spacer height="xxxl" />
+          <Text fontSize={{ xs: 'lg', sm: 'xl' }} color="foregroundNeutral">
+            When I'm not coding, I like to travel, discover new foods, find new
+            movies/tv-shows and read
+          </Text>
+
           <Box as="div" style={{ marginBottom: '3rem', marginTop: '2rem' }}>
             <Link href="https://www.linkedin.com/in/lukehowsam">
               <Linkedin
@@ -96,6 +93,7 @@ const AboutPage = () => {
           </Box>
         </Box>
       </Box>
+      <Connect />
     </>
   );
 };
