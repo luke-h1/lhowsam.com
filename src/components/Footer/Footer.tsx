@@ -51,6 +51,11 @@ const socialLinks: FooterLink[] = [
     text: 'Email',
     href: 'mailto:luke.howsam@yahoo.com',
   },
+  {
+    id: 4,
+    text: 'Twitter',
+    href: 'https://twitter.com/LukeH_1999',
+  },
 ];
 
 const Footer = () => {

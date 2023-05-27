@@ -8,7 +8,7 @@ import Text from '@frontend/components/Text/Text';
 import { theme } from '@frontend/styles/theme.css';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
-import { GitHub, Linkedin } from 'react-feather';
+import { GitHub, Linkedin, Twitter } from 'react-feather';
 
 const AboutPage = () => {
   const router = useRouter();
@@ -69,6 +69,9 @@ const AboutPage = () => {
             </Link>
             <Link href="https://github.com/luke-h1">
               <GitHub size={20} />
+            </Link>
+            <Link href="https://twitter.com/LukeH_1999">
+              <Twitter size={20} />
             </Link>
 
             <Box as="div" marginTop="md">
