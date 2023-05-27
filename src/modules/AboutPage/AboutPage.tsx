@@ -57,8 +57,8 @@ const AboutPage = () => {
           <Text fontSize={{ xs: 'lg', sm: 'xl' }} color="foregroundNeutral">
             Hey, I'm Luke. I'm a Software Engineer currently based in the UK.
             I'm comfortable with both frontend/backend technologies (React,
-            Next.js Python, Node etc.) and I'm always keen to keep up with
-            industry trends and new technologies.
+            Next.js Python, GraphQL, Express.js Node etc.) and I'm always keen
+            to keep up with industry trends and new technologies.
           </Text>
           <Spacer height="xxxl" />
           <Text fontSize={{ xs: 'lg', sm: 'xl' }} color="foregroundNeutral">
