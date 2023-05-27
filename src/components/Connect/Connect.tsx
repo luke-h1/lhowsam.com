@@ -21,6 +21,11 @@ const links: { id: number; href: string; text: string }[] = [
     href: 'mailto:luke.howsam@yahoo.com',
     text: 'Email',
   },
+  {
+    id: 4,
+    href: 'https://twitter.com/LukeH_1999',
+    text: 'Twitter',
+  },
 ];
 
 const Connect = () => {
