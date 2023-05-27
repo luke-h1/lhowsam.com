@@ -6,9 +6,11 @@ import Skills from '@frontend/components/Skills/Skills';
 import Spacer from '@frontend/components/Spacer/Spacer';
 import Text from '@frontend/components/Text/Text';
 import { theme } from '@frontend/styles/theme.css';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
+import * as styles from './AboutPage.css';
 
 const AboutPage = () => {
   const router = useRouter();
@@ -35,16 +37,21 @@ const AboutPage = () => {
           About
         </Heading>
         <Spacer height="md" />
-        {/* <Box as="section" marginX="auto">
+        <Box as="section" marginX="auto">
           <Image
-            src="/images/luke.jpeg"
+            src="/images/luke-about.jpg"
             alt="Luke Howsam"
-            width={175}
+            width={225}
             height={200}
             className={styles.image}
           />
-        </Box> */}
-        <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
+        </Box>
+        <Box
+          as="section"
+          maxWidth={{ md: 'text' }}
+          marginX="auto"
+          textAlign="left"
+        >
           <Text fontSize={{ xs: 'lg', sm: 'xl' }} color="foregroundNeutral">
             Hey, I'm Luke. I'm a Software Engineer currently based in the UK.
             I'm comfortable with both frontend/backend technologies (React,
@@ -70,8 +77,14 @@ const AboutPage = () => {
             <Link href="https://github.com/luke-h1">
               <GitHub size={20} />
             </Link>
+
             <Link href="https://twitter.com/LukeH_1999">
-              <Twitter size={20} />
+              <Twitter
+                size={20}
+                style={{
+                  marginLeft: '1rem',
+                }}
+              />
             </Link>
 
             <Box as="div" marginTop="md">
