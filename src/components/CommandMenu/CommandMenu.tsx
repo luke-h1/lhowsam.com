@@ -171,7 +171,7 @@ const CommandMenu = ({
           </CommandItem>
           <CommandItem
             onSelect={() =>
-              window.open('https://www.linkedin.com/in/lu§kehowsam/', '_blank')
+              window.open('https://www.linkedin.com/in/lukehowsam/', '_blank')
             }
             value="linkedin"
           >
