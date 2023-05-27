@@ -43,6 +43,8 @@ const AboutPage = () => {
             alt="Luke Howsam"
             width={225}
             height={200}
+            priority
+            blurDataURL="/images/luke-about.jpg"
             className={styles.image}
           />
         </Box>
