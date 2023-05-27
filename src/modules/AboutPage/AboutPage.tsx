@@ -67,6 +67,7 @@ const AboutPage = () => {
           </Text>
 
           <Box as="div" style={{ marginBottom: '3rem', marginTop: '2rem' }}>
+            {/* TODO: consolidate links via site config */}
             <Link href="https://www.linkedin.com/in/lukehowsam">
               <Linkedin
                 size={20}
