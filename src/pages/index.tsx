@@ -61,7 +61,7 @@ const Indexpage: NextPage<Props> = ({ posts }) => {
         >
           <Balancer ratio={0.25} data-testid="intro">
             Software Engineer based in the UK who is interested in React.js,
-            Next.js, Typescript and DevOps
+            Next.js, Typescript, Python and DevOps
           </Balancer>
         </Text>
       </Box>
