@@ -46,6 +46,8 @@ const AboutPage = () => {
             priority
             blurDataURL="/images/luke-about.jpg"
             className={styles.image}
+            loading="eager"
+            quality={75}
           />
         </Box>
         <Box
