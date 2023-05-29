@@ -10,7 +10,7 @@ function getPolicies() {
       return [{ userAgent: 'Googlebot', disallow: '/' }];
   }
 }
-
+/** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl,
   generateRobotsTxt: true,
