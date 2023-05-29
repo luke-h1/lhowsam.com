@@ -1,9 +1,14 @@
 'use client';
 
+import { Metadata } from 'next';
 import Box from './(components)/Box/Box';
 import Heading from './(components)/Heading/Heading';
 import Spacer from './(components)/Spacer/Spacer';
 import Text from './(components)/Text/Text';
+
+export const metadata: Metadata = {
+  title: 'Error',
+};
 
 const Error = () => {
   return (

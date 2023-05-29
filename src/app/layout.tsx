@@ -12,7 +12,7 @@ import Providers from './(components)/Providers';
 import { Toaster } from './(components)/Toast/Toast';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_URL),
+  metadataBase: process.env.NEXT_PUBLIC_URL as unknown as URL,
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
