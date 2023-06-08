@@ -82,7 +82,7 @@
     "sass": "^1.62.1",
     "sharp": "^0.32.1",
     "the-new-css-reset": "^1.8.4",
-    "tinykeys": "^1.4.0",
+    "tinykeys": "^2.0.0",
     "unist-util-visit": "^4.1.2",
     "use-roving-index": "^2.0.0",
     "webpack-bundle-analyzer": "^4.8.0",
