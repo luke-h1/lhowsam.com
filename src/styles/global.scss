@@ -48,10 +48,10 @@
 }
 
 [data-theme='dark'] {
-  --bg: #161515;
+  --bg: #131314;
   --text: #fff;
   --textTinted: rgba(255, 255, 255, 0.5);
-  --headerBg: rgba(22, 21, 21, 0.6);
+  --headerBg: lighten(var(--bg), 10%);
   --border: rgba(255, 255, 255, 0.08);
   --borderActive: rgba(255, 255, 255, 0.25);
   --boxBg: #1f1e1d;
