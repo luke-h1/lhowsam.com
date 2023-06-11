@@ -89,7 +89,7 @@ const nextConfig = {
         headers: securityHeaders,
       },
       {
-        source: '/fonts/inter-var-latin.woff2',
+        source: '/fonts/(.*)',
         headers: [
           {
             key: 'Cache-Control',

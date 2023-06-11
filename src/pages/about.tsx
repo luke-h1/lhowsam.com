@@ -59,7 +59,7 @@ const AboutPage: NextPage = () => {
           </p>
           <p>
             In my spare time I enjoy being outdoors, travelling, discovering new
-            foods, & finding new movies/tv-shows and read
+            foods, finding new movies/tv-shows and reading
           </p>
         </div>
         <Button type="button" href="mailto:luke.howsam54@gmail.com">
