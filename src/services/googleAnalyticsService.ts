@@ -103,3 +103,11 @@ export function logWebVitals(metric: NextWebVitalsMetric) {
     action: name, // (Required) string - Type of interaction (e.g. 'play')
   });
 }
+
+export function search(term: string) {
+  ReactGA.event({
+    category: 'search',
+    action: 'search',
+    label: term,
+  });
+}

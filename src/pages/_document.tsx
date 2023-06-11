@@ -1,28 +1,12 @@
+import siteConfig from '@frontend/config/site';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
-
-const keywords = [
-  'Luke Howsam',
-  'Developer',
-  'Software Developer',
-  'Software Engineer',
-  'React',
-  'Node',
-  'Typescript',
-  'Javascript',
-  'GraphQL',
-  'Node',
-  'QA',
-  'Automated & manual testing',
-  'Sheffield',
-  'United Kingdom',
-] as const;
 
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
-          <meta name="keywords" content={keywords.join(', ')} />
+          <meta name="keywords" content={siteConfig.keywords.join(', ')} />
           <link rel="icon" href="/favicon.ico" />
           <link href="/icons/favicon-16x16.png" rel="icon" />
           <link

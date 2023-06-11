@@ -11,41 +11,29 @@ test.describe('index', () => {
   });
 
   test('should render correctly', async () => {
-    await expect(page.locator('[data-testid="intro"]')).toBeVisible();
+    await expect(
+      page.locator("text='Luke // Software Engineer'"),
+    ).toBeVisible();
 
-    await expect(page.locator("text='Recent Posts'")).toBeVisible();
+    await expect(page.locator("text='Highlighted projects'")).toBeVisible();
   });
 
   test('should display posts', async () => {
     for (let i = 0; i < 3; i += 1) {
       await expect(
-        page.locator('[data-testid="post-title"]').nth(i),
+        page.locator('[data-testid="project-title"]').nth(i),
       ).toBeVisible();
 
       await expect(
-        page.locator('[data-testid="post-date"]').nth(i),
+        page.locator('[data-testid="project-intro"]').nth(i),
       ).toBeVisible();
 
       await expect(
-        page.locator('[data-testid="post-intro"]').nth(i),
-      ).toBeVisible();
-      await expect(
-        page.locator('[data-testid="post-tags"]').nth(i),
-      ).toBeVisible();
-
-      await expect(
-        page.locator('[data-testid="post-title"]').nth(i),
+        page.locator('[data-testid="project-title"]').nth(i),
       ).not.toHaveText('');
 
       await expect(
-        page.locator('[data-testid="post-date"]').nth(i),
-      ).not.toHaveText('');
-
-      await expect(
-        page.locator('[data-testid="post-intro"]').nth(i),
-      ).not.toHaveText('');
-      await expect(
-        page.locator('[data-testid="post-tags"]').nth(i),
+        page.locator('[data-testid="project-intro"]').nth(i),
       ).not.toHaveText('');
     }
   });
