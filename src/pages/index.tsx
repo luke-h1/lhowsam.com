@@ -1,27 +1,23 @@
 /* eslint-disable react/jsx-curly-brace-presence */
-import Box from '@frontend/components/Box/Box';
-import Heading from '@frontend/components/Heading/Heading';
-import List from '@frontend/components/List/List';
-import Spacer from '@frontend/components/Spacer/Spacer';
-import Text from '@frontend/components/Text/Text';
+import Page from '@frontend/components/Page/Page';
+import PageHeader from '@frontend/components/PageHeader/PageHeader';
+import ProjectItem from '@frontend/components/Project/ProjectItem';
+import Button from '@frontend/components/form/Button/Button';
 import siteConfig from '@frontend/config/site';
-import postService from '@frontend/services/postService';
-import { Post } from '@frontend/types/sanity';
+import projectService from '@frontend/services/projectService';
+import { Project } from '@frontend/types/sanity';
 import { GetStaticProps, NextPage } from 'next';
-import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
-import Balancer from 'react-wrap-balancer';
-
-const PostCard = dynamic(
-  () => import('@frontend/components/PostCard/PostCard'),
-);
+import { ArrowRight } from 'react-feather';
+import s from './index.module.scss';
 
 interface Props {
-  posts: Post[];
+  projects: Project[];
 }
 
-const Indexpage: NextPage<Props> = ({ posts }) => {
+const Indexpage: NextPage<Props> = ({ projects }) => {
   const router = useRouter();
 
   return (
@@ -37,66 +33,41 @@ const Indexpage: NextPage<Props> = ({ posts }) => {
           title: `Home | lhowsam.com`,
         }}
       />
-      <Box
-        as="header"
-        textAlign={{ md: 'center' }}
-        maxWidth="container"
-        marginX="auto"
-      >
-        <Heading fontSize={{ xs: 'xxl', sm: 'xxxl' }} as="h1">
-          Luke{' '}
-          <span role="separator" aria-orientation="vertical">
-            {'//'}
-          </span>{' '}
-          Software Engineer
-        </Heading>
-        <Spacer height="md" />
-        <Text
-          fontSize={{ xs: 'lg', sm: 'xl' }}
-          color="foregroundNeutral"
-          style={{
-            display: 'inline-flex',
-            marginBottom: '4rem',
-          }}
+      <Page>
+        <PageHeader
+          title="Luke // Software Engineer"
+          description="Software Engineer based in the UK who is interested in React.js, Next.js, Typescript, Python and DevOps"
         >
-          <Balancer ratio={0.25} data-testid="intro">
-            Software Engineer based in the UK who is interested in React.js,
-            Next.js, Typescript, Python and DevOps
-          </Balancer>
-        </Text>
-      </Box>
-      <Spacer height="xxxl" />
-      <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
-        <header>
-          <Heading fontSize="xl">Recent Posts</Heading>
-        </header>
-        <Spacer height="xxl" />
-        <List>
-          {posts &&
-            posts.map(post => (
-              <PostCard post={post} key={`${post._id}-${post.title}`} />
-            ))}
-        </List>
-      </Box>
+          <Button href="/about" type="button">
+            More about me
+          </Button>
+        </PageHeader>
+
+        <h2>Highlighted projects</h2>
+        <div className={s.all}>
+          {/* right arrow */}
+          <Link href="/projects">
+            View all
+            <ArrowRight />
+          </Link>
+        </div>
+        {projects &&
+          projects.map(project => (
+            <ProjectItem project={project} key={project._id} />
+          ))}
+      </Page>
     </>
   );
 };
 export default Indexpage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const posts = await postService.getRecentPosts();
-
-  if (!posts.length) {
-    return {
-      props: {
-        posts: [],
-      },
-    };
-  }
+  // todo rename to highlighted projects
+  const projects = await projectService.getRecentProjects();
 
   return {
     props: {
-      posts,
+      projects,
     },
     revalidate: siteConfig.defaultRevalidate,
   };

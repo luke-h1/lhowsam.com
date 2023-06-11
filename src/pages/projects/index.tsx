@@ -1,14 +1,13 @@
-import Box from '@frontend/components/Box/Box';
-import Heading from '@frontend/components/Heading/Heading';
-import List from '@frontend/components/List/List';
-import ProjectItem from '@frontend/components/ProjectItem/ProjectItem';
-import Spacer from '@frontend/components/Spacer/Spacer';
+import Page from '@frontend/components/Page/Page';
+import PageHeader from '@frontend/components/PageHeader/PageHeader';
+import ProjectItem from '@frontend/components/Project/ProjectItem';
 import siteConfig from '@frontend/config/site';
 import projectService from '@frontend/services/projectService';
 import { Project } from '@frontend/types/sanity';
 import { GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
+import s from './index.module.scss';
 
 interface Props {
   projects: Project[];
@@ -29,26 +28,16 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
           title: `Projects | lhowsam.com`,
         }}
       />
-      <Box
-        as="header"
-        textAlign={{ md: 'center' }}
-        maxWidth="container"
-        marginX="auto"
-      >
-        <Heading fontSize={{ xs: 'xxl', sm: 'xxxl' }} as="h1">
-          Projects
-        </Heading>
-        <Spacer height="sm" />
-        <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
+      <Page>
+        <PageHeader title="Projects" />
+
+        <div className={s.grid}>
           {projects &&
             projects.map(project => (
-              <List key={project._id}>
-                <Spacer height="xxl" />
-                <ProjectItem project={project} />
-              </List>
+              <ProjectItem key={project._id} project={project} />
             ))}
-        </Box>
-      </Box>
+        </div>
+      </Page>
     </>
   );
 };

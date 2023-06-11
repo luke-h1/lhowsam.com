@@ -1,0 +1,25 @@
+.skillIcon {
+  margin-right: 10px;
+}
+
+.skillText {
+  align-items: 'left';
+  font-size: '13px';
+  text-align: 'left';
+}
+
+.bg {
+  padding: '5px';
+
+  > svg {
+    margin-right: '5px';
+    margin-left: '5px';
+  }
+}
+
+.flex {
+  display: 'flex';
+  flex-direction: 'column';
+  justify-content: 'left';
+  align-items: 'left';
+}

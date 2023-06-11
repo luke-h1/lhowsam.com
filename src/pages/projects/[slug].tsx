@@ -1,15 +1,17 @@
-import Box from '@frontend/components/Box/Box';
-import Heading from '@frontend/components/Heading/Heading';
-import Components from '@frontend/components/MDXComponents';
-import Prose from '@frontend/components/Prose/Prose';
-import Spacer from '@frontend/components/Spacer/Spacer';
+import BlogImage from '@frontend/components/BlogImage/BlogImage';
+import ContentRenderer from '@frontend/components/ContentRenderer';
+import Page from '@frontend/components/Page/Page';
+import PageHeader from '@frontend/components/PageHeader/PageHeader';
+import Button from '@frontend/components/form/Button/Button';
+import imageService from '@frontend/services/imageService';
 import projectService from '@frontend/services/projectService';
 import { Project } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
 import { GetStaticPaths, NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
+import s from '../blog/post.module.scss';
 
 interface Props {
   project: Project;
@@ -23,7 +25,7 @@ const ProjectSlugPage: NextPage<Props> = ({ project, compiledSource }) => {
   const router = useRouter();
 
   return (
-    <article>
+    <>
       <NextSeo
         title={project.title}
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -38,35 +40,25 @@ const ProjectSlugPage: NextPage<Props> = ({ project, compiledSource }) => {
           },
         }}
       />
-      <Box
-        as="header"
-        maxWidth="text"
-        marginX="auto"
-        textAlign={{ md: 'center' }}
-      >
-        <Heading
-          fontSize="xxl"
-          as="h1"
-          style={{
-            marginBottom: '1rem',
-          }}
-        >
-          {project.title}
-        </Heading>
-        <Spacer height="sm" />
-      </Box>
-      <Spacer height="xxxl" />
-      <Box maxWidth="text" marginX="auto">
-        <Prose>
-          <MDXRemote
-            components={Components}
-            compiledSource={compiledSource.compiledSource}
-            scope={undefined}
-            frontmatter={undefined}
+      <Page>
+        {project.image && (
+          <BlogImage
+            src={imageService.urlFor(project.image.asset)}
+            alt={project.title}
+            className={s.image}
           />
-        </Prose>
-      </Box>
-    </article>
+        )}
+        <PageHeader title={project.title} compact />
+        <article className={s.article}>
+          <ContentRenderer compiledSource={compiledSource.compiledSource} />
+        </article>
+        <div className={s.buttons}>
+          <Button type="button" href="/projects">
+            Back to projects
+          </Button>
+        </div>
+      </Page>
+    </>
   );
 };
 export default ProjectSlugPage;

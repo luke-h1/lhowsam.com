@@ -14,15 +14,10 @@ test.describe('about', () => {
 
     await expect(
       page.locator(
-        "text=Hey, I'm Luke. I'm a Software Engineer currently based in the UK.",
+        "text=Hey I'm Luke, a Software Engineer currently based in the UK.",
       ),
     ).toBeVisible();
 
     await expect(page.locator('text=Skills')).toBeVisible();
-
-    await expect(page.locator('text=Resume')).toHaveAttribute(
-      'href',
-      '/static/cv.pdf',
-    );
   });
 });

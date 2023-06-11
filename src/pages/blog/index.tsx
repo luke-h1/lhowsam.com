@@ -1,29 +1,56 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 /* eslint-disable no-param-reassign */
-import Box from '@frontend/components/Box/Box';
-import Heading from '@frontend/components/Heading/Heading';
-import List from '@frontend/components/List/List';
-import Spacer from '@frontend/components/Spacer/Spacer';
-import Text from '@frontend/components/Text/Text';
+
+import Page from '@frontend/components/Page/Page';
+import PageHeader from '@frontend/components/PageHeader/PageHeader';
+import PostList from '@frontend/components/PostList/PostList';
+import Input from '@frontend/components/form/Input/Input';
 import siteConfig from '@frontend/config/site';
+import { search } from '@frontend/services/googleAnalyticsService';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
+import debounce from 'lodash/debounce';
 import { NextPage } from 'next';
-import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
-import { Fragment } from 'react';
-
-const PostCard = dynamic(
-  () => import('@frontend/components/PostCard/PostCard'),
-);
+import { ChangeEvent, Fragment, useCallback, useState } from 'react';
+import { Search } from 'react-feather';
+import s from './index.module.scss';
 
 interface Props {
-  posts: Record<string, Post[]>;
+  posts: Post[];
 }
 
 const BlogIndexPage: NextPage<Props> = ({ posts }) => {
   const router = useRouter();
+  const [currentSearch, setCurrentSearch] = useState('');
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const trackSearch = useCallback(
+    debounce((value: string) => search(value), 500),
+    [],
+  );
+
+  const filteredPosts = posts
+    .sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+    )
+    .filter(post => {
+      const searchString = `${post.title.toLowerCase()} ${post.content.toLowerCase()}`;
+
+      return searchString.includes(currentSearch.toLowerCase());
+    });
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const searchValue = e.target.value;
+
+    if (searchValue !== '') {
+      trackSearch(searchValue);
+    }
+
+    setCurrentSearch(searchValue);
+  };
+
   return (
     <>
       <NextSeo
@@ -37,47 +64,24 @@ const BlogIndexPage: NextPage<Props> = ({ posts }) => {
           title: `Blog | lhowsam.com`,
         }}
       />
-      <Box
-        as="header"
-        textAlign={{ md: 'center' }}
-        maxWidth="container"
-        marginX="auto"
-      >
-        <Heading fontSize={{ xs: 'xxl', sm: 'xxxl' }} as="h1">
-          Blog
-        </Heading>
-        <Spacer height="sm" />
-        <Text
-          fontSize={{ xs: 'lg', sm: 'xl' }}
-          color="foregroundNeutral"
-          style={{ display: 'inline-flex' }}
+      <Page>
+        <PageHeader
+          title="Blog"
+          description="I write about testing, frontend development and React"
         >
-          I write about web development, testing, DevOps & more
-        </Text>
-      </Box>
-      <Spacer height="xxxxl" />
-      {Object.entries(posts)
-        .reverse()
-        // eslint-disable-next-line no-shadow
-        .map(([year, posts], i) => (
-          <Fragment key={year}>
-            {i > 0 && <Spacer height="xxxxl" />}
-            <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
-              <header>
-                <Heading fontSize="xl" id={year} data-testid={`post-${year}`}>
-                  {year}
-                </Heading>
-              </header>
-              <Spacer height="xxl" />
-              <List>
-                {posts &&
-                  posts.map(post => (
-                    <PostCard post={post} key={`${post._id}-${post.title}`} />
-                  ))}
-              </List>
-            </Box>
-          </Fragment>
-        ))}
+          <div className={s.inputWrapper}>
+            <Input
+              className={s.input}
+              value={currentSearch}
+              onChange={handleInputChange}
+              placeholder="Search posts…"
+              type="search"
+            />
+            <Search className={s.inputIcon} />
+          </div>
+        </PageHeader>
+        <PostList posts={filteredPosts} />
+      </Page>
     </>
   );
 };
@@ -86,37 +90,30 @@ export default BlogIndexPage;
 
 export const getStaticProps = async () => {
   const posts = await postService.getAllPosts();
-  if (!posts.length) {
-    return {
-      props: {
-        posts: [],
-      },
-    };
-  }
 
-  const allPosts = posts.sort((a, b) => {
-    if (a.publishedAt < b.publishedAt) {
-      return 1;
-    }
-    if (a.publishedAt > b.publishedAt) {
-      return -1;
-    }
-    return 0;
-  });
+  // const allPosts = posts.sort((a, b) => {
+  //   if (a.publishedAt < b.publishedAt) {
+  //     return 1;
+  //   }
+  //   if (a.publishedAt > b.publishedAt) {
+  //     return -1;
+  //   }
+  //   return 0;
+  // });
 
-  const postsByYear: Record<string, Post[]> = {};
+  // const postsByYear: Record<string, Post[]> = {};
 
-  allPosts.forEach(post => {
-    const year = new Date(post.publishedAt).getFullYear();
-    if (!postsByYear[year]) {
-      postsByYear[year] = [];
-    }
-    postsByYear[year].push(post);
-  });
+  // allPosts.forEach(post => {
+  //   const year = new Date(post.publishedAt).getFullYear();
+  //   if (!postsByYear[year]) {
+  //     postsByYear[year] = [];
+  //   }
+  //   postsByYear[year].push(post);
+  // });
 
   return {
     props: {
-      posts: postsByYear,
+      posts,
     },
     revalidate: siteConfig.defaultRevalidate,
   };

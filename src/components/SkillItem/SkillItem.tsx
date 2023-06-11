@@ -1,7 +1,7 @@
 import { useTheme } from 'next-themes';
 import { useEffect } from 'react';
 import type { IconType } from 'react-icons';
-import * as styles from './SkillItem.css';
+import s from './SkillItem.module.scss';
 
 interface Props {
   icon: IconType;
@@ -22,14 +22,14 @@ const SkillItem = ({ icon, text }: Props) => {
 
   return (
     <li>
-      <span className={styles.bg} data-testid={`${text}-icon`}>
+      <span className={s.bg} data-testid={`${text}-icon`}>
         {icon({
           size: 30,
-          className: styles.skillIcon,
+          className: s.skillIcon,
         })}
       </span>
-      <div className={styles.flex}>
-        <small className={styles.skillText}>{text}</small>
+      <div className={s.flex}>
+        <small className={s.skillText}>{text}</small>
       </div>
     </li>
   );

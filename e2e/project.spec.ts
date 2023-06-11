@@ -38,8 +38,6 @@ test.describe('project', () => {
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('h1')).not.toBeEmpty();
 
-      await expect(page.locator('[class="prose"]')).toBeVisible();
-
       await page.goto(`${baseUrl}/projects`);
     }
   });

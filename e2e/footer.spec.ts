@@ -33,40 +33,4 @@ test.describe('footer', () => {
     await expect(page.locator('h1').first()).toHaveText('Projects');
     await page.goBack();
   });
-
-  test('has correct links', async () => {
-    await expect(page.locator('[data-testid="footer"]')).toBeVisible();
-
-    // github
-    await expect(
-      page.locator('[data-testid="footer"] >> text="Github"'),
-    ).toBeVisible();
-
-    // LinkedIn
-    await expect(
-      page.locator('[data-testid="footer"] >> text="Linkedin"'),
-    ).toBeVisible();
-
-    // Email
-    await expect(
-      page.locator('[data-testid="footer"] >> text="Email"'),
-    ).toBeVisible();
-  });
-
-  test('theme switcher switches theme correctly', async () => {
-    // light
-    await expect(page.locator('[id="theme-light"]')).toBeVisible();
-    await page.click('[id="theme-light"]');
-    await expect(page.locator('html')).toHaveAttribute('class', 'light');
-
-    // dark
-    await expect(page.locator('[id="theme-dark"]')).toBeVisible();
-    await page.click('[id="theme-dark"]');
-    await expect(page.locator('html')).toHaveAttribute('class', 'dark');
-
-    // system
-    await expect(page.locator('[id="theme-system"]')).toBeVisible();
-    await page.click('[id="theme-system"]');
-    await expect(page.locator('html')).toHaveAttribute('class', 'light');
-  });
 });
