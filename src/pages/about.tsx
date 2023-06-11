@@ -65,6 +65,11 @@ const AboutPage: NextPage = () => {
         <Button type="button" href="mailto:luke.howsam54@gmail.com">
           Get in touch
         </Button>
+        <div style={{ marginTop: '1rem' }}>
+          <Button type="button" href="/static/cv.pdf">
+            Resume
+          </Button>
+        </div>
         <div className={s.skills}>
           <h3>Skills</h3>
           <Skills />
