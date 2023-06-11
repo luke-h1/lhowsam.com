@@ -1,20 +1,19 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import Box from '@frontend/components/Box/Box';
+import BlogImage from '@frontend/components/BlogImage/BlogImage';
+import ContentRenderer from '@frontend/components/ContentRenderer';
 import FormattedDate from '@frontend/components/FormattedDate';
-import Heading from '@frontend/components/Heading/Heading';
-import Image from '@frontend/components/Image/Image';
-import Components from '@frontend/components/MDXComponents';
-import Prose from '@frontend/components/Prose/Prose';
-import Spacer from '@frontend/components/Spacer/Spacer';
-import Text from '@frontend/components/Text/Text';
+import Page from '@frontend/components/Page/Page';
+import PageHeader from '@frontend/components/PageHeader/PageHeader';
+import Tags from '@frontend/components/Tags/Tags';
+import Button from '@frontend/components/form/Button/Button';
 import imageService from '@frontend/services/imageService';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
 import { GetStaticPaths, NextPage } from 'next';
 import { useRouter } from 'next/router';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
+import s from './post.module.scss';
 
 interface Props {
   post: Post;
@@ -28,7 +27,7 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
   const router = useRouter();
 
   return (
-    <article>
+    <>
       <NextSeo
         title={post.title}
         canonical={`https://lhowsam.com${router.asPath}`}
@@ -53,60 +52,31 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
           },
         }}
       />
-      <Box
-        as="header"
-        maxWidth="text"
-        marginX="auto"
-        textAlign={{ md: 'center' }}
-      >
-        <Heading
-          fontSize="xxl"
-          as="h1"
-          style={{
-            marginBottom: '1rem',
-          }}
-        >
-          {post.title}
-        </Heading>
-
-        <Box>
-          <Image
+      <Page>
+        {post.image && (
+          <BlogImage
             src={imageService.urlFor(post.image.asset)}
-            width={950}
-            height={330}
-            priority
-            placeholder="blur"
-            blurDataURL={imageService.urlFor(post.image.asset)}
-            style={{
-              borderRadius: '0.5rem',
-              objectFit: 'contain',
-            }}
-            alt={post.image.alt ?? post.title}
+            alt={post.title}
+            className={s.image}
           />
-        </Box>
-        <Spacer height="sm" />
-        <Text
-          as="time"
-          dateTime={post.publishedAt}
-          color="foregroundNeutral"
-          data-testid="time"
-        >
-          <FormattedDate>{post.publishedAt}</FormattedDate>
-        </Text>
-      </Box>
-
-      <Spacer height="xxxl" />
-      <Box maxWidth="text" marginX="auto">
-        <Prose>
-          <MDXRemote
-            components={Components}
-            compiledSource={compiledSource.compiledSource}
-            scope={undefined}
-            frontmatter={undefined}
-          />
-        </Prose>
-      </Box>
-    </article>
+        )}
+        <PageHeader title={post.title} compact>
+          <p className={s.meta}>
+            Published on{' '}
+            <FormattedDate testId="time">{post.publishedAt}</FormattedDate>
+          </p>
+        </PageHeader>
+        <article className={s.article} data-testid="content">
+          <ContentRenderer compiledSource={compiledSource.compiledSource} />
+        </article>
+        <Tags tags={post.tags} />
+        <div className={s.buttons}>
+          <Button type="button" href="/blog">
+            Back to blog
+          </Button>
+        </div>
+      </Page>
+    </>
   );
 };
 export default PostPage;

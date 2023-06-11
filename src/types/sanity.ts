@@ -27,6 +27,7 @@ export interface Project {
   tags: Tag[];
   siteUrl?: string;
   githubUrl: string;
+  image: Image;
 }
 
 export interface Tag {

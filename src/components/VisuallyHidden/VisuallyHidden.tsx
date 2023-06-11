@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import * as styles from './VisuallyHidden.css';
+import s from './VisuallyHidden.module.scss';
 
 interface Props {
   children: ReactNode;
@@ -7,6 +7,6 @@ interface Props {
 }
 
 const VisuallyHidden = ({ as: Element = 'span', children }: Props) => {
-  return <Element className={styles.root}>{children}</Element>;
+  return <Element className={s.root}>{children}</Element>;
 };
 export default VisuallyHidden;
