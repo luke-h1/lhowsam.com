@@ -50,7 +50,8 @@ const AboutPage: NextPage = () => {
             >
               Hive IT
             </a>
-            , primarly working with React, TypeScript & testing technologies.
+            , primarly working with React, TypeScript & testing technologies on
+            large scale projects
           </p>
           <p>
             I'm comfortable with both frontend/backend technologies (React,
