@@ -6,9 +6,10 @@ interface Props {
   src: string;
   alt: string;
   className?: string;
+  onLoadingComplete?: () => void;
 }
 
-const BlogImage = ({ alt, src, className }: Props) => {
+const BlogImage = ({ alt, src, className, onLoadingComplete }: Props) => {
   return (
     <span className={cn(s.wrapper, className)}>
       <Image
@@ -19,6 +20,7 @@ const BlogImage = ({ alt, src, className }: Props) => {
         layout="responsive"
         blurDataURL={src}
         placeholder="blur"
+        onLoadingComplete={onLoadingComplete}
       />
     </span>
   );
