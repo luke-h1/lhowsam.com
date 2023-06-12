@@ -35,6 +35,7 @@ const AboutPage: NextPage = () => {
           height={250}
           alt="Picture of me (luke howsam)"
           placeholder="blur"
+          className={s.image}
           blurDataURL="/images/luke-about.jpg"
           priority
         />
