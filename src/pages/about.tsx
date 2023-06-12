@@ -9,8 +9,8 @@ import { NextSeo } from 'next-seo';
 import s from './About.module.scss';
 
 const AboutPage: NextPage = () => {
-  const me = '/images/luke-about.jpg';
   const router = useRouter();
+
   return (
     <>
       <NextSeo
@@ -30,15 +30,13 @@ const AboutPage: NextPage = () => {
           description="Hey I'm Luke, a Software Engineer currently based in the UK."
         />
         <Image
-          src={me}
+          src="/images/luke-about.jpg"
           width={300}
           height={250}
           alt="Picture of me (luke howsam)"
           placeholder="blur"
-          className={s.image}
-          blurDataURL={me}
+          blurDataURL="/images/luke-about.jpg"
           priority
-          loading="eager"
         />
         <div className={s.text}>
           <p>
