@@ -9,10 +9,12 @@ import imageService from '@frontend/services/imageService';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
+import cn from 'classnames';
 import { GetStaticPaths, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
+import { useState } from 'react';
 import s from './post.module.scss';
 
 interface Props {
@@ -25,6 +27,7 @@ interface Props {
 
 const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
   const router = useRouter();
+  const [loading, setLoading] = useState<boolean>(true);
 
   return (
     <>
@@ -57,7 +60,12 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
           <BlogImage
             src={imageService.urlFor(post.image.asset)}
             alt={post.title}
-            className={s.image}
+            className={cn(
+              s.image,
+              loading ? s.ImageLoading : s.ImageLoaded,
+              s.ImageTransition,
+            )}
+            onLoadingComplete={() => setLoading(false)}
           />
         )}
         <PageHeader title={post.title} compact>

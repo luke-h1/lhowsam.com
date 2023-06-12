@@ -21,8 +21,6 @@ export default class MyDocument extends Document {
             sizes="16x16"
             href="/icons/favicon-16x16.png"
           />
-          {/* preload about image */}
-          <link rel="preload" href="/images/luke-about.jpeg" as="image" />
           <meta name="theme-color" content="#ffffff" />
           <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
           <meta content="#ffffff" name="theme-color" />
