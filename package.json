@@ -29,7 +29,6 @@
     "test:snapshot": "jest --updateSnapshot",
     "analyze": "ANALYZE=true next build",
     "check:node": "check-node-version --node 18 --pnpm 8",
-    "prepare": "husky install",
     "preinstall": "pnpm run check:node",
     "postbuild": "next-sitemap"
   },
@@ -47,7 +46,7 @@
     "gen-env-types": "^1.3.4",
     "gray-matter": "^4.0.3",
     "groq": "3.12.0",
-    "husky": "8.0.3",
+    "lefthook": "^1.4.2",
     "lodash": "^4.17.21",
     "next": "^13.4.3",
     "next-mdx-remote": "^4.4.1",
@@ -128,14 +127,6 @@
     "budget": null,
     "budgetPercentIncreaseRed": 10,
     "showDetails": true
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "eslint --fix --quiet"
-    ],
-    "*.{js,jsx,ts,tsx,css,scss,html}": [
-      "prettier --write"
-    ]
   },
   "config": {
     "commitizen": {
