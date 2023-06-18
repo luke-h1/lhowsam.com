@@ -1,3 +1,5 @@
+'use client';
+
 import { MDXRemote } from 'next-mdx-remote';
 
 interface Props {

@@ -1,3 +1,5 @@
+'use client';
+
 import ErrorContent from '@frontend/components/ErrorContent';
 
 const ErrorPage = () => {

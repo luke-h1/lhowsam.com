@@ -1,19 +1,19 @@
 import Page from '@frontend/components/Page/Page';
 import PageHeader from '@frontend/components/PageHeader/PageHeader';
 import PostList from '@frontend/components/PostList/PostList';
+import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
-import { Post } from '@frontend/types/sanity';
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { useRouter } from 'next/router';
+
+export const revalidate = siteConfig.defaultRevalidate;
 
 interface Props {
-  posts: Post[];
+  params: { slug: string };
 }
 
-const TagPage: NextPage<Props> = ({ posts }) => {
-  const router = useRouter();
+const TagPage = async ({ params }: Props) => {
+  const posts = await postService.getAllPosts();
 
-  const slug = router.query.slug as string;
+  const { slug } = params;
 
   const matchingPosts = posts.filter(post => {
     return post.tags.some(tag => tag.slug.current === slug);
@@ -34,20 +34,3 @@ const TagPage: NextPage<Props> = ({ posts }) => {
   );
 };
 export default TagPage;
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  return {
-    paths: [],
-    fallback: 'blocking',
-  };
-};
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const posts = await postService.getAllPosts();
-
-  return {
-    props: {
-      posts,
-    },
-  };
-};

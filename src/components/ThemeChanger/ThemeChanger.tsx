@@ -1,3 +1,5 @@
+'use client';
+
 import { useMounted } from '@frontend/hooks/useMounted';
 import { useTheme } from 'next-themes';
 import { Fragment, useState } from 'react';
