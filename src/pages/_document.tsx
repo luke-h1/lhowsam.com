@@ -6,7 +6,11 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="keywords" content={siteConfig.keywords.join(', ')} />
+          <meta
+            name="keywords"
+            content={siteConfig.keywords.join(', ')}
+            key="keywords"
+          />
           <link rel="icon" href="/favicon.ico" />
           <link href="/icons/favicon-16x16.png" rel="icon" />
           <link
