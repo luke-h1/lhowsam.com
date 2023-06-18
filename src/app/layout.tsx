@@ -7,7 +7,7 @@ import { Metadata } from 'next';
 import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
-  metadataBase: process.env.NEXT_PUBLIC_URL as unknown as URL,
+  metadataBase: new URL(process.env.NEXT_PUBLIC_URL),
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
