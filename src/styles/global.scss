@@ -39,7 +39,7 @@
     sans-serif;
   --boxBg: #f3f3f3;
   --siteWidth: 83ch;
-  --inputBg: white;
+  --inputBg: #fff;
   --likeButton: rgba(0, 0, 0, 0.05);
   --likeButtonHover: rgba(0, 0, 0, 0.1);
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
@@ -59,9 +59,10 @@
   --inputBg: #292929;
   --likeButton: rgba(255, 255, 255, 0.2);
   --likeButtonHover: rgba(255, 255, 255, 0.3);
-  --secondary: yellow;
+  --secondary: #ffff00;
   --transparent: rgba(0, 0, 0, 0);
 }
+
 html,
 body {
   margin: 0;
@@ -77,8 +78,8 @@ a {
 }
 
 *,
-*:before,
-*:after {
+*::before,
+*::after {
   box-sizing: border-box;
   margin-top: 0;
 }

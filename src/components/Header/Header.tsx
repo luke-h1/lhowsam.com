@@ -1,5 +1,7 @@
+'use client';
+
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import ThemeChanger from '../ThemeChanger/ThemeChanger';
 import s from './Header.module.scss';
 
@@ -11,9 +13,9 @@ const links = [
 ] as const;
 
 const Header = () => {
-  const router = useRouter();
+  const pathname = usePathname();
 
-  const pathname = router.pathname.split('/[')[0];
+  const name = pathname?.split('/[')[0];
 
   return (
     <>
@@ -33,7 +35,7 @@ const Header = () => {
                 links.map(link => (
                   <li
                     key={link.href}
-                    className={pathname === link.href ? s.linkActive : s.link}
+                    className={name === link.href ? s.linkActive : s.link}
                   >
                     <Link href={link.href}>{link.name}</Link>
                   </li>

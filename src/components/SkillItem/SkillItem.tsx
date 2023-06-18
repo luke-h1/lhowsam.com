@@ -1,3 +1,5 @@
+'use client';
+
 import { useTheme } from 'next-themes';
 import { useEffect } from 'react';
 import type { IconType } from 'react-icons';
@@ -22,7 +24,7 @@ const SkillItem = ({ icon, text }: Props) => {
 
   return (
     <li>
-      <span className={s.bg} data-testid={`${text}-icon`}>
+      <span className={s.bg} data-testid={`${text}-icon`} key={`${text}-icon`}>
         {icon({
           size: 30,
           className: s.skillIcon,

@@ -1,8 +1,7 @@
 import postService from '@frontend/services/postService';
-import { GetServerSideProps } from 'next';
 import RSS from 'rss';
 
-export const getServerSideProps: GetServerSideProps = async ctx => {
+export async function GET() {
   const feed = new RSS({
     title: 'Luke Howsam',
     site_url: process.env.NEXT_PUBLIC_URL,
@@ -19,16 +18,11 @@ export const getServerSideProps: GetServerSideProps = async ctx => {
       description: post.intro,
     });
   });
-  ctx.res.setHeader('Content-Type', 'text/xml');
-  ctx.res.setHeader(
-    'Cache-Control',
-    'public, s-maxage=1200, stale-while-revalidate=600',
-  );
-  ctx.res.write(feed.xml({ indent: true }));
-  ctx.res.end();
 
-  return {
-    props: {},
-  };
-};
-export default (): undefined => undefined;
+  return new Response(feed.xml({ indent: true }), {
+    status: 200,
+    headers: {
+      'Cache-Control': 'public, s-maxage=1200, stale-while-revalidate=600',
+    },
+  });
+}

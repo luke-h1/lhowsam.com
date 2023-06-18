@@ -1,3 +1,5 @@
+'use client';
+
 import { BiTestTube } from 'react-icons/bi';
 import {
   SiDocker,
