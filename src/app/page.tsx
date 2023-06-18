@@ -5,22 +5,22 @@ import ProjectItem from '@frontend/components/Project/ProjectItem';
 import Button from '@frontend/components/form/Button/Button';
 import siteConfig from '@frontend/config/site';
 import projectService from '@frontend/services/projectService';
-import Head from 'next/head';
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight } from 'react-feather';
 import s from './index.module.scss';
 
 export const revalidate = siteConfig.defaultRevalidate;
 
+export const metadata: Metadata = {
+  title: 'Home | lhowsam.com',  
+}
 
 const Indexpage = async () => {
   const projects = await projectService.getRecentProjects();
 
   return (
     <Page>
-      <Head>
-        <title>Home | lhowsam.com</title>
-      </Head>
       <PageHeader
         title="Luke // Software Engineer"
         description="Software Engineer based in the UK who is interested in React.js, Next.js, Typescript, Python and DevOps"
