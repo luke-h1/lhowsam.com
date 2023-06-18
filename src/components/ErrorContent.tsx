@@ -16,7 +16,7 @@ const ErrorContent = ({ statusCode }: Props) => {
     statusCode === 404 ? '404 - Page not found' : '500 - Something went wrong';
   const description =
     statusCode === 404
-      ? 'This page does not exists, maybe you clicked an old link or misspelled. Please try again…'
+      ? 'This page does not exist, maybe you clicked an old link or misspelled. Please try again…'
       : 'Something went wrong, please try again later…';
 
   if (!isMounted) {
