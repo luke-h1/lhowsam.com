@@ -7,7 +7,6 @@ interface Props {
   project: Project;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ProjectItem = ({ project }: Props) => {
   return (
     <div className={s.project}>

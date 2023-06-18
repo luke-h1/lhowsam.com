@@ -1,4 +1,5 @@
 const siteConfig = {
+  name: 'lhowsam.com',
   defaultRevalidate: 1800, // 30 minutes
   keywords: [
     'Luke Howsam',

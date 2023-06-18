@@ -1,3 +1,5 @@
+'use client';
+
 import { useMounted } from '@frontend/hooks/useMounted';
 import spotifyService from '@frontend/services/spotifyService';
 import { Song } from '@frontend/types/spotify';

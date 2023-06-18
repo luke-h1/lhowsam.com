@@ -1,3 +1,5 @@
+'use client';
+
 import { useMounted } from '@frontend/hooks/useMounted';
 import Head from 'next/head';
 import Page from './Page/Page';
