@@ -9,5 +9,3 @@ updates:
     assignees: 
     - luke-h1
     rebase-strategy: "auto"
-    labels:
-    - "dependencies"
