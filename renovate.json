@@ -1,6 +1,6 @@
 {
-  "schedule": ["before 6am"],
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "schedule": ["before 6am"],
   "dependencyDashboard": true,
   "extends": ["config:base"],
   "timezone": "Europe/London",
