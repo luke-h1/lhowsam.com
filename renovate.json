@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "schedule": ["before 6am"],
+  "dependencyDashboard": true,
+  "extends": ["config:base"],
+  "timezone": "Europe/London",
+  "vulnerabilityAlerts": {
+    "groupName": "renovate",
+    "dependencyDashboardApproval": false,
+    "minimumReleaseAge": "0d",
+    "rangeStrategy": "update-lockfile",
+    "commitMessageSuffix": "[SECURITY]",
+    "branchTopic": "{{{datasource}}}-{{{depName}}}-vulnerability",
+    "prCreation": "immediate"
+  },
+  "packageRules": [
+    {
+      "matchDatasources": ["npm"],
+      "groupName": "Minor frontend dependencies",
+      "matchUpdateTypes": ["minor", "patch"]
+    },
+    {
+      "matchDatasources": ["npm"],
+      "groupName": "Major frontend dependencies",
+      "matchUpdateTypes": ["major"]
+    },
+    {
+      "matchDatasources": ["node-version"],
+      "groupName": "node version updates"
+    }
+  ]
+}
