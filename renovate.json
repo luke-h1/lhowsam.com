@@ -18,6 +18,12 @@
       "matchDatasources": ["npm"],
       "groupName": "Major frontend dependencies",
       "matchUpdateTypes": ["major"]
+    },
+     {
+      "packageNames": [
+        "node"
+      ],
+      "enabled": false
     }
   ]
 }
