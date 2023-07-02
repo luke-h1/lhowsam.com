@@ -3,6 +3,15 @@
 import Script from 'next/script';
 
 const Analytics = () => {
+  const isProd = process.env.NEXT_PUBLIC_URL === 'https://lhowsam.com';
+
+  if (!isProd) {
+    return null;
+  }
+
+  // eslint-disable-next-line no-console
+  console.log('GA initialized');
+
   return (
     <>
       <Script
