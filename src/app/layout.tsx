@@ -1,6 +1,7 @@
 import '@frontend/styles/global.scss';
 import '@frontend/styles/tokyo-night-dark.min.css';
 import 'nprogress/nprogress.css';
+import Analytics from '@frontend/components/Analytics';
 import Providers from '@frontend/components/Providers';
 import siteConfig from '@frontend/config/site';
 import { Metadata } from 'next';
@@ -56,6 +57,7 @@ interface Props {
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en">
+      <Analytics />
       <body>
         <Providers>{children}</Providers>
       </body>
