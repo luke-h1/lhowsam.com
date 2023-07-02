@@ -12,11 +12,11 @@ const Analytics = () => {
       <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-  
-            gtag('config', ${process.env.NEXT_PUBLIC_GA_TRACKING_ID});
-          `}
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}', { send_page_view: false });
+        `}
       </Script>
     </>
   );
