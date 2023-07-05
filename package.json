@@ -114,11 +114,11 @@
     "jest-serializer-html": "^7.1.0",
     "jest-watch-typeahead": "^2.2.2",
     "lint-staged": "13.2.3",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.0",
     "stylelint": "^15.9.0",
     "stylelint-config-prettier": "^9.0.5",
     "stylelint-config-sass-guidelines": "^10.0.0",
-    "stylelint-config-standard": "^33.0.0",
+    "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^3.0.0",
     "typescript": "^5.1.6",
     "vercel": "^31.0.1"
