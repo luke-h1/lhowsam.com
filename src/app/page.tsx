@@ -13,8 +13,8 @@ import s from './index.module.scss';
 export const revalidate = siteConfig.defaultRevalidate;
 
 export const metadata: Metadata = {
-  title: 'Home | lhowsam.com',  
-}
+  title: 'Home | lhowsam.com',
+};
 
 const Indexpage = async () => {
   const projects = await projectService.getRecentProjects();
