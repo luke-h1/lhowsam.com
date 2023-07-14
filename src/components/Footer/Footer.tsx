@@ -15,7 +15,7 @@ const footerLinks = [
 
   { name: 'Blog', url: '/blog' },
   { name: 'LinkedIn', url: 'https://www.linkedin.com/in/lukehowsam' },
-  { name: 'Sitemap', url: '/sitemap.xml' },
+  // { name: 'Sitemap', url: '/sitemap.xml' },
   { name: 'Resume', url: '/static/cv.pdf' },
 ] as const;
 
