@@ -4,6 +4,7 @@ import { useMounted } from '@frontend/hooks/useMounted';
 import Head from 'next/head';
 import Page from './Page/Page';
 import PageHeader from './PageHeader/PageHeader';
+import Providers from './Providers';
 import Button from './form/Button/Button';
 
 interface Props {
@@ -24,16 +25,18 @@ const ErrorContent = ({ statusCode }: Props) => {
   }
 
   return (
-    <Page>
-      <Head>
-        <title>{statusCode} | lhowsam.com</title>
-      </Head>
-      <PageHeader title={title} description={description}>
-        <Button href="/" type="button">
-          Return home
-        </Button>
-      </PageHeader>
-    </Page>
+    <Providers>
+      <Page>
+        <Head>
+          <title>{statusCode} | lhowsam.com</title>
+        </Head>
+        <PageHeader title={title} description={description}>
+          <Button href="/" type="button">
+            Return home
+          </Button>
+        </PageHeader>
+      </Page>
+    </Providers>
   );
 };
 export default ErrorContent;
