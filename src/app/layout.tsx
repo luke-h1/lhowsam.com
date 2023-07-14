@@ -1,6 +1,5 @@
 import '@frontend/styles/global.scss';
 import '@frontend/styles/tokyo-night-dark.min.css';
-import 'nprogress/nprogress.css';
 import Analytics from '@frontend/components/Analytics';
 import Providers from '@frontend/components/Providers';
 import siteConfig from '@frontend/config/site';
