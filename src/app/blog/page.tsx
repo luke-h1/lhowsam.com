@@ -23,11 +23,7 @@ const BlogIndexPage = async () => {
       <PageHeader
         title="Blog"
         description="I write about testing, frontend development and React"
-      >
-        {/* <div className={s.inputWrapper}>
-          <Search className={s.inputIcon} />
-        </div> */}
-      </PageHeader>
+      />
       <PostList posts={posts} />
     </Page>
   );

@@ -4,18 +4,18 @@ import {
   QueryClient,
   QueryClientProvider,
   dehydrate,
-  Hydrate,
 } from '@tanstack/react-query';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
+import Hydrate from './Hydrate';
 
 interface Props {
   children: ReactNode;
 }
 
 const Providers = ({ children }: Props) => {
-  const queryClient = new QueryClient();
+  const [queryClient] = useState(new QueryClient());
   const dehydratedState = dehydrate(queryClient);
 
   // TOOD: once Next.js exposes router.events in next/navigation, comment below back in

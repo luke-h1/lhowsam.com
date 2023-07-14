@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-curly-brace-presence */
 import Page from '@frontend/components/Page/Page';
 import PageHeader from '@frontend/components/PageHeader/PageHeader';
 import ProjectItem from '@frontend/components/Project/ProjectItem';

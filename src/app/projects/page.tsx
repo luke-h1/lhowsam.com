@@ -18,7 +18,6 @@ const ProjectPage = async () => {
   return (
     <Page>
       <PageHeader title="Projects" />
-
       <div className={s.grid}>
         {projects &&
           projects.map(project => (
