@@ -7,7 +7,6 @@ export async function GET() {
   const res = await spotifyService.getNowPlaying();
 
   if (res.status === 204 || res.status > 400) {
-    // return res.status(200).json({ isPlaying: false });
     return new Response(JSON.stringify({ isPlaying: false }), {
       status: 200,
     });
@@ -45,8 +44,5 @@ export async function GET() {
 
   return new Response(body, {
     status: 200,
-    // headers: {
-    //   'Cache-Control': 'public, s-maxage=30, stale-while-revalidate=15',
-    // },
   });
 }
