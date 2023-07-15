@@ -1,5 +1,3 @@
-// view all buttom on right
-
 .all {
   display: flex;
   justify-content: flex-end;
@@ -9,12 +7,10 @@
   font-weight: 400;
   color: var(--brand);
   transition: color 200ms ease-out;
-
   &:hover,
   &:focus {
     color: var(--brandActive);
   }
-
   svg {
     width: 20px;
     height: auto;
