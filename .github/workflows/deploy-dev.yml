@@ -66,26 +66,26 @@ jobs:
       - name: Install dependencies 
         run: pnpm i --no-frozen-lockfile
 
-      - name: format
-        run: pnpm run format
+      - name: format:check
+        run: pnpm format
 
       - name: lint
-        run: pnpm run lint
+        run: pnpm lint
 
       - name: jest
-        run: pnpm run test
+        run: pnpm test
 
       - name: tsc
-        run: pnpm run tsc
+        run: pnpm tsc
         
       - name: build
-        run: pnpm run build
+        run: pnpm build
         
       - name: Install Playwright Browsers
         run: ./node_modules/.bin/playwright install --with-deps chromium
 
       - name: local UI tests
-        run: pnpm e2e:local-ci || exit 1
+        run: pnpm e2e:local-ci
         
       - uses: actions/upload-artifact@v3
         if: always()
@@ -104,7 +104,7 @@ jobs:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
 
       - name: Dev UI tests
-        run: pnpm run e2e:dev
+        run: pnpm e2e:dev
         env:
           BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
           BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
