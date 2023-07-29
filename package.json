@@ -26,7 +26,7 @@
     "test": "jest",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test:watch": "jest --watch",
-    "test:snapshot": "jest --updateSnapshot",
+    "test:snapshot": "jest -u",
     "analyze": "ANALYZE=true next build",
     "check:node": "check-node-version --node 18 --pnpm 8",
     "preinstall": "pnpm run check:node",
