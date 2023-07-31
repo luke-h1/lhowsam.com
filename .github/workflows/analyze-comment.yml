@@ -5,6 +5,7 @@ on:
     workflows: ["Analyze Bundle"]
     types:
       - completed
+
 jobs:
   comment:
     runs-on: ubuntu-latest
@@ -12,15 +13,8 @@ jobs:
       ${{ github.event.workflow_run.event == 'pull_request' &&
       github.event.workflow_run.conclusion == 'success' }}
     steps:
-      - name: Install moreutils
-        run: sudo apt install moreutils
-        
-      # https://github.com/actions/virtual-environments/issues/1187
-      - name: tune linux network
-        run: sudo ethtool -K eth0 tx off rx off
-
       - name: Download base branch bundle stats
-        uses: luke-h1/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v2
         with:
           workflow: analyze.yml
           run_id: ${{ github.event.workflow_run.id }}
@@ -28,7 +22,7 @@ jobs:
           path: analysis_comment.txt
 
       - name: Download PR number
-        uses: luke-h1/action-download-artifact@v2
+        uses: dawidd6/action-download-artifact@v2
         with:
           workflow: analyze.yml
           run_id: ${{ github.event.workflow_run.id }}
@@ -53,26 +47,9 @@ jobs:
           pr_number=$(cat pr_number/pr_number)
           echo "pr-number=$pr_number" >> $GITHUB_OUTPUT
 
-      - name: Find Comment
-        uses: luke-h1/find-comment@v2
-        if: success()
-        id: fc
+      - name: Comment
+        uses: marocchino/sticky-pull-request-comment@v2
         with:
-          issue-number: ${{ steps.get-comment-body.outputs.pr-number }}
-          body-includes: "<!-- __NEXTJS_BUNDLE -->"
-
-      - name: Create Comment
-        uses: luke-h1/create-or-update-comment@v2.0.0
-        if: success() && steps.fc.outputs.comment-id == 0
-        with:
-          issue-number: ${{ steps.get-comment-body.outputs.pr-number }}
-          body: ${{ steps.get-comment-body.outputs.body }}
-
-      - name: Update Comment
-        uses: luke-h1/create-or-update-comment@v2.0.0
-        if: success() && steps.fc.outputs.comment-id != 0
-        with:
-          issue-number: ${{ steps.get-comment-body.outputs.pr-number }}
-          body: ${{ steps.get-comment-body.outputs.body }}
-          comment-id: ${{ steps.fc.outputs.comment-id }}
-          edit-mode: replace
+          header: next-bundle-analysis
+          number: ${{ steps.get-comment-body.outputs.pr-number }}
+          message: ${{ steps.get-comment-body.outputs.body }}
