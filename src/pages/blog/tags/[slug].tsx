@@ -5,6 +5,7 @@ import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
 
 interface Props {
   posts: Post[];
@@ -21,6 +22,20 @@ const TagPage: NextPage<Props> = ({ posts }) => {
 
   return (
     <Page>
+      <NextSeo
+        title={`Posts tagged with ${slug}`}
+        canonical={`https://lhowsam.com${router.asPath}`}
+        description={`Posts tagged with ${slug}`}
+        openGraph={{
+          defaultImageWidth: 1200,
+          defaultImageHeight: 630,
+          url: `https://lhowsam.com${router.asPath}`,
+          title: `tags | lhowsam.com`,
+          article: {
+            authors: ['Luke Howsam'],
+          },
+        }}
+      />
       <PageHeader
         title={slug}
         description={
