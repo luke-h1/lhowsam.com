@@ -18,8 +18,8 @@ dependencies:
     specifier: ^1.0.2
     version: 1.0.2
   '@tanstack/react-query':
-    specifier: 4.29.25
-    version: 4.29.25(react-dom@18.2.0)(react@18.2.0)
+    specifier: 4.32.1
+    version: 4.32.1(react-dom@18.2.0)(react@18.2.0)
   axios:
     specifier: ^1.4.0
     version: 1.4.0
@@ -3128,6 +3128,7 @@ packages:
 
   /@emotion/memoize@0.7.4:
     resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -5034,12 +5035,12 @@ packages:
       defer-to-connect: 2.0.1
     dev: true
 
-  /@tanstack/query-core@4.29.25:
-    resolution: {integrity: sha512-DI4y4VC6Uw4wlTpOocEXDky69xeOScME1ezLKsj+hOk7DguC9fkqXtp6Hn39BVb9y0b5IBrY67q6kIX623Zj4Q==}
+  /@tanstack/query-core@4.32.1:
+    resolution: {integrity: sha512-VEAGHboOFWN/bvf/7cCoeLQfld0AA8n0V/kfc77W+FvxnnSwJufEh6gfjqpX5bRE/DEYfYDYdNtuL3KM+lIs8Q==}
     dev: false
 
-  /@tanstack/react-query@4.29.25(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-c1+Ezu+XboYrdAMdusK2fTdRqXPMgPAnyoTrzHOZQqr8Hqz6PNvV9DSKl8agUo6nXX4np7fdWabIprt+838dLg==}
+  /@tanstack/react-query@4.32.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-lPTfOq6bR6DorPaS018gTMd3zs8r06tlERiVY6BRP9SnDkkl4ckqeANava/jPLWrSZP+EA15loQUTmvZs6k2GA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -5050,7 +5051,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@tanstack/query-core': 4.29.25
+      '@tanstack/query-core': 4.32.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       use-sync-external-store: 1.2.0(react@18.2.0)
@@ -12542,6 +12543,7 @@ packages:
 
   /node-addon-api@1.7.2:
     resolution: {integrity: sha512-ibPK3iA+vaY1eEjESkQkM0BbCqFOaZMiXRTtdB0u7b4djtY6JnsjvPdUHVMg6xQt3B8fpTTWHI9A+ADjM9frzg==}
+    requiresBuild: true
     dev: true
     optional: true
 
