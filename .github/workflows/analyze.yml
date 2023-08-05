@@ -46,13 +46,9 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ~/.pnpm
             ${{ github.workspace }}/.next/cache
-          # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-          # If source files changed but packages didn't, rebuild from a prior cache.
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
+          key: ${{ runner.os }}-build-analyze-cache
+
 
       - name: Checkout
         uses: actions/checkout@v3
@@ -64,7 +60,7 @@ jobs:
         run: pnpm run build
 
       - name: Analyze bundle
-        run: npx -p nextjs-bundle-analysis@0.4.0 report
+        run: npx -p nextjs-bundle-analysis@0.5.0 report
         working-directory: .
 
       - name: Upload bundle
