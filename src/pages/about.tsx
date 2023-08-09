@@ -40,7 +40,7 @@ const AboutPage: NextPage = () => {
           priority
         />
         <div className={s.text}>
-          <p>
+          {/* <p>
             Right now I'm working at{' '}
             <a
               href="https://hiveit.co.uk"
@@ -51,7 +51,7 @@ const AboutPage: NextPage = () => {
             </a>
             , primarly working with React, TypeScript & testing technologies on
             large scale projects
-          </p>
+          </p> */}
           <p>
             I'm comfortable with both frontend/backend technologies (React,
             Next.js, Python, GraphQL, Express.js, Node etc.) and I'm always keen
