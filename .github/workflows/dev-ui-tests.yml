@@ -2,7 +2,7 @@ name: UI tests (dev)
 on:
   workflow_dispatch:
 env: 
-  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+  HYGRAPH_URL: ${{ secrets.HYGRAPH_URL }}
   BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
   BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
   NODE_VERSION: 18.16.0
