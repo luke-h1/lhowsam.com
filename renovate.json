@@ -1,9 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "schedule": ["before 6am"],
   "dependencyDashboard": true,
   "extends": ["config:base"],
   "timezone": "Europe/London",
+  "recreateWhen": "never",
   "vulnerabilityAlerts": {
     "groupName": "renovate",
     "dependencyDashboardApproval": false,
@@ -13,17 +13,23 @@
     "branchTopic": "{{{datasource}}}-{{{depName}}}-vulnerability",
     "prCreation": "immediate"
   },
+  "schedule": ["before 4am"],
   "packageRules": [
     {
       "matchDatasources": ["npm"],
-      "groupName": "Major frontend dependencies",
-      "matchUpdateTypes": ["major"]
+      "groupName": "Minor frontend dependencies",
+      "matchUpdateTypes": ["minor", "patch"],
+      "enabled": true
     },
-     {
-      "packageNames": [
-        "node"
-      ],
-      "enabled": false
+    {
+      "matchDatasources": ["npm"],
+      "groupName": "Major frontend dependencies",
+      "matchUpdateTypes": ["major"],
+      "enabled": true
+    },
+    {
+      "packageNames": ["node"],
+      "enabled": true
     }
   ]
 }
