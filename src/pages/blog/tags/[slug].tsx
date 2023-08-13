@@ -1,14 +1,14 @@
 import Page from '@frontend/components/Page/Page';
 import PageHeader from '@frontend/components/PageHeader/PageHeader';
 import PostList from '@frontend/components/PostList/PostList';
-import { PostsQuery } from '@frontend/graphql/generated';
 import postService from '@frontend/services/postService';
+import { Post } from '@frontend/types/sanity';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 
 interface Props {
-  posts: PostsQuery['posts'];
+  posts: Post[];
 }
 
 const TagPage: NextPage<Props> = ({ posts }) => {
@@ -17,7 +17,7 @@ const TagPage: NextPage<Props> = ({ posts }) => {
   const slug = router.query.slug as string;
 
   const matchingPosts = posts.filter(post => {
-    return post.tags.some(tag => tag.slug === slug);
+    return post.tags.some(tag => tag.slug.current === slug);
   });
 
   return (
@@ -58,7 +58,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const { posts } = await postService.getPosts();
+  const posts = await postService.getAllPosts();
 
   return {
     props: {

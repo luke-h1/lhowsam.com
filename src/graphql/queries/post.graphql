@@ -1,9 +1,0 @@
-query Post($slug: String!) {
-  post(where: { slug: $slug }) {
-    ...PostFragment
-    content
-    image {
-      ...ImageFragment
-    }
-  }
-}

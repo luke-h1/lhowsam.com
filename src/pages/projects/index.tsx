@@ -2,15 +2,15 @@ import Page from '@frontend/components/Page/Page';
 import PageHeader from '@frontend/components/PageHeader/PageHeader';
 import ProjectItem from '@frontend/components/Project/ProjectItem';
 import siteConfig from '@frontend/config/site';
-import { ProjectsQuery } from '@frontend/graphql/generated';
 import projectService from '@frontend/services/projectService';
+import { Project } from '@frontend/types/sanity';
 import { GetStaticProps, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import s from './index.module.scss';
 
 interface Props {
-  projects: ProjectsQuery['projects'];
+  projects: Project[];
 }
 
 const ProjectPage: NextPage<Props> = ({ projects }) => {
@@ -30,10 +30,11 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
       />
       <Page>
         <PageHeader title="Projects" />
+
         <div className={s.grid}>
           {projects &&
             projects.map(project => (
-              <ProjectItem key={project.id} project={project} />
+              <ProjectItem key={project._id} project={project} />
             ))}
         </div>
       </Page>
@@ -44,7 +45,7 @@ const ProjectPage: NextPage<Props> = ({ projects }) => {
 export default ProjectPage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const { projects } = await projectService.getProjects();
+  const projects = await projectService.getAllProjects();
 
   if (!projects.length) {
     return {

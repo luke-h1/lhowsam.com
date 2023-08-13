@@ -5,18 +5,22 @@ import Page from '@frontend/components/Page/Page';
 import PageHeader from '@frontend/components/PageHeader/PageHeader';
 import Tags from '@frontend/components/Tags/Tags';
 import Button from '@frontend/components/form/Button/Button';
-import { PostQuery } from '@frontend/graphql/generated';
+import imageService from '@frontend/services/imageService';
 import postService from '@frontend/services/postService';
+import { Post } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { GetStaticPaths, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
 import s from './post.module.scss';
 
 interface Props {
-  post: NonNullable<PostQuery['post']>;
-  compiledSource: MDXRemoteSerializeResult<Record<string, unknown>>;
+  post: Post;
+  compiledSource: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
 }
 
 const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
@@ -33,7 +37,7 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
           defaultImageHeight: 630,
           images: [
             {
-              url: post?.image?.url as string,
+              url: imageService.urlFor(post.image.asset),
               alt: post.title,
               height: 1200,
               width: 630,
@@ -43,7 +47,7 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
           title: `${post.title} | lhowsam.com`,
           article: {
             authors: ['Luke Howsam'],
-            publishedTime: post.date,
+            publishedTime: post.publishedAt,
             tags: post.tags.map(tag => tag.title),
           },
         }}
@@ -51,7 +55,7 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
       <Page>
         {post.image && (
           <BlogImage
-            src={post.image.url}
+            src={imageService.urlFor(post.image.asset)}
             alt={post.title}
             className={s.image}
           />
@@ -59,7 +63,7 @@ const PostPage: NextPage<Props> = ({ post, compiledSource }) => {
         <PageHeader title={post.title} compact>
           <p className={s.meta}>
             Published on{' '}
-            <FormattedDate testId="time">{post.date}</FormattedDate>
+            <FormattedDate testId="time">{post.publishedAt}</FormattedDate>
           </p>
         </PageHeader>
         <article className={s.article} data-testid="content">
@@ -84,10 +88,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const { slug } = params as { slug: string };
-
-  const { post } = await postService.getPost(slug as string);
+export const getStaticProps = async ({
+  params,
+}: {
+  params?: { slug: string };
+}) => {
+  const post = await postService.getPost(params?.slug as string);
 
   if (!post) {
     return {
