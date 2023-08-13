@@ -1,0 +1,9 @@
+query Project($slug: String!) {
+  project(where: { slug: $slug }) {
+    ...ProjectFragment
+    content
+    image {
+      ...ImageFragment
+    }
+  }
+}

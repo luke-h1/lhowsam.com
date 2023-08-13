@@ -1,0 +1,9 @@
+query Posts {
+  posts {
+    ...PostFragment
+    content
+    image {
+      ...ImageFragment
+    }
+  }
+}

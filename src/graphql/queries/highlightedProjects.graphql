@@ -1,0 +1,5 @@
+query HighlightedProjects {
+  projects(where: { title_in: ["My website", "Storify", "Automation"] }) {
+    ...ProjectFragment
+  }
+}
