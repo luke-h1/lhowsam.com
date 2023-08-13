@@ -1,96 +1,42 @@
-import { Post } from '@frontend/types/sanity';
-import groq from 'groq';
-import studioClient from '../utils/sanity.client';
-
-const slugsQuery = groq`
-*[_type == "post"] {
-  slug {
-    current
-  },
-}
-`;
-
-const recentPostsQuery = groq`
-*[ _type == "post"] | order(publishedAt desc) [0..2] {
-  _createdAt,
-  _id,
-    image {
-      ...,
-    },
-  title,
-  intro,  
-  publishedAt,
-  image {
-    alt,
-    asset {
-      _ref
-    },
-  },
-  tags[] -> {
-    title,
-    slug {
-      ...,
-      
-    }
-  },
-  slug {
-    current
-  },
-}
-`;
-
-const listAllPosts = groq`
-  *[ _type == "post"] | order(publishedAt desc) {
-    ...,
-    image {
-      alt,
-      asset {
-      _ref
-     },
-    },
-    tags[]-> {
-      title,
-      slug
-   },
-    slug {
-      current
-    },
-  }
-`;
-
-export const getPostQuery = groq`
-*[ _type == "post" && slug.current == $slug][0] {
-  title,
-  intro,  
-  publishedAt,
-  content,
-  image {
-    alt,
-    asset {
-    ...,
-   },
- },
-  tags[]-> {
-   title,
-   slug
-  },
-}
-`;
+import {
+  PostDocument,
+  PostQuery,
+  PostQueryVariables,
+  PostSlugsDocument,
+  PostSlugsQuery,
+  PostSlugsQueryVariables,
+  PostsDocument,
+  PostsQuery,
+  PostsQueryVariables,
+  RecentPostsDocument,
+  RecentPostsQuery,
+  RecentPostsQueryVariables,
+} from '@frontend/graphql/generated';
+import hygraphClient from './Client/hygraphClient';
 
 const postService = {
-  async getSlugs(): Promise<Post[]> {
-    return studioClient.fetch(slugsQuery);
-  },
-  async getPost(slug: string): Promise<Post> {
-    return studioClient.fetch(getPostQuery, {
+  async getPost(slug: string) {
+    return hygraphClient.request<PostQuery, PostQueryVariables>(PostDocument, {
       slug,
     });
   },
-  async getAllPosts(): Promise<Post[]> {
-    return studioClient.fetch(listAllPosts);
+  async getPosts() {
+    return hygraphClient.request<PostsQuery, PostsQueryVariables>(
+      PostsDocument,
+    );
   },
-  async getRecentPosts(): Promise<Post[]> {
-    return studioClient.fetch(recentPostsQuery);
+  async getRecentPosts() {
+    return hygraphClient.request<RecentPostsQuery, RecentPostsQueryVariables>(
+      RecentPostsDocument,
+    );
+  },
+  async getSlugs() {
+    const { posts } = await hygraphClient.request<
+      PostSlugsQuery,
+      PostSlugsQueryVariables
+    >(PostSlugsDocument);
+
+    return posts;
   },
 };
 

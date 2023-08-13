@@ -1,0 +1,9 @@
+fragment ProjectFragment on Project {
+  id
+  title
+  intro
+  slug
+  content
+  siteUrl
+  githubUrl
+}

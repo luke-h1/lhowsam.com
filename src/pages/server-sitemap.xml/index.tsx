@@ -1,8 +1,9 @@
 import postService from '@frontend/services/postService';
 import projectService from '@frontend/services/projectService';
-import { ISitemapField, getServerSideSitemap } from 'next-sitemap';
+import { GetServerSideProps } from 'next';
+import { ISitemapField, getServerSideSitemapLegacy } from 'next-sitemap';
 
-export async function GET() {
+export const getServerSideProps: GetServerSideProps = async ctx => {
   const lastmod = new Date().toISOString();
 
   const [posts, projects] = await Promise.all([
@@ -12,16 +13,18 @@ export async function GET() {
 
   const [postFields, projectFields] = await Promise.all([
     posts.map(post => ({
-      loc: `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug.current}`,
+      loc: `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug}`,
       lastmod,
     })),
     projects.map(project => ({
-      loc: `${process.env.NEXT_PUBLIC_URL}/projects/${project.slug.current}`,
+      loc: `${process.env.NEXT_PUBLIC_URL}/projects/${project.slug}`,
       lastmod,
     })),
   ]);
 
   const fields: ISitemapField[] = [...postFields, ...projectFields];
 
-  return getServerSideSitemap(fields);
-}
+  return getServerSideSitemapLegacy(ctx, fields);
+};
+
+export default (): undefined => undefined;

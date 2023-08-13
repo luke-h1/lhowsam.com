@@ -35,11 +35,14 @@ test.describe('blog', () => {
 
       await page.goto(links[i]);
 
-      // slug
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('h1')).not.toBeEmpty();
 
-      await expect(page.locator('[data-testid="time"]')).toBeVisible();
+      await expect(page.locator('[data-testid="time"]'), {
+        message: `post with link ${links[i]} does not have a time element`,
+      }).toBeVisible({
+        timeout: 10000,
+      });
 
       await expect(page.locator('[data-testid="content"]')).toBeVisible();
       await expect(page.locator('[data-testid="content"]')).not.toBeEmpty();
