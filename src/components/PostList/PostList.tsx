@@ -1,11 +1,12 @@
-import { PostsQuery } from '@frontend/graphql/generated';
+import imageService from '@frontend/services/imageService';
+import { Post } from '@frontend/types/sanity';
 import Link from 'next/link';
 import BlogImage from '../BlogImage/BlogImage';
 import FormattedDate from '../FormattedDate';
 import s from './PostList.module.scss';
 
 interface Props {
-  posts: PostsQuery['posts'];
+  posts: Post[];
 }
 
 const PostList = ({ posts }: Props) => {
@@ -14,14 +15,17 @@ const PostList = ({ posts }: Props) => {
       {posts.length === 0 && <p className={s.noResults}>No posts found</p>}
       {posts &&
         posts.map(post => (
-          <li key={post.id}>
+          <li key={post._id}>
             {post.image && (
-              <Link href={`/blog/${post.slug}`}>
-                <BlogImage src={post.image.url} alt={post.title} />
+              <Link href={`/blog/${post.slug.current}`}>
+                <BlogImage
+                  src={imageService.urlFor(post.image.asset)}
+                  alt={post.title}
+                />
               </Link>
             )}
             <Link
-              href={`/blog/${post.slug}`}
+              href={`/blog/${post.slug.current}`}
               className={s.title}
               data-testid="post-title"
             >
@@ -31,7 +35,7 @@ const PostList = ({ posts }: Props) => {
               {post.intro}
             </p>
             <p className={s.meta}>
-              Published on <FormattedDate>{post.date}</FormattedDate>
+              Published on <FormattedDate>{post.publishedAt}</FormattedDate>
             </p>
           </li>
         ))}

@@ -62,7 +62,7 @@ const nextConfig = {
   },
   images: {
     remotePatterns: [
-      { hostname: 'media.graphassets.com' },
+      { hostname: 'cdn.sanity.io' },
       { hostname: 'localhost' },
       { hostname: 'i.scdn.co' },
     ],

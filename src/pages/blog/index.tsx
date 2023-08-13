@@ -3,11 +3,11 @@ import PageHeader from '@frontend/components/PageHeader/PageHeader';
 import PostList from '@frontend/components/PostList/PostList';
 import Input from '@frontend/components/form/Input/Input';
 import siteConfig from '@frontend/config/site';
-import { PostsQuery } from '@frontend/graphql/generated';
 import { search } from '@frontend/services/googleAnalyticsService';
 import postService from '@frontend/services/postService';
+import { Post } from '@frontend/types/sanity';
 import debounce from 'lodash/debounce';
-import { GetStaticProps, NextPage } from 'next';
+import { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { NextSeo } from 'next-seo';
 import { ChangeEvent, Fragment, useCallback, useState } from 'react';
@@ -15,7 +15,7 @@ import { Search } from 'react-feather';
 import s from './index.module.scss';
 
 interface Props {
-  posts: PostsQuery['posts'];
+  posts: Post[];
 }
 
 const BlogIndexPage: NextPage<Props> = ({ posts }) => {
@@ -28,7 +28,10 @@ const BlogIndexPage: NextPage<Props> = ({ posts }) => {
   );
 
   const filteredPosts = posts
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    .sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+    )
     .filter(post => {
       const searchString = `${post.title.toLowerCase()} ${post.content.toLowerCase()}`;
 
@@ -82,8 +85,8 @@ const BlogIndexPage: NextPage<Props> = ({ posts }) => {
 
 export default BlogIndexPage;
 
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const { posts } = await postService.getPosts();
+export const getStaticProps = async () => {
+  const posts = await postService.getAllPosts();
 
   return {
     props: {

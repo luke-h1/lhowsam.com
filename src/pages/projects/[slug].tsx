@@ -3,18 +3,22 @@ import ContentRenderer from '@frontend/components/ContentRenderer';
 import Page from '@frontend/components/Page/Page';
 import PageHeader from '@frontend/components/PageHeader/PageHeader';
 import Button from '@frontend/components/form/Button/Button';
-import { ProjectQuery } from '@frontend/graphql/generated';
+import imageService from '@frontend/services/imageService';
 import projectService from '@frontend/services/projectService';
+import { Project } from '@frontend/types/sanity';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { GetStaticPaths, NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { NextSeo } from 'next-seo';
 import s from '../blog/post.module.scss';
 
 interface Props {
-  project: NonNullable<ProjectQuery['project']>;
-  compiledSource: MDXRemoteSerializeResult<Record<string, unknown>>;
+  project: Project;
+  compiledSource: MDXRemoteSerializeResult<
+    Record<string, unknown>,
+    Record<string, string>
+  >;
 }
 
 const ProjectSlugPage: NextPage<Props> = ({ project, compiledSource }) => {
@@ -39,7 +43,7 @@ const ProjectSlugPage: NextPage<Props> = ({ project, compiledSource }) => {
       <Page>
         {project.image && (
           <BlogImage
-            src={project.image.url}
+            src={imageService.urlFor(project.image.asset)}
             alt={project.title}
             className={s.image}
           />
@@ -66,8 +70,12 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
-  const { project } = await projectService.getProject(params?.slug as string);
+export const getStaticProps = async ({
+  params,
+}: {
+  params?: { slug: string };
+}) => {
+  const project = await projectService.getProject(params?.slug as string);
 
   if (!project) {
     return {
