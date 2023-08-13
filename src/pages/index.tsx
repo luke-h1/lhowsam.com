@@ -3,8 +3,8 @@ import PageHeader from '@frontend/components/PageHeader/PageHeader';
 import ProjectItem from '@frontend/components/Project/ProjectItem';
 import Button from '@frontend/components/form/Button/Button';
 import siteConfig from '@frontend/config/site';
-import { HighlightedProjectsQuery } from '@frontend/graphql/generated';
 import projectService from '@frontend/services/projectService';
+import { Project } from '@frontend/types/sanity';
 import { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -13,7 +13,7 @@ import { ArrowRight } from 'react-feather';
 import s from './index.module.scss';
 
 interface Props {
-  projects: HighlightedProjectsQuery['projects'];
+  projects: Project[];
 }
 
 const Indexpage: NextPage<Props> = ({ projects }) => {
@@ -51,7 +51,7 @@ const Indexpage: NextPage<Props> = ({ projects }) => {
         </div>
         {projects &&
           projects.map(project => (
-            <ProjectItem project={project} key={project.id} />
+            <ProjectItem project={project} key={project._id} />
           ))}
       </Page>
     </>
@@ -60,7 +60,8 @@ const Indexpage: NextPage<Props> = ({ projects }) => {
 export default Indexpage;
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const { projects } = await projectService.getHighlightedProjects();
+  // todo rename to highlighted projects
+  const projects = await projectService.getRecentProjects();
 
   return {
     props: {

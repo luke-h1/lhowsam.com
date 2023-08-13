@@ -1,22 +1,17 @@
-import {
-  HighlightedProjectsQuery,
-  ProjectsQuery,
-} from '@frontend/graphql/generated';
+import { Project } from '@frontend/types/sanity';
 import Link from 'next/link';
 import { Link2, GitHub } from 'react-feather';
 import s from './Project.module.scss';
 
 interface Props {
-  project:
-    | HighlightedProjectsQuery['projects'][number]
-    | ProjectsQuery['projects'][number];
+  project: Project;
 }
 
 const ProjectItem = ({ project }: Props) => {
   return (
     <div className={s.project}>
       <Link
-        href={`/projects/${project.slug}`}
+        href={`/projects/${project.slug.current}`}
         aria-label={project.title}
         data-testid="project-link"
       >
