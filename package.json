@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "alphabetize": "node scripts/alphabetizePackageJson.js",
     "clean": "rm -rf node_modules",
     "dev": "next dev",
     "build": "next build",
@@ -133,5 +134,16 @@
       "path": "./node_modules/cz-conventional-changelog",
       "defaultScope": "global"
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint"
+    ],
+    "*.{js,jsx,ts,tsx,css,scss,html}": [
+      "prettier --write"
+    ],
+    "package.json": [
+      "node scripts/alphabetizePackageJson.js"
+    ]
   }
 }
