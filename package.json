@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "alphabetize": "node scripts/alphabetizePackageJson.js",
     "clean": "rm -rf node_modules",
     "dev": "next dev",
     "build": "next build",
@@ -81,14 +82,14 @@
     "@swc/core": "^1.3.74",
     "@swc/jest": "^0.2.27",
     "@testing-library/dom": "^9.3.1",
-    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/jest-dom": "^6.0.0",
     "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^14.4.3",
     "@types/body-scroll-lock": "^3.1.0",
     "@types/jest": "^29.5.3",
     "@types/lodash": "^4.14.196",
-    "@types/node": "20.4.10",
+    "@types/node": "20.5.0",
     "@types/nprogress": "^0.2.0",
     "@types/react": "18.2.20",
     "@types/rss": "^0.0.30",
@@ -113,7 +114,7 @@
     "jest-resolve": "^29.6.2",
     "jest-serializer-html": "^7.1.0",
     "jest-watch-typeahead": "^2.2.2",
-    "lint-staged": "13.2.3",
+    "lint-staged": "14.0.0",
     "prettier": "^3.0.1",
     "stylelint": "^15.10.2",
     "stylelint-config-prettier": "^9.0.5",
@@ -133,5 +134,16 @@
       "path": "./node_modules/cz-conventional-changelog",
       "defaultScope": "global"
     }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint"
+    ],
+    "*.{js,jsx,ts,tsx,css,scss,html}": [
+      "prettier --write"
+    ],
+    "package.json": [
+      "node scripts/alphabetizePackageJson.js"
+    ]
   }
 }

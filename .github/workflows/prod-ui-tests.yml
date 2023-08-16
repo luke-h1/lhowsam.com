@@ -2,7 +2,7 @@ name: UI tests (prod)
 on:
   workflow_dispatch:
   schedule: 
-    - cron: '0 */12 * * *'
+    - cron: '0 */6 * * *'
 env: 
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
   NODE_VERSION: 18.16.0
