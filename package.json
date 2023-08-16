@@ -9,6 +9,7 @@
     "build": "next build",
     "vercel:build": "vercel build",
     "vercel:dev": "vercel dev",
+    "start:prod": "NODE_OPTIONS='-r dotenv/config -r @newrelic/next' next start",
     "start": "next start",
     "tsc": "tsc --noEmit",
     "gen-env": "gen-env-types .env -o src/types/env.d.ts -e .",
@@ -35,6 +36,7 @@
   },
   "dependencies": {
     "@fontsource/poppins": "^5.0.7",
+    "@newrelic/next": "^0.6.0",
     "@next/eslint-plugin-next": "^13.4.12",
     "@sanity/client": "^6.4.0",
     "@sanity/image-url": "^1.0.2",
@@ -49,6 +51,7 @@
     "groq": "3.15.1",
     "lefthook": "^1.4.8",
     "lodash": "^4.17.21",
+    "newrelic": "^10.6.2",
     "next": "^13.4.12",
     "next-mdx-remote": "^4.4.1",
     "next-sanity": "^5.1.5",
