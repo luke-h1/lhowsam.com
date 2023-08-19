@@ -31,3 +31,4 @@ sitemap-0.xml
 test-results
 .vscode
 .idea
+newrelic_agent.log

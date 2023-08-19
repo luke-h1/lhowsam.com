@@ -1,6 +1,12 @@
 import siteConfig from '@frontend/config/site';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+} from 'next/document';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 export default class MyDocument extends Document {
   render() {
     return (
