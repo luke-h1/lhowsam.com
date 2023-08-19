@@ -4,40 +4,14 @@ import Document, {
   Head,
   Main,
   NextScript,
-  DocumentContext,
-  DocumentInitialProps,
 } from 'next/document';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const newrelic = require('newrelic');
-
 export default class MyDocument extends Document {
-  static async getInitialProps(
-    ctx: DocumentContext,
-  ): Promise<DocumentInitialProps> {
-    const initialProps = await Document.getInitialProps(ctx);
-
-    const browserTimingHeader = newrelic.getBrowserTimingHeader({
-      hasToRemoveScriptWrapper: true,
-    });
-
-    return {
-      ...initialProps,
-      // @ts-expect-error no types for this
-      browserTimingHeader,
-    };
-  }
-
   render() {
     return (
       <Html lang="en">
         <Head>
-          <script
-            type="text/javascript"
-            // @ts-expect-error no types for this
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{ __html: this.props.browserTimingHeader }}
-          />
           <meta
             name="keywords"
             content={siteConfig.keywords.join(', ')}
