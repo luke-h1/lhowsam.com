@@ -38,7 +38,7 @@
     "@next/eslint-plugin-next": "^13.4.12",
     "@sanity/client": "^6.4.0",
     "@sanity/image-url": "^1.0.2",
-    "@tanstack/react-query": "4.32.6",
+    "@tanstack/react-query": "4.33.0",
     "axios": "^1.4.0",
     "check-node-version": "^4.2.1",
     "classnames": "^2.3.2",
@@ -89,7 +89,7 @@
     "@types/body-scroll-lock": "^3.1.0",
     "@types/jest": "^29.5.3",
     "@types/lodash": "^4.14.196",
-    "@types/node": "20.5.1",
+    "@types/node": "20.5.2",
     "@types/nprogress": "^0.2.0",
     "@types/react": "18.2.20",
     "@types/rss": "^0.0.30",
@@ -114,7 +114,7 @@
     "jest-resolve": "^29.6.2",
     "jest-serializer-html": "^7.1.0",
     "jest-watch-typeahead": "^2.2.2",
-    "lint-staged": "14.0.0",
+    "lint-staged": "14.0.1",
     "prettier": "^3.0.1",
     "stylelint": "^15.10.2",
     "stylelint-config-prettier": "^9.0.5",
@@ -122,7 +122,7 @@
     "stylelint-config-standard": "^34.0.0",
     "stylelint-prettier": "^4.0.2",
     "typescript": "^5.1.6",
-    "vercel": "^31.2.2"
+    "vercel": "^32.0.0"
   },
   "nextBundleAnalysis": {
     "budget": null,
