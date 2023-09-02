@@ -1,3 +1,7 @@
+const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
+
+const withVanillaExtract = createVanillaExtractPlugin();
+
 const ContentSecurityPolicy = `
  default-src 'self';
  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com;
@@ -121,4 +125,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withVanillaExtract(nextConfig);

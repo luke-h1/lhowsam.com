@@ -33,4 +33,38 @@ test.describe('footer', () => {
     await expect(page.locator('h1').first()).toHaveText('Projects');
     await page.goBack();
   });
+
+  test('has correct links', async () => {
+    await expect(page.locator('[data-testid="footer"]')).toBeVisible();
+
+    // github
+    await expect(
+      page.locator('[data-testid="footer"] >> text="Github"'),
+    ).toBeVisible();
+
+    // LinkedIn
+    await expect(
+      page.locator('[data-testid="footer"] >> text="Linkedin"'),
+    ).toBeVisible();
+
+    // Email
+    await expect(
+      page.locator('[data-testid="footer"] >> text="Email"'),
+    ).toBeVisible();
+  });
+
+  test('theme switcher switches theme correctly', async () => {
+    // light
+    await page.selectOption('[id="theme-select"]', { label: 'Light' });
+    await expect(page.locator('html')).toHaveAttribute('class', 'light');
+
+    // dark
+    await page.selectOption('[id="theme-select"]', { label: 'Dark' });
+    await expect(page.locator('html')).toHaveAttribute('class', 'dark');
+
+    // system
+    await page.click('[id="theme-select"]');
+    await page.selectOption('[id="theme-select"]', { label: 'System' });
+    await expect(page.locator('html')).toHaveAttribute('class', 'light');
+  });
 });

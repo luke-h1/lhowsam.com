@@ -1,20 +1,30 @@
-import { ReactNode } from 'react';
-import s from './PageHeader.module.scss';
+import Balancer from 'react-wrap-balancer';
+import Heading from '../Heading/Heading';
+import Spacer from '../Spacer/Spacer';
+import Text from '../Text/Text';
+import * as styles from './PageHeader.css';
 
-interface Props {
-  title: string | ReactNode;
-  description?: string | ReactNode;
-  children?: ReactNode;
-  compact?: boolean;
+interface PageHeaderProps {
+  heading: string;
+  description?: string;
 }
 
-const PageHeader = ({ title, children, compact, description }: Props) => {
+const PageHeader = ({ heading, description }: PageHeaderProps) => {
   return (
-    <div className={compact ? s.wrapperCompact : s.wrapper}>
-      <h1 className={s.title}>{title}</h1>
-      {description && <p className={s.description}>{description}</p>}
-      {children}
-    </div>
+    <header className={styles.root}>
+      <Heading as="h1" fontSize="xxxl">
+        {heading}
+      </Heading>
+      {description && (
+        <>
+          <Spacer height="sm" />
+          <Text fontSize="lg" color="foregroundNeutral">
+            <Balancer>{description}</Balancer>
+          </Text>
+        </>
+      )}
+    </header>
   );
 };
+
 export default PageHeader;
