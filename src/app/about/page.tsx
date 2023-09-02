@@ -71,6 +71,13 @@ const AboutPage = () => {
           <Heading fontSize="xl">Connect</Heading>
         </header>
         <Spacer height="xxl" />
+        <List.Item>
+            <Text>
+              <Link href={`${process.env.NEXT_PUBLIC_URL}/static/cv.pdf`}>
+                CV
+              </Link>
+            </Text>
+          </List.Item>
         <List>
         <List.Item>
             <Text>
