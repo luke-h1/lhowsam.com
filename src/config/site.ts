@@ -19,4 +19,5 @@ const siteConfig = {
     'United Kingdom',
   ],
 };
+
 export default siteConfig;

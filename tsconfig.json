@@ -28,7 +28,10 @@
     "baseUrl": ".",
     "paths": {
       "@frontend/*": [
-        "src/*"
+        "./src/*"
+      ],
+      "@frontend-test/*": [
+        "src/test/*"
       ]
     },
     "incremental": true,

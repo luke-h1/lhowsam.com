@@ -1,42 +1,64 @@
-'use client';
-
-import { useMounted } from '@frontend/hooks/useMounted';
-import Head from 'next/head';
-import Page from './Page/Page';
-import PageHeader from './PageHeader/PageHeader';
-import Providers from './Providers';
-import Button from './form/Button/Button';
+import Box from './Box/Box';
+import Link from './Link/Link';
+import { List } from './List/List';
+import Page from './Page';
+import Spacer from './Spacer/Spacer';
 
 interface Props {
-  statusCode: number;
+  title: string;
+  statusCode: '404' | '500';
 }
 
-const ErrorContent = ({ statusCode }: Props) => {
-  const { isMounted } = useMounted();
-  const title =
-    statusCode === 404 ? '404 - Page not found' : '500 - Something went wrong';
-  const description =
-    statusCode === 404
-      ? 'This page does not exist, maybe you clicked an old link or misspelled. Please try again…'
-      : 'Something went wrong, please try again later…';
-
-  if (!isMounted) {
-    return null;
-  }
-
+const ErrorContent = async ({ statusCode, title }: Props) => {
   return (
-    <Providers>
-      <Page>
-        <Head>
-          <title>{statusCode} | lhowsam.com</title>
-        </Head>
-        <PageHeader title={title} description={description}>
-          <Button href="/" type="button">
-            Return home
-          </Button>
-        </PageHeader>
-      </Page>
-    </Providers>
+    <Page heading={title} showFooter={false}>
+      <Box
+        as="header"
+        textAlign={{ md: 'center' }}
+        maxWidth="container"
+        marginX="auto"
+      >
+        <Spacer height="xl" />
+
+        <Box textAlign="left">
+          <List>
+            {statusCode === '404' ? (
+              <>
+                <List.Item>
+                  If you typed the web address, check it's correct.
+                </List.Item>
+                <List.Item>
+                  If you copied and pasted the web address, check you copied the
+                  entire address.
+                </List.Item>
+                <List.Item>
+                  If the web address is correct or you clicked a link or button
+                  and ended up on this page, please raise a{' '}
+                  <Link
+                    href="https://github.com/luke-h1/lhowsam.com/issues"
+                    variant="highlight"
+                  >
+                    GitHub issue
+                  </Link>
+                </List.Item>
+              </>
+            ) : (
+              <List.Item>
+                It looks like something went wrong. Please try again later. In
+                the meantime, please raise a{' '}
+                <Link href="https://github.com/luke-h1/lhowsam.com/issues">
+                  GitHub issue
+                </Link>
+              </List.Item>
+            )}
+          </List>
+        </Box>
+        <Spacer height="xxxl" />
+        <Box textAlign="left">
+          <Link href="/">Go Home</Link>
+        </Box>
+      </Box>
+    </Page>
   );
 };
 export default ErrorContent;
