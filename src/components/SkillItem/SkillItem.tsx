@@ -3,7 +3,7 @@
 import { useTheme } from 'next-themes';
 import { useEffect } from 'react';
 import type { IconType } from 'react-icons';
-import s from './SkillItem.module.scss';
+import * as styles from './SkillItem.css';
 
 interface Props {
   icon: IconType;
@@ -24,14 +24,14 @@ const SkillItem = ({ icon, text }: Props) => {
 
   return (
     <li>
-      <span className={s.bg} data-testid={`${text}-icon`} key={`${text}-icon`}>
+      <span className={styles.bg} data-testid={`${text}-icon`}>
         {icon({
           size: 30,
-          className: s.skillIcon,
+          className: styles.skillIcon,
         })}
       </span>
-      <div className={s.flex}>
-        <small className={s.skillText}>{text}</small>
+      <div className={styles.flex}>
+        <small className={styles.skillText}>{text}</small>
       </div>
     </li>
   );

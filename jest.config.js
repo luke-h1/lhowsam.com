@@ -5,6 +5,7 @@ const createJestConfig = nextJest({
   dir: './',
 });
 
+/** @type {import('jest').Config} */
 const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   moduleNameMapper: {
@@ -19,5 +20,11 @@ const customJestConfig = {
   ],
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   testEnvironment: 'jest-environment-jsdom',
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
+  ],
+  resetMocks: true,
+  snapshotSerializers: ['jest-serializer-html'],
 };
 module.exports = createJestConfig(customJestConfig);

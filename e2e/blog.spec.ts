@@ -20,10 +20,11 @@ test.describe('blog', () => {
       await expect(page.locator('a').nth(i)).toBeVisible();
 
       await expect(
-        page.locator('[data-testid="summary"]').nth(i),
+        page.locator('[data-testid="post-intro"]').nth(i),
       ).toBeVisible();
+
       await expect(
-        page.locator('[data-testid="summary"]').nth(i),
+        page.locator('[data-testid="post-intro"]').nth(i),
       ).not.toBeEmpty();
 
       const link = await page
@@ -43,6 +44,17 @@ test.describe('blog', () => {
 
       await expect(page.locator('[data-testid="content"]')).toBeVisible();
       await expect(page.locator('[data-testid="content"]')).not.toBeEmpty();
+
+      await expect(page.locator('[data-testid="meta-title-1"]')).toBeVisible();
+      await expect(page.locator('[data-testid="meta-title-2"]')).toBeVisible();
+
+      await expect(
+        page.locator('[data-testid="meta-description-1"]'),
+      ).toBeVisible();
+
+      await expect(
+        page.locator('[data-testid="meta-description-2"]'),
+      ).toBeVisible();
 
       await page.goto(`${baseUrl}/blog`);
 

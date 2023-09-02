@@ -1,54 +1,30 @@
 'use client';
 
+import { ToastProvider } from '@radix-ui/react-toast';
+import { TooltipProvider } from '@radix-ui/react-tooltip';
 import {
+  Hydrate,
   QueryClient,
   QueryClientProvider,
   dehydrate,
 } from '@tanstack/react-query';
+import { MotionConfig } from 'framer-motion';
 import Head from 'next/head';
 import { ThemeProvider } from 'next-themes';
 import { ReactNode, useState } from 'react';
-import Hydrate from './Hydrate';
+import Gradient from './Gradient/Gradient';
+import SkipLink from './SkipLink/SkipLink';
 
 interface Props {
   children: ReactNode;
 }
 
 const Providers = ({ children }: Props) => {
-  const [queryClient] = useState(new QueryClient());
+  const [queryClient] = useState(() => new QueryClient());
   const dehydratedState = dehydrate(queryClient);
 
-  // TOOD: once Next.js exposes router.events in next/navigation, comment below back in
-  // const router = useRouter();
-
-  // useMounted(() => {
-  //   import('@frontend/services/googleAnalyticsService').then(
-  //     ({ initGoogleAnalytics, logPageView }) => {
-  //       initGoogleAnalytics(process.env.NEXT_PUBLIC_GA_TRACKING_ID);
-  //       logPageView();
-
-  //       router.events.on('routeChangeComplete', logPageView);
-  //     },
-  //   );
-  // });
-
-  // useEffect(() => {
-  //   const handleRouteStart = () => NProgress.start();
-  //   const handleRouteDone = () => NProgress.done();
-
-  //   router.events.on('routeChangeStart', handleRouteStart);
-  //   router.events.on('routeChangeComplete', handleRouteDone);
-  //   router.events.on('routeChangeError', handleRouteDone);
-
-  //   return () => {
-  //     router.events.off('routeChangeStart', handleRouteStart);
-  //     router.events.off('routeChangeComplete', handleRouteDone);
-  //     router.events.off('routeChangeError', handleRouteDone);
-  //   };
-  // }, [router.events]);
-
   return (
-    <ThemeProvider defaultTheme="system">
+    <ThemeProvider attribute="class" defaultTheme="system">
       <QueryClientProvider client={queryClient}>
         <Hydrate state={dehydratedState}>
           <Head>
@@ -57,10 +33,19 @@ const Providers = ({ children }: Props) => {
               content="width=device-width, user-scalable=yes, initial-scale=1.0, viewport-fit=cover"
             />
           </Head>
-          <main id="main">{children}</main>
+          <MotionConfig reducedMotion="user">
+            <ToastProvider>
+              <TooltipProvider>
+                <SkipLink />
+                <Gradient />
+                <main id="main">{children}</main>
+              </TooltipProvider>
+            </ToastProvider>
+          </MotionConfig>
         </Hydrate>
       </QueryClientProvider>
     </ThemeProvider>
   );
 };
+
 export default Providers;
