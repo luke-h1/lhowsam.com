@@ -102,7 +102,6 @@ const CommandMenu = ({ open, setOpen }: CommandMenuProps) => {
       onOpenChange={setOpen}
       label="Global Command Menu"
       aria-label="Global Command Menu"
-
     >
       <div cmdk-header="">
         <Command.Input placeholder="Type a command or search..." />
@@ -116,7 +115,7 @@ const CommandMenu = ({ open, setOpen }: CommandMenuProps) => {
           ESC
         </button>
       </div>
-      <Command.List>
+      <Command.List role="listbox">
         <Command.Empty>No results found.</Command.Empty>
 
         <Command.Group heading="Navigation">
