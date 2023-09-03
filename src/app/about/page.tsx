@@ -55,49 +55,38 @@ const AboutPage = () => {
             In my spare time I enjoy being outdoors, travelling, discovering new
             foods, finding new movies/tv-shows and reading
           </Text>
-          {/* <Text
-            color="foregroundAction"
-            style={{
-              marginBottom: '0.5rem',
-            }}
-          >
-            <a href="mailto:luke.howsam54@gmail.com">Get in touch</a>
-          </Text>
-          <Text color="foregroundAction">
-            <Link href="/static/cv.pdf">CV</Link>
-          </Text> */}
-             <Box as="section" maxWidth="text" marginX="auto">
-        <header>
-          <Heading fontSize="xl">Connect</Heading>
-        </header>
-        <Spacer height="xxl" />
-        <List.Item>
-            <Text>
-              <Link href={`${process.env.NEXT_PUBLIC_URL}/static/cv.pdf`}>
-                CV
-              </Link>
-            </Text>
-          </List.Item>
-        <List>
-        <List.Item>
-            <Text>
-              <Link href="https://www.linkedin.com/in/lukehowsam">
-                LinkedIn
-              </Link>
-            </Text>
-          </List.Item>
-          <List.Item>
-            <Text>
-              <Link href="https://github.com/luke-h1">Github</Link>
-            </Text>
-          </List.Item>
-          <List.Item>
-            <Text>
-              <Link href="https://twitter.com/LukeH_1999">Twitter</Link>
-            </Text>
-          </List.Item>
-        </List>
-      </Box>
+          <Box as="section" maxWidth="text" marginX="auto">
+            <header>
+              <Heading fontSize="xl">Connect</Heading>
+            </header>
+            <Spacer height="xxl" />
+            <List>
+              <List.Item>
+                <Text>
+                  <Link href={`${process.env.NEXT_PUBLIC_URL}/static/cv.pdf`}>
+                    CV
+                  </Link>
+                </Text>
+              </List.Item>
+              <List.Item>
+                <Text>
+                  <Link href="https://www.linkedin.com/in/lukehowsam">
+                    LinkedIn
+                  </Link>
+                </Text>
+              </List.Item>
+              <List.Item>
+                <Text>
+                  <Link href="https://github.com/luke-h1">Github</Link>
+                </Text>
+              </List.Item>
+              <List.Item>
+                <Text>
+                  <Link href="https://twitter.com/LukeH_1999">Twitter</Link>
+                </Text>
+              </List.Item>
+            </List>
+          </Box>
         </Box>
         <Spacer height="xxxxl" />
         <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
