@@ -23,7 +23,7 @@ jobs:
       - name: tune linux network
         run: sudo ethtool -K eth0 tx off rx off
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup node
         uses: actions/setup-node@v3
