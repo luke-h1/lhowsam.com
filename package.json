@@ -105,7 +105,7 @@
     "@types/body-scroll-lock": "^3.1.0",
     "@types/jest": "^29.5.4",
     "@types/lodash": "^4.14.197",
-    "@types/node": "20.5.9",
+    "@types/node": "20.6.0",
     "@types/nprogress": "^0.2.0",
     "@types/react": "18.2.21",
     "@types/rss": "^0.0.30",
