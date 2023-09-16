@@ -61,13 +61,13 @@ const AboutPage = () => {
             </header>
             <Spacer height="xxl" />
             <List>
-              <List.Item>
+              {/* <List.Item>
                 <Text>
                   <Link href={`${process.env.NEXT_PUBLIC_URL}/static/cv.pdf`}>
                     CV
                   </Link>
                 </Text>
-              </List.Item>
+              </List.Item> */}
               <List.Item>
                 <Text>
                   <Link href="https://www.linkedin.com/in/lukehowsam">
