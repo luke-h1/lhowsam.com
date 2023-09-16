@@ -11,7 +11,8 @@ import Document, {
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const newrelic = require('newrelic');
 
-const newRelicScript = `<script type="text/javascript">
+// need string.raw to stop linting errors
+const newRelicScript = String.raw`<script type="text/javascript">
 ;window.NREUM||(NREUM={});NREUM.init={distributed_tracing:{enabled:true},privacy:{cookies_enabled:true},ajax:{deny_list:["bam.eu01.nr-data.net"]}};
 
 ;NREUM.loader_config={accountID:"3156165",trustKey:"3156165",agentID:"${process.env.NEW_RELIC_APPLICATION_ID}",licenseKey:"${process.env.NEW_RELIC_LICENSE_KEY}",applicationID:"${process.env.NEW_RELIC_APPLICATION_ID}"};
