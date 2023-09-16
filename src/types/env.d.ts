@@ -7,8 +7,9 @@ declare global {
       SPOTIFY_CLIENT_SECRET: string;
       SPOTIFY_REFRESH_TOKEN: string;
       NEXT_PUBLIC_GA_TRACKING_ID: string;
+      NEW_RELIC_LICENSE_KEY: string;
     }
   }
 }
 
-export {};
+export {}

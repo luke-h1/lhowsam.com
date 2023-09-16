@@ -10,6 +10,7 @@
     "vercel:build": "vercel build",
     "vercel:dev": "vercel dev",
     "start": "next start",
+    "start:prod": "NODE_OPTIONS='-r dotenv/config -r @newrelic/next' next start",
     "tsc": "tsc --noEmit",
     "gen-env": "gen-env-types .env -o src/types/env.d.ts -e .",
     "lint": "eslint \"./src/**/*.{js, jsx,ts,tsx}\" --quiet --fix && eslint \"./**/*.{js, jsx,ts,tsx}\" --quiet --fix",
@@ -35,6 +36,7 @@
   },
   "dependencies": {
     "@fontsource/poppins": "^5.0.8",
+    "@newrelic/next": "^0.7.0",
     "@next/eslint-plugin-next": "^13.4.9",
     "@radix-ui/colors": "^2.1.0",
     "@radix-ui/react-toast": "^1.0.0",
@@ -62,6 +64,7 @@
     "lodash": "^4.17.21",
     "motion": "^10.16.2",
     "nanoid": "^4.0.2",
+    "newrelic": "^11.1.0",
     "next": "^13.4.9",
     "next-mdx-remote": "^4.4.1",
     "next-sanity": "^5.4.6",
