@@ -79,6 +79,7 @@ jobs:
 
       - name: Dev UI tests
         run: pnpm run e2e:dev
+        if: github.ref == 'refs/heads/dev' && github.event_name != 'pull_request'
         env:
           BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
           BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
