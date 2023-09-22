@@ -14,7 +14,10 @@ const ProjectItem = ({ project }: Props) => {
   return (
     <Card key={project._id}>
       <figure>
-        <Link href={`/projects/${project.slug.current}`} data-testid='project-title'>
+        <Link
+          href={`/projects/${project.slug.current}`}
+          data-testid="project-title"
+        >
           <blockquote>
             <Text>{project.title}</Text>
           </blockquote>
@@ -23,7 +26,11 @@ const ProjectItem = ({ project }: Props) => {
         <Box as="figcaption" display="flex" gap="md">
           <Box display="flex" alignItems="flex-start" flexShrink={0} />
           <Box marginBottom="md">
-            <Text color="foregroundNeutral" fontSize="sm" data-testid='project-intro'>
+            <Text
+              color="foregroundNeutral"
+              fontSize="sm"
+              data-testid="project-intro"
+            >
               {project.intro}
             </Text>
           </Box>

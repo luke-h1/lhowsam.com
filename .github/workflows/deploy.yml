@@ -1,11 +1,13 @@
-name: Deploy development
+name: Deploy
 on:
   push:
     branches:
       - dev
+      - main
   workflow_dispatch:
 env:
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+  VERCEL_PROD_PROJECT_ID: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
   VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
@@ -15,7 +17,7 @@ env:
   PNPM_VERSION: 8.6.0
 
 jobs:
-  deploy: 
+  deploy:
     runs-on: ubuntu-latest
     name: Deploy
     steps:
@@ -37,65 +39,37 @@ jobs:
           version: ${{ env.PNPM_VERSION }}
           run_install: false
 
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
-
-      - name: setup cache
-        uses: actions/cache@v3
-        with:
-          path: |
-            ~/.pnpm
-            ${{ github.workspace }}/.next/cache
-          # Generate a new cache whenever packages or source files change.
-          key: ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-${{ hashFiles('**.[jt]s', '**.[jt]sx') }}
-          # If source files changed but packages didn't, rebuild from a prior cache.
-          restore-keys: |
-            ${{ runner.os }}-nextjs-${{ hashFiles('**/pnpm-lock.yaml') }}-
-
       - name: Install dependencies 
         run: pnpm i --no-frozen-lockfile
 
       - name: format
-        run: pnpm run format
+        run: pnpm format:check
 
       - name: lint
-        run: pnpm run lint
+        run: pnpm lint
 
       - name: jest
-        run: pnpm run test
+        run: pnpm test
 
       - name: tsc
-        run: pnpm run tsc
+        run: pnpm tsc
         
       - name: build
-        run: pnpm run build
+        run: pnpm build
         
       - name: Install Playwright Browsers
         run: ./node_modules/.bin/playwright install --with-deps chromium
 
       - name: local UI tests
-        run: pnpm e2e:local-ci || exit 1
+        run: pnpm e2e:local-ci
         
       - uses: actions/upload-artifact@v3
-        if: always()
         with:
-          name: playwright-report
+          name: playwright-report-local-${{ github.event_name }}-${{ github.run_id }}
           path: playwright-report/
-          retention-days: 30
 
-      - name: Deploy dev
-        if: contains( github.ref, 'dev')
+      - name: Deploy development
+        if: github.ref == 'refs/heads/dev' && github.event_name != 'pull_request'
         run: |
           vc -f --prod --token ${VERCEL_TOKEN}
         env:
@@ -110,8 +84,24 @@ jobs:
           BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
 
       - uses: actions/upload-artifact@v3
-        if: always()
         with:
-          name: playwright-report
+          name: playwright-report-dev-${{ github.event_name }}-${{ github.run_id }}
           path: playwright-report/
-          retention-days: 30
+  
+      - name: Deploy production
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: |
+          vc -f --prod --token ${VERCEL_TOKEN}
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+
+      - name: Prod UI tests
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        run: pnpm run e2e:prod || exit 1          
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: playwright-report-prod-${{ github.event_name }}-${{ github.run_id }}
+          path: playwright-report/

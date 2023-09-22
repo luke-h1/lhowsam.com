@@ -34,9 +34,15 @@ const ThemeSelect = () => {
           className={styles.select}
           id="theme-select"
         >
-          <option value="system" id='theme-system'>System</option>
-          <option value="light" id='theme-light'>Light</option>
-          <option value="dark" id='theme-dark'>Dark</option>
+          <option value="system" id="theme-system">
+            System
+          </option>
+          <option value="light" id="theme-light">
+            Light
+          </option>
+          <option value="dark" id="theme-dark">
+            Dark
+          </option>
         </select>
         <span className={styles.arrow}>
           <Code

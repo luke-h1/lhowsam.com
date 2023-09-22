@@ -57,7 +57,9 @@ const PostPage = async ({ params }: Props) => {
                   fontSize="sm"
                   fontFamily="mono"
                 >
-                  <FormattedDate testId='time'>{post.publishedAt}</FormattedDate>
+                  <FormattedDate testId="time">
+                    {post.publishedAt}
+                  </FormattedDate>
                 </Text>
               ),
             },

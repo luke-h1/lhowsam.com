@@ -43,7 +43,6 @@ const BlogPage = async () => {
     postsByYear[year].push(post);
   });
 
-
   return (
     <Page heading="Blog">
       <Box maxWidth="text">

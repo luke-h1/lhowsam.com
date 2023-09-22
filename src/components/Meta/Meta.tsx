@@ -23,8 +23,15 @@ const Meta = ({ items }: Props) => {
         items.map((item, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <div className={styles.item} key={index}>
-            <dt className={styles.title} data-testid={`meta-title-${index + 1}`}>{item.title}</dt>
-            <dd data-testid={`meta-description-${index + 1}`}>{item.description}</dd>
+            <dt
+              className={styles.title}
+              data-testid={`meta-title-${index + 1}`}
+            >
+              {item.title}
+            </dt>
+            <dd data-testid={`meta-description-${index + 1}`}>
+              {item.description}
+            </dd>
           </div>
         ))}
       <div className={styles.item}>
