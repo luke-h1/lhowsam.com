@@ -44,7 +44,7 @@ const Banner = ({ setOpen }: Props) => {
       <button
         className={styles.toggle}
         onClick={() => setOpen(true)}
-        data-testid='cmdk-icon'
+        data-testid="cmdk-icon"
         type="button"
       >
         <VisuallyHidden>Open command menu</VisuallyHidden>
