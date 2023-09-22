@@ -35,7 +35,7 @@ jobs:
         run: pnpm i --no-frozen-lockfile
 
       - name: Build next.js app
-        run: pnpm run build
+        run: pnpm build
 
       - name: Analyze bundle
         run: npx -p nextjs-bundle-analysis@0.5.0 report

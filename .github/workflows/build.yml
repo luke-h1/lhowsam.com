@@ -40,20 +40,20 @@ jobs:
       - name: Install dependencies
         run: pnpm i --no-frozen-lockfile
 
-      - name: format
-        run: pnpm run format
+      - name: format:check
+        run: pnpm format:check
 
       - name: lint
-        run: pnpm run lint
+        run: pnpm lint
 
       - name: jest
-        run: pnpm run test
+        run: pnpm test
 
       - name: tsc
-        run: pnpm run tsc
+        run: pnpm tsc
 
       - name: build
-        run: pnpm run build
+        run: pnpm build
 
       - name: Install Playwright Browsers
         run: ./node_modules/.bin/playwright install --with-deps chromium
