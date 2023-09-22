@@ -14,11 +14,7 @@
     "experimentalDecorators": true,
     "strictPropertyInitialization": false,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "DOM.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "DOM.iterable", "esnext"],
     "skipLibCheck": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -27,12 +23,8 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@frontend/*": [
-        "./src/*"
-      ],
-      "@frontend-test/*": [
-        "src/test/*"
-      ]
+      "@frontend/*": ["./src/*"],
+      "@frontend-test/*": ["src/test/*"]
     },
     "incremental": true,
     "target": "es6",
@@ -42,13 +34,6 @@
       }
     ]
   },
-  "include": [
-    "src",
-    "next-env.d.ts",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    ".next"
-  ]
+  "include": ["src", "next-env.d.ts", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", ".next"]
 }
