@@ -42,7 +42,7 @@ jobs:
       - name: Install dependencies 
         run: pnpm i --no-frozen-lockfile
 
-      - name: format
+      - name: format:check
         run: pnpm format:check
 
       - name: lint
