@@ -1,5 +1,6 @@
 import Providers from '@frontend/components/Providers';
 import siteConfig from '@frontend/config/site';
+import getPolicies from '@frontend/utils/getPolicies';
 import { Metadata } from 'next';
 import { ReactNode } from 'react';
 import 'nprogress/nprogress.css';
@@ -28,7 +29,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    // url: 'TODO - fetch this dynamically',
     title: siteConfig.name,
     siteName: siteConfig.name,
     images: [
@@ -51,17 +51,16 @@ export const metadata: Metadata = {
     shortcut: '/favicon-16x16.png',
     apple: '/apple-touch-icon.png',
   },
+  verification: {
+    google: 'VXnRb79aLIbpTSPg8tRVx5KMcECv8hLJPYW0f3X4KKI',
+  },
+  robots: getPolicies(),
 };
 
 const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <meta
-          name="keywords"
-          content={siteConfig.keywords.join(', ')}
-          key="keywords"
-        />
         <link rel="icon" href="/favicon.ico" />
         <link href="/icons/favicon-16x16.png" rel="icon" />
         <link
@@ -82,10 +81,6 @@ const RootLayout = ({ children }: Props) => {
         <meta content="#ffffff" name="msapplication-TileColor" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta
-          content="VXnRb79aLIbpTSPg8tRVx5KMcECv8hLJPYW0f3X4KKI"
-          name="google-site-verification"
-        />
         <meta
           name="description"
           content="Luke Howsam is a software engineer and software developer who specializes in Javascript, Typescript, GraphQL, cloud technologies & automated + manual testing"

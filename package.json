@@ -31,8 +31,7 @@
     "test:snapshot": "jest -u",
     "analyze": "ANALYZE=true next build",
     "check:node": "check-node-version --node 18 --pnpm 8",
-    "preinstall": "pnpm run check:node",
-    "postbuild": "next-sitemap"
+    "preinstall": "pnpm run check:node"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.0.8",
@@ -69,7 +68,6 @@
     "next-mdx-remote": "^4.4.1",
     "next-sanity": "^5.5.4",
     "next-seo": "^6.1.0",
-    "next-sitemap": "4.2.3",
     "next-themes": "^0.2.1",
     "nprogress": "^0.2.0",
     "react": "^18.2.0",
