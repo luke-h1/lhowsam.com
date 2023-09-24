@@ -27,7 +27,7 @@ jobs:
         name: Install pnpm
         id: pnpm-install
         with:
-          version: ${{ env.PNPM_VERSION }}
+          version: ${{ env.PNPM_VERSION }}w
           run_install: false
 
       - name: Checkout
