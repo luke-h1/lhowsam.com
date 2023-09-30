@@ -58,7 +58,6 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   swcMinify: true,
-  optimizePackageImports: true,
   eslint: {
     ignoreDuringBuilds: true,
   },
