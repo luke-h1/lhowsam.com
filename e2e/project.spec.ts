@@ -34,8 +34,6 @@ test.describe('project', () => {
       links.push(`${baseUrl}${link}`);
 
       await page.goto(links[i]);
-      await page.waitForLoadState('networkidle');
-
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('h1')).not.toBeEmpty();
 

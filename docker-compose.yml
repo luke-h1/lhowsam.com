@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  frontend:
+    container_name: lhowsam.com
+    build:
+      dockerfile: Dockerfile
+      context: .
+      args:
+        app: frontend
+    command: pnpm dev
+    volumes:
+      - .:/app:cached
+    ports:
+      - 3000:3000
+    env_file:
+      - .env

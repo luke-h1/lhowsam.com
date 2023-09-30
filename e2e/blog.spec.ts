@@ -57,8 +57,6 @@ test.describe('blog', () => {
       ).toBeVisible();
 
       await page.goto(`${baseUrl}/blog`);
-      await page.waitForLoadState('networkidle');
-
       await expect(page.locator('h1').first()).toHaveText('Blog');
     }
   });
