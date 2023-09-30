@@ -1,7 +1,6 @@
 /* eslint-disable no-await-in-loop */
 import { test, expect, Page } from '@playwright/test';
 import { baseUrl } from './config/baseUrl';
-import { sleep } from './utils/sleep';
 
 let page: Page;
 
@@ -36,7 +35,6 @@ test.describe('blog', () => {
       links.push(`${baseUrl}${link}`);
 
       await page.goto(links[i]);
-      sleep(3000)
 
       // slug
       await expect(page.locator('h1')).toBeVisible();
@@ -59,6 +57,7 @@ test.describe('blog', () => {
       ).toBeVisible();
 
       await page.goto(`${baseUrl}/blog`);
+      await page.waitForLoadState('networkidle');
 
       await expect(page.locator('h1').first()).toHaveText('Blog');
     }
