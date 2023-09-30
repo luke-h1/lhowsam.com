@@ -12,7 +12,6 @@ const commonConfig: PlaywrightTestConfig = {
   fullyParallel: true,
   retries: process.env.CI ? 2 : 0,
   reporter: [['list'], ['html'], ['github']],
-  workers: process.env.CI ? 3 : 6,
   use: {
     actionTimeout: 0,
     navigationTimeout: 20000,
