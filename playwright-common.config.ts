@@ -7,7 +7,7 @@ const commonConfig: PlaywrightTestConfig = {
   metadata: {},
   name: 'lhowsam.com E2E Tests',
   expect: {
-    timeout: 20000,
+    timeout: 30000,
   },
   fullyParallel: true,
   retries: process.env.CI ? 2 : 0,

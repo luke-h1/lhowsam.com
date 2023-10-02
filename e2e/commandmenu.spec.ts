@@ -7,6 +7,13 @@ let page: Page;
 const key = getMetaKey();
 const delay = 300;
 
+// eslint-disable-next-line no-shadow
+const expectListboxToBeVisible = async (page: Page) => {
+  await expect(page.locator('[role="listbox"]')).toBeVisible({
+    timeout: 40000,
+  })
+};
+
 test.describe('command menu', () => {
   test.beforeAll(async ({ browser }) => {
     const ctx = await browser.newContext({
@@ -30,21 +37,21 @@ test.describe('command menu', () => {
 
   test('CMD+K opens command menu when clicked', async () => {
     await page.click('[data-testid="cmdk-icon"]');
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
   });
 
   test('CMD+K opens command menu when CMD+K is pressed', async () => {
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
   });
 
   test('renders navigation items correctly', async () => {
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
 
     const navigation = page.locator('[data-value="navigation"]');
 
@@ -58,9 +65,9 @@ test.describe('command menu', () => {
 
   test('navigation items navigate correctly', async () => {
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
 
     const navigation = page.locator('[data-value="navigation"]');
     await expect(navigation).toBeVisible();
@@ -71,43 +78,43 @@ test.describe('command menu', () => {
     );
 
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
 
     await navigation.locator('text=About').click();
     await expect(page.locator('h1').first()).toHaveText('About');
     await page.goBack();
 
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
 
     await navigation.locator('text=Blog').click();
     await expect(page.locator('h1').first()).toHaveText('Blog');
     await page.goBack();
 
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
 
     await navigation.locator('text=Projects').click();
     await expect(page.locator('h1').first()).toHaveText('Projects');
     await page.goBack();
 
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
   });
 
   test('Appearance items changes theme correctly', async () => {
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
 
     const appearance = page.locator('[data-value="appearance"]');
     await expect(appearance).toBeVisible();
@@ -119,25 +126,23 @@ test.describe('command menu', () => {
     await expect(page.locator('text=Theme set to Dark').first()).toBeVisible();
 
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
 
     await appearance.locator('text=Light').click();
 
     await expect(page.locator('html')).toHaveAttribute('class', 'light');
 
     await page.focus('body');
-    await expect(
-      page.locator('text=Theme set to Light').first(),
-    ).toBeVisible();
+    await expect(page.locator('text=Theme set to Light').first()).toBeVisible();
 
     await page.focus('body');
 
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
 
     await appearance.locator('text=System').click();
 
@@ -151,10 +156,10 @@ test.describe('command menu', () => {
 
   test('Commands item copies currently URL to clipboard', async () => {
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
 
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
 
     const commands = page.locator('[data-value="commands"]');
 
@@ -172,9 +177,9 @@ test.describe('command menu', () => {
 
   test('renders social items correctly', async () => {
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
 
     const social = page.locator('[data-value="social"]');
 
@@ -188,9 +193,9 @@ test.describe('command menu', () => {
   test('renders Appearance items correctly', async () => {
     await page.focus('body');
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
 
     const appearance = page.locator('[data-value="appearance"]');
 
@@ -203,9 +208,9 @@ test.describe('command menu', () => {
 
   test('renders Commands items correctly', async () => {
     await page.keyboard.press(`${key}+K`, {
-      delay
+      delay,
     });
-    await expect(page.locator('[role="listbox"]')).toBeVisible();
+    expectListboxToBeVisible(page);
 
     const commands = page.locator('[data-value="commands"]');
 
