@@ -13,6 +13,9 @@ jobs:
     name: e2e prod
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}        
     steps:
       # https://github.com/actions/virtual-environments/issues/1187
       - name: tune linux network

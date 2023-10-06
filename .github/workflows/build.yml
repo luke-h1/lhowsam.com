@@ -10,8 +10,11 @@ env:
   PNPM_VERSION: 8.6.0
 
 jobs:
-  test:
-    name: Build
+  build:
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}        
+    name: Build    
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
