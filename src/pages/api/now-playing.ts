@@ -6,7 +6,6 @@ export default async function handler(
   _req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  console.log('hitting');
   const response = await spotifyService.getNowPlaying();
 
   if (response.status === 204 || response.status > 400) {
@@ -26,10 +25,10 @@ export default async function handler(
   const albumImageUrl = song.item.album.images[0].url;
   const songUrl = song.item.external_urls.spotify;
 
-//   res.setHeader(
-//     'Cache-Control',
-//     'public, s-maxage=60, stale-while-revalidate=30',
-//   );
+  res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=10',
+  );
   return res.status(200).json({
     album,
     albumImageUrl,
