@@ -5,7 +5,7 @@ env:
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
   BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
   BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
-  NODE_VERSION: 18.16.0
+  NODE_VERSION: 18.18.0
   PNPM_VERSION: 8.6.0
 
 jobs:
@@ -13,6 +13,9 @@ jobs:
     name: e2e dev
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}        
     steps:
       # https://github.com/actions/virtual-environments/issues/1187
       - name: tune linux network
@@ -36,16 +39,8 @@ jobs:
       - name: Install dependencies 
         run: pnpm i --no-frozen-lockfile
 
-      - name: Install Playwright Browsers
-        run: make e2e-install-browsers
-
       - name: dev UI tests
-        run: make e2e-dev
+        run: make e2e-install-browsers && make e2e-dev
         env:
           BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
           BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
-        
-      - uses: actions/upload-artifact@v3
-        with:
-          name: playwright-report-dev-${{ github.event_name }}-${{ github.run_id }}
-          path: playwright-report
