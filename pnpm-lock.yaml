@@ -6819,7 +6819,7 @@ packages:
     resolution: {integrity: sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==}
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 20.8.0
+      '@types/node': 20.8.3
     dev: false
 
   /@types/graceful-fs@4.1.7:
@@ -6927,10 +6927,6 @@ packages:
     resolution: {integrity: sha512-4tT2UrL5LBqDwoed9wZ6N3umC4Yhz3W3FloMmiiG4JwmUJWpie0c7lcnUNd4gtMKuDEO4wRVS8B6Xa0uMRsMKg==}
     dev: true
 
-  /@types/node@20.8.0:
-    resolution: {integrity: sha512-LzcWltT83s1bthcvjBmiBvGJiiUe84NWRHkw+ZV6Fr41z2FbIzvc815dk2nQ3RAKMuN2fkenM/z3Xv2QzEpYxQ==}
-    dev: false
-
   /@types/node@20.8.3:
     resolution: {integrity: sha512-jxiZQFpb+NlH5kjW49vXxvxTjeeqlbsnTAdBTKpzEdPs9itay7MscYXz3Fo9VYFEsfQ6LJFitHad3faerLAjCw==}
 
@@ -6959,7 +6955,7 @@ packages:
   /@types/react-copy-to-clipboard@5.0.5:
     resolution: {integrity: sha512-en3JGqPA4RX4aUlo6q6uUbnqLp31Dhm2E/thiMvFTIvU+dUDG249jBG2MJ0rPMXE/MbKVrpmi/1r1G4QLhIHKQ==}
     dependencies:
-      '@types/react': 18.2.24
+      '@types/react': 18.2.25
     dev: false
 
   /@types/react-dom@18.2.7:
@@ -6971,15 +6967,7 @@ packages:
   /@types/react-is@18.2.2:
     resolution: {integrity: sha512-bNmRDADVsOivYLvqYQATYRbf60SlK++spu97SK65pSCjdtuTqczFexBQtOK+gQdG6cqOsvQZ3mR12ueEoaq5iA==}
     dependencies:
-      '@types/react': 18.2.24
-    dev: false
-
-  /@types/react@18.2.24:
-    resolution: {integrity: sha512-Ee0Jt4sbJxMu1iDcetZEIKQr99J1Zfb6D4F3qfUWoR1JpInkY1Wdg4WwCyBjL257D0+jGqSl1twBjV8iCaC0Aw==}
-    dependencies:
-      '@types/prop-types': 15.7.8
-      '@types/scheduler': 0.16.4
-      csstype: 3.1.2
+      '@types/react': 18.2.25
     dev: false
 
   /@types/react@18.2.25:
@@ -12294,7 +12282,7 @@ packages:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 20.8.0
+      '@types/node': 20.8.3
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: false
@@ -14433,13 +14421,13 @@ packages:
     resolution: {integrity: sha512-HvExULSwLqHLgUy1rl3ANIqCsvMS0WHss2UOsXhXnQaZ9VCc2oBvIpXrl00IUFT5ZDITME0o6oiXeiHr2SAIfw==}
     dev: true
 
-  /postcss-safe-parser@6.0.0(postcss@8.4.30):
+  /postcss-safe-parser@6.0.0(postcss@8.4.31):
     resolution: {integrity: sha512-FARHN8pwH+WiS2OPCxJI8FuRJpTVnn6ZNFiqAM2aeW2LwTHWWmWgIyKC6cUo0L8aeKiF/14MNvnpls6R2PBeMQ==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.3.3
     dependencies:
-      postcss: 8.4.30
+      postcss: 8.4.31
     dev: true
 
   /postcss-scss@4.0.8(postcss@8.4.31):
@@ -14461,14 +14449,6 @@ packages:
 
   /postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
-
-  /postcss@8.4.30:
-    resolution: {integrity: sha512-7ZEao1g4kd68l97aWG/etQKPKq07us0ieSZ2TnFDk11i0ZfDW2AwKHYU8qv4MZKqN2fdBfg+7q0ES06UA73C1g==}
-    engines: {node: ^10 || ^12 || >=14}
-    dependencies:
-      nanoid: 3.3.6
-      picocolors: 1.0.0
-      source-map-js: 1.0.2
 
   /postcss@8.4.31:
     resolution: {integrity: sha512-PS08Iboia9mts/2ygV3eLpY5ghnUcfLV/EXTOW1E2qYxJKGGBUtNjN76FYHnMs36RmARn41bC0AZmn+rR0OVpQ==}
@@ -16202,9 +16182,9 @@ packages:
       micromatch: 4.0.5
       normalize-path: 3.0.0
       picocolors: 1.0.0
-      postcss: 8.4.30
+      postcss: 8.4.31
       postcss-resolve-nested-selector: 0.1.1
-      postcss-safe-parser: 6.0.0(postcss@8.4.30)
+      postcss-safe-parser: 6.0.0(postcss@8.4.31)
       postcss-selector-parser: 6.0.13
       postcss-value-parser: 4.2.0
       resolve-from: 5.0.0
@@ -17269,7 +17249,7 @@ packages:
     dependencies:
       '@types/node': 20.8.3
       esbuild: 0.18.20
-      postcss: 8.4.30
+      postcss: 8.4.31
       rollup: 3.29.3
       sass: 1.69.0
     optionalDependencies:
