@@ -1,4 +1,4 @@
-FROM node:18.18.0-alpine as builder
+FROM node:20.8.0-alpine as builder
 
 COPY . ./usr/src
 
