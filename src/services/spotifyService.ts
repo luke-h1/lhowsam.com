@@ -32,7 +32,6 @@ const spotifyService = {
 
   async getNowPlaying() {
     const { access_token } = await spotifyService.getAccessToken();
-
     return fetch(NOW_PLAYING_ENDPOINT, {
       headers: {
         Authorization: `Bearer ${access_token}`,
