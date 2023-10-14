@@ -9,7 +9,6 @@ interface Props {
 
 const ContentRenderer = ({ compiledSource }: Props) => {
   return (
-    // eslint-disable-next-line react/jsx-no-useless-fragment
     <div data-testid="content">
       <MDXRemote
         components={MDXComponents}
