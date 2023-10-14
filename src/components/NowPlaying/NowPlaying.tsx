@@ -36,7 +36,9 @@ const AnimatedBars = ({ albumImageUrl }: Props) => {
 
 export default function NowPlaying() {
   const { isMounted } = useMounted();
-  const { data, error, isLoading } = useSWR<Song>(`/api/now-playing`, fetcher);
+  const { data, error, isLoading } = useSWR<Song>(`/api/now-playing`, fetcher, {
+    refreshInterval: 8000,
+  });
 
   return isMounted && !error && !isLoading ? (
     <div className={styles.wrapper}>
