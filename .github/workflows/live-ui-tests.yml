@@ -1,4 +1,4 @@
-name: UI tests (prod)
+name: UI tests (live)
 on:
   workflow_dispatch:
   schedule: 
@@ -10,7 +10,7 @@ env:
 
 jobs:
   test:
-    name: e2e prod
+    name: e2e live
     runs-on: ubuntu-latest
     timeout-minutes: 20
     concurrency:
@@ -42,6 +42,6 @@ jobs:
       - name: Install Playwright Browsers
         run: make e2e-install-browsers
 
-      - name: prod UI tests
+      - name: Live UI tests
         run: make e2e-prod
  
