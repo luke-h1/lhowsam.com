@@ -1,10 +1,10 @@
 'use client';
 
 import { useMounted } from '@frontend/hooks/useMounted';
-import spotifyService from '@frontend/services/spotifyService';
 import { Song } from '@frontend/types/spotify';
-import { useQuery } from '@tanstack/react-query';
+import fetcher from '@frontend/utils/fetcher';
 import Image from 'next/image';
+import useSWR from 'swr';
 import * as styles from './NowPlaying.css';
 import s from './NowPlaying.module.scss';
 
@@ -36,12 +36,9 @@ const AnimatedBars = ({ albumImageUrl }: Props) => {
 
 export default function NowPlaying() {
   const { isMounted } = useMounted();
+  const { data, error, isLoading } = useSWR<Song>(`/api/now-playing`, fetcher);
 
-  const { data, isLoading, isError } = useQuery<Song>(['nowPlaying', {}], () =>
-    spotifyService.nextNowPlaying(),
-  );
-
-  return isMounted && !isLoading && !isError ? (
+  return isMounted && !error && !isLoading ? (
     <div className={styles.wrapper}>
       {data?.isPlaying ? (
         <div>
@@ -80,7 +77,7 @@ export default function NowPlaying() {
         )}
         <span className={styles.seperator}>{' – '}</span>
         <p className={styles.artist}>
-          {data.isPlaying ? truncate(data?.artist, 80) : 'Spotify'}
+          {data?.isPlaying ? truncate(data?.artist, 80) : 'Spotify'}
         </p>
         <span className={styles.seperator} />
       </div>
