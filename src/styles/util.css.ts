@@ -4,6 +4,7 @@ import { variables } from './variables.css';
 export const focusVisible = style({
   ':focus': {
     outline: 'transparent',
+    color: 'inherit',
   },
   ':focus-visible': {
     outlineWidth: '2px',
