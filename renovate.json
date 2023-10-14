@@ -4,6 +4,7 @@
   "extends": ["config:base"],
   "timezone": "Europe/London",
   "recreateWhen": "never",
+  "addLabels": ["renovate", "dependencies"],
   "vulnerabilityAlerts": {
     "groupName": "renovate",
     "dependencyDashboardApproval": false,
