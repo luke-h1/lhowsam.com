@@ -36,6 +36,20 @@ const AboutPage = () => {
         />
         <Spacer height="xxxxl" />
         <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
+          <Text color="foregroundNeutral" style={{ marginBottom: '2rem' }}>
+            Right now I'm working as a Software Engineer at{' '}
+            <a
+              style={{
+                textDecoration: 'underline',
+              }}
+              href="https://www.flutter.com/our-brands/sky-betting-gaming/"
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              Sky Betting & Gaming
+            </a>
+            , primarily working with React, Next.js, GraphQL, Node.js and AWS.
+          </Text>
           <Text
             color="foregroundNeutral"
             style={{
