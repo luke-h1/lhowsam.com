@@ -23,7 +23,8 @@
     "test:snapshot": "jest -u",
     "analyze": "ANALYZE=true next build",
     "check:node": "check-node-version --node 18 --pnpm 8",
-    "preinstall": "pnpm run check:node"
+    "preinstall": "pnpm run check:node",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.0.8",
@@ -113,6 +114,7 @@
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.3",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
