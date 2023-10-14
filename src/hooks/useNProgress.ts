@@ -2,6 +2,9 @@ import { useRouter } from 'next/router';
 import NProgress from 'nprogress';
 import { useEffect } from 'react';
 
+/**
+ * @deprecated use new router events once available
+ */
 const useNProgress = () => {
   const router = useRouter();
   // https://nextjs.org/docs/app/api-reference/functions/use-router#router-events
