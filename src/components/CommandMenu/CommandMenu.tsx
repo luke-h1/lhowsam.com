@@ -1,4 +1,6 @@
 /* eslint-disable react/no-unknown-property */
+import { useAppDispatch } from '@frontend/store/hooks';
+import { setToast } from '@frontend/store/reducers/toastReducer';
 import { Command, useCommandState } from 'cmdk';
 import { motion, LazyMotion, domAnimation } from 'framer-motion';
 import { useRouter } from 'next/navigation';
@@ -19,7 +21,6 @@ import {
 } from 'react-feather';
 import { tinykeys } from 'tinykeys';
 import './CommandMenu.css';
-import { toast } from '../Toast/Toast';
 
 const themes = {
   system: 'System',
@@ -63,6 +64,7 @@ interface CommandMenuProps {
 const CommandMenu = ({ open, setOpen }: CommandMenuProps) => {
   const router = useRouter();
   const { setTheme } = useTheme();
+  const dispatch = useAppDispatch();
 
   // Toggle the menu when ⌘K is pressed
   useEffect(() => {
@@ -81,19 +83,23 @@ const CommandMenu = ({ open, setOpen }: CommandMenuProps) => {
   const handleSetTheme = (value: string) => {
     setTheme(value);
     setOpen(false);
-    toast({
-      id: 'toast-theme',
-      content: `Theme set to ${themes[value as Theme]}`,
-    });
+    dispatch(
+      setToast({
+        id: 'toast-theme',
+        content: `Theme set to ${themes[value as Theme]}`,
+      }),
+    );
   };
 
   const handleCopyUrl = () => {
     navigator.clipboard.writeText(window.location.href);
     setOpen(false);
-    toast({
-      id: 'toast-copy-url',
-      content: 'URL copied to clipboard',
-    });
+    dispatch(
+      setToast({
+        id: 'toast-copy-url',
+        content: 'URL copied to clipboard',
+      }),
+    );
   };
 
   return (
