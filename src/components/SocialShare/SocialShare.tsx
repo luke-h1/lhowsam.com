@@ -1,20 +1,24 @@
 'use client';
 
+import { useAppDispatch } from '@frontend/store/hooks';
+import { setToast } from '@frontend/store/reducers/toastReducer';
 import { usePathname } from 'next/navigation';
 import { Twitter, Link as FeatherLink } from 'react-feather';
 import Link from '../Link/Link';
-import { toast } from '../Toast/Toast';
 import Tooltip from '../Tooltip/Tooltip';
 import * as styles from './SocialShare.css';
 
 const SocialShare = () => {
   const pathname = usePathname();
+  const dispatch = useAppDispatch();
 
   const handleCopy = () => {
     navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_URL}${pathname}`);
-    toast({
-      content: 'Copied to clipboard',
-    });
+    dispatch(
+      setToast({
+        content: 'Copied to clipboard',
+      }),
+    );
   };
 
   return (

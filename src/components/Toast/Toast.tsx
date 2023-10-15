@@ -1,4 +1,6 @@
 /* eslint-disable no-shadow */
+import { useAppDispatch, useAppSelector } from '@frontend/store/hooks';
+import { removeToast } from '@frontend/store/reducers/toastReducer';
 import * as ToastPrimitive from '@radix-ui/react-toast';
 import {
   motion,
@@ -7,64 +9,13 @@ import {
   LazyMotion,
   domAnimation,
 } from 'framer-motion';
-import { nanoid } from 'nanoid';
 import { X } from 'react-feather';
-import { create } from 'zustand';
 import * as styles from './Toast.css';
-
-export interface Toast {
-  id?: string;
-  title?: string;
-  content: string;
-}
-
-interface ToastStore {
-  toasts: Toast[];
-  toast: (data: Toast) => string;
-  removeToast: (id: string) => void;
-}
-
-const useStore = create<ToastStore>(set => ({
-  toasts: [],
-  toast: data => {
-    const id = nanoid();
-    set(state => ({
-      toasts: [
-        {
-          ...data,
-          id,
-        },
-        ...state.toasts,
-      ],
-    }));
-    return id;
-  },
-  removeToast: id => {
-    set(({ toasts }) => {
-      const index = toasts.findIndex(toast => toast.id === id);
-      if (index === -1) {
-        return {
-          toasts,
-        };
-      }
-      return {
-        toasts: [...toasts.slice(0, index), ...toasts.slice(index + 1)],
-      };
-    });
-  },
-}));
-
-export const toast = (...args: Parameters<ToastStore['toast']>) => {
-  return useStore.getState().toast(...args);
-};
-
-export const removeToast = (...args: Parameters<ToastStore['removeToast']>) => {
-  return useStore.getState().removeToast(...args);
-};
 
 export const Toaster = () => {
   // eslint-disable-next-line no-shadow
-  const { toasts, removeToast } = useStore();
+  const { toasts } = useAppSelector(state => state.toast);
+  const dispatch = useAppDispatch();
   const reducedMotion = useReducedMotion();
 
   return (
@@ -81,7 +32,8 @@ export const Toaster = () => {
                 open
                 onOpenChange={open => {
                   if (open === false) {
-                    removeToast(toast.id as string);
+                    // removeToast(toast.id as string);
+                    dispatch(removeToast(toast.id as string));
                   }
                 }}
                 duration={8000}
