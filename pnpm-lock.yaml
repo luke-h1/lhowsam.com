@@ -81,8 +81,8 @@ dependencies:
     specifier: ^4.0.3
     version: 4.0.3
   groq:
-    specifier: 3.18.0
-    version: 3.18.0
+    specifier: 3.18.1
+    version: 3.18.1
   js-cookie:
     specifier: ^3.0.5
     version: 3.0.5
@@ -4764,7 +4764,7 @@ packages:
       '@sanity/eventsource': 5.0.0
       '@sanity/types': 3.18.0
       fast-deep-equal: 3.1.3
-      groq: 3.18.0
+      groq: 3.18.1
       groq-js: 1.3.0
       mendoza: 3.0.3
       simple-get: 4.0.1
@@ -10047,8 +10047,8 @@ packages:
     engines: {node: '>= 14'}
     dev: false
 
-  /groq@3.18.0:
-    resolution: {integrity: sha512-pATzkw+v/aHIldGieazeyDQRaIO+4HtzygiaPjiYmwKWPo21Bn+DhrTvhi27EIvg4VBoedEOlWONZEgc+PVn5w==}
+  /groq@3.18.1:
+    resolution: {integrity: sha512-+IAn1xU51GY1J3L/6aBak3lxQV7mdvEDegTk2+KRgU5BFq7C0A5Anfe1buo6+gz9d7RkkWNrVwVqxduSJ71udA==}
     engines: {node: '>=18'}
     dev: false
 
@@ -12815,7 +12815,7 @@ packages:
       '@sanity/types': 3.18.0
       '@sanity/ui': 1.8.2(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@6.1.0)
       '@sanity/webhook': 3.0.1
-      groq: 3.18.0
+      groq: 3.18.1
       next: 13.5.5(@babel/core@7.23.0)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.3)
       react: 18.2.0
       sanity: 3.18.0(@types/node@20.8.6)(@types/react@18.2.28)(react-dom@18.2.0)(react@18.2.0)(sass@1.69.3)(styled-components@6.1.0)
