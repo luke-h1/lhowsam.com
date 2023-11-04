@@ -34,6 +34,7 @@ const SocialShare = () => {
         </Link>
       </Tooltip>
       <Tooltip content="Copy link">
+        {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
         <button className={styles.item} onClick={handleCopy} type="button">
           <FeatherLink width=".95em" />
         </button>
