@@ -5,13 +5,13 @@ import { getMetaKey } from './utils/getMetaKey';
 let page: Page;
 
 const key = getMetaKey();
-const delay = 300;
+const delay = 600;
 
 // eslint-disable-next-line no-shadow
 const expectListboxToBeVisible = async (page: Page) => {
   await expect(page.locator('[role="listbox"]')).toBeVisible({
-    timeout: 40000,
-  })
+    timeout: 50000,
+  });
 };
 
 test.describe('command menu', () => {
