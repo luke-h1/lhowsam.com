@@ -12,9 +12,6 @@ const config: PlaywrightTestConfig = {
     },
   ],
   retries: 2,
-  expect: {
-    timeout: 10000,
-  },
 };
 
 export default config;
