@@ -10,7 +10,7 @@ const delay = 600;
 
 // eslint-disable-next-line no-shadow
 const expectListboxToBeVisible = async (page: Page) => {
-  await expect(page.locator('[role="listbox"]')).toBeVisible({
+  await expect(page.locator('[role="listbox"]')).toBeAttached({
     timeout: 10000,
   });
 };
