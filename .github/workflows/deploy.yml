@@ -153,5 +153,4 @@ jobs:
             VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
 
         - name: Live UI tests
-          if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
           run: make e2e-prod

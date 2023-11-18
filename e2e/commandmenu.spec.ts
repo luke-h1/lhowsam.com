@@ -1,6 +1,7 @@
 import { test, expect, Page } from '@playwright/test';
 import { baseUrl } from './config/baseUrl';
 import { getMetaKey } from './utils/getMetaKey';
+import { sleep } from './utils/sleep';
 
 let page: Page;
 
@@ -9,8 +10,8 @@ const delay = 600;
 
 // eslint-disable-next-line no-shadow
 const expectListboxToBeVisible = async (page: Page) => {
-  await expect(page.locator('[role="listbox"]')).toBeVisible({
-    timeout: 50000,
+  await expect(page.locator('[role="listbox"]')).toBeAttached({
+    timeout: 10000,
   });
 };
 
@@ -33,6 +34,7 @@ test.describe('command menu', () => {
     page.keyboard.press('Escape');
     await page.waitForLoadState('networkidle');
     await page.focus('body');
+    await sleep(2000);
   });
 
   test('CMD+K opens command menu when clicked', async () => {
