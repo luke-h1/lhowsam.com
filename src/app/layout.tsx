@@ -2,6 +2,7 @@ import Providers from '@frontend/components/Providers';
 import siteConfig from '@frontend/config/site';
 import getPolicies from '@frontend/utils/getPolicies';
 import { Metadata } from 'next';
+import Script from 'next/script';
 import { ReactNode } from 'react';
 import 'nprogress/nprogress.css';
 import 'the-new-css-reset';
@@ -85,6 +86,17 @@ const RootLayout = ({ children }: Props) => {
           name="description"
           content="Luke Howsam is a software engineer and software developer who specializes in Javascript, Typescript, GraphQL, cloud technologies & automated + manual testing"
         />
+        {process.env.NEXT_PUBLIC_URL === 'https://lhowsam.com' && (
+          <Script id="google-analytics">
+            {`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}');
+      `}
+          </Script>
+        )}
       </head>
       <body suppressHydrationWarning>
         <Providers>{children}</Providers>
