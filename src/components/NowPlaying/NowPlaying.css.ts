@@ -36,33 +36,35 @@ export const spotifyLogo = style({
   height: '1rem',
   marginTop: '-2px',
   marginRight: '3.5px',
+  marginLeft: variables.spacing.xs,
+  alignItems: 'center',
 });
 
 export const wrapper = style({
   display: 'flex',
   // marginTop: variables.spacing.md,
   padding: '0.25rem',
-  marginLeft: 0,
   flexDirection: 'row-reverse',
-  alignItems: 'left',
+  alignItems: 'center',
   width: '100%',
   marginBottom: variables.spacing.xs,
   '@media': {
     '(min-width: 640px)': {
-      // marginLeft: '0.5rem',
       flexDirection: 'row',
     },
   },
 });
 
 export const songWrapper = style({
-  display: 'inline-flex',
-  flexDirection: 'column',
-  width: '100%',
-  maxWidth: '100%',
+  display: 'flex',
+  flexDirection: 'row',
   overflow: 'hidden',
   textOverflow: 'ellipsis',
+  alignContent: 'left',
+  justifyContent: 'left',
+  alignItems: 'center',
   whiteSpace: 'nowrap',
+  marginBottom: variables.spacing.md,
   '@media': {
     '(min-width: 640px)': {
       flexDirection: 'row',
@@ -83,13 +85,18 @@ export const title = style([
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     fontWeight: 500,
+    marginLeft: '0.5rem',
   },
 ]);
 
-export const notPlaying = style([...linkStyles]);
+export const notPlaying = style([
+  ...linkStyles,
+  {
+    marginLeft: variables.spacing.xs,
+  },
+]);
 
 export const seperator = style({
-  display: 'none',
   marginLeft: '0.5rem',
   marginRight: '0.5rem',
   color: '#6B7280',
@@ -147,15 +154,9 @@ export const bounce = keyframes({
 // });
 
 export const cover = style({
-  position: 'absolute',
-  top: 0,
-  right: 0,
-  bottom: 0,
-  left: 0,
-  overflow: 'hidden',
-  borderRadius: '2px',
-  opacity: 0,
   transition: 'opacity 0.3s ease-out',
+  display: 'flex',
+  marginBottom: variables.spacing.xs,
 });
 
 export const spanBars = style({
