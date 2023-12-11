@@ -103,6 +103,11 @@ const nextConfig = {
       },
     ];
   },
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   webpack: (config, { dev, isServer, ...options }) => {
     if (process.env.ANALYZE) {
