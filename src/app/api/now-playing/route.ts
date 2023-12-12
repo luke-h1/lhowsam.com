@@ -1,7 +1,6 @@
 import spotifyService from '@frontend/services/spotifyService';
 import { SongItem } from '@frontend/types/spotify';
 
-export const runtime = 'edge';
 export const revalidate = 8;
 
 export async function GET() {
