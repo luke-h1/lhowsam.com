@@ -1,3 +1,5 @@
+const { withSentryConfig } = require('@sentry/nextjs');
+
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 
 const withVanillaExtract = createVanillaExtractPlugin();
@@ -50,6 +52,21 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=()',
   },
 ];
+
+const sentryConfigPlugins = {
+  silent: true,
+  org: process.env.SENTRY_ORG,
+  project: process.env.SENTRY_PROJECT,
+};
+
+const sentryConfig = {
+  widenClientFileUpload: false,
+  transpileClientSDK: false,
+  tunnelRoute: '/api/metrics',
+  hideSourceMaps: true,
+  disableLogger: true,
+  automaticVercelMonitors: false,
+};
 
 /**
  * @type {import('next').NextConfig}
@@ -130,4 +147,8 @@ const nextConfig = {
   },
 };
 
-module.exports = withVanillaExtract(nextConfig);
+module.exports = withSentryConfig(
+  withVanillaExtract(nextConfig),
+  sentryConfigPlugins,
+  sentryConfig,
+);
