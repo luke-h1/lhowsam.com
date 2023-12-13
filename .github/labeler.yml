@@ -1,0 +1,11 @@
+Frontend:
+  - src/**
+
+Infrastructure:
+  - terraform/**
+  - .github/**/*
+  - .github/*
+  - docker
+
+Tests:
+  - e2e/**
