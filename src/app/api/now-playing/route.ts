@@ -1,7 +1,6 @@
 import spotifyService from '@frontend/services/spotifyService';
 import { SongItem } from '@frontend/types/spotify';
 
-export const runtime = 'edge';
 export const revalidate = 8;
 
 export async function GET() {
@@ -25,6 +24,7 @@ export async function GET() {
       },
     );
   }
+
   const isPlaying = song.is_playing;
   const title = song.item.name;
   const artist = song.item.artists

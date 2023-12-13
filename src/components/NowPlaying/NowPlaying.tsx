@@ -29,6 +29,13 @@ export default function NowPlaying() {
   const { isMounted } = useMounted();
   const { data, error, isLoading } = useSWR<Song>(`/api/now-playing`, fetcher, {
     refreshInterval: 8000,
+    fallback: {
+      isPlaying: false,
+      title: 'Not Playing',
+      artist: 'Spotify',
+      albumImageUrl: '',
+      songUrl: '',
+    },
   });
 
   return isMounted && !error && !isLoading ? (
