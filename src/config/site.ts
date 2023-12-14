@@ -1,7 +1,7 @@
 const siteConfig = {
   name: 'lhowsam.com',
   description: 'Luke Howsam - Software Developer - my website',
-  defaultRevalidate: 600, // 10 minutes
+  defaultRevalidate: 1200, // 20 minutes
   keywords: [
     'Luke Howsam',
     'Developer',
