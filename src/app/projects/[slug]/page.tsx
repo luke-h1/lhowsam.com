@@ -34,16 +34,18 @@ const ProjectPage = async ({ params }: Props) => {
   return (
     <Page heading={project.title} description={project.intro}>
       <Box>
-        <Image
-          src={imageService.urlFor(project.image.asset)}
-          width={950}
-          height={460}
-          rounded
-          priority
-          placeholder="blur"
-          blurDataURL={imageService.urlFor(project.image.asset)}
-          alt={project.image.alt ?? project.title}
-        />
+        {project.image.asset && (
+          <Image
+            src={imageService.urlFor(project.image.asset)}
+            width={950}
+            height={460}
+            rounded
+            priority
+            placeholder="blur"
+            blurDataURL={imageService.urlFor(project.image.asset)}
+            alt={project.image.alt ?? project.title}
+          />
+        )}
       </Box>
       <Meta
         items={[
