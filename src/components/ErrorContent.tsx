@@ -1,3 +1,5 @@
+'use client';
+
 import Box from './Box/Box';
 import Link from './Link/Link';
 import { List } from './List/List';
@@ -9,7 +11,7 @@ interface Props {
   statusCode: '404' | '500';
 }
 
-const ErrorContent = async ({ statusCode, title }: Props) => {
+const ErrorContent = ({ statusCode, title }: Props) => {
   return (
     <Page heading={title} showFooter={false}>
       <Box
