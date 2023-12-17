@@ -18,10 +18,12 @@
   &:focus {
     transform: translateY(-2px);
 
+    // stylelint-disable-next-line max-nesting-depth
     span {
       opacity: 0;
     }
 
+    // stylelint-disable-next-line max-nesting-depth
     .cover {
       opacity: 1;
     }
