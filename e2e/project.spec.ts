@@ -37,6 +37,12 @@ test.describe('project', () => {
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('h1')).not.toBeEmpty();
 
+      // Github
+      await expect(page.getByTestId('meta-title-2')).toContainText(
+        'Repository',
+      );
+      await expect(page.getByTestId('meta-description-2')).toBeVisible();
+
       await page.goto(`${baseUrl}/projects`);
     }
   });

@@ -1,6 +1,7 @@
 import Box from '@frontend/components/Box/Box';
 import ContentRenderer from '@frontend/components/ContentRenderer';
 import { Image } from '@frontend/components/Image/Image';
+import Link from '@frontend/components/Link/Link';
 import Meta from '@frontend/components/Meta/Meta';
 import Page from '@frontend/components/Page';
 import Spacer from '@frontend/components/Spacer/Spacer';
@@ -11,6 +12,7 @@ import projectService from '@frontend/services/projectService';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import { FiGithub } from 'react-icons/fi';
 
 interface Props {
   params: {
@@ -70,6 +72,14 @@ const ProjectPage = async ({ params }: Props) => {
                     ))
                   : null}
               </>
+            ),
+          },
+          {
+            title: 'Repository',
+            description: (
+              <Link href={project.githubUrl}>
+                <FiGithub />
+              </Link>
             ),
           },
         ]}

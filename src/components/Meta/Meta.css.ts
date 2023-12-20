@@ -7,8 +7,8 @@ export const root = style({
   gap: variables.spacing.md,
   borderBottom: '1px solid',
   borderColor: variables.color.borderFaint,
-  paddingTop: variables.spacing.md,
-  paddingBottom: variables.spacing.md,
+  paddingTop: variables.spacing.sm,
+  paddingBottom: variables.spacing.sm,
 });
 
 export const item = style({
