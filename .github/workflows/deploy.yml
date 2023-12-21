@@ -34,7 +34,11 @@ jobs:
       - name: tune linux network
         run: sudo ethtool -K eth0 tx off rx off
 
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
 
       - name: Setup node
         uses: actions/setup-node@v4
@@ -62,6 +66,13 @@ jobs:
 
       - name: Install dependencies 
         run: pnpm i --no-frozen-lockfile
+
+      - uses: actions/labeler@v4
+        with:
+          sync-labels: true
+
+      - name: Check commit message
+        run: pnpm commitlint --from=HEAD~1
 
       - name: format:check
         run: pnpm format:check
