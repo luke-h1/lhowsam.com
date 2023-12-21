@@ -164,5 +164,10 @@
     "package.json": [
       "node scripts/alphabetizePackageJson.js"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
+    }
   }
 }
