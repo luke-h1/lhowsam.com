@@ -1,6 +1,7 @@
 import Providers from '@frontend/components/Providers';
 import siteConfig from '@frontend/config/site';
 import getPolicies from '@frontend/utils/getPolicies';
+import { newRelicScript } from '@frontend/utils/newRelicScript';
 import { Metadata } from 'next';
 import Script from 'next/script';
 import { ReactNode } from 'react';
@@ -102,6 +103,7 @@ const RootLayout = ({ children }: Props) => {
         gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}');
       `}
             </Script>
+            <Script type="text/javascript" src={newRelicScript} />
           </>
         )}
       </head>
