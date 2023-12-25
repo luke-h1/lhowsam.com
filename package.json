@@ -74,7 +74,7 @@
     "react-lite-youtube-embed": "^2.4.0",
     "react-redux": "^9.0.4",
     "react-wrap-balancer": "^1.1.0",
-    "redux": "^5.0.0",
+    "redux": "^5.0.1",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-code-titles": "^1.2.0",
     "rehype-highlight": "^6.0.0",
