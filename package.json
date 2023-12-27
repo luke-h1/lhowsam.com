@@ -43,7 +43,7 @@
     "@vanilla-extract/next-plugin": "^2.3.2",
     "@vanilla-extract/recipes": "^0.5.1",
     "@vanilla-extract/sprinkles": "^1.6.1",
-    "axios": "^1.6.2",
+    "axios": "^1.6.3",
     "check-node-version": "^4.2.1",
     "classnames": "^2.4.0",
     "clsx": "^2.0.0",
