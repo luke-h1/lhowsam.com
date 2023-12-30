@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import clsx from 'clsx';
 import {
   motion,
   useScroll,
@@ -24,8 +24,8 @@ const Gradient = () => {
           y: '-50%',
         }}
       >
-        <span className={classNames(styles.blob, styles.left)} />
-        <span className={classNames(styles.blob, styles.right)} />
+        <span className={clsx(styles.blob, styles.left)} />
+        <span className={clsx(styles.blob, styles.right)} />
       </motion.div>
     </LazyMotion>
   );

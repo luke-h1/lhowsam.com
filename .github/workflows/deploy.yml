@@ -18,7 +18,7 @@ env:
   SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
   NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}  
   NODE_VERSION: 20.9.0
-  PNPM_VERSION: 8.6.0
+  PNPM_VERSION: 8.13.1
 
 jobs:
   deploy-dev:
