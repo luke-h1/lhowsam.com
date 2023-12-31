@@ -62,7 +62,7 @@ const sentryConfigPlugins = {
 const sentryConfig = {
   widenClientFileUpload: false,
   transpileClientSDK: false,
-  tunnelRoute: '/api/metrics',
+  tunnelRoute: '/api/sentry-metrics',
   hideSourceMaps: true,
   disableLogger: true,
   automaticVercelMonitors: false,
