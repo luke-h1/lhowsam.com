@@ -63,13 +63,14 @@ const PostPage = async ({ params }: Props) => {
                 </Text>
               ),
             },
+            // todo: clean up the below - hotfix for potentially undefined tags
             {
-              ...(post.tags && {
-                title: 'Tags',
-                description: (
+              title: post.tags && post.tags.length > 0 ? 'Tags' : undefined,
+              description:
+                post.tags && post.tags.length > 0 ? (
                   // eslint-disable-next-line react/jsx-no-useless-fragment
                   <>
-                    {post.tags.length > 0
+                    {post.tags && post.tags.length > 0
                       ? post.tags.slice(0, 3).map(tag => (
                           <Link
                             href={`/blog/tags/${tag.slug.current}`}
@@ -90,8 +91,7 @@ const PostPage = async ({ params }: Props) => {
                         ))
                       : null}
                   </>
-                ),
-              }),
+                ) : undefined,
             },
           ]}
         />
