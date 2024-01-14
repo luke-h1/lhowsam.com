@@ -2,13 +2,11 @@ import { ReactNode, CSSProperties } from 'react';
 import SocialShare from '../SocialShare/SocialShare';
 import * as styles from './Meta.css';
 
-export interface MetaItem {
-  title: ReactNode;
-  description: ReactNode;
-}
-
 interface Props {
-  items?: MetaItem[];
+  items: {
+    title: ReactNode;
+    description: ReactNode;
+  }[];
 }
 
 const Meta = ({ items }: Props) => {
@@ -17,7 +15,7 @@ const Meta = ({ items }: Props) => {
       className={styles.root}
       style={
         {
-          '--length': items?.length,
+          '--length': items.length,
         } as CSSProperties
       }
     >
