@@ -53,7 +53,8 @@ const PostCard = ({ post }: Props) => {
           gap="sm"
           maxWidth="text"
         >
-          {post.tags.length > 0 &&
+          {post.tags &&
+            post.tags.length > 0 &&
             post.tags.slice(0, 5).map(tag => (
               <Link
                 href={`/blog/tags/${tag.slug.current}`}
