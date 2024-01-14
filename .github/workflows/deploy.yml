@@ -123,12 +123,10 @@ jobs:
         - name: tune linux network
           run: sudo ethtool -K eth0 tx off rx off
 
-        - name: Checkout repository
-          uses: actions/checkout@v4
+        - uses: actions/checkout@v4
           with:
             fetch-depth: 0
             ref: main
-
 
         - name: Setup node
           uses: actions/setup-node@v4
