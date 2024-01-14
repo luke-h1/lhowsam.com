@@ -48,5 +48,5 @@ export interface Post {
   content: string;
   publishedAt: string;
   image: Image;
-  tags: Tag[];
+  tags?: Tag[];
 }
