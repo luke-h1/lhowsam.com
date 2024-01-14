@@ -24,7 +24,7 @@ export interface Project {
   content: string;
   order: number;
   slug: Slug;
-  tags: Tag[];
+  tags?: Tag[];
   siteUrl?: string;
   githubUrl: string;
   image: Image;
