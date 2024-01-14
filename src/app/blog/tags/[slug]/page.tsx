@@ -20,7 +20,7 @@ const TagPage = async ({ params }: Props) => {
   const posts = await postService.getAllPosts();
 
   const matchingPosts = posts.filter(post => {
-    return post.tags.some(tag => tag.slug.current === slug);
+    return post.tags && post.tags.some(tag => tag.slug.current === slug);
   });
 
   return (

@@ -64,32 +64,34 @@ const PostPage = async ({ params }: Props) => {
               ),
             },
             {
-              title: 'Tags',
-              description: (
-                // eslint-disable-next-line react/jsx-no-useless-fragment
-                <>
-                  {post.tags.length > 0
-                    ? post.tags.slice(0, 3).map(tag => (
-                        <Link
-                          href={`/blog/tags/${tag.slug.current}`}
-                          key={tag.slug.current}
-                        >
-                          <Text
-                            fontSize="sm"
-                            color="foregroundNeutral"
-                            key={`${tag.title}-${tag.slug.current}`}
-                            data-testid="post-tags"
-                            style={{
-                              marginTop: '0.25rem',
-                            }}
+              ...(post.tags && {
+                title: 'Tags',
+                description: (
+                  // eslint-disable-next-line react/jsx-no-useless-fragment
+                  <>
+                    {post.tags.length > 0
+                      ? post.tags.slice(0, 3).map(tag => (
+                          <Link
+                            href={`/blog/tags/${tag.slug.current}`}
+                            key={tag.slug.current}
                           >
-                            #{tag.title}
-                          </Text>
-                        </Link>
-                      ))
-                    : null}
-                </>
-              ),
+                            <Text
+                              fontSize="sm"
+                              color="foregroundNeutral"
+                              key={`${tag.title}-${tag.slug.current}`}
+                              data-testid="post-tags"
+                              style={{
+                                marginTop: '0.25rem',
+                              }}
+                            >
+                              #{tag.title}
+                            </Text>
+                          </Link>
+                        ))
+                      : null}
+                  </>
+                ),
+              }),
             },
           ]}
         />
