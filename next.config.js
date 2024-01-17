@@ -53,21 +53,6 @@ const securityHeaders = [
   },
 ];
 
-const sentryConfigPlugins = {
-  silent: true,
-  org: process.env.SENTRY_ORG,
-  project: process.env.SENTRY_PROJECT,
-};
-
-const sentryConfig = {
-  widenClientFileUpload: false,
-  transpileClientSDK: false,
-  tunnelRoute: '/api/sentry-metrics',
-  hideSourceMaps: true,
-  disableLogger: true,
-  automaticVercelMonitors: false,
-};
-
 /**
  * @type {import('next').NextConfig}
  */
@@ -147,8 +132,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withSentryConfig(
-  withVanillaExtract(nextConfig),
-  sentryConfigPlugins,
-  sentryConfig,
-);
+module.exports = withSentryConfig(withVanillaExtract(nextConfig));
