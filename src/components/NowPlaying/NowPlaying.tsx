@@ -28,7 +28,7 @@ const AnimatedBars = () => {
 export default function NowPlaying() {
   const { isMounted } = useMounted();
   const { data, error, isLoading } = useSWR<Song>(`/api/now-playing`, fetcher, {
-    refreshInterval: 8000,
+    refreshInterval: 5000,
     fallback: {
       isPlaying: false,
       title: 'Not Playing',
