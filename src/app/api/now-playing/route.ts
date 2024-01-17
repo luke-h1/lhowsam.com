@@ -1,7 +1,7 @@
 import spotifyService from '@frontend/services/spotifyService';
 import { SongItem } from '@frontend/types/spotify';
 
-export const revalidate = 8;
+export const revalidate = 5;
 
 export async function GET() {
   const res = await spotifyService.getNowPlaying();
