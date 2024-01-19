@@ -1,4 +1,5 @@
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
+const million = require('million/compiler');
 
 const withVanillaExtract = createVanillaExtractPlugin();
 
@@ -63,6 +64,7 @@ const nextConfig = {
   },
   experimental: {
     webVitalsAttribution: ['CLS', 'LCP'],
+    optimizePackageImports: ['framer-motion'],
   },
   images: {
     remotePatterns: [
@@ -130,4 +132,9 @@ const nextConfig = {
   },
 };
 
-module.exports = withVanillaExtract(nextConfig);
+const millionConfig = {
+  mute: true,
+  auto: { rsc: true },
+};
+
+module.exports = million.next(withVanillaExtract(nextConfig), millionConfig);
