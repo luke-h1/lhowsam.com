@@ -42,6 +42,7 @@
     "@vanilla-extract/next-plugin": "^2.3.3",
     "@vanilla-extract/recipes": "^0.5.1",
     "@vanilla-extract/sprinkles": "^1.6.1",
+    "@vercel/otel": "^0.3.0",
     "axios": "^1.6.5",
     "check-node-version": "^4.2.1",
     "clsx": "^2.1.0",
