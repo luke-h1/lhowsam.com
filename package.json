@@ -22,7 +22,7 @@
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test:watch": "jest --watch",
     "test:snapshot": "jest -u",
-    "analyze": "ANALYZE=true next build",
+    "analyze": "ANALYZE=true next build && node scripts/analyze-bundle.js",
     "check:node": "check-node-version --node 20 --pnpm 8",
     "preinstall": "pnpm run check:node",
     "prepare": "husky install"
@@ -146,8 +146,9 @@
     "vercel": "^33.1.0"
   },
   "nextBundleAnalysis": {
-    "budget": null,
+    "budget": 204800,
     "budgetPercentIncreaseRed": 10,
+    "minimumChangeThreshold": 0,
     "showDetails": true
   },
   "config": {
