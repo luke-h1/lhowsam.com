@@ -30,6 +30,9 @@ const AboutPage = () => {
           alt="Luke Howsam"
           width={220}
           height={300}
+          priority
+          fetchPriority="high"
+          quality={100}
           rounded
           placeholder="blur"
           blurDataURL="/luke-1.png"
