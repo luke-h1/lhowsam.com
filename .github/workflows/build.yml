@@ -6,7 +6,6 @@ on:
     branches: [dev, main]
 env:
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-  NODE_VERSION: 20.9.0
   PNPM_VERSION: 8.13.1
   SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
   SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
@@ -29,16 +28,11 @@ jobs:
       - name: tune linux network
         run: sudo ethtool -K eth0 tx off rx off            
 
-      - name: Setup node
-        uses: actions/setup-node@v4
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
-          node-version: ${{ env.NODE_VERSION }}
-
-      - uses: pnpm/action-setup@v2
-        name: Install pnpm
-        with:
-          version: ${{ env.PNPM_VERSION }}
-          run_install: false
+          node-version-file: .nvmrc
+          cache: pnpm
 
       - name: Get pnpm store directory
         shell: bash
@@ -51,7 +45,7 @@ jobs:
           path: ${{ env.STORE_PATH }}
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+            ${{ runner.os }}-pnpm-store- 
 
       - name: Checkout repository
         uses: actions/checkout@v4
