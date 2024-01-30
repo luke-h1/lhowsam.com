@@ -34,6 +34,11 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
