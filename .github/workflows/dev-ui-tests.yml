@@ -24,6 +24,12 @@ jobs:
       - name: tune linux network
         run: sudo ethtool -K eth0 tx off rx off
 
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -48,12 +54,6 @@ jobs:
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
-
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: ${{ github.head_ref }}
 
       - name: Install dependencies 
         run: pnpm i --no-frozen-lockfile
