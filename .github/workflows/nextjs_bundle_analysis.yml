@@ -20,7 +20,6 @@ env:
   SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
   SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
   NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}  
-  NODE_VERSION: 20.9.0
   PNPM_VERSION: 8.13.1
 
 defaults:
@@ -37,18 +36,23 @@ jobs:
   analyze:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup node
-        uses: actions/setup-node@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          node-version: ${{ env.NODE_VERSION }}
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
         with:
           version: ${{ env.PNPM_VERSION }}
           run_install: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
 
       - name: Get pnpm store directory
         shell: bash
