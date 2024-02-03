@@ -41,8 +41,21 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
 
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
       - name: Install dependencies 
-        run: pnpm i --no-frozen-lockfile
+        run: pnpm i
 
       - uses: actions/labeler@v4
         with:
@@ -51,8 +64,26 @@ jobs:
       - name: Check commit message
         run: pnpm commitlint --from=HEAD^1
 
-      - name: Install Playwright Browsers
-        run: make e2e-install-browsers
+      - name: Get installed Playwright version
+        id: playwright-version
+        run: echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./package.json').devDependencies['@playwright/test'])")" >> $GITHUB_ENV
+
+      - name: Cache playwright binaries
+        uses: actions/cache@v3
+        id: playwright-cache
+        with:
+          path: |
+            ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
+
+      # - run: npx playwright install --with-deps
+      #   if: steps.playwright-cache.outputs.cache-hit != 'true'
+
+      # - run: npx playwright install-deps
+      #   if: steps.playwright-cache.outputs.cache-hit != 'true'
+
+      - run: make e2e-install-browsers
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
 
       - name: Live UI tests
         run: make e2e-prod
