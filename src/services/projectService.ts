@@ -23,7 +23,7 @@ const listAllProjects = groq`
 }
 `;
 const listRecentProjects = groq`
-*[ _type == "project" && title in ["Storify", "My website", "Automation"]] | order(order asc) {
+*[ _type == "project" && title in ["Storify", "My website", "Infra"]] | order(order asc) {
   ...,
   tags[] -> {
     title,
