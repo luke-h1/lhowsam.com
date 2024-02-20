@@ -1,0 +1,46 @@
+FROM node:20.11.0-alpine as base
+
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
+RUN corepack enable
+
+WORKDIR /app
+
+FROM base as builder
+
+COPY . .
+
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm --frozen-lockfile --ignore-scripts install
+
+
+RUN pnpm build
+
+FROM base as runner
+
+COPY --from=builder /app /app
+
+WORKDIR /app
+
+RUN corepack enable
+
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm --prod --ignore-scripts --frozen-lockfile install
+
+ENV NODE_ENV=production
+
+EXPOSE 3000
+
+RUN chown -R node /app
+
+USER node 
+
+# ensure node user has write access to the /app directory to avoid:
+# ------------------------------------------------------------------------------------------
+# Failed to write image to cache 8NUX5AdxBeiSHC6Ow1kQxqYuVrLXD4O7nrmNug9Q7XU= [Error: EACCES: permission denied, mkdir '/app/.next/cache/images
+# AND
+# Failed to update prerender cache for /api/now-playing [Error: EACCES: permission denied, open '/app/.next/server/app/api/now-playing.body'] 
+# ------------------------------------------------------------------------------------------
+
+CMD ["pnpm", "start"]

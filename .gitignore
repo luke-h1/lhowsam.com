@@ -32,3 +32,4 @@ test-results
 .vscode
 .idea
 newrelic_agent.log
+.terraform
