@@ -21,36 +21,36 @@ resource "aws_ecs_task_definition" "application_task" {
         },
         {
           "name": "SPOTIFY_CLIENT_ID",
-          "value": "${var.spotify_client_id}",
+          "value": "${var.spotify_client_id}"
         },
         {
           "name": "SPOTIFY_CLIENT_SECRET",
-          "value": "${var.spotify_client_secret}",
+          "value": "${var.spotify_client_secret}"
         },
         {
           "name": "SPOTIFY_REFRESH_TOKEN",
-          "value": "${var.spotify_refresh_token}",
+          "value": "${var.spotify_refresh_token}"
         },
         {
           "name": "NEXT_PUBLIC_GA_TRACKING_ID",
-          "value": "${var.next_public_ga_tracking_id}",
+          "value": "${var.next_public_ga_tracking_id}"
         },
         {
           "name": "NEXT_PUBLIC_NEW_RELIC_LICENSE_KEY",
-          "value": "${var.next_public_new_relic_license_key}",
+          "value": "${var.next_public_new_relic_license_key}"
         },
         {
           "name": "NEXT_PUBLIC_NEW_RELIC_APPLICATION_ID",
-          "value: "${var.next_public_new_relic_application_id}",
+          "value": "${var.next_public_new_relic_application_id}"
         },
         {
           "name": "BASIC_AUTH_PASSWORD",
-          "value: "${var.basic_auth_password}",
+          "value": "${var.basic_auth_password}"
         },
         {
           "name": "BASIC_AUTH_USER",
-          "value: "${var.basic_auth_user}",
-        },
+          "value": "${var.basic_auth_user}"
+        }
       ],
       "portMappings": [
         {
@@ -66,8 +66,8 @@ resource "aws_ecs_task_definition" "application_task" {
           "awslogs-stream-prefix": "${var.project_name}-"
         }
       },
-      "memory": "${var.memory}",
-      "cpu": "${var.cpu}"
+      "memory": ${var.memory},
+      "cpu": ${var.cpu}
     }
   ]
   DEFINITION
