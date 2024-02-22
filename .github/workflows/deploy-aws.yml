@@ -1,0 +1,195 @@
+name: Deploy ECS
+on:
+  workflow_dispatch:
+env:
+  TERRAFORM_ROOT: ./terraform/staging
+  DOCKER_ENV: production
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+  BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
+  BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
+  SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+  NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}  
+  PNPM_VERSION: 8.13.1
+  TF_VAR_docker_image_tag: ${{ github.sha }}
+  TF_VAR_next_public_sanity_project_id: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+  TF_VAR_next_public_url: "https://staging.lhowsam.com"
+  TF_VAR_spotify_client_id: ${{ secrets.SPOTIFY_CLIENT_ID }}
+  TF_VAR_spotify_client_secret: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
+  TF_VAR_spotify_refresh_token: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+  TF_VAR_next_public_ga_tracking_id: ""
+  TF_VAR_next_public_new_relic_license_key: ""
+  TF_VAR_next_public_new_relic_application_id: ""
+  TF_VAR_basic_auth_password: ""
+  TF_VAR_basic_auth_user: ""
+
+jobs:
+   provision-ecs:
+     name: Provision ECS repository if needed
+     runs-on: ubuntu-latest
+     steps:
+      - name: Install moreutils
+        run: sudo apt install moreutils
+        
+      # https://github.com/actions/virtual-environments/issues/1187
+      - name: tune linux network
+        run: sudo ethtool -K eth0 tx off rx off
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+    
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+          mask-aws-account-id: true
+      
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+     
+      - name: Terraform init
+        id: init
+        run: terraform init
+        working-directory: ${{ env.TERRAFORM_ROOT }}
+
+      - name: Terraform fmt -check
+        id: fmt
+        run: terraform fmt -check
+        working-directory: ${{ env.TERRAFORM_ROOT }}
+
+      - name: Terraform validate
+        id: validate
+        run: terraform validate
+        working-directory: ${{ env.TERRAFORM_ROOT }}
+
+      - name: Terraform plan (ECR repo)
+        id: plan
+        run: |
+            terraform plan \
+            -target=module.staging_infra.aws_ecr_repository.application_ecr_repo \
+            -out ./app.out
+        working-directory: ${{ env.TERRAFORM_ROOT }}
+
+      - name: Terraform apply (ECR repo)
+        id: apply
+        run: terraform apply -auto-approve ./app.out
+        working-directory: ${{ env.TERRAFORM_ROOT }}
+
+   deploy-staging-to-ecr:
+     name: Deploy to ECR
+     needs: provision-ecs
+     runs-on: ubuntu-latest
+     steps:
+       - name: Checkout repository
+         uses: actions/checkout@v4
+         with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+       - name: Configure AWS Credentials
+         uses: aws-actions/configure-aws-credentials@v3
+         with:
+           aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+           aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+           aws-region: eu-west-2
+           mask-aws-account-id: true
+
+       - name: Setup Terraform
+         uses: hashicorp/setup-terraform@v2
+         with:
+           terraform_version: 1.1.8
+           terraform_wrapper: false
+
+       - name: Terraform init
+         id: init
+         run: terraform init
+         working-directory: ${{ env.TERRAFORM_ROOT }}
+
+       - name: Output terraform variables to file
+         id: output
+         working-directory: ${{ env.TERRAFORM_ROOT }}
+         run: terraform output -json > ../../terraform-outputs.json
+
+       - name: Set variables from terraform outputs
+         run: |
+           outputs=$(cat terraform-outputs.json)
+           ecr_repo_name=$(echo $outputs | jq -r .ecr_repo_name.value)
+           echo "ECR_REPO_NAME=$ecr_repo_name" >> $GITHUB_ENV
+
+       - name: Login to ECR
+         id: login-ecr
+         uses: aws-actions/amazon-ecr-login@v2
+
+       - name: build, tag and push image to ECR
+         env:
+           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+           ECR_REPOSITORY: ${{ env.ECR_REPO_NAME }}
+           IMAGE_TAG: ${{ env.TF_VAR_docker_image_tag }}
+         run: |
+           docker build \
+           --build-arg NODE_ENV=${{ env.DOCKER_ENV }} \
+           --build-arg NEXT_PUBLIC_SANITY_PROJECT_ID=${{ env.NEXT_PUBLIC_SANITY_PROJECT_ID }} \
+           --build-arg BASIC_AUTH_USER=${{ env.BASIC_AUTH_USER }} \
+           --build-arg BASIC_AUTH_PASSWORD=${{ env.BASIC_AUTH_PASSWORD }} \
+           --build-arg SPOTIFY_REFRESH_TOKEN=${{ env.SPOTIFY_REFRESH_TOKEN }} \
+           --build-arg SPOTIFY_CLIENT_ID=${{ env.SPOTIFY_CLIENT_ID }} \
+           --build-arg SPOTIFY_CLIENT_SECRET=${{ env.SPOTIFY_CLIENT_SECRET }} \
+           -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile.production .
+           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+
+   deploy-staging-infra:
+    name: Deploy staging infrastructure
+    needs: [deploy-staging-to-ecr]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install moreutils
+        run: sudo apt install moreutils
+        
+      # https://github.com/actions/virtual-environments/issues/1187
+      - name: tune linux network
+        run: sudo ethtool -K eth0 tx off rx off
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          aws-access-key-id: ${{ env.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ env.AWS_SECRET_ACCESS_KEY }}
+          aws-region: eu-west-2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+
+      - name: Terraform Init
+        id: init
+        run: terraform init
+        working-directory: ${{ env.TERRAFORM_ROOT }}
+
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate
+        working-directory: ${{ env.TERRAFORM_ROOT }}
+
+      - name: Terraform Plan
+        id: plan
+        working-directory: ${{ env.TERRAFORM_ROOT }}
+        run: |
+          terraform plan \
+          -out ./app.out
+
+      - name: Terraform Apply
+        id: apply
+        run: terraform apply ./app.out
+        working-directory: ${{ env.TERRAFORM_ROOT }}
