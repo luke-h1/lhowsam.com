@@ -142,7 +142,7 @@ resource "aws_route53_record" "alb" {
 
 resource "aws_security_group" "application_service_security_group" {
   tags = merge(var.tags, {
-    "Name"        = "${var.project_name}-${var.environment}-service-security-group"
+    "Name"        = "${var.project_name}-${var.environment}-sg-group"
     "Description" = "Security group for ${var.project_name}-${var.environment}"
   })
 
