@@ -6,12 +6,12 @@ provider "aws" {
 module "staging_infra" {
   source           = "../module"
   project_name     = "lhowsam"
-  task_count       = 3
+  task_count       = 1
   cpu              = 256
   memory           = 512
   docker_image_tag = var.docker_image_tag
   domain           = "staging.lhowsam.com"
-  max_capacity     = 3
+  max_capacity     = 1
   tags = {
     "Service"     = "lhowsam-staging"
     "Environment" = "staging"

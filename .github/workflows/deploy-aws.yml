@@ -1,9 +1,9 @@
 name: Deploy ECS
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - dev
+  # push:
+  #   branches:
+  #     - dev
 # convert to arm runner once available
 env:
   TERRAFORM_ROOT: ./terraform/staging
