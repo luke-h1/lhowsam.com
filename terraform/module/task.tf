@@ -42,7 +42,7 @@ resource "aws_ecs_task_definition" "application_task" {
         {
           "name": "NEXT_PUBLIC_NEW_RELIC_APPLICATION_ID",
           "value": "${var.next_public_new_relic_application_id}"
-        },
+        }
       ],
       "portMappings": [
         {
