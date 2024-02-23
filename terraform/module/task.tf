@@ -88,6 +88,11 @@ resource "aws_ecs_service" "application_ecs" {
     container_port   = var.port
   }
 
+  triggers = {
+    redeployment = timestamp()
+  }
+
+
   network_configuration {
     subnets          = ["${aws_default_subnet.application_subnet_a.id}", "${aws_default_subnet.application_subnet_b.id}", "${aws_default_subnet.application_subnet_c.id}"]
     assign_public_ip = true

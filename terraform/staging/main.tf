@@ -11,7 +11,7 @@ module "staging_infra" {
   memory           = 512
   docker_image_tag = var.docker_image_tag
   domain           = "staging.lhowsam.com"
-  max_capacity     = 1
+  max_capacity     = 3
   tags = {
     "Service"     = "lhowsam-staging"
     "Environment" = "staging"
