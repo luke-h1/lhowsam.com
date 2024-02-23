@@ -152,8 +152,6 @@ jobs:
           docker build \
            --build-arg NODE_ENV=${{ env.DOCKER_ENV }} \
            --build-arg NEXT_PUBLIC_SANITY_PROJECT_ID=${{ env.NEXT_PUBLIC_SANITY_PROJECT_ID }} \
-           --build-arg BASIC_AUTH_USER=${{ env.BASIC_AUTH_USER }} \
-           --build-arg BASIC_AUTH_PASSWORD=${{ env.BASIC_AUTH_PASSWORD }} \
            --build-arg SPOTIFY_REFRESH_TOKEN=${{ env.SPOTIFY_REFRESH_TOKEN }} \
            --build-arg SPOTIFY_CLIENT_ID=${{ env.SPOTIFY_CLIENT_ID }} \
            --build-arg SPOTIFY_CLIENT_SECRET=${{ env.SPOTIFY_CLIENT_SECRET }} \

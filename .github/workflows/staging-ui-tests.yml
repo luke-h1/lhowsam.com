@@ -89,6 +89,3 @@ jobs:
 
       - name: dev UI tests
         run: make e2e-staging
-        env:
-          BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
-          BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}

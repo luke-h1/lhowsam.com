@@ -55,13 +55,3 @@ variable "next_public_new_relic_application_id" {
   description = "New Relic application ID for the site"
   type        = string
 }
-
-variable "basic_auth_password" {
-  description = "The password for basic auth"
-  type        = string
-}
-
-variable "basic_auth_user" {
-  description = "The username for basic auth"
-  type        = string
-}
