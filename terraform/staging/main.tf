@@ -22,7 +22,7 @@ module "staging_infra" {
   next_public_new_relic_license_key    = var.next_public_new_relic_license_key
   next_public_new_relic_application_id = var.next_public_new_relic_application_id
   next_public_sanity_project_id        = var.next_public_sanity_project_id
-  next_public_url                      = var.next_public_url
+  next_public_url                      = "https://staging.lhowsam.com"
   spotify_client_id                    = var.spotify_client_id
   spotify_client_secret                = var.spotify_client_secret
   spotify_refresh_token                = var.spotify_refresh_token

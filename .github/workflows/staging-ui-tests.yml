@@ -1,4 +1,4 @@
-name: UI tests (dev)
+name: UI tests (staging)
 on:
   workflow_dispatch:
   schedule:
@@ -15,7 +15,7 @@ env:
 
 jobs:
   test:
-    name: e2e dev
+    name: e2e staging
     runs-on: ubuntu-latest
     timeout-minutes: 20
     concurrency:
