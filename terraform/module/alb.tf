@@ -81,7 +81,7 @@ resource "aws_lb_target_group" "application_target_group" {
   load_balancing_algorithm_type = "least_outstanding_requests"
 
   health_check {
-    matcher           = "200, 301, 302"
+    matcher           = "200,301,302"
     path              = "/api/healthcheck"
     interval          = 60
     timeout           = 30

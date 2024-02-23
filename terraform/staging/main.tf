@@ -5,7 +5,7 @@ provider "aws" {
 
 module "staging_infra" {
   source           = "../module"
-  project_name     = "lhowsam-staging"
+  project_name     = "lhowsam"
   task_count       = 1
   cpu              = 256
   memory           = 512
