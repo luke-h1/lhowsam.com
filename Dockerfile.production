@@ -21,7 +21,7 @@ ARG BASIC_AUTH_USER
 ARG BASIC_AUTH_PASSWORD
 ARG NEXT_PUBLIC_SANITY_PROJECT_ID
 
-RUN pnpm build
+RUN pnpm build:prod
 
 FROM base as runner
 
@@ -51,4 +51,4 @@ USER node
 # Failed to update prerender cache for /api/now-playing [Error: EACCES: permission denied, open '/app/.next/server/app/api/now-playing.body'] 
 # ------------------------------------------------------------------------------------------
 
-CMD ["pnpm", "start"]
+CMD ["pnpm", "start:prod"]
