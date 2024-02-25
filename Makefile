@@ -32,6 +32,15 @@ e2e-dev:
 e2e-dev-open:
 	BASE_URL='https://dev.lhowsam.com' ./node_modules/.bin/playwright test  --headed --config=playwright-dev.config.ts
 
+.PHONY: e2e-staging
+e2e-staging:
+	BASE_URL='https://staging.lhowsam.com' ./node_modules/.bin/playwright test --config=playwright-common.config.ts
+
+.PHONY: e2e-staging-open
+e2e-staging-open:
+	BASE_URL='https://staging.lhowsam.com' ./node_modules/.bin/playwright test  --headed --config=playwright-common.config.ts
+
+
 .PHONY: e2e-prod
 e2e-prod:
 	BASE_URL='https://lhowsam.com' ./node_modules/.bin/playwright test --config=playwright-common.config.ts

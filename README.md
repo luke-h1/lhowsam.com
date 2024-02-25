@@ -2,7 +2,8 @@
 
 My website & blog
 
-## Tech Stack: 
+## Tech Stack:
+
 - [React](https://github.com/facebook/react)
 - [Next](https://github.com/vercel/next.js)
 - [Typescript](https://github.com/Microsoft/TypeScript)
@@ -11,7 +12,6 @@ My website & blog
 - [MDX](https://github.com/mdx-js/mdx)
 - [Vercel](https://vercel.com)
 - [Sanity.io](https://sanity.io)
-
 
 <br />
 
@@ -26,3 +26,11 @@ My website & blog
 [![CodeQL](https://github.com/luke-h1/lhowsam.com/actions/workflows/codeql.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/codeql.yml)
 
 [![Dependency Review](https://github.com/luke-h1/lhowsam.com/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/dependency-review.yml)
+
+## Environments
+
+| Environment | URL                         |
+| ----------- | --------------------------- |
+| Production  | https://lhowsam.com         |
+| Development | https://dev.lhowsam.com     |
+| Staging     | https://staging.lhowsam.com |

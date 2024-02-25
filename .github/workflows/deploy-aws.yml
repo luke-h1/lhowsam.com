@@ -1,6 +1,10 @@
 name: Deploy ECS
 on:
   workflow_dispatch:
+  # push:
+  #   branches:
+  #     - dev
+# convert to arm runner once available
 env:
   TERRAFORM_ROOT: ./terraform/staging
   DOCKER_ENV: production
@@ -24,12 +28,18 @@ env:
   TF_VAR_next_public_new_relic_application_id: ""
   TF_VAR_basic_auth_password: ""
   TF_VAR_basic_auth_user: ""
+  # DOCKER_TARGET_PLATFORM: linux/arm/v8            
+ 
 
 jobs:
    provision-ecs:
      name: Provision ECS repository if needed
      runs-on: ubuntu-latest
+     concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: ${{ github.ref != 'refs/heads/main' }} 
      steps:
+      
       - name: Install moreutils
         run: sudo apt install moreutils
         
@@ -93,6 +103,12 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
 
+      #  - name: qumu
+      #    uses: docker/setup-qemu-action@v3
+      #    with:
+      #      image: tonistiigi/binfmt:latest
+      #      platforms: arm64
+
        - name: Configure AWS Credentials
          uses: aws-actions/configure-aws-credentials@v3
          with:
@@ -133,14 +149,14 @@ jobs:
            ECR_REPOSITORY: ${{ env.ECR_REPO_NAME }}
            IMAGE_TAG: ${{ env.TF_VAR_docker_image_tag }}
          run: |
-           docker build \
+          docker build \
            --build-arg NODE_ENV=${{ env.DOCKER_ENV }} \
            --build-arg NEXT_PUBLIC_SANITY_PROJECT_ID=${{ env.NEXT_PUBLIC_SANITY_PROJECT_ID }} \
-           --build-arg BASIC_AUTH_USER=${{ env.BASIC_AUTH_USER }} \
-           --build-arg BASIC_AUTH_PASSWORD=${{ env.BASIC_AUTH_PASSWORD }} \
            --build-arg SPOTIFY_REFRESH_TOKEN=${{ env.SPOTIFY_REFRESH_TOKEN }} \
            --build-arg SPOTIFY_CLIENT_ID=${{ env.SPOTIFY_CLIENT_ID }} \
            --build-arg SPOTIFY_CLIENT_SECRET=${{ env.SPOTIFY_CLIENT_SECRET }} \
+           --build-arg NEXT_PUBLIC_URL=${{ env.TF_VAR_next_public_url }} \
+           --build-arg DOCKER_DEFAULT_PLATFORM=linux/arm64 \
            -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile.production .
            docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 

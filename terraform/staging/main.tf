@@ -5,7 +5,7 @@ provider "aws" {
 
 module "staging_infra" {
   source           = "../module"
-  project_name     = "lhowsam-staging"
+  project_name     = "lhowsam"
   task_count       = 1
   cpu              = 256
   memory           = 512
@@ -16,13 +16,11 @@ module "staging_infra" {
     "Service"     = "lhowsam-staging"
     "Environment" = "staging"
   }
-  basic_auth_user                      = var.basic_auth_user
-  basic_auth_password                  = var.basic_auth_password
   next_public_ga_tracking_id           = var.next_public_ga_tracking_id
   next_public_new_relic_license_key    = var.next_public_new_relic_license_key
   next_public_new_relic_application_id = var.next_public_new_relic_application_id
   next_public_sanity_project_id        = var.next_public_sanity_project_id
-  next_public_url                      = var.next_public_url
+  next_public_url                      = "https://staging.lhowsam.com"
   spotify_client_id                    = var.spotify_client_id
   spotify_client_secret                = var.spotify_client_secret
   spotify_refresh_token                = var.spotify_refresh_token

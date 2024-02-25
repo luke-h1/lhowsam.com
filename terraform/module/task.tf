@@ -42,14 +42,6 @@ resource "aws_ecs_task_definition" "application_task" {
         {
           "name": "NEXT_PUBLIC_NEW_RELIC_APPLICATION_ID",
           "value": "${var.next_public_new_relic_application_id}"
-        },
-        {
-          "name": "BASIC_AUTH_PASSWORD",
-          "value": "${var.basic_auth_password}"
-        },
-        {
-          "name": "BASIC_AUTH_USER",
-          "value": "${var.basic_auth_user}"
         }
       ],
       "portMappings": [
@@ -61,7 +53,7 @@ resource "aws_ecs_task_definition" "application_task" {
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "${aws_cloudwatch_log_group.app_log_group.name}",
+          "awslogs-group": "${aws_cloudwatch_log_group.lho_log_group.name}",
           "awslogs-region": "eu-west-2",
           "awslogs-stream-prefix": "${var.project_name}-"
         }
@@ -75,9 +67,13 @@ resource "aws_ecs_task_definition" "application_task" {
   network_mode             = "awsvpc"
   memory                   = var.memory
   cpu                      = var.cpu
-  execution_role_arn       = aws_iam_role.task_execution_role.arn
-  task_role_arn            = aws_iam_role.task_execution_role.arn
+  execution_role_arn       = aws_iam_role.lhowsam_task_execution_role.arn
+  task_role_arn            = aws_iam_role.lhowsam_task_execution_role.arn
   tags                     = var.tags
+  # runtime_platform {
+  #   cpu_architecture        = "ARM64"
+  #   operating_system_family = "LINUX"
+  # }
 }
 
 resource "aws_ecs_service" "application_ecs" {
@@ -86,12 +82,16 @@ resource "aws_ecs_service" "application_ecs" {
   task_definition = aws_ecs_task_definition.application_task.arn
   launch_type     = "FARGATE"
   desired_count   = var.task_count
-
   load_balancer {
     target_group_arn = aws_lb_target_group.application_target_group.arn
     container_name   = aws_ecs_task_definition.application_task.family
     container_port   = var.port
   }
+
+  triggers = {
+    redeployment = timestamp()
+  }
+
 
   network_configuration {
     subnets          = ["${aws_default_subnet.application_subnet_a.id}", "${aws_default_subnet.application_subnet_b.id}", "${aws_default_subnet.application_subnet_c.id}"]
@@ -106,6 +106,7 @@ resource "aws_appautoscaling_target" "ecs_target" {
   resource_id        = "service/${aws_ecs_cluster.application_cluster.name}/${aws_ecs_service.application_ecs.name}"
   scalable_dimension = "ecs:service:DesiredCount"
   service_namespace  = "ecs"
+
 }
 
 resource "aws_appautoscaling_policy" "ecs_policy" {

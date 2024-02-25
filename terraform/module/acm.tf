@@ -15,8 +15,8 @@ resource "aws_acm_certificate" "domain" {
 }
 
 data "aws_route53_zone" "domain" {
-  name         = var.domain
   private_zone = false
+  zone_id      = "Z06963613BG6E5056SR1H"
   tags = merge(var.tags, {
     "Name"        = "${var.project_name}-${var.environment}-route53-zone"
     "Description" = "Route53 zone for ${var.project_name}-${var.environment}"

@@ -17,11 +17,10 @@ RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
 ARG PUBLIC_SPOTIFY_CLIENT_ID
 ARG PUBLIC_SPOTIFY_CLIENT_SECRET
 ARG SPOTIFY_REFRESH_TOKEN
-ARG BASIC_AUTH_USER
-ARG BASIC_AUTH_PASSWORD
 ARG NEXT_PUBLIC_SANITY_PROJECT_ID
+ARG NEXT_PUBLIC_URL
 
-RUN pnpm build
+RUN pnpm build:prod
 
 FROM base as runner
 
@@ -33,6 +32,8 @@ RUN corepack enable
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
     pnpm --prod --ignore-scripts --frozen-lockfile install
+
+RUN apk add --no-cache bash tzdata git make clang
 
 ENV NODE_ENV=production
 
@@ -49,4 +50,4 @@ USER node
 # Failed to update prerender cache for /api/now-playing [Error: EACCES: permission denied, open '/app/.next/server/app/api/now-playing.body'] 
 # ------------------------------------------------------------------------------------------
 
-CMD ["pnpm", "start"]
+CMD ["pnpm", "start:prod"]
