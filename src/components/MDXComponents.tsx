@@ -6,8 +6,6 @@ import ImageCarousel from './ImageCarousel/ImageCarousel';
 import Link from './Link/Link';
 import Text from './Text/Text';
 
-// type for MDX components
-
 const MDXComponents = {
   ImageCarousel,
   Image: (props: ImageProps & { rounded?: boolean; bordered?: boolean }) => {
@@ -28,8 +26,10 @@ const MDXComponents = {
     <Text
       {...props}
       fontSize="md"
+      color="foregroundNeutral"
       style={{
         marginBottom: '1.25rem',
+        lineHeight: '1.75rem',
       }}
     />
   ),
@@ -37,6 +37,7 @@ const MDXComponents = {
     <Heading
       {...props}
       fontSize="xl"
+      color="foregroundNeutral"
       style={{
         marginBottom: '1.25rem',
       }}
@@ -47,6 +48,7 @@ const MDXComponents = {
       {...props}
       as="h3"
       fontSize="lg"
+      color="foregroundNeutral"
       style={{
         marginBottom: '1.25rem',
       }}
@@ -57,6 +59,7 @@ const MDXComponents = {
       {...props}
       style={{
         marginBottom: '0.75rem',
+        color: 'var(--color-foreground-neutral)',
       }}
     />
   ),
