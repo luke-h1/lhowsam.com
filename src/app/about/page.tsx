@@ -80,9 +80,7 @@ const AboutPage = () => {
             <List>
               <List.Item>
                 <Text>
-                  <Link href={`${process.env.NEXT_PUBLIC_URL}/static/cv.pdf`}>
-                    CV
-                  </Link>
+                  <Link href="/static/cv.pdf">CV</Link>
                 </Text>
               </List.Item>
               <List.Item>
