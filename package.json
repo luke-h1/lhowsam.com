@@ -11,8 +11,6 @@
     "build": "next build",
     "build:prod": "next build && tsc --project tsconfig.server.json",
     "start:prod": "cross-env NODE_ENV=production node dist/server.js",
-    "vercel:build": "vercel build",
-    "vercel:dev": "vercel dev",
     "start": "next start",
     "tsc": "tsc --noEmit",
     "gen-env": "gen-env-types .env -o src/types/env.d.ts -e .",
