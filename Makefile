@@ -48,3 +48,11 @@ e2e-prod:
 .PHONY: e2e-prod-open
 e2e-prod-open:
 	BASE_URL='https://lhowsam.com' ./node_modules/.bin/playwright test --headed  --config=playwright-common.config.ts
+
+.PHONY: e2e-stg
+e2e-stg:
+	BASE_URL='https://dev.d2i87e9phmdi7m.amplifyapp.com' ./node_modules/.bin/playwright test --config=playwright-common.config.ts
+
+.PHONY: e2e-stg-open
+e2e-stg-open:
+	BASE_URL='https://dev.d2i87e9phmdi7m.amplifyapp.com' ./node_modules/.bin/playwright test --headed  --config=playwright-common.config.ts
