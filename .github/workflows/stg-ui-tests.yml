@@ -1,4 +1,4 @@
-name: UI tests (live)
+name: UI tests (stg)
 on:
   workflow_dispatch:
   schedule: 
@@ -13,7 +13,7 @@ env:
 
 jobs:
   test:
-    name: e2e live
+    name: e2e stg
     runs-on: ubuntu-latest
     timeout-minutes: 20
     concurrency:
