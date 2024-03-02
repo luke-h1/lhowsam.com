@@ -25,7 +25,6 @@
     "test:watch": "jest --watch",
     "test:snapshot": "jest -u",
     "analyze": "ANALYZE=true next build && node scripts/analyze-bundle.js",
-    "preinstall": "pnpm run check:node",
     "prepare": "husky install"
   },
   "dependencies": {
