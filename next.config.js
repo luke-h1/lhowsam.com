@@ -65,6 +65,7 @@ const nextConfig = {
   experimental: {
     webVitalsAttribution: ['CLS', 'LCP'],
     optimizePackageImports: ['framer-motion'],
+    ppr: true,
   },
   images: {
     remotePatterns: [
