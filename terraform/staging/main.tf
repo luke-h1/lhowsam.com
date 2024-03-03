@@ -7,8 +7,8 @@ module "staging_infra" {
   source           = "../module"
   project_name     = "lhowsam"
   task_count       = 1
-  cpu              = 256
-  memory           = 512
+  cpu              = 512
+  memory           = 1024
   docker_image_tag = var.docker_image_tag
   domain           = "staging.lhowsam.com"
   max_capacity     = 1
