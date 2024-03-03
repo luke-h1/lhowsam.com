@@ -156,7 +156,7 @@ jobs:
            --build-arg SPOTIFY_CLIENT_ID=${{ env.SPOTIFY_CLIENT_ID }} \
            --build-arg SPOTIFY_CLIENT_SECRET=${{ env.SPOTIFY_CLIENT_SECRET }} \
            --build-arg NEXT_PUBLIC_URL=${{ env.TF_VAR_next_public_url }} \
-           --build-arg DOCKER_DEFAULT_PLATFORM=linux/arm64 \
+           --build-arg UNOPTIMIZED_IMAGES=true \
            -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile.production .
            docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 

@@ -67,6 +67,8 @@ const nextConfig = {
     optimizePackageImports: ['framer-motion'],
   },
   images: {
+    minimumCacheTTL: 60,
+    unoptimized: process.env.UNOPTIMIZED_IMAGES,
     remotePatterns: [
       { hostname: 'cdn.sanity.io' },
       { hostname: 'localhost' },
