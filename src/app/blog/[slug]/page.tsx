@@ -109,7 +109,7 @@ export default PostPage;
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = params;
 
-  const post = await postService.getPost(slug);
+  const post = await postService.getPost(slug, false);
 
   if (!post) {
     return {};
