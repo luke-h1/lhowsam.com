@@ -35,7 +35,8 @@ export async function GET(request: Request) {
   return new Response(null, {
     status: 302,
     headers: {
-      Location: `${process.env.NEXT_PUBLIC_URL}/${part}/${slug}`,
+      Location: `${process.env.NEXT_PUBLIC_URL}/${part}/${slug}?`,
+      draft: 'true',
     },
   });
 }
