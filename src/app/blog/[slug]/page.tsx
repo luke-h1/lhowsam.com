@@ -12,6 +12,7 @@ import imageService from '@frontend/services/imageService';
 import postService from '@frontend/services/postService';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 
 export const revalidate = siteConfig.defaultRevalidate;
@@ -25,7 +26,9 @@ interface Props {
 const PostPage = async ({ params }: Props) => {
   const { slug } = params;
 
-  const post = await postService.getPost(slug);
+  const { isEnabled } = draftMode();
+
+  const post = await postService.getPost(slug, isEnabled);
 
   if (!post) {
     notFound();
@@ -36,13 +39,13 @@ const PostPage = async ({ params }: Props) => {
     <Page heading={post.title}>
       <Box>
         <Image
-          src={imageService.urlFor(post.image.asset)}
+          src={imageService.urlFor(post.image.asset) ?? undefined}
           width={950}
           height={360}
           rounded
           priority
           placeholder="blur"
-          blurDataURL={imageService.urlFor(post.image.asset)}
+          blurDataURL={imageService.urlFor(post.image.asset) ?? undefined}
           alt={post.image.alt ?? post.title}
         />
         <Meta
@@ -58,7 +61,7 @@ const PostPage = async ({ params }: Props) => {
                   fontFamily="mono"
                 >
                   <FormattedDate testId="time">
-                    {post.publishedAt}
+                    {post.publishedAt ?? null}
                   </FormattedDate>
                 </Text>
               ),
@@ -109,7 +112,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await postService.getPost(slug);
 
   if (!post) {
-    notFound();
+    return {};
   }
 
   return {

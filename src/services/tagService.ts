@@ -1,5 +1,5 @@
 import { Tag } from '@frontend/types/sanity';
-import studioClient from '@frontend/utils/sanity.client';
+import { getSanityClient } from '@frontend/utils/sanity.client';
 import groq from 'groq';
 
 const allTagsQuery = groq`
@@ -10,7 +10,7 @@ const allTagsQuery = groq`
 
 const tagService = {
   async getTags(): Promise<Tag[]> {
-    return studioClient.fetch(allTagsQuery);
+    return getSanityClient().fetch(allTagsQuery);
   },
 };
 export default tagService;
