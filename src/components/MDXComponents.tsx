@@ -36,7 +36,7 @@ const MDXComponents = {
   h2: (props: any) => (
     <Heading
       {...props}
-      fontSize="xl"
+      fontSize="xxxl"
       color="foregroundNeutral"
       style={{
         marginBottom: '1.25rem',
@@ -47,7 +47,7 @@ const MDXComponents = {
     <Heading
       {...props}
       as="h3"
-      fontSize="lg"
+      fontSize="xl"
       color="foregroundNeutral"
       style={{
         marginBottom: '1.25rem',

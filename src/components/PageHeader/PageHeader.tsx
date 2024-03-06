@@ -12,7 +12,7 @@ interface PageHeaderProps {
 const PageHeader = ({ heading, description }: PageHeaderProps) => {
   return (
     <header className={styles.root}>
-      <Heading as="h1" fontSize="xxxl">
+      <Heading as="h1" fontSize="xxxl" color="foregroundAction">
         {heading}
       </Heading>
       {description && (
