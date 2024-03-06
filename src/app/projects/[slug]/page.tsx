@@ -11,6 +11,7 @@ import imageService from '@frontend/services/imageService';
 import projectService from '@frontend/services/projectService';
 import mdxToHtml from '@frontend/utils/mdxToHtml';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import { FiGithub } from 'react-icons/fi';
 
@@ -24,8 +25,9 @@ export const revalidate = siteConfig.defaultRevalidate;
 
 const ProjectPage = async ({ params }: Props) => {
   const { slug } = params;
+  const { isEnabled } = draftMode();
 
-  const project = await projectService.getProject(slug);
+  const project = await projectService.getProject(slug, isEnabled);
 
   if (!project) {
     notFound();
@@ -38,13 +40,13 @@ const ProjectPage = async ({ params }: Props) => {
       <Box>
         {project.image.asset && (
           <Image
-            src={imageService.urlFor(project.image.asset)}
+            src={imageService.urlFor(project.image.asset) ?? undefined}
             width={950}
             height={460}
             rounded
             priority
             placeholder="blur"
-            blurDataURL={imageService.urlFor(project.image.asset)}
+            blurDataURL={imageService.urlFor(project.image.asset) ?? undefined}
             alt={project.image.alt ?? project.title}
           />
         )}
@@ -99,7 +101,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await projectService.getProject(slug);
 
   if (!post) {
-    notFound();
+    return {};
   }
 
   return {
