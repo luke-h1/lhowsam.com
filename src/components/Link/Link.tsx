@@ -16,6 +16,7 @@ const Link = ({
   variant = 'neutral',
   className,
   href,
+  prefetch = true,
   ...props
 }: Props) => {
   const isAbsolute = typeof href === 'string' && href.startsWith('http');
@@ -39,6 +40,7 @@ const Link = ({
     <NextLink
       href={href}
       className={clsx(styles.variants[variant], className)}
+      prefetch={prefetch}
       {...props}
     >
       {children}
