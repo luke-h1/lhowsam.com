@@ -1,6 +1,6 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { Dispatch, SetStateAction } from 'react';
+import Link from '../Link/Link';
 import VisuallyHidden from '../VisuallyHidden/VisuallyHidden';
 import * as styles from './Banner.css';
 
