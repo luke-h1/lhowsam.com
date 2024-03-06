@@ -81,7 +81,7 @@ const postService = {
   async getSlugs(): Promise<Post[]> {
     return getSanityClient().fetch(slugsQuery);
   },
-  async getPost(slug: string, draft: boolean): Promise<Post> {
+  async getPost(slug: string, draft = false): Promise<Post> {
     return getSanityClient(draft).fetch(getPostQuery, {
       slug,
     });
