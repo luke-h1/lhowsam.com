@@ -1,6 +1,6 @@
 import { Post } from '@frontend/types/sanity';
 import groq from 'groq';
-import studioClient from '../utils/sanity.client';
+import { getSanityClient } from '../utils/sanity.client';
 
 const slugsQuery = groq`
 *[_type == "post"] {
@@ -79,18 +79,18 @@ export const getPostQuery = groq`
 
 const postService = {
   async getSlugs(): Promise<Post[]> {
-    return studioClient.fetch(slugsQuery);
+    return getSanityClient().fetch(slugsQuery);
   },
-  async getPost(slug: string): Promise<Post> {
-    return studioClient.fetch(getPostQuery, {
+  async getPost(slug: string, draft = false): Promise<Post> {
+    return getSanityClient(draft).fetch(getPostQuery, {
       slug,
     });
   },
   async getAllPosts(): Promise<Post[]> {
-    return studioClient.fetch(listAllPosts);
+    return getSanityClient().fetch(listAllPosts);
   },
   async getRecentPosts(): Promise<Post[]> {
-    return studioClient.fetch(recentPostsQuery);
+    return getSanityClient().fetch(recentPostsQuery);
   },
 };
 
