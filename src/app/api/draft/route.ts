@@ -4,7 +4,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const secret = searchParams.get('secret');
   const slug = searchParams.get('slug');
-  const documentType = searchParams.get('documentType');
+  const documentType = searchParams.get('type');
 
   const { SANITY_DRAFT_SECRET } = process.env;
 
