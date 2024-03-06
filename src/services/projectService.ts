@@ -46,7 +46,7 @@ const projectService = {
   async getAllProjects(): Promise<Project[]> {
     return getSanityClient().fetch(listAllProjects);
   },
-  async getProject(slug: string, draft = false): Promise<Project> {
+  async getProject(slug: string, draft: boolean): Promise<Project> {
     return getSanityClient(draft).fetch(getProjectQuery, {
       slug,
     });
