@@ -9,6 +9,7 @@ export default async function fetcher() {
     {
       headers: {
         'Content-Type': 'application/json',
+        'x-consumer': 'lhowsam.com',
       },
       method: 'GET',
     },
