@@ -27,16 +27,22 @@ const AnimatedBars = () => {
 
 export default function NowPlaying() {
   const { isMounted } = useMounted();
-  const { data, error, isLoading } = useSWR<Song>(`/api/now-playing`, fetcher, {
-    refreshInterval: 8000,
-    fallback: {
-      isPlaying: false,
-      title: 'Not Playing',
-      artist: 'Spotify',
-      albumImageUrl: '',
-      songUrl: '',
+  const useNewEndpoint = process.env.NEXT_PUBLIC_URL !== 'lhowsam.com';
+
+  const { data, error, isLoading } = useSWR<Song>(
+    useNewEndpoint ? process.env.NEXT_PUBLIC_NEW_ENDPOINT : `/api/now-playing`,
+    fetcher,
+    {
+      refreshInterval: 8000,
+      fallback: {
+        isPlaying: false,
+        title: 'Not Playing',
+        artist: 'Spotify',
+        albumImageUrl: '',
+        songUrl: '',
+      },
     },
-  });
+  );
 
   return isMounted && !error && !isLoading ? (
     <div className={styles.songWrapper}>

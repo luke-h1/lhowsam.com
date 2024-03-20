@@ -1,4 +1,4 @@
-resource "aws_acm_certificate" "domain" {
+resource "aws_acm_certificate" "root_domain" {
   domain_name       = var.domain
   validation_method = "DNS"
   tags = merge(var.tags, {
@@ -39,6 +39,7 @@ resource "aws_route53_record" "domain" {
   type            = each.value.type
   zone_id         = data.aws_route53_zone.domain.zone_id
 }
+
 
 resource "aws_acm_certificate_validation" "domain" {
   certificate_arn         = aws_acm_certificate.domain.arn
