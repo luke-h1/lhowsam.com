@@ -27,10 +27,9 @@ const AnimatedBars = () => {
 
 export default function NowPlaying() {
   const { isMounted } = useMounted();
-  const useNewEndpoint = process.env.NEXT_PUBLIC_URL !== 'lhowsam.com';
 
   const { data, error, isLoading } = useSWR<Song>(
-    useNewEndpoint ? process.env.NEXT_PUBLIC_NEW_ENDPOINT : `/api/now-playing`,
+    process.env.NEXT_PUBLIC_NEW_ENDPOINT ?? `/api/now-playing`,
     fetcher,
     {
       refreshInterval: 8000,
