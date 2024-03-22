@@ -1,9 +1,6 @@
-// type Method = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH' | 'OPTIONS' | 'HEAD';
-
 export default async function fetcher() {
   return fetch(
-    process.env.NEXT_PUBLIC_NEW_ENDPOINT ??
-      `${process.env.NEXT_PUBLIC_URL}/api/now-playing`,
+    `${process.env.NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL}/api/now-playing`,
     {
       headers: {
         'Content-Type': 'application/json',

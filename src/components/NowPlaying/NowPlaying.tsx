@@ -29,9 +29,7 @@ export default function NowPlaying() {
   const { isMounted } = useMounted();
 
   const { data, error, isLoading } = useSWR<Song>(
-    process.env.NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL
-      ? `${process.env.NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL}/api/now-playing`
-      : `/api/now-playing`,
+    `${process.env.NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL}/api/now-playing`,
     fetcher,
     {
       refreshInterval: 8000,
