@@ -133,7 +133,7 @@ jobs:
 
       - name: Terraform plan
         id: plan
-        run: terraform plan -no-color -input=false
+        run: terraform plan -no-color
         working-directory: ${{ env.TERRAFORM_ROOT }}
 
       - uses: actions/github-script@v6
