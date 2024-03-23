@@ -129,11 +129,6 @@ jobs:
             ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
 
-      # - run: npx playwright install --with-deps
-      #   if: steps.playwright-cache.outputs.cache-hit != 'true'
-
-      # - run: npx playwright install-deps
-      #   if: steps.playwright-cache.outputs.cache-hit != 'true'
 
       - run: make e2e-install-browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
@@ -147,6 +142,7 @@ jobs:
           path: playwright-report/
 
       - name: Deploy development
+        working-directory: ./apps/frontend
         run: vc -f --prod --token ${VERCEL_TOKEN}
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
