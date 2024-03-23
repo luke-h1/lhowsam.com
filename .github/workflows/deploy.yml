@@ -142,7 +142,6 @@ jobs:
           path: playwright-report/
 
       - name: Deploy development
-        working-directory: ./apps/frontend
         run: vc -f --prod --token ${VERCEL_TOKEN}
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
