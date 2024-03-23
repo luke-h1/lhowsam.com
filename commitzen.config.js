@@ -28,6 +28,7 @@ module.exports = {
     { name: 'frontend' },
     { name: 'infrastructure' },
     { name: 'documentation' },
+    { name: 'tooling' },
     { name: 'ci' },
   ],
   allowCustomScopes: true,
