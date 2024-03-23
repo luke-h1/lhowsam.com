@@ -34,4 +34,6 @@ test-results
 newrelic_agent.log
 .terraform
 playwright-report
+.turbo*.tfvars
+*.tfstate
 .turbo
