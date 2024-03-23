@@ -25,7 +25,8 @@
     "incremental": true,
     "paths": {
       "@frontend/*": ["./apps/frontend/src/*"],
-      "@frontend-test/*": ["./apps/frontend/src/test/*"]
+      "@frontend-test/*": ["./apps/frontend/src/test/*"],
+      "@lambda/*": ["./apps/lambda/src/*"]
     },
     "target": "es6",
     "plugins": [
