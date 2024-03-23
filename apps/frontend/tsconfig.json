@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "paths": {
+      "@frontend/*": ["./src/*"],
+      "@frontend-test/*": ["./src/test/*"]
+    },
+    "incremental": true,
+    "target": "es6",
+    "baseUrl": "."
+  },
+  "include": ["src", "next-env.d.ts", ".next/types/**/*.ts"]
+}

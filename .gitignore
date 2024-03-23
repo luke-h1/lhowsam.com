@@ -33,3 +33,5 @@ test-results
 .idea
 newrelic_agent.log
 .terraform
+playwright-report
+.turbo

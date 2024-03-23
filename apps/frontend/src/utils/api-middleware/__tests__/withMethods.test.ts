@@ -1,4 +1,4 @@
-import { createApiMocks } from '@frontend/test/apiRouteMocks';
+import { createApiMocks } from '@frontend-test/apiRouteMocks';
 import { withMethods } from '../withMethods';
 
 describe('witHMethods', () => {
