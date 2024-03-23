@@ -1,0 +1,22 @@
+{
+  "name": "lambda",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "echo no tests yet",
+    "tsc": "tsc --noEmit",
+    "clean": "rm -rf ./dist",
+    "build": "esbuild --bundle --minify --keep-names --sourcemap --sources-content=false --target=node20 --platform=node --outfile=dist/index.js src/index.ts"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.134",
+    "@types/debug": "^4.1.12",
+    "@types/node": "^20.11.25",
+    "esbuild": "^0.20.1",
+    "typescript": "^5.4.2"
+  },
+  "dependencies": {
+    "aws-xray-sdk": "^3.5.4",
+    "axios": "^1.6.7",
+    "debug": "^4.3.4"
+  }
+}

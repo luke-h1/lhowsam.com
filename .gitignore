@@ -34,6 +34,11 @@ test-results
 newrelic_agent.log
 .terraform
 playwright-report
-.turbo*.tfvars
+.turbo
+*.tfvars
 *.tfstate
 .turbo
+dist
+lambda.zip
+.terraform.lock.hcl
+certs
