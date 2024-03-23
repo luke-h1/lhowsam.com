@@ -8,8 +8,6 @@ on:
   workflow_dispatch:
 env:
     TERRAFORM_ROOT: terraform/lambda
-    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     PNPM_VERSION: 8.13.1
     TF_CLOUD_ORGANIZATION: "luke-h1"
     TF_API_TOKEN: ${{ secrets.TF_API_TOKEN }}
@@ -108,10 +106,6 @@ jobs:
         id: init
         # run: terraform init
         run: terraform init -backend-config="region=eu-west-2" -backend-config="bucket=nowplaying-staging-terraform-state" -backend-config="key=vpc/staging.tfstate" -input=false
-        working-directory: ${{ env.TERRAFORM_ROOT }}
-
-      - name: terraform workspace select
-        run: terraform workspace select -or-create staging
         working-directory: ${{ env.TERRAFORM_ROOT }}
 
       - name: Terraform fmt -check
