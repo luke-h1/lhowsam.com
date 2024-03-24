@@ -139,7 +139,6 @@ jobs:
       - name: build lambda
         run: ./scripts/build-lambda.sh
 
-
       - name: Create Plan Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
         id: plan-run
