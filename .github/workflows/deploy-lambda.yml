@@ -139,9 +139,11 @@ jobs:
 
       - name: Plan
         run: terraform plan -out=tfplan -input=false
+        working-directory: ${{ env.TERRAFORM_ROOT }}
 
       - name: choice
         run: echo "choice"
 
       - name: apply
         run: terraform apply -auto-approve tfplan
+        working-directory: ${{ env.TERRAFORM_ROOT }}
