@@ -1,3 +1,9 @@
+data "archive_file" "lambda_archive" {
+  type        = "zip"
+  source_dir  = "${path.module}/dist"
+  output_path = "${path.module}/lambda.zip"
+}
+
 resource "aws_iam_role" "lambda_exec" {
   name = "nowplaying-${var.env}-exec-role"
   assume_role_policy = jsonencode({
@@ -36,13 +42,14 @@ resource "aws_iam_role_policy_attachment" "lambda_policy" {
 }
 
 resource "aws_lambda_function" "lambda" {
-  function_name = "api-gw-lambda-${var.env}"
-  runtime       = "nodejs20.x"
-  handler       = "index.handler"
-  role          = aws_iam_role.lambda_exec.arn
-  filename      = "${path.module}/lambda.zip"
-  timeout       = 30
-  memory_size   = 128
+  function_name    = "api-gw-lambda-${var.env}"
+  runtime          = "nodejs20.x"
+  handler          = "index.handler"
+  role             = aws_iam_role.lambda_exec.arn
+  filename         = "${path.module}/lambda.zip"
+  source_code_hash = data.archive_file.lambda_archive.output_base64sha256
+  timeout          = 30
+  memory_size      = 128
 
   environment {
     variables = var.env_vars

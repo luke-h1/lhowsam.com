@@ -3,4 +3,5 @@
 cd apps/lambda
 pnpm build
 cd ../../
-zip -r terraform/lambda/dist/lambda.zip apps/lambda/dist
+cd terraform/lambda
+cp -r ../../apps/lambda/dist/ dist
