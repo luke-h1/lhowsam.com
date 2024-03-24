@@ -189,11 +189,6 @@ jobs:
         if: steps.plan.outcome == 'failure'
         run: exit 1
 
-      - uses: trstringer/manual-approval@v1
-        with:
-          secret: ${{ github.TOKEN }}
-          approvers: luke-h1
-    
       - name: Upload Configuration
         uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
         id: apply-upload
