@@ -139,6 +139,9 @@ jobs:
       - name: build lambda
         working-directory: apps/lambda
         run: pnpm build
+
+      - name: copy dist
+        run: cp -r apps/lambda/dist/ terraform/lambda/dist
       
       - name: Create Plan Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0

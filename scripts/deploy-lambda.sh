@@ -6,6 +6,7 @@ if [ "$1" == "staging" ]; then
   cd apps/lambda 
   pnpm build
   cd ../../
+  cp -r apps/lambda/dist/ terraform/lambda/dist
   cd terraform/lambda
   terraform apply -var-file="envs/staging.tfvars" -auto-approve
 elif [ "$1" == "live" ]; then
