@@ -2,7 +2,7 @@ name: UI tests (dev)
 on:
   workflow_dispatch:
   schedule: 
-    - cron: '0 */4 * * *'
+    - cron: '0 */4 * * *'    
 env: 
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
   BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
@@ -68,7 +68,6 @@ jobs:
 
       - name: Get installed Playwright version
         id: playwright-version
-        working-directory: packages/frontend
         run: echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./package.json').devDependencies['@playwright/test'])")" >> $GITHUB_ENV
 
       - name: Cache playwright binaries
@@ -78,6 +77,12 @@ jobs:
           path: |
             ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
+
+      # - run: npx playwright install --with-deps
+      #   if: steps.playwright-cache.outputs.cache-hit != 'true'
+
+      # - run: npx playwright install-deps
+      #   if: steps.playwright-cache.outputs.cache-hit != 'true'
 
       - run: make e2e-install-browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'

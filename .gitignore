@@ -33,12 +33,3 @@ test-results
 .idea
 newrelic_agent.log
 .terraform
-playwright-report
-.turbo
-*.tfvars
-*.tfstate
-.turbo
-dist
-lambda.zip
-.terraform.lock.hcl
-certs

@@ -18,32 +18,32 @@ e2e-install-browsers:
 
 .PHONY: e2e-local-ci
 e2e-local-ci:
-	cd apps/frontend && BASE_URL='http://localhost:3000' ./node_modules/.bin/playwright test --config=playwright-ci.config.ts
+	BASE_URL='http://localhost:3000' ./node_modules/.bin/playwright test --config=playwright-ci.config.ts
 
 .PHONY: e2e-local-open
 e2e-local-open:
-	cd apps/frontend && BASE_URL='http://localhost:3000' ./node_modules/.bin/playwright test --headed --config=playwright-common.config.ts
+	BASE_URL='http://localhost:3000' ./node_modules/.bin/playwright test --headed --config=playwright-common.config.ts
 
 .PHONY: e2e-dev
 e2e-dev:
-	cd apps/frontend && BASE_URL='https://dev.lhowsam.com' ./node_modules/.bin/playwright test --config=playwright-dev.config.ts
+	BASE_URL='https://dev.lhowsam.com' ./node_modules/.bin/playwright test --config=playwright-dev.config.ts
 
 .PHONY: e2e-dev-open
 e2e-dev-open:
-	cd apps/frontend && BASE_URL='https://dev.lhowsam.com' ./node_modules/.bin/playwright test  --headed --config=playwright-dev.config.ts
+	BASE_URL='https://dev.lhowsam.com' ./node_modules/.bin/playwright test  --headed --config=playwright-dev.config.ts
 
 .PHONY: e2e-staging
 e2e-staging:
-	cd apps/frontend && BASE_URL='https://staging.lhowsam.com' ./node_modules/.bin/playwright test --config=playwright-common.config.ts
+	BASE_URL='https://staging.lhowsam.com' ./node_modules/.bin/playwright test --config=playwright-common.config.ts
 
 .PHONY: e2e-staging-open
 e2e-staging-open:
-	cd apps/frontend && BASE_URL='https://staging.lhowsam.com' ./node_modules/.bin/playwright test --headed --config=playwright-common.config.ts
+	BASE_URL='https://staging.lhowsam.com' ./node_modules/.bin/playwright test --headed --config=playwright-common.config.ts
 
 .PHONY: e2e-prod
 e2e-prod:
-	cd apps/frontend && BASE_URL='https://lhowsam.com' ./node_modules/.bin/playwright test --config=playwright-common.config.ts
+	BASE_URL='https://lhowsam.com' ./node_modules/.bin/playwright test --config=playwright-common.config.ts
 
 .PHONY: e2e-prod-open
 e2e-prod-open:
-	cd apps/frontend && BASE_URL='https://lhowsam.com' ./node_modules/.bin/playwright test --headed  --config=playwright-common.config.ts
+	BASE_URL='https://lhowsam.com' ./node_modules/.bin/playwright test --headed  --config=playwright-common.config.ts

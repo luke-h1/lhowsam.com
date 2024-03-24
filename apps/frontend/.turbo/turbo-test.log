@@ -1,47 +1,0 @@
-
-> frontend@0.1.0 test /Users/lukehowsam/srv/dev/lhowsam.com/apps/frontend
-> jest
-
-[1m[2mDetermining test suites to run...[22m[22m[999D[K
-[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/components/__tests__/[22m[1mFormattedDate.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/components/__tests__/[22m[1mFormattedDate.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/components/__tests__/[22m[1mFormattedDate.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/components/__tests__/[22m[1mFormattedDate.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/components/__tests__/[22m[1mFormattedDate.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/components/__tests__/[22m[1mFormattedDate.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/components/__tests__/[22m[1mFormattedDate.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/components/__tests__/[22m[1mFormattedDate.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/components/__tests__/[22m[1mFormattedDate.test.tsx[22m
-[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2msrc/components/__tests__/[22m[1mFormattedDate.test.tsx[22m
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/components/__tests__/[22m[1mFormattedDate.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/components/__tests__/[22m[1mFormattedDate.test.tsx[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/utils/api-middleware/__tests__/[22m[1mwithMethods.test.ts[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/utils/api-middleware/__tests__/[22m[1mwithMethods.test.ts[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/utils/api-middleware/__tests__/[22m[1mwithMethods.test.ts[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/utils/api-middleware/__tests__/[22m[1mwithMethods.test.ts[22m
-[K[1A[K[1A
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/utils/api-middleware/__tests__/[22m[1mwithMethods.test.ts[22m
-[K[1A[K[1A[0m[7m[1m[32m PASS [39m[22m[27m[0m [2msrc/utils/api-middleware/__tests__/[22m[1mwithMethods.test.ts[22m
-
-[0m[7m[33m[1m RUNS [22m[39m[27m[0m [2msrc/utils/api-middleware/__tests__/[22m[1mwithMethods.test.ts[22m
-[K[1A[K[1A[999D[K
-[1mTest Suites: [22m[1m[32m2 passed[39m[22m, 2 total
-[1mTests:       [22m[1m[32m11 passed[39m[22m, 11 total
-[1mSnapshots:   [22m0 total
-[1mTime:[22m        0.719 s, estimated 1 s
-[2mRan all test suites[22m[2m.[22m
