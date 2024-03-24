@@ -22,12 +22,11 @@
     "sourceMap": true,
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
-    "incremental": true,
     "paths": {
-      "@frontend/*": ["./apps/frontend/src/*"],
-      "@frontend-test/*": ["./apps/frontend/src/test/*"],
-      "@lambda/*": ["./apps/lambda/src/*"]
+      "@frontend/*": ["./src/*"],
+      "@frontend-test/*": ["src/test/*"]
     },
+    "incremental": true,
     "target": "es6",
     "plugins": [
       {
@@ -35,5 +34,6 @@
       }
     ]
   },
-  "exclude": ["node_modules", ".next", "out", "dist", "build"]
+  "include": ["src", "next-env.d.ts", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", ".next"]
 }

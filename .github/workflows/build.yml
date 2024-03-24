@@ -11,8 +11,6 @@ env:
   SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
   SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
   NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  TURBO_TEAM: luke-h1
 
 jobs:
   build:
@@ -41,14 +39,6 @@ jobs:
         with:
           version: ${{ env.PNPM_VERSION }}
 
-      - name: Cache turbo build setup
-        uses: actions/cache@v4
-        with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
- 
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
@@ -69,7 +59,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm i
+        run: pnpm i --no-frozen-lockfile
 
       - uses: actions/labeler@v4
         with:
@@ -98,16 +88,15 @@ jobs:
         with:
           # if you use a custom build directory, replace all instances of `.next` in this file with your build directory
           # ex: if your app builds to `dist`, replace `.next` with `dist`
-          path: apps/frontend/.next/cache
+          path: .next/cache
           # change this if you prefer a more strict cache
           key: ${{ runner.os }}-build-${{ env.cache-name }}
 
       - name: build
-        run: pnpm build:frontend
+        run: pnpm build
 
       - name: Get installed Playwright version
         id: playwright-version
-        working-directory: apps/frontend
         run: echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./package.json').devDependencies['@playwright/test'])")" >> $GITHUB_ENV
 
       - name: Cache playwright binaries

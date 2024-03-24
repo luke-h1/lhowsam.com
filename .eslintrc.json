@@ -48,7 +48,7 @@
     "import/no-unresolved": [
       "error",
       {
-        "ignore": ["^aws-lambda"]
+        "ignore": ["^(part|all):"]
       }
     ],
     "import/order": [

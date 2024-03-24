@@ -26,10 +26,8 @@ module.exports = {
   ],
   scopes: [
     { name: 'frontend' },
-    { name: 'lambda' },
     { name: 'infrastructure' },
     { name: 'documentation' },
-    { name: 'tooling' },
     { name: 'ci' },
   ],
   allowCustomScopes: true,
