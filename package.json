@@ -14,7 +14,7 @@
     "start": "next start",
     "tsc": "tsc --noEmit",
     "gen-env": "gen-env-types .env -o src/types/env.d.ts -e .",
-    "lint": "eslint \"./src/**/*.{js, jsx,ts,tsx}\" --quiet --fix && eslint \"./**/*.{js, jsx,ts,tsx}\" --quiet --fix",
+    "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx .",
     "lint:style": "stylelint --fix src/**/*.{scss,css}",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",

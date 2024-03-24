@@ -221,11 +221,10 @@ jobs:
           run: pnpm tsc
           
         - name: build
-          run: pnpm build:frontend
+          run: pnpm build
 
         - name: Get installed Playwright version
           id: playwright-version
-          working-directory: ./apps/frontend
           run: echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./package.json').devDependencies['@playwright/test'])")" >> $GITHUB_ENV
 
         - name: Cache playwright binaries
