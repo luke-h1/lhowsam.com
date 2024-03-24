@@ -142,7 +142,10 @@ jobs:
 
       - name: copy dist
         run: cp -r apps/lambda/dist/ terraform/lambda/dist
-      
+
+      - name: ls dist in terraform
+        run: ls terraform/lambda/dist
+
       - name: Create Plan Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
         id: plan-run
