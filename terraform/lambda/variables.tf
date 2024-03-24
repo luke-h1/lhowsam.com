@@ -27,3 +27,18 @@ variable "sub_domain" {
   type        = string
   description = "The sub domain for the route53 record"
 }
+
+variable "private_key" {
+  type        = string
+  description = "The private key for the certificate"
+}
+
+variable "certificate_body" {
+  type        = string
+  description = "The certificate body for the certificate"
+}
+
+variable "certificate_chain" {
+  type        = string
+  description = "The certificate chain for the certificate"
+}
