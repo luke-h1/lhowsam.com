@@ -100,10 +100,6 @@ jobs:
       - name: tsc
         run: pnpm tsc
 
-      - name: build lambda
-        working-directory: apps/lambda
-        run: pnpm build
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
@@ -139,6 +135,10 @@ jobs:
           workspace: nowplaying-staging
           directory: ${{ env.TERRAFORM_ROOT }}
           speculative: true
+
+      - name: build lambda
+        working-directory: apps/lambda
+        run: pnpm build
       
       - name: Create Plan Run
         uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
@@ -147,6 +147,7 @@ jobs:
           workspace: nowplaying-staging
           configuration_version: ${{ steps.plan-upload.outputs.configuration_version_id }}
           plan_only: true
+          message: "Plan Run from GitHub Actions CI ${{ github.sha }}"
 
 
       - name: Update PR
