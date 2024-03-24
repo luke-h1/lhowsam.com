@@ -11,6 +11,14 @@ env:
     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     PNPM_VERSION: 8.13.1
+    TF_VAR_env: ${{ secrets.ENV }}
+    TF_VAR_env_vars: ${{ secrets.ENV_VARS }}
+    TF_VAR_zone_id: ${{ secrets.LAMBDA_ZONE_ID }}
+    TF_VAR_root_domain: ${{ secrets.ROOT_DOMAIN }}
+    TF_VAR_sub_domain: ${{ secrets.SUB_DOMAIN }}
+    TF_VAR_certificate_body: ${{ secrets.STAGING_LAMBDA_CERTIFICATE_BODY }}
+    TF_VAR_certificate_chain: ${{ secrets.STAGING_LAMBDA_CERTIFICATE_CHAIN }}
+    TF_VAR_private_key: ${{ secrets.STAGING_LAMBDA_PRIVATE_KEY }}
 jobs:
   deploy-staging:
     runs-on: ubuntu-latest
@@ -106,17 +114,6 @@ jobs:
           aws-region: eu-west-2
           mask-aws-account-id: true
 
-      - name: Step name
-        uses: aws-actions/aws-secretsmanager-get-secrets@v1
-        with:
-          secret-ids: |
-            TF_VAR_env, env
-            TF_VAR_env_vars, env_vars
-            TF_VAR_zone_id, zone_id
-            TF_VAR_root_domain, root_domain
-            TF_VAR_sub_domain, sub_dommain
-          parse-json-secrets: true
-
       - name: Terraform init
         id: init
         # run: terraform init
@@ -136,14 +133,6 @@ jobs:
         id: validate
         run: terraform validate
         working-directory: ${{ env.TERRAFORM_ROOT }}
-
-      - name: Upload Configuration
-        uses: hashicorp/tfc-workflows-github/actions/upload-configuration@v1.0.0
-        id: plan-upload
-        with:
-          workspace: nowplaying-staging
-          directory: ${{ env.TERRAFORM_ROOT }}
-          speculative: true
 
       - name: build lambda
         run: ./scripts/build-lambda.sh
