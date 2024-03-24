@@ -1,7 +1,7 @@
 # required to add certificates + DNS for the API gateway rather than let cloudflare handle the routing
 
 locals {
-  domain_name = var.env == "live" ? "nowplaying.${var.root_domain}" : "nowplaying-${var.env}.${var.root_domain}"
+  domain_name = var.env == "live" ? "nowplaying.${var.root_domain}" : "nowplaying-staging.${var.root_domain}"
 }
 
 resource "aws_acm_certificate" "root_domain" {
