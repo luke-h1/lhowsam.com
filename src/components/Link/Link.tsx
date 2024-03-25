@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import NextLink from 'next/link';
 import type { LinkProps } from 'next/link';
-import { ReactNode } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 import * as styles from './Link.css';
 
 type Props = {
@@ -9,6 +9,7 @@ type Props = {
   variant?: 'highlight' | 'neutral';
   className?: string;
   href: string;
+  css?: CSSProperties;
 } & Omit<LinkProps, 'href'>;
 
 const Link = ({
@@ -17,6 +18,7 @@ const Link = ({
   className,
   href,
   prefetch = true,
+  css,
   ...props
 }: Props) => {
   const isAbsolute = typeof href === 'string' && href.startsWith('http');
@@ -28,6 +30,9 @@ const Link = ({
         rel={isAbsolute ? 'noopener noreferrer' : undefined}
         target={isAbsolute ? '_blank' : undefined}
         className={clsx(styles.variants[variant], className)}
+        style={{
+          ...css,
+        }}
         {...props}
         href={href}
       >
@@ -41,6 +46,9 @@ const Link = ({
       href={href}
       className={clsx(styles.variants[variant], className)}
       prefetch={prefetch}
+      style={{
+        ...css,
+      }}
       {...props}
     >
       {children}
