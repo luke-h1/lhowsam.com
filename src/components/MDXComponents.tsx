@@ -21,7 +21,15 @@ const MDXComponents = {
       />
     );
   },
-  a: (props: any) => <Link {...props} variant="highlight" />,
+  a: (props: any) => (
+    <Link
+      {...props}
+      variant="highlight"
+      css={{
+        textDecoration: 'underline',
+      }}
+    />
+  ),
   p: (props: any) => (
     <Text
       {...props}

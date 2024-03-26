@@ -11,6 +11,7 @@ My website & blog
 - [Jest](https://jestjs.io)
 - [MDX](https://github.com/mdx-js/mdx)
 - [Vercel](https://vercel.com)
+- [AWS lambda](https://aws.amazon.com/lambda/)
 - [Sanity.io](https://sanity.io)
 
 <br />
@@ -29,8 +30,12 @@ My website & blog
 
 ## Environments
 
-| Environment | URL                         |
-| ----------- | --------------------------- |
-| Production  | https://lhowsam.com         |
-| Development | https://dev.lhowsam.com     |
-| Staging     | https://staging.lhowsam.com |
+| Environment | URL                     |
+| ----------- | ----------------------- |
+| Production  | https://lhowsam.com     |
+| Development | https://dev.lhowsam.com |
+
+## Supporting repositories
+
+- [AWS lambdas](https://github.com/luke-h1/lho-lambda)
+- [Sanity studio](https://github.com/luke-h1/lhowsam-studio)

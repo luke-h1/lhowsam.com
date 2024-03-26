@@ -11,6 +11,8 @@ env:
   SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
   SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
   NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
+  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
+  TURBO_TEAM: luke-h1
 
 jobs:
   build:
@@ -59,7 +61,7 @@ jobs:
             ${{ runner.os }}-pnpm-store-
 
       - name: Install dependencies
-        run: pnpm i --no-frozen-lockfile
+        run: pnpm i
 
       - uses: actions/labeler@v4
         with:
@@ -88,7 +90,7 @@ jobs:
         with:
           # if you use a custom build directory, replace all instances of `.next` in this file with your build directory
           # ex: if your app builds to `dist`, replace `.next` with `dist`
-          path: .next/cache
+          path: apps/frontend/.next/cache
           # change this if you prefer a more strict cache
           key: ${{ runner.os }}-build-${{ env.cache-name }}
 
@@ -106,12 +108,6 @@ jobs:
           path: |
             ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
-
-      # - run: npx playwright install --with-deps
-      #   if: steps.playwright-cache.outputs.cache-hit != 'true'
-
-      # - run: npx playwright install-deps
-      #   if: steps.playwright-cache.outputs.cache-hit != 'true'
 
       - run: make e2e-install-browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
