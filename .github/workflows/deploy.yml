@@ -109,7 +109,7 @@ jobs:
         with:
           # if you use a custom build directory, replace all instances of `.next` in this file with your build directory
           # ex: if your app builds to `dist`, replace `.next` with `dist`
-          path: ./apps/frontend/.next/cache
+          path: .next/cache
           # change this if you prefer a more strict cache
           key: ${{ runner.os }}-build-${{ env.cache-name }}
 
@@ -240,7 +240,7 @@ jobs:
           with:
             # if you use a custom build directory, replace all instances of `.next` in this file with your build directory
             # ex: if your app builds to `dist`, replace `.next` with `dist`
-            path: ./apps/frontend/.next/cache
+            path: .next/cache
             # change this if you prefer a more strict cache
             key: ${{ runner.os }}-build-${{ env.cache-name }}
 
@@ -264,7 +264,6 @@ jobs:
  
         - name: Deploy live
           if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-          working-directory: ./apps/frontend
           run: |
             vc -f --prod --token ${VERCEL_TOKEN}
           env:
