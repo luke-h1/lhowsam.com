@@ -172,11 +172,17 @@ jobs:
             fetch-depth: 0
             ref: ${{ github.head_ref }}
 
+        - name: Setup pnpm
+          uses: pnpm/action-setup@v2
+          with:
+            version: ${{ env.PNPM_VERSION }}
+
         - name: Setup Node
           uses: actions/setup-node@v3
           with:
             node-version-file: .nvmrc
             cache: pnpm
+
         - name: Get pnpm store directory
           shell: bash
           run: |
@@ -204,8 +210,15 @@ jobs:
             version: ${{ env.PNPM_VERSION }}
             run_install: false
 
-        - name: Install dependencies 
+        - name: Install dependencies
           run: pnpm i
+
+        - uses: actions/labeler@v4
+          with:
+            sync-labels: true
+
+        - name: Check commit message
+          run: pnpm commitlint --from=HEAD^1
 
         - name: format:check
           run: pnpm format:check
@@ -218,7 +231,19 @@ jobs:
 
         - name: tsc
           run: pnpm tsc
-          
+
+        - name: Restore next build
+          uses: actions/cache@v3
+          id: restore-build-cache
+          env:
+            cache-name: cache-next-build
+          with:
+            # if you use a custom build directory, replace all instances of `.next` in this file with your build directory
+            # ex: if your app builds to `dist`, replace `.next` with `dist`
+            path: ./apps/frontend/.next/cache
+            # change this if you prefer a more strict cache
+            key: ${{ runner.os }}-build-${{ env.cache-name }}
+
         - name: build
           run: pnpm build
 
