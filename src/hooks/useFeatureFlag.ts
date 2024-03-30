@@ -1,7 +1,18 @@
 import featureFlags, { AllowedFeatureFlag } from '@frontend/utils/featureFlags';
+import { isServer } from './isServer';
 
 const useFeatureFlag = (name: AllowedFeatureFlag): boolean => {
   const featureFlag = featureFlags.find(flag => flag.name === name);
+
+  const override = featureFlag?.override?.cookie;
+
+  if (
+    override &&
+    !isServer &&
+    document.cookie.includes(`${override?.name}=${override?.value}`)
+  ) {
+    return true;
+  }
 
   if (!featureFlag) {
     // eslint-disable-next-line no-console

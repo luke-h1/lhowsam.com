@@ -10,10 +10,6 @@ import useFeatureFlag from '@frontend/hooks/useFeatureFlag';
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
-export const metadata: Metadata = {
-  title: 'Talks',
-};
-
 export interface Talk {
   id: string;
   title: string;
@@ -57,15 +53,16 @@ const talks: Talk[] = [
   },
 ];
 
-const TalksPage = async () => {
+const TalksContent = () => {
+  'use client';
+
   const talksEnabled = useFeatureFlag('talks');
 
   if (!talksEnabled) {
     return redirect('/');
   }
-
   return (
-    <Page>
+    <>
       <Box
         as="header"
         textAlign={{ md: 'center' }}
@@ -116,6 +113,18 @@ const TalksPage = async () => {
             ))}
         </List>
       </Box>
+    </>
+  );
+};
+export const metadata: Metadata = {
+  title: 'Talks',
+  description: 'Talks I have given at meetups and events',
+};
+
+const TalksPage = () => {
+  return (
+    <Page>
+      <TalksContent />
     </Page>
   );
 };
