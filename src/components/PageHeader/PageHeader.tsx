@@ -5,7 +5,7 @@ import Text from '../Text/Text';
 import * as styles from './PageHeader.css';
 
 interface PageHeaderProps {
-  heading: string;
+  heading?: string;
   description?: string;
 }
 
