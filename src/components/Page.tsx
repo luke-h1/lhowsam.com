@@ -12,7 +12,7 @@ interface PageProps {
   children: ReactNode;
   bannerOpen?: boolean;
   showFooter?: boolean;
-  heading: string;
+  heading?: string;
   description?: string;
 }
 

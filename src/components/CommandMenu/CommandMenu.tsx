@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unknown-property */
+import useFeatureFlag from '@frontend/hooks/useFeatureFlag';
 import { useAppDispatch } from '@frontend/store/hooks';
 import { setToast } from '@frontend/store/reducers/toastReducer';
 import { Command, useCommandState } from 'cmdk';
@@ -18,6 +19,7 @@ import {
   Copy,
   AtSign,
   Twitter,
+  Triangle,
 } from 'react-feather';
 import { tinykeys } from 'tinykeys';
 import './CommandMenu.css';
@@ -38,6 +40,7 @@ interface CommandItemProps {
 
 const CommandItem = ({ children, value, onSelect }: CommandItemProps) => {
   const currentValue = useCommandState(state => state.value);
+
   return (
     <Command.Item onSelect={onSelect} value={value}>
       <span className="content">{children}</span>
@@ -64,8 +67,9 @@ interface CommandMenuProps {
 const CommandMenu = ({ open, setOpen }: CommandMenuProps) => {
   const router = useRouter();
   const { setTheme } = useTheme();
-  const dispatch = useAppDispatch();
+  const talksEnabled = useFeatureFlag('talks');
 
+  const dispatch = useAppDispatch();
   // Toggle the menu when ⌘K is pressed
   useEffect(() => {
     const unsubscribe = tinykeys(window, {
@@ -165,6 +169,18 @@ const CommandMenu = ({ open, setOpen }: CommandMenuProps) => {
             <Code />
             <span>Projects</span>
           </CommandItem>
+          {talksEnabled && (
+            <CommandItem
+              onSelect={() => {
+                router.push('/talks');
+                setOpen(false);
+              }}
+              value="talks"
+            >
+              <Triangle />
+              <span>Talks</span>
+            </CommandItem>
+          )}
         </Command.Group>
         <Command.Group heading="Social">
           <CommandItem
