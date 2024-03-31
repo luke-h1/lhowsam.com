@@ -5,15 +5,14 @@ const withVanillaExtract = createVanillaExtractPlugin();
 
 const contentSecurityPolicy = `
  default-src 'self';
- script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com *.static.cloudflareinsights.com;
+ script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com static.cloudflareinsights.com;
  child-src *.youtube.com *.google.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com;
  style-src 'self' 'unsafe-inline' *.googleapis.com;
  img-src * blob: data: https://*.googletagmanager.com;
  media-src 'none';
- connect-src *;
+ connect-src * cloudflareinsights.com;
  font-src 'self' fonts.gstatic.com;
 `;
-
 const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
   {
