@@ -3,9 +3,9 @@ const million = require('million/compiler');
 
 const withVanillaExtract = createVanillaExtractPlugin();
 
-const ContentSecurityPolicy = `
+const contentSecurityPolicy = `
  default-src 'self';
- script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com;
+ script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com *.static.cloudflareinsights.com;
  child-src *.youtube.com *.google.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com;
  style-src 'self' 'unsafe-inline' *.googleapis.com;
  img-src * blob: data: https://*.googletagmanager.com;
@@ -18,7 +18,7 @@ const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
   {
     key: 'Content-Security-Policy',
-    value: ContentSecurityPolicy.replace(/\n/g, ''),
+    value: contentSecurityPolicy.replace(/\n/g, ''),
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
   {
