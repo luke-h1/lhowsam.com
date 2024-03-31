@@ -20,7 +20,7 @@ const TalkItem = ({ talk }: Props) => {
         alignItems: 'center',
       }}
     >
-      <Link href={`/talk/${talk.id}`} className={styles.anchor}>
+      <Box className={styles.anchor}>
         <Box className={styles.root} padding="lg" borderRadius="lg">
           <Box marginBottom="md">
             <Image
@@ -60,24 +60,29 @@ const TalkItem = ({ talk }: Props) => {
             {talk.location}
           </Text>
           <Text
-            fontSize="md"
-            color="foregroundNeutral"
-            style={{
-              marginBottom: variables.spacing.sm,
-            }}
-          >
-            {talk.slideUrl}
-          </Text>
-          <Text
             as="time"
             dateTime={talk.date}
             color="foregroundNeutral"
             fontSize="sm"
+            style={{
+              marginBottom: variables.spacing.lg,
+            }}
           >
             {talk.date}
           </Text>
+
+          <Link
+            href={talk.slideUrl}
+            variant="highlight"
+            css={{
+              textDecoration: 'underline',
+              color: variables.color.foregroundNeutral,
+            }}
+          >
+            Slides
+          </Link>
         </Box>
-      </Link>
+      </Box>
     </article>
   );
 };
