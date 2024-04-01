@@ -1,11 +1,11 @@
 /* eslint-disable react/no-unknown-property */
-import useFeatureFlag from '@frontend/hooks/useFeatureFlag';
 import { useAppDispatch } from '@frontend/store/hooks';
 import { setToast } from '@frontend/store/reducers/toastReducer';
 import { Command, useCommandState } from 'cmdk';
 import { motion, LazyMotion, domAnimation } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { useTheme } from 'next-themes';
+import { useFeatureFlagEnabled } from 'posthog-js/react';
 import { Dispatch, ReactNode, SetStateAction, useEffect } from 'react';
 import {
   Linkedin,
@@ -67,7 +67,7 @@ interface CommandMenuProps {
 const CommandMenu = ({ open, setOpen }: CommandMenuProps) => {
   const router = useRouter();
   const { setTheme } = useTheme();
-  const talksEnabled = useFeatureFlag('talks');
+  const talksEnabled = useFeatureFlagEnabled('talks');
 
   const dispatch = useAppDispatch();
   // Toggle the menu when ⌘K is pressed
