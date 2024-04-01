@@ -8,6 +8,8 @@ declare global {
       SPOTIFY_REFRESH_TOKEN: string;
       NEXT_PUBLIC_GA_TRACKING_ID: string;
       SANITY_DRAFT_SECRET: string;
+      NEXT_PUBLIC_POSTHOG_KEY: string;
+      NEXT_PUBLIC_POSTHOG_HOST: string;
     }
   }
 }
