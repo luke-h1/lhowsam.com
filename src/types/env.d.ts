@@ -3,9 +3,6 @@ declare global {
     interface ProcessEnv {
       NEXT_PUBLIC_SANITY_PROJECT_ID: string;
       NEXT_PUBLIC_URL: string;
-      SPOTIFY_CLIENT_ID: string;
-      SPOTIFY_CLIENT_SECRET: string;
-      SPOTIFY_REFRESH_TOKEN: string;
       NEXT_PUBLIC_GA_TRACKING_ID: string;
       SANITY_DRAFT_SECRET: string;
       NEXT_PUBLIC_POSTHOG_KEY: string;
