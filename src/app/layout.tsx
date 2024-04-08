@@ -1,9 +1,8 @@
+import { Partytown } from '@builder.io/partytown/react';
 import Providers from '@frontend/components/Providers';
 import siteConfig from '@frontend/config/site';
 import getPolicies from '@frontend/utils/getPolicies';
-import { newRelicScript } from '@frontend/utils/newRelicScript';
 import { Metadata } from 'next';
-import Script from 'next/script';
 import { ReactNode } from 'react';
 import 'nprogress/nprogress.css';
 import 'the-new-css-reset';
@@ -89,21 +88,25 @@ const RootLayout = ({ children }: Props) => {
         />
         {process.env.NEXT_PUBLIC_URL === 'https://lhowsam.com' && (
           <>
-            <Script
-              async
+            <Partytown
+              debug={process.env.NODE_ENV !== 'production'}
+              forward={['dataLayer.push']}
+            />
+            <script
+              type="text/partytown"
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
+              async
             />
 
-            <Script id="google-analytics">
+            <script id="google-analytics" type="text/partytown" async>
               {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
 
-        gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}');
-      `}
-            </Script>
-            <Script type="text/javascript" src={newRelicScript} />
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}');
+                `}
+            </script>
           </>
         )}
       </head>
