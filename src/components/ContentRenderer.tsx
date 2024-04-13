@@ -1,21 +1,26 @@
-'use client';
-
-import { MDXRemote } from 'next-mdx-remote';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { MDXRemote } from 'next-mdx-remote/rsc';
+import rehypePrism from 'rehype-prism-plus';
 import MDXComponents from './MDXComponents';
 
 interface Props {
-  compiledSource: string;
+  content: string;
 }
 
-const ContentRenderer = ({ compiledSource }: Props) => {
+const ContentRenderer = ({ content }: Props) => {
   return (
     <div data-testid="content">
+      {/* @ts-ignore */}
       <MDXRemote
         components={MDXComponents}
-        compiledSource={compiledSource}
-        scope={undefined}
-        frontmatter={undefined}
-        lazy
+        source={content}
+        options={{
+          mdxOptions: {
+            // @ts-ignore
+            rehypePlugins: [rehypePrism],
+            mdxExtensions: [],
+          },
+        }}
       />
     </div>
   );

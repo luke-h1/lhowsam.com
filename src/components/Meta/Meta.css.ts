@@ -13,6 +13,7 @@ export const root = style({
 
 export const item = style({
   display: 'grid',
+  marginLeft: variables.spacing.md,
 });
 
 export const title = style({

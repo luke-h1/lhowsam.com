@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { ImageProps } from 'next/legacy/image';
 import Heading from './Heading/Heading';
 import { Image } from './Image/Image';

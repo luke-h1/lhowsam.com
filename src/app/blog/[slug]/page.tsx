@@ -10,7 +10,6 @@ import Text from '@frontend/components/Text/Text';
 import siteConfig from '@frontend/config/site';
 import imageService from '@frontend/services/imageService';
 import postService from '@frontend/services/postService';
-import mdxToHtml from '@frontend/utils/mdxToHtml';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
@@ -33,7 +32,6 @@ const PostPage = async ({ params }: Props) => {
   if (!post) {
     notFound();
   }
-  const { compiledSource } = await mdxToHtml(post.content);
 
   return (
     <Page heading={post.title}>
@@ -99,7 +97,7 @@ const PostPage = async ({ params }: Props) => {
       </Box>
       <Box maxWidth="container">
         <Spacer height="sm" />
-        <ContentRenderer compiledSource={compiledSource.compiledSource} />
+        <ContentRenderer content={post.content} />
       </Box>
     </Page>
   );
