@@ -7,6 +7,7 @@ import { SanityImageSource } from '@sanity/image-url/lib/types/types';
 const imageService = {
   urlFor: (source: SanityImageSource): string => {
     const builder = imageUrlBuilder(getSanityClient());
+
     return builder.image(source).quality(85).url();
   },
 };

@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-cycle
-import { Talk } from '@frontend/app/talks/page';
+import imageService from '@frontend/services/imageService';
 import { variables } from '@frontend/styles/variables.css';
+import { Talk } from '@frontend/types/sanity';
 import Box from '../Box/Box';
 import { Image } from '../Image/Image';
 import Link from '../Link/Link';
@@ -23,13 +24,15 @@ const TalkItem = ({ talk }: Props) => {
       <Box className={styles.anchor}>
         <Box className={styles.root} padding="lg" borderRadius="lg">
           <Box marginBottom="md">
-            <Image
-              src={talk.image}
-              alt={talk.title}
-              width={400}
-              height={300}
-              rounded
-            />
+            {talk.image?.asset && (
+              <Image
+                src={imageService.urlFor(talk.image.asset)}
+                alt={talk.title}
+                width={400}
+                height={300}
+                rounded
+              />
+            )}
           </Box>
           <Text
             color="foregroundAction"

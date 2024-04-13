@@ -50,3 +50,16 @@ export interface Post {
   image: Image;
   tags: Tag[];
 }
+
+export interface Talk {
+  _id: string;
+  _type: 'talk';
+  _key: string;
+  _updatedAt: string;
+  title: string;
+  description: string;
+  date: string;
+  slideUrl: string;
+  location: string;
+  image?: Image;
+}
