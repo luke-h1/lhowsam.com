@@ -7,7 +7,7 @@ import { ReactNode } from 'react';
 import 'nprogress/nprogress.css';
 import 'the-new-css-reset';
 import '@frontend/styles/app.css';
-import '@frontend/styles/tokyo-night-dark.min.css';
+import '@frontend/styles/prism.css';
 
 interface Props {
   children: ReactNode;

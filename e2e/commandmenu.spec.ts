@@ -39,24 +39,23 @@ test.describe('command menu', () => {
 
   test('CMD+K opens command menu when clicked', async () => {
     await page.click('[data-testid="cmdk-icon"]');
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
   });
 
   test('CMD+K opens command menu when CMD+K is pressed', async () => {
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
   });
 
   test('renders navigation items correctly', async () => {
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
 
-    const navigation = page.locator('[data-value="navigation"]');
-
+    const navigation = page.locator('[role="dialog"]');
     await expect(navigation).toBeVisible();
 
     await expect(navigation.locator('text=Home')).toBeVisible();
@@ -69,9 +68,10 @@ test.describe('command menu', () => {
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
 
-    const navigation = page.locator('[data-value="navigation"]');
+    const navigation = page.locator('[role="dialog"]');
+
     await expect(navigation).toBeVisible();
 
     await navigation.locator('text=Home').click();
@@ -82,7 +82,7 @@ test.describe('command menu', () => {
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
 
     await navigation.locator('text=About').click();
     await expect(page.locator('h1').first()).toHaveText('About');
@@ -91,7 +91,7 @@ test.describe('command menu', () => {
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
 
     await navigation.locator('text=Blog').click();
     await expect(page.locator('h1').first()).toHaveText('Blog');
@@ -100,7 +100,7 @@ test.describe('command menu', () => {
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
 
     await navigation.locator('text=Projects').click();
     await expect(page.locator('h1').first()).toHaveText('Projects');
@@ -109,16 +109,17 @@ test.describe('command menu', () => {
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
   });
 
   test('Appearance items changes theme correctly', async () => {
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
 
-    const appearance = page.locator('[data-value="appearance"]');
+    const appearance = page.locator('[role="dialog"]');
+
     await expect(appearance).toBeVisible();
 
     await appearance.locator('text=Dark').click();
@@ -130,7 +131,7 @@ test.describe('command menu', () => {
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
 
     await appearance.locator('text=Light').click();
 
@@ -144,7 +145,7 @@ test.describe('command menu', () => {
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
 
     await appearance.locator('text=System').click();
 
@@ -161,9 +162,9 @@ test.describe('command menu', () => {
       delay,
     });
 
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
 
-    const commands = page.locator('[data-value="commands"]');
+    const commands = page.locator('[role="dialog"]');
 
     await commands.scrollIntoViewIfNeeded();
 
@@ -181,9 +182,9 @@ test.describe('command menu', () => {
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
 
-    const social = page.locator('[data-value="social"]');
+    const social = page.locator('[role="dialog"]');
 
     await expect(social).toBeVisible();
 
@@ -197,9 +198,9 @@ test.describe('command menu', () => {
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
 
-    const appearance = page.locator('[data-value="appearance"]');
+    const appearance = page.locator('[role="dialog"]');
 
     await expect(appearance).toBeVisible();
 
@@ -212,9 +213,9 @@ test.describe('command menu', () => {
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
-    expectListboxToBeVisible(page);
+    await expectListboxToBeVisible(page);
 
-    const commands = page.locator('[data-value="commands"]');
+    const commands = page.locator('[role="dialog"]');
 
     await expect(commands).toBeVisible();
 

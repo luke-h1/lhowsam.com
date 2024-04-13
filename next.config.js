@@ -1,5 +1,4 @@
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
-const million = require('million/compiler');
 
 const withVanillaExtract = createVanillaExtractPlugin();
 const contentSecurityPolicy = `
@@ -114,11 +113,6 @@ const nextConfig = {
       },
     ];
   },
-  logging: {
-    fetches: {
-      fullUrl: true,
-    },
-  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   webpack: (config, { dev, isServer, ...options }) => {
     if (process.env.ANALYZE) {
@@ -140,10 +134,4 @@ const nextConfig = {
     return config;
   },
 };
-
-const millionConfig = {
-  mute: true,
-  auto: { rsc: true },
-};
-
-module.exports = million.next(withVanillaExtract(nextConfig), millionConfig);
+module.exports = withVanillaExtract(nextConfig);

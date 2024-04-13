@@ -9,7 +9,6 @@ import Text from '@frontend/components/Text/Text';
 import siteConfig from '@frontend/config/site';
 import imageService from '@frontend/services/imageService';
 import projectService from '@frontend/services/projectService';
-import mdxToHtml from '@frontend/utils/mdxToHtml';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
@@ -32,8 +31,6 @@ const ProjectPage = async ({ params }: Props) => {
   if (!project) {
     notFound();
   }
-
-  const { compiledSource } = await mdxToHtml(project.content);
 
   return (
     <Page heading={project.title} description={project.intro}>
@@ -88,7 +85,7 @@ const ProjectPage = async ({ params }: Props) => {
       />
       <Box maxWidth="container">
         <Spacer height="sm" />
-        <ContentRenderer compiledSource={compiledSource.compiledSource} />
+        <ContentRenderer content={project.content} />
       </Box>
     </Page>
   );
