@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: 'About',
 };
 
-const AboutPage = () => {
+const AboutPage = async () => {
   return (
     <Page
       heading="About"
