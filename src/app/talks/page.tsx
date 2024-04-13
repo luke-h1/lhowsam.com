@@ -8,53 +8,30 @@ import Spacer from '@frontend/components/Spacer/Spacer';
 // eslint-disable-next-line import/no-cycle
 import TalkItem from '@frontend/components/TalkItem/TalkItem';
 import Text from '@frontend/components/Text/Text';
-import { useFeatureFlagEnabled } from 'posthog-js/react';
-
-export interface Talk {
-  id: string;
-  title: string;
-  date: string;
-  location: string;
-  image: string;
-  description: string;
-  slideUrl: string;
-}
-
-const talks: Talk[] = [
-  {
-    id: '1',
-    title: 'test talk',
-    date: '05/06/1999',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    location: 'San francisco',
-    slideUrl: 'https://nowplaying.lhowsam.com',
-    image: 'https://cataas.com/cat',
-  },
-  {
-    id: '2',
-    title: 'test talk',
-    date: '05/06/1999',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    location: 'San francisco',
-    slideUrl: 'https://nowplaying.lhowsam.com',
-    image: 'https://cataas.com/cat',
-  },
-  {
-    id: '3',
-    title: 'test talk',
-    date: '05/06/1999',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-    location: 'San francisco',
-    slideUrl: 'https://nowplaying.lhowsam.com',
-    image: 'https://cataas.com/cat',
-  },
-];
+import talkService from '@frontend/services/talkService';
+import { Talk } from '@frontend/types/sanity';
+import { PostHogFeature, useFeatureFlagEnabled } from 'posthog-js/react';
+import { useEffect, useState } from 'react';
 
 const TalksPage = () => {
   const talksEnabled = useFeatureFlagEnabled('talks');
+  const [talks, setTalks] = useState<Talk[]>();
+
+  useEffect(() => {
+    const fetchTalks = async () => {
+      const allTalks = await talkService.getTalks();
+      setTalks(allTalks);
+    };
+
+    if (talksEnabled) {
+      fetchTalks();
+    }
+
+    return () => {
+      setTalks(undefined);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (!talksEnabled) {
     return (
@@ -144,19 +121,19 @@ const TalksPage = () => {
           Talks I've given at meetups and events
         </Text>
       </Box>
-
       <Spacer height="xxxxl" />
-
-      <Box as="section" maxWidth={{ md: 'text' }} marginX={{ md: 'auto' }}>
-        <List>
-          {talks &&
-            talks.map(talk => (
-              <List.Item key={talk.id}>
-                <TalkItem talk={talk} />
-              </List.Item>
-            ))}
-        </List>
-      </Box>
+      <PostHogFeature name="talks" flag="talks" fallback={<>yo</>}>
+        <Box as="section" maxWidth={{ md: 'text' }} marginX={{ md: 'auto' }}>
+          <List>
+            {talks &&
+              talks.map(talk => (
+                <List.Item key={talk._id}>
+                  <TalkItem talk={talk} />
+                </List.Item>
+              ))}
+          </List>
+        </Box>
+      </PostHogFeature>
     </Page>
   );
 };

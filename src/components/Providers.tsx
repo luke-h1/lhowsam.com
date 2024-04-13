@@ -1,6 +1,5 @@
 'use client';
 
-import { isServer } from '@frontend/hooks/isServer';
 import { store } from '@frontend/store';
 import { ToastProvider } from '@radix-ui/react-toast';
 import { TooltipProvider } from '@radix-ui/react-tooltip';
@@ -18,11 +17,12 @@ interface Props {
   children: ReactNode;
 }
 
-if (!isServer) {
-  posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-    api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
-  });
-}
+posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+  api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+  loaded: app => {
+    if (process.env.NODE_ENV === 'development') app.debug();
+  },
+});
 
 const Providers = ({ children }: Props) => {
   return (
