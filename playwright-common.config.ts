@@ -8,7 +8,7 @@ const commonConfig: PlaywrightTestConfig = {
   expect: {
     timeout: 30000,
   },
-  retries: process.env.CI ? 4 : 2,
+  retries: 0,
   reporter: [['list'], ['html'], ['github']],
   use: {
     actionTimeout: 20000,

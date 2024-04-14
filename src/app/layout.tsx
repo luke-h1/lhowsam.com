@@ -1,13 +1,13 @@
-import { Partytown } from '@builder.io/partytown/react';
 import Providers from '@frontend/components/Providers';
 import siteConfig from '@frontend/config/site';
 import getPolicies from '@frontend/utils/getPolicies';
 import { Metadata } from 'next';
+import Script from 'next/script';
 import { ReactNode } from 'react';
 import 'nprogress/nprogress.css';
 import 'the-new-css-reset';
 import '@frontend/styles/app.css';
-import '@frontend/styles/tokyo-night-dark.min.css';
+import '@frontend/styles/prism.css';
 
 interface Props {
   children: ReactNode;
@@ -88,25 +88,20 @@ const RootLayout = ({ children }: Props) => {
         />
         {process.env.NEXT_PUBLIC_URL === 'https://lhowsam.com' && (
           <>
-            <Partytown
-              debug={process.env.NODE_ENV !== 'production'}
-              forward={['dataLayer.push']}
-            />
-            <script
-              type="text/partytown"
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
+            <Script
               async
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
             />
 
-            <script id="google-analytics" type="text/partytown" async>
+            <Script id="google-analytics">
               {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-                gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}');
-                `}
-            </script>
+        gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}');
+      `}
+            </Script>
           </>
         )}
       </head>

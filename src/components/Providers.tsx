@@ -21,6 +21,9 @@ interface Props {
 if (!isServer) {
   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
     api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+    loaded: app => {
+      if (process.env.NODE_ENV === 'development') app.debug();
+    },
   });
 }
 

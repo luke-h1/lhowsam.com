@@ -1,5 +1,4 @@
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
-const million = require('million/compiler');
 
 const withVanillaExtract = createVanillaExtractPlugin();
 const contentSecurityPolicy = `
@@ -95,15 +94,6 @@ const nextConfig = {
         headers: securityHeaders,
       },
       {
-        source: '/fonts/(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
         source: '/public/(.*)',
         headers: [
           {
@@ -114,10 +104,13 @@ const nextConfig = {
       },
     ];
   },
-  logging: {
-    fetches: {
-      fullUrl: true,
-    },
+  async rewrites() {
+    return [
+      {
+        source: '/metrics',
+        destination: '/api/metrics',
+      },
+    ];
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   webpack: (config, { dev, isServer, ...options }) => {
@@ -140,10 +133,4 @@ const nextConfig = {
     return config;
   },
 };
-
-const millionConfig = {
-  mute: true,
-  auto: { rsc: true },
-};
-
-module.exports = million.next(withVanillaExtract(nextConfig), millionConfig);
+module.exports = withVanillaExtract(nextConfig);
