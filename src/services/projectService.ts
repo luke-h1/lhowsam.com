@@ -11,7 +11,7 @@ const slugsQuery = groq`
 `;
 
 const listAllProjects = groq`
-  *[ _type == "project"] | order(order asc) {
+  *[ _type == "project" && title in ["Now playing lambda", "My website", "Storify", "Infra", "Uber cost calculator"]] {
     ...,
     slug {
       current
@@ -23,7 +23,7 @@ const listAllProjects = groq`
 }
 `;
 const listRecentProjects = groq`
-*[ _type == "project" && title in ["Storify", "My website", "Infra"]] | order(order asc) {
+*[ _type == "project" && title in ["Now playing lambda", "My website", "Storify"]]  {
   ...,
   tags[] -> {
     title,
