@@ -10,7 +10,7 @@ import '@frontend/styles/app.css';
 import '@frontend/styles/prism.css';
 
 interface Props {
-  children: ReactNode;
+  children: Readonly<ReactNode>;
 }
 
 export const metadata: Metadata = {
