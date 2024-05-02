@@ -88,10 +88,7 @@ jobs:
         env:
           cache-name: cache-next-build
         with:
-          # if you use a custom build directory, replace all instances of `.next` in this file with your build directory
-          # ex: if your app builds to `dist`, replace `.next` with `dist`
-          path: apps/frontend/.next/cache
-          # change this if you prefer a more strict cache
+          path: .next/cache
           key: ${{ runner.os }}-build-${{ env.cache-name }}
 
       - name: build

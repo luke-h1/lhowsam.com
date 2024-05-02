@@ -32,7 +32,7 @@ export default function NowPlaying() {
     `${process.env.NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL}/api/now-playing`,
     fetcher,
     {
-      refreshInterval: 8000,
+      refreshInterval: 4000,
       fallback: {
         isPlaying: false,
         title: 'Not Playing',
