@@ -2,10 +2,15 @@
   "name": "root",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=20",
+    "pnpm": ">=9"
+  },
   "scripts": {
     "alphabetize": "node scripts/alphabetizePackageJson.js",
     "commit": "cz",
     "clean": "rm -rf node_modules",
+    "check:node": "check-node-version --package",
     "dev": "next dev",
     "dev:prod": "nodemon --legacy-watch",
     "build": "next build",
@@ -22,7 +27,8 @@
     "test:watch": "jest --watch",
     "test:snapshot": "jest -u",
     "analyze": "ANALYZE=true next build && node scripts/analyze-bundle.js",
-    "prepare": "husky"
+    "prepare": "husky",
+    "preinstall": "pnpm check:node"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.0.14",
