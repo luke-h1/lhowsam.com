@@ -2,10 +2,6 @@
   "name": "root",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": ">=20",
-    "pnpm": ">=8"
-  },
   "scripts": {
     "alphabetize": "node scripts/alphabetizePackageJson.js",
     "commit": "cz",
@@ -27,8 +23,7 @@
     "test:watch": "jest --watch",
     "test:snapshot": "jest -u",
     "analyze": "ANALYZE=true next build && node scripts/analyze-bundle.js",
-    "prepare": "husky",
-    "preinstall": "pnpm check:node"
+    "prepare": "husky"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.0.14",
