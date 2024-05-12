@@ -1,4 +1,4 @@
-name: UI tests (live)
+name: UI tests (open-next test)
 on:
   workflow_dispatch:
   schedule: 
@@ -13,7 +13,7 @@ env:
 
 jobs:
   test:
-    name: e2e live
+    name: e2e stg open-next
     runs-on: ubuntu-latest
     timeout-minutes: 20
     concurrency:
@@ -80,6 +80,6 @@ jobs:
       - run: make e2e-install-browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
 
-      - name: Live UI tests
+      - name: stg open next UI tests
         run: make e2e-stg
  
