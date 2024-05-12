@@ -1,30 +1,25 @@
-name: Build
+name: UI tests (open-next test)
 on:
-  push:
-    branches: [dev]
-  pull_request:
-    branches: [dev, main]
-env:
+  workflow_dispatch:
+  schedule: 
+    - cron: '0 */8 * * *'
+env: 
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
   PNPM_VERSION: 9.0.6
   SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
   SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
   SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
   NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  TURBO_TEAM: luke-h1
+
 jobs:
-  build:
+  test:
+    name: e2e stg open-next
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}        
-    name: Build    
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
     steps:
-      - name: Install moreutils
-        run: sudo apt install moreutils
-        
       # https://github.com/actions/virtual-environments/issues/1187
       - name: tune linux network
         run: sudo ethtool -K eth0 tx off rx off
@@ -40,8 +35,8 @@ jobs:
         with:
           version: ${{ env.PNPM_VERSION }}
 
-      - name: Setup Node
-        uses: actions/setup-node@v3
+      - name: Setup node
+        uses: actions/setup-node@v4
         with:
           node-version-file: .nvmrc
           cache: pnpm
@@ -59,7 +54,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies
+      - name: Install dependencies 
         run: pnpm i
 
       - uses: actions/labeler@v4
@@ -68,30 +63,6 @@ jobs:
 
       - name: Check commit message
         run: pnpm commitlint --from=HEAD^1
-
-      - name: format:check
-        run: pnpm format:check
-
-      - name: lint
-        run: pnpm lint
-
-      - name: jest
-        run: pnpm test
-
-      - name: tsc
-        run: pnpm tsc
-
-      - name: Restore next build
-        uses: actions/cache@v3
-        id: restore-build-cache
-        env:
-          cache-name: cache-next-build
-        with:
-          path: .next/cache
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
-
-      - name: build
-        run: pnpm build
 
       - name: Get installed Playwright version
         id: playwright-version
@@ -105,8 +76,10 @@ jobs:
             ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
 
+
       - run: make e2e-install-browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
 
-      - name: local UI tests
-        run: make e2e-local-ci
+      - name: stg open next UI tests
+        run: make e2e-stg
+ 

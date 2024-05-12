@@ -35,5 +35,5 @@
     ]
   },
   "include": ["src", "next-env.d.ts", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", ".next"]
+  "exclude": ["node_modules", ".next","sst.config.ts"]
 }
