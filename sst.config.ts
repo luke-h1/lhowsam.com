@@ -12,6 +12,7 @@ export default $config({
   async run() {
     // eslint-disable-next-line no-new
     new sst.aws.Nextjs(`Lhowsam`, {
+      warm: 1,
       environment: {
         NEXT_PUBLIC_SANITY_PROJECT_ID: process.env
           .NEXT_PUBLIC_SANITY_PROJECT_ID as string,
