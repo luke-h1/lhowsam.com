@@ -13,7 +13,6 @@ env:
   NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   TURBO_TEAM: luke-h1
-
 jobs:
   build:
     concurrency:
