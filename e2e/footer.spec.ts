@@ -32,6 +32,11 @@ test.describe('footer', () => {
     await page.click('[data-testid="footer"] >> text="Projects"');
     await expect(page.locator('h1').first()).toHaveText('Projects');
     await page.goBack();
+
+    // talks
+    await page.click('[data-testid="footer"] >> text="Talks"');
+    await expect(page.locator('h1').first()).toHaveText('Talks');
+    await page.goBack();
   });
 
   test('has correct links', async () => {
