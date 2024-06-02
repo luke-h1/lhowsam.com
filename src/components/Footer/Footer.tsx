@@ -38,6 +38,11 @@ const links: FooterLink[] = [
     text: 'Projects',
     href: '/projects',
   },
+  {
+    id: 5,
+    text: 'Talks',
+    href: '/talks',
+  },
 ];
 
 const socialLinks: FooterLink[] = [
