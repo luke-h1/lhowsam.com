@@ -34,9 +34,6 @@ test-results
 newrelic_agent.log
 .terraform
 
-# sst
-.sst
-
 
 # open-next
 .open-next
