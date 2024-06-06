@@ -31,6 +31,8 @@ export default function NowPlaying() {
   const { data, isLoading, error } = useQuery<Song>({
     queryKey: ['NowPlaying'],
     queryFn: () => spotifyService.lambdaNowPlaying(),
+    refetchInterval: 3000,
+    refetchOnWindowFocus: true,
   });
 
   return isMounted && !error && !isLoading ? (
