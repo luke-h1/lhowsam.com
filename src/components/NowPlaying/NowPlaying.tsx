@@ -1,10 +1,10 @@
 'use client';
 
 import { useMounted } from '@frontend/hooks/useMounted';
+import spotifyService from '@frontend/services/spotifyService';
 import { Song } from '@frontend/types/spotify';
-import fetcher from '@frontend/utils/fetcher';
+import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
-import useSWR from 'swr';
 import * as styles from './NowPlaying.css';
 import s from './NowPlaying.module.scss';
 
@@ -28,20 +28,10 @@ const AnimatedBars = () => {
 export default function NowPlaying() {
   const { isMounted } = useMounted();
 
-  const { data, error, isLoading } = useSWR<Song>(
-    `${process.env.NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL}/api/now-playing`,
-    fetcher,
-    {
-      refreshInterval: 4000,
-      fallback: {
-        isPlaying: false,
-        title: 'Not Playing',
-        artist: 'Spotify',
-        albumImageUrl: '',
-        songUrl: '',
-      },
-    },
-  );
+  const { data, isLoading, error } = useQuery<Song>({
+    queryKey: ['NowPlaying'],
+    queryFn: () => spotifyService.lambdaNowPlaying(),
+  });
 
   return isMounted && !error && !isLoading ? (
     <div className={styles.songWrapper}>
@@ -52,7 +42,7 @@ export default function NowPlaying() {
           rel="noopener noreferrer"
           className={styles.title}
         >
-          <div className={styles.cover}>
+          <p className={styles.cover}>
             <Image
               src={data.albumImageUrl}
               width={65}
@@ -62,7 +52,7 @@ export default function NowPlaying() {
                 borderRadius: '7px',
               }}
             />
-          </div>
+          </p>
         </a>
       )}
       {data?.isPlaying && data?.songUrl ? (
