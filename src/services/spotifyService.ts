@@ -52,6 +52,18 @@ const spotifyService = {
     const response = await fetch(`${window.location.origin}/api/now-playing`);
     return response.json();
   },
+  async lambdaNowPlaying(): Promise<Song> {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL}/api/now-playing`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'x-consumer': 'lhowsam.com',
+        },
+      },
+    );
+    return response.json();
+  },
 };
 
 export default spotifyService;

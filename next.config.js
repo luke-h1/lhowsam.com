@@ -85,6 +85,11 @@ const nextConfig = {
         destination: '/blog/next-js-ssr-notes',
         permanent: true,
       },
+      {
+        source: '/cv',
+        destination: '/static/cv.pdf',
+        permanent: true,
+      },
     ];
   },
   async headers() {

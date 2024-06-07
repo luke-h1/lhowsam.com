@@ -7,6 +7,7 @@ declare global {
       SANITY_DRAFT_SECRET: string;
       NEXT_PUBLIC_POSTHOG_KEY: string;
       NEXT_PUBLIC_POSTHOG_HOST: string;
+      NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL: string;
     }
   }
 }
