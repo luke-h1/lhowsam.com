@@ -61,7 +61,7 @@
     "lodash": "^4.17.21",
     "motion": "^10.18.0",
     "nanoid": "^5.0.6",
-    "newrelic": "^11.18.0",
+    "newrelic": "^11.19.0",
     "next": "^14.2.3",
     "next-mdx-remote": "^4.4.1",
     "next-sanity": "^9.3.10",
@@ -69,7 +69,7 @@
     "next-themes": "^0.3.0",
     "nodemon": "^3.1.3",
     "nprogress": "^0.2.0",
-    "posthog-js": "^1.137.0",
+    "posthog-js": "^1.138.1",
     "posthog-node": "^4.0.1",
     "prom-client": "^15.1.2",
     "react": "^18.3.1",
@@ -113,7 +113,7 @@
     "@types/body-scroll-lock": "^3.1.2",
     "@types/jest": "^29.5.12",
     "@types/js-cookie": "^3.0.6",
-    "@types/lodash": "^4.17.4",
+    "@types/lodash": "^4.17.5",
     "@types/node": "20.14.2",
     "@types/nprogress": "^0.2.3",
     "@types/react": "18.3.3",
@@ -146,7 +146,7 @@
     "node-mocks-http": "^1.14.1",
     "prettier": "^3.3.1",
     "typescript": "^5.4.4",
-    "vercel": "^34.2.5"
+    "vercel": "^34.2.6"
   },
   "nextBundleAnalysis": {
     "budget": 204800,
