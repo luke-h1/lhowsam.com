@@ -14,7 +14,7 @@ interface Props {
 }
 
 export const metadata: Metadata = {
-  metadataBase: process.env.NEXT_PUBLIC_URL as unknown as URL,
+  metadataBase: new URL(process.env.NEXT_PUBLIC_URL as string),
   title: {
     default: siteConfig.name,
     template: `%s | lhowsam.com`,
