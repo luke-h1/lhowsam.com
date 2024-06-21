@@ -1,7 +1,11 @@
 export async function GET() {
+  const deployedAt = process.env.DEPLOYED_AT
+    ? process.env.DEPLOYED_AT.trim()
+    : 'unknown';
+
   const body = JSON.stringify({
     status: 'OK',
-    deployedAt: process.env.DEPLOYED_AT ?? 'unknown',
+    deployedAt,
   });
 
   return new Response(body, {
