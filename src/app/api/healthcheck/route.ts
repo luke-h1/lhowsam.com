@@ -1,7 +1,7 @@
 export async function GET() {
   const body = JSON.stringify({
     status: 'OK',
-    uptime: process.uptime(),
+    deployedAt: process.env.DEPLOYED_AT ?? 'unknown',
   });
 
   return new Response(body, {
