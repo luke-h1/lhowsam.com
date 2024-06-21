@@ -145,7 +145,7 @@ jobs:
         run: echo "::set-output name=date::$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")"
 
       - name: Remove old deployed_at env variable from vercel
-        run: vc env rm DEPLOYED_AT production --token ${VERCEL_TOKEN}
+        run: vc env rm DEPLOYED_AT production --token ${VERCEL_TOKEN} --yes
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_DEV_PROJECT_ID: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
@@ -285,7 +285,7 @@ jobs:
           run: echo "::set-output name=date::$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")"
 
         - name: Remove old deployed_at env variable from vercel
-          run: vc env rm DEPLOYED_AT production --token ${VERCEL_TOKEN}
+          run: vc env rm DEPLOYED_AT production --token ${VERCEL_TOKEN} --yes
           env:
             VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
             VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
