@@ -3,10 +3,14 @@ export async function GET() {
     ? process.env.DEPLOYED_AT.trim()
     : 'unknown';
 
+  const deployedBy = process.env.DEPLOYED_BY
+    ? process.env.DEPLOYED_BY.trim()
+    : 'unknown';
+
   const body = JSON.stringify({
     status: 'OK',
     deployedAt,
-    deployedBy: process.env.DEPLOYED_BY ?? 'unknown',
+    deployedBy,
   });
 
   return new Response(body, {
