@@ -6,6 +6,7 @@ export async function GET() {
   const body = JSON.stringify({
     status: 'OK',
     deployedAt,
+    deployedBy: process.env.DEPLOYED_BY ?? 'unknown',
   });
 
   return new Response(body, {
