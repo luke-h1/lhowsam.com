@@ -1,8 +1,6 @@
 'use client';
 
-import ErrorContent from '@frontend/components/ErrorContent';
-
-const ErrorPage = () => {
-  return <ErrorContent title="404 page not found" statusCode="404" />;
+const NotFoundPage = () => {
+  return <div>404</div>;
 };
-export default ErrorPage;
+export default NotFoundPage;

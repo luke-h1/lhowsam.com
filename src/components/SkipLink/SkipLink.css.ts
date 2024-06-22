@@ -12,7 +12,7 @@ export const root = style({
     outlineWidth: '2px',
     outlineStyle: 'solid',
     outlineOffset: '2px',
-    outlineColor: variables.color.outline,
+    outlineColor: variables.color.appBg,
     transform: 'none',
   },
 });

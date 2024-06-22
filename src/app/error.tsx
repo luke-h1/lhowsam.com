@@ -1,8 +1,6 @@
 'use client';
 
-import ErrorContent from '@frontend/components/ErrorContent';
-
 const ErrorPage = () => {
-  return <ErrorContent title="500 internal server error" statusCode="500" />;
+  return <div>error</div>;
 };
 export default ErrorPage;
