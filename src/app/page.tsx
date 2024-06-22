@@ -1,4 +1,5 @@
 import Link from '@frontend/components/Link/Link';
+import ProjectTile from '@frontend/components/ProjectTile/ProjectTile';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import projectService from '@frontend/services/projectService';
@@ -31,6 +32,16 @@ const HomePage = async () => {
           <Link href="/projects" className={styles.homeLinkButton}>
             View all
           </Link>
+        </div>
+        <ul className={styles.homeUpdatesGrid}>
+          {projects &&
+            projects.map(project => (
+              <ProjectTile project={project} key={project._id} />
+            ))}
+        </ul>
+        <div className={styles.homeSectionContainer}>
+          <h3 className={styles.homeSectionTitle}>Recent blog posts</h3>
+          <Link href="/blog">View all</Link>
         </div>
       </div>
     </main>

@@ -83,8 +83,12 @@ export const introContainer = style({
 });
 
 export const homeUpdatesGrid = style({
-  display: 'grid',
-  gridTemplateColumns: 'repeat(1, 1fr) / repeat(4, 1fr)',
+  // display: 'grid',
+  // gridTemplateColumns: 'repeat(1, 1fr) / repeat(4, 1fr)',
+  display: 'flex',
+  flexDirection: 'column',
+  // ensure same space between each column regardless of content
+
   columnGap: '0.75rem',
   rowGap: '0.75rem',
   paddingLeft: '0rem',

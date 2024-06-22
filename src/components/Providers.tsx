@@ -58,7 +58,9 @@ function ToastProvider({ children }: { children: ReactNode }) {
 }
 
 function TooltipProvider({ children }: { children: ReactNode }) {
-  return <RadixTooltipProvider>{children}</RadixTooltipProvider>;
+  return (
+    <RadixTooltipProvider delayDuration={800}>{children}</RadixTooltipProvider>
+  );
 }
 
 function QueryClientProvider({ children }: { children: ReactNode }) {
