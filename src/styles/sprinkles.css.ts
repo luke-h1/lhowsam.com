@@ -7,7 +7,6 @@ const {
   fontSize,
   fontWeight,
   font: fontFamily,
-  contentWidth: maxWidth,
 } = variables;
 
 const columns = {
@@ -51,7 +50,6 @@ const responsiveProperties = defineProperties({
     columnGap: space,
     gridTemplateColumns: columns,
     aspectRatio: ['1/1', '4/3'],
-    maxWidth,
     width: space,
     height: space,
     fontSize,
@@ -72,7 +70,6 @@ const unresponsiveProperties = defineProperties({
   properties: {
     color: variables.color,
     borderRadius: radius,
-    border: { true: `1px solid ${variables.color.border}` },
     flexShrink: [0],
     flexGrow: [0, 1],
     fontFamily,

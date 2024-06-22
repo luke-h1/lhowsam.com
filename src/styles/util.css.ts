@@ -1,5 +1,4 @@
 import { style } from '@vanilla-extract/css';
-import { variables } from './variables.css';
 
 export const focusVisible = style({
   ':focus': {
@@ -10,6 +9,5 @@ export const focusVisible = style({
     outlineWidth: '2px',
     outlineStyle: 'solid',
     outlineOffset: '2px',
-    outlineColor: variables.color.outline,
   },
 });
