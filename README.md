@@ -30,10 +30,10 @@ My website & blog
 
 ## Environments
 
-| Environment | URL                     |
-| ----------- | ----------------------- |
-| Production  | https://lhowsam.com     |
-| Development | https://dev.lhowsam.com |
+| Environment | URL                     | Healthcheck endpoint                    |
+| ----------- | ----------------------- | --------------------------------------- |
+| Production  | https://lhowsam.com     | https://lhowsam.com/api/healthcheck     |
+| Development | https://dev.lhowsam.com | https://dev.lhowsam.com/api/healthcheck |
 
 ## Supporting repositories
 
