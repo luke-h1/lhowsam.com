@@ -6,8 +6,8 @@ import { Project } from '@frontend/types/sanity';
 import * as Dialog from '@radix-ui/react-dialog';
 import clsx from 'clsx';
 import Image from 'next/image';
-import Link from 'next/link';
 import * as styles from './ProjectTile2.css';
+import Link from '../Link/Link';
 
 interface Props {
   project: Project;
@@ -52,7 +52,6 @@ const ProjectTile2 = ({ project }: Props) => {
           />
           <div className={styles.stack}>
             <div className={styles.top}>
-              <p className={styles.brandInModal}>{project.title}</p>
               <Dialog.Title className={styles.modalTitle}>
                 {project.title}
               </Dialog.Title>
@@ -63,7 +62,14 @@ const ProjectTile2 = ({ project }: Props) => {
                 className={buttonStyles.primaryButton}
                 href={`/projects/${project.slug.current}`}
               >
-                <span>View</span>
+                <span>Learn More</span>
+                <span className={styles.externalIcon}>↗</span>
+              </Link>
+              <Link
+                className={buttonStyles.primaryButton}
+                href={project.githubUrl}
+              >
+                <span>GitHub repository</span>
                 <span className={styles.externalIcon}>↗</span>
               </Link>
             </div>

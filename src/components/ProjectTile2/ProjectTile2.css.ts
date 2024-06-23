@@ -128,8 +128,6 @@ export const brandInModal = style({
   color: variables.color.gray,
   fontSize: variables.fontSize.md,
   fontWeight: 390,
-  marginTop: '0.125rem',
-  marginBottom: '0.5rem',
 });
 
 export const icon = style({
@@ -269,13 +267,9 @@ globalStyle('.content h1 h2 h3 p', {
 });
 
 export const modalTitle = style({
-  marginBottom: '0.75rem',
+  fontSize: variables.fontSize.xxl,
+  color: variables.color.text,
   fontWeight: '580',
-  '@media': {
-    '(max-width: 700px)': {
-      marginBottom: '0rem',
-    },
-  },
 });
 
 export const inline = style({ display: 'inline' });
