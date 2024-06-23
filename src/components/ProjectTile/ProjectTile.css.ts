@@ -19,7 +19,7 @@ export const container = style({
 export const row = style({
   width: '100%',
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
   justifyContent: 'space-between',
   padding: '0px',
   minWidth: 0,

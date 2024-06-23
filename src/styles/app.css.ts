@@ -34,28 +34,16 @@ globalStyle('body', {
   overflowX: 'hidden',
 });
 
-globalStyle('.bg', {
-  position: 'fixed',
-  width: '100%',
-  height: '100%',
-  left: '0px',
-  top: '0px',
-  opacity: 0.04,
-  zIndex: -1,
+globalStyle('ul:not([class])', {
+  listStyleType: 'disc',
+  display: 'grid',
+  paddingInlineStart: variables.spacing.md,
+  gap: variables.spacing.sm,
 });
 
-globalStyle('.dark .bg', {
-  opacity: 0.08,
-});
-
-globalStyle('.base', {
-  backgroundColor: variables.color.appBg,
-  height: '100%',
-  position: 'fixed',
-  width: '100%',
-  left: '0px',
-  top: '0px',
-  zIndex: -2,
+globalStyle('ul:not([class]) ul:not([class])', {
+  marginTop: variables.spacing.sm,
+  listStyleType: 'circle',
 });
 
 globalStyle('.dark .iconInvert', {
@@ -78,11 +66,13 @@ globalStyle('html,body,p,h1,h2,h3,h4,h5,button', {
   padding: 0,
   margin: 0,
   fontFamily: variables.font.sans,
-  position: 'relative',
+  // position: 'relative',
 });
 
 globalStyle('html', {
   scrollBehavior: 'smooth',
+  lineHeight: 1.3,
+  WebkitTextSizeAdjust: '100%',
 });
 
 globalStyle('p', {
@@ -122,4 +112,10 @@ globalStyle('.tag', {
       marginRight: '3px',
     },
   },
+});
+
+globalStyle('.container', {
+  position: 'relative',
+  paddingInline: variables.spacing.lg,
+  paddingBlock: variables.spacing.xxxxl,
 });

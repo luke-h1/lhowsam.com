@@ -65,13 +65,24 @@ const ProjectTile = ({ project }: Props) => {
                 <span>Learn More</span>
                 <span className={styles.externalIcon}>↗</span>
               </Link>
-              <Link
-                className={buttonStyles.primaryButton}
-                href={project.githubUrl}
-              >
-                <span>GitHub repository</span>
-                <span className={styles.externalIcon}>↗</span>
-              </Link>
+              {project.githubUrl && (
+                <Link
+                  className={buttonStyles.primaryButton}
+                  href={project.githubUrl}
+                >
+                  <span>GitHub repository</span>
+                  <span className={styles.externalIcon}>↗</span>
+                </Link>
+              )}
+              {project.siteUrl && (
+                <Link
+                  className={buttonStyles.primaryButton}
+                  href={project.siteUrl}
+                >
+                  <span>Live site</span>
+                  <span className={styles.externalIcon}>↗</span>
+                </Link>
+              )}
             </div>
           </div>
         </Dialog.Content>

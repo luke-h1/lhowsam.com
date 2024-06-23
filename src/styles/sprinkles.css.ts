@@ -7,6 +7,7 @@ const {
   fontSize,
   fontWeight,
   font: fontFamily,
+  contentWidth: maxWidth,
 } = variables;
 
 const columns = {
@@ -46,6 +47,7 @@ const responsiveProperties = defineProperties({
     marginBottom: space,
     marginLeft: space,
     gap: space,
+    maxWidth,
     rowGap: space,
     columnGap: space,
     gridTemplateColumns: columns,

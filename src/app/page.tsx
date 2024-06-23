@@ -1,4 +1,5 @@
 import Link from '@frontend/components/Link/Link';
+import Page from '@frontend/components/Page/Page';
 import ProjectTile from '@frontend/components/ProjectTile/ProjectTile';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
@@ -6,6 +7,7 @@ import projectService from '@frontend/services/projectService';
 import * as util from '@frontend/styles/util.css';
 import { Metadata } from 'next';
 import * as styles from './page.css';
+import Box from '@frontend/components/Box/Box';
 
 export const revalidate = siteConfig.defaultRevalidate;
 
@@ -20,7 +22,7 @@ const HomePage = async () => {
   ]);
 
   return (
-    <main className={util.page}>
+    <Page>
       <div className={styles.homeColumn}>
         <h1 className={styles.homeGreetingTile}>Luke // Software Developer</h1>
         <span className={styles.tinyText}>
@@ -44,7 +46,7 @@ const HomePage = async () => {
           <Link href="/blog">View all</Link>
         </div>
       </div>
-    </main>
+    </Page>
   );
 };
 

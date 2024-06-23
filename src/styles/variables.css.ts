@@ -134,5 +134,9 @@ const globals = createGlobalTheme(':root', {
     lg: '10px',
     full: '9999px',
   },
+  contentWidth: {
+    text: '60ch',
+    container: '70rem',
+  },
 });
 export const variables = { ...globals, color };
