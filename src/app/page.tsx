@@ -1,5 +1,6 @@
 import Link from '@frontend/components/Link/Link';
 import ProjectTile from '@frontend/components/ProjectTile/ProjectTile';
+import ProjectTile2 from '@frontend/components/ProjectTile2/ProjectTile2';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import projectService from '@frontend/services/projectService';
@@ -36,7 +37,7 @@ const HomePage = async () => {
         <ul className={styles.homeUpdatesGrid}>
           {projects &&
             projects.map(project => (
-              <ProjectTile project={project} key={project._id} />
+              <ProjectTile2 project={project} key={project._id} />
             ))}
         </ul>
         <div className={styles.homeSectionContainer}>

@@ -3,11 +3,12 @@ import { globalStyle, style } from '@vanilla-extract/css';
 
 export const container = style({
   padding: '1.125rem 1.25rem',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'space-between',
   backgroundColor: variables.color.linkContainerBg,
   borderRadius: '8px',
+  marginLeft: '0.5rem',
+  marginRight: '0.5rem',
+
+  transition: 'background-color 0.2s ease',
 });
 
 globalStyle('.container .externalIcon', {
@@ -22,7 +23,6 @@ globalStyle('.container:hover .externalIcon', {
 export const stack = style({
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'flex-start',
 });
 
 export const icon = style({
@@ -89,6 +89,6 @@ export const tileTitle = style({
   letterSpacing: '0.1px',
   lineHeight: 1.1,
   fontSize: variables.fontSize.lg,
-  color: variables.color.gray,
+  color: variables.color.text,
   transition: 'color 0.25s ease',
 });

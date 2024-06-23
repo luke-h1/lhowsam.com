@@ -18,7 +18,7 @@ export const homeColumn = style({
 export const homeGreetingTile = style({
   marginTop: '1.5rem',
   marginBottom: '1rem',
-  // marginLeft: 'clamp(-12px, calc((100vw - 350px) * -0.009), 0px)',
+  marginLeft: 'clamp(-12px, calc((100vw - 350px) * -0.009), 0px)',
   fontSize: '64px',
   fontWeight: '390', // TODO: replace me with variable
   color: variables.color.text,
@@ -43,12 +43,6 @@ export const tinyText = style({
   letterSpacing: '0.15px',
   opacity: '0.9',
   paddingBottom: '8rem',
-
-  '@media': {
-    '(max-width: 900px)': {
-      display: 'none',
-    },
-  },
 });
 
 export const reset = style({
@@ -83,23 +77,13 @@ export const introContainer = style({
 });
 
 export const homeUpdatesGrid = style({
-  // display: 'grid',
-  // gridTemplateColumns: 'repeat(1, 1fr) / repeat(4, 1fr)',
   display: 'flex',
-  flexDirection: 'column',
-  // ensure same space between each column regardless of content
-
-  columnGap: '0.75rem',
-  rowGap: '0.75rem',
+  flexDirection: 'row',
   paddingLeft: '0rem',
-  justifyItems: 'stretch',
-  alignItems: 'stretch',
-  overflow: 'hidden',
-  gridAutoRows: 0,
+  // justifyItems: 'stretch',
+  // alignItems: 'stretch',
   '@media': {
-    '(max-width: 1280px)': {
-      gridTemplate: 'repeat(1, 1fr) / repeat(3, 1fr)',
-    },
+    '(max-width: 1280px)': {},
     '(max-width: 960px)': {
       gridTemplate: 'repeat(2, 1fr) / repeat(2, 1fr)',
     },
