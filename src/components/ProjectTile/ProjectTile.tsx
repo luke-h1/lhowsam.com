@@ -1,14 +1,9 @@
 'use client';
 
 import imageService from '@frontend/services/imageService';
-import {
-  tooltip,
-  tooltipLarge,
-  viewTruncated,
-  arrow,
-} from '@frontend/styles/util.css';
+import * as buttonStyles from '@frontend/styles/button.css';
 import { Project } from '@frontend/types/sanity';
-import * as Tooltip from '@radix-ui/react-tooltip';
+import * as Dialog from '@radix-ui/react-dialog';
 import clsx from 'clsx';
 import Image from 'next/image';
 import Link from '../Link/Link';
@@ -20,46 +15,68 @@ interface Props {
 
 const ProjectTile = ({ project }: Props) => {
   return (
-    <div className={styles.container}>
-      <div className={styles.stack}>
-        <div className={styles.iconContainer}>
+    <Dialog.Root>
+      <Dialog.Trigger asChild id="projectsTrigger">
+        <div className={styles.container}>
           <Image
-            className={styles.icon}
-            priority
             src={imageService.urlFor(project.image.asset)}
             blurDataURL={imageService.urlFor(project.image.asset)}
-            height={28}
-            width={28}
             alt={project.image.alt ?? project.title}
+            className={styles.image}
+            width={220}
+            height={220}
           />
+          <div className={styles.col}>
+            <div>
+              <h3 className={clsx(styles.tileTitle, styles.inline)}>
+                {project.title}
+              </h3>
+            </div>
+          </div>
+          <p className={styles.intro}>{project.intro}</p>
         </div>
-        <Link
-          href={`/projects/${project.slug.current}`}
-          className={styles.titleLink}
+      </Dialog.Trigger>
+      <Dialog.Portal>
+        <Dialog.Overlay className={styles.overlay} />
+        <Dialog.Content
+          className={styles.content}
+          onOpenAutoFocus={e => e.preventDefault()}
         >
-          <h3
-            className={styles.tileTitle}
-            style={{
-              display: 'inline',
-            }}
-          >
-            {project.title}
-          </h3>
-          <span className={styles.externalIcon}>↗</span>
-        </Link>
-        <Tooltip.Root>
-          <Tooltip.Trigger asChild>
-            <span className={styles.tileContent}>{project.intro}</span>
-          </Tooltip.Trigger>
-          <Tooltip.Content className={clsx(tooltip, tooltipLarge)}>
-            <span className={viewTruncated}>
-              <Link href={`/projects/${project.slug.current}`}>Read more</Link>
-            </span>
-            <Tooltip.Arrow className={arrow} />
-          </Tooltip.Content>
-        </Tooltip.Root>
-      </div>
-    </div>
+          <Image
+            src={imageService.urlFor(project.image.asset)}
+            blurDataURL={imageService.urlFor(project.image.asset)}
+            alt={project.image.alt ?? project.title}
+            className={styles.imageInModal}
+            width={600}
+            height={600}
+          />
+          <div className={styles.stack}>
+            <div className={styles.top}>
+              <Dialog.Title className={styles.modalTitle}>
+                {project.title}
+              </Dialog.Title>
+            </div>
+            <span className={styles.introInModal}>{project.intro}</span>
+            <div className={styles.row}>
+              <Link
+                className={buttonStyles.primaryButton}
+                href={`/projects/${project.slug.current}`}
+              >
+                <span>Learn More</span>
+                <span className={styles.externalIcon}>↗</span>
+              </Link>
+              <Link
+                className={buttonStyles.primaryButton}
+                href={project.githubUrl}
+              >
+                <span>GitHub repository</span>
+                <span className={styles.externalIcon}>↗</span>
+              </Link>
+            </div>
+          </div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 };
 export default ProjectTile;
