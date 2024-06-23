@@ -43,7 +43,9 @@ const HomePage = async () => {
         </ul>
         <div className={styles.homeSectionContainer}>
           <h3 className={styles.homeSectionTitle}>Recent blog posts</h3>
-          <Link href="/blog">View all</Link>
+          <Link href="/blog" className={styles.homeLinkButton}>
+            View all
+          </Link>{' '}
         </div>
       </div>
     </Page>

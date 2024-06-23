@@ -186,6 +186,6 @@ export const homeLinkButton = style({
   transition: 'background-color 0.075s ease-in, color 0.075s ease-in',
 
   ':hover': {
-    color: variables.color.linkContainerGrayBg,
+    color: variables.color.menuLabel,
   },
 });
