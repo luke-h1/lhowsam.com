@@ -1,13 +1,13 @@
 import Link from '@frontend/components/Link/Link';
 import Page from '@frontend/components/Page/Page';
+import PageHeader from '@frontend/components/PageHeader/PageHeader';
+import PostItem from '@frontend/components/PostItem/PostItem';
 import ProjectTile from '@frontend/components/ProjectTile/ProjectTile';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import projectService from '@frontend/services/projectService';
-import * as util from '@frontend/styles/util.css';
 import { Metadata } from 'next';
 import * as styles from './page.css';
-import Box from '@frontend/components/Box/Box';
 
 export const revalidate = siteConfig.defaultRevalidate;
 
@@ -21,14 +21,16 @@ const HomePage = async () => {
     projectService.getRecentProjects(),
   ]);
 
+  const description =
+    "My name is Luke, I'm a Software Engineer based in the UK who is interested in React.js, Next.js, Typescript, Python and DevOps";
+
   return (
     <Page>
       <div className={styles.homeColumn}>
-        <h1 className={styles.homeGreetingTile}>Luke // Software Developer</h1>
-        <span className={styles.tinyText}>
-          My name is Luke, I'm a Software Engineer based in the UK who is
-          interested in React.js, Next.js, Typescript, Python and DevOps
-        </span>
+        <PageHeader
+          heading="Luke // Software Developer"
+          description={description}
+        />
         <div className={styles.homeSectionContainer}>
           <h2 className={styles.homeSectionTitle}>Recent Projects</h2>
           <Link href="/projects" className={styles.homeLinkButton}>
@@ -47,6 +49,9 @@ const HomePage = async () => {
             View all
           </Link>{' '}
         </div>
+        <ul>
+          {posts && posts.map(post => <PostItem post={post} key={post._id} />)}
+        </ul>
       </div>
     </Page>
   );

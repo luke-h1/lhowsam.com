@@ -8,6 +8,7 @@ const {
   fontWeight,
   font: fontFamily,
   contentWidth: maxWidth,
+  color,
 } = variables;
 
 const columns = {
@@ -70,7 +71,7 @@ const responsiveProperties = defineProperties({
 
 const unresponsiveProperties = defineProperties({
   properties: {
-    color: variables.color,
+    color,
     borderRadius: radius,
     flexShrink: [0],
     flexGrow: [0, 1],

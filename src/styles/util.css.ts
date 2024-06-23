@@ -108,3 +108,10 @@ export const viewTruncated = style({
 });
 
 export const arrow = style({ fill: variables.color.modalBg });
+
+export const flexRow = style({
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  flexWrap: 'wrap',
+});

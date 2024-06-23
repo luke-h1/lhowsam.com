@@ -42,6 +42,10 @@ const color = createGlobalThemeContract({
   highlightInModal: 'color-highlight-in-modal',
   highlightInModalStroke: 'color-highlight-in-modal-stroke',
   underlineNeutral: 'color-underline-neutral',
+
+  foreground: 'color-foreground',
+  foregroundNeutral: 'color-foreground-neutral',
+  foregroundAction: 'color-foreground-action',
 });
 
 createGlobalTheme(':root.light', color, {
@@ -69,6 +73,10 @@ createGlobalTheme(':root.light', color, {
   underlineNeutral: gray.gray9,
   highlightInModal: 'rgba(0, 0, 0, 0.05)',
   highlightInModalStroke: 'rgba(0, 0, 0, 0.03)',
+
+  foreground: gray.gray12,
+  foregroundNeutral: gray.gray11,
+  foregroundAction: blue.blue11,
 });
 
 createGlobalTheme(':root.dark', color, {
@@ -96,6 +104,10 @@ createGlobalTheme(':root.dark', color, {
   underlineNeutral: grayDark.gray9,
   highlightInModal: 'rgba(255, 255, 255, 0.11)',
   highlightInModalStroke: 'rgba(255, 255, 255, 0.08)',
+
+  foreground: grayDark.gray12,
+  foregroundNeutral: grayDark.gray11,
+  foregroundAction: blueDark.blue11,
 });
 
 const globals = createGlobalTheme(':root', {
@@ -111,6 +123,7 @@ const globals = createGlobalTheme(':root', {
     xl: '1.25rem',
     xxl: '1.5rem',
     xxxl: '2rem',
+    xxxxl: '3.5rem',
   },
   fontWeight: {
     normal: '400',
