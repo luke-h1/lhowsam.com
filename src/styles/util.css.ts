@@ -24,7 +24,6 @@ export const page = style({
   padding: '2rem 2rem',
   order: 1,
   flexGrow: 1,
-  marginLeft: '15.5rem',
   overflow: 'auto',
   transition: 'background-color 0.2s ease',
   boxShadow: '0px 1px 6px rgba(0, 0, 0, 0.035)',
