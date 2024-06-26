@@ -11,6 +11,8 @@ import {
   yellow,
   yellowDark,
   pinkDark,
+  slate,
+  slateDark,
 } from '@radix-ui/colors';
 import {
   createGlobalThemeContract,
@@ -46,6 +48,9 @@ const color = createGlobalThemeContract({
   foreground: 'color-foreground',
   foregroundNeutral: 'color-foreground-neutral',
   foregroundAction: 'color-foreground-action',
+
+  border: 'color-border',
+  borderNeutral: 'color-border-neutral',
 });
 
 createGlobalTheme(':root.light', color, {
@@ -53,12 +58,10 @@ createGlobalTheme(':root.light', color, {
   bg: whiteA.whiteA1,
   bgSticky: 'rgba(255, 255, 255, 0.746)',
   menuLabel: 'rgba(0, 0, 0, 0.825)',
-  highlight: 'rgba(255, 255, 255, 0.95)',
   highlightHover: 'rgba(0, 0, 0, 0.04)',
   highlightActiveBorder: 'rgba(0, 0, 0, 0.064)',
   tabBg: 'rgba(0, 0, 0, 0.04)',
   gray: gray.gray12,
-  outline: blue.blue11,
   tabText: 'rgba(0, 0, 0, 0.32)',
   linkContainerBg: 'rgb(255, 255, 255)',
   linkContainerGrayBg: 'rgb(251, 251, 251)',
@@ -77,6 +80,11 @@ createGlobalTheme(':root.light', color, {
   foreground: gray.gray12,
   foregroundNeutral: gray.gray11,
   foregroundAction: blue.blue11,
+
+  border: slate.slate8,
+  borderNeutral: slate.slate4,
+  highlight: '#FF4F00',
+  outline: blue.blue8,
 });
 
 createGlobalTheme(':root.dark', color, {
@@ -86,7 +94,6 @@ createGlobalTheme(':root.dark', color, {
   text: '#fff',
   gray: gray.gray11,
   menuLabel: 'rgba(255, 255, 255, 0.8)',
-  highlight: 'rgba(255, 255, 255, 0.1)',
   highlightHover: 'rgba(255, 255, 255, 0.05)',
   highlightActiveBorder: 'rgba(255, 255, 255, 0.04)',
   tabBg: 'rgba(255, 255, 255, 0.06)',
@@ -94,7 +101,6 @@ createGlobalTheme(':root.dark', color, {
   linkContainerBg: 'rgb(21, 21, 21)',
   linkContainerGrayBg: 'rgb(25, 25, 25)',
   linkContainerBorder: 'rgb(26, 26, 26)',
-  outline: pinkDark.pink10,
   linkContainerBgHover: 'rgb(42, 42, 42)',
   linkContainerBorderHover: 'rgb(45, 45, 45)',
   tabBorder: 'rgb(44, 44, 44)',
@@ -108,6 +114,11 @@ createGlobalTheme(':root.dark', color, {
   foreground: grayDark.gray12,
   foregroundNeutral: grayDark.gray11,
   foregroundAction: blueDark.blue11,
+
+  border: slateDark.slate8,
+  borderNeutral: slateDark.slate4,
+  highlight: '#FF4F00',
+  outline: blue.blue8,
 });
 
 const globals = createGlobalTheme(':root', {

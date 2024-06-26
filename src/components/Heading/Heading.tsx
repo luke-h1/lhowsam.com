@@ -11,7 +11,7 @@ export type HeadingProps<T extends ElementType> = PolymorphicComponentProps<
     fontSize?: Sprinkles['fontSize'];
     color?: Extract<
       Sprinkles['color'],
-      'foreground' | 'foregroundNeutral' | 'foregroundAction'
+      'foreground' | 'foregroundNeutral' | 'foregroundAction' | 'gray'
     >;
     children: ReactNode;
   }

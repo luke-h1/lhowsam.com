@@ -115,3 +115,9 @@ export const flexRow = style({
   alignItems: 'center',
   flexWrap: 'wrap',
 });
+
+export const pageColumn = style({
+  padding: '4rem 0rem',
+  maxWidth: '40rem',
+  width: '100%',
+});

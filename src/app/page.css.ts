@@ -164,27 +164,10 @@ export const homeGoodsGrid = style({
   },
 });
 
-export const homeSectionContainer = style({
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  paddingTop: '3rem',
-});
-
-export const homeSectionTitle = style({
-  fontSize: '1.25rem',
-  lineHeight: '170%',
-  fontWeight: 550,
-  color: variables.color.gray,
-  transition: 'color 0.25s ease',
-});
-
 export const homeLinkButton = style({
-  fontSize: variables.fontSize.lg,
+  fontSize: variables.fontSize.xl,
   color: variables.color.gray,
   transition: 'background-color 0.075s ease-in, color 0.075s ease-in',
-
   ':hover': {
     color: variables.color.menuLabel,
   },

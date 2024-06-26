@@ -1,8 +1,12 @@
+import Box from '@frontend/components/Box/Box';
+import Heading from '@frontend/components/Heading/Heading';
 import Link from '@frontend/components/Link/Link';
+import { List } from '@frontend/components/List/List';
 import Page from '@frontend/components/Page/Page';
 import PageHeader from '@frontend/components/PageHeader/PageHeader';
 import PostItem from '@frontend/components/PostItem/PostItem';
 import ProjectTile from '@frontend/components/ProjectTile/ProjectTile';
+import Spacer from '@frontend/components/Spacer/Spacer';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import projectService from '@frontend/services/projectService';
@@ -26,33 +30,63 @@ const HomePage = async () => {
 
   return (
     <Page>
-      <div className={styles.homeColumn}>
-        <PageHeader
-          heading="Luke // Software Developer"
-          description={description}
-        />
-        <div className={styles.homeSectionContainer}>
-          <h2 className={styles.homeSectionTitle}>Recent Projects</h2>
-          <Link href="/projects" className={styles.homeLinkButton}>
-            View all
-          </Link>
-        </div>
-        <ul className={styles.homeUpdatesGrid}>
-          {projects &&
-            projects.map(project => (
-              <ProjectTile project={project} key={project._id} />
+      <PageHeader
+        heading="Luke // Software Developer"
+        description={description}
+      />
+      <Box
+        as="section"
+        paddingX="md"
+        marginY="xxl"
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+        paddingTop="xl"
+      >
+        <Heading as="h2" color="gray" fontSize="xl">
+          Recent Projects
+        </Heading>
+        <Link href="/projects" className={styles.homeLinkButton}>
+          View all
+        </Link>
+      </Box>
+      <List className={styles.homeUpdatesGrid}>
+        {projects &&
+          projects.map(project => (
+            <ProjectTile project={project} key={project._id} />
+          ))}
+      </List>
+      <Box
+        as="section"
+        paddingX="md"
+        marginY="xxl"
+        display="flex"
+        flexDirection="row"
+        alignItems="center"
+        justifyContent="space-between"
+        paddingTop="xl"
+      >
+        {' '}
+        <Heading as="h3" color="gray" fontSize="xl">
+          Recent blog posts
+        </Heading>
+        <Link href="/blog" className={styles.homeLinkButton}>
+          View all
+        </Link>{' '}
+      </Box>
+      <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
+        <header>
+          <Heading fontSize="xl">Recent Posts</Heading>
+        </header>
+        <Spacer height="xxl" />
+        <List>
+          {posts &&
+            posts.map(post => (
+              <PostItem post={post} key={`${post._id}-${post.title}`} />
             ))}
-        </ul>
-        <div className={styles.homeSectionContainer}>
-          <h3 className={styles.homeSectionTitle}>Recent blog posts</h3>
-          <Link href="/blog" className={styles.homeLinkButton}>
-            View all
-          </Link>{' '}
-        </div>
-        <ul>
-          {posts && posts.map(post => <PostItem post={post} key={post._id} />)}
-        </ul>
-      </div>
+        </List>
+      </Box>
     </Page>
   );
 };
