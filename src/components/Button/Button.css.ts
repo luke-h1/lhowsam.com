@@ -1,13 +1,13 @@
+import { tokens } from '@frontend/styles/tokens.css';
 import { variables } from '@frontend/styles/variables.css';
 import { style } from '@vanilla-extract/css';
 
 export const root = style({
-  width: '100%',
-  padding: variables.spacing.sm,
-  border: '1px solid',
-  borderColor: variables.color.border,
-  backgroundColor: variables.color.surface,
-  borderRadius: variables.radius.md,
+  padding: `${tokens.spacing.sm} ${tokens.spacing.md}`,
+  backgroundColor: variables.color.surfaceStrong,
+  color: variables.color.foregroundHighContrast,
+  borderRadius: tokens.radius.md,
+  border: '1px solid transparent',
   ':focus': {
     outline: 'transparent',
   },
@@ -17,5 +17,4 @@ export const root = style({
     outlineOffset: '2px',
     outlineColor: variables.color.outline,
   },
-  marginBottom: variables.spacing.sm,
 });

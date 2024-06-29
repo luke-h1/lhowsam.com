@@ -1,127 +1,56 @@
-import {
-  gray,
-  grayDark,
-  blackA,
-  whiteA,
-  blue,
-  blueDark,
-  purple,
-  purpleDark,
-  yellow,
-  yellowDark,
-  pinkDark,
-} from '@radix-ui/colors';
+import { slate, slateDark, blue } from '@radix-ui/colors';
 import {
   createGlobalThemeContract,
   createGlobalTheme,
 } from '@vanilla-extract/css';
 
-const color = createGlobalThemeContract({
-  page: 'color-page',
-  foreground: 'color-foreground',
-  foregroundNeutral: 'color-foreground-neutral',
-  foregroundAction: 'color-foreground-action',
-  surface: 'color-surface',
-  surfaceHover: 'color-surface-hover',
-  surfaceFaint: 'color-surface-faint',
-  border: 'color-border',
-  borderFaint: 'color-border-faint',
-  overlay: 'color-overlay',
-  outline: 'color-outline',
-  underline: 'color-underline',
-  underlineNeutral: 'color-underline-neutral',
-  underlineVisited: 'color-underline-visited',
-  highlight: 'color-highlight',
-  codeHighlight: 'color-code-highlight',
-  spotifyBgColor: 'color-spotify-bg-color',
-  spotifyLink: 'color-spotify-link',
-});
-
-createGlobalTheme(':root.light', color, {
-  page: gray.gray1,
-  foreground: gray.gray12,
-  foregroundNeutral: gray.gray11,
-  foregroundAction: blue.blue11,
-  surface: gray.gray2,
-  surfaceHover: gray.gray4,
-  surfaceFaint: gray.gray2,
-  border: gray.gray6,
-  borderFaint: gray.gray4,
-  overlay: whiteA.whiteA11,
-  outline: blue.blue11,
-  underline: blue.blue11,
-  underlineNeutral: gray.gray9,
-  underlineVisited: purple.purple11,
-  highlight: yellow.yellow4,
-  codeHighlight: gray.gray3,
-  spotifyBgColor: '#D1D5DB',
-  spotifyLink: '#1F2937',
-});
-
-createGlobalTheme(':root.dark', color, {
-  page: grayDark.gray1,
-  foreground: grayDark.gray12,
-  foregroundNeutral: grayDark.gray11,
-  foregroundAction: blueDark.blue11,
-  surface: grayDark.gray3,
-  surfaceHover: grayDark.gray4,
-  surfaceFaint: grayDark.gray2,
-  border: grayDark.gray6,
-  borderFaint: grayDark.gray4,
-  overlay: blackA.blackA11,
-  outline: pinkDark.pink10,
-  underline: blueDark.blue11,
-  underlineNeutral: grayDark.gray9,
-  underlineVisited: purpleDark.purple11,
-  highlight: yellowDark.yellow7,
-  codeHighlight: grayDark.gray4,
-  spotifyBgColor: '#6B7280',
-  spotifyLink: '#E5E7EB',
-});
-
-const globals = createGlobalTheme(':root', {
-  font: {
-    sans: "'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
-    mono: "'JetBrainsMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace",
-  },
-  fontSize: {
-    xs: '0.75rem',
-    sm: '0.875rem',
-    md: '1rem',
-    lg: '1.125rem',
-    xl: '1.25rem',
-    xxl: '1.5rem',
-    xxxl: '2rem',
-  },
-  fontWeight: {
-    normal: '400',
-    bold: '575',
-  },
-  spacing: {
-    none: '0',
-    xs: '0.25rem',
-    sm: '.5rem',
-    md: '1rem',
-    lg: '1.125rem',
-    xl: '1.25rem',
-    xxl: '1.5rem',
-    xxxl: '2rem',
-    xxxxl: '4rem',
-    auto: 'auto',
-  },
-  radius: {
-    sm: '2px',
-    md: '6px',
-    lg: '10px',
-    full: '9999px',
-  },
-  contentWidth: {
-    text: '60ch',
-    container: '50rem',
-  },
-  transition: {
-    duration: '200ms',
+export const variables = createGlobalThemeContract({
+  color: {
+    page: 'color-page',
+    pageFaint: 'color-page-faint',
+    foreground: 'color-foreground',
+    foregroundNeutral: 'color-foreground-neutral',
+    foregroundHighContrast: 'color-foreground-high-contrast',
+    surface: 'color-surface',
+    surfaceFaint: 'color-surface-faint',
+    surfaceStrong: 'color-surface-strong',
+    border: 'color-border',
+    borderNeutral: 'color-border-neutral',
+    highlight: 'color-highlight',
+    outline: 'color-outline',
   },
 });
 
-export const variables = { ...globals, color };
+createGlobalTheme(':root.light', variables, {
+  color: {
+    page: slate.slate1,
+    pageFaint: slate.slate3,
+    foreground: slate.slate12,
+    foregroundNeutral: slate.slate11,
+    foregroundHighContrast: slate.slate1,
+    surface: slate.slate2,
+    surfaceFaint: slate.slate4,
+    surfaceStrong: slate.slate12,
+    border: slate.slate8,
+    borderNeutral: slate.slate4,
+    highlight: '#FF4F00',
+    outline: blue.blue8,
+  },
+});
+
+createGlobalTheme(':root.dark', variables, {
+  color: {
+    page: slateDark.slate1,
+    pageFaint: slateDark.slate3,
+    foreground: slateDark.slate12,
+    foregroundNeutral: slateDark.slate11,
+    foregroundHighContrast: slateDark.slate1,
+    surface: slateDark.slate2,
+    surfaceFaint: slateDark.slate4,
+    surfaceStrong: slateDark.slate12,
+    border: slateDark.slate8,
+    borderNeutral: slateDark.slate4,
+    highlight: '#FF4F00',
+    outline: blue.blue8,
+  },
+});
