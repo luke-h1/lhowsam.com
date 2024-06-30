@@ -4,7 +4,6 @@ import { ReactNode, useState } from 'react';
 import Banner from './Banner/Banner';
 import Box from './Box/Box';
 import Footer from './Footer/Footer';
-import CommandMenuBanner from './CommandMenuBanner/CommandMenuBanner';
 
 interface PageProps {
   children: ReactNode;
