@@ -18,5 +18,5 @@ export const root = style({
 
 export const variants = styleVariants({
   highlight: [root, { textDecorationColor: variables.color.highlight }],
-  neutral: [root, { textDecorationColor: variables.color.underlineNeutral }],
+  neutral: [root, { textDecorationColor: variables.color.border }],
 });

@@ -1,8 +1,4 @@
-import Box from '@frontend/components/Box/Box';
-import { List } from '@frontend/components/List/List';
 import Page from '@frontend/components/Page';
-import PostCard from '@frontend/components/PostCard/PostCard';
-import Text from '@frontend/components/Text/Text';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 
@@ -23,20 +19,6 @@ const TagPage = async ({ params }: Props) => {
     return post.tags.some(tag => tag.slug.current === slug);
   });
 
-  return (
-    <Page heading={`Posts tagged with '${slug}'`}>
-      <Box maxWidth="text">
-        {!matchingPosts.length ? (
-          <Text>No posts found with the tag {slug}</Text>
-        ) : (
-          <List>
-            {matchingPosts.map(post => (
-              <PostCard key={post.slug.current} post={post} />
-            ))}
-          </List>
-        )}
-      </Box>
-    </Page>
-  );
+  return <Page heading={`Posts tagged with '${slug}'`}>div</Page>;
 };
 export default TagPage;

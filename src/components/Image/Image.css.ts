@@ -1,3 +1,4 @@
+import { tokens } from '@frontend/styles/tokens.css';
 import { variables } from '@frontend/styles/variables.css';
 import { style } from '@vanilla-extract/css';
 
@@ -6,7 +7,7 @@ export const root = style({
 });
 
 export const rounded = style({
-  borderRadius: variables.radius.lg,
+  borderRadius: tokens.radius.lg,
   overflow: 'hidden',
 });
 

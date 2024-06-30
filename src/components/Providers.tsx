@@ -18,7 +18,7 @@ import posthog from 'posthog-js';
 import { PostHogProvider as BasePostHogProvider } from 'posthog-js/react';
 import { ReactNode, useState } from 'react';
 import { Provider } from 'react-redux';
-import Gradient from './Gradient/Gradient';
+// import Gradient from './Gradient/Gradient';
 import SkipLink from './SkipLink/SkipLink';
 
 interface Props {
@@ -88,7 +88,7 @@ const Providers = ({ children }: Props) => {
   return (
     <ComposedProviders>
       <SkipLink />
-      <Gradient />
+      {/* <Gradient /> */}
       <Head>
         <meta
           name="viewport"

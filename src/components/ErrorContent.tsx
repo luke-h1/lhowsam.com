@@ -4,7 +4,7 @@ import Box from './Box/Box';
 import Link from './Link/Link';
 import { List } from './List/List';
 import Page from './Page';
-import Spacer from './Spacer/Spacer';
+import { Spacer } from './Spacer/Spacer';
 
 interface Props {
   title: string;
@@ -17,7 +17,7 @@ const ErrorContent = ({ statusCode, title }: Props) => {
       <Box
         as="header"
         textAlign={{ md: 'center' }}
-        maxWidth="container"
+        // maxWidth="container"
         marginX="auto"
       >
         <Spacer height="xl" />
@@ -55,7 +55,7 @@ const ErrorContent = ({ statusCode, title }: Props) => {
             )}
           </List>
         </Box>
-        <Spacer height="xxxl" />
+        <Spacer height="xxl" />
         <Box textAlign="left">
           <Link href="/">Go Home</Link>
         </Box>

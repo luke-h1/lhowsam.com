@@ -18,3 +18,10 @@ export const anchor = style({
     outlineColor: variables.color.outline,
   },
 });
+
+export const tag = style({
+  marginRight: '0.5rem',
+  ':last-child': {
+    marginRight: 0,
+  },
+});

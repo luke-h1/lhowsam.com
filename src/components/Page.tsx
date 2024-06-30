@@ -1,6 +1,9 @@
 'use client';
 
 import { ReactNode, useState } from 'react';
+import Banner from './Banner/Banner';
+import Box from './Box/Box';
+import Footer from './Footer/Footer';
 
 interface PageProps {
   children: ReactNode;
@@ -22,8 +25,8 @@ const Page = ({
     <>
       <div className="container">
         {/* <Banner setOpen={setOpen} /> */}
+        <Banner />
         <Box
-          maxWidth="text"
           style={{
             margin: '0 auto',
           }}
@@ -33,6 +36,7 @@ const Page = ({
           {/* <CommandMenu open={open} setOpen={setOpen} /> */}
         </Box>
       </div>
+      {/* {showFooter && <Footer />} */}
       {showFooter && <Footer />}
     </>
   );
