@@ -1,4 +1,12 @@
-import { slate, slateDark, blue } from '@radix-ui/colors';
+import {
+  slate,
+  slateDark,
+  blue,
+  blackA,
+  whiteA,
+  grayDark,
+  gray,
+} from '@radix-ui/colors';
 import {
   createGlobalThemeContract,
   createGlobalTheme,
@@ -16,8 +24,10 @@ export const variables = createGlobalThemeContract({
     surfaceStrong: 'color-surface-strong',
     border: 'color-border',
     borderNeutral: 'color-border-neutral',
+    overlay: 'color-overlay',
     highlight: 'color-highlight',
     outline: 'color-outline',
+    surfaceHover: 'color-surface-hover',
   },
 });
 
@@ -32,9 +42,11 @@ createGlobalTheme(':root.light', variables, {
     surfaceFaint: slate.slate4,
     surfaceStrong: slate.slate12,
     border: slate.slate8,
+    overlay: whiteA.whiteA11,
     borderNeutral: slate.slate4,
     highlight: '#FF4F00',
     outline: blue.blue8,
+    surfaceHover: gray.gray4,
   },
 });
 
@@ -51,6 +63,8 @@ createGlobalTheme(':root.dark', variables, {
     border: slateDark.slate8,
     borderNeutral: slateDark.slate4,
     highlight: '#FF4F00',
+    overlay: blackA.blackA11,
     outline: blue.blue8,
+    surfaceHover: grayDark.gray4,
   },
 });

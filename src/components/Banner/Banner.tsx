@@ -1,11 +1,16 @@
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { Twitter, Linkedin, GitHub } from 'react-feather';
+import { CommandMenuProps } from '../CommandMenu/CommandMenu';
+import CommandMenuBanner from '../CommandMenuBanner/CommandMenuBanner';
 import Link from '../Link/Link';
 import VisuallyHidden from '../VisuallyHidden/VisuallyHidden';
 import * as styles from './Banner.css';
+import Box from '../Box/Box';
 
-const Banner = () => {
+type Props = CommandMenuProps;
+
+const Banner = ({ open, setOpen }: Props) => {
   const pathname = usePathname();
 
   return (
@@ -79,6 +84,9 @@ const Banner = () => {
             <VisuallyHidden>Twitter</VisuallyHidden>
             <Twitter width=".95em" />
           </Link>
+        </div>
+        <div className={styles.group}>
+          <CommandMenuBanner setOpen={setOpen} open={open} />
         </div>
       </nav>
     </header>

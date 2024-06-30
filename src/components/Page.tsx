@@ -4,6 +4,7 @@ import { ReactNode, useState } from 'react';
 import Banner from './Banner/Banner';
 import Box from './Box/Box';
 import Footer from './Footer/Footer';
+import CommandMenuBanner from './CommandMenuBanner/CommandMenuBanner';
 
 interface PageProps {
   children: ReactNode;
@@ -25,7 +26,7 @@ const Page = ({
     <>
       <div className="container">
         {/* <Banner setOpen={setOpen} /> */}
-        <Banner />
+        <Banner open={open} setOpen={setOpen} />
         <Box
           style={{
             margin: '0 auto',
@@ -33,10 +34,8 @@ const Page = ({
         >
           {/* <PageHeader heading={heading} description={description} /> */}
           {children}
-          {/* <CommandMenu open={open} setOpen={setOpen} /> */}
         </Box>
       </div>
-      {/* {showFooter && <Footer />} */}
       {showFooter && <Footer />}
     </>
   );

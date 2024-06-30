@@ -25,6 +25,15 @@ export const group = style({
   gap: tokens.spacing.md,
 });
 
+export const groupEnd = style({
+  display: 'flex',
+  gap: tokens.spacing.md,
+  alignItems: 'flex-end',
+  justifyContent: 'flex-end',
+  marginLeft: 'auto',
+  marginBlockStart: tokens.spacing.md,
+});
+
 export const anchor = style({
   position: 'relative',
   display: 'grid',
