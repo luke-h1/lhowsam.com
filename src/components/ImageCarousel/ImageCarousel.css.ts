@@ -1,10 +1,11 @@
+import { tokens } from '@frontend/styles/tokens.css';
 import { variables } from '@frontend/styles/variables.css';
 import { style } from '@vanilla-extract/css';
 
 export const root = style({
   position: 'relative',
   overflow: 'hidden',
-  borderRadius: variables.radius.lg,
+  borderRadius: tokens.radius.lg,
 });
 
 export const carousel = style({
@@ -22,7 +23,7 @@ export const pagination = style({
   inset: 0,
   display: 'flex',
   justifyContent: 'space-between',
-  padding: variables.spacing.md,
+  padding: tokens.spacing.md,
   pointerEvents: 'none',
 });
 
@@ -38,21 +39,21 @@ export const button = style({
 
 export const prev = style({
   left: 0,
-  paddingLeft: variables.spacing.md,
+  paddingLeft: tokens.spacing.md,
 });
 
 export const next = style({
   right: 0,
-  paddingRight: variables.spacing.md,
+  paddingRight: tokens.spacing.md,
 });
 
 export const disc = style({
-  width: variables.spacing.xxxl,
-  height: variables.spacing.xxxl,
+  width: tokens.spacing.xxl,
+  height: tokens.spacing.xxl,
   background: variables.color.surface,
   display: 'grid',
   placeItems: 'center',
-  borderRadius: variables.radius.full,
+  borderRadius: tokens.radius.full,
   selectors: {
     [`${button}:focus &`]: {
       outline: 'transparent',
@@ -67,19 +68,19 @@ export const disc = style({
 });
 export const list = style({
   position: 'absolute',
-  bottom: variables.spacing.md,
+  bottom: tokens.spacing.md,
   display: 'flex',
   justifyContent: 'center',
   alignItems: 'center',
   width: '100%',
-  gap: variables.spacing.sm,
+  gap: tokens.spacing.sm,
 });
 
 export const dot = style({
-  width: variables.spacing.sm,
-  height: variables.spacing.sm,
+  width: tokens.spacing.sm,
+  height: tokens.spacing.sm,
   backgroundColor: variables.color.surface,
-  borderRadius: variables.radius.full,
+  borderRadius: tokens.radius.full,
   pointerEvents: 'auto',
   ':focus': {
     outline: 'transparent',
@@ -93,6 +94,6 @@ export const dot = style({
 });
 
 export const rounded = style({
-  borderRadius: variables.radius.lg,
+  borderRadius: tokens.radius.lg,
   overflow: 'hidden',
 });

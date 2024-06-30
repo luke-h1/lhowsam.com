@@ -67,6 +67,7 @@ const Banner = ({ open, setOpen }: Props) => {
             Projects
           </Link>
         </div>
+        <CommandMenuBanner setOpen={setOpen} open={open} />
         <div className={styles.group}>
           <Link
             href="https://www.linkedin.com/in/lukehowsam"
@@ -83,9 +84,6 @@ const Banner = ({ open, setOpen }: Props) => {
             <VisuallyHidden>Twitter</VisuallyHidden>
             <Twitter width=".95em" />
           </Link>
-        </div>
-        <div className={styles.groupEnd}>
-          <CommandMenuBanner setOpen={setOpen} open={open} />
         </div>
       </nav>
     </header>

@@ -17,6 +17,7 @@ export type TextProps<C extends React.ElementType> = PolymorphicComponentProps<
     letterSpacing?: Sprinkles['letterSpacing'];
     textTransform?: Sprinkles['textTransform'];
     children: React.ReactNode;
+    gradient?: boolean;
   }
 >;
 
@@ -27,6 +28,7 @@ export const Text = <C extends React.ElementType = 'p'>({
   letterSpacing,
   textTransform,
   color = 'foreground',
+  gradient = false,
   ...props
 }: TextProps<C>) => {
   const component = as || 'p';
@@ -34,6 +36,7 @@ export const Text = <C extends React.ElementType = 'p'>({
   return React.createElement(component, {
     className: clsx(
       styles.root,
+      gradient && styles.gradient,
       sprinkles({ fontSize, fontFamily, letterSpacing, textTransform, color }),
       className,
     ),

@@ -7,6 +7,6 @@ export const root = style({
   paddingBottom: tokens.spacing.xl,
   paddingRight: tokens.spacing.md,
   paddingLeft: tokens.spacing.md,
-  backgroundColor: variables.color.pageFaint,
-  backgroundImage: `linear-gradient(to right, ${variables.color.page}, ${variables.color.pageFaint})`,
+  backgroundColor: variables.color.border,
+  backgroundImage: `linear-gradient(to right, ${variables.color.page}, ${variables.color.page})`,
 });

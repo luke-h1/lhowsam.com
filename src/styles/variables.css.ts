@@ -28,6 +28,8 @@ export const variables = createGlobalThemeContract({
     highlight: 'color-highlight',
     outline: 'color-outline',
     surfaceHover: 'color-surface-hover',
+    surfaceNeutral: 'color-surface-neutral',
+    borderFaint: 'color-border-faint',
   },
 });
 
@@ -47,6 +49,8 @@ createGlobalTheme(':root.light', variables, {
     highlight: '#FF4F00',
     outline: blue.blue8,
     surfaceHover: gray.gray4,
+    surfaceNeutral: gray.gray6,
+    borderFaint: gray.gray4,
   },
 });
 
@@ -66,5 +70,7 @@ createGlobalTheme(':root.dark', variables, {
     overlay: blackA.blackA11,
     outline: blue.blue8,
     surfaceHover: grayDark.gray4,
+    surfaceNeutral: grayDark.gray7,
+    borderFaint: grayDark.gray4,
   },
 });

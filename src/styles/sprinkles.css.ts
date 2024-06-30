@@ -41,8 +41,11 @@ const columns = {
   '1/4': 'repeat(4, 1fr)',
 } as const;
 
+const rows = ['1', '-1'] as const;
+
 const responsiveProperties = defineProperties({
   conditions: {
+    xs: {},
     sm: {},
     md: { '@media': 'screen and (min-width: 768px)' },
     lg: { '@media': 'screen and (min-width: 1024px)' },
@@ -81,6 +84,10 @@ const responsiveProperties = defineProperties({
     maxWidth,
     float: ['none', 'right', 'left'],
     textAlign: ['center', 'right', 'left'],
+    gridColumnStart: columns,
+    gridColumnEnd: columns,
+    gridRowStart: rows,
+    gridRowEnd: rows,
   },
   shorthands: {
     padding: ['paddingTop', 'paddingBottom', 'paddingLeft', 'paddingRight'],
