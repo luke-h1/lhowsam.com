@@ -25,6 +25,10 @@ packageJsonPaths.forEach(packageJsonPath => {
         );
       }
 
+      if (packageJson.scripts) {
+        packageJson.scripts = sortObjectKeys(packageJson.scripts);
+      }
+
       fs.writeFile(
         fullPath,
         JSON.stringify(packageJson, null, 2),

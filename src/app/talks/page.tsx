@@ -7,6 +7,11 @@ import Spacer from '@frontend/components/Spacer/Spacer';
 import TalkItem from '@frontend/components/TalkItem/TalkItem';
 import Text from '@frontend/components/Text/Text';
 import talkService from '@frontend/services/talkService';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Talks',
+};
 
 const TalksPage = async () => {
   const talks = await talkService.getTalks();
