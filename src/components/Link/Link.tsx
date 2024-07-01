@@ -7,6 +7,7 @@ import * as styles from './Link.css';
 type Props = {
   children: ReactNode;
   variant?: 'highlight' | 'neutral';
+  underlined?: boolean;
   className?: string;
   href: string;
   css?: CSSProperties;
@@ -15,6 +16,7 @@ type Props = {
 const Link = ({
   children,
   variant = 'neutral',
+  underlined = false,
   className,
   href,
   prefetch = true,
@@ -29,7 +31,10 @@ const Link = ({
       <a
         rel={isAbsolute ? 'noopener noreferrer' : undefined}
         target={isAbsolute ? '_blank' : undefined}
-        className={clsx(styles.variants[variant], className)}
+        // className={clsx(styles.variants[variant], className, )}
+        className={clsx(styles.variants[variant], className, {
+          [styles.underlined]: underlined,
+        })}
         style={{
           ...css,
         }}

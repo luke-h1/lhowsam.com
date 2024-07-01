@@ -1,5 +1,7 @@
+import ExperienceItem from '@frontend/components/ExperienceItem/ExperienceItem';
 import Hero from '@frontend/components/Hero/Hero';
 import Page from '@frontend/components/Page';
+import jobs from '@frontend/data/jobs';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -13,6 +15,7 @@ const AboutPage = async () => {
       description="Hey I'm Luke, a Software Engineer currently based in the UK."
     >
       <Hero />
+      <ExperienceItem jobs={jobs} />
     </Page>
   );
 };

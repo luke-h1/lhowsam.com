@@ -30,6 +30,7 @@ export const variables = createGlobalThemeContract({
     surfaceHover: 'color-surface-hover',
     surfaceNeutral: 'color-surface-neutral',
     borderFaint: 'color-border-faint',
+    underline: 'color-underline',
   },
 });
 
@@ -51,6 +52,7 @@ createGlobalTheme(':root.light', variables, {
     surfaceHover: gray.gray4,
     surfaceNeutral: gray.gray6,
     borderFaint: gray.gray4,
+    underline: gray.gray7,
   },
 });
 
@@ -72,5 +74,6 @@ createGlobalTheme(':root.dark', variables, {
     surfaceHover: grayDark.gray4,
     surfaceNeutral: grayDark.gray7,
     borderFaint: grayDark.gray4,
+    underline: grayDark.gray8,
   },
 });
