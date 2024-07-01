@@ -4,8 +4,9 @@ import { ReactNode, useState } from 'react';
 import Banner from './Banner/Banner';
 import Box from './Box/Box';
 import Footer from './Footer/Footer';
+import PageHeader, { PageHeaderProps } from './PageHeader/PageHeader';
 
-interface PageProps {
+interface PageProps extends PageHeaderProps {
   children: ReactNode;
   bannerOpen?: boolean;
   showFooter?: boolean;
@@ -24,14 +25,14 @@ const Page = ({
   return (
     <>
       <div className="container">
-        {/* <Banner setOpen={setOpen} /> */}
         <Banner open={open} setOpen={setOpen} />
         <Box
+          maxWidth="lg"
           style={{
             margin: '0 auto',
           }}
         >
-          {/* <PageHeader heading={heading} description={description} /> */}
+          <PageHeader heading={heading} description={description} />
           {children}
         </Box>
       </div>

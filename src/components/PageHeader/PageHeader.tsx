@@ -5,12 +5,16 @@ import { Spacer } from '../Spacer/Spacer';
 import { Text } from '../Text/Text';
 import * as styles from './PageHeader.css';
 
-interface Props {
-  heading: string;
+export interface PageHeaderProps {
+  heading?: string;
   description?: string;
 }
 
-const PageHeader = ({ heading, description }: Props) => {
+const PageHeader = ({ heading, description }: PageHeaderProps) => {
+  if (!heading && !description) {
+    return null;
+  }
+
   return (
     <header className={styles.root}>
       <Box maxWidth="md" marginX="auto">

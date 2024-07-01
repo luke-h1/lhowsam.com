@@ -1,4 +1,5 @@
 import Box from '@frontend/components/Box/Box';
+import Hero from '@frontend/components/Hero/Hero';
 import { Image } from '@frontend/components/Image/Image';
 import Page from '@frontend/components/Page';
 import { Spacer } from '@frontend/components/Spacer/Spacer';
@@ -11,6 +12,10 @@ export const metadata: Metadata = {
 };
 
 const AboutPage = async () => {
-  return <Page>div</Page>;
+  return (
+    <Page>
+      <Hero />
+    </Page>
+  );
 };
 export default AboutPage;
