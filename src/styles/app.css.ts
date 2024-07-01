@@ -48,3 +48,9 @@ globalStyle('svg', {
   maxWidth: '100%',
   height: 'auto',
 });
+
+globalStyle('.container', {
+  position: 'relative',
+  paddingInline: tokens.spacing.lg,
+  paddingBlock: tokens.spacing.xxxxl,
+});

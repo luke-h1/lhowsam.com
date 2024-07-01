@@ -1,10 +1,5 @@
-import Box from '@frontend/components/Box/Box';
 import Hero from '@frontend/components/Hero/Hero';
-import { Image } from '@frontend/components/Image/Image';
 import Page from '@frontend/components/Page';
-import { Spacer } from '@frontend/components/Spacer/Spacer';
-import { Text } from '@frontend/components/Text/Text';
-import { buttonStyles } from '@frontend/styles/button.css';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -13,7 +8,10 @@ export const metadata: Metadata = {
 
 const AboutPage = async () => {
   return (
-    <Page>
+    <Page
+      heading="About"
+      description="Hey I'm Luke, a Software Engineer currently based in the UK."
+    >
       <Hero />
     </Page>
   );

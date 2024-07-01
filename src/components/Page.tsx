@@ -24,18 +24,18 @@ const Page = ({
   const [open, setOpen] = useState(bannerOpen);
   return (
     <>
-      <div className="container">
-        <Banner open={open} setOpen={setOpen} />
-        <Box
-          maxWidth="lg"
-          style={{
-            margin: '0 auto',
-          }}
-        >
-          <PageHeader heading={heading} description={description} />
-          {children}
-        </Box>
-      </div>
+      <Banner open={open} setOpen={setOpen} />
+
+      <Box
+        maxWidth="lg"
+        style={{
+          margin: '0 auto',
+        }}
+      >
+        {' '}
+        <PageHeader heading={heading} description={description} />
+        <div className="container">{children}</div>
+      </Box>
       {showFooter && <Footer />}
     </>
   );

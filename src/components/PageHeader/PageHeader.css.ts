@@ -3,8 +3,7 @@ import { variables } from '@frontend/styles/variables.css';
 import { style } from '@vanilla-extract/css';
 
 export const root = style({
-  paddingTop: tokens.spacing.xl,
-  paddingBottom: tokens.spacing.xl,
+  paddingTop: tokens.spacing.lg,
   paddingRight: tokens.spacing.md,
   paddingLeft: tokens.spacing.md,
   backgroundColor: variables.color.border,
