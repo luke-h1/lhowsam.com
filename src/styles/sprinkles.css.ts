@@ -63,7 +63,7 @@ const responsiveProperties = defineProperties({
       'space-around',
       'space-between',
     ],
-    alignItems: ['stretch', 'flex-start', 'center', 'flex-end'],
+    alignItems: ['stretch', 'flex-start', 'center', 'flex-end', 'baseline'],
     placeItems: ['center'],
     paddingTop: space,
     paddingBottom: space,
