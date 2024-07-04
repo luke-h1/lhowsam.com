@@ -42,7 +42,7 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v2
+        uses: pnpm/action-setup@v4
         with:
           version: ${{ env.PNPM_VERSION }}
 
@@ -73,7 +73,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
  
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
           version: ${{ env.PNPM_VERSION }}
@@ -205,7 +205,7 @@ jobs:
             ref: ${{ github.head_ref }}
 
         - name: Setup pnpm
-          uses: pnpm/action-setup@v2
+          uses: pnpm/action-setup@v4
           with:
             version: ${{ env.PNPM_VERSION }}
 
@@ -236,7 +236,7 @@ jobs:
             restore-keys: |
               ${{ runner.os }}-turbo-
   
-        - uses: pnpm/action-setup@v2
+        - uses: pnpm/action-setup@v4
           name: Install pnpm
           with:
             version: ${{ env.PNPM_VERSION }}
