@@ -3,6 +3,8 @@ import commonConfig from './playwright-common.config';
 
 const config: PlaywrightTestConfig = {
   ...commonConfig,
+  workers: 2,
+  fullyParallel: true,
   webServer: [
     {
       command: 'pnpm start',
