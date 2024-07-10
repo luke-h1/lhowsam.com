@@ -33,7 +33,7 @@
     "@next/eslint-plugin-next": "^14.2.4",
     "@radix-ui/colors": "^3.0.0",
     "@radix-ui/react-toast": "^1.2.1",
-    "@radix-ui/react-tooltip": "^1.1.1",
+    "@radix-ui/react-tooltip": "^1.1.2",
     "@reduxjs/toolkit": "^2.2.5",
     "@sanity/client": "^6.20.1",
     "@sanity/image-url": "^1.0.2",
