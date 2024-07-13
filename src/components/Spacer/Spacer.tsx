@@ -1,17 +1,9 @@
-import { Sprinkles, sprinkles } from '@frontend/styles/sprinkles.css';
-import clsx from 'clsx';
-import { createElement } from 'react';
+import { PartialPick } from '@frontend/types/style';
+import Box, { BoxProps } from '../Box/Box';
 
-interface SpacerProps {
-  width?: Sprinkles['width'];
-  height?: Sprinkles['height'];
-}
-
-const Spacer = ({ width, height }: SpacerProps) => {
-  return createElement('span', {
-    'aria-hidden': '',
-    className: clsx(sprinkles({ display: 'block', width, height })),
-  });
+export const Spacer = ({
+  height,
+  width,
+}: PartialPick<BoxProps<'span'>, 'width' | 'height'>) => {
+  return <Box as="span" display="block" height={height} width={width} />;
 };
-
-export default Spacer;

@@ -1,22 +1,24 @@
+import { responsiveStyle } from '@frontend/styles/style.css';
 import { variables } from '@frontend/styles/variables.css';
-import { responsiveStyle } from '@frontend/utils/style.css';
 import { style } from '@vanilla-extract/css';
 
 export const root = style({
   position: 'relative',
-  margin: '0 auto',
-  marginTop: '1rem',
+  marginTop: 'auto',
+  width: '100%',
   paddingTop: variables.spacing.xxl,
   paddingBottom: variables.spacing.xxl,
   paddingRight: variables.spacing.md,
   paddingLeft: variables.spacing.md,
-  backgroundColor: variables.color.page,
+  backgroundColor: variables.color.pageFaint,
 });
 
 export const container = style({
+  maxWidth: variables.maxWidth.md,
   margin: '0 auto',
   display: 'grid',
   rowGap: variables.spacing.lg,
+  padding: variables.spacing.lg,
   ...responsiveStyle({
     sm: {
       gridTemplateColumns: 'repeat(2, 1fr)',
@@ -30,7 +32,11 @@ export const container = style({
 export const links = style({
   display: 'grid',
   rowGap: variables.spacing.sm,
-  color: variables.color.foregroundNeutral,
+});
+
+export const note = style({
+  gridColumn: '1 / -1',
+  paddingTop: variables.spacing.lg,
 });
 
 export const copy = style({

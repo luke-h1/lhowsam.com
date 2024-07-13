@@ -1,28 +1,31 @@
 import Balancer from 'react-wrap-balancer';
-import Heading from '../Heading/Heading';
-import Spacer from '../Spacer/Spacer';
+import Box from '../Box/Box';
+import { Heading } from '../Heading/Heading';
 import Text from '../Text/Text';
 import * as styles from './PageHeader.css';
 
-interface PageHeaderProps {
+export interface PageHeaderProps {
   heading?: string;
   description?: string;
 }
 
 const PageHeader = ({ heading, description }: PageHeaderProps) => {
+  if (!heading && !description) {
+    return null;
+  }
+
   return (
     <header className={styles.root}>
-      <Heading as="h1" fontSize="xxxl" color="foregroundAction">
-        {heading}
-      </Heading>
-      {description && (
-        <>
-          <Spacer height="sm" />
+      <Box maxWidth="container">
+        <Heading as="h1" fontSize="xxl">
+          {heading}
+        </Heading>
+        {description && (
           <Text fontSize="lg" color="foregroundNeutral">
             <Balancer>{description}</Balancer>
           </Text>
-        </>
-      )}
+        )}
+      </Box>
     </header>
   );
 };

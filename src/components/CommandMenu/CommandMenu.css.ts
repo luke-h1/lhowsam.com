@@ -32,7 +32,7 @@ globalStyle('[cmdk-overlay]', {
 globalStyle('[cmdk-dialog]', {
   transformOrigin: '0 0',
   position: 'fixed',
-  top: variables.spacing.xxxxl,
+  top: variables.spacing.xl + variables.spacing.xl,
   left: '50%',
   transform: 'translateX(-50%)',
   maxWidth: 640,
@@ -81,7 +81,7 @@ globalStyle('[cmdk-header-esc]', {
   top: '50%',
   transform: 'translateY(-50%)',
   right: variables.spacing.md,
-  fontSize: variables.fontSize.xs,
+  fontSize: variables.fontSize.sm,
   padding: `${variables.spacing.xs} ${variables.spacing.sm}`,
   color: variables.color.foregroundNeutral,
   borderRadius: variables.radius.md,
@@ -91,7 +91,7 @@ globalStyle('[cmdk-header-esc]', {
 
 globalStyle('[cmdk-input]', {
   position: 'relative',
-  fontFamily: variables.font.sans,
+  fontFamily: variables.fontFamily.sans,
   fontSize: variables.fontSize.md,
   width: '100%',
   padding: variables.spacing.md,
@@ -121,7 +121,7 @@ globalStyle('*:not([hidden]) + [cmdk-group]', {
 globalStyle('[cmdk-group-heading]', {
   position: 'relative',
   userSelect: 'none',
-  fontSize: variables.fontSize.xs,
+  fontSize: variables.fontSize.sm,
   color: variables.color.foregroundNeutral,
   paddingInline: variables.spacing.md,
   marginBlockEnd: variables.spacing.sm,

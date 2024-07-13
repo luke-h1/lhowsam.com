@@ -14,35 +14,35 @@ import {
 import { MotionConfig as FramerMotionConfig } from 'framer-motion';
 import Head from 'next/head';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
-import posthog from 'posthog-js';
-import { PostHogProvider as BasePostHogProvider } from 'posthog-js/react';
+// import posthog frcdom 'posthog-js';
+// import { PostHogProvider as BasePostHogProvider } from 'posthog-js/react';
 import { ReactNode, useState } from 'react';
 import { Provider } from 'react-redux';
-import Gradient from './Gradient/Gradient';
+// import Gradient from './Gradient/Gradient';
 import SkipLink from './SkipLink/SkipLink';
 
 interface Props {
   children: ReactNode;
 }
 
-if (!isServer) {
-  posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-    api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
-    loaded: app => {
-      if (process.env.NODE_ENV === 'development') {
-        app.debug();
-      }
-    },
-  });
-}
+// if (!isServer) {
+//   posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+//     api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+//     loaded: app => {
+//       if (process.env.NODE_ENV === 'development') {
+//         app.debug();
+//       }
+//     },
+//   });
+// }
 
 function ThemeProvider({ children }: { children: ReactNode }) {
   return <NextThemeProvider attribute="class">{children}</NextThemeProvider>;
 }
 
-function PostHogProvider({ children }: { children: ReactNode }) {
-  return <BasePostHogProvider client={posthog}>{children}</BasePostHogProvider>;
-}
+// function PostHogProvider({ children }: { children: ReactNode }) {
+//   return <BasePostHogProvider client={posthog}>{children}</BasePostHogProvider>;
+// }
 
 function MotionConfig({ children }: { children: ReactNode }) {
   return (
@@ -79,7 +79,7 @@ const ComposedProviders = composeProviders(
   MotionConfig,
   ToastProvider,
   TooltipProvider,
-  PostHogProvider,
+  // PostHogProvider,
   ReduxProvider,
   QueryClientProvider,
 );
@@ -88,7 +88,7 @@ const Providers = ({ children }: Props) => {
   return (
     <ComposedProviders>
       <SkipLink />
-      <Gradient />
+      {/* <Gradient /> */}
       <Head>
         <meta
           name="viewport"

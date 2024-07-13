@@ -1,36 +1,30 @@
 import { Sprinkles, sprinkles } from '@frontend/styles/sprinkles.css';
 import { PolymorphicComponentProps } from '@frontend/types/style';
 import clsx from 'clsx';
-import { ElementType, ReactNode, createElement } from 'react';
+import { createElement } from 'react';
 import * as styles from './Heading.css';
 
-type HeadingProps<T extends ElementType> = PolymorphicComponentProps<
-  T,
-  {
-    as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
-    fontSize?: Sprinkles['fontSize'];
-    color?: Extract<
-      Sprinkles['color'],
-      'foreground' | 'foregroundNeutral' | 'foregroundAction'
-    >;
-    children: ReactNode;
-  }
->;
+export type HeadingProps<C extends React.ElementType> =
+  PolymorphicComponentProps<
+    C,
+    {
+      as?: 'h1' | 'h2' | 'h3' | 'h4';
+      fontSize?: Sprinkles['fontSize'];
+      color?: Sprinkles['color'];
+      children: React.ReactNode;
+    }
+  >;
 
-const Heading = <T extends ElementType = 'p'>({
+export const Heading = <C extends React.ElementType = 'p'>({
   as,
   fontSize = 'md',
   color = 'foreground',
-  ...rest
-}: HeadingProps<T>) => {
+  ...props
+}: HeadingProps<C>) => {
   const component = as || 'h2';
+  const { className, ...restProps } = props;
   return createElement(component, {
-    className: clsx(
-      styles.root,
-      styles.tracking[component],
-      sprinkles({ fontSize, color }),
-    ),
-    ...rest,
+    className: clsx(styles.root, sprinkles({ fontSize, color }), className),
+    ...restProps,
   });
 };
-export default Heading;

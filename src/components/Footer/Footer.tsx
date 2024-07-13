@@ -1,15 +1,11 @@
-import dynamic from 'next/dynamic';
-import Box from '../Box/Box';
-import Heading from '../Heading/Heading';
+import { Heading } from '../Heading/Heading';
 import Link from '../Link/Link';
-import Spacer from '../Spacer/Spacer';
+import { List } from '../List/List';
+import NowPlaying from '../NowPlaying/NowPlaying';
+import { Spacer } from '../Spacer/Spacer';
 import Text from '../Text/Text';
+import ThemeSelect from '../ThemeSelect/ThemeSelect';
 import * as styles from './Footer.css';
-import ThemeSelect from './ThemeSelect/ThemeSelect';
-
-const NowPlaying = dynamic(() => import('../NowPlaying/NowPlaying'), {
-  ssr: true,
-});
 
 interface FooterLink {
   id: number;
@@ -17,7 +13,7 @@ interface FooterLink {
   href: string;
 }
 
-const links: FooterLink[] = [
+const navigationLinks: FooterLink[] = [
   {
     id: 1,
     text: 'Home',
@@ -30,16 +26,21 @@ const links: FooterLink[] = [
   },
   {
     id: 3,
+    text: 'Experience',
+    href: '/experience',
+  },
+  {
+    id: 4,
     text: 'Blog',
     href: '/blog',
   },
   {
-    id: 4,
+    id: 5,
     text: 'Projects',
-    href: '/projects',
+    href: '/Projects',
   },
   {
-    id: 5,
+    id: 6,
     text: 'Talks',
     href: '/talks',
   },
@@ -65,48 +66,45 @@ const socialLinks: FooterLink[] = [
 
 const Footer = () => {
   return (
-    <Box
-      as="article"
-      className={styles.root}
-      maxWidth={{ md: 'text' }}
-      data-testid="footer"
-    >
+    <footer className={styles.root}>
       <div className={styles.container}>
         <div>
-          <Heading color="foregroundNeutral">Navigate</Heading>
+          <Heading color="highlight">Navigate</Heading>
           <Spacer height="md" />
-          <ul className={styles.links}>
-            {links &&
-              links.map(link => (
+          <List className={styles.links}>
+            {navigationLinks &&
+              navigationLinks.map(link => (
                 <li key={link.id}>
                   <Link href={link.href}>{link.text}</Link>
                 </li>
               ))}
-          </ul>
+          </List>
         </div>
         <div>
-          <Heading color="foregroundNeutral">Get in touch</Heading>
+          <Heading color="highlight">Social</Heading>
           <Spacer height="md" />
-          <ul className={styles.links}>
+          <List className={styles.links}>
             {socialLinks &&
               socialLinks.map(link => (
                 <li key={link.id}>
                   <Link href={link.href}>{link.text}</Link>
                 </li>
               ))}
-          </ul>
+          </List>
         </div>
         <div>
           <ThemeSelect />
         </div>
-        <div className={styles.copy}>
-          <Text color="foregroundNeutral" fontSize="sm">
-            <NowPlaying />
-            {new Date().getFullYear()} - lhowsam.com
+        <div className={styles.note}>
+          <Text color="foregroundNeutral" fontSize="sm" fontFamily="mono">
+            © {new Date().getFullYear()} Luke Howsam
           </Text>
         </div>
+        <div className={styles.copy}>
+          <NowPlaying />
+        </div>
       </div>
-    </Box>
+    </footer>
   );
 };
 

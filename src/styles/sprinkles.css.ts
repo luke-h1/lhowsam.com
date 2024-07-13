@@ -1,4 +1,8 @@
-import { defineProperties, createSprinkles } from '@vanilla-extract/sprinkles';
+import {
+  defineProperties,
+  createSprinkles,
+  createMapValueFn,
+} from '@vanilla-extract/sprinkles';
 import { variables } from './variables.css';
 
 const {
@@ -24,7 +28,7 @@ const responsiveProperties = defineProperties({
     md: { '@media': 'screen and (min-width: 768px)' },
     lg: { '@media': 'screen and (min-width: 1024px)' },
   },
-  defaultCondition: 'xs',
+  defaultCondition: 'sm',
   properties: {
     position: ['relative', 'absolute'],
     display: ['none', 'flex', 'inline-flex', 'grid', 'block', 'inline'],
@@ -70,15 +74,18 @@ const responsiveProperties = defineProperties({
 
 const unresponsiveProperties = defineProperties({
   properties: {
+    fontFamily,
     color: variables.color,
     borderRadius: radius,
+    textTransform: ['none', 'uppercase'],
     border: { true: `1px solid ${variables.color.border}` },
     flexShrink: [0],
     flexGrow: [0, 1],
-    fontFamily,
     fontWeight,
   },
 });
+
+export const mapResponsiveValue = createMapValueFn(responsiveProperties);
 
 export const sprinkles = createSprinkles(
   responsiveProperties,

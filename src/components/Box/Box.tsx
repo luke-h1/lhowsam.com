@@ -1,20 +1,17 @@
 import { Sprinkles, sprinkles } from '@frontend/styles/sprinkles.css';
+import { PolymorphicComponentProps } from '@frontend/types/style';
 import clsx from 'clsx';
-import { createElement, AllHTMLAttributes, ElementType } from 'react';
+import { ElementType, createElement } from 'react';
 
-interface BoxProps
-  extends Omit<
-      AllHTMLAttributes<HTMLElement>,
-      'content' | 'height' | 'translate' | 'color' | 'width' | 'cursor'
-    >,
-    Sprinkles {
-  component?: ElementType;
-}
+export type BoxProps<T extends ElementType> = PolymorphicComponentProps<
+  T,
+  Sprinkles
+>;
 
-const Box = ({
-  as: component = 'div',
-  className,
+const Box = <T extends ElementType = 'div'>({
+  as,
   position,
+  className,
   padding,
   paddingTop,
   paddingRight,
@@ -23,26 +20,30 @@ const Box = ({
   paddingX,
   paddingY,
   marginTop,
+  marginRight,
+  marginBottom,
+  marginLeft,
   marginX,
   marginY,
-  marginBottom,
   display,
   flexDirection,
-  flexShrink,
-  flexGrow,
   alignItems,
   justifyContent,
   placeItems,
+  flexShrink,
+  flexGrow,
   gap,
   columnGap,
   rowGap,
   columns,
   gridTemplateColumns,
+  width,
   maxWidth,
+  height,
+  aspectRatio,
   textAlign,
-  color,
   ...rest
-}: BoxProps) => {
+}: BoxProps<T>) => {
   const atomClasses = clsx(
     sprinkles({
       position,
@@ -54,28 +55,32 @@ const Box = ({
       paddingX,
       paddingY,
       marginTop,
+      marginRight,
+      marginBottom,
+      marginLeft,
       marginX,
       marginY,
-      marginBottom,
       display,
       flexDirection,
-      flexShrink,
-      flexGrow,
       alignItems,
       justifyContent,
       placeItems,
+      flexShrink,
+      flexGrow,
       gap,
       columnGap,
       rowGap,
       columns,
       gridTemplateColumns,
+      width,
       maxWidth,
+      height,
+      aspectRatio,
       textAlign,
-      color,
     }),
     className,
   );
+  const component = as || 'div';
   return createElement(component, { className: atomClasses, ...rest });
 };
-
 export default Box;

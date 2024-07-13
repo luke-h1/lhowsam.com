@@ -1,7 +1,6 @@
 import Box from '@frontend/components/Box/Box';
 import { List } from '@frontend/components/List/List';
 import Page from '@frontend/components/Page';
-import ProjectItem from '@frontend/components/ProjectItem/ProjectItem';
 import siteConfig from '@frontend/config/site';
 import projectService from '@frontend/services/projectService';
 import { Metadata } from 'next';
@@ -18,12 +17,7 @@ const ProjectPage = async () => {
   return (
     <Page heading="Projects">
       <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
-        <List>
-          {projects &&
-            projects.map(project => (
-              <ProjectItem project={project} key={project._id} />
-            ))}
-        </List>
+        <List>{projects && projects.map(project => <div>project</div>)}</List>
       </Box>
     </Page>
   );

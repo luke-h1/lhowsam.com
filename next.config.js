@@ -65,7 +65,7 @@ const nextConfig = {
   },
   images: {
     minimumCacheTTL: 120,
-    unoptimized: true,
+    unoptimized: false,
     remotePatterns: [
       { hostname: 'cdn.sanity.io' },
       { hostname: 'localhost' },

@@ -15,6 +15,7 @@ type TextProps<T extends ElementType> = PolymorphicComponentProps<
       Sprinkles['color'],
       'foreground' | 'foregroundNeutral' | 'foregroundAction'
     >;
+    textTransform?: Sprinkles['textTransform'];
     gradient?: boolean;
   }
 >;

@@ -1,72 +1,43 @@
 import { variables } from '@frontend/styles/variables.css';
 import { style } from '@vanilla-extract/css';
 
-export const banner = style({
+export const root = style({
+  // paddingLeft: variables.spacing.md,
+  paddingLeft: variables.spacing.xs,
+  borderTop: '2px solid',
+  borderBottom: '1px solid',
+  borderColor: variables.color.borderNeutral,
+});
+
+export const nav = style({
   display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'center',
-  marginInline: 'auto',
-  marginBlockEnd: variables.spacing.xxxl,
-  textAlign: 'center',
-  '@media': {
-    'screen and (min-width: 768px)': {
-      maxWidth: variables.contentWidth.text,
-      '::before': {
-        content: '',
-        width: variables.spacing.xxxl,
-      },
-    },
-  },
+  gap: variables.spacing.md,
+  maxWidth: variables.maxWidth.md,
+  marginRight: 'auto',
+  marginLeft: 'auto',
 });
 
-export const avatar = style({
-  // position: "relative",
-  display: 'inline-flex',
-  borderRadius: variables.radius.lg,
-  // border: `1px solid ${variables.color.borderFaint}`,
-  overflow: 'hidden',
-  ':focus': {
-    outline: 'transparent',
-  },
-  ':focus-visible': {
-    outlineWidth: '2px',
-    outlineStyle: 'solid',
-    outlineOffset: '2px',
-    outlineColor: variables.color.outline,
-  },
+export const group = style({
+  display: 'flex',
+  gap: variables.spacing.md,
 });
 
-export const logo = style({
-  position: 'absolute',
-  inset: 0,
-  display: 'grid',
-  placeItems: 'center',
-  backgroundColor: 'rgba(0, 0, 0, .5)',
-  opacity: 0,
-  transitionTimingFunction: 'ease-in-out',
-  transitionDuration: '200ms',
-  transitionProperty: 'opacity',
-  selectors: {
-    [`${avatar}:hover &`]: {
-      opacity: 1,
-    },
-    [`${avatar}:focus &`]: {
-      opacity: 1,
-    },
-  },
+export const groupEnd = style({
+  display: 'flex',
+  gap: variables.spacing.md,
+  alignItems: 'flex-end',
+  justifyContent: 'flex-end',
+  marginLeft: 'auto',
+  marginBlockStart: variables.spacing.md,
 });
 
-export const toggle = style({
+export const anchor = style({
   position: 'relative',
-  width: variables.spacing.xxxl,
-  height: variables.spacing.xxxl,
   display: 'grid',
   placeItems: 'center',
-  borderRadius: variables.radius.md,
-  cursor: 'pointer',
-  transitionTimingFunction: 'ease-in-out',
-  transitionDuration: '200ms',
-  transitionProperty: 'background-color',
+  paddingTop: variables.spacing.md,
+  paddingBottom: variables.spacing.md,
   ':focus': {
     outline: 'transparent',
   },
@@ -78,23 +49,11 @@ export const toggle = style({
   },
 });
 
-export const toggleHighlight = style({
+export const highlight = style({
   position: 'absolute',
-  inset: 0,
-  backgroundColor: variables.color.surfaceHover,
-  borderRadius: variables.radius.md,
-  zIndex: '-1',
-  opacity: 0,
-  transform: 'scale(0)',
-  transition: 'all ease-in-out 200ms',
-  selectors: {
-    [`${toggle}:hover &`]: {
-      opacity: 1,
-      transform: 'scale(1)',
-    },
-    [`${toggle}:focus-visible &`]: {
-      opacity: 1,
-      transform: 'scale(1)',
-    },
-  },
+  top: -4,
+  left: 0,
+  width: '100%',
+  height: 4,
+  backgroundColor: variables.color.highlight,
 });

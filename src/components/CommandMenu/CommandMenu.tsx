@@ -59,7 +59,7 @@ const CommandItem = ({ children, value, onSelect }: CommandItemProps) => {
   );
 };
 
-interface CommandMenuProps {
+export interface CommandMenuProps {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
 }
@@ -148,6 +148,16 @@ const CommandMenu = ({ open, setOpen }: CommandMenuProps) => {
           >
             <AtSign />
             <span>About</span>
+          </CommandItem>
+          <CommandItem
+            onSelect={() => {
+              router.push('/experience');
+              setOpen(false);
+            }}
+            value="experience"
+          >
+            <Edit />
+            <span>Experience</span>
           </CommandItem>
           <CommandItem
             onSelect={() => {
