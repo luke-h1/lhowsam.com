@@ -30,7 +30,7 @@ const responsiveProperties = defineProperties({
   },
   defaultCondition: 'sm',
   properties: {
-    position: ['relative', 'absolute'],
+    position: ['relative', 'absolute', 'static'],
     display: ['none', 'flex', 'inline-flex', 'grid', 'block', 'inline'],
     flexDirection: ['row', 'row-reverse', 'column'],
     justifyContent: [
@@ -41,6 +41,7 @@ const responsiveProperties = defineProperties({
       'space-around',
       'space-between',
     ],
+    overflow: ['auto'],
     alignItems: ['stretch', 'flex-start', 'center', 'flex-end'],
     paddingTop: space,
     paddingBottom: space,

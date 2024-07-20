@@ -32,12 +32,12 @@ globalStyle('[cmdk-overlay]', {
 globalStyle('[cmdk-dialog]', {
   transformOrigin: '0 0',
   position: 'fixed',
-  top: variables.spacing.xl + variables.spacing.xl,
+  zIndex: 999,
+  top: variables.spacing.xxxxl,
   left: '50%',
   transform: 'translateX(-50%)',
   maxWidth: 640,
   width: calc.subtract('100%', calc.multiply(variables.spacing.md, 2)),
-  zIndex: 9999,
   '@media': {
     'screen and (min-width: 576px)': {
       marginTop: '8rem',
@@ -81,7 +81,7 @@ globalStyle('[cmdk-header-esc]', {
   top: '50%',
   transform: 'translateY(-50%)',
   right: variables.spacing.md,
-  fontSize: variables.fontSize.sm,
+  fontSize: variables.fontSize.xs,
   padding: `${variables.spacing.xs} ${variables.spacing.sm}`,
   color: variables.color.foregroundNeutral,
   borderRadius: variables.radius.md,
@@ -91,7 +91,7 @@ globalStyle('[cmdk-header-esc]', {
 
 globalStyle('[cmdk-input]', {
   position: 'relative',
-  fontFamily: variables.fontFamily.sans,
+  fontFamily: variables.font.sans,
   fontSize: variables.fontSize.md,
   width: '100%',
   padding: variables.spacing.md,
@@ -121,7 +121,7 @@ globalStyle('*:not([hidden]) + [cmdk-group]', {
 globalStyle('[cmdk-group-heading]', {
   position: 'relative',
   userSelect: 'none',
-  fontSize: variables.fontSize.sm,
+  fontSize: variables.fontSize.xs,
   color: variables.color.foregroundNeutral,
   paddingInline: variables.spacing.md,
   marginBlockEnd: variables.spacing.sm,

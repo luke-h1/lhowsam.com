@@ -1,9 +1,9 @@
-import Box from '@frontend/components/Box/Box';
-import { Heading } from '@frontend/components/Heading/Heading';
-import { List } from '@frontend/components/List/List';
+import Box from '@frontend/components/Box';
+import { Heading } from '@frontend/components/Heading';
+import { List } from '@frontend/components/List';
 import Page from '@frontend/components/Page';
-import PostItem from '@frontend/components/PostItem/PostItem';
-import { Spacer } from '@frontend/components/Spacer/Spacer';
+import PostItem from '@frontend/components/PostItem';
+import { Spacer } from '@frontend/components/Spacer';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
@@ -53,7 +53,8 @@ const BlogPage = async () => {
         // eslint-disable-next-line no-shadow
         .map(([year, posts], i) => (
           <Fragment key={year}>
-            {i > 0 && <Spacer height="xxxl" />}
+            {i === 0 && <Spacer height="xxl" />}
+            {i > 0 && <Spacer height="xxl" />}
             <Box as="section" marginX="auto">
               <Heading fontSize="xl" id={year} color="border">
                 {year}

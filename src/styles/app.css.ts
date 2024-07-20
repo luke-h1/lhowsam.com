@@ -27,11 +27,11 @@ globalStyle('html', {
   WebkitTextSizeAdjust: '100%',
 });
 
-globalStyle('body, #__next, .container', {
-  display: 'flex',
-  flexDirection: 'column',
-  minHeight: '100vh',
-});
+// globalStyle('body, #__next, .container', {
+//   display: 'flex',
+//   flexDirection: 'column',
+//   minHeight: '100vh',
+// });
 
 globalStyle('body', {
   overflowX: 'hidden',

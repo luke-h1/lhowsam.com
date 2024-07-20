@@ -12,6 +12,9 @@ help:
 	@echo "  e2e-prod              : Run End-to-End tests on the prod environment (headless)"
 	@echo "  e2e-prod-open         : Run End-to-End tests on the prod environment (headed)"
 
+
+# BASE_URL='http://localhost:3000' ./node_modules/.bin/playwright test --headed --config=playwright-common.config.ts e2e/about.spec.ts
+
 .PHONY: e2e-install-browsers
 e2e-install-browsers:
 	pnpm exec playwright install --with-deps chromium

@@ -8,6 +8,7 @@ import {
   greenDarkP3,
   grayDark,
   gray,
+  blueDark,
 } from '@radix-ui/colors';
 import {
   createGlobalThemeContract,
@@ -20,6 +21,7 @@ const color = createGlobalThemeContract({
   foreground: 'color-foreground',
   foregroundNeutral: 'color-foreground-neutral',
   foregroundHighContrast: 'color-foreground-high-contrast',
+  foregroundAction: 'color-foreground-action',
   surface: 'color-surface',
   surfaceFaint: 'color-surface-faint',
   surfaceStrong: 'color-surface-strong',
@@ -42,6 +44,7 @@ createGlobalTheme(':root.light', color, {
   pageFaint: slate.slate3,
   foreground: slate.slate12,
   foregroundNeutral: slate.slate11,
+  foregroundAction: blue.blue11,
   foregroundHighContrast: slate.slate1,
   surface: slate.slate2,
   surfaceFaint: slate.slate4,
@@ -64,6 +67,7 @@ createGlobalTheme(':root.dark', color, {
   pageFaint: slateDark.slate3,
   foreground: slateDark.slate12,
   foregroundNeutral: slateDark.slate11,
+  foregroundAction: blueDark.blue11,
   foregroundHighContrast: slateDark.slate1,
   surface: slateDark.slate2,
   surfaceFaint: slateDark.slate4,
@@ -91,6 +95,7 @@ const globals = createGlobalTheme(':root', {
     mono: "'JetBrains Mono NL', monospace",
   },
   fontSize: {
+    xs: '0.75rem',
     sm: '0.875rem',
     md: '1rem',
     lg: '1.125rem',
@@ -161,7 +166,8 @@ const globals = createGlobalTheme(':root', {
   },
   contentWidth: {
     text: '60ch',
-    container: '50rem',
+    // container: '50rem',
+    container: '80ch',
   },
 });
 

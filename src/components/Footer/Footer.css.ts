@@ -32,6 +32,11 @@ export const container = style({
 export const links = style({
   display: 'grid',
   rowGap: variables.spacing.sm,
+  ...responsiveStyle({
+    sm: {
+      marginTop: variables.spacing.sm,
+    },
+  }),
 });
 
 export const note = style({

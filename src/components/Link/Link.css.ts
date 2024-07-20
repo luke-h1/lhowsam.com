@@ -13,6 +13,7 @@ export const root = style({
   },
   ':hover': {
     textDecoration: 'underline',
+    cursor: 'pointer',
   },
 });
 

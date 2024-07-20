@@ -58,10 +58,11 @@ test.describe('command menu', () => {
     const navigation = page.locator('[role="dialog"]');
     await expect(navigation).toBeVisible();
 
-    await expect(navigation.locator('text=Home')).toBeVisible();
-    await expect(navigation.locator('text=About')).toBeVisible();
-    await expect(navigation.locator('text=Blog')).toBeVisible();
-    await expect(navigation.locator('text=Projects')).toBeVisible();
+    const links = ['Home', 'About', 'Blog', 'Projects', 'Talks'];
+
+    links.forEach(async link => {
+      await expect(navigation.locator(`text=${link}`)).toBeVisible();
+    });
   });
 
   test('navigation items navigate correctly', async () => {
@@ -74,16 +75,18 @@ test.describe('command menu', () => {
 
     await expect(navigation).toBeVisible();
 
+    // home
     await navigation.locator('text=Home').click();
-    await expect(page.locator('h1').first()).toHaveText(
-      'Luke // Software Engineer',
-    );
+    await expect(
+      page.locator('[data-testid="highlight-heading"]'),
+    ).toBeVisible();
 
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
     await expectListboxToBeVisible(page);
 
+    // about
     await navigation.locator('text=About').click();
     await expect(page.locator('h1').first()).toHaveText('About');
     await page.goBack();
@@ -93,6 +96,7 @@ test.describe('command menu', () => {
     });
     await expectListboxToBeVisible(page);
 
+    // blog
     await navigation.locator('text=Blog').click();
     await expect(page.locator('h1').first()).toHaveText('Blog');
     await page.goBack();
@@ -102,8 +106,19 @@ test.describe('command menu', () => {
     });
     await expectListboxToBeVisible(page);
 
+    // projects
     await navigation.locator('text=Projects').click();
     await expect(page.locator('h1').first()).toHaveText('Projects');
+    await page.goBack();
+
+    await page.keyboard.press(`${key}+K`, {
+      delay,
+    });
+    await expectListboxToBeVisible(page);
+
+    // talks
+    await navigation.locator('text=Talks').click();
+    await expect(page.locator('h1').first()).toHaveText('Talks');
     await page.goBack();
 
     await page.keyboard.press(`${key}+K`, {

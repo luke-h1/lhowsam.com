@@ -1,6 +1,7 @@
 /* eslint-disable no-await-in-loop */
 import { test, expect, Page } from '@playwright/test';
 import { baseUrl } from './config/baseUrl';
+import { projectsWithSiteUrls } from './utils/projects';
 
 let page: Page;
 
@@ -9,6 +10,7 @@ test.describe('project', () => {
     page = await browser.newPage();
     await page.goto(`${baseUrl}/projects`);
     await expect(page.locator('h1').first()).toHaveText('Projects');
+    await expect(page.locator('p').first()).toHaveText('Personal projects');
   });
 
   test('shows project posts & project slug pages correctly', async () => {
@@ -22,10 +24,6 @@ test.describe('project', () => {
       ).toBeVisible();
       await expect(page.locator('p').nth(i)).not.toBeEmpty();
 
-      await expect(
-        page.locator('[data-testid="github"]').nth(i),
-      ).not.toBeEmpty();
-
       const link = await page
         .locator('[data-testid="project-link"]')
         .nth(i)
@@ -37,7 +35,17 @@ test.describe('project', () => {
       await expect(page.locator('h1')).toBeVisible();
       await expect(page.locator('h1')).not.toBeEmpty();
 
-      // Github
+      const projectsIncludingSiteUrls = links.filter(
+        l => projectsWithSiteUrls.indexOf(l) > -1,
+      );
+
+      if (projectsIncludingSiteUrls.length > 0) {
+        await expect(
+          page.locator('[data-testid="project-siteUrl"]'),
+        ).toBeVisible();
+      }
+
+      // GitHub
       await expect(page.getByTestId('meta-title-2')).toContainText(
         'Repository',
       );

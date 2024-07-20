@@ -1,10 +1,8 @@
-'use client';
-
-import Box from './Box/Box';
-import Link from './Link/Link';
-import { List } from './List/List';
+import Box from './Box';
+import Link from './Link';
+import { List } from './List';
 import Page from './Page';
-import { Spacer } from './Spacer/Spacer';
+import { Spacer } from './Spacer';
 
 interface Props {
   title: string;
@@ -14,14 +12,8 @@ interface Props {
 const ErrorContent = ({ statusCode, title }: Props) => {
   return (
     <Page heading={title} showFooter={false}>
-      <Box
-        as="header"
-        textAlign={{ md: 'center' }}
-        // maxWidth="container"
-        marginX="auto"
-      >
+      <Box as="header" textAlign={{ md: 'center' }} marginX="auto">
         <Spacer height="xl" />
-
         <Box textAlign="left">
           <List>
             {statusCode === '404' ? (

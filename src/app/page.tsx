@@ -1,10 +1,11 @@
-import Box from '@frontend/components/Box/Box';
-import { Heading } from '@frontend/components/Heading/Heading';
-import HighlightImage from '@frontend/components/HighlightImage/HighlightImage';
-import { List } from '@frontend/components/List/List';
+import Box from '@frontend/components/Box';
+import { Heading } from '@frontend/components/Heading';
+import HighlightImage from '@frontend/components/HighlightImage';
+import { List } from '@frontend/components/List';
 import Page from '@frontend/components/Page';
-import PostItem from '@frontend/components/PostItem/PostItem';
-import { Spacer } from '@frontend/components/Spacer/Spacer';
+import PostItem from '@frontend/components/PostItem';
+import ProjectItem from '@frontend/components/ProjectItem';
+import { Spacer } from '@frontend/components/Spacer';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import projectService from '@frontend/services/projectService';
@@ -16,31 +17,21 @@ export const metadata: Metadata = {
   title: 'Home | lhowsam.com',
 };
 
-const fetchPostsAndProjects = async () => {
-  'use server';
+const HomePage = async () => {
+  const heading = 'Luke // Software Engineer';
+  const description =
+    'Software Engineer based in the UK who is interested in React.js, Next.js, Typescript, Python and DevOps';
 
   const [posts, projects] = await Promise.all([
     postService.getRecentPosts(),
     projectService.getRecentProjects(),
   ]);
 
-  return { posts, projects };
-};
-
-const HomePage = async () => {
-  const description =
-    'Software Engineer based in the UK who is interested in React.js, Next.js, Typescript, Python and DevOps';
-
-  const { posts, projects } = await fetchPostsAndProjects();
-
   return (
     <Page>
       <Box as="section" paddingX="md" marginY="xxl">
         <Box marginX="auto" maxWidth="container">
-          <HighlightImage
-            heading="Luke // Software Engineer"
-            description={description}
-          />
+          <HighlightImage heading={heading} description={description} />
           <Spacer height="lg" />
           {/* <Box as="header" textAlign="center" marginBottom="lg">
             <Heading>Projects and companies I've worked on/at</Heading>
@@ -51,12 +42,35 @@ const HomePage = async () => {
         </Box>
       </Box>
       <Box as="section" paddingX="md" marginY="xxl" maxWidth="container">
-        <Heading fontSize="lg">Recent posts</Heading>
+        <Heading fontSize="lg">Recent Posts</Heading>
         <List marginX="lg" maxWidth="container" marginY="lg">
           {posts &&
             posts.map(post => (
               <List.Item key={`${post._id}-${post.title}`}>
                 <PostItem post={post} key={`${post._id}-${post.title}`} />
+              </List.Item>
+            ))}
+        </List>
+      </Box>
+      <Box
+        as="section"
+        paddingX="md"
+        marginY="xxl"
+        marginX="auto"
+        maxWidth={{ lg: 'container', md: 'container', sm: 'text' }}
+        style={{
+          margin: '0 auto',
+        }}
+      >
+        <Heading fontSize="lg">Highlighted Projects</Heading>
+        <List marginX="lg" maxWidth="container" marginY="lg">
+          {projects &&
+            projects.map(project => (
+              <List.Item key={`${project._id}-${project.title}`}>
+                <ProjectItem
+                  project={project}
+                  key={`${project._id}-${project.title}`}
+                />
               </List.Item>
             ))}
         </List>

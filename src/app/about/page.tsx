@@ -1,12 +1,12 @@
-import Box from '@frontend/components/Box/Box';
-import { Heading } from '@frontend/components/Heading/Heading';
+import Box from '@frontend/components/Box';
+import { Heading } from '@frontend/components/Heading';
 import { List } from '@frontend/components/Hero/HeroList/HeroList';
-import { Image } from '@frontend/components/Image/Image';
-import Link from '@frontend/components/Link/Link';
+import { Image } from '@frontend/components/Image';
+import Link from '@frontend/components/Link';
 import Page from '@frontend/components/Page';
-import Skills from '@frontend/components/Skills/Skills';
-import { Spacer } from '@frontend/components/Spacer/Spacer';
-import Text from '@frontend/components/Text/Text';
+import Skills from '@frontend/components/Skills';
+import { Spacer } from '@frontend/components/Spacer';
+import Text from '@frontend/components/Text';
 import { Metadata } from 'next';
 import * as styles from './about.css';
 
@@ -71,7 +71,7 @@ const AboutPage = async () => {
             foods, finding new movies/tv-shows and reading
           </Text>
           <Spacer height="sm" />
-          <Box as="section" maxWidth="text" marginY="lg">
+          <Box as="section" marginY="lg">
             <Heading
               fontSize="xl"
               color="foreground"

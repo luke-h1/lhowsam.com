@@ -8,7 +8,7 @@ export const banner = style({
   textAlign: 'left',
   '@media': {
     'screen and (min-width: 768px)': {
-      // maxWidth: variables.contentWidth.text,
+      maxWidth: variables.contentWidth.text,
       '::before': {
         content: '',
         width: variables.spacing.xxl,
