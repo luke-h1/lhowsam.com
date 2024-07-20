@@ -14,7 +14,7 @@ export const root = style({
   marginBlockStart: variables.spacing.sm,
   maxWidth: 350,
   width: 350,
-  padding: variables.spacing.md,
+  padding: variables.spacing.lg,
   backgroundColor: variables.color.surface,
   border: `1px solid ${variables.color.border}`,
   borderRadius: variables.radius.md,

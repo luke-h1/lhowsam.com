@@ -4,6 +4,8 @@ export const root = style({
   position: 'absolute',
   top: 0,
   display: 'flex',
+  justifyContent: 'center',
+  margin: '0 auto',
   left: 0,
   right: 0,
   maxWidth: 1200,
@@ -31,6 +33,6 @@ export const left = style({
 
 export const right = style({
   transform: 'translate3d(-150px, 0, 0)',
-  background: 'linear-gradient(to right #ffb2b8, #c74fb8)',
+  background: 'linear-gradient(to right #ffb2b6, #c74fb8)',
   opacity: 0.3,
 });

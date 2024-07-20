@@ -1,9 +1,9 @@
-import Box from '@frontend/components/Box/Box';
-import Heading from '@frontend/components/Heading/Heading';
-import { List } from '@frontend/components/List/List';
+import Box from '@frontend/components/Box';
+import { Heading } from '@frontend/components/Heading';
+import { List } from '@frontend/components/List';
 import Page from '@frontend/components/Page';
-import PostCard from '@frontend/components/PostCard/PostCard';
-import Spacer from '@frontend/components/Spacer/Spacer';
+import PostItem from '@frontend/components/PostItem';
+import { Spacer } from '@frontend/components/Spacer';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
@@ -43,43 +43,39 @@ const BlogPage = async () => {
     postsByYear[year].push(post);
   });
 
+  const description =
+    'Posts on software development, testing, DevOps and more.';
+
   return (
-    <Page heading="Blog">
-      <Box maxWidth="text">
-        {/* <Box
-          display="flex"
-          justifyContent="flex-start"
-          style={{
-            flexWrap: 'wrap',
-          }}
-          as="section"
-          maxWidth={{ md: 'text' }}
-          marginX="auto"
-          marginBottom="md"
-         /> */}
-        {Object.entries(postsByYear)
-          .reverse()
-          // eslint-disable-next-line no-shadow
-          .map(([year, posts], i) => (
-            <Fragment key={year}>
-              {i > 0 && <Spacer height="xxxxl" />}
-              <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
-                <header>
-                  <Heading fontSize="xl" id={year} color="foregroundAction">
-                    {year}
-                  </Heading>
-                </header>
-                <Spacer height="xxl" />
-                <List>
+    <Page heading="Blog" description={description}>
+      {Object.entries(postsByYear)
+        .reverse()
+        // eslint-disable-next-line no-shadow
+        .map(([year, posts], i) => (
+          <Fragment key={year}>
+            {i === 0 && <Spacer height="xxl" />}
+            {i > 0 && <Spacer height="xxl" />}
+            <Box as="section" marginX="auto">
+              <Heading fontSize="xl" id={year} color="border">
+                {year}
+              </Heading>
+              <Spacer height="md" />
+              <Box as="section" paddingX="md">
+                <List marginX="lg" maxWidth="container">
                   {posts &&
                     posts.map(post => (
-                      <PostCard key={post.slug.current} post={post} />
+                      <List.Item key={`${post._id}-${post.title}`}>
+                        <PostItem
+                          post={post}
+                          key={`${post._id}-${post.title}`}
+                        />
+                      </List.Item>
                     ))}
                 </List>
               </Box>
-            </Fragment>
-          ))}
-      </Box>
+            </Box>
+          </Fragment>
+        ))}
     </Page>
   );
 };

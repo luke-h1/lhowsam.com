@@ -1,18 +1,14 @@
-import Box from '@frontend/components/Box/Box';
-import Heading from '@frontend/components/Heading/Heading';
-import { Image } from '@frontend/components/Image/Image';
-import Link from '@frontend/components/Link/Link';
-import { List } from '@frontend/components/List/List';
+import Box from '@frontend/components/Box';
+import { Heading } from '@frontend/components/Heading';
+import { List } from '@frontend/components/Hero/HeroList/HeroList';
+import { Image } from '@frontend/components/Image';
+import Link from '@frontend/components/Link';
 import Page from '@frontend/components/Page';
-import Spacer from '@frontend/components/Spacer/Spacer';
-import Text from '@frontend/components/Text/Text';
+import Skills from '@frontend/components/Skills';
+import { Spacer } from '@frontend/components/Spacer';
+import Text from '@frontend/components/Text';
 import { Metadata } from 'next';
-import dynamic from 'next/dynamic';
 import * as styles from './about.css';
-
-const Skills = dynamic(() => import('@frontend/components/Skills/Skills'), {
-  ssr: true,
-});
 
 export const metadata: Metadata = {
   title: 'About',
@@ -24,7 +20,7 @@ const AboutPage = async () => {
       heading="About"
       description="Hey I'm Luke, a Software Engineer currently based in the UK."
     >
-      <div className={styles.root}>
+      <Box as="section" marginX="auto" className={styles.root}>
         <Image
           src="/luke-1.png"
           alt="Luke Howsam"
@@ -37,9 +33,11 @@ const AboutPage = async () => {
           placeholder="blur"
           blurDataURL="/luke-1.png"
         />
-        <Spacer height="xxxxl" />
-        <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
-          <Text color="foregroundNeutral" style={{ marginBottom: '2rem' }}>
+        <Box as="section">
+          <Text
+            color="foregroundNeutral"
+            style={{ marginBottom: '2rem', marginTop: '0.85rem' }}
+          >
             Right now I'm working as a Software Engineer at{' '}
             <a
               style={{
@@ -59,7 +57,7 @@ const AboutPage = async () => {
               marginBottom: '2rem',
             }}
           >
-            I'm comfortable with both frontend/backend technologies (React,
+            I'm comfortable with both frontend and backend technologies (React,
             Next.js, Python, GraphQL, Express.js, Node etc.) and I'm always keen
             to keep up with industry trends and new technologies.
           </Text>
@@ -72,11 +70,15 @@ const AboutPage = async () => {
             In my spare time I enjoy being outdoors, travelling, discovering new
             foods, finding new movies/tv-shows and reading
           </Text>
-          <Box as="section" maxWidth="text" marginX="auto">
-            <header>
-              <Heading fontSize="xl">Connect</Heading>
-            </header>
-            <Spacer height="xxl" />
+          <Spacer height="sm" />
+          <Box as="section" marginY="lg">
+            <Heading
+              fontSize="xl"
+              color="foreground"
+              style={{ marginBottom: '1rem', marginTop: '1rem' }}
+            >
+              Connect
+            </Heading>
             <List>
               <List.Item>
                 <Text>
@@ -103,14 +105,19 @@ const AboutPage = async () => {
             </List>
           </Box>
         </Box>
-        <Spacer height="xxxxl" />
-        <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
-          <Heading as="h2" fontSize="xl">
+        <Spacer height="xxl" />
+        <Box as="section" maxWidth="container" marginX="auto">
+          <Heading
+            as="h2"
+            fontSize="xl"
+            color="foregroundNeutral"
+            style={{ marginTop: '2rem', marginBottom: '0.85rem' }}
+          >
             Skills
           </Heading>
           <Skills />
         </Box>
-      </div>
+      </Box>
     </Page>
   );
 };

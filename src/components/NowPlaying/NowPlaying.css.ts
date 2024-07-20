@@ -116,42 +116,57 @@ export const artist = style({
 });
 
 export const bounce = keyframes({
+  '0%': {
+    transform: 'scaleY(0.8)',
+  },
   '10%': {
-    transform: 'scaleY(0.3)',
+    transform: 'scaleY(1.2)',
+  },
+  '20%': {
+    transform: 'scaleY(0.85)',
   },
   '30%': {
+    transform: 'scaleY(1.05)',
+  },
+  '40%': {
+    transform: 'scaleY(0.95)',
+  },
+  '50%': {
     transform: 'scaleY(1)',
   },
-
   '60%': {
-    transform: 'scaleY(0.5)',
+    transform: 'scaleY(0.95)',
   },
-
+  '70%': {
+    transform: 'scaleY(1.05)',
+  },
   '80%': {
-    transform: 'scaleY(0.75)',
+    transform: 'scaleY(0.85)',
   },
-
+  '90%': {
+    transform: 'scaleY(1.2)',
+  },
   '100%': {
-    transform: 'scaleY(0.6)',
+    transform: 'scaleY(0.8)',
   },
 });
 
-// export const icon = style({
-//   position: 'relative',
-//   display: 'inline-flex',
-//   justifyContent: 'space-between',
-//   width: '13px',
-//   height: '13px',
-//   marginRight: '8px',
-//   selectors: {
-//     '&:nth-of-type(2)': {
-//       animationDelay: '-2.2s',
-//     },
-//     '&:nth-of-type(3)': {
-//       animationDelay: '-3.7s',
-//     },
-//   },
-// });
+export const icon = style({
+  position: 'relative',
+  display: 'inline-flex',
+  justifyContent: 'space-between',
+  width: '13px',
+  height: '13px',
+  marginRight: '8px',
+  selectors: {
+    '&:nth-of-type(2)': {
+      animationDelay: '-2.2s',
+    },
+    '&:nth-of-type(3)': {
+      animationDelay: '-3.7s',
+    },
+  },
+});
 
 export const cover = style({
   transition: 'opacity 0.3s ease-out',
@@ -160,13 +175,19 @@ export const cover = style({
 });
 
 export const spanBars = style({
-  width: '2px',
-  height: '100%',
-  backgroundColor: '#1bd760',
-  borderRadius: '3px',
-  transformOrigin: 'bottom',
-  transition: 'opacity 0.3s ease-out',
+  // width: '2px',
+  // height: '100%',
+  // backgroundColor: '#1bd760',
+  // borderRadius: '3px',
+  // transformOrigin: 'bottom',
+  // transition: 'opacity 0.3s ease-out',
+  // animationName: bounce,
+  // animation: '2.2s ease infinite alternate',
+  // content: '',
   animationName: bounce,
-  animation: '2.2s ease infinite alternate',
+  animationDuration: '1.5s',
+  animationIterationCount: 'infinite',
+  animationTimingFunction: 'ease-in-out',
+  animationDelay: '0s',
   content: '',
 });

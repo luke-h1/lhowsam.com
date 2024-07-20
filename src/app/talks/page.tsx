@@ -1,11 +1,10 @@
-import Box from '@frontend/components/Box/Box';
-import Heading from '@frontend/components/Heading/Heading';
-import { List } from '@frontend/components/List/List';
+import Box from '@frontend/components/Box';
+import { Heading } from '@frontend/components/Heading';
+import { List } from '@frontend/components/List';
 import Page from '@frontend/components/Page';
-import PostHogFeature from '@frontend/components/PostHogFeature';
-import Spacer from '@frontend/components/Spacer/Spacer';
-import TalkItem from '@frontend/components/TalkItem/TalkItem';
-import Text from '@frontend/components/Text/Text';
+import { Spacer } from '@frontend/components/Spacer';
+import TalkItem from '@frontend/components/TalkItem';
+import Text from '@frontend/components/Text';
 import talkService from '@frontend/services/talkService';
 import { Metadata } from 'next';
 
@@ -55,33 +54,17 @@ const TalksPage = async () => {
           Talks I've given at meetups and events
         </Text>
       </Box>
-      <Spacer height="xxxxl" />
-      <PostHogFeature
-        flag="talks"
-        fallback={
-          <Text
-            fontSize={{ xs: 'lg', sm: 'xl' }}
-            color="foregroundNeutral"
-            style={{
-              display: 'inline-flex',
-            }}
-          >
-            Come back soon to see talks I've given at meetups and events 😄
-          </Text>
-        }
-        match
-      >
-        <Box as="section" maxWidth={{ md: 'text' }} marginX={{ md: 'auto' }}>
-          <List>
-            {talks &&
-              talks.map(talk => (
-                <List.Item key={talk._id}>
-                  <TalkItem talk={talk} />
-                </List.Item>
-              ))}
-          </List>
-        </Box>
-      </PostHogFeature>
+      <Spacer height="sm" />
+      <Box as="section" maxWidth={{ md: 'text' }} marginX={{ md: 'auto' }}>
+        <List>
+          {talks &&
+            talks.map(talk => (
+              <List.Item key={talk._id}>
+                <TalkItem talk={talk} />
+              </List.Item>
+            ))}
+        </List>
+      </Box>
     </Page>
   );
 };

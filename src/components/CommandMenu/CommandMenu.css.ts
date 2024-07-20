@@ -32,12 +32,12 @@ globalStyle('[cmdk-overlay]', {
 globalStyle('[cmdk-dialog]', {
   transformOrigin: '0 0',
   position: 'fixed',
+  zIndex: 999,
   top: variables.spacing.xxxxl,
   left: '50%',
   transform: 'translateX(-50%)',
   maxWidth: 640,
   width: calc.subtract('100%', calc.multiply(variables.spacing.md, 2)),
-  zIndex: 9999,
   '@media': {
     'screen and (min-width: 576px)': {
       marginTop: '8rem',
