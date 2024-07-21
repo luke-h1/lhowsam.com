@@ -122,6 +122,8 @@
     "@types/rss": "^0.0.32",
     "@typescript-eslint/eslint-plugin": "7.14.1",
     "@typescript-eslint/parser": "7.14.1",
+    "@vanilla-extract/babel-plugin": "^1.2.0",
+    "babel-preset-react-app": "^10.0.1",
     "commitizen": "4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "8.57.0",
