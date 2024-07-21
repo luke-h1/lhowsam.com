@@ -55,13 +55,15 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
-  swcMinify: true,
   eslint: {
     ignoreDuringBuilds: true,
   },
   experimental: {
     webVitalsAttribution: ['CLS', 'LCP'],
     optimizePackageImports: ['framer-motion'],
+    // Force SWC transform on build to stop Next.js trying to use babel
+    // since babel is only needed to support vanilla-extract in unit tests
+    forceSwcTransforms: true,
   },
   images: {
     minimumCacheTTL: 120,
