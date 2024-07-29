@@ -42,5 +42,5 @@ runs:
         VERCEL_PROJECT_ID: ${{ inputs.vercel-project-id }}
 
     - name: ${{ inputs.environment }} UI tests
-      run: make e2e-{{ inputs.environment }}
+      run: make e2e-${{ inputs.environment }}
       shell: bash
