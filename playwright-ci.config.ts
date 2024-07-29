@@ -3,7 +3,7 @@ import commonConfig from './playwright-common.config';
 
 const config: PlaywrightTestConfig = {
   ...commonConfig,
-  workers: 2,
+  workers: 4,
   fullyParallel: true,
   webServer: [
     {
