@@ -35,4 +35,4 @@ jobs:
       - name: UI tests dev
         uses: ./.github/actions/ui-test
         with:
-          environment: e2e-dev
+          target: e2e-dev
