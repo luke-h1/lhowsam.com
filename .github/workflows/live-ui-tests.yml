@@ -21,66 +21,10 @@ jobs:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}        
     steps:
-      # https://github.com/actions/virtual-environments/issues/1187
-      - name: tune linux network
-        run: sudo ethtool -K eth0 tx off rx off
+      - name: install dependencies
+        uses: /./.github/actions/install
 
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - name: UI tests prod
+        uses: /./.github/actions/ui-test
         with:
-          fetch-depth: 0
-          ref: main
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: ${{ env.PNPM_VERSION }}
-
-      - name: Setup node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-          cache: pnpm
-
-      - name: Get pnpm store directory
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-
-      - uses: actions/cache@v3
-        name: Setup pnpm cache
-        with:
-          path: ${{ env.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-lho-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-lho-
-
-      - name: Install dependencies 
-        run: pnpm i
-
-      - uses: actions/labeler@v4
-        with:
-          sync-labels: true
-
-      - name: Check commit message
-        run: pnpm commitlint --from=HEAD^1
-
-      - name: Get installed Playwright version
-        id: playwright-version
-        run: echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./package.json').devDependencies['@playwright/test'])")" >> $GITHUB_ENV
-
-      - name: Cache playwright binaries
-        uses: actions/cache@v3
-        id: playwright-cache
-        with:
-          path: |
-            ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
-
-
-      - run: make e2e-install-browsers
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
-
-      - name: Live UI tests
-        run: make e2e-prod
- 
+          target: e2e-prod
