@@ -1,8 +1,9 @@
+import { Sprinkles, sprinkles } from '@frontend/styles/sprinkles.css';
 import { format as formatter, isValid, parse, toDate } from 'date-fns';
 
 interface Props {
   children: Date | number | string;
-  className?: string;
+  color?: Sprinkles['color'];
   format?: string;
   testId?: string;
   parseFormat?: string;
@@ -10,7 +11,7 @@ interface Props {
 
 const FormattedDate = ({
   children,
-  className,
+  color,
   format = 'd MMMM yyyy',
   testId,
   parseFormat,
@@ -30,7 +31,12 @@ const FormattedDate = ({
   }
 
   return (
-    <time data-testid={testId} className={className}>
+    <time
+      data-testid={testId}
+      className={sprinkles({
+        color,
+      })}
+    >
       {formatter(parsedDate, format)}
     </time>
   );

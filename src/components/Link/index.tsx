@@ -9,6 +9,7 @@ type Props = {
   variant?: 'highlight' | 'neutral';
   underlined?: boolean;
   className?: string;
+  id?: string;
   href: string;
   css?: CSSProperties;
 } & Omit<LinkProps, 'href'>;
@@ -18,8 +19,8 @@ const Link = ({
   variant = 'neutral',
   underlined = false,
   className,
+  id,
   href,
-  prefetch = true,
   css,
   ...props
 }: Props) => {
@@ -29,6 +30,7 @@ const Link = ({
   if (isAbsolute || isHash) {
     return (
       <a
+        id={id}
         rel={isAbsolute ? 'noopener noreferrer' : undefined}
         target={isAbsolute ? '_blank' : undefined}
         // className={clsx(styles.variants[variant], className, )}
@@ -48,9 +50,9 @@ const Link = ({
 
   return (
     <NextLink
+      id={id}
       href={href}
       className={clsx(styles.variants[variant], className)}
-      prefetch={prefetch}
       style={{
         ...css,
       }}

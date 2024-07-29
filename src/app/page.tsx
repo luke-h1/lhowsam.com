@@ -1,11 +1,10 @@
 import Box from '@frontend/components/Box';
 import { Heading } from '@frontend/components/Heading';
-import HighlightImage from '@frontend/components/HighlightImage';
+import Hero from '@frontend/components/Hero';
 import { List } from '@frontend/components/List';
 import Page from '@frontend/components/Page';
 import PostItem from '@frontend/components/PostItem';
 import ProjectItem from '@frontend/components/ProjectItem';
-import { Spacer } from '@frontend/components/Spacer';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import projectService from '@frontend/services/projectService';
@@ -29,10 +28,9 @@ const HomePage = async () => {
 
   return (
     <Page>
-      <Box as="section" paddingX="md" marginY="xxl">
+      <Box as="section">
         <Box marginX="auto" maxWidth="container">
-          <HighlightImage heading={heading} description={description} />
-          <Spacer height="lg" />
+          <Hero heading={heading} description={description} />
           {/* <Box as="header" textAlign="center" marginBottom="lg">
             <Heading>Projects and companies I've worked on/at</Heading>
           </Box> */}
@@ -41,7 +39,7 @@ const HomePage = async () => {
           </Marquee> */}
         </Box>
       </Box>
-      <Box as="section" paddingX="md" marginY="xxl" maxWidth="container">
+      <Box as="section" paddingX="sm" marginY="sm" maxWidth="container">
         <Heading fontSize="lg">Recent Posts</Heading>
         <List marginX="lg" maxWidth="container" marginY="lg">
           {posts &&
@@ -57,7 +55,7 @@ const HomePage = async () => {
         paddingX="md"
         marginY="xxl"
         marginX="auto"
-        maxWidth={{ lg: 'container', md: 'container', sm: 'text' }}
+        // maxWidth={{ lg: 'container', md: 'container', sm: 'text' }}
         style={{
           margin: '0 auto',
         }}

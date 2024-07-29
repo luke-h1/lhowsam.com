@@ -1,6 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-
 /** @type {import('jest').Config} */
+
 const config = {
   globals: {
     'babel-jest': {},
@@ -11,7 +10,7 @@ const config = {
     '<rootDir>/src/**/*.(test).{js,jsx,ts,tsx}',
     '<rootDir>/test/**/*.(test).{js,jsx,ts,tsx}',
   ],
-  testEnvironment: 'jsdom',
+  testEnvironment: 'jest-environment-jsdom',
   testEnvironmentOptions: {
     url: 'http://localhost/',
   },
@@ -20,12 +19,10 @@ const config = {
     '^.+\\.(t|j)sx?$': ['babel-jest'],
     '^(?!.*\\.(js|jsx|ts|tsx|css|json)$)': '<rootDir>/test/fileTransform.js',
   },
-  transformIgnorePatterns: [
-    '[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$',
-    '^.+\\.module\\.(css|sass|scss)$',
-  ],
   moduleNameMapper: {
     '^@frontend/(.*)$': '<rootDir>/src/$1',
+    '^@frontend-test/(.*)$': '<rootDir>/test/$1',
+    '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
   },
   watchPlugins: [
     'jest-watch-typeahead/filename',
@@ -46,5 +43,13 @@ const config = {
   resetMocks: true,
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   snapshotSerializers: ['jest-serializer-html'],
+  coverageThreshold: {
+    global: {
+      statements: 93.8,
+      branches: 85,
+      lines: 95,
+      functions: 96,
+    },
+  },
 };
 module.exports = config;

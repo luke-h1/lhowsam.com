@@ -1,6 +1,7 @@
+'use client';
+
 /* eslint-disable no-shadow */
-import { useAppDispatch, useAppSelector } from '@frontend/store/hooks';
-import { removeToast } from '@frontend/store/reducers/toastReducer';
+import { useToast } from '@frontend/context/ToastContext';
 import * as ToastPrimitive from '@radix-ui/react-toast';
 import {
   motion,
@@ -10,11 +11,10 @@ import {
   domAnimation,
 } from 'framer-motion';
 import { X } from 'react-feather';
-import * as styles from './Toast.css';
+import * as styles from './Toaster.css';
 
 export const Toaster = () => {
-  const { toasts } = useAppSelector(state => state.toast);
-  const dispatch = useAppDispatch();
+  const { toasts, removeToast } = useToast();
   const reducedMotion = useReducedMotion();
 
   return (
@@ -31,11 +31,10 @@ export const Toaster = () => {
                 open
                 onOpenChange={open => {
                   if (open === false) {
-                    // removeToast(toast.id as string);
-                    dispatch(removeToast(toast.id as string));
+                    removeToast(toast.id as string);
                   }
                 }}
-                duration={8000}
+                duration={6000}
               >
                 <motion.div
                   layout={reducedMotion ? false : 'position'}

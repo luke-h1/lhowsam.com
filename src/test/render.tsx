@@ -1,23 +1,30 @@
-// import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   render as baseRender,
   RenderOptions,
   RenderResult,
 } from '@testing-library/react';
 import userEvent, { UserEvent } from '@testing-library/user-event';
+import {} from 'next-router-mock';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
-import React, { FC, ReactElement, ReactNode } from 'react';
+import React, { ReactElement, ReactNode } from 'react';
 
 export interface CustomRenderResult extends RenderResult {
   user: UserEvent;
 }
 
-const DefaultWrapper: FC = ({ children }: { children?: ReactNode }) => {
+const DefaultWrapper = ({ children }: { children?: ReactNode }) => {
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: false,
+      },
+    },
+  });
   return (
-    <NextThemeProvider attribute="class">
-      {/* <QueryClientProvider client={queryClient}>{children}</QueryClientProvider> */}
-      {children}
-    </NextThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <NextThemeProvider attribute="class">{children}</NextThemeProvider>
+    </QueryClientProvider>
   );
 };
 
@@ -31,7 +38,7 @@ export default function render(
 ): CustomRenderResult {
   return {
     ...(baseRender(ui, {
-      wrapper: DefaultWrapper,
+      wrapper: ({ children }) => <DefaultWrapper>{children}</DefaultWrapper>,
       ...options,
     }) as RenderResult),
     user: userEvent.setup(),

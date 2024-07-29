@@ -1,11 +1,10 @@
+'use client';
+
 import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-import { CommandMenuProps } from '../CommandMenu';
-import CommandMenuBanner from '../CommandMenuBanner';
+import CommandMenu from '../CommandMenu';
 import Link from '../Link';
 import * as styles from './Header.css';
-
-type Props = CommandMenuProps;
 
 interface HeaderLink {
   id: number;
@@ -36,19 +35,20 @@ const headerLinks: HeaderLink[] = [
   },
 ];
 
-const Header = ({ open, setOpen }: Props) => {
+const Header = () => {
   const pathname = usePathname();
 
   return (
     <header className={styles.root}>
       <nav className={styles.nav}>
-        <div className={styles.group}>
+        <div className={styles.group} data-testid="header-links">
           {headerLinks &&
             headerLinks.map(link => (
               <Link
                 href={link.href}
                 className={styles.anchor}
                 key={link.id}
+                id={`nav-${link.id}`}
                 aria-current={pathname === link.href ? 'page' : undefined}
               >
                 {pathname === link.href && (
@@ -78,7 +78,7 @@ const Header = ({ open, setOpen }: Props) => {
             <Twitter width=".95em" />
           </Link>
            */}
-          <CommandMenuBanner setOpen={setOpen} open={open} />
+          <CommandMenu />
         </div>
       </nav>
     </header>

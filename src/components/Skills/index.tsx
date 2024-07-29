@@ -17,42 +17,115 @@ import {
   SiTypescript,
   SiPostgresql,
   SiNpm,
-  SiYarn,
   SiCypress,
   SiJest,
   SiAmazonaws,
   SiMicrosoftazure,
   SiTerraform,
+  SiPlaywright,
 } from 'react-icons/si';
-import SkillItem from '../SkillItem';
+import SkillItem, { SkillItemProps } from '../SkillItem';
 import styles from './Skills.module.scss';
+
+export const skills: SkillItemProps[] = [
+  {
+    icon: SiJavascript,
+    text: 'JavaScript',
+  },
+  {
+    icon: SiTypescript,
+    text: 'TypeScript',
+  },
+  {
+    icon: SiReact,
+    text: 'React.js',
+  },
+  {
+    icon: SiCss3,
+    text: 'CSS/SCSS/pre-processors etc.',
+  },
+  {
+    icon: SiNextDotJs,
+    text: 'Next.js',
+  },
+  {
+    icon: SiNodeDotJs,
+    text: 'Node.js',
+  },
+  {
+    icon: SiGraphql,
+    text: 'GraphQL',
+  },
+  {
+    icon: SiTerraform,
+    text: 'Terraform',
+  },
+  {
+    icon: SiDocker,
+    text: 'Docker',
+  },
+  {
+    icon: SiAmazonaws,
+    text: 'AWS',
+  },
+  {
+    icon: SiMicrosoftazure,
+    text: 'Azure',
+  },
+  {
+    icon: SiPostgresql,
+    text: 'MySQL, Postgres',
+  },
+  {
+    icon: SiPython,
+    text: 'Python',
+  },
+  {
+    icon: SiDjango,
+    text: 'Django',
+  },
+  {
+    icon: SiStyledComponents,
+    text: 'Styled component',
+  },
+  {
+    icon: BiTestTube,
+    text: 'Automated and manual testing',
+  },
+  {
+    icon: SiGit,
+    text: 'Git, GitHub, GitLab etc',
+  },
+  {
+    icon: SiNpm,
+    text: 'NPM, yarn, PNPM etc.',
+  },
+  {
+    icon: SiCypress,
+    text: 'Cypress',
+  },
+  {
+    icon: SiPlaywright,
+    text: 'Playwright',
+  },
+  {
+    icon: SiJest,
+    text: 'Jest',
+  },
+  {
+    icon: SiAtlassian,
+    text: 'Jira, Trello, confluence etc.',
+  },
+];
 
 const Skills = () => {
   return (
     <ul className={styles.skillGrid} id="skills-grid">
-      <SkillItem icon={SiJavascript} text="Javascript" />
-      <SkillItem icon={SiTypescript} text="TypeScript" />
-      <SkillItem icon={SiReact} text="React.js" />
-      <SkillItem icon={SiCss3} text="CSS, SCSS" />
-      <SkillItem icon={SiNextDotJs} text="Next.js" />
-      <SkillItem icon={SiNodeDotJs} text="Node.js" />
-      <SkillItem icon={SiGraphql} text="GraphQL" />
-      <SkillItem icon={SiTerraform} text="Terraform" />
-      <SkillItem icon={SiDocker} text="Docker" />
-      <SkillItem icon={SiAmazonaws} text="AWS" />
-      <SkillItem icon={SiMicrosoftazure} text="Azure" />
-      <SkillItem icon={SiPostgresql} text="MySQL, Postgres" />
-      <SkillItem icon={SiPython} text="Python" />
-      <SkillItem icon={SiDjango} text="Django" />
-      <SkillItem icon={SiStyledComponents} text="styled-components" />
-      <SkillItem icon={BiTestTube} text="Automated & manual testing" />
-      <SkillItem icon={SiGit} text="Git, Github, Gitlab" />
-      <SkillItem icon={SiAtlassian} text="Jira, Trello, confluence etc." />
-      <SkillItem icon={SiNpm} text="npm" />
-      <SkillItem icon={SiYarn} text="yarn" />
-      <SkillItem icon={SiCypress} text="Cypress" />
-      <SkillItem icon={BiTestTube} text="Playwright" />
-      <SkillItem icon={SiJest} text="Jest" />
+      {skills &&
+        skills.map((skill, idx) => (
+          // eslint-disable-next-line react/no-array-index-key
+          <SkillItem icon={skill.icon} text={skill.text} key={idx} />
+        ))}
     </ul>
   );
 };

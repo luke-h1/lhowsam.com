@@ -39,10 +39,11 @@ const PostItem = ({ post }: Props) => {
             textTransform="uppercase"
             fontSize="sm"
             fontFamily="mono"
+            data-testid="tag-container"
           >
             {post.tags.map(tag => (
               <Link
-                data-testid="post-tags"
+                data-testid={`post-tag-${tag._id}`}
                 key={tag.slug.current}
                 href={`/blog/tags/${tag.slug.current}`}
                 className={clsx(utils.tag, utils.anchor)}

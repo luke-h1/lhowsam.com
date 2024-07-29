@@ -1,7 +1,6 @@
 'use client';
 
-import { useAppDispatch } from '@frontend/store/hooks';
-import { setToast } from '@frontend/store/reducers/toastReducer';
+import { useToast } from '@frontend/context/ToastContext';
 import { usePathname } from 'next/navigation';
 import { Twitter, Link as FeatherLink } from 'react-feather';
 import Link from '../Link';
@@ -10,15 +9,15 @@ import * as styles from './SocialShare.css';
 
 const SocialShare = () => {
   const pathname = usePathname();
-  const dispatch = useAppDispatch();
+  const { setToast } = useToast();
+
+  const id = 'SocialShare';
 
   const handleCopy = () => {
     navigator.clipboard.writeText(`${process.env.NEXT_PUBLIC_URL}${pathname}`);
-    dispatch(
-      setToast({
-        content: 'Copied to clipboard',
-      }),
-    );
+    setToast({
+      content: 'Copied to clipboard',
+    });
   };
 
   return (
@@ -28,14 +27,20 @@ const SocialShare = () => {
           href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(
             `${process.env.NEXT_PUBLIC_URL}${pathname}`,
           )}`}
+          data-testid={`${id}-Twitter`}
           className={styles.item}
         >
-          <Twitter width=".95em" />
+          <Twitter width=".95em" name="twitter" />
         </Link>
       </Tooltip>
       <Tooltip content="Copy link">
         {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-        <button className={styles.item} onClick={handleCopy} type="button">
+        <button
+          className={styles.item}
+          onClick={handleCopy}
+          type="button"
+          data-testid="copy-button"
+        >
           <FeatherLink width=".95em" />
         </button>
       </Tooltip>

@@ -105,7 +105,7 @@ const RootLayout = ({ children }: Props) => {
           </>
         )}
       </head>
-      <body suppressHydrationWarning>
+      <body>
         <main id="main">
           <Providers>{children}</Providers>
         </main>

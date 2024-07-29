@@ -34,8 +34,9 @@ test.describe('index', () => {
       await expect(
         page.locator('[data-testid="post-intro"]').nth(i),
       ).toBeVisible();
+
       await expect(
-        page.locator('[data-testid="post-tags"]').nth(i),
+        page.locator('[data-testid^="post-tag-"]').nth(i),
       ).toBeVisible();
 
       await expect(
@@ -48,9 +49,6 @@ test.describe('index', () => {
 
       await expect(
         page.locator('[data-testid="post-intro"]').nth(i),
-      ).not.toHaveText('');
-      await expect(
-        page.locator('[data-testid="post-tags"]').nth(i),
       ).not.toHaveText('');
     }
   });

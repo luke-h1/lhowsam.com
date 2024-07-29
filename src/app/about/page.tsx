@@ -1,6 +1,6 @@
 import Box from '@frontend/components/Box';
 import { Heading } from '@frontend/components/Heading';
-import { List } from '@frontend/components/Hero/HeroList/HeroList';
+import { List } from '@frontend/components/HeroList/HeroList';
 import { Image } from '@frontend/components/Image';
 import Link from '@frontend/components/Link';
 import Page from '@frontend/components/Page';

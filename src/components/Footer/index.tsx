@@ -71,7 +71,7 @@ const Footer = () => {
         <div>
           <Heading color="highlight">Navigate</Heading>
           <Spacer height="md" />
-          <List className={styles.links}>
+          <List className={styles.links} data-testid="footer-navigation-links">
             {navigationLinks &&
               navigationLinks.map(link => (
                 <li key={link.id}>
@@ -83,7 +83,7 @@ const Footer = () => {
         <div>
           <Heading color="highlight">Social</Heading>
           <Spacer height="md" />
-          <List className={styles.links}>
+          <List className={styles.links} data-testid="footer-social-links">
             {socialLinks &&
               socialLinks.map(link => (
                 <li key={link.id}>
@@ -95,7 +95,7 @@ const Footer = () => {
         <div>
           <ThemeSelect />
         </div>
-        <div className={styles.note}>
+        <div className={styles.note} data-testid="footer-cc">
           <Text color="foregroundNeutral" fontSize="sm" fontFamily="mono">
             © {new Date().getFullYear()} Luke Howsam
           </Text>

@@ -1,15 +1,12 @@
-'use client';
-
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 import Box from './Box';
 import Footer from './Footer';
 import Header from './Header';
 import PageHeader, { PageHeaderProps } from './PageHeader';
-import { Toaster } from './Toast';
+import { Toaster } from './Toaster';
 
 interface PageProps extends PageHeaderProps {
   children: ReactNode;
-  bannerOpen?: boolean;
   showFooter?: boolean;
   heading?: string;
   description?: string;
@@ -17,15 +14,13 @@ interface PageProps extends PageHeaderProps {
 
 const Page = ({
   children,
-  bannerOpen = false,
   showFooter = true,
   heading,
   description,
 }: PageProps) => {
-  const [open, setOpen] = useState(bannerOpen);
   return (
     <>
-      <Header open={open} setOpen={setOpen} />
+      <Header />
       <div className="container">
         <Box
           maxWidth="container"
