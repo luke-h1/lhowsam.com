@@ -71,11 +71,16 @@ const PostPage = async ({ params }: Props) => {
               title: 'Tags',
               description: (
                 // eslint-disable-next-line react/jsx-no-useless-fragment
-                <>
+                <Box
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'flex-start',
+                  }}
+                >
                   <Text
                     color="foregroundNeutral"
                     textTransform="uppercase"
-                    // letterSpacing="wide"
                     fontSize="sm"
                     fontFamily="mono"
                   >
@@ -89,7 +94,7 @@ const PostPage = async ({ params }: Props) => {
                       </Link>
                     ))}
                   </Text>
-                </>
+                </Box>
               ),
             },
           ]}
