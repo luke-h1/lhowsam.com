@@ -4,6 +4,7 @@ import Hero from '@frontend/components/Hero';
 import { List } from '@frontend/components/List';
 import Page from '@frontend/components/Page';
 import PostItem from '@frontend/components/PostItem';
+import { Spacer } from '@frontend/components/Spacer';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import projectService from '@frontend/services/projectService';
@@ -33,6 +34,7 @@ const HomePage = async () => {
       <Box as="section">
         <Box marginX="auto" maxWidth="container">
           <Hero heading={heading} description={description} />
+          <Spacer height="xl" />
           {/* <Box as="header" textAlign="center" marginBottom="lg">
             <Heading>Projects and companies I've worked on/at</Heading>
           </Box> */}
@@ -41,9 +43,17 @@ const HomePage = async () => {
           </Marquee> */}
         </Box>
       </Box>
-      <Box as="section" paddingX="sm" marginY="sm" maxWidth="container">
-        <Heading fontSize="lg">Recent Posts</Heading>
-        <List marginX="lg" maxWidth="container" marginY="lg">
+      <Box
+        as="section"
+        paddingX="sm"
+        marginY="lg"
+        maxWidth="container"
+        marginBottom="xxxl"
+      >
+        <Heading fontSize="lg" color="foregroundNeutral">
+          Recent Posts
+        </Heading>
+        <List marginX="xs" maxWidth="container">
           {posts &&
             posts.map(post => (
               <List.Item key={`${post._id}-${post.title}`}>
@@ -52,6 +62,7 @@ const HomePage = async () => {
             ))}
         </List>
       </Box>
+      <Spacer height="xxxxl" />
       <Box
         as="section"
         paddingX="md"

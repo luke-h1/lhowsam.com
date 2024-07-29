@@ -119,6 +119,8 @@ const globals = createGlobalTheme(':root', {
     xxl: '4rem',
     xxxl: '4rem', // 64px
     xxxxl: '6rem', // 96px
+    xxxxxl: '8rem', // 128px
+    xxxxxxl: '12rem', // 192px
   },
   radius: {
     sm: '2px',

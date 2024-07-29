@@ -22,7 +22,7 @@ const Hero = ({ description, heading }: Props) => {
         >
           {heading}
         </Heading>
-        <Spacer height="xs" />
+        <Spacer height="sm" />
         <Text
           fontSize={{ md: 'lg' }}
           className={styles.description}
