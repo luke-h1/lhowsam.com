@@ -145,29 +145,18 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")"
 
-      - name: Remove old deployed_at env variable from vercel
-        run: vc env rm DEPLOYED_AT production --token ${VERCEL_TOKEN} --yes
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_DEV_PROJECT_ID: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      - name: Set vercel environment variables
+        run: |
+          # DEPLOYED_AT
+          echo "::set-output name=date::$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")"
 
-      - name: add deployed_at env variable to vercel
-        run: echo ${{ steps.date.outputs.date }} | vc env add DEPLOYED_AT production --token ${VERCEL_TOKEN}
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_DEV_PROJECT_ID: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          vc env rm DEPLOYED_AT production --token ${VERCEL_TOKEN} --yes
 
-      - name: Remove old deployed_by env variable from vercel
-        run: vc env rm DEPLOYED_BY production --token ${VERCEL_TOKEN} --yes
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-          VERCEL_DEV_PROJECT_ID: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          echo ${{ steps.date.outputs.date }} | vc env add DEPLOYED_AT production --token ${VERCEL_TOKEN}
 
-      - name: add deployed_by env variable to vercel
-        run: echo ${{ github.actor }} | vc env add DEPLOYED_BY production --token ${VERCEL_TOKEN}
+          # DEPLOYED_BY
+          vc env rm DEPLOYED_BY production --token ${VERCEL_TOKEN} --yes
+          echo ${{ github.actor }} | vc env add DEPLOYED_BY production --token ${VERCEL_TOKEN}
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
           VERCEL_DEV_PROJECT_ID: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
@@ -299,29 +288,15 @@ jobs:
           id: date
           run: echo "::set-output name=date::$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")"
 
-        - name: Remove old deployed_at env variable from vercel
-          run: vc env rm DEPLOYED_AT production --token ${VERCEL_TOKEN} --yes
-          env:
-            VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-            VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
-            VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+        - name: set vercel environment variables
+          run: |
+            # DEPLOYED_AT
+            vc env rm DEPLOYED_AT production --token ${VERCEL_TOKEN} --yes
+            echo ${{ steps.date.outputs.date }} | vc env add DEPLOYED_AT production --token ${VERCEL_TOKEN}
 
-        - name: add deployed_at env variable to vercel
-          run: echo ${{ steps.date.outputs.date }} | vc env add DEPLOYED_AT production --token ${VERCEL_TOKEN}
-          env:
-            VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-            VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
-            VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-
-        - name: Remove old deployed_by env variable from vercel
-          run: vc env rm DEPLOYED_BY production --token ${VERCEL_TOKEN} --yes
-          env:
-            VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-            VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
-            VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-
-        - name: add deployed_by env variable to vercel
-          run: echo ${{ github.actor }} | vc env add DEPLOYED_BY production --token ${VERCEL_TOKEN}
+            # DEPLOYED_BY
+            vc env rm DEPLOYED_BY production --token ${VERCEL_TOKEN} --yes
+            echo ${{ github.actor }} | vc env add DEPLOYED_BY production --token ${VERCEL_TOKEN}
           env:
             VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
             VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
