@@ -69,7 +69,7 @@ const Footer = () => {
     <footer className={styles.root} data-testid="footer">
       <div className={styles.container}>
         <div>
-          <Heading color="highlight">Navigate</Heading>
+          <Heading>Navigate</Heading>
           <Spacer height="md" />
           <List className={styles.links} data-testid="footer-navigation-links">
             {navigationLinks &&
@@ -81,7 +81,7 @@ const Footer = () => {
           </List>
         </div>
         <div>
-          <Heading color="highlight">Social</Heading>
+          <Heading>Social</Heading>
           <Spacer height="md" />
           <List className={styles.links} data-testid="footer-social-links">
             {socialLinks &&
