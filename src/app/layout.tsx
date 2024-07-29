@@ -4,8 +4,9 @@ import '@frontend/styles/prism.css';
 import Providers from '@frontend/components/Providers';
 import siteConfig from '@frontend/config/site';
 import getPolicies from '@frontend/utils/getPolicies';
-import { GoogleAnalytics } from '@next/third-parties/google';
+// import { GoogleAnalytics } from '@next/third-parties/google';
 import { Metadata } from 'next';
+import Script from 'next/script';
 import { ReactNode } from 'react';
 
 interface Props {
@@ -87,8 +88,8 @@ const RootLayout = ({ children }: Props) => {
         />
         {process.env.NEXT_PUBLIC_URL === 'https://lhowsam.com' && (
           <>
-            <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_TRACKING_ID} />
-            {/* <Script
+            {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_TRACKING_ID} /> */}
+            <Script
               async
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
             />
@@ -101,7 +102,7 @@ const RootLayout = ({ children }: Props) => {
 
         gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}');
       `}
-            </Script> */}
+            </Script>
           </>
         )}
       </head>
