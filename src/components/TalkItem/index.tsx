@@ -36,12 +36,7 @@ const TalkItem = ({ talk }: Props) => {
               />
             )}
           </Box>
-          <Text
-            color="foregroundAction"
-            fontSize="xxl"
-            fontWeight="bold"
-            marginBottom="md"
-          >
+          <Text fontSize="xxl" fontWeight="bold" marginBottom="md">
             {talk.title}
           </Text>
           <Text
