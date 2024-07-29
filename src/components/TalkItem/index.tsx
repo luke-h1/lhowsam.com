@@ -2,6 +2,7 @@ import imageService from '@frontend/services/imageService';
 import { variables } from '@frontend/styles/variables.css';
 import { Talk } from '@frontend/types/sanity';
 import Box from '../Box';
+import FormattedDate from '../FormattedDate';
 import { Image } from '../Image';
 import Link from '../Link';
 import Text from '../Text';
@@ -61,17 +62,9 @@ const TalkItem = ({ talk }: Props) => {
           >
             {talk.location}
           </Text>
-          <Text
-            as="time"
-            dateTime={talk.date}
-            color="foregroundNeutral"
-            fontSize="sm"
-            style={{
-              marginBottom: variables.spacing.lg,
-            }}
-          >
+          <FormattedDate color="foregroundNeutral" testId="talk-date">
             {talk.date}
-          </Text>
+          </FormattedDate>
 
           <Link
             href={talk.slideUrl}

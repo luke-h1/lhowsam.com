@@ -1,26 +1,18 @@
 import { variables } from '@frontend/styles/variables.css';
 import { Heading } from '../Heading';
-import { Image } from '../Image';
 import Link from '../Link';
 import { Spacer } from '../Spacer';
 import Text from '../Text';
-import * as styles from './HighlightImage.css';
+import * as styles from './Hero.css';
 
 interface Props {
   heading: string;
   description: string;
 }
 
-const HighlightImage = ({ description, heading }: Props) => {
+const Hero = ({ description, heading }: Props) => {
   return (
     <div className={styles.root}>
-      <Image
-        src="/dark-gradient.png"
-        priority
-        layout="fill"
-        alt=""
-        blurDataURL="/dark-gradient.png"
-      />
       <span className={styles.overlay} />
       <div className={styles.content}>
         <Heading
@@ -45,4 +37,4 @@ const HighlightImage = ({ description, heading }: Props) => {
     </div>
   );
 };
-export default HighlightImage;
+export default Hero;

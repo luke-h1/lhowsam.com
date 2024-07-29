@@ -5,12 +5,12 @@ import { useEffect } from 'react';
 import type { IconType } from 'react-icons';
 import * as styles from './SkillItem.css';
 
-interface Props {
+export interface SkillItemProps {
   icon: IconType;
   text: string;
 }
 
-const SkillItem = ({ icon, text }: Props) => {
+const SkillItem = ({ icon, text }: SkillItemProps) => {
   const { theme } = useTheme();
 
   useEffect(() => {

@@ -7,9 +7,14 @@ import * as styles from './PageHeader.css';
 export interface PageHeaderProps {
   heading?: string;
   description?: string;
+  id?: string;
 }
 
-const PageHeader = ({ heading, description }: PageHeaderProps) => {
+const PageHeader = ({
+  heading,
+  description,
+  id = 'pageHeader',
+}: PageHeaderProps) => {
   if (!heading && !description) {
     return null;
   }
@@ -21,7 +26,11 @@ const PageHeader = ({ heading, description }: PageHeaderProps) => {
           {heading}
         </Heading>
         {description && (
-          <Text fontSize="lg" color="foregroundNeutral">
+          <Text
+            fontSize="lg"
+            color="foregroundNeutral"
+            data-testid={`${id}-description`}
+          >
             <Balancer>{description}</Balancer>
           </Text>
         )}

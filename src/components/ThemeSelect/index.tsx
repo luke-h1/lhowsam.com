@@ -30,6 +30,9 @@ const ThemeSelect = () => {
       </VisuallyHidden>
       <div className={styles.root}>
         <span className={styles.icon}>{icons[theme as Icon]}</span>
+        <VisuallyHidden>
+          <label htmlFor="theme-select">Theme</label>
+        </VisuallyHidden>
         <select
           value={theme}
           onChange={e => setTheme(e.target.value)}
@@ -46,7 +49,7 @@ const ThemeSelect = () => {
             Dark
           </option>
         </select>
-        <span className={styles.arrow}>
+        <span className={styles.arrow} data-testid={`ThemeSelect-${theme}`}>
           <Code
             width="0.9em"
             style={{

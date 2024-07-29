@@ -10,7 +10,7 @@ export interface Reference {
 
 export interface Image {
   _type: 'image';
-  _key: string;
+  _key?: string;
   asset: Reference;
   alt?: string;
 }
@@ -52,9 +52,11 @@ export interface Post {
 }
 
 export interface Talk {
+  _rev: string;
+  _createdAt: string;
   _id: string;
   _type: 'talk';
-  _key: string;
+  _key?: string;
   _updatedAt: string;
   title: string;
   description: string;

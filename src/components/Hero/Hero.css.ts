@@ -12,14 +12,11 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endCo
 */
 
 export const root = style({
-  position: 'relative',
-  display: 'grid',
-  marginBottom: variables.spacing.xl,
   borderRadius: variables.radius.lg,
   overflow: 'hidden',
   ...responsiveStyle({
     sm: {
-      aspectRatio: variables.aspectRatio['4/3'],
+      aspectRatio: variables.aspectRatio['1/1'],
     },
     md: {
       aspectRatio: variables.aspectRatio['16/9'],
@@ -36,14 +33,7 @@ export const root = style({
   },
 });
 
-export const image = style({
-  gridArea: '1/1',
-  objectFit: 'cover',
-});
-
 export const overlay = style({
-  position: 'relative',
-  gridArea: '1/1',
   backgroundImage:
     'linear-gradient(to right top, rgba(0, 0, 0 .95), rgba(0, 0, 0, .25))',
   opacity: 0.9,
@@ -56,17 +46,17 @@ export const overlay = style({
 });
 
 export const content = style({
-  position: 'relative',
+  // position: 'relative',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'flex-end',
-  gridArea: '1/1',
+  // gridArea: '1/1',
   ...responsiveStyle({
     sm: {
       padding: variables.spacing.md,
     },
     md: {
-      padding: variables.spacing.xl,
+      padding: variables.spacing.md,
     },
   }),
 });
@@ -74,8 +64,9 @@ export const content = style({
 export const heading = style({
   color: '#fff',
   '::before': {
+    fontSize: variables.fontSize.xl,
     content: '',
-    marginBottom: variables.spacing.sm,
+    marginBottom: variables.spacing.md,
     display: 'block',
     width: '1.2rem',
     height: '1.2rem',
