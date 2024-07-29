@@ -43,11 +43,9 @@ export const overlay = style({
 });
 
 export const content = style({
-  // position: 'relative',
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'flex-end',
-  // gridArea: '1/1',
   ...responsiveStyle({
     sm: {
       padding: variables.spacing.md,
