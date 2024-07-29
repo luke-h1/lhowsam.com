@@ -5,7 +5,6 @@ runs:
   steps:
       - name: install
         uses: ./.github/actions/install
-        shell: bash
 
       - name: format:check
         run: pnpm format:check
