@@ -9,6 +9,8 @@ import Text from '@frontend/components/Text';
 import siteConfig from '@frontend/config/site';
 import imageService from '@frontend/services/imageService';
 import projectService from '@frontend/services/projectService';
+import * as utils from '@frontend/styles/util.css';
+import clsx from 'clsx';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
@@ -65,21 +67,23 @@ const ProjectPage = async ({ params }: Props) => {
             description: (
               // eslint-disable-next-line react/jsx-no-useless-fragment
               <>
-                {project.tags.length > 0
-                  ? project.tags.map(tag => (
-                      <Text
-                        fontSize="sm"
-                        color="foregroundNeutral"
-                        key={`${tag.title}-${tag.slug.current}`}
-                        data-testid="post-tags"
-                        style={{
-                          marginTop: '0.25rem',
-                        }}
-                      >
-                        #{tag.title}
-                      </Text>
-                    ))
-                  : null}
+                <Text
+                  color="foregroundNeutral"
+                  textTransform="uppercase"
+                  // letterSpacing="wide"
+                  fontSize="sm"
+                  fontFamily="mono"
+                >
+                  {project.tags.map(tag => (
+                    <Link
+                      key={tag.slug.current}
+                      href={`/blog/tags/${tag.slug.current}`}
+                      className={clsx(utils.tag, utils.anchor)}
+                    >
+                      {tag.title.toUpperCase()}
+                    </Link>
+                  ))}
+                </Text>
               </>
             ),
           },
@@ -105,13 +109,13 @@ export default ProjectPage;
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = params;
 
-  const post = await projectService.getProject(slug);
+  const project = await projectService.getProject(slug);
 
-  if (!post) {
+  if (!project) {
     return {};
   }
 
-  const { title, intro } = post;
+  const { title, intro } = project;
 
   return {
     title,
