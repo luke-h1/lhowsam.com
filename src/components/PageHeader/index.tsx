@@ -1,4 +1,3 @@
-import Balancer from 'react-wrap-balancer';
 import Box from '../Box';
 import { Heading } from '../Heading';
 import Text from '../Text';
@@ -21,7 +20,7 @@ const PageHeader = ({
 
   return (
     <header className={styles.root}>
-      <Box maxWidth="container">
+      <Box>
         <Heading as="h1" fontSize="xxl">
           {heading}
         </Heading>
@@ -31,7 +30,7 @@ const PageHeader = ({
             color="foregroundNeutral"
             data-testid={`${id}-description`}
           >
-            <Balancer>{description}</Balancer>
+            {description}
           </Text>
         )}
       </Box>

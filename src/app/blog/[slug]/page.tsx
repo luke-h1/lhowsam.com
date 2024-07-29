@@ -43,6 +43,7 @@ const PostPage = async ({ params }: Props) => {
           width={650}
           height={400}
           rounded
+          bordered
           priority
           placeholder="blur"
           blurDataURL={imageService.urlFor(post.image.asset) ?? undefined}

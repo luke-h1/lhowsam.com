@@ -107,13 +107,12 @@ const AboutPage = async () => {
             </List>
           </Box>
         </Box>
-        <Spacer height="xxl" />
         <Box as="section" maxWidth="container" marginX="auto">
           <Heading
             as="h2"
             fontSize="xl"
             color="foregroundNeutral"
-            style={{ marginTop: '2rem', marginBottom: '0.85rem' }}
+            style={{ marginTop: '4rem', marginBottom: '1.85rem' }}
           >
             Skills
           </Heading>

@@ -48,6 +48,7 @@ const ProjectPage = async ({ params }: Props) => {
             width={650}
             height={400}
             rounded
+            bordered
             priority
             layout="intrinsic"
             placeholder="blur"
