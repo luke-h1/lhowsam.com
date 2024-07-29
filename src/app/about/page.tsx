@@ -4,15 +4,17 @@ import { List } from '@frontend/components/HeroList/HeroList';
 import { Image } from '@frontend/components/Image';
 import Link from '@frontend/components/Link';
 import Page from '@frontend/components/Page';
-import Skills from '@frontend/components/Skills';
 import { Spacer } from '@frontend/components/Spacer';
 import Text from '@frontend/components/Text';
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import * as styles from './about.css';
 
 export const metadata: Metadata = {
   title: 'About',
 };
+
+const Skills = dynamic(() => import('@frontend/components/Skills'));
 
 const AboutPage = async () => {
   return (

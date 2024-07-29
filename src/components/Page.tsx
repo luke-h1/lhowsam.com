@@ -1,9 +1,11 @@
+import dynamic from 'next/dynamic';
 import { ReactNode } from 'react';
 import Box from './Box';
-import Footer from './Footer';
 import Header from './Header';
 import PageHeader, { PageHeaderProps } from './PageHeader';
 import { Toaster } from './Toaster';
+
+const Footer = dynamic(() => import('./Footer'));
 
 interface PageProps extends PageHeaderProps {
   children: ReactNode;

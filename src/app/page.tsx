@@ -4,17 +4,19 @@ import Hero from '@frontend/components/Hero';
 import { List } from '@frontend/components/List';
 import Page from '@frontend/components/Page';
 import PostItem from '@frontend/components/PostItem';
-import ProjectItem from '@frontend/components/ProjectItem';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import projectService from '@frontend/services/projectService';
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 
 export const revalidate = siteConfig.defaultRevalidate;
 
 export const metadata: Metadata = {
   title: 'Home | lhowsam.com',
 };
+
+const ProjectItem = dynamic(() => import('@frontend/components/ProjectItem'));
 
 const HomePage = async () => {
   const heading = 'Luke // Software Engineer';
