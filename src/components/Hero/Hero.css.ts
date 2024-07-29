@@ -59,7 +59,7 @@ export const content = style({
 export const heading = style({
   color: '#fff',
   '::before': {
-    fontSize: variables.fontSize.xl,
+    fontSize: variables.fontSize.xxl,
     content: '',
     marginBottom: variables.spacing.md,
     display: 'block',
@@ -72,4 +72,5 @@ export const heading = style({
 
 export const description = style({
   color: slate.slate7,
+  fontSize: variables.fontSize.lg,
 });
