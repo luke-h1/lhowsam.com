@@ -6,13 +6,15 @@ const originalError = console.error;
 const domElementWarning = /Warning: React does not*/;
 const forwardRefWarning = /Warning: Function components*/;
 const trueForNonBoolProp = /Warning: React does not recognize the*/;
+const trueForNonBoolProp2 = /Warning: Received*/;
 
 beforeAll(() => {
   console.error = (...args) => {
     if (
       domElementWarning.test(args[0]) ||
       forwardRefWarning.test(args[0]) ||
-      trueForNonBoolProp.test(args[0])
+      trueForNonBoolProp.test(args[0]) ||
+      trueForNonBoolProp2.test(args[0])
     ) {
       return;
     }
