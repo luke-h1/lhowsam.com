@@ -1,0 +1,50 @@
+name: Install
+description: Install dependencies and setup environment
+
+runs:
+  using: composite
+  steps:
+      - name: Install moreutils
+        run: sudo apt install moreutils
+        shell: bash
+        
+      # https://github.com/actions/virtual-environments/issues/1187
+      - name: tune linux network
+        run: sudo ethtool -K eth0 tx off rx off
+        shell: bash
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: ${{ env.PNPM_VERSION }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-lho-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-lho-
+
+      - name: Install dependencies
+        run: pnpm i
+        shell: bash
+
+      - uses: actions/labeler@v4
+        with:
+          sync-labels: true
+
+      - name: Check commit message
+        run: pnpm commitlint --from=HEAD^1
+        shell: bash
