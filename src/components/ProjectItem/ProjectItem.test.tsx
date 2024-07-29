@@ -28,7 +28,7 @@ describe('ProjectItem', () => {
     const siteLink = screen.getByTestId('project-siteUrl');
     expect(siteLink).toHaveAttribute('href', 'https://lhowsam.com');
   });
-  test("doesn't render site link if not provided", () => {
+  test("doesn't render site link if not provided", async () => {
     render(<ProjectItem project={omit(project, 'siteUrl')} />);
 
     const siteLink = screen.queryByTestId('project-siteUrl');

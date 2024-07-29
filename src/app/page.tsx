@@ -19,15 +19,23 @@ export const metadata: Metadata = {
 
 const ProjectItem = dynamic(() => import('@frontend/components/ProjectItem'));
 
-const HomePage = async () => {
-  const heading = 'Luke // Software Engineer';
-  const description =
-    'Software Engineer based in the UK who is interested in React.js, Next.js, Typescript, Python and DevOps';
+const fetchPostsAndProjects = async () => {
+  'use server';
 
   const [posts, projects] = await Promise.all([
     postService.getRecentPosts(),
     projectService.getRecentProjects(),
   ]);
+
+  return { posts, projects };
+};
+
+const HomePage = async () => {
+  const heading = 'Luke // Software Engineer';
+  const description =
+    'Software Engineer based in the UK who is interested in React.js, Next.js, Typescript, Python and DevOps';
+
+  const { posts, projects } = await fetchPostsAndProjects();
 
   return (
     <Page>
