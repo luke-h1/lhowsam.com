@@ -28,9 +28,9 @@ jobs:
           ref: ${{ github.head_ref }}
       
       - name: install dependencies
-        uses: /./.github/actions/install
+        uses: ./.github/actions/install
 
       - name: UI tests prod
-        uses: /./.github/actions/ui-test
+        uses: ./.github/actions/ui-test
         with:
           target: e2e-prod
