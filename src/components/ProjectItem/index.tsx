@@ -6,6 +6,7 @@ import { Heading } from '../Heading';
 import { Image } from '../Image';
 import Link from '../Link';
 import Text from '../Text';
+import VisuallyHidden from '../VisuallyHidden';
 import * as styles from './ProjectItem.css';
 
 interface Props {
@@ -59,10 +60,12 @@ const ProjectItem = ({ project }: Props) => {
                 marginRight: '1rem',
               }}
             >
+              <VisuallyHidden>View GitHub</VisuallyHidden>
               <FiGithub size={18} name="GitHub" />
             </Link>
             {project.siteUrl && (
               <Link href={project.siteUrl} data-testid="project-siteUrl">
+                <VisuallyHidden>View site</VisuallyHidden>
                 <FiLink size={18} name="Link" />
               </Link>
             )}

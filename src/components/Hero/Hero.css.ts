@@ -14,14 +14,11 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#020024",endCo
 export const root = style({
   borderRadius: variables.radius.lg,
   overflow: 'hidden',
-  // ...responsiveStyle({
-  //   sm: {
-  //     aspectRatio: variables.aspectRatio['1/1'],
-  //   },
-  //   md: {
-  //     aspectRatio: variables.aspectRatio['16/9'],
-  //   },
-  // }),
+  ...responsiveStyle({
+    sm: {
+      marginBottom: variables.spacing.lg,
+    },
+  }),
   ':focus': {
     outline: 'transparent',
   },
