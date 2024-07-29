@@ -1,57 +1,33 @@
 'use client';
 
+import ToastContextProvider from '@frontend/context/ToastContext';
 import composeProviders from '@frontend/hocs/composeProviders';
-import { isServer } from '@frontend/hooks/isServer';
-import { store } from '@frontend/store';
 import { ToastProvider as RadixToastProvider } from '@radix-ui/react-toast';
 import { TooltipProvider as RadixTooltipProvider } from '@radix-ui/react-tooltip';
 import {
   QueryClient,
   QueryClientProvider as BaseQueryClientProvider,
-  HydrationBoundary,
-  dehydrate,
 } from '@tanstack/react-query';
+import { ReactQueryStreamedHydration } from '@tanstack/react-query-next-experimental';
 import { MotionConfig as FramerMotionConfig } from 'framer-motion';
 import Head from 'next/head';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
-import posthog from 'posthog-js';
-import { PostHogProvider as BasePostHogProvider } from 'posthog-js/react';
 import { ReactNode, useState } from 'react';
-import { Provider } from 'react-redux';
-import Gradient from './Gradient/Gradient';
-import SkipLink from './SkipLink/SkipLink';
+import Gradient from './Gradient';
+import SkipLink from './SkipLink';
 
 interface Props {
   children: ReactNode;
-}
-
-if (!isServer) {
-  posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-    api_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
-    loaded: app => {
-      if (process.env.NODE_ENV === 'development') {
-        app.debug();
-      }
-    },
-  });
 }
 
 function ThemeProvider({ children }: { children: ReactNode }) {
   return <NextThemeProvider attribute="class">{children}</NextThemeProvider>;
 }
 
-function PostHogProvider({ children }: { children: ReactNode }) {
-  return <BasePostHogProvider client={posthog}>{children}</BasePostHogProvider>;
-}
-
 function MotionConfig({ children }: { children: ReactNode }) {
   return (
     <FramerMotionConfig reducedMotion="user">{children}</FramerMotionConfig>
   );
-}
-
-function ReduxProvider({ children }: { children: ReactNode }) {
-  return <Provider store={store}>{children}</Provider>;
 }
 
 function ToastProvider({ children }: { children: ReactNode }) {
@@ -63,24 +39,30 @@ function TooltipProvider({ children }: { children: ReactNode }) {
 }
 
 function QueryClientProvider({ children }: { children: ReactNode }) {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {},
+      }),
+  );
 
   return (
     <BaseQueryClientProvider client={queryClient}>
-      <HydrationBoundary state={dehydrate(queryClient)}>
-        {children}
-      </HydrationBoundary>
+      <ReactQueryStreamedHydration>{children}</ReactQueryStreamedHydration>
     </BaseQueryClientProvider>
   );
+}
+
+function ToastCtxProvider({ children }: { children: ReactNode }) {
+  return <ToastContextProvider>{children}</ToastContextProvider>;
 }
 
 const ComposedProviders = composeProviders(
   ThemeProvider,
   MotionConfig,
+  ToastCtxProvider,
   ToastProvider,
   TooltipProvider,
-  PostHogProvider,
-  ReduxProvider,
   QueryClientProvider,
 );
 

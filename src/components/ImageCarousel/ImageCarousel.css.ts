@@ -47,8 +47,8 @@ export const next = style({
 });
 
 export const disc = style({
-  width: variables.spacing.xxxl,
-  height: variables.spacing.xxxl,
+  width: variables.spacing.xxl,
+  height: variables.spacing.xxl,
   background: variables.color.surface,
   display: 'grid',
   placeItems: 'center',

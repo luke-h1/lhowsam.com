@@ -1,11 +1,11 @@
-import Box from '@frontend/components/Box/Box';
+import Box from '@frontend/components/Box';
 import ContentRenderer from '@frontend/components/ContentRenderer';
-import { Image } from '@frontend/components/Image/Image';
-import Link from '@frontend/components/Link/Link';
-import Meta from '@frontend/components/Meta/Meta';
+import { Image } from '@frontend/components/Image';
+import Link from '@frontend/components/Link';
+import Meta from '@frontend/components/Meta';
 import Page from '@frontend/components/Page';
-import Spacer from '@frontend/components/Spacer/Spacer';
-import Text from '@frontend/components/Text/Text';
+import { Spacer } from '@frontend/components/Spacer';
+import Text from '@frontend/components/Text';
 import siteConfig from '@frontend/config/site';
 import imageService from '@frontend/services/imageService';
 import projectService from '@frontend/services/projectService';
@@ -34,17 +34,27 @@ const ProjectPage = async ({ params }: Props) => {
 
   return (
     <Page heading={project.title} description={project.intro}>
-      <Box>
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="flex-start"
+        marginY="none"
+        marginX="none"
+        marginBottom="lg"
+      >
         {project.image.asset && (
           <Image
             src={imageService.urlFor(project.image.asset) ?? undefined}
-            width={950}
-            height={460}
+            width={650}
+            height={400}
             rounded
+            bordered
             priority
+            layout="intrinsic"
             placeholder="blur"
             blurDataURL={imageService.urlFor(project.image.asset) ?? undefined}
             alt={project.image.alt ?? project.title}
+            quality={100}
           />
         )}
       </Box>
@@ -56,7 +66,7 @@ const ProjectPage = async ({ params }: Props) => {
               // eslint-disable-next-line react/jsx-no-useless-fragment
               <>
                 {project.tags.length > 0
-                  ? project.tags.slice(0, 3).map(tag => (
+                  ? project.tags.map(tag => (
                       <Text
                         fontSize="sm"
                         color="foregroundNeutral"
@@ -83,8 +93,8 @@ const ProjectPage = async ({ params }: Props) => {
           },
         ]}
       />
-      <Box maxWidth="container">
-        <Spacer height="sm" />
+      <Box maxWidth="container" display="flex" alignItems="flex-start">
+        <Spacer height="md" />
         <ContentRenderer content={project.content} />
       </Box>
     </Page>
@@ -101,8 +111,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {};
   }
 
+  const { title, intro } = post;
+
   return {
-    title: post.title,
-    description: post.intro,
+    title,
+    description: intro,
   };
 }

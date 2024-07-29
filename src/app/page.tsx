@@ -1,17 +1,15 @@
-import Box from '@frontend/components/Box/Box';
-import Heading from '@frontend/components/Heading/Heading';
-import Link from '@frontend/components/Link/Link';
-import { List } from '@frontend/components/List/List';
+import Box from '@frontend/components/Box';
+import { Heading } from '@frontend/components/Heading';
+import Hero from '@frontend/components/Hero';
+import { List } from '@frontend/components/List';
 import Page from '@frontend/components/Page';
-import PostCard from '@frontend/components/PostCard/PostCard';
-import ProjectItem from '@frontend/components/ProjectItem/ProjectItem';
-import Spacer from '@frontend/components/Spacer/Spacer';
-import Text from '@frontend/components/Text/Text';
+import PostItem from '@frontend/components/PostItem';
+import { Spacer } from '@frontend/components/Spacer';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import projectService from '@frontend/services/projectService';
 import { Metadata } from 'next';
-import Balancer from 'react-wrap-balancer';
+import dynamic from 'next/dynamic';
 
 export const revalidate = siteConfig.defaultRevalidate;
 
@@ -19,72 +17,76 @@ export const metadata: Metadata = {
   title: 'Home | lhowsam.com',
 };
 
-const HomePage = async () => {
+const ProjectItem = dynamic(() => import('@frontend/components/ProjectItem'));
+
+const fetchPostsAndProjects = async () => {
+  'use server';
+
   const [posts, projects] = await Promise.all([
     postService.getRecentPosts(),
     projectService.getRecentProjects(),
   ]);
 
-  return (
-    <Page heading="Luke // Software Engineer">
-      <Box
-        maxWidth="text"
-        style={{
-          margin: '0 auto',
-        }}
-      >
-        <Spacer height="md" />
-        <Text
-          fontSize={{ xs: 'lg', sm: 'xl' }}
-          color="foregroundNeutral"
-          style={{
-            marginBottom: '2rem',
-          }}
-        >
-          <Balancer ratio={0.25} data-testid="intro">
-            Software Engineer based in the UK who is interested in React.js,
-            Next.js, Typescript, Python and DevOps
-          </Balancer>
-        </Text>
-        <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
-          <Text>
-            <Link href="/about" variant="highlight">
-              More about me
-            </Link>
-          </Text>
-        </Box>
-        <Spacer height="xxxxl" />
-        <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
-          <header>
-            <Heading fontSize="xl">Recent Projects</Heading>
-          </header>
-          <Spacer height="xxl" />
-          <Box
-          // display="flex"
-          // flexDirection={{ xs: 'column', sm: 'row' }}
-          // alignItems={{ sm: 'flex-start' }}
-          // gap="xl"
-          >
-            {projects &&
-              projects.map(project => (
-                <ProjectItem project={project} key={project._id} />
-              ))}
-          </Box>
-        </Box>
-        <Spacer height="xxxxl" />
+  return { posts, projects };
+};
 
-        <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
-          <header>
-            <Heading fontSize="xl">Recent Posts</Heading>
-          </header>
-          <Spacer height="xxl" />
-          <List>
-            {posts &&
-              posts.map(post => (
-                <PostCard post={post} key={`${post._id}-${post.title}`} />
-              ))}
-          </List>
+const HomePage = async () => {
+  const heading = 'Luke // Software Engineer';
+  const description =
+    'Software Engineer based in the UK who is interested in React.js, Next.js, Typescript, Python and DevOps';
+
+  const { posts, projects } = await fetchPostsAndProjects();
+
+  return (
+    <Page>
+      <Box as="section">
+        <Box marginX="auto">
+          <Hero heading={heading} description={description} />
+          <Spacer height="xl" />
+          {/* <Box as="header" textAlign="center" marginBottom="lg">
+            <Heading>Projects and companies I've worked on/at</Heading>
+          </Box> */}
+          {/* <Marquee>
+            <Companies />
+          </Marquee> */}
         </Box>
+      </Box>
+      <Box as="section" paddingX="sm" marginY="lg" marginBottom="xxxl">
+        <Heading fontSize="lg" color="foregroundNeutral">
+          Recent Posts
+        </Heading>
+        <List marginX="xs">
+          {posts &&
+            posts.map(post => (
+              <List.Item key={`${post._id}-${post.title}`}>
+                <PostItem post={post} key={`${post._id}-${post.title}`} />
+              </List.Item>
+            ))}
+        </List>
+      </Box>
+      <Spacer height="xxxxl" />
+      <Box
+        as="section"
+        paddingX="md"
+        marginY="xxl"
+        marginX="auto"
+        // maxWidth={{ lg: 'container', md: 'container', sm: 'text' }}
+        // style={{
+        //   margin: '0 auto',
+        // }}
+      >
+        <Heading fontSize="lg">Highlighted Projects</Heading>
+        <List marginX="lg" marginY="lg">
+          {projects &&
+            projects.map(project => (
+              <List.Item key={`${project._id}-${project.title}`}>
+                <ProjectItem
+                  project={project}
+                  key={`${project._id}-${project.title}`}
+                />
+              </List.Item>
+            ))}
+        </List>
       </Box>
     </Page>
   );

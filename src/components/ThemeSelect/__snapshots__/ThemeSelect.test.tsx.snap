@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ThemeSelect defaults to system theme 1`] = `
+<div>
+  <script>
+    !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}if(e==='light'||e==='dark')d.style.colorScheme=e}catch(e){}}()
+  </script>
+  <span
+    class="VisuallyHidden_root__rd7gei0"
+  >
+    <label
+      for="theme-select"
+    >
+      Select theme
+    </label>
+  </span>
+  <div
+    class="ThemeSelect_root__wmdp110"
+  >
+    <span
+      class="ThemeSelect_icon__wmdp111"
+    >
+      <svg
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="0.9em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          height="14"
+          rx="2"
+          ry="2"
+          width="20"
+          x="2"
+          y="3"
+        />
+        <line
+          x1="8"
+          x2="16"
+          y1="21"
+          y2="21"
+        />
+        <line
+          x1="12"
+          x2="12"
+          y1="17"
+          y2="21"
+        />
+      </svg>
+    </span>
+    <span
+      class="VisuallyHidden_root__rd7gei0"
+    >
+      <label
+        for="theme-select"
+      >
+        Theme
+      </label>
+    </span>
+    <select
+      class="ThemeSelect_select__wmdp112"
+      id="theme-select"
+    >
+      <option
+        id="theme-system"
+        value="system"
+      >
+        System
+      </option>
+      <option
+        id="theme-light"
+        value="light"
+      >
+        Light
+      </option>
+      <option
+        id="theme-dark"
+        value="dark"
+      >
+        Dark
+      </option>
+    </select>
+    <span
+      class="ThemeSelect_arrow__wmdp113"
+      data-testid="ThemeSelect-system"
+    >
+      <svg
+        fill="none"
+        height="24"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        style="transform: rotate(90deg);"
+        viewBox="0 0 24 24"
+        width="0.9em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <polyline
+          points="16 18 22 12 16 6"
+        />
+        <polyline
+          points="8 6 2 12 8 18"
+        />
+      </svg>
+    </span>
+  </div>
+</div>
+`;

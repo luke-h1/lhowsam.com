@@ -3,7 +3,9 @@ import { globalStyle, style } from '@vanilla-extract/css';
 
 export const root = style({});
 
-export const item = style({});
+export const item = style({
+  marginBottom: variables.spacing.md,
+});
 
 globalStyle(`${root} > li + li`, {
   borderTop: `1px solid ${variables.color.border}`,

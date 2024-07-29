@@ -1,16 +1,14 @@
-'use client';
+import dynamic from 'next/dynamic';
+import { ReactNode } from 'react';
+import Box from './Box';
+import Header from './Header';
+import PageHeader, { PageHeaderProps } from './PageHeader';
+import { Toaster } from './Toaster';
 
-import { ReactNode, useState } from 'react';
-import Banner from './Banner/Banner';
-import Box from './Box/Box';
-import CommandMenu from './CommandMenu/CommandMenu';
-import Footer from './Footer/Footer';
-import PageHeader from './PageHeader/PageHeader';
-import { Toaster } from './Toast/Toast';
+const Footer = dynamic(() => import('./Footer'));
 
-interface PageProps {
+interface PageProps extends PageHeaderProps {
   children: ReactNode;
-  bannerOpen?: boolean;
   showFooter?: boolean;
   heading?: string;
   description?: string;
@@ -18,25 +16,22 @@ interface PageProps {
 
 const Page = ({
   children,
-  bannerOpen = false,
   showFooter = true,
   heading,
   description,
 }: PageProps) => {
-  const [open, setOpen] = useState(bannerOpen);
   return (
     <>
+      <Header />
       <div className="container">
-        <Banner setOpen={setOpen} />
         <Box
-          maxWidth="text"
+          maxWidth="container"
           style={{
             margin: '0 auto',
           }}
         >
           <PageHeader heading={heading} description={description} />
           {children}
-          <CommandMenu open={open} setOpen={setOpen} />
           <Toaster />
         </Box>
       </div>

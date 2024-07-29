@@ -6,6 +6,7 @@ on:
       - main
   workflow_dispatch:
 env:
+  NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_URL }}
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
   VERCEL_PROD_PROJECT_ID: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
   VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}

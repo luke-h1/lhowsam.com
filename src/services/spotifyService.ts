@@ -58,7 +58,7 @@ const spotifyService = {
       {
         headers: {
           'Content-Type': 'application/json',
-          'x-consumer': 'lhowsam.com',
+          'x-consumer': process.env.NEXT_PUBLIC_URL,
         },
       },
     );

@@ -24,7 +24,7 @@
     "baseUrl": ".",
     "paths": {
       "@frontend/*": ["./src/*"],
-      "@frontend-test/*": ["src/test/*"]
+      "@frontend-test/*": ["./test/*"]
     },
     "incremental": true,
     "target": "es6",
@@ -34,6 +34,6 @@
       }
     ]
   },
-  "include": ["src", "next-env.d.ts", ".next/types/**/*.ts"],
-  "exclude": ["node_modules", ".next","sst.config.ts"]
+  "include": ["src", "test", "next-env.d.ts", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", ".next", "sst.config.ts"]
 }
