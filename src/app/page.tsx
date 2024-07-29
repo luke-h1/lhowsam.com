@@ -40,7 +40,7 @@ const HomePage = async () => {
   return (
     <Page>
       <Box as="section">
-        <Box marginX="auto" maxWidth="container">
+        <Box marginX="auto">
           <Hero heading={heading} description={description} />
           <Spacer height="xl" />
           {/* <Box as="header" textAlign="center" marginBottom="lg">
@@ -51,17 +51,11 @@ const HomePage = async () => {
           </Marquee> */}
         </Box>
       </Box>
-      <Box
-        as="section"
-        paddingX="sm"
-        marginY="lg"
-        maxWidth="container"
-        marginBottom="xxxl"
-      >
+      <Box as="section" paddingX="sm" marginY="lg" marginBottom="xxxl">
         <Heading fontSize="lg" color="foregroundNeutral">
           Recent Posts
         </Heading>
-        <List marginX="xs" maxWidth="container">
+        <List marginX="xs">
           {posts &&
             posts.map(post => (
               <List.Item key={`${post._id}-${post.title}`}>
@@ -77,12 +71,12 @@ const HomePage = async () => {
         marginY="xxl"
         marginX="auto"
         // maxWidth={{ lg: 'container', md: 'container', sm: 'text' }}
-        style={{
-          margin: '0 auto',
-        }}
+        // style={{
+        //   margin: '0 auto',
+        // }}
       >
         <Heading fontSize="lg">Highlighted Projects</Heading>
-        <List marginX="lg" maxWidth="container" marginY="lg">
+        <List marginX="lg" marginY="lg">
           {projects &&
             projects.map(project => (
               <List.Item key={`${project._id}-${project.title}`}>

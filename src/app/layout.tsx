@@ -1,13 +1,12 @@
-import Providers from '@frontend/components/Providers';
-import siteConfig from '@frontend/config/site';
-import getPolicies from '@frontend/utils/getPolicies';
-import { Metadata } from 'next';
-import Script from 'next/script';
-import { ReactNode } from 'react';
-import 'nprogress/nprogress.css';
 import 'the-new-css-reset';
 import '@frontend/styles/app.css';
 import '@frontend/styles/prism.css';
+import Providers from '@frontend/components/Providers';
+import siteConfig from '@frontend/config/site';
+import getPolicies from '@frontend/utils/getPolicies';
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { Metadata } from 'next';
+import { ReactNode } from 'react';
 
 interface Props {
   children: Readonly<ReactNode>;
@@ -60,7 +59,7 @@ export const metadata: Metadata = {
 
 const RootLayout = ({ children }: Props) => {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link href="/icons/favicon-16x16.png" rel="icon" />
@@ -88,7 +87,8 @@ const RootLayout = ({ children }: Props) => {
         />
         {process.env.NEXT_PUBLIC_URL === 'https://lhowsam.com' && (
           <>
-            <Script
+            <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_TRACKING_ID} />
+            {/* <Script
               async
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
             />
@@ -101,7 +101,7 @@ const RootLayout = ({ children }: Props) => {
 
         gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}');
       `}
-            </Script>
+            </Script> */}
           </>
         )}
       </head>
