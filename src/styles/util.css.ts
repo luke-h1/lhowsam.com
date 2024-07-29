@@ -15,10 +15,14 @@ export const anchor = style({
 
 export const tag = style({
   marginRight: '0.5rem',
-  marginBottom: '1.5rem',
+  // marginBottom: '1.5rem',
   ':last-child': {
     marginRight: 0,
   },
+  // ensure it wraps each full word
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  display: 'inline-block',
 });
 
 export const focusVisible = style({

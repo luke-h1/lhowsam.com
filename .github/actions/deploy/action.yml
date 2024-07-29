@@ -1,0 +1,46 @@
+name: Deploy
+description: Deploy frontend to Vercel
+inputs:
+  vercel-token:
+    description: 'Vercel token'
+    required: true
+  vercel-org-id:
+    description: 'Vercel organization ID'
+    required: true
+  vercel-project-id:
+    description: 'Vercel project ID'
+    required: true
+  environment:
+    description: 'environment to deploy to'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set vercel environment variables
+      shell: bash
+      run: |
+        # DEPLOYED_AT
+        echo "::set-output name=date::$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")"
+        vc env rm DEPLOYED_AT production --token ${VERCEL_TOKEN} --yes
+        echo ${{ steps.date.outputs.date }} | vc env add DEPLOYED_AT production --token ${VERCEL_TOKEN}
+
+        # DEPLOYED_BY
+        vc env rm DEPLOYED_BY production --token ${VERCEL_TOKEN} --yes
+        echo ${{ github.actor }} | vc env add DEPLOYED_BY production --token ${VERCEL_TOKEN}
+      env:
+        VERCEL_TOKEN: ${{ inputs.vercel-token }}
+        VERCEL_ORG_ID: ${{ inputs.vercel-org-id }}
+        VERCEL_PROJECT_ID: ${{ inputs.vercel-project-id }}
+
+    - name: Deploy to ${{ inputs.environment }}
+      run: vc -f --prod --token ${{ inputs.vercel-token }}
+      shell: bash
+      env:
+        VERCEL_TOKEN: ${{ inputs.vercel-token }}
+        VERCEL_ORG_ID: ${{ inputs.vercel-org-id }}
+        VERCEL_PROJECT_ID: ${{ inputs.vercel-project-id }}
+
+    - name: ${{ inputs.environment }} UI tests
+      run: make e2e-${{ inputs.environment }}
+      shell: bash

@@ -1,0 +1,41 @@
+name: 'Build frontend'
+description: 'Build frontend app'
+runs:
+  using: 'composite'
+  steps:
+      - name: install
+        uses: ./.github/actions/install
+
+      - name: format:check
+        run: pnpm format:check
+        shell: bash
+
+      - name: lint
+        run: pnpm lint
+        shell: bash
+
+      - name: jest
+        run: pnpm test:ci
+        shell: bash
+
+      - name: tsc
+        run: pnpm tsc
+        shell: bash
+
+      - name: Restore next build
+        uses: actions/cache@v3
+        id: restore-build-cache
+        env:
+          cache-name: cache-next-build
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
+
+      - name: build
+        run: pnpm build
+        shell: bash
+
+      - name: local UI tests
+        uses: ./.github/actions/ui-test
+        with:
+          target: e2e-local-ci
