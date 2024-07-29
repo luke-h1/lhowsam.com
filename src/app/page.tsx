@@ -75,7 +75,9 @@ const HomePage = async () => {
         //   margin: '0 auto',
         // }}
       >
-        <Heading fontSize="lg">Highlighted Projects</Heading>
+        <Heading fontSize="lg" color="foregroundNeutral">
+          Highlighted Projects
+        </Heading>
         <List marginX="lg" marginY="lg">
           {projects &&
             projects.map(project => (
