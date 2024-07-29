@@ -14,7 +14,7 @@ exports[`Footer renders cc 1`] = `
     >
       <div>
         <h2
-          class="Heading_root__xkw1cf0 sprinkles_fontSize_md_sm__1fx8prsl1 sprinkles_color_highlight__1fx8prsmb"
+          class="Heading_root__xkw1cf0 sprinkles_fontSize_md_sm__1fx8prsl1 sprinkles_color_foreground__1fx8prsm1"
         >
           Navigate
         </h2>
@@ -69,7 +69,7 @@ exports[`Footer renders cc 1`] = `
       </div>
       <div>
         <h2
-          class="Heading_root__xkw1cf0 sprinkles_fontSize_md_sm__1fx8prsl1 sprinkles_color_highlight__1fx8prsmb"
+          class="Heading_root__xkw1cf0 sprinkles_fontSize_md_sm__1fx8prsl1 sprinkles_color_foreground__1fx8prsm1"
         >
           Social
         </h2>
