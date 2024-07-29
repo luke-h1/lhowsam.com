@@ -59,11 +59,11 @@ const ProjectItem = ({ project }: Props) => {
                 marginRight: '1rem',
               }}
             >
-              <FiGithub size={18} />
+              <FiGithub size={18} name="GitHub" />
             </Link>
             {project.siteUrl && (
               <Link href={project.siteUrl} data-testid="project-siteUrl">
-                <FiLink size={18} />
+                <FiLink size={18} name="Link" />
               </Link>
             )}
           </Box>

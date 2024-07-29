@@ -109,7 +109,7 @@ export const seperator = style({
 
 export const artist = style({
   maxWidth: 'max-content',
-  color: '#6B7280',
+  color: variables.color.spotifyLink,
   overflow: 'hidden',
   textOverflow: 'ellipsis',
   whiteSpace: 'nowrap',
