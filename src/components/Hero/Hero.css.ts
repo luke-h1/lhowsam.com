@@ -1,6 +1,5 @@
 import { responsiveStyle } from '@frontend/styles/style.css';
 import { variables } from '@frontend/styles/variables.css';
-import { slate } from '@radix-ui/colors';
 import { style } from '@vanilla-extract/css';
 
 /* 
@@ -57,7 +56,7 @@ export const content = style({
 });
 
 export const heading = style({
-  color: '#fff',
+  color: variables.color.color,
   '::before': {
     fontSize: variables.fontSize.xxl,
     content: '',
@@ -71,6 +70,6 @@ export const heading = style({
 });
 
 export const description = style({
-  color: slate.slate7,
+  color: variables.color.foreground,
   fontSize: variables.fontSize.lg,
 });

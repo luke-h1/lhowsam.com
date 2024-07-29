@@ -17,13 +17,8 @@ const TalksPage = async () => {
 
   return (
     <Page>
-      <Box
-        as="header"
-        textAlign={{ md: 'center' }}
-        maxWidth="container"
-        marginX="auto"
-      >
-        <Box display="inline-flex" gap="xs">
+      <Box as="header" textAlign={{ md: 'center' }} maxWidth="container">
+        <Box display="flex" gap="xs">
           <Heading fontSize={{ xs: 'xxl', sm: 'xxxl' }} as="h1">
             Talks
           </Heading>
@@ -44,15 +39,11 @@ const TalksPage = async () => {
           </Box>
         </Box>
         <Spacer height="sm" />
-        <Text
-          fontSize={{ xs: 'lg', sm: 'xl' }}
-          color="foregroundNeutral"
-          style={{
-            display: 'inline-flex',
-          }}
-        >
-          Talks I've given at meetups and events
-        </Text>
+        <Box display="flex">
+          <Text fontSize={{ xs: 'lg', sm: 'xl' }} color="foregroundNeutral">
+            Talks I've given at meetups and events
+          </Text>
+        </Box>
       </Box>
       <Spacer height="sm" />
       <Box as="section" maxWidth={{ md: 'text' }} marginX={{ md: 'auto' }}>

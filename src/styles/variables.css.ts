@@ -16,6 +16,7 @@ import {
 } from '@vanilla-extract/css';
 
 const color = createGlobalThemeContract({
+  color: 'color',
   page: 'color-page',
   pageFaint: 'color-page-faint',
   foreground: 'color-foreground',
@@ -40,6 +41,7 @@ const color = createGlobalThemeContract({
 });
 
 createGlobalTheme(':root.light', color, {
+  color: '#000',
   page: slate.slate1,
   pageFaint: slate.slate3,
   foreground: slate.slate12,
@@ -63,6 +65,7 @@ createGlobalTheme(':root.light', color, {
 });
 
 createGlobalTheme(':root.dark', color, {
+  color: '#fff',
   page: slateDark.slate1,
   pageFaint: slateDark.slate3,
   foreground: slateDark.slate12,
