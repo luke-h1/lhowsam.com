@@ -10,6 +10,7 @@ runs:
       - name: Get installed Playwright version
         id: playwright-version
         run: echo "PLAYWRIGHT_VERSION=$(node -e "console.log(require('./package.json').devDependencies['@playwright/test'])")" >> $GITHUB_ENV
+        shell: bash
 
       - name: Cache playwright binaries
         uses: actions/cache@v3
@@ -21,6 +22,8 @@ runs:
 
       - run: make e2e-install-browsers
         if: steps.playwright-cache.outputs.cache-hit != 'true'
+        shell: bash
 
       - name: ${{ inputs.environment }} UI tests
         run: make ${{ inputs.target }}
+        shell: bash
