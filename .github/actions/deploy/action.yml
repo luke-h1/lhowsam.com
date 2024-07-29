@@ -33,7 +33,7 @@ runs:
         VERCEL_ORG_ID: ${{ inputs.vercel-org-id }}
         VERCEL_PROJECT_ID: ${{ inputs.vercel-project-id }}
 
-    - name: Deploy to {{ inputs.environment }}
+    - name: Deploy to ${{ inputs.environment }}
       run: vc -f --prod --token ${{ inputs.vercel-token }}
       shell: bash
       env:
@@ -41,6 +41,6 @@ runs:
         VERCEL_ORG_ID: ${{ inputs.vercel-org-id }}
         VERCEL_PROJECT_ID: ${{ inputs.vercel-project-id }}
 
-    - name: {{ inputs.environment }} UI tests
-      shell: bash
+    - name: ${{ inputs.environment }} UI tests
       run: make e2e-{{ inputs.environment }}
+      shell: bash
