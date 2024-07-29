@@ -2,7 +2,7 @@ node_modules
 .env
 !.env.example
 .next
-build
+
 # misc
 .DS_Store
 *.pem
@@ -20,7 +20,6 @@ analyze/
 .eslintcache
 screenshots
 tsconfig.tsbuildinfo
-# Sentry
 .sentryclirc
 sitemap.xml
 sitemap-0.xml
