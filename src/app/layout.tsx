@@ -4,7 +4,6 @@ import '@frontend/styles/prism.css';
 import Providers from '@frontend/components/Providers';
 import siteConfig from '@frontend/config/site';
 import getPolicies from '@frontend/utils/getPolicies';
-// import { GoogleAnalytics } from '@next/third-parties/google';
 import { Metadata } from 'next';
 import Script from 'next/script';
 import { ReactNode } from 'react';

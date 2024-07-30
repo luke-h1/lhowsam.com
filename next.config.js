@@ -1,3 +1,4 @@
+const nrExternals = require('@newrelic/next/load-externals');
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 
 const withVanillaExtract = createVanillaExtractPlugin();
@@ -11,6 +12,7 @@ const contentSecurityPolicy = `
  connect-src * cloudflareinsights.com;
  font-src 'self' fonts.gstatic.com;
 `;
+
 const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
   {
@@ -64,6 +66,7 @@ const nextConfig = {
     // Force SWC transform on build to stop Next.js trying to use babel
     // since babel is only needed to support vanilla-extract in unit tests
     forceSwcTransforms: true,
+    serverComponentsExternalPackages: ['newrelic'],
   },
   images: {
     minimumCacheTTL: 120,
@@ -137,6 +140,7 @@ const nextConfig = {
       use: ['@svgr/webpack'],
     });
 
+    nrExternals(config);
     return config;
   },
 };
