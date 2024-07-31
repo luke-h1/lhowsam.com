@@ -110,6 +110,9 @@ importers:
       groq:
         specifier: 3.50.0
         version: 3.50.0
+      immer:
+        specifier: ^10.1.1
+        version: 10.1.1
       js-cookie:
         specifier: ^3.0.5
         version: 3.0.5
@@ -218,6 +221,9 @@ importers:
       unist-util-visit:
         specifier: ^5.0.0
         version: 5.0.0
+      use-immer:
+        specifier: ^0.10.0
+        version: 0.10.0(immer@10.1.1)(react@18.3.1)
       use-roving-index:
         specifier: ^2.0.0
         version: 2.0.0(react@18.3.1)
@@ -11080,6 +11086,12 @@ packages:
     resolution: {integrity: sha512-RbL/OY1HjHNf5BYSFV3yDtQhIGKjCx9ntEjnUBYsOGc9fTo94nyFTcjtD42/twJkPgMljWpszUIpTGD3LuwHSg==}
     peerDependencies:
       react: '>=17.0.0'
+
+  use-immer@0.10.0:
+    resolution: {integrity: sha512-/eVwNR4TG9Tm/dd+aHYLLaI0FLfYKlkTqKMkn78Ah/EYVzWd/zJIgpkdoFEKbhQJOGo8XN7/mWrTx0exp1c+Ug==}
+    peerDependencies:
+      immer: '>=8.0.0'
+      react: ^16.8.0 || ^17.0.1 || ^18.0.0
 
   use-roving-index@2.0.0:
     resolution: {integrity: sha512-yd2dvhuOJ58Vo0zBkvvCbYcI3xpL6/n0Brc/70OEUm6+STSV7R2ypDx2TEwD2TIbSEz0eZxcdrQRXAqBz9SjYg==}
@@ -25410,6 +25422,11 @@ snapshots:
 
   use-hot-module-reload@2.0.0(react@18.3.1):
     dependencies:
+      react: 18.3.1
+
+  use-immer@0.10.0(immer@10.1.1)(react@18.3.1):
+    dependencies:
+      immer: 10.1.1
       react: 18.3.1
 
   use-roving-index@2.0.0(react@18.3.1):
