@@ -108,8 +108,8 @@ importers:
         specifier: ^4.0.3
         version: 4.0.3
       groq:
-        specifier: 3.52.4
-        version: 3.52.4
+        specifier: 3.53.0
+        version: 3.53.0
       immer:
         specifier: ^10.1.1
         version: 10.1.1
@@ -7153,10 +7153,6 @@ packages:
   groq-js@1.12.0:
     resolution: {integrity: sha512-XxMg2qX3iX+WlhCkj4FmrtDaQKRot9RyphJ0UsmxI/l2aMOdvjG7pqF003yyXppjoE0Vk1ERCDCUYRvC3w/A2Q==}
     engines: {node: '>= 14'}
-
-  groq@3.52.4:
-    resolution: {integrity: sha512-EOwlT3oyp7kbBqfuPLedAvQUk4XLGGvjDzc3fBJjC2yjwQPivEbaZRslIU7WLUThy97GEpFWS7z1HKFGZTCd1A==}
-    engines: {node: '>=18'}
 
   groq@3.53.0:
     resolution: {integrity: sha512-0kVDwMWK4liM8xPQx9o31IwXr7jiLnMNnSNVbzeP4Zfk/lTxsYahe+7XojSRfewxEVWKDEfH5yQIJxZPsIq2UQ==}
@@ -21325,8 +21321,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  groq@3.52.4: {}
-
   groq@3.53.0: {}
 
   gunzip-maybe@1.4.2:
@@ -24192,7 +24186,7 @@ snapshots:
       '@sanity/types': 3.53.0(debug@4.3.6)
       '@sanity/ui': 2.8.8(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@sanity/visual-editing': 2.1.8(@sanity/client@6.21.2)(next@14.2.5(@babel/core@7.24.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.46.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      groq: 3.52.4
+      groq: 3.53.0
       history: 5.3.0
       next: 14.2.5(@babel/core@7.24.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.46.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8)
       react: 18.3.1
