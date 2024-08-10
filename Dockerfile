@@ -1,20 +1,54 @@
-FROM node:20.11.0-alpine as builder
+FROM node:20.11.0-alpine as base
 
-COPY . ./usr/src
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
 
-WORKDIR /usr/src
+RUN corepack enable
+
+WORKDIR /app
+
+FROM base as builder
+
+COPY . .
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
-    npm install -g pnpm && \
-    pnpm i
+    pnpm --frozen-lockfile --ignore-scripts install
 
-FROM builder
+ARG PUBLIC_SPOTIFY_CLIENT_ID
+ARG PUBLIC_SPOTIFY_CLIENT_SECRET
+ARG SPOTIFY_REFRESH_TOKEN
+ARG NEXT_PUBLIC_SANITY_PROJECT_ID
+ARG NEXT_PUBLIC_URL
+ARG UNOPTIMIZED_IMAGES
 
-ARG app
+RUN pnpm build:prod
 
-RUN pnpm build
+FROM base as runner
 
-WORKDIR /usr/src/apps/$app
+COPY --from=builder /app /app
+
+WORKDIR /app
+
+RUN corepack enable
+
+RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
+    pnpm --prod --ignore-scripts --frozen-lockfile install
+
+RUN apk add --no-cache bash tzdata git make clang
+
+ENV NODE_ENV=production
 
 EXPOSE 3000
-CMD ["pnpm", "start"]
+
+RUN chown -R node /app
+
+USER node 
+
+# ensure node user has write access to the /app directory to avoid:
+# ------------------------------------------------------------------------------------------
+# Failed to write image to cache 8NUX5AdxBeiSHC6Ow1kQxqYuVrLXD4O7nrmNug9Q7XU= [Error: EACCES: permission denied, mkdir '/app/.next/cache/images
+# AND
+# Failed to update prerender cache for /api/now-playing [Error: EACCES: permission denied, open '/app/.next/server/app/api/now-playing.body'] 
+# ------------------------------------------------------------------------------------------
+
+CMD ["pnpm", "start:prod"]
