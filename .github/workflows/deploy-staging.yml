@@ -151,7 +151,9 @@ jobs:
           NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
           NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
           NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL: 'https://nowplaying-staging.lhowsam.com'
-
+ 
+      - name: rename
+        run: cd .open-next && mv server-functions server-function
       - name: Terraform Init
         id: init
         run: terraform init

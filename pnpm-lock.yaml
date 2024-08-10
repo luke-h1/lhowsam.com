@@ -150,8 +150,8 @@ importers:
         specifier: ^0.2.0
         version: 0.2.0
       open-next:
-        specifier: ^3.0.8
-        version: 3.0.8
+        specifier: 2.3.9
+        version: 2.3.9
       prom-client:
         specifier: ^15.1.3
         version: 15.1.3
@@ -5581,9 +5581,6 @@ packages:
     resolution: {integrity: sha512-wvUjBtSGN7+7SjNpq/9M2Tg350UZD3q62IFZLbRAR1bSMlCo1ZaeW+BJ+D090e4hIIZLBcTDWe4Mh4jvUDajzQ==}
     engines: {node: '>= 0.4'}
 
-  aws4fetch@1.0.19:
-    resolution: {integrity: sha512-N+F8pZ9hVjckkHODDyalITRNxBJxAGX5ShkVoAgHwqERXsW8Iu5ziFx3SCjGlxx/YStWBTZx4HI/GCMvTBu5kQ==}
-
   axe-core@4.9.1:
     resolution: {integrity: sha512-QbUdXJVTpvUTHU7871ppZkdOLBeGUKBQWHkHrvN2V9IQWGMt61zf3B45BtzjxEJzYuj0JBjBZP/hmYS/R9pmAw==}
     engines: {node: '>=4'}
@@ -9928,8 +9925,8 @@ packages:
     resolution: {integrity: sha512-VXJjc87FScF88uafS3JllDgvAm+c/Slfz06lorj2uAY34rlUu0Nt+v8wreiImcrgAjjIHp1rXpTDlLOGw29WwQ==}
     engines: {node: '>=18'}
 
-  open-next@3.0.8:
-    resolution: {integrity: sha512-gp6jJj1DQwF7u9ga6Mcm9dSl36bAVKz6n9WTJSosbWjhgAeKi7eKJAyp232S8PdMnYC0EDKd+tF2tT8+zh4a1Q==}
+  open-next@2.3.9:
+    resolution: {integrity: sha512-l9QKTM+txNij6I6Vw1Spaq8esLryzvOk317akjgLrqGZIXpfRQIRmdd7b3zryXm8Vr8RJF25qWR5RvTNTsg7KA==}
     hasBin: true
 
   open@6.4.0:
@@ -20355,8 +20352,6 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.0.0
 
-  aws4fetch@1.0.19: {}
-
   axe-core@4.9.1: {}
 
   axios@1.7.3:
@@ -26233,7 +26228,7 @@ snapshots:
     dependencies:
       mimic-function: 5.0.1
 
-  open-next@3.0.8:
+  open-next@2.3.9:
     dependencies:
       '@aws-sdk/client-dynamodb': 3.624.0
       '@aws-sdk/client-lambda': 3.624.0
@@ -26243,8 +26238,6 @@ snapshots:
       '@node-minify/core': 8.0.6
       '@node-minify/terser': 8.0.6
       '@tsconfig/node18': 1.0.3
-      aws4fetch: 1.0.19
-      chalk: 5.3.0
       esbuild: 0.19.2
       path-to-regexp: 6.2.2
       promise.series: 0.2.0
