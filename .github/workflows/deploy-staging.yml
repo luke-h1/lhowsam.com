@@ -1,6 +1,9 @@
 name: Deploy staging
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - feat/staging-aws-open-next
 
 env:
   ECR_REPO_NAME: lhowsam-staging
@@ -123,6 +126,8 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
+        with:
+          ref: feat/staging-aws-open-next
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v3
