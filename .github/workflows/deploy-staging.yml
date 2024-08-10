@@ -138,7 +138,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2
 
       - name: open-next build
-        run: npx open-next@latest build
+        run: ./node_modules/.bin/open-next build
         env:
           NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
           NEXT_PUBLIC_URL: 'https://staging.lhowsam.com'
