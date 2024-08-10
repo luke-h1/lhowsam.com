@@ -37,7 +37,7 @@ resource "aws_ecs_task_definition" "nextjs_task" {
   [
     {
       "name": "nextjs-container",
-      "image": "${aws_ecr_repository.application_ecr_repo.repository_url}:${var.docker_image_tag}",
+      "image": "${aws_ecr_repository.ecr_repo.repository_url}:${var.docker_image_tag}",
       "essential": true,
       "environment": [
         {
