@@ -21,7 +21,7 @@ ARG NEXT_PUBLIC_SANITY_PROJECT_ID
 ARG NEXT_PUBLIC_URL
 ARG UNOPTIMIZED_IMAGES
 
-RUN pnpm build:prod
+RUN pnpm build
 
 FROM base as runner
 
