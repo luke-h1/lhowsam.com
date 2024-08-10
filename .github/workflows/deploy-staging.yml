@@ -109,7 +109,7 @@ jobs:
       - name: build and push image
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: lhowsam.com-ecr-repo-staging
+          ECR_REPOSITORY: lhowsam-ecr-repo-staging
           IMAGE_TAG: ${{ env.TF_VAR_docker_image_tag }}
         run: |
             docker build \
