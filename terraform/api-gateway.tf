@@ -128,7 +128,7 @@ resource "aws_cloudfront_distribution" "nextjs_cdn" {
     cached_methods           = ["GET", "HEAD"]
     target_origin_id         = "default"
     viewer_protocol_policy   = "redirect-to-https"
-    cache_policy_id          = aws_cloudfront_cache_policy.nextjs_cdn_cache_policy.id
+    cache_policy_id          = aws_cloudfront_cache_policy.next_cdn_cache_policy.id
     origin_request_policy_id = data.aws_cloudfront_origin_request_policy.all_viewer_except_host_header.id
     compress                 = true # Compress response objects automatically
   }
@@ -142,7 +142,7 @@ resource "aws_cloudfront_distribution" "nextjs_cdn" {
   }
 }
 
-resource "aws_cloudfront_cache_policy" "nextjs_cdn_cache_policy" {
+resource "aws_cloudfront_cache_policy" "next_cdn_cache_policy" {
   name = "nextjs-cdn-cache-policy"
   parameters_in_cache_key_and_forwarded_to_origin {
     cookies_config {
