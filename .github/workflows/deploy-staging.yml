@@ -92,7 +92,7 @@ jobs:
         id: output
         working-directory: ${{ env.TERRAFORM_ROOT }}
         run: |
-          terraform output -json > ../../terraform-outputs.json
+          terraform output -json > ../terraform-outputs.json
 
       # use terraform outputs to set workflow variables from terraform outputs
       - name: Set vars from terraform outputs
