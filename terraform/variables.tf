@@ -21,7 +21,7 @@ variable "aws_region" {
 variable "cpu_arch" {
   description = "The CPU architecture of the container"
   type        = string
-  default     = "arm64"
+  default     = "x86_64"
 }
 
 variable "docker_image_tag" {
