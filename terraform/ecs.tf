@@ -31,6 +31,10 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy"
 }
 
+resource "aws_cloudwatch_log_group" "lho_log_group" {
+  name = "${var.project_name}-${var.env}-cluster-logs"
+}
+
 resource "aws_ecs_task_definition" "nextjs_task" {
   family                   = "${var.project_name}-task"
   container_definitions    = <<DEFINITION
@@ -71,6 +75,14 @@ resource "aws_ecs_task_definition" "nextjs_task" {
           "hostPort": 3000
         }
       ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "${aws_cloudwatch_log_group.lho_log_group.name}",
+          "awslogs-region": "eu-west-2",
+          "awslogs-stream-prefix": "${var.project_name}"
+        }
+      },
       "linuxParameters": {
         "initProcessEnabled": true
       },
