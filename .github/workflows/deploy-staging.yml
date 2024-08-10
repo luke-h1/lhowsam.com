@@ -137,6 +137,9 @@ jobs:
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
 
+      - name: install
+        uses: ./.github/actions/install
+
       - name: open-next build
         run: ./node_modules/.bin/open-next build
         env:
