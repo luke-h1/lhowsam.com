@@ -110,7 +110,7 @@ jobs:
         run: |
           docker build \
             --build-arg NEXT_PUBLIC_SANITY_PROJECT_ID=${{ env.TF_VAR_sanity_project_id }} \
-            --build-arg NEXT_PUBLIC_URL=${{ env.TF_VAR_url }} \
+            --build-arg NEXT_PUBLIC_URL="https://staging.lhowsam.com" \
             -t ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPO_NAME }}:${{ env.TF_VAR_docker_image_tag }} -f Dockerfile .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         env:
