@@ -107,18 +107,16 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: build and push image
-        run: |
-          docker build \
-            --build-arg NEXT_PUBLIC_SANITY_PROJECT_ID=${{ env.TF_VAR_sanity_project_id }} \
-            --build-arg NEXT_PUBLIC_URL="https://staging.lhowsam.com" \
-            -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: lhowsam.com-ecr-repo-staging
           IMAGE_TAG: ${{ env.TF_VAR_docker_image_tag }}
- 
-
+        run: |
+            docker build \
+              --build-arg NEXT_PUBLIC_SANITY_PROJECT_ID=${{ env.TF_VAR_sanity_project_id }} \
+              --build-arg NEXT_PUBLIC_URL="https://staging.lhowsam.com" \
+              -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
+            docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
   deploy:
     name: Deploy infra & app
     needs: build_frontend
