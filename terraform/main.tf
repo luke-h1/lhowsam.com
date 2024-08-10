@@ -1,3 +1,7 @@
+provider "aws" {
+  region = "eu-west-2"
+}
+
 data "aws_caller_identity" "current" {}
 
 module "single_zone" {
@@ -6,4 +10,7 @@ module "single_zone" {
 
   prefix      = "lho-${data.aws_caller_identity.current.account_id}"
   folder_path = "./.open-next"
+  providers = {
+    aws = aws
+  }
 }
