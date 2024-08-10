@@ -20,7 +20,6 @@ env:
   SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
   SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
   NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}  
-  PNPM_VERSION: 9.4.0
 
 defaults:
   run:
@@ -45,7 +44,7 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
-          version: ${{ env.PNPM_VERSION }}
+          version: 9.4.0
           run_install: false
 
       - name: Setup Node
