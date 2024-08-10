@@ -12,6 +12,7 @@ env:
   TF_VAR_sanity_project_id: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
   TF_VAR_url: 'staging.lhowsam.com'
   TF_VAR_ga_tracking_id: ''
+  TF_VAR_project_name: 'lhowsam'
   TF_VAR_new_relic_app_name: ${{ secrets.NEW_RELIC_APP_NAME }}
   TF_VAR_new_relic_license_key: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
 
@@ -98,7 +99,6 @@ jobs:
       - name: Set vars from terraform outputs
         run: |
           outputs=$(cat terraform-outputs.json)
-
           ecr_repo_name=$(echo $outputs | jq -r .ecr_repo_name.value)
           echo "ECR_REPO_NAME=$ecr_repo_name" >> $GITHUB_ENV
 

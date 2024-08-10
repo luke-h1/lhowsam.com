@@ -32,7 +32,7 @@ resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
 }
 
 resource "aws_ecs_task_definition" "nextjs_task" {
-  family                   = "${var.project_name}-nextjs-${var.env}"
+  family                   = "${var.project_name}-task"
   container_definitions    = <<DEFINITION
   [
     {
