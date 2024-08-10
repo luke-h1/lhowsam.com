@@ -51,4 +51,4 @@ USER node
 # Failed to update prerender cache for /api/now-playing [Error: EACCES: permission denied, open '/app/.next/server/app/api/now-playing.body'] 
 # ------------------------------------------------------------------------------------------
 
-CMD ["pnpm", "start:prod"]
+CMD ["pnpm", "start"]
