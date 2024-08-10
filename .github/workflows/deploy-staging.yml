@@ -53,10 +53,10 @@ jobs:
           -target=aws_ecr_repository.ecr_repo \
           -out ./app.out
 
-      # - name: Create ECR repo
-      #   id: apply
-      #   run: terraform apply -auto-approve ./app.out
-      #   working-directory: ${{ env.TERRAFORM_ROOT }}
+      - name: Create ECR repo
+        id: apply
+        run: terraform apply -auto-approve ./app.out
+        working-directory: ${{ env.TERRAFORM_ROOT }}
 
   build_frontend:
     name: build frontend
