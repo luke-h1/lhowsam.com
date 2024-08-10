@@ -124,8 +124,11 @@ jobs:
     name: Deploy infra & app
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@master
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v3
