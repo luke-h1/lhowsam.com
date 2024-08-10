@@ -121,10 +121,10 @@ jobs:
            --build-arg NODE_ENV=${{ env.DOCKER_ENV }} \
            --build-arg NEXT_PUBLIC_SANITY_PROJECT_ID= ${{ env.TF_VAR_sanity_project_id }} \
            --build-arg NEXT_PUBLIC_URL=${{ env.TF_VAR_next_public_url }} \
-            --build-arg NEXT_PUBLIC_GA_TRACKING_ID=${{ env.TF_VAR_ga_tracking_id }} \
-            --build-arg NEXT_PUBLIC_NEW_RELIC_APP_NAME=${{ env.TF_VAR_new_relic_app_name }} \
-            --build-arg NEXT_PUBLIC_NEW_RELIC_LICENSE_KEY=${{ env.TF_VAR_new_relic_license_key }} \
-           -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile.production .
+           --build-arg NEXT_PUBLIC_GA_TRACKING_ID=${{ env.TF_VAR_ga_tracking_id }} \
+           --build-arg NEXT_PUBLIC_NEW_RELIC_APP_NAME=${{ env.TF_VAR_new_relic_app_name }} \
+           --build-arg NEXT_PUBLIC_NEW_RELIC_LICENSE_KEY=${{ env.TF_VAR_new_relic_license_key }} \
+           -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile .
            docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
   deploy:
