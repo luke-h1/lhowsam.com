@@ -143,7 +143,7 @@ resource "aws_cloudfront_distribution" "nextjs_cdn" {
 }
 
 resource "aws_cloudfront_cache_policy" "next_cdn_cache_policy" {
-  name = "nextjs-cdn-cache-policy"
+  name = "next-cdn-cache-policy"
   parameters_in_cache_key_and_forwarded_to_origin {
     cookies_config {
       cookie_behavior = "none"
