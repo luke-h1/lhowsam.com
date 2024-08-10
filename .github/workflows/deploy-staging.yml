@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-      - feat/staging-aws-open-next
+      - dev
 
 env:
   ECR_REPO_NAME: lhowsam-staging
