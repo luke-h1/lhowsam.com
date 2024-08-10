@@ -17079,7 +17079,7 @@ snapshots:
     dependencies:
       '@sanity/client': 6.21.2(debug@4.3.6)
       '@sanity/icons': 3.3.1(react@18.3.1)
-      '@sanity/preview-url-secret': 1.6.19(@sanity/client@6.21.2)
+      '@sanity/preview-url-secret': 1.6.19(@sanity/client@6.21.2(debug@4.3.6))
       '@sanity/ui': 2.8.8(react-dom@18.3.1(react@18.3.1))(react-is@18.3.1)(react@18.3.1)(styled-components@6.1.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@sanity/uuid': 3.0.2
       '@types/lodash.isequal': 4.5.8
@@ -17111,7 +17111,7 @@ snapshots:
     optionalDependencies:
       react: 18.3.1
 
-  '@sanity/preview-url-secret@1.6.19(@sanity/client@6.21.2)':
+  '@sanity/preview-url-secret@1.6.19(@sanity/client@6.21.2(debug@4.3.6))':
     dependencies:
       '@sanity/client': 6.21.2(debug@4.3.6)
       '@sanity/uuid': 3.0.2
@@ -17192,7 +17192,7 @@ snapshots:
 
   '@sanity/visual-editing@2.1.8(@sanity/client@6.21.2)(next@14.2.5(@babel/core@7.24.7)(@opentelemetry/api@1.9.0)(@playwright/test@1.46.0)(babel-plugin-macros@3.1.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(sass@1.77.8))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
-      '@sanity/preview-url-secret': 1.6.19(@sanity/client@6.21.2)
+      '@sanity/preview-url-secret': 1.6.19(@sanity/client@6.21.2(debug@4.3.6))
       '@vercel/stega': 0.1.2
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
