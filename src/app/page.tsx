@@ -8,6 +8,7 @@ import { Spacer } from '@frontend/components/Spacer';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import projectService from '@frontend/services/projectService';
+// import { nrLogger } from '@frontend/utils/nrLogger';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 
@@ -36,6 +37,10 @@ const HomePage = async () => {
     'Software Engineer based in the UK who is interested in React.js, Next.js, Typescript, Python and DevOps';
 
   const { posts, projects } = await fetchPostsAndProjects();
+
+  // nrLogger.log({
+  //   homePage: 'loaded',
+  // });
 
   return (
     <Page>
