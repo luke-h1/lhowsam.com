@@ -1,4 +1,3 @@
-const nrExternals = require('@newrelic/next/load-externals');
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 
 const withVanillaExtract = createVanillaExtractPlugin();
@@ -66,7 +65,7 @@ const nextConfig = {
     // since babel is only needed to support vanilla-extract in unit tests
     forceSwcTransforms: true,
 
-    serverComponentsExternalPackages: ['newrelic'],
+    // serverComponentsExternalPackages: ['newrelic'],
   },
   images: {
     minimumCacheTTL: 120,
@@ -114,14 +113,6 @@ const nextConfig = {
       },
     ];
   },
-  async rewrites() {
-    return [
-      {
-        source: '/metrics',
-        destination: '/api/metrics',
-      },
-    ];
-  },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   webpack: (config, { dev, isServer, ...options }) => {
     if (process.env.ANALYZE) {
@@ -139,7 +130,6 @@ const nextConfig = {
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
-    nrExternals(config);
 
     return config;
   },

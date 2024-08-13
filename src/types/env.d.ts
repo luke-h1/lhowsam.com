@@ -10,10 +10,7 @@ declare global {
       NEW_RELIC_LICENSE_KEY: string;
     }
   }
-  // window object
   interface Window {
-    // newrelic:
-    // newrelic types
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     newrelic?: any;
   }
