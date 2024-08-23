@@ -2,7 +2,6 @@ Frontend:
   - src/**
 
 Infrastructure:
-  - terraform/**
   - .github/**/*
   - .github/*
   - docker

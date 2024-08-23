@@ -4,7 +4,7 @@ import '@frontend/styles/prism.css';
 import Providers from '@frontend/components/Providers';
 import siteConfig from '@frontend/config/site';
 import getPolicies from '@frontend/utils/getPolicies';
-import newrelic from 'newrelic';
+// import newrelic from 'newrelic';
 import { Metadata } from 'next';
 import Script from 'next/script';
 import { ReactNode } from 'react';
@@ -59,19 +59,17 @@ export const metadata: Metadata = {
 };
 
 const RootLayout = async ({ children }: Props) => {
-  // @ts-expect-error - trying to import newrelic.js file
-  if (newrelic.agent.collector.isConnected() === false) {
-    await new Promise(resolve => {
-      // @ts-expect-error - trying to import newrelic.js file
-      newrelic.agent.on('connected', resolve);
-    });
-  }
+  // if (newrelic.agent.collector.isConnected() === false) {
+  //   await new Promise(resolve => {
+  //     // @ts-expect-error - trying to import newrelic.js file
+  //     newrelic.agent.on('connected', resolve);
+  //   });
+  // }
 
-  // @ts-expect-error - trying to import newrelic.js file
-  const browserTimingHeader = newrelic.getBrowserTimingHeader({
-    hasToRemoveScriptWrapper: true,
-    allowTransactionlessInjection: true,
-  });
+  // const browserTimingHeader = newrelic.getBrowserTimingHeader({
+  //   hasToRemoveScriptWrapper: true,
+  //   allowTransactionlessInjection: true,
+  // });
   return (
     <html lang="en">
       <head>
@@ -118,10 +116,10 @@ const RootLayout = async ({ children }: Props) => {
             </Script>
           </>
         )}
-        <Script
+        {/* <Script
           id="nr-browser-agent"
           dangerouslySetInnerHTML={{ __html: browserTimingHeader }}
-        />
+        /> */}
       </head>
       <body>
         <main id="main">
