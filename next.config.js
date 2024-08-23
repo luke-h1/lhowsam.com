@@ -3,7 +3,7 @@ const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 const withVanillaExtract = createVanillaExtractPlugin();
 const contentSecurityPolicy = `
  default-src 'self';
- script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com static.cloudflareinsights.com eu-assets.i.posthog.com;
+ script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com static.cloudflareinsights.com eu-assets.i.posthog.com js-agent.newrelic.com;
  child-src *.youtube.com *.google.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com;
  style-src 'self' 'unsafe-inline' *.googleapis.com app-static.eu.posthog.com;
  img-src * blob: data: https://*.googletagmanager.com;
@@ -65,7 +65,12 @@ const nextConfig = {
     // since babel is only needed to support vanilla-extract in unit tests
     forceSwcTransforms: true,
 
-    // serverComponentsExternalPackages: ['newrelic'],
+    // monitoring
+    serverComponentsExternalPackages: ['newrelic'],
+    instrumentationHook:
+      !!process.env.VERCEL_ENV &&
+      process.env.VERCEL_ENV !== 'development' &&
+      process.env.NEXT_PUBLIC_URL === 'lhowsam.com',
   },
   images: {
     minimumCacheTTL: 120,

@@ -6,6 +6,8 @@ on:
       - main
   workflow_dispatch:
 env:
+  NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
+  NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
   NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_URL }}
   NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
   VERCEL_PROD_PROJECT_ID: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
