@@ -65,12 +65,12 @@ const nextConfig = {
     // since babel is only needed to support vanilla-extract in unit tests
     forceSwcTransforms: true,
 
-    // monitoring
-    serverComponentsExternalPackages: ['newrelic'],
-    instrumentationHook:
-      !!process.env.VERCEL_ENV &&
-      process.env.VERCEL_ENV !== 'development' &&
-      process.env.NEXT_PUBLIC_URL === 'lhowsam.com',
+    // // monitoring
+    // serverComponentsExternalPackages: ['newrelic'],
+    // instrumentationHook:
+    //   !!process.env.VERCEL_ENV &&
+    //   process.env.VERCEL_ENV !== 'development' &&
+    //   process.env.NEXT_PUBLIC_URL === 'lhowsam.com',
   },
   images: {
     minimumCacheTTL: 120,
