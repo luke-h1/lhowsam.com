@@ -13,6 +13,20 @@ const commonConfig: PlaywrightTestConfig = {
     actionTimeout: 20000,
     navigationTimeout: 20000,
     trace: 'on-first-retry',
+    storageState: {
+      cookies: [],
+      origins: [
+        {
+          origin: '*',
+          localStorage: [
+            {
+              name: 'ga_filter_tests',
+              value: 'true',
+            },
+          ],
+        },
+      ],
+    },
   },
   projects: [
     {

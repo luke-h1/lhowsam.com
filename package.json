@@ -15,7 +15,7 @@
     "gen-env": "gen-env-types .env -o src/types/env.d.ts -e .",
     "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx .",
     "prepare": "husky",
-    "start": "next start",
+    "start": "next start -p 3000",
     "test": "jest",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test:snapshot": "jest -u",
