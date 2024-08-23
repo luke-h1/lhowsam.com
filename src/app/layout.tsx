@@ -1,12 +1,11 @@
 import 'the-new-css-reset';
 import '@frontend/styles/app.css';
 import '@frontend/styles/prism.css';
+import Analytics from '@frontend/components/Analytics';
 import Providers from '@frontend/components/Providers';
 import siteConfig from '@frontend/config/site';
 import getPolicies from '@frontend/utils/getPolicies';
-// import newrelic from 'newrelic';
 import { Metadata } from 'next';
-import Script from 'next/script';
 import { ReactNode } from 'react';
 
 interface Props {
@@ -97,29 +96,12 @@ const RootLayout = async ({ children }: Props) => {
           name="description"
           content="Luke Howsam is a software engineer and software developer who specializes in Javascript, Typescript, GraphQL, cloud technologies & automated + manual testing"
         />
-        {process.env.NEXT_PUBLIC_URL === 'https://lhowsam.com' && (
-          <>
-            {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_TRACKING_ID} /> */}
-            <Script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
-            />
 
-            <Script id="google-analytics">
-              {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}');
-      `}
-            </Script>
-          </>
-        )}
         {/* <Script
           id="nr-browser-agent"
           dangerouslySetInnerHTML={{ __html: browserTimingHeader }}
         /> */}
+        <Analytics />
       </head>
       <body>
         <main id="main">

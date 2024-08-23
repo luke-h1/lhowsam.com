@@ -13,7 +13,7 @@ const config: PlaywrightTestConfig = {
       reuseExistingServer: true,
     },
   ],
-  retries: 2,
+  retries: process.env.CI ? 2 : 1,
 };
 
 export default config;
