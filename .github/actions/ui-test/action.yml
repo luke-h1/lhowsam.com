@@ -25,6 +25,12 @@ runs:
       run: make e2e-install-browsers
       shell: bash
 
-    - name: ${{ inputs.environment }} UI tests
+    - name: UI tests
+      if: ${{ inputs.target == 'e2e-local' }}
+      run: pnpx start-server-and-test start 3000 uitest:local
+      shell: bash
+
+    - name: UI tests
+      if: ${{ inputs.target != 'e2e-local' }}
       run: make ${{ inputs.target }}
       shell: bash
