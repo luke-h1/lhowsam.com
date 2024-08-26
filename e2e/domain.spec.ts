@@ -3,17 +3,19 @@ import { baseUrl } from './config/baseUrl';
 
 let page: Page;
 
+const domainsWithwwwRedirect = [
+  'https://lhowsam.com',
+  'https://dev.lhowsam.com',
+];
+
 test.describe('domains', () => {
+  if (!domainsWithwwwRedirect.includes(baseUrl)) {
+    test.skip();
+  }
+
   test.beforeAll(async ({ browser }) => {
-    if (
-      baseUrl === 'https://lhowsam.com' ||
-      baseUrl === 'https://dev.lhowsam.com'
-    ) {
-      page = await browser.newPage();
-      await page.goto(`${baseUrl}`);
-    } else {
-      test.skip();
-    }
+    page = await browser.newPage();
+    await page.goto(baseUrl);
   });
 
   test('vercel redirects www to non-www', async () => {
