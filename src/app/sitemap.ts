@@ -4,8 +4,8 @@ import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [posts, projects] = await Promise.all([
-    postService.getSlugs(),
-    projectService.getSlugs(),
+    postService.getAllPosts(),
+    projectService.getAllProjects(),
   ]);
 
   const [blogPages, projectPages] = await Promise.all([

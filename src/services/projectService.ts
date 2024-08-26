@@ -1,4 +1,4 @@
-import { Project } from '@frontend/types/sanity';
+import { Project, Slug } from '@frontend/types/sanity';
 import { getSanityClient } from '@frontend/utils/sanity.client';
 import groq from 'groq';
 
@@ -54,7 +54,7 @@ const projectService = {
   async getRecentProjects(): Promise<Project[]> {
     return getSanityClient().fetch(listRecentProjects);
   },
-  async getSlugs(): Promise<Project[]> {
+  async getSlugs(): Promise<Slug[]> {
     return getSanityClient().fetch(slugsQuery);
   },
 };

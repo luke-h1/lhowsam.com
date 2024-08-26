@@ -106,6 +106,14 @@ const ProjectPage = async ({ params }: Props) => {
 };
 export default ProjectPage;
 
+export async function generateStaticParams() {
+  const slugs = await projectService.getSlugs();
+
+  return slugs.map(s => ({
+    slug: s.current,
+  }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = params;
 

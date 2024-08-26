@@ -109,6 +109,14 @@ const PostPage = async ({ params }: Props) => {
 };
 export default PostPage;
 
+export async function generateStaticParams() {
+  const slugs = await postService.getSlugs();
+
+  return slugs.map(s => ({
+    slug: s.current,
+  }));
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = params;
 
