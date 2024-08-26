@@ -38,4 +38,4 @@ runs:
       - name: local UI tests
         uses: ./.github/actions/ui-test
         with:
-          target: e2e-local-ci
+          target: e2e-local
