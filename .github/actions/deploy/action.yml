@@ -22,6 +22,11 @@ runs:
       run: echo "::set-output name=date::$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")"
       shell: bash
 
+    - name: Get git sha
+      id: git-sha
+      run: GIT_SHA=${{ github.sha }} && echo "::set-output name=git-sha::$GIT_SHA"
+      shell: bash
+
     - name: Set vercel environment variables
       shell: bash
       run: |
@@ -32,6 +37,10 @@ runs:
         # DEPLOYED_BY
         vc env rm DEPLOYED_BY production --token ${VERCEL_TOKEN} --yes
         echo ${{ github.actor }} | vc env add DEPLOYED_BY production --token ${VERCEL_TOKEN}
+
+        # GIT_SHA
+        vc env rm GIT_SHA production --token ${VERCEL_TOKEN} --yes
+        echo ${{ steps.git-sha.outputs.git-sha }} | vc env add GIT_SHA production --token ${VERCEL_TOKEN}
       env:
         VERCEL_TOKEN: ${{ inputs.vercel-token }}
         VERCEL_ORG_ID: ${{ inputs.vercel-org-id }}
