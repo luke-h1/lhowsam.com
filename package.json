@@ -100,8 +100,8 @@
     "webpack-bundle-analyzer": "^4.10.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.4.0",
-    "@commitlint/config-conventional": "^19.2.2",
+    "@commitlint/cli": "^19.4.1",
+    "@commitlint/config-conventional": "^19.4.1",
     "@next/env": "^14.2.7",
     "@playwright/test": "^1.46.1",
     "@svgr/webpack": "^8.1.0",
