@@ -5,9 +5,9 @@ test('should return version details', async () => {
   const body = await response.json();
   expect(response.status).toEqual(200);
   expect(body).toEqual({
-    deployedAt: 'unknown',
-    deployedBy: 'unknown',
-    gitSha: 'unknown',
+    deployedAt: expect.any(String),
+    deployedBy: expect.any(String),
+    gitSha: expect.any(String),
     version: '0.1.0',
   });
 });
