@@ -60,7 +60,7 @@ const socialLinks: FooterLink[] = [
   {
     id: 3,
     text: 'Email',
-    href: 'mailto:luke.howsam@yahoo.com',
+    href: 'mailto:luke.howsam@yahoo.com?subject=Get in touch (lhowsam.com)',
   },
 ];
 

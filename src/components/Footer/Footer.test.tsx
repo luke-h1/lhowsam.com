@@ -47,7 +47,10 @@ describe('Footer', () => {
     );
 
     expect(links[2]).toHaveTextContent('Email');
-    expect(links[2]).toHaveAttribute('href', 'mailto:luke.howsam@yahoo.com');
+    expect(links[2]).toHaveAttribute(
+      'href',
+      'mailto:luke.howsam@yahoo.com?subject=Get in touch (lhowsam.com)',
+    );
   });
 
   test('renders cc', () => {
