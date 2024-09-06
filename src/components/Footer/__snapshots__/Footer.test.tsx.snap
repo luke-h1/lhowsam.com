@@ -103,7 +103,7 @@ exports[`Footer renders cc 1`] = `
           <li>
             <a
               class="Link_variants_neutral__brq2ah2 Link_root__brq2ah0"
-              href="mailto:luke.howsam@yahoo.com"
+              href="mailto:luke.howsam@yahoo.com?subject=Get in touch (lhowsam.com)"
             >
               Email
             </a>
