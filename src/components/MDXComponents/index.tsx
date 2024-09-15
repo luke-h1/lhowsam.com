@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+import { ComponentPropsWithoutRef } from 'react';
 import { Heading } from '../Heading';
 import { Image, ImageProps } from '../Image';
 import Link from '../Link';
@@ -18,16 +18,19 @@ const MDXComponents = {
       />
     );
   },
-  a: (props: any) => (
+  a: ({ children, href, ...props }: ComponentPropsWithoutRef<'a'>) => (
     <Link
       {...props}
       variant="highlight"
       css={{
         textDecoration: 'underline',
       }}
-    />
+      href={href as string}
+    >
+      {children}
+    </Link>
   ),
-  p: (props: any) => (
+  p: (props: ComponentPropsWithoutRef<'p'>) => (
     <Text
       {...props}
       fontSize="md"
@@ -38,7 +41,7 @@ const MDXComponents = {
       }}
     />
   ),
-  h2: (props: any) => (
+  h2: ({ children, ...props }: ComponentPropsWithoutRef<'h2'>) => (
     <Heading
       {...props}
       fontSize="xxxl"
@@ -46,9 +49,11 @@ const MDXComponents = {
       style={{
         marginBottom: '1.25rem',
       }}
-    />
+    >
+      {children}
+    </Heading>
   ),
-  h3: (props: any) => (
+  h3: ({ children, ...props }: ComponentPropsWithoutRef<'h3'>) => (
     <Heading
       {...props}
       as="h3"
@@ -57,9 +62,11 @@ const MDXComponents = {
       style={{
         marginBottom: '1.25rem',
       }}
-    />
+    >
+      {children}
+    </Heading>
   ),
-  ul: (props: any) => (
+  ul: ({ children, ...props }: ComponentPropsWithoutRef<'ul'>) => (
     <List
       {...props}
       style={{
@@ -68,7 +75,10 @@ const MDXComponents = {
         marginLeft: '1.25rem',
         color: 'var(--color-foreground-neutral)',
       }}
-    />
+      color="foregroundNeutral"
+    >
+      {children}
+    </List>
   ),
 };
 
