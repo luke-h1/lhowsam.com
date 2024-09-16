@@ -44,6 +44,11 @@ const navigationLinks: FooterLink[] = [
     text: 'Talks',
     href: '/talks',
   },
+  {
+    id: 7,
+    text: 'Status',
+    href: 'https://status.lhowsam.com',
+  },
 ];
 
 const socialLinks: FooterLink[] = [

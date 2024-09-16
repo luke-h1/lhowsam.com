@@ -10,7 +10,7 @@ describe('Footer', () => {
 
     const links = within(navigationLinks).getAllByRole('link');
 
-    expect(links).toHaveLength(5);
+    expect(links).toHaveLength(6);
 
     expect(links[0]).toHaveTextContent('Home');
     expect(links[0]).toHaveAttribute('href', '/');
@@ -26,6 +26,9 @@ describe('Footer', () => {
 
     expect(links[4]).toHaveTextContent('Talks');
     expect(links[4]).toHaveAttribute('href', '/talks');
+
+    expect(links[5]).toHaveTextContent('Status');
+    expect(links[5]).toHaveAttribute('href', 'https://status.lhowsam.com');
   });
 
   test('renders social links', () => {
