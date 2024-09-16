@@ -65,6 +65,16 @@ exports[`Footer renders cc 1`] = `
               Talks
             </a>
           </li>
+          <li>
+            <a
+              class="Link_variants_neutral__brq2ah2 Link_root__brq2ah0"
+              href="https://status.lhowsam.com"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Status
+            </a>
+          </li>
         </ul>
       </div>
       <div>
