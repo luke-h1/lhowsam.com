@@ -99,6 +99,11 @@ const nextConfig = {
         destination: '/static/cv.pdf',
         permanent: true,
       },
+      {
+        source: '/branches',
+        destination: 'https://branches.lhowsam.com',
+        permanent: true,
+      },
     ];
   },
   async headers() {
