@@ -11,10 +11,12 @@ export default function createLocalStorageMock(
       context[key] = value;
     }),
     removeItem: jest.fn(key => {
+      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
       delete context[key];
     }),
     clear: jest.fn(() => {
       Object.keys(context).forEach(key => {
+        // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
         delete context[key];
       });
     }),
