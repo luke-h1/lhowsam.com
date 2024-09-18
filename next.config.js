@@ -104,6 +104,11 @@ const nextConfig = {
         destination: 'https://branches.lhowsam.com',
         permanent: true,
       },
+      {
+        source: '/status',
+        destination: 'https://status.lhowsam.com',
+        permanent: true,
+      },
     ];
   },
   async headers() {
