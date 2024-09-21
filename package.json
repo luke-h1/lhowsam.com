@@ -93,7 +93,7 @@
     "sharp": "^0.33.5",
     "shiki": "^1.12.1",
     "the-new-css-reset": "^1.11.3",
-    "tinykeys": "^2.1.0",
+    "tinykeys": "^3.0.0",
     "unist-util-visit": "^5.0.0",
     "use-immer": "^0.10.0",
     "use-roving-index": "^2.0.0",
