@@ -53,7 +53,6 @@ export type PartialBy<T, K extends keyof T> = OmitStrict<T, K> &
  * Make all properties (including nested objects) in T optional.
  */
 export type NestedPartial<T> = {
-  // eslint-disable-next-line @typescript-eslint/ban-types
   [P in keyof T]?: T[P] extends object | undefined ? NestedPartial<T[P]> : T[P];
 };
 

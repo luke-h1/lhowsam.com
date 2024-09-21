@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const allowedFeatureFlags = ['talks'] as const;
 
 export type AllowedFeatureFlag = (typeof allowedFeatureFlags)[number];

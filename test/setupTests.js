@@ -28,6 +28,7 @@ jest.mock('nanoid', () => {
 
 if (typeof window !== 'undefined') {
   // fetch polyfill for making API calls.
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   require('cross-fetch');
 }
 global.Request = jest.requireActual('node-fetch').Request;
