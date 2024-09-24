@@ -19,6 +19,7 @@ const Page = ({
   showFooter = true,
   heading,
   description,
+  headerFontSize,
 }: PageProps) => {
   return (
     <>
@@ -30,7 +31,11 @@ const Page = ({
             margin: '0 auto',
           }}
         >
-          <PageHeader heading={heading} description={description} />
+          <PageHeader
+            heading={heading}
+            description={description}
+            headerFontSize={headerFontSize}
+          />
           {children}
           <Toaster />
         </Box>

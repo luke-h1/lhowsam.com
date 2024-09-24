@@ -6,7 +6,7 @@ export const content = style({
   width: '100%',
   borderBottom: '1px solid',
   borderColor: variables.color.borderNeutral,
-  padding: '2.4rem',
+  padding: '1.4rem',
 });
 
 export const heading = style({

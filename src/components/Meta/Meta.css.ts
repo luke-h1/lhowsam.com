@@ -15,9 +15,13 @@ export const root = style({
 
 export const item = style({
   display: 'grid',
-  marginLeft: variables.spacing.md,
 });
 
 export const title = style({
-  fontVariationSettings: '"wght" 700',
+  fontVariationSettings: '"wght" 480',
+  fontSize: variables.fontSize.md,
+});
+
+export const icon = style({
+  marginTop: variables.spacing.sm,
 });

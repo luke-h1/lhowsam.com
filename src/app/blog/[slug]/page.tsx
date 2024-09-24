@@ -36,7 +36,7 @@ const PostPage = async ({ params }: Props) => {
   }
 
   return (
-    <Page heading={post.title}>
+    <Page headerFontSize="xxl" heading={post.title}>
       <Box>
         <Image
           src={imageService.urlFor(post.image.asset) ?? undefined}
