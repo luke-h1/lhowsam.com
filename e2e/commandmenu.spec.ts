@@ -77,9 +77,7 @@ test.describe('command menu', () => {
 
     // home
     await navigation.locator('text=Home').click();
-    await expect(
-      page.locator('[data-testid="highlight-heading"]'),
-    ).toBeVisible();
+    await expect(page.locator('[data-testid="intro-heading"]')).toBeVisible();
 
     await page.keyboard.press(`${key}+K`, {
       delay,

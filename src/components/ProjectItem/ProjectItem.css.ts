@@ -4,6 +4,7 @@ import { style } from '@vanilla-extract/css';
 export const outer = style({
   margin: '2rem 0rem 0rem',
   display: 'flex',
+  maxWidth: '90%',
   flexDirection: 'row',
   alignItems: 'flex-start',
 });

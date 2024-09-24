@@ -30,7 +30,7 @@ const SocialShare = () => {
           data-testid={`${id}-Twitter`}
           className={styles.item}
         >
-          <Twitter width=".95em" name="twitter" />
+          <Twitter size={20} name="twitter" />
         </Link>
       </Tooltip>
       <Tooltip content="Copy link">
@@ -41,7 +41,7 @@ const SocialShare = () => {
           type="button"
           data-testid="copy-button"
         >
-          <FeatherLink width=".95em" />
+          <FeatherLink size={20} />
         </button>
       </Tooltip>
     </div>

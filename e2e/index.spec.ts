@@ -12,11 +12,9 @@ test.describe('index', () => {
   });
 
   test('should render intro correctly', async () => {
+    await expect(page.locator('[data-testid="intro-heading"]')).toBeVisible();
     await expect(
-      page.locator('[data-testid="highlight-heading"]'),
-    ).toBeVisible();
-    await expect(
-      page.locator('[data-testid="highlight-description"]'),
+      page.locator('[data-testid="intro-description"]'),
     ).toBeVisible();
   });
 

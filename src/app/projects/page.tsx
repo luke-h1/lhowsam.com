@@ -16,8 +16,12 @@ const ProjectPage = async () => {
   const projects = await projectService.getAllProjects();
 
   return (
-    <Page heading="Projects" description="Personal projects">
-      <Box as="section" maxWidth={{ md: 'text' }} marginX="auto">
+    <Page
+      headerFontSize="xxxxl"
+      heading="Projects"
+      description="Personal projects"
+    >
+      <Box as="section" marginX="auto">
         <List>
           {projects &&
             projects.map(project => (

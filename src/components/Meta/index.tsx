@@ -31,7 +31,10 @@ const Meta = ({ items }: Props) => {
             >
               {item.title}
             </dt>
-            <dd data-testid={`meta-description-${index + 1}`}>
+            <dd
+              data-testid={`meta-description-${index + 1}`}
+              className={styles.icon}
+            >
               {item.description}
             </dd>
           </div>

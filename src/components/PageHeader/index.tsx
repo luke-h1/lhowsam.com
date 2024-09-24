@@ -1,5 +1,6 @@
+import { ElementType } from 'react';
 import Box from '../Box';
-import { Heading } from '../Heading';
+import { Heading, HeadingProps } from '../Heading';
 import Text from '../Text';
 import * as styles from './PageHeader.css';
 
@@ -7,12 +8,14 @@ export interface PageHeaderProps {
   heading?: string;
   description?: string;
   id?: string;
+  headerFontSize?: HeadingProps<ElementType>['fontSize'];
 }
 
 const PageHeader = ({
   heading,
   description,
   id = 'pageHeader',
+  headerFontSize = 'xxl',
 }: PageHeaderProps) => {
   if (!heading && !description) {
     return null;
@@ -21,7 +24,7 @@ const PageHeader = ({
   return (
     <header className={styles.root}>
       <Box>
-        <Heading as="h1" fontSize="xxl">
+        <Heading as="h1" fontSize={headerFontSize}>
           {heading}
         </Heading>
         {description && (
