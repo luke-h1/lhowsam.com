@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const path = require('path');
 
 // This is a custom Jest transformer turning file imports into filenames.

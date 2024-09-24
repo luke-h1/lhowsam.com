@@ -26,8 +26,8 @@ type AsProp<C extends ElementType> = {
  * set of props.
  */
 export type ExtendableProps<
-  ExtendedProps = {},
-  OverrideProps = {},
+  ExtendedProps = object,
+  OverrideProps = object,
 > = OverrideProps & Omit<ExtendedProps, keyof OverrideProps>;
 
 /**
@@ -37,7 +37,7 @@ export type ExtendableProps<
  */
 export type InheritableElementProps<
   C extends ElementType,
-  Props = {},
+  Props = object,
 > = ExtendableProps<PropsOf<C>, Props>;
 
 /**
@@ -46,7 +46,7 @@ export type InheritableElementProps<
  */
 export type PolymorphicComponentProps<
   C extends ElementType,
-  Props = {},
+  Props = object,
 > = InheritableElementProps<C, Props & AsProp<C>>;
 
 export type PartialPick<T, K extends keyof T> = Partial<Pick<T, K>>;

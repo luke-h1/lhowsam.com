@@ -164,8 +164,6 @@ const renderThemeItem = (item: ThemeItem) => (
   </CommandItem>
 );
 
-export interface CommandMenuProps {}
-
 const CommandMenu = () => {
   const router = useRouter();
   const [open, setOpen] = useState(false);

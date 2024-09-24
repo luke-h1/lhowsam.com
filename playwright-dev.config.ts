@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 import type { PlaywrightTestConfig } from '@playwright/test';
 import commonConfig from './playwright-common.config';
 
