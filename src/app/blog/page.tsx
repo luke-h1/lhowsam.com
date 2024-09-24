@@ -47,7 +47,7 @@ const BlogPage = async () => {
     'Posts on software development, testing, DevOps and more.';
 
   return (
-    <Page heading="Blog" description={description}>
+    <Page headerFontSize="xxxxl" heading="Blog" description={description}>
       {Object.entries(postsByYear)
         .reverse()
         // eslint-disable-next-line no-shadow
@@ -55,7 +55,7 @@ const BlogPage = async () => {
           <Fragment key={year}>
             {i === 0 && <Spacer height="xxl" />}
             {i > 0 && <Spacer height="xxl" />}
-            <Box as="section" marginX="auto">
+            <Box as="section">
               <Heading fontSize="xl" id={year} color="border">
                 {year}
               </Heading>

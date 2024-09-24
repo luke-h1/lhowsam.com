@@ -19,6 +19,7 @@ const Skills = dynamic(() => import('@frontend/components/Skills'));
 const AboutPage = async () => {
   return (
     <Page
+      headerFontSize="xxxxl"
       heading="About"
       description="Hey I'm Luke, a Software Engineer currently based in the UK."
     >

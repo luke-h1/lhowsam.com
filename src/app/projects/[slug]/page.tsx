@@ -40,14 +40,12 @@ const ProjectPage = async ({ params }: Props) => {
         display="flex"
         flexDirection="column"
         alignItems="flex-start"
-        marginY="none"
-        marginX="none"
         marginBottom="lg"
       >
         {project.image.asset && (
           <Image
             src={imageService.urlFor(project.image.asset) ?? undefined}
-            width={650}
+            width={700}
             height={400}
             rounded
             bordered
@@ -91,7 +89,7 @@ const ProjectPage = async ({ params }: Props) => {
             title: 'Repository',
             description: (
               <Link href={project.githubUrl}>
-                <FiGithub />
+                <FiGithub size={20} />
               </Link>
             ),
           },

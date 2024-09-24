@@ -1,6 +1,6 @@
 import Box from '@frontend/components/Box';
 import { Heading } from '@frontend/components/Heading';
-import Hero from '@frontend/components/Hero';
+import Intro from '@frontend/components/Intro/Intro';
 import { List } from '@frontend/components/List';
 import Page from '@frontend/components/Page';
 import PostItem from '@frontend/components/PostItem';
@@ -33,10 +33,6 @@ const fetchPostsAndProjects = async () => {
 };
 
 const HomePage = async () => {
-  const heading = 'Luke // Software Engineer';
-  const description =
-    'Software Engineer based in the UK who is interested in React.js, Next.js, Typescript, Python and DevOps';
-
   const { posts, projects } = await fetchPostsAndProjects();
 
   nrLogger.log({
@@ -47,14 +43,8 @@ const HomePage = async () => {
     <Page>
       <Box as="section">
         <Box marginX="auto">
-          <Hero heading={heading} description={description} />
+          <Intro />
           <Spacer height="xl" />
-          {/* <Box as="header" textAlign="center" marginBottom="lg">
-            <Heading>Projects and companies I've worked on/at</Heading>
-          </Box> */}
-          {/* <Marquee>
-            <Companies />
-          </Marquee> */}
         </Box>
       </Box>
       <Box as="section" paddingX="sm" marginY="lg" marginBottom="xxxl">
@@ -71,16 +61,7 @@ const HomePage = async () => {
         </List>
       </Box>
       <Spacer height="xxxxl" />
-      <Box
-        as="section"
-        paddingX="md"
-        marginY="xxl"
-        marginX="auto"
-        // maxWidth={{ lg: 'container', md: 'container', sm: 'text' }}
-        // style={{
-        //   margin: '0 auto',
-        // }}
-      >
+      <Box as="section" paddingX="md" marginY="xxl" marginX="auto">
         <Heading fontSize="lg" color="foregroundNeutral">
           Highlighted Projects
         </Heading>
