@@ -19,12 +19,12 @@ runs:
   steps:
     - name: Get current date
       id: date
-      run: echo "::set-output name=date::$(date -u +"%Y-%m-%dT%H:%M:%S.%3NZ")"
+      run: echo "date=$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" >> $GITHUB_OUTPUT
       shell: bash
 
     - name: Get git sha
       id: git-sha
-      run: GIT_SHA=${{ github.sha }} && echo "::set-output name=git-sha::$GIT_SHA"
+      run: echo "git-sha=${{ github.sha }}" >> $GITHUB_OUTPUT
       shell: bash
 
     - name: Set vercel environment variables
