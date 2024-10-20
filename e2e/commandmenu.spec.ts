@@ -223,6 +223,8 @@ test.describe('command menu', () => {
   });
 
   test('renders Commands items correctly', async () => {
+    await page.goto(`${baseUrl}/blog`);
+
     await page.keyboard.press(`${key}+K`, {
       delay,
     });
@@ -233,5 +235,11 @@ test.describe('command menu', () => {
     await expect(commands).toBeVisible();
 
     await expect(commands.locator('text=Copy current URL')).toBeVisible();
+
+    // expect it to copy to the clipboard
+    await commands.locator('text=Copy current URL').click();
+    expect(await page.evaluate(() => navigator.clipboard.readText())).toEqual(
+      `${baseUrl}/blog`,
+    );
   });
 });

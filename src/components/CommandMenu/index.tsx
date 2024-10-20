@@ -21,9 +21,11 @@ import {
   AtSign,
   Twitter,
   Triangle,
+  BarChart,
 } from 'react-feather';
 import { tinykeys } from 'tinykeys';
 import './CommandMenu.css';
+import Link from '../Link';
 import VisuallyHidden from '../VisuallyHidden';
 import * as styles from './CommandMenu.css';
 
@@ -69,62 +71,61 @@ interface NavigationItem {
   text: string;
 }
 
+const ICON_SIZE = 20;
+
 const navigationLinks: NavigationItem[] = [
   {
     id: 1,
     href: '/',
     text: 'Home',
-    icon: <Home />,
+    icon: <Home size={ICON_SIZE} />,
   },
   {
     id: 2,
     href: '/about',
     text: 'About',
-    icon: <AtSign />,
+    icon: <AtSign size={ICON_SIZE} />,
   },
   {
     id: 3,
     href: '/blog',
     text: 'Blog',
-    icon: <Edit />,
+    icon: <Edit size={ICON_SIZE} />,
   },
   {
     id: 4,
     href: '/projects',
     text: 'Projects',
-    icon: <Code />,
+    icon: <Code size={ICON_SIZE} />,
   },
   {
     id: 5,
     href: '/talks',
     text: 'Talks',
-    icon: <Triangle />,
+    icon: <Triangle size={ICON_SIZE} />,
   },
 ];
 
-interface SocialLink extends Omit<NavigationItem, 'href'> {
-  onSelect?: () => void;
-}
+type SocialLink = NavigationItem;
 
 const socialLinks: SocialLink[] = [
   {
     id: 1,
     text: 'Twitter',
-    icon: <Twitter />,
-    onSelect: () => window.open('https://twitter.com/LukeH_1999', '_blank'),
+    icon: <Twitter size={ICON_SIZE} />,
+    href: 'https://twitter.com/LukeH_1999',
   },
   {
     id: 2,
     text: 'GitHub',
-    icon: <GitHub />,
-    onSelect: () => window.open('https://github.com/luke-h1', '_blank'),
+    icon: <GitHub size={ICON_SIZE} />,
+    href: 'https://github.com/luke-h1',
   },
   {
     id: 3,
     text: 'LinkedIn',
-    icon: <Linkedin />,
-    onSelect: () =>
-      window.open('https://www.linkedin.com/in/lukehowsam', '_blank'),
+    icon: <Linkedin size={ICON_SIZE} />,
+    href: 'https://www.linkedin.com/in/lukehowsam',
   },
 ];
 
@@ -141,19 +142,19 @@ const themeItems: ThemeItem[] = [
     id: 1,
     text: 'System',
     value: 'system',
-    icon: <Monitor />,
+    icon: <Monitor size={ICON_SIZE} />,
   },
   {
     id: 2,
     text: 'Light',
     value: 'light',
-    icon: <Sun />,
+    icon: <Sun size={ICON_SIZE} />,
   },
   {
     id: 3,
     text: 'Dark',
     value: 'dark',
-    icon: <Moon />,
+    icon: <Moon size={ICON_SIZE} />,
   },
 ];
 
@@ -277,13 +278,11 @@ const CommandMenu = () => {
           >
             {socialLinks &&
               socialLinks.map(link => (
-                <CommandItem
-                  key={link.id}
-                  onSelect={link.onSelect}
-                  value={link.text.toLowerCase()}
-                >
+                <CommandItem key={link.id} value={link.text.toLowerCase()}>
                   {link.icon}
-                  <span>{link.text}</span>
+                  <Link href={link.href}>
+                    <span>{link.text}</span>
+                  </Link>
                 </CommandItem>
               ))}
           </Command.Group>
@@ -308,6 +307,12 @@ const CommandMenu = () => {
             <CommandItem onSelect={handleCopyUrl} value="copy">
               <Copy />
               <span>Copy current URL</span>
+            </CommandItem>
+            <CommandItem value="status">
+              <BarChart />
+              <Link href="https://status.lhowsam.com">
+                <span>View status page</span>
+              </Link>
             </CommandItem>
           </Command.Group>
         </Command.List>
