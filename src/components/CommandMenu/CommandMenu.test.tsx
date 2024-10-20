@@ -68,6 +68,10 @@ describe('CommandMenu', () => {
     expect(
       within(commandItems).getByText('Copy current URL'),
     ).toBeInTheDocument();
+
+    expect(
+      within(commandItems).getByText('View status page'),
+    ).toBeInTheDocument();
   });
 
   test.each([
@@ -89,6 +93,14 @@ describe('CommandMenu', () => {
     }
   });
 
-  test('Appearance items changes theme correctly', async () => {});
-  test('Commands item copies currently URL to clipboard', async () => {});
+  test('Commands item copies currently URL to clipboard', async () => {
+    const commandItems = screen.getByTestId('CommandMenu-commands');
+    const copyItem = within(commandItems).getByText('Copy current URL');
+
+    fireEvent.click(copyItem);
+    expect(mockPush).not.toHaveBeenCalled();
+
+    const copiedText = await window.navigator.clipboard.readText();
+    expect(copiedText).toEqual('http://localhost/');
+  });
 });
