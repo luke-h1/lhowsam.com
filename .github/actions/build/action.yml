@@ -3,6 +3,10 @@ description: 'Build frontend app'
 runs:
   using: 'composite'
   steps:
+      - name: Ensure rebased with main 
+        shell: bash
+        run: ./scripts/ensure-rebased.sh
+
       - name: install
         uses: ./.github/actions/install
 
