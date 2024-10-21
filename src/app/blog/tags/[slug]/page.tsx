@@ -10,14 +10,16 @@ import { Post } from '@frontend/types/sanity';
 import { Fragment } from 'react';
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export const revalidate = siteConfig.defaultRevalidate;
 
-const TagPage = async ({ params }: Props) => {
+const TagPage = async (props: Props) => {
+  // eslint-disable-next-line react/destructuring-assignment
+  const params = await props.params;
   const { slug } = params;
 
   const posts = await postService.getAllPosts();

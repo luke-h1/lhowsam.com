@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import * as styles from './Button.css';
 
 type ButtonProps = JSX.IntrinsicElements['button'];
