@@ -32,17 +32,19 @@ jobs:
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
-      
+
+      - name: Ensure rebased with main
+        run: ./scripts/ensure-rebased.sh
+
       - name: Build
         uses: ./.github/actions/build
-      
+
       - name: Deploy to dev
         uses: ./.github/actions/deploy
         with:
