@@ -56,9 +56,23 @@ jobs:
         with:
           path: apps/lambda
 
+      - name: Get current time
+        id: current-time
+        run: echo "TIME=$(date -u)" >> $GITHUB_ENV
+
+      - name: Get deployedAt from lhowsam.com
+        id: fetch-deployedAt
+        run: |
+          response=$(curl -s https://lhowsam.com/api/version)
+          deployedAt=$(echo $response | jq -r '.deployedAt')
+          echo "DEPLOYED_AT=$deployedAt" >> $GITHUB_ENV
+
       - name: Discord fail notification
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_LIVE_WEBHOOK_URL }}
         uses: Ilshidur/action-discord@master
         with:
-          args: '🚨 (testing workflow only) - Live UI tests lhowsam.com failed! 🚨 View test report -> ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'
+          args: |
+            🚨 Live UI tests lhowsam.com failed! 🚨
+            **Failure Time**: ${{ env.TIME }}
+            **Website last deployed deployed at**: ${{ env.DEPLOYED_AT }}
