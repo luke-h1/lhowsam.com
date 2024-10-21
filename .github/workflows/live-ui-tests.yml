@@ -74,3 +74,5 @@ jobs:
             🚨 Live UI tests lhowsam.com failed! 🚨
             **Failure Time**: ${{ env.TIME }}
             **Last deployed at**: ${{ env.DEPLOYED_AT }}
+            **Vercel Status**: https://www.vercel-status.com
+            **CF status**: https://www.cloudflarestatus.com
