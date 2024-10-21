@@ -32,7 +32,33 @@ jobs:
       - name: install dependencies
         uses: ./.github/actions/install
 
-      - name: UI tests prod
-        uses: ./.github/actions/ui-test
+      # - name: UI tests prod
+      #   uses: ./.github/actions/ui-test
+      #   with:
+      #     target: e2e-prod
+      - name: throw an error
+        run: exit 1
+
+  discord-fail-message:
+    runs-on: ubuntu-latest
+    if: failure()
+    needs: test
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
-          target: e2e-prod
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@main
+        with:
+          path: apps/lambda
+
+      - name: Discord fail notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_LIVE_WEBHOOK_URL }}
+        uses: Ilshidur/action-discord@master
+        with:
+          args: '🚨 (testing workflow only) - Live UI tests lhowsam.com failed! 🚨 View test report -> ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}'
