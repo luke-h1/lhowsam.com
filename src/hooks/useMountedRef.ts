@@ -5,7 +5,7 @@ import { RefObject, useEffect, useRef } from 'react';
  * component is currently mounted or not.
  */
 
-export default function useMountedRef(): RefObject<boolean> {
+export default function useMountedRef(): RefObject<boolean | null> {
   const isMountedRef = useRef(false);
 
   useEffect(() => {

@@ -4,6 +4,7 @@ import {
   ComponentPropsWithoutRef,
   ElementType,
   JSXElementConstructor,
+  type JSX,
 } from 'react';
 
 // Source: https://github.com/emotion-js/emotion/blob/master/packages/styled-base/types/helper.d.ts

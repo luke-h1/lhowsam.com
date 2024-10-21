@@ -17,16 +17,18 @@ import { notFound } from 'next/navigation';
 import { FiGithub } from 'react-icons/fi';
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export const revalidate = siteConfig.defaultRevalidate;
 
-const ProjectPage = async ({ params }: Props) => {
+const ProjectPage = async (props: Props) => {
+  // eslint-disable-next-line react/destructuring-assignment
+  const params = await props.params;
   const { slug } = params;
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
 
   const project = await projectService.getProject(slug, isEnabled);
 
@@ -112,7 +114,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params;
   const { slug } = params;
 
   const project = await projectService.getProject(slug);

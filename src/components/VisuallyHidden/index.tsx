@@ -1,5 +1,5 @@
 import { PolymorphicComponentProps } from '@frontend/types/style';
-import { ElementType, ReactNode, createElement } from 'react';
+import { ElementType, ReactNode, createElement, type JSX } from 'react';
 import * as styles from './VisuallyHidden.css';
 
 type VisuallyHiddenProps<T extends ElementType> = PolymorphicComponentProps<

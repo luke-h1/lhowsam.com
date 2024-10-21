@@ -3,6 +3,7 @@ import baseRender from '@frontend/test/render';
 import { ToastProvider as RadixToastProvider } from '@radix-ui/react-toast';
 import { TooltipProvider as RadixTooltipProvider } from '@radix-ui/react-tooltip';
 import { fireEvent, screen, within } from '@testing-library/react';
+import type { JSX } from 'react';
 import CommandMenu from '.';
 
 function render(ui: JSX.Element) {
