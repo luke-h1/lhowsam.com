@@ -12,6 +12,22 @@ const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-pla
 const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
+const getConsumer = () => {
+  let consumer: string = '';
+
+  switch (process.env.NEXT_PUBLIC_URL) {
+    case 'https://dev.lhowsam.com':
+      consumer = 'lhowsam-dev';
+      return consumer;
+    case 'https://lhowsam.com':
+      consumer = 'lhowsam-prod';
+      return consumer;
+
+    default:
+      return '';
+  }
+};
+
 const spotifyService = {
   async getAccessToken(): Promise<{ access_token: string }> {
     const response = await fetch(TOKEN_ENDPOINT, {
@@ -53,12 +69,13 @@ const spotifyService = {
     return response.json();
   },
   async lambdaNowPlaying(): Promise<Song> {
+    const consumer = getConsumer();
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL}/api/now-playing`,
       {
         headers: {
           'Content-Type': 'application/json',
-          'x-consumer': process.env.NEXT_PUBLIC_URL,
+          'x-consumer': consumer,
         },
       },
     );
