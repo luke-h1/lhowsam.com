@@ -39,7 +39,7 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
 
-      - name: Ensure rebased with main
+      - name: Ensure rebased with dev
         run: ./scripts/ensure-rebased.sh
 
       - name: Build
