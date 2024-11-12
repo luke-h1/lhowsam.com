@@ -15,7 +15,7 @@ interface Props {
 
 export const revalidate = siteConfig.defaultRevalidate;
 
-const TagPage = async ({ params }: Props) => {
+export default async function TagPage({ params }: Props) {
   const { slug } = params;
 
   const posts = await postService.getAllPosts();
@@ -78,5 +78,4 @@ const TagPage = async ({ params }: Props) => {
       </Box>
     </Page>
   );
-};
-export default TagPage;
+}

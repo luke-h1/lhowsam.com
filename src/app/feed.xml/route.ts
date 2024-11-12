@@ -1,4 +1,6 @@
 import postService from '@frontend/services/postService';
+import projectService from '@frontend/services/projectService';
+import workService from '@frontend/services/workService';
 import RSS from 'rss';
 
 export async function GET() {
@@ -12,8 +14,8 @@ export async function GET() {
 
   const [posts, projects, works] = await Promise.all([
     postService.getAllPosts(),
-    postService.getAllPosts(),
-    postService.getAllPosts(),
+    projectService.getAllProjects(),
+    workService.getWorks(),
   ]);
 
   posts?.map(post => {
@@ -29,7 +31,7 @@ export async function GET() {
     return feed.item({
       title: project.title,
       url: `${process.env.NEXT_PUBLIC_URL}/projects/${project.slug.current}`,
-      date: project.publishedAt,
+      date: new Date(),
       description: project.intro,
     });
   });

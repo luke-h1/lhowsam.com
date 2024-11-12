@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: 'Projects',
 };
 
-const ProjectPage = async () => {
+export default async function ProjectPage() {
   const projects = await projectService.getAllProjects();
 
   return (
@@ -41,5 +41,4 @@ const ProjectPage = async () => {
       </List.Container>
     </Page>
   );
-};
-export default ProjectPage;
+}

@@ -10,6 +10,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     workService.getWorks(),
   ]);
 
+  const tags = posts.flatMap(post => post.tags);
+
   const [blogPages, projectPages, workPages] = await Promise.all([
     posts.map(post => ({
       url: `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug.current}`,
@@ -20,6 +22,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     })),
     works.map(work => ({
       url: `${process.env.NEXT_PUBLIC_URL}/work/${work.slug.current}`,
+    })),
+    tags.map(tag => ({
+      url: `${process.env.NEXT_PUBLIC_URL}/blog/tags/${tag.slug.current}`,
     })),
   ]);
 

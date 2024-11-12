@@ -10,7 +10,7 @@ interface Props {
   statusCode: '404' | '500';
 }
 
-const ErrorContent = ({ statusCode, title }: Props) => {
+export default function ErrorContent({ statusCode, title }: Props) {
   return (
     <Box
       as="header"
@@ -69,5 +69,4 @@ const ErrorContent = ({ statusCode, title }: Props) => {
       </Box>
     </Box>
   );
-};
-export default ErrorContent;
+}

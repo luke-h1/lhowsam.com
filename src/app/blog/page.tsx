@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   keywords: ['Blog', 'Posts', 'Articles', 'Software Development'],
 };
 
-const BlogPage = async () => {
+export default async function BlogPage() {
   const posts = await postService.getAllPosts();
 
   const allPosts = posts.sort((a, b) => {
@@ -75,6 +75,4 @@ const BlogPage = async () => {
       </Box>
     </Page>
   );
-};
-
-export default BlogPage;
+}

@@ -25,7 +25,7 @@ interface Props {
   };
 }
 
-const PostPage = async ({ params }: Props) => {
+export default async function PostPage({ params }: Props) {
   const { slug } = params;
 
   const { isEnabled } = draftMode();
@@ -48,7 +48,6 @@ const PostPage = async ({ params }: Props) => {
           src={imageService.urlFor(post.image.asset) ?? undefined}
           width={650}
           height={400}
-          priority
           placeholder="blur"
           blurDataURL={imageService.urlFor(post.image.asset) ?? undefined}
           alt={post.image.alt ?? post.title}
@@ -110,8 +109,7 @@ const PostPage = async ({ params }: Props) => {
       </Box>
     </Page>
   );
-};
-export default PostPage;
+}
 
 export async function generateStaticParams() {
   const slugs = await postService.getSlugs();

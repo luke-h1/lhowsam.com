@@ -7,6 +7,12 @@ import Text from '@frontend/components/Text';
 import WorkItem from '@frontend/components/WorkItem';
 import workService from '@frontend/services/workService';
 
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Work',
+};
+
 export default async function WorkPage() {
   const works = await workService.getWorks();
   return (

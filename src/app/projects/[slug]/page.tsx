@@ -25,7 +25,7 @@ interface Props {
 
 export const revalidate = siteConfig.defaultRevalidate;
 
-const ProjectPage = async ({ params }: Props) => {
+export default async function ProjectPage({ params }: Props) {
   const { slug } = params;
   const { isEnabled } = draftMode();
 
@@ -43,12 +43,12 @@ const ProjectPage = async ({ params }: Props) => {
         </Heading>
         <Spacer height="lg" />
         <Image
-          src={imageService.urlFor(project.image.asset) ?? undefined}
+          src={imageService.urlFor(project.image.asset)}
           width={650}
           height={400}
           priority
           placeholder="blur"
-          blurDataURL={imageService.urlFor(project.image.asset) ?? undefined}
+          blurDataURL={imageService.urlFor(project.image.asset)}
           alt={project.image.alt ?? project.title}
         />
         <Meta
@@ -100,8 +100,7 @@ const ProjectPage = async ({ params }: Props) => {
       </Box>
     </Page>
   );
-};
-export default ProjectPage;
+}
 
 export async function generateStaticParams() {
   const slugs = await projectService.getSlugs();

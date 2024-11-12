@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Talks',
 };
 
-const TalksPage = async () => {
+export default async function TalksPage() {
   const talks = await talkService.getTalks();
 
   return (
@@ -57,5 +57,4 @@ const TalksPage = async () => {
       </Box>
     </Page>
   );
-};
-export default TalksPage;
+}

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   title: 'Home | lhowsam.com',
 };
 
-const HomePage = async () => {
+export default async function HomePage() {
   const [posts, works] = await Promise.all([
     postService.getRecentPosts(),
     workService.getWorks(),
@@ -64,6 +64,4 @@ const HomePage = async () => {
       </Box>
     </Page>
   );
-};
-
-export default HomePage;
+}

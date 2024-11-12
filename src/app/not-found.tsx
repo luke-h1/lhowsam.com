@@ -7,11 +7,10 @@ export const metadata: Metadata = {
   description: '404 page not found',
 };
 
-const ErrorPage = () => {
+export default function ErrorPage() {
   return (
     <Page showHeader={false} showFooter={false}>
       <ErrorContent statusCode="404" title="404 page not found" />
     </Page>
   );
-};
-export default ErrorPage;
+}
