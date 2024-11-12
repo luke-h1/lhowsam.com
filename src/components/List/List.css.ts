@@ -1,14 +1,17 @@
 import { variables } from '@frontend/styles/variables.css';
-import { globalStyle, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
-export const root = style({});
-
-export const item = style({
-  marginBottom: variables.spacing.md,
+export const list = style({
+  position: 'relative',
 });
 
-globalStyle(`${root} > li + li`, {
-  borderTop: `1px solid ${variables.color.border}`,
-  marginBlockStart: variables.spacing.xxl,
-  paddingBlockStart: variables.spacing.xxl,
+export const item = style({
+  paddingTop: variables.spacing.lg,
+  paddingBottom: variables.spacing.lg,
+  borderColor: variables.color.border,
+  borderBottom: `1px solid ${variables.color.border}`,
+  listStyle: 'none',
+  ':last-child': {
+    borderBottom: 'none',
+  },
 });

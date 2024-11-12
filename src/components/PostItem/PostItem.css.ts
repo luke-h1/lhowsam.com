@@ -1,5 +1,5 @@
-import { responsiveStyle } from '@frontend/styles/style.css';
 import { variables } from '@frontend/styles/variables.css';
+import { responsiveStyle } from '@frontend/utils/style.css';
 import { style } from '@vanilla-extract/css';
 
 export const content = style({

@@ -13,7 +13,7 @@ const slideUp = keyframes({
 
 export const content = style({
   padding: variables.spacing.sm,
-  borderRadius: variables.radius.md,
+  borderRadius: variables.radii.md,
   fontSize: variables.fontSize.sm,
   backgroundColor: variables.color.surface,
   color: variables.color.foreground,

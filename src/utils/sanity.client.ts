@@ -14,7 +14,7 @@ const sanityPreviewClient = createClient({
 
 const studioClient = createClient({
   ...config,
-  useCdn: process.env.NODE_ENV === 'production',
+  useCdn: process.env.NEXT_PUBLIC_URL !== 'http://localhost:3000',
 });
 
 export const getSanityClient = (isDraft = false) =>

@@ -7,7 +7,7 @@ import Link from '../Link';
 import Tooltip from '../Tooltip';
 import * as styles from './SocialShare.css';
 
-const SocialShare = () => {
+export default function SocialShare() {
   const pathname = usePathname();
   const { setToast } = useToast();
 
@@ -46,5 +46,4 @@ const SocialShare = () => {
       </Tooltip>
     </div>
   );
-};
-export default SocialShare;
+}

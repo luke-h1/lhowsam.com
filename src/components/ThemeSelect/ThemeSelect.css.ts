@@ -35,7 +35,7 @@ export const select = style({
   ),
   height: '2rem',
   fontSize: variables.fontSize.sm,
-  borderRadius: variables.radius.md,
+  borderRadius: variables.radii.md,
   textAlign: 'left',
   ':focus': {
     outline: 'transparent',

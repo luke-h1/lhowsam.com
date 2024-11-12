@@ -1,19 +1,20 @@
 import Box from '@frontend/components/Box';
-import { Heading } from '@frontend/components/Heading';
-import { List } from '@frontend/components/List';
+import Heading from '@frontend/components/Heading';
 import Page from '@frontend/components/Page';
 import PostItem from '@frontend/components/PostItem';
-import { Spacer } from '@frontend/components/Spacer';
+import Spacer from '@frontend/components/Spacer';
+import Text from '@frontend/components/Text';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import { Metadata } from 'next';
-import { Fragment } from 'react';
 
 export const revalidate = siteConfig.defaultRevalidate;
 
 export const metadata: Metadata = {
   title: 'Blog',
+  description: 'A collection of blog posts I have written',
+  keywords: ['Blog', 'Posts', 'Articles', 'Software Development'],
 };
 
 const BlogPage = async () => {
@@ -43,40 +44,37 @@ const BlogPage = async () => {
     postsByYear[year].push(post);
   });
 
-  const description =
-    'Posts on software development, testing, DevOps and more.';
+  const sortedYears = Object.keys(postsByYear).sort(
+    (a, b) => Number(b) - Number(a),
+  );
 
   return (
-    <Page headerFontSize="xxxxl" heading="Blog" description={description}>
-      {Object.entries(postsByYear)
-        .reverse()
-        // eslint-disable-next-line no-shadow
-        .map(([year, posts], i) => (
-          <Fragment key={year}>
-            {i === 0 && <Spacer height="xxl" />}
-            {i > 0 && <Spacer height="xxl" />}
-            <Box as="section">
-              <Heading fontSize="xl" id={year} color="border">
-                {year}
-              </Heading>
-              <Spacer height="md" />
-              <Box as="section" paddingX="md">
-                <List marginX="lg" maxWidth="container">
-                  {posts &&
-                    posts.map(post => (
-                      <List.Item key={`${post._id}-${post.title}`}>
-                        <PostItem
-                          post={post}
-                          key={`${post._id}-${post.title}`}
-                        />
-                      </List.Item>
-                    ))}
-                </List>
-              </Box>
-            </Box>
-          </Fragment>
+    <Page>
+      <Box as="section">
+        <Heading fontSize="xxl" as="h1">
+          Blog
+        </Heading>
+        <Spacer height="xxs" />
+        <Text color="foregroundNeutral" fontSize="lg">
+          Blog posts on development, testing, and other topics
+        </Text>
+      </Box>
+      <Spacer height="xxxl" />
+      <Box as="section">
+        {sortedYears.map(year => (
+          <Box key={year} marginBottom="xxxl">
+            <Heading fontSize="xl" as="h2" color="foregroundNeutral">
+              {year}
+            </Heading>
+            <Spacer height="xl" />
+            {postsByYear[year].map(post => (
+              <PostItem post={post} key={post._id} />
+            ))}
+          </Box>
         ))}
+      </Box>
     </Page>
   );
 };
+
 export default BlogPage;

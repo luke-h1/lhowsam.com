@@ -33,3 +33,11 @@ if (typeof window !== 'undefined') {
 }
 global.Request = jest.requireActual('node-fetch').Request;
 global.Response = jest.requireActual('node-fetch').Response;
+
+jest.mock('next/font/google', () => ({
+  Instrument_Serif: () => ({
+    style: {
+      fontFamily: 'mocked',
+    },
+  }),
+}));

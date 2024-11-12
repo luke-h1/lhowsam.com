@@ -17,7 +17,7 @@ export const root = style({
   padding: variables.spacing.lg,
   backgroundColor: variables.color.surface,
   border: `1px solid ${variables.color.border}`,
-  borderRadius: variables.radius.md,
+  borderRadius: variables.radii.md,
 });
 
 export const title = style({
@@ -38,7 +38,7 @@ export const close = style({
   height: variables.spacing.xxl,
   display: 'grid',
   placeItems: 'center',
-  borderRadius: variables.radius.md,
+  borderRadius: variables.radii.md,
   cursor: 'pointer',
   transitionTimingFunction: 'ease-in-out',
   transitionDuration: '200ms',
@@ -58,7 +58,7 @@ export const closeHighlight = style({
   position: 'absolute',
   inset: 0,
   backgroundColor: variables.color.surfaceHover,
-  borderRadius: variables.radius.md,
+  borderRadius: variables.radii.md,
   opacity: 0,
   transform: 'scale(0)',
   transition: 'all ease-in-out 200ms',

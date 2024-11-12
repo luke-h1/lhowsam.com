@@ -4,14 +4,14 @@ import * as styles from './Tooltip.css';
 
 type Props = TooltipProps & { content: string };
 
-const Tooltip = ({
+export default function Tooltip({
   children,
   content,
   open,
   defaultOpen,
   onOpenChange,
   ...props
-}: Props) => {
+}: Props) {
   return (
     <TooltipPrimitive.Root
       open={open}
@@ -29,5 +29,4 @@ const Tooltip = ({
       </TooltipPrimitive.Content>
     </TooltipPrimitive.Root>
   );
-};
-export default Tooltip;
+}

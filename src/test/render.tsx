@@ -5,7 +5,6 @@ import {
   RenderResult,
 } from '@testing-library/react';
 import userEvent, { UserEvent } from '@testing-library/user-event';
-import {} from 'next-router-mock';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import React, { ReactElement, ReactNode } from 'react';
 

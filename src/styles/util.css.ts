@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 import { variables } from './variables.css';
 
 export const anchor = style({
@@ -13,9 +13,12 @@ export const anchor = style({
   },
 });
 
+globalStyle(`${anchor}:hover`, {
+  textDecoration: 'underline',
+});
+
 export const tag = style({
   marginRight: '0.5rem',
-  // marginBottom: '1.5rem',
   ':last-child': {
     marginRight: 0,
   },

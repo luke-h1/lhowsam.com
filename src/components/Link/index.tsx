@@ -6,12 +6,13 @@ import * as styles from './Link.css';
 
 type Props = {
   children: ReactNode;
-  variant?: 'highlight' | 'neutral';
+  variant?: 'highlight' | 'neutral' | 'underline';
   underlined?: boolean;
   className?: string;
   id?: string;
   href: string;
   css?: CSSProperties;
+  testId?: string;
 } & Omit<LinkProps, 'href'>;
 
 const Link = ({
@@ -22,6 +23,7 @@ const Link = ({
   id,
   href,
   css,
+  testId,
   ...props
 }: Props) => {
   const isAbsolute = typeof href === 'string' && href.startsWith('http');
@@ -30,6 +32,7 @@ const Link = ({
   if (isAbsolute || isHash) {
     return (
       <a
+        data-testid={testId}
         id={id}
         rel={isAbsolute ? 'noopener noreferrer' : undefined}
         target={isAbsolute ? '_blank' : undefined}
@@ -50,6 +53,7 @@ const Link = ({
 
   return (
     <NextLink
+      data-testid={testId}
       id={id}
       href={href}
       className={clsx(styles.variants[variant], className)}

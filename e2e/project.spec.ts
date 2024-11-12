@@ -9,8 +9,12 @@ test.describe('project', () => {
   test.beforeAll(async ({ browser }) => {
     page = await browser.newPage();
     await page.goto(`${baseUrl}/projects`);
-    await expect(page.locator('h1').first()).toHaveText('Projects');
-    await expect(page.locator('p').first()).toHaveText('Personal projects');
+    await expect(page.locator('[data-testid=project-heading]')).toHaveText(
+      'Projects',
+    );
+    await expect(page.locator('[data-testid=project-description]')).toHaveText(
+      "Personal projects I've worked on",
+    );
   });
 
   test('shows project posts & project slug pages correctly', async () => {

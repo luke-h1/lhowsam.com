@@ -1,9 +1,9 @@
 import imageService from '@frontend/services/imageService';
 import { variables } from '@frontend/styles/variables.css';
 import { Talk } from '@frontend/types/sanity';
+import Image from 'next/image';
 import Box from '../Box';
 import FormattedDate from '../FormattedDate';
-import { Image } from '../Image';
 import Link from '../Link';
 import Text from '../Text';
 import * as styles from './TalkItem.css';
@@ -29,14 +29,13 @@ const TalkItem = ({ talk }: Props) => {
                 alt={talk.title}
                 width={400}
                 height={300}
-                rounded
                 style={{
                   marginBottom: variables.spacing.sm,
                 }}
               />
             )}
           </Box>
-          <Text fontSize="xxl" fontWeight="bold" marginBottom="md">
+          <Text fontSize="xxl" fontWeight="bold">
             {talk.title}
           </Text>
           <Text

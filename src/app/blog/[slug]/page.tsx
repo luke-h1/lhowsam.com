@@ -1,11 +1,10 @@
 import Box from '@frontend/components/Box';
 import ContentRenderer from '@frontend/components/ContentRenderer';
 import FormattedDate from '@frontend/components/FormattedDate';
-import { Image } from '@frontend/components/Image';
-import Link from '@frontend/components/Link';
+import Heading from '@frontend/components/Heading';
 import Meta from '@frontend/components/Meta';
 import Page from '@frontend/components/Page';
-import { Spacer } from '@frontend/components/Spacer';
+import Spacer from '@frontend/components/Spacer';
 import Text from '@frontend/components/Text';
 import siteConfig from '@frontend/config/site';
 import imageService from '@frontend/services/imageService';
@@ -14,6 +13,8 @@ import * as utils from '@frontend/styles/util.css';
 import clsx from 'clsx';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
+import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 export const revalidate = siteConfig.defaultRevalidate;
@@ -36,14 +37,17 @@ const PostPage = async ({ params }: Props) => {
   }
 
   return (
-    <Page headerFontSize="xxl" heading={post.title}>
+    <Page>
       <Box>
+        <Heading fontSize="xxl" as="h1">
+          {post.title}
+        </Heading>
+        <Spacer height="lg" />
+
         <Image
           src={imageService.urlFor(post.image.asset) ?? undefined}
           width={650}
           height={400}
-          rounded
-          bordered
           priority
           placeholder="blur"
           blurDataURL={imageService.urlFor(post.image.asset) ?? undefined}
@@ -80,7 +84,7 @@ const PostPage = async ({ params }: Props) => {
                 >
                   <Text
                     color="foregroundNeutral"
-                    textTransform="uppercase"
+                    // textTransform="uppercase"
                     fontSize="sm"
                     fontFamily="mono"
                   >
@@ -129,5 +133,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.intro,
+    assets: [imageService.urlFor(post.image.asset)],
+    keywords: post.tags.map(t => t.title).join(', '),
   };
 }

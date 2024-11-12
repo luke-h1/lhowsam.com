@@ -1,9 +1,17 @@
-import { PartialPick } from '@frontend/types/style';
-import Box, { BoxProps } from '../Box';
+import { sprinkles, Sprinkles } from '@frontend/styles/sprinkles.css';
+import clsx from 'clsx';
+import { createElement } from 'react';
 
-export const Spacer = ({
-  height,
-  width,
-}: PartialPick<BoxProps<'span'>, 'width' | 'height'>) => {
-  return <Box as="span" display="block" height={height} width={width} />;
-};
+interface Props {
+  width?: Sprinkles['height'];
+  height?: Sprinkles['width'];
+}
+
+export default function Spacer({ height, width }: Props) {
+  return createElement('span', {
+    'aria-hidden': true,
+    className: clsx(
+      sprinkles({ display: width ? 'inline-block' : 'block', width, height }),
+    ),
+  });
+}

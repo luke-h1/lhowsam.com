@@ -13,7 +13,6 @@ import { MotionConfig as FramerMotionConfig } from 'framer-motion';
 import Head from 'next/head';
 import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import { ReactNode, useState } from 'react';
-import Gradient from './Gradient';
 import SkipLink from './SkipLink';
 
 interface Props {
@@ -70,7 +69,7 @@ const Providers = ({ children }: Props) => {
   return (
     <ComposedProviders>
       <SkipLink />
-      <Gradient />
+      {/* <Gradient /> */}
       <Head>
         <meta
           name="viewport"

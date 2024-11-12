@@ -17,7 +17,7 @@ const box = defineProperties({
     ],
     overflow: ['hidden'],
     visibility: ['visible', 'hidden'],
-    borderRadius: variables.radius,
+    borderRadius: variables.radii,
     borderWidth: variables.borderWidth,
   },
 });

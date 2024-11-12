@@ -1,30 +1,40 @@
-import { Sprinkles, sprinkles } from '@frontend/styles/sprinkles.css';
+import { sprinkles, Sprinkles } from '@frontend/styles/sprinkles.css';
 import { PolymorphicComponentProps } from '@frontend/types/style';
 import clsx from 'clsx';
-import { ElementType, ReactNode, createElement } from 'react';
+import { createElement, ElementType } from 'react';
 import * as styles from './Heading.css';
 
-export type HeadingProps<TElement extends ElementType> =
+type HeadingProps<TElement extends React.ElementType> =
   PolymorphicComponentProps<
     TElement,
     {
-      as?: 'h1' | 'h2' | 'h3' | 'h4';
+      as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
       fontSize?: Sprinkles['fontSize'];
-      color?: Sprinkles['color'];
-      children: ReactNode;
+      color?: Extract<Sprinkles['color'], 'foreground' | 'foregroundNeutral'>;
+      children: React.ReactNode;
+      testId?: string;
     }
   >;
 
-export const Heading = <TElement extends ElementType = 'p'>({
+export default function Heading<TElement extends ElementType = 'p'>({
   as,
   fontSize = 'md',
   color = 'foreground',
-  ...props
-}: HeadingProps<TElement>) => {
+  testId,
+  ...rest
+}: HeadingProps<TElement>) {
   const component = as || 'h2';
-  const { className, ...restProps } = props;
+
   return createElement(component, {
-    className: clsx(styles.root, sprinkles({ fontSize, color }), className),
-    ...restProps,
+    className: clsx(
+      styles.root,
+      styles.tracking[component],
+      sprinkles({
+        fontSize,
+        color,
+      }),
+    ),
+    'data-testid': testId,
+    ...rest,
   });
-};
+}
