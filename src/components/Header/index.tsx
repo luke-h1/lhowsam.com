@@ -1,6 +1,7 @@
 'use client';
 
 import * as Dialog from '@frontend/components/Dialog';
+import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import { usePathname } from 'next/navigation';
 import { Fragment, useState } from 'react';
 import { Menu, X } from 'react-feather';
@@ -8,7 +9,6 @@ import CommandMenu from '../CommandMenu';
 import Link from '../Link';
 import Spacer from '../Spacer';
 import Text from '../Text';
-import VisuallyHidden from '../VisuallyHidden';
 import * as styles from './Header.css';
 
 interface HeaderLink {
@@ -84,13 +84,20 @@ export default function Header() {
       <Dialog.Root open={panelOpen} onOpenChange={setPanelOpen}>
         <Dialog.Trigger asChild>
           <button className={styles.toggle} type="button">
-            <VisuallyHidden>Open menu</VisuallyHidden>
+            <VisuallyHidden.Root>Open menu</VisuallyHidden.Root>
             <Menu />
           </button>
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className={styles.panelOverlay} />
-          <Dialog.Content className={styles.panelContent}>
+          <Dialog.Content
+            className={styles.panelContent}
+            aria-describedby={undefined}
+          >
+            <VisuallyHidden.Root>
+              <Dialog.Title>Navigation</Dialog.Title>
+            </VisuallyHidden.Root>
+
             <Text fontWeight="bold">Navigation</Text>
             <nav>
               {headerLinks.map(link => (
@@ -116,7 +123,7 @@ export default function Header() {
 
             <Dialog.Close asChild>
               <button className={styles.panelClose} type="button">
-                <VisuallyHidden>Close menu</VisuallyHidden>
+                <VisuallyHidden.Root>Close menu</VisuallyHidden.Root>
                 <X />
               </button>
             </Dialog.Close>
