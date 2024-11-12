@@ -1,12 +1,22 @@
 /* eslint-disable react/no-unstable-nested-components */
 import { variables } from '@frontend/styles/variables.css';
 import { MDXRemote } from 'next-mdx-remote/rsc';
-import rehypeHighlight from 'rehype-highlight';
+import rehypePrettyCode from 'rehype-pretty-code';
+import remarkGfm from 'remark-gfm';
+import { bundledLanguages, bundledThemes } from 'shiki';
 import MDXComponents from './MDXComponents';
 
 interface Props {
   content: string;
 }
+
+const options = {
+  themes: Object.keys(bundledThemes),
+  langs: Object.keys(bundledLanguages),
+  // theme: 'one-dark-pro',
+  transformers: [],
+  theme: 'slack-dark',
+};
 
 const ContentRenderer = ({ content }: Props) => {
   return (
@@ -21,7 +31,9 @@ const ContentRenderer = ({ content }: Props) => {
         source={content}
         options={{
           mdxOptions: {
-            rehypePlugins: [rehypeHighlight],
+            rehypePlugins: [[rehypePrettyCode, options]],
+            remarkPlugins: [remarkGfm],
+            useDynamicImport: true,
           },
         }}
       />
