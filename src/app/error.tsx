@@ -9,6 +9,6 @@ export const metadata: Metadata = {
 };
 
 const ErrorPage = () => {
-  return <ErrorContent title="500 internal server error" statusCode="500" />;
+  return <ErrorContent statusCode="500" title="500 internal server error" />;
 };
 export default ErrorPage;

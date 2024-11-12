@@ -1,8 +1,7 @@
 import Box from '@frontend/components/Box';
-import { Heading } from '@frontend/components/Heading';
-import { List } from '@frontend/components/List';
+import Heading from '@frontend/components/Heading';
 import Page from '@frontend/components/Page';
-import { Spacer } from '@frontend/components/Spacer';
+import Spacer from '@frontend/components/Spacer';
 import TalkItem from '@frontend/components/TalkItem';
 import Text from '@frontend/components/Text';
 import talkService from '@frontend/services/talkService';
@@ -46,15 +45,15 @@ const TalksPage = async () => {
         </Box>
       </Box>
       <Spacer height="sm" />
-      <Box as="section" maxWidth={{ md: 'text' }} marginX={{ md: 'auto' }}>
-        <List>
+      <Box as="section" maxWidth={{ md: 'text' }} marginX={{ md: 'sm' }}>
+        <ul>
           {talks &&
             talks.map(talk => (
-              <List.Item key={talk._id}>
+              <li key={talk._id}>
                 <TalkItem talk={talk} />
-              </List.Item>
+              </li>
             ))}
-        </List>
+        </ul>
       </Box>
     </Page>
   );

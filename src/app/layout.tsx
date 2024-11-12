@@ -1,13 +1,14 @@
 import 'the-new-css-reset';
 import '@frontend/styles/app.css';
-import '@frontend/styles/prism.css';
 import Providers from '@frontend/components/Providers';
+import SkipLink from '@frontend/components/SkipLink';
 import siteConfig from '@frontend/config/site';
 import getPolicies from '@frontend/utils/getPolicies';
 // import newrelic from 'newrelic';
 import { Metadata } from 'next';
 import Script from 'next/script';
 import { ReactNode } from 'react';
+import '@frontend/styles/prism.css';
 
 interface Props {
   children: Readonly<ReactNode>;
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `%s | lhowsam.com`,
   },
+  description: `Software Engineer - Luke Howsam - my website`,
   keywords: [...siteConfig.keywords],
   authors: [
     {
@@ -93,10 +95,6 @@ const RootLayout = async ({ children }: Props) => {
         <meta content="#ffffff" name="msapplication-TileColor" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta
-          name="description"
-          content="Luke Howsam is a software engineer and software developer who specializes in Javascript, Typescript, GraphQL, cloud technologies & automated + manual testing"
-        />
         {process.env.NEXT_PUBLIC_URL === 'https://lhowsam.com' && (
           <>
             {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_TRACKING_ID} /> */}
@@ -123,7 +121,10 @@ const RootLayout = async ({ children }: Props) => {
       </head>
       <body>
         <main id="main">
-          <Providers>{children}</Providers>
+          <Providers>
+            <SkipLink />
+            {children}
+          </Providers>
         </main>
       </body>
     </html>

@@ -2,7 +2,7 @@
 
 import spotifyQueries from '@frontend/queries/spotifyQueries';
 import { useQuery } from '@tanstack/react-query';
-import { Image } from '../Image';
+import Image from 'next/image';
 import * as styles from './NowPlaying.css';
 import s from './NowPlaying.module.scss';
 
@@ -34,6 +34,8 @@ export default function NowPlaying() {
           <p className={styles.cover}>
             <Image
               src={data.albumImageUrl}
+              blurDataURL={data.albumImageUrl}
+              placeholder="blur"
               alt="Album cover"
               layout="intrinsic"
               width={65}

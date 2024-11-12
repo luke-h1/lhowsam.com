@@ -7,6 +7,7 @@ exports[`ThemeSelect defaults to system theme 1`] = `
   </script>
   <span
     class="VisuallyHidden_root__rd7gei0"
+    id="visually-hidden"
   >
     <label
       for="theme-select"
@@ -55,6 +56,7 @@ exports[`ThemeSelect defaults to system theme 1`] = `
     </span>
     <span
       class="VisuallyHidden_root__rd7gei0"
+      id="visually-hidden"
     >
       <label
         for="theme-select"

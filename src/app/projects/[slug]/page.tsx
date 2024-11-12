@@ -1,10 +1,9 @@
 import Box from '@frontend/components/Box';
 import ContentRenderer from '@frontend/components/ContentRenderer';
-import { Image } from '@frontend/components/Image';
-import Link from '@frontend/components/Link';
+import Heading from '@frontend/components/Heading';
 import Meta from '@frontend/components/Meta';
 import Page from '@frontend/components/Page';
-import { Spacer } from '@frontend/components/Spacer';
+import Spacer from '@frontend/components/Spacer';
 import Text from '@frontend/components/Text';
 import siteConfig from '@frontend/config/site';
 import imageService from '@frontend/services/imageService';
@@ -13,6 +12,8 @@ import * as utils from '@frontend/styles/util.css';
 import clsx from 'clsx';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
+import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { FiGithub } from 'react-icons/fi';
 
@@ -35,67 +36,65 @@ const ProjectPage = async ({ params }: Props) => {
   }
 
   return (
-    <Page heading={project.title} description={project.intro}>
-      <Box
-        display="flex"
-        flexDirection="column"
-        alignItems="flex-start"
-        marginBottom="lg"
-      >
-        {project.image.asset && (
-          <Image
-            src={imageService.urlFor(project.image.asset) ?? undefined}
-            width={700}
-            height={400}
-            rounded
-            bordered
-            priority
-            layout="intrinsic"
-            placeholder="blur"
-            blurDataURL={imageService.urlFor(project.image.asset) ?? undefined}
-            alt={project.image.alt ?? project.title}
-            quality={100}
-          />
-        )}
-      </Box>
-      <Meta
-        items={[
-          {
-            title: 'Tags',
-            description: (
-              // eslint-disable-next-line react/jsx-no-useless-fragment
-              <>
-                <Text
-                  color="foregroundNeutral"
-                  textTransform="uppercase"
-                  // letterSpacing="wide"
-                  fontSize="sm"
-                  fontFamily="mono"
+    <Page>
+      <Box>
+        <Heading fontSize="xxl" as="h1">
+          {project.title}
+        </Heading>
+        <Spacer height="lg" />
+        <Image
+          src={imageService.urlFor(project.image.asset) ?? undefined}
+          width={650}
+          height={400}
+          priority
+          placeholder="blur"
+          blurDataURL={imageService.urlFor(project.image.asset) ?? undefined}
+          alt={project.image.alt ?? project.title}
+        />
+        <Meta
+          items={[
+            {
+              title: 'Tags',
+              description: (
+                // eslint-disable-next-line react/jsx-no-useless-fragment
+                <Box
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    justifyContent: 'flex-start',
+                  }}
                 >
-                  {project.tags.map(tag => (
-                    <Link
-                      key={tag.slug.current}
-                      href={`/blog/tags/${tag.slug.current}`}
-                      className={clsx(utils.tag, utils.anchor)}
-                    >
-                      {tag.title.toUpperCase()}
-                    </Link>
-                  ))}
-                </Text>
-              </>
-            ),
-          },
-          {
-            title: 'Repository',
-            description: (
-              <Link href={project.githubUrl}>
-                <FiGithub size={20} />
-              </Link>
-            ),
-          },
-        ]}
-      />
-      <Box maxWidth="container" display="flex" alignItems="flex-start">
+                  <Text
+                    color="foregroundNeutral"
+                    // textTransform="uppercase"
+                    fontSize="sm"
+                    fontFamily="mono"
+                  >
+                    {project.tags.map(tag => (
+                      <Link
+                        key={tag.slug.current}
+                        href={`/blog/tags/${tag.slug.current}`}
+                        className={clsx(utils.tag, utils.anchor)}
+                      >
+                        {tag.title.toUpperCase()}
+                      </Link>
+                    ))}
+                  </Text>
+                </Box>
+              ),
+            },
+            {
+              title: 'Repository',
+              description: (
+                <Link href={project.githubUrl}>
+                  <FiGithub size={20} />
+                </Link>
+              ),
+            },
+          ]}
+        />
+      </Box>
+      <Box display="flex" alignItems="flex-start">
         <Spacer height="md" />
         <ContentRenderer content={project.content} />
       </Box>
@@ -126,5 +125,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title,
     description: intro,
+    assets: [imageService.urlFor(project.image.asset)],
   };
 }

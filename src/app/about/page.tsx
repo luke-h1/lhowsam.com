@@ -1,116 +1,104 @@
 import Box from '@frontend/components/Box';
-import { Heading } from '@frontend/components/Heading';
-import { List } from '@frontend/components/HeroList/HeroList';
-import { Image } from '@frontend/components/Image';
-import Link from '@frontend/components/Link';
+import ExperienceItem from '@frontend/components/ExperienceItem';
+import Heading from '@frontend/components/Heading';
 import Page from '@frontend/components/Page';
-import { Spacer } from '@frontend/components/Spacer';
+import Skills from '@frontend/components/Skills';
+import Spacer from '@frontend/components/Spacer';
 import Text from '@frontend/components/Text';
+import companies from '@frontend/config/jobs';
+import { buttonStyles } from '@frontend/styles/button.css';
+import { parseDate } from '@frontend/utils/date';
 import { Metadata } from 'next';
-import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import Link from 'next/link';
 import * as styles from './about.css';
 
 export const metadata: Metadata = {
   title: 'About',
 };
 
-const Skills = dynamic(() => import('@frontend/components/Skills'));
+// Sort companies by the most recent job's end date in descending order
+const sortedCompanies = companies.sort((a, b) => {
+  const aMostRecentJob = a.jobs.reduce((latest, job) => {
+    const jobEndDate = job.endDate ? parseDate(job.endDate) : new Date();
+    return jobEndDate > latest ? jobEndDate : latest;
+  }, new Date(0));
 
-const AboutPage = async () => {
+  const bMostRecentJob = b.jobs.reduce((latest, job) => {
+    const jobEndDate = job.endDate ? parseDate(job.endDate) : new Date();
+    return jobEndDate > latest ? jobEndDate : latest;
+  }, new Date(0));
+
+  return bMostRecentJob.getTime() - aMostRecentJob.getTime();
+});
+
+export default async function AboutPage() {
   return (
-    <Page
-      headerFontSize="xxxxl"
-      heading="About"
-      description="Hey I'm Luke, a Software Engineer currently based in the UK."
-    >
-      <Box as="section" marginX="auto" className={styles.root}>
-        <Image
-          src="/luke-1.png"
-          alt="Luke Howsam"
-          width={220}
-          height={300}
-          priority
-          fetchPriority="high"
-          quality={100}
-          rounded
-          placeholder="blur"
-          blurDataURL="/luke-1.png"
-        />
-        <Box as="section">
-          <Text
-            color="foregroundNeutral"
-            style={{ marginBottom: '2rem', marginTop: '0.85rem' }}
-          >
-            Right now I'm working as a Software Engineer primarily working with
-            React, Next.js, GraphQL, Node.js and AWS.
-          </Text>
-          <Text
-            color="foregroundNeutral"
+    <Page>
+      <header className={styles.header}>
+        <div className={styles.imageContainer}>
+          <Image
+            src="/luke-1.png"
+            width="200"
+            height="200"
+            alt=""
+            className={styles.image}
             style={{
-              marginBottom: '2rem',
+              maxWidth: '100%',
+              height: 'auto',
             }}
+          />
+        </div>
+        <div className={styles.textContainer}>
+          <Text
+            fontSize={{ xs: 'lg', md: 'xl' }}
+            gradient
+            fontFamily="mono"
+            testId="AboutPage-intro"
           >
+            Hey, I'm Luke. I'm a Software Engineer interested in DevOps, React,
+            Python, TypeScript and AWS.
+          </Text>
+          <Spacer height="lg" />
+          <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
             I'm comfortable with both frontend and backend technologies (React,
             Next.js, Python, GraphQL, Express.js, Node etc.) and I'm always keen
             to keep up with industry trends and new technologies.
           </Text>
-          <Text
-            color="foregroundNeutral"
-            style={{
-              marginBottom: '2rem',
-            }}
-          >
+          <Spacer height="lg" />
+
+          <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
             In my spare time I enjoy being outdoors, travelling, discovering new
             foods, finding new movies/tv-shows and reading
           </Text>
-          <Spacer height="sm" />
-          <Box as="section" marginY="lg">
-            <Heading
-              fontSize="xl"
-              color="foreground"
-              style={{ marginBottom: '1rem', marginTop: '1rem' }}
-            >
-              Connect
-            </Heading>
-            <List>
-              <List.Item>
-                <Text>
-                  <Link href="/static/cv.pdf">CV</Link>
-                </Text>
-              </List.Item>
-              <List.Item>
-                <Text>
-                  <Link href="https://www.linkedin.com/in/lukehowsam">
-                    LinkedIn
-                  </Link>
-                </Text>
-              </List.Item>
-              <List.Item>
-                <Text>
-                  <Link href="https://github.com/luke-h1">GitHub</Link>
-                </Text>
-              </List.Item>
-              <List.Item>
-                <Text>
-                  <Link href="https://twitter.com/LukeH_1999">Twitter</Link>
-                </Text>
-              </List.Item>
-            </List>
-          </Box>
-        </Box>
-        <Box as="section" maxWidth="container" marginX="auto">
-          <Heading
-            as="h2"
-            fontSize="xl"
-            color="foregroundNeutral"
-            style={{ marginTop: '4rem', marginBottom: '1.85rem' }}
+          <Spacer height="lg" />
+          <Link
+            href="/static/cv.pdf"
+            className={buttonStyles({ type: 'highContrast' })}
           >
-            Skills
+            Read CV
+          </Link>
+        </div>
+      </header>
+      <Link href="#experience">
+        <Box as="section">
+          <Heading as="h3" fontSize="xl">
+            Experience
           </Heading>
-          <Skills />
+          <Spacer height="md" />
+          {sortedCompanies.map(company => (
+            <ExperienceItem company={company} key={company.id} />
+          ))}
         </Box>
+      </Link>
+
+      <Spacer height="xxxxl" />
+      <Box as="section">
+        <Heading as="h3" fontSize="xl">
+          Skills
+        </Heading>
+        <Skills />
       </Box>
     </Page>
   );
-};
-export default AboutPage;
+}

@@ -21,7 +21,7 @@ export const banner = style({
 export const avatar = style({
   // position: "relative",
   display: 'inline-flex',
-  borderRadius: variables.radius.lg,
+  borderRadius: variables.radii.lg,
   // border: `1px solid ${variables.color.borderFaint}`,
   overflow: 'hidden',
   ':focus': {
@@ -61,7 +61,7 @@ export const toggle = style({
   height: variables.spacing.xxl,
   display: 'grid',
   placeItems: 'center',
-  borderRadius: variables.radius.md,
+  borderRadius: variables.radii.md,
   cursor: 'pointer',
   transitionTimingFunction: 'ease-in-out',
   transitionDuration: '200ms',
@@ -81,7 +81,7 @@ export const toggleHighlight = style({
   position: 'absolute',
   inset: 0,
   backgroundColor: variables.color.surfaceHover,
-  borderRadius: variables.radius.md,
+  borderRadius: variables.radii.md,
   zIndex: '-1',
   opacity: 0,
   transform: 'scale(0)',
@@ -165,7 +165,7 @@ globalStyle('[cmdk-root]', {
   width: '100%',
   backgroundColor: variables.color.surface,
   border: `1px solid ${variables.color.border}`,
-  borderRadius: variables.radius.md,
+  borderRadius: variables.radii.md,
 });
 
 globalStyle('[cmdk-header]', {
@@ -180,7 +180,7 @@ globalStyle('[cmdk-header-esc]', {
   fontSize: variables.fontSize.xs,
   padding: `${variables.spacing.xs} ${variables.spacing.sm}`,
   color: variables.color.foregroundNeutral,
-  borderRadius: variables.radius.md,
+  borderRadius: variables.radii.md,
   cursor: 'pointer',
   border: `1px solid ${variables.color.border}`,
 });
@@ -246,7 +246,7 @@ globalStyle('[cmdk-item] .content', {
 globalStyle('[cmdk-item] .highlight', {
   position: 'absolute',
   inset: `0 ${variables.spacing.sm}`,
-  borderRadius: variables.radius.md,
+  borderRadius: variables.radii.md,
   backgroundColor: variables.color.surfaceHover,
 });
 

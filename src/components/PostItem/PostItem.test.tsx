@@ -1,39 +1,33 @@
+import { posts } from '@frontend/test/__mocks__/post';
 import render from '@frontend/test/render';
-import { screen, within } from '@testing-library/react';
-import { post } from '../__tests__/__mocks__/post';
+import { screen } from '@testing-library/react';
 import PostItem from '.';
 
 describe('PostItem', () => {
-  test('renders postItem', () => {
-    render(<PostItem post={post} />);
+  test('renders correctly', () => {
+    render(<PostItem post={posts[0]} />);
 
-    const heading = screen.getByRole('heading', {
-      name: 'post-title',
-    });
-    expect(heading).toBeInTheDocument();
-    expect(screen.getByText('post intro')).toBeInTheDocument();
-    expect(screen.getByRole('time')).toBeInTheDocument();
-    expect(screen.getByTestId('post-tag-1')).toBeInTheDocument();
-  });
+    expect(screen.getByRole('article')).toBeInTheDocument();
 
-  test('constructs tag URL correctly', () => {
-    render(<PostItem post={post} />);
+    expect(screen.getByText(posts[0].title)).toBeInTheDocument();
+    expect(screen.getByText(posts[0].intro)).toBeInTheDocument();
 
-    const tagContainer = screen.getByTestId('tag-container');
+    expect(screen.getByRole('link', { name: posts[0].title })).toHaveAttribute(
+      'href',
+      `/blog/${posts[0].slug.current}`,
+    );
 
-    const links = within(tagContainer).getAllByRole('link');
+    for (let i = 0; i < posts[0].tags.length; i += 1) {
+      const tagId = `post-tag-${posts[0].tags[i]._id}`;
 
-    expect(links).toHaveLength(1);
+      expect(screen.getByTestId(tagId)).toHaveTextContent(
+        posts[0].tags[i].title.toUpperCase(),
+      );
 
-    expect(links[0]).toHaveAttribute('href', '/blog/tags/react-js');
-  });
-
-  test('constructs post URL correctly', () => {
-    render(<PostItem post={post} />);
-
-    const link = screen.queryByRole('link', {
-      name: 'post-title',
-    });
-    expect(link).toHaveAttribute('href', '/blog/post-slug');
+      expect(screen.getByTestId(tagId)).toHaveAttribute(
+        'href',
+        `/blog/tags/${posts[0].tags[i].slug.current}`,
+      );
+    }
   });
 });

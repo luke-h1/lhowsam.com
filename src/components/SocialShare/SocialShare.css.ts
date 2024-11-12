@@ -12,7 +12,7 @@ export const item = style({
   cursor: 'pointer',
   width: '1.5rem',
   height: '1.5rem',
-  borderRadius: variables.radius.sm,
+  borderRadius: variables.radii.md,
   ':focus': {
     outline: 'transparent',
   },

@@ -2,40 +2,31 @@ import dynamic from 'next/dynamic';
 import { ReactNode } from 'react';
 import Box from './Box';
 import Header from './Header';
-import PageHeader, { PageHeaderProps } from './PageHeader';
 import { Toaster } from './Toaster';
 
+interface PageProps {
+  children: ReactNode;
+  showHeader?: boolean;
+  showFooter?: boolean;
+}
 const Footer = dynamic(() => import('./Footer'));
 
-interface PageProps extends PageHeaderProps {
-  children: ReactNode;
-  showFooter?: boolean;
-  heading?: string;
-  description?: string;
-}
-
-const Page = ({
+export default function Page({
   children,
   showFooter = true,
-  heading,
-  description,
-  headerFontSize,
-}: PageProps) => {
+  showHeader = true,
+}: PageProps) {
   return (
     <>
-      <Header />
       <div className="container">
+        {showHeader && <Header />}
+
         <Box
           maxWidth="container"
           style={{
             margin: '0 auto',
           }}
         >
-          <PageHeader
-            heading={heading}
-            description={description}
-            headerFontSize={headerFontSize}
-          />
           {children}
           <Toaster />
         </Box>
@@ -43,5 +34,4 @@ const Page = ({
       {showFooter && <Footer />}
     </>
   );
-};
-export default Page;
+}

@@ -10,14 +10,7 @@ test.describe('about', () => {
   });
 
   test('should render correctly', async () => {
-    await expect(page.locator('h1').first()).toHaveText('About');
-
-    await expect(
-      page.locator(
-        "text=Hey I'm Luke, a Software Engineer currently based in the UK.",
-      ),
-    ).toBeVisible();
-
-    await expect(page.locator('text=Skills')).toBeVisible();
+    await expect(page.locator("[data-testid='AboutPage-intro']")).toBeVisible();
+    await expect(page.locator('text=Experience')).toBeVisible();
   });
 });

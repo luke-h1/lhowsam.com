@@ -1,14 +1,13 @@
 import {
-  slate,
-  slateDark,
-  blue,
   blackA,
   whiteA,
-  greenP3,
-  greenDarkP3,
-  grayDark,
   gray,
+  grayDark,
+  blue,
   blueDark,
+  lime,
+  slateDark,
+  slate,
 } from '@radix-ui/colors';
 import {
   createGlobalThemeContract,
@@ -16,74 +15,70 @@ import {
 } from '@vanilla-extract/css';
 
 const color = createGlobalThemeContract({
-  color: 'color',
   page: 'color-page',
-  pageFaint: 'color-page-faint',
   foreground: 'color-foreground',
   foregroundNeutral: 'color-foreground-neutral',
-  foregroundHighContrast: 'color-foreground-high-contrast',
+  foregroundInverted: 'color-foreground-inverted',
   foregroundAction: 'color-foreground-action',
   surface: 'color-surface',
-  surfaceFaint: 'color-surface-faint',
-  surfaceStrong: 'color-surface-strong',
-  border: 'color-border',
-  borderNeutral: 'color-border-neutral',
-  overlay: 'color-overlay',
-  highlight: 'color-highlight',
-  outline: 'color-outline',
-  surfaceHover: 'color-surface-hover',
   surfaceNeutral: 'color-surface-neutral',
+  surfaceInverted: 'color-surface-inverted',
+  surfaceHighContrast: 'color-surface-high-contrast',
+  border: 'color-border',
   borderFaint: 'color-border-faint',
   underline: 'color-underline',
-
+  outline: 'color-outline',
+  overlay: 'color-overlay',
+  scrim: 'color-scrim',
+  highlight: 'color-highlight',
+  borderNeutral: 'color-border-neutral',
+  surfaceHover: 'color-surface-hover',
   spotifyBgColor: 'color-spotify-bg-color',
   spotifyLink: 'color-spotify-link-color',
 });
 
 createGlobalTheme(':root.light', color, {
-  color: '#000',
-  page: slate.slate1,
-  pageFaint: slate.slate3,
-  foreground: slate.slate12,
-  foregroundNeutral: slate.slate11,
+  page: gray.gray2,
+  foreground: gray.gray12,
+  foregroundNeutral: gray.gray11,
+  foregroundInverted: gray.gray1,
   foregroundAction: blue.blue11,
-  foregroundHighContrast: slate.slate1,
-  surface: slate.slate2,
-  surfaceFaint: slate.slate4,
-  surfaceStrong: slate.slate12,
-  border: slate.slate8,
-  overlay: whiteA.whiteA11,
-  borderNeutral: slate.slate4,
-  highlight: greenP3.green10,
-  outline: blue.blue8,
-  surfaceHover: gray.gray4,
+  surface: gray.gray3,
   surfaceNeutral: gray.gray6,
+  surfaceInverted: gray.gray12,
+  surfaceHighContrast: gray.gray12,
+  border: gray.gray7,
   borderFaint: gray.gray4,
   underline: gray.gray7,
+  outline: blue.blue11,
+  overlay: whiteA.whiteA11,
+  scrim: '0, 0%, 97.3%',
+  highlight: '#bef34d',
+  borderNeutral: slate.slate4,
+  surfaceHover: gray.gray4,
   spotifyBgColor: '#D1D5DB',
   spotifyLink: '#1F2937',
 });
 
 createGlobalTheme(':root.dark', color, {
-  color: '#fff',
-  page: slateDark.slate1,
-  pageFaint: slateDark.slate3,
-  foreground: slateDark.slate12,
-  foregroundNeutral: slateDark.slate11,
+  page: grayDark.gray1,
+  foreground: grayDark.gray12,
+  foregroundNeutral: grayDark.gray11,
+  foregroundInverted: grayDark.gray1,
   foregroundAction: blueDark.blue11,
-  foregroundHighContrast: slateDark.slate1,
-  surface: slateDark.slate2,
-  surfaceFaint: slateDark.slate4,
-  surfaceStrong: slateDark.slate12,
-  border: slateDark.slate8,
-  borderNeutral: slateDark.slate4,
-  highlight: greenDarkP3.green10,
-  overlay: blackA.blackA11,
-  outline: blue.blue8,
-  surfaceHover: grayDark.gray4,
+  surface: grayDark.gray3,
   surfaceNeutral: grayDark.gray7,
+  surfaceInverted: grayDark.gray12,
+  surfaceHighContrast: lime.lime9,
+  border: grayDark.gray7,
   borderFaint: grayDark.gray4,
   underline: grayDark.gray8,
+  outline: blueDark.blue11,
+  overlay: blackA.blackA11,
+  scrim: '0, 0%, 8.5%',
+  highlight: lime.lime9,
+  borderNeutral: slateDark.slate4,
+  surfaceHover: grayDark.gray4,
   spotifyBgColor: '#6B7280',
   spotifyLink: '#E5E7EB',
 });
@@ -91,61 +86,47 @@ createGlobalTheme(':root.dark', color, {
 const globals = createGlobalTheme(':root', {
   font: {
     sans: "'Inter', -apple-system, BlinkMacSystemFont, 'San Francisco', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
+    serif: 'serif',
     mono: "'JetBrainsMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace",
   },
-  fontFamily: {
-    sans: "'Inter var', sans-serif",
-    mono: "'JetBrains Mono NL', monospace",
-  },
   fontSize: {
-    xs: '0.875rem',
-    sm: '1rem',
-    md: '1.125rem',
-    lg: '1.25rem',
-    xl: '1.375rem',
-    xxl: '1.625rem',
-    xxxl: '1.875rem',
-    xxxxl: '2.25rem',
+    xs: '.75rem', // 12px
+    sm: '0.875rem', // 14px
+    md: '1rem', // 16px
+    lg: '1.125rem', // 18px
+    xl: '1.25rem', // 20px
+    xxl: '1.5rem', // 24px
+    xxxl: '1.75rem', // 28px
+    xxxxl: '2rem', // 32px
   },
   fontWeight: {
     normal: '400',
     semiBold: '500',
-    bold: '700',
+    bold: '575',
   },
   spacing: {
     none: '0',
-    auto: 'auto',
-    xs: '0.25rem',
-    sm: '0.5rem',
-    md: '1rem',
-    lg: '2rem',
-    xl: '3rem',
-    xxl: '4rem',
+    xxs: '0.25rem', // 4px
+    xs: '0.5rem', // 8px
+    sm: '.75rem', // 12px
+    md: '1rem', // 16px
+    lg: '1.5rem', // 24px
+    xl: '2rem', // 32px
+    xxl: '3rem', // 48px
     xxxl: '4rem', // 64px
     xxxxl: '6rem', // 96px
-    xxxxxl: '8rem', // 128px
-    xxxxxxl: '12rem', // 192px
   },
-  radius: {
-    sm: '2px',
+  radii: {
+    none: '0',
     md: '4px',
-    lg: '8px',
+    lg: '6px',
     full: '9999px',
-  },
-  letterSpacing: {
-    tight: '-.02em',
-    wide: '.02em',
   },
   maxWidth: {
     sm: '32rem',
     md: '48rem',
-    lg: '64rem',
-    text: '68ch',
-  },
-  aspectRatio: {
-    '1/1': '1/1',
-    '16/9': '16/9',
-    '4/3': '4/3',
+    lg: '68rem',
+    text: '40ch',
   },
   borderWidth: {
     0: '0',
@@ -154,26 +135,12 @@ const globals = createGlobalTheme(':root', {
     4: '4px',
     8: '8px',
   },
-  lineHeight: {
-    none: '1',
-    tight: '1.25',
-    snug: '1.375',
-    normal: '1.5',
-    relaxed: '1.625',
-    loose: '2',
-    3: '.75rem',
-    4: '1rem',
-    5: '1.25rem',
-    6: '1.5rem',
-    7: '1.75rem',
-    8: '2rem',
-    9: '2.25rem',
-    10: '2.5rem',
-  },
   contentWidth: {
-    text: '60ch',
-    // container: '50rem',
-    container: '80ch',
+    prose: '60ch',
+    text: '40ch',
+    container: '100ch',
+    content: '140ch',
+    header: '125ch',
   },
 });
 

@@ -1,37 +1,45 @@
 import render from '@frontend/test/render';
 import { screen } from '@testing-library/react';
-import omit from 'lodash/omit';
+import React from 'react';
 import { project } from '../__tests__/__mocks__/project';
 import ProjectItem from '.';
 
-describe('ProjectItem', () => {
-  test('renders ProjectItem', () => {
+describe('ProjectItem Component', () => {
+  test('renders the project item correctly', () => {
     render(<ProjectItem project={project} />);
 
-    const image = screen.getByRole('img');
-    expect(image).toBeInTheDocument();
+    expect(screen.getByTestId('project-link')).toHaveAttribute(
+      'href',
+      '/projects/lhowsam.com',
+    );
+    expect(screen.getByRole('img')).toHaveAttribute('alt', 'alt');
+    expect(screen.getByTestId('project-title')).toHaveTextContent('My website');
+    expect(screen.getByText('project intro')).toBeInTheDocument();
+  });
 
-    const heading = screen.getByRole('heading', {
-      name: 'My website',
-    });
-    expect(heading).toBeInTheDocument();
-
-    const intro = screen.getByTestId('project-intro');
-    expect(intro).toHaveTextContent('project intro');
+  test('renders the GitHub link correctly', () => {
+    render(<ProjectItem project={project} />);
 
     const githubLink = screen.getByTestId('project-github');
+    expect(githubLink).toBeInTheDocument();
     expect(githubLink).toHaveAttribute(
       'href',
       'https://github.com/luke-h1/lhowsam.com',
     );
+  });
+
+  test('renders the site link correctly', () => {
+    render(<ProjectItem project={project} />);
 
     const siteLink = screen.getByTestId('project-siteUrl');
+    expect(siteLink).toBeInTheDocument();
     expect(siteLink).toHaveAttribute('href', 'https://lhowsam.com');
   });
-  test("doesn't render site link if not provided", async () => {
-    render(<ProjectItem project={omit(project, 'siteUrl')} />);
 
-    const siteLink = screen.queryByTestId('project-siteUrl');
-    expect(siteLink).not.toBeInTheDocument();
+  test('does not render the site link if siteUrl is not provided', () => {
+    const projectWithoutSiteUrl = { ...project, siteUrl: undefined };
+    render(<ProjectItem project={projectWithoutSiteUrl} />);
+
+    expect(screen.queryByTestId('project-siteUrl')).not.toBeInTheDocument();
   });
 });

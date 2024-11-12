@@ -1,91 +1,31 @@
-import { Sprinkles, sprinkles } from '@frontend/styles/sprinkles.css';
-import { PolymorphicComponentProps } from '@frontend/types/style';
-import clsx from 'clsx';
-import { ElementType, ReactNode, createElement } from 'react';
+import { CSSProperties, ReactNode } from 'react';
 import * as styles from './List.css';
 
-type ListProps<T extends ElementType> = PolymorphicComponentProps<T, Sprinkles>;
+interface Props {
+  children: ReactNode;
+  testId?: string;
+  style?: CSSProperties;
+}
 
-const List = <T extends ElementType = 'ul'>({
-  as,
-  position,
-  className,
-  padding,
-  paddingTop,
-  paddingRight,
-  paddingBottom,
-  paddingLeft,
-  paddingX,
-  paddingY,
-  marginTop,
-  marginRight,
-  marginBottom,
-  marginLeft,
-  marginX,
-  marginY,
-  display,
-  flexDirection,
-  alignItems,
-  justifyContent,
-  placeItems,
-  flexShrink,
-  flexGrow,
-  gap,
-  columnGap,
-  rowGap,
-  columns,
-  gridTemplateColumns,
-  width,
-  maxWidth,
-  height,
-  aspectRatio,
-  textAlign,
-  ...rest
-}: ListProps<T>) => {
-  const atomClasses = clsx(
-    sprinkles({
-      position,
-      padding,
-      paddingTop,
-      paddingRight,
-      paddingBottom,
-      paddingLeft,
-      paddingX,
-      paddingY,
-      marginTop,
-      marginRight,
-      marginBottom,
-      marginLeft,
-      marginX,
-      marginY,
-      display,
-      flexDirection,
-      alignItems,
-      justifyContent,
-      placeItems,
-      flexShrink,
-      flexGrow,
-      gap,
-      columnGap,
-      rowGap,
-      columns,
-      gridTemplateColumns,
-      width,
-      maxWidth,
-      height,
-      aspectRatio,
-      textAlign,
-    }),
-    className,
+export function Container({ children, style, testId }: Props) {
+  return (
+    <ul className={styles.list} data-testid={testId} style={style}>
+      {children}
+    </ul>
   );
-  const component = as || 'ul';
-  return createElement(component, { className: atomClasses, ...rest });
-};
+}
 
-const Item = ({ children }: { children: ReactNode }) => {
-  return <li className={styles.item}>{children}</li>;
-};
+interface ListItemProps {
+  id?: string;
+  hidden?: boolean;
+  style?: CSSProperties;
+  children: ReactNode;
+}
 
-List.Item = Item;
-
-export { List };
+export function Item({ children, hidden, id, style }: ListItemProps) {
+  return (
+    <li className={styles.item} id={id} hidden={hidden} style={style}>
+      {children}
+    </li>
+  );
+}

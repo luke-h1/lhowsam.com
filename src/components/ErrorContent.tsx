@@ -1,8 +1,9 @@
+import * as List from '@frontend/components/List';
+import { buttonStyles } from '@frontend/styles/button.css';
 import Box from './Box';
+import Heading from './Heading';
 import Link from './Link';
-import { List } from './List';
-import Page from './Page';
-import { Spacer } from './Spacer';
+import Spacer from './Spacer';
 
 interface Props {
   title: string;
@@ -11,48 +12,62 @@ interface Props {
 
 const ErrorContent = ({ statusCode, title }: Props) => {
   return (
-    <Page heading={title} showFooter={false}>
-      <Box as="header" textAlign={{ md: 'center' }} marginX="auto">
-        <Spacer height="xl" />
-        <Box textAlign="left">
-          <List>
-            {statusCode === '404' ? (
-              <>
-                <List.Item>
-                  If you typed the web address, check it's correct.
-                </List.Item>
-                <List.Item>
-                  If you copied and pasted the web address, check you copied the
-                  entire address.
-                </List.Item>
-                <List.Item>
-                  If the web address is correct or you clicked a link or button
-                  and ended up on this page, please raise a{' '}
-                  <Link
-                    href="https://github.com/luke-h1/lhowsam.com/issues"
-                    variant="highlight"
-                  >
-                    GitHub issue
-                  </Link>
-                </List.Item>
-              </>
-            ) : (
+    <Box
+      as="header"
+      textAlign={{ md: 'center' }}
+      display="flex"
+      flexDirection="column"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Spacer height="xl" />
+      <Box textAlign="left">
+        <Heading as="h1" fontSize="xxl">
+          {title}
+        </Heading>
+
+        <List.Container>
+          {statusCode === '404' ? (
+            <>
               <List.Item>
-                It looks like something went wrong. Please try again later. In
-                the meantime, please raise a{' '}
-                <Link href="https://github.com/luke-h1/lhowsam.com/issues">
+                If you typed the web address, check it's correct.
+              </List.Item>
+              <List.Item>
+                If you copied and pasted the web address, check you copied the
+                entire address.
+              </List.Item>
+              <List.Item>
+                If the web address is correct or you clicked a link or button
+                and ended up on this page, please raise a{' '}
+                <Link
+                  href="https://github.com/luke-h1/lhowsam.com/issues"
+                  variant="underline"
+                >
                   GitHub issue
                 </Link>
               </List.Item>
-            )}
-          </List>
-        </Box>
-        <Spacer height="xxl" />
-        <Box textAlign="left">
-          <Link href="/">Go Home</Link>
-        </Box>
+            </>
+          ) : (
+            <List.Item>
+              It looks like something went wrong. Please try again later. In the
+              meantime, please raise a{' '}
+              <Link
+                href="https://github.com/luke-h1/lhowsam.com/issues"
+                variant="underline"
+              >
+                GitHub issue
+              </Link>
+            </List.Item>
+          )}
+        </List.Container>
       </Box>
-    </Page>
+      <Spacer height="xxl" />
+      <Box textAlign="left">
+        <Link href="/" className={buttonStyles({ type: 'highContrast' })}>
+          Go Home
+        </Link>
+      </Box>
+    </Box>
   );
 };
 export default ErrorContent;

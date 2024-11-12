@@ -25,7 +25,7 @@ test.describe('footer', () => {
 
     // about
     await page.click('[data-testid="footer"] >> text="About"');
-    await expect(page.locator('h1').first()).toHaveText('About');
+    await expect(page.locator('[data-testid="AboutPage-intro"]')).toBeVisible();
     await page.goBack();
 
     // projects
