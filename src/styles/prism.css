@@ -1,26 +1,15 @@
 pre {
-  padding: 1rem 0;
-  overflow-x: auto; /* Ensure horizontal scrolling */
-  white-space: pre-wrap; /* Ensure code wraps correctly */
-  word-wrap: break-word; /* Ensure long words break correctly */
-}
-
-pre [data-line] {
-  padding: 0 1rem;
-}
-
-code {
-  overflow-x: auto; /* Ensure horizontal scrolling */
-  white-space: pre-wrap; /* Ensure code wraps correctly */
-  word-wrap: break-word; /* Ensure long words break correctly */
-}
-
-@media (max-width: 768px) {
-  pre {
-    padding: 0.5rem 0; /* Adjust padding for smaller screens */
-  }
-
-  pre [data-line] {
-    padding: 0 0.5rem; /* Adjust padding for smaller screens */
-  }
+  page-break-inside: avoid;
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1em 1.5em;
+  display: block;
+  word-wrap: break-word;
+  border-radius: 10px;
+  white-space: pre;
+  overflow-x: auto;
+  counter-reset: line;
 }
