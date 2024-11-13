@@ -27,7 +27,7 @@ const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
   {
     key: 'X-Frame-Options',
-    value: 'ALLOW-FROM https://cms.lhowsam.com/',
+    value: 'ALLOW-FROM https://dev.lhowsam.com https://lhowsam.com',
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
   {
