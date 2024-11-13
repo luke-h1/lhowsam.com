@@ -23,8 +23,8 @@ export const icon = style({
 export const select = style({
   border: '1px solid',
   borderColor: variables.color.border,
-  paddingTop: variables.spacing.xs,
-  paddingBottom: variables.spacing.xs,
+  paddingTop: '5px',
+  paddingBottom: '5px',
   paddingRight: calc.add(
     calc.multiply(variables.spacing.sm, 2),
     variables.spacing.md,
@@ -35,7 +35,7 @@ export const select = style({
   ),
   height: '2rem',
   fontSize: variables.fontSize.sm,
-  borderRadius: variables.radius.md,
+  borderRadius: variables.radii.md,
   textAlign: 'left',
   ':focus': {
     outline: 'transparent',

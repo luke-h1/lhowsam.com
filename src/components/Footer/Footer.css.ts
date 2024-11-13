@@ -1,20 +1,20 @@
-import { responsiveStyle } from '@frontend/styles/style.css';
 import { variables } from '@frontend/styles/variables.css';
-import { style } from '@vanilla-extract/css';
+import { responsiveStyle } from '@frontend/utils/style.css';
+import { globalStyle, style } from '@vanilla-extract/css';
 
 export const root = style({
   position: 'relative',
   marginTop: 'auto',
-  width: '100%',
+  // width: '100%',
   paddingTop: variables.spacing.xxl,
   paddingBottom: variables.spacing.xxl,
   paddingRight: variables.spacing.md,
   paddingLeft: variables.spacing.md,
-  backgroundColor: variables.color.pageFaint,
+  backgroundColor: variables.color.page,
 });
 
 export const container = style({
-  maxWidth: variables.maxWidth.md,
+  maxWidth: variables.contentWidth.container,
   margin: '0 auto',
   display: 'grid',
   rowGap: variables.spacing.lg,
@@ -37,6 +37,10 @@ export const links = style({
       marginTop: variables.spacing.sm,
     },
   }),
+});
+
+globalStyle(`${links} li`, {
+  color: variables.color.foregroundNeutral,
 });
 
 export const note = style({

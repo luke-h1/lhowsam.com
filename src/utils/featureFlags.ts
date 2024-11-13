@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const allowedFeatureFlags = ['talks'] as const;
+const allowedFeatureFlags = ['talks', 'newJob'] as const;
 
 export type AllowedFeatureFlag = (typeof allowedFeatureFlags)[number];
 
@@ -13,6 +13,11 @@ const featureFlags: FeatureFlag[] = [
   {
     name: 'talks',
     description: 'Whether to show the talks page and navigation item',
+    enabled: false,
+  },
+  {
+    name: 'newJob',
+    description: 'Whether to show the new job on intro and about page',
     enabled: false,
   },
 ];

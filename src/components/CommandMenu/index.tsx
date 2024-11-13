@@ -23,6 +23,7 @@ import {
   Triangle,
   BarChart,
 } from 'react-feather';
+import { AiFillProject } from 'react-icons/ai';
 import { tinykeys } from 'tinykeys';
 import './CommandMenu.css';
 import Link from '../Link';
@@ -94,12 +95,18 @@ const navigationLinks: NavigationItem[] = [
   },
   {
     id: 4,
-    href: '/projects',
-    text: 'Projects',
+    href: '/work',
+    text: 'Work',
     icon: <Code size={ICON_SIZE} />,
   },
   {
     id: 5,
+    href: '/projects',
+    text: 'Projects',
+    icon: <AiFillProject size={ICON_SIZE} />,
+  },
+  {
+    id: 6,
     href: '/talks',
     text: 'Talks',
     icon: <Triangle size={ICON_SIZE} />,

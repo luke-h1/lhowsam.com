@@ -86,7 +86,7 @@ test.describe('command menu', () => {
 
     // about
     await navigation.locator('text=About').click();
-    await expect(page.locator('h1').first()).toHaveText('About');
+    await expect(page.locator('[data-testid="AboutPage-intro"]')).toBeVisible();
     await page.goBack();
 
     await page.keyboard.press(`${key}+K`, {

@@ -1,13 +1,11 @@
 import Box from '@frontend/components/Box';
-import { Heading } from '@frontend/components/Heading';
-import { List } from '@frontend/components/List';
+import Heading from '@frontend/components/Heading';
 import Page from '@frontend/components/Page';
 import PostItem from '@frontend/components/PostItem';
-import { Spacer } from '@frontend/components/Spacer';
+import Spacer from '@frontend/components/Spacer';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
-import { Fragment } from 'react';
 
 interface Props {
   params: {
@@ -17,7 +15,7 @@ interface Props {
 
 export const revalidate = siteConfig.defaultRevalidate;
 
-const TagPage = async ({ params }: Props) => {
+export default async function TagPage({ params }: Props) {
   const { slug } = params;
 
   const posts = await postService.getAllPosts();
@@ -25,8 +23,6 @@ const TagPage = async ({ params }: Props) => {
   const matchingPosts = posts.filter(post => {
     return post.tags.some(tag => tag.slug.current === slug);
   });
-
-  const heading = `Posts tagged with '${slug}'`;
 
   const allPosts = matchingPosts.sort((a, b) => {
     if (a.publishedAt < b.publishedAt) {
@@ -53,36 +49,33 @@ const TagPage = async ({ params }: Props) => {
   });
 
   return (
-    <Page heading={heading}>
-      {Object.entries(postsByYear)
-        .reverse()
-        // eslint-disable-next-line no-shadow
-        .map(([year, posts], i) => (
-          <Fragment key={year}>
-            {i === 0 && <Spacer height="xxl" />}
-            {i > 0 && <Spacer height="xxl" />}
-            <Box as="section" marginX="auto">
-              <Heading fontSize="xl" id={year} color="border">
+    <Page>
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Heading fontSize="xxl" as="h1">
+          Posts tagged with '{slug}'
+        </Heading>
+        <Spacer height="xl" />
+      </Box>
+      <Box>
+        {Object.keys(postsByYear).map(year => {
+          return (
+            <Box key={year} marginBottom="xxxl">
+              <Heading fontSize="xl" as="h2" color="foregroundNeutral">
                 {year}
               </Heading>
-              <Spacer height="md" />
-              <Box as="section" paddingX="md">
-                <List marginX="lg" maxWidth="container">
-                  {posts &&
-                    posts.map(post => (
-                      <List.Item key={`${post._id}-${post.title}`}>
-                        <PostItem
-                          post={post}
-                          key={`${post._id}-${post.title}`}
-                        />
-                      </List.Item>
-                    ))}
-                </List>
-              </Box>
+              <Spacer height="xl" />
+              {postsByYear[year].map(post => (
+                <PostItem post={post} key={post._id} />
+              ))}
             </Box>
-          </Fragment>
-        ))}
+          );
+        })}
+      </Box>
     </Page>
   );
-};
-export default TagPage;
+}

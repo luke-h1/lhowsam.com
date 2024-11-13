@@ -1,0 +1,229 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExperienceItem should render title for { id: 1, title: 'Hive IT', jobs: [Array] } 1`] = `
+<div>
+  <script>
+    !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}if(e==='light'||e==='dark')d.style.colorScheme=e}catch(e){}}()
+  </script>
+  <div
+    class=""
+  >
+    <h2
+      class="Heading_root__xkw1cf0 Heading_tracking_h2__xkw1cf2 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foreground__1fx8prsm5"
+    >
+      Hive IT
+    </h2>
+    <ul
+      class="List_list__3nqhft0"
+      data-testid="ExperienceItem-list-HiveIT"
+    >
+      <li
+        class="List_item__3nqhft1"
+      >
+        <div
+          class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
+        >
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
+          >
+            <h3
+              class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            >
+              Software Engineer
+            </h3>
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            >
+              Sheffield, UK
+            </p>
+          </div>
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_2_md__1fx8prsk2 sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+          >
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
+              data-testid="HiveIT-SoftwareEngineer-description"
+            >
+              Worked as a full-stack software engineer at a local digital agency mainly on government and charity projects. Responsible for driving DevOps + internal process improvement, feature + maintenance tasks ,presenting technical proof of concepts to stakeholders and supporting + mentoring teammates
+            </p>
+          </div>
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_4_md__1fx8prska sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+          >
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              data-testid="HiveIT-SoftwareEngineer-date-range"
+            >
+              May 2022
+               —
+               
+              Aug 2023
+              <br />
+            </p>
+          </div>
+        </div>
+      </li>
+      <li
+        class="List_item__3nqhft1"
+      >
+        <div
+          class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
+        >
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
+          >
+            <h3
+              class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            >
+              Software Tester
+            </h3>
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            >
+              Sheffield, UK
+            </p>
+          </div>
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_2_md__1fx8prsk2 sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+          >
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
+              data-testid="HiveIT-SoftwareTester-description"
+            >
+              Worked on improving the existing testing culture within the company to reduce technical debt and improve happiness
+            </p>
+          </div>
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_4_md__1fx8prska sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+          >
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              data-testid="HiveIT-SoftwareTester-date-range"
+            >
+              May 2021
+               —
+               
+              May 2022
+              <br />
+            </p>
+          </div>
+        </div>
+      </li>
+      <li
+        class="List_item__3nqhft1"
+      >
+        <div
+          class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
+        >
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
+          >
+            <h3
+              class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            >
+              Junior Software Tester
+            </h3>
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            >
+              Sheffield, UK
+            </p>
+          </div>
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_2_md__1fx8prsk2 sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+          >
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
+              data-testid="HiveIT-JuniorSoftwareTester-description"
+            >
+              Worked as a Junior software tester to take over from the previous tester. Built up testing skills both automated and manual to aid in the maintenance of large and small projects
+            </p>
+          </div>
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_4_md__1fx8prska sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+          >
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              data-testid="HiveIT-JuniorSoftwareTester-date-range"
+            >
+              Oct 2020
+               —
+               
+              May 2021
+              <br />
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
+
+exports[`ExperienceItem should render title for { id: 2, title: 'Sky Betting & Gaming', jobs: [Array] } 1`] = `
+<div>
+  <script>
+    !function(){try{var d=document.documentElement,c=d.classList;c.remove('light','dark');var e=localStorage.getItem('theme');if('system'===e||(!e&&true)){var t='(prefers-color-scheme: dark)',m=window.matchMedia(t);if(m.media!==t||m.matches){d.style.colorScheme = 'dark';c.add('dark')}else{d.style.colorScheme = 'light';c.add('light')}}else if(e){c.add(e|| '')}if(e==='light'||e==='dark')d.style.colorScheme=e}catch(e){}}()
+  </script>
+  <div
+    class=""
+  >
+    <h2
+      class="Heading_root__xkw1cf0 Heading_tracking_h2__xkw1cf2 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foreground__1fx8prsm5"
+    >
+      Sky Betting & Gaming
+    </h2>
+    <ul
+      class="List_list__3nqhft0"
+      data-testid="ExperienceItem-list-SkyBetting&Gaming"
+    >
+      <li
+        class="List_item__3nqhft1"
+      >
+        <div
+          class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
+        >
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
+          >
+            <h3
+              class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            >
+              Software Engineer
+            </h3>
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            >
+              Leeds, UK
+            </p>
+          </div>
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_2_md__1fx8prsk2 sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+          >
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
+              data-testid="SkyBetting&Gaming-SoftwareEngineer-description"
+            >
+              Worked within the GLS (Game Launch Service) squad that provided game-launching capabilities for all gaming content across the business in addition to Reality Check (a safer gambling tool). Responsible for maintaining internal NPM packages, shared SDKs, web apps, serverless functions, driving DevOps improvements, monitoring our services (NewRelic, Grafana & Prometheus), supporting + mentoring teammates and captain duties (support queries etc.)
+            </p>
+          </div>
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_4_md__1fx8prska sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+          >
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              data-testid="SkyBetting&Gaming-SoftwareEngineer-date-range"
+            >
+              Aug 2023
+               —
+               
+              Nov 2024
+              <br />
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;

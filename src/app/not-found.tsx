@@ -1,4 +1,5 @@
 import ErrorContent from '@frontend/components/ErrorContent';
+import Page from '@frontend/components/Page';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,7 +7,10 @@ export const metadata: Metadata = {
   description: '404 page not found',
 };
 
-const ErrorPage = () => {
-  return <ErrorContent title="404 page not found" statusCode="404" />;
-};
-export default ErrorPage;
+export default function ErrorPage() {
+  return (
+    <Page showHeader={false} showFooter={false}>
+      <ErrorContent statusCode="404" title="404 page not found" />
+    </Page>
+  );
+}

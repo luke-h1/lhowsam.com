@@ -7,6 +7,10 @@ const domElementWarning = /Warning: React does not*/;
 const forwardRefWarning = /Warning: Function components*/;
 const trueForNonBoolProp = /Warning: React does not recognize the*/;
 const trueForNonBoolProp2 = /Warning: Received*/;
+const radixUiDialog =
+  /`DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users./;
+const radixUiDialogWarn =
+  /Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}./;
 
 beforeAll(() => {
   console.error = (...args) => {
@@ -14,7 +18,9 @@ beforeAll(() => {
       domElementWarning.test(args[0]) ||
       forwardRefWarning.test(args[0]) ||
       trueForNonBoolProp.test(args[0]) ||
-      trueForNonBoolProp2.test(args[0])
+      trueForNonBoolProp2.test(args[0]) ||
+      radixUiDialog.test(args[0]) ||
+      radixUiDialogWarn.test(args[0])
     ) {
       return;
     }

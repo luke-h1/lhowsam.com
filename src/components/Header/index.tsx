@@ -1,9 +1,14 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import * as Dialog from '@frontend/components/Dialog';
+import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
 import { usePathname } from 'next/navigation';
+import { Fragment, useState } from 'react';
+import { Menu, X } from 'react-feather';
 import CommandMenu from '../CommandMenu';
 import Link from '../Link';
+import Spacer from '../Spacer';
+import Text from '../Text';
 import * as styles from './Header.css';
 
 interface HeaderLink {
@@ -30,58 +35,101 @@ const headerLinks: HeaderLink[] = [
   },
   {
     id: 4,
+    text: 'Work',
+    href: '/work',
+  },
+  {
+    id: 5,
     text: 'Projects',
     href: '/projects',
   },
 ];
 
-const Header = () => {
+export default function Header() {
+  const [panelOpen, setPanelOpen] = useState(false);
   const pathname = usePathname();
 
   return (
-    <header className={styles.root}>
-      <nav className={styles.nav}>
-        <div className={styles.group} data-testid="header-links">
-          {headerLinks &&
-            headerLinks.map(link => (
-              <Link
-                href={link.href}
-                className={styles.anchor}
-                key={link.id}
-                id={`nav-${link.id}`}
-                aria-current={pathname === link.href ? 'page' : undefined}
-              >
-                {pathname === link.href && (
-                  <motion.span
-                    layoutId="highlight"
-                    className={styles.highlight}
-                  />
-                )}
-                {link.text}
-              </Link>
-            ))}
-        </div>
-        <div className={styles.group}>
-          {/* <Link
-            href="https://www.linkedin.com/in/lukehowsam"
-            className={styles.anchor}
+    <header className={styles.header}>
+      <div className={styles.logoContainer}>
+        <Text fontWeight="bold">
+          <Link href="/">Luke Howsam</Link>
+        </Text>
+        <Text color="foregroundNeutral">Software Engineer</Text>
+      </div>
+
+      {/* Desktop Navigation */}
+      <nav className={styles.navbarDesktop}>
+        {headerLinks.map(link => (
+          <Text
+            color="foregroundNeutral"
+            key={link.href}
+            className={pathname === link.href ? styles.activeLink : ''}
           >
-            <VisuallyHidden>LinkedIn</VisuallyHidden>
-            <Linkedin width=".95em" />
-          </Link>
-          <Link href="https://github.com/luke-h1" className={styles.anchor}>
-            <VisuallyHidden>GitHub</VisuallyHidden>
-            <GitHub width=".95em" />
-          </Link>
-          <Link href="https://x.com/LukeH_1999" className={styles.anchor}>
-            <VisuallyHidden>Twitter</VisuallyHidden>
-            <Twitter width=".95em" />
-          </Link>
-           */}
-          <CommandMenu />
-        </div>
+            <Link
+              href={link.href}
+              aria-current={pathname === link.href ? 'page' : undefined}
+            >
+              {link.text}
+            </Link>
+          </Text>
+        ))}
       </nav>
+
+      <div className={styles.connectDesktop}>
+        <CommandMenu />
+      </div>
+
+      {/* Mobile Navigation */}
+      <Dialog.Root open={panelOpen} onOpenChange={setPanelOpen}>
+        <Dialog.Trigger asChild>
+          <button className={styles.toggle} type="button">
+            <VisuallyHidden.Root>Open menu</VisuallyHidden.Root>
+            <Menu />
+          </button>
+        </Dialog.Trigger>
+        <Dialog.Portal>
+          <Dialog.Overlay className={styles.panelOverlay} />
+          <Dialog.Content
+            className={styles.panelContent}
+            aria-describedby={undefined}
+          >
+            <VisuallyHidden.Root>
+              <Dialog.Title>Navigation</Dialog.Title>
+            </VisuallyHidden.Root>
+
+            <Text fontWeight="bold">Navigation</Text>
+            <nav>
+              {headerLinks.map(link => (
+                <Fragment key={link.href}>
+                  <Spacer height="xs" />
+                  <Text
+                    color="foregroundNeutral"
+                    className={pathname === link.href ? styles.activeLink : ''}
+                  >
+                    <Link
+                      href={link.href}
+                      aria-current={pathname === link.href ? 'page' : undefined}
+                    >
+                      {link.text}
+                    </Link>
+                  </Text>
+                </Fragment>
+              ))}
+              <CommandMenu />
+            </nav>
+
+            <Spacer height="xl" />
+
+            <Dialog.Close asChild>
+              <button className={styles.panelClose} type="button">
+                <VisuallyHidden.Root>Close menu</VisuallyHidden.Root>
+                <X />
+              </button>
+            </Dialog.Close>
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
     </header>
   );
-};
-export default Header;
+}

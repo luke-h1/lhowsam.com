@@ -1,93 +1,83 @@
-// import { variables } from '@frontend/styles/variables.css';
-// import { Job } from '@frontend/types/experience';
-// import { formatTags } from '@frontend/utils/formatTags';
-// import * as Grid from '../Grid/Grid';
-// import { Heading } from '../Heading/Heading';
-// import Link from '../Link/Link';
-// import { List } from '../List/List';
-// import { Spacer } from '../Spacer/Spacer';
-// import { Text } from '../Text/Text';
-// import VisuallyHidden from '../VisuallyHidden/VisuallyHidden';
+import * as Grid from '@frontend/components/Grid';
+import * as List from '@frontend/components/List';
+import { Company } from '@frontend/config/jobs';
+import { variables } from '@frontend/styles/variables.css';
+import { parseDate } from '@frontend/utils/date';
+import toCamelCase from '@frontend/utils/toCamelCase';
+import { format } from 'date-fns';
+import Box from '../Box';
+import Heading from '../Heading';
+import Text from '../Text';
 
-// interface Props {
-//   jobs: Job[];
-// }
+interface Props {
+  company: Company;
+}
 
-// const ExperienceItem = ({ jobs }: Props) => {
-//   const orderedJobs = jobs.sort((a, b) => {
-//     const aStartDate = new Date(
-//       a.startDate.split('-').reverse().join('-'),
-//     ).getTime();
-//     const bStartDate = new Date(
-//       b.startDate.split('-').reverse().join('-'),
-//     ).getTime();
-//     return bStartDate - aStartDate;
-//   });
-
-//   return (
-//     <>
-//       <Grid.Container rowGap="md" alignItems="center">
-//         <Grid.Column
-//           colStart={{ xs: '1', md: '2' }}
-//           colEnd={{ xs: '-1', md: '4' }}
-//         >
-//           <Heading fontSize="lg">Experience &not;</Heading>
-//         </Grid.Column>
-//       </Grid.Container>
-//       <Spacer height="xl" />
-//       <List>
-//         {orderedJobs &&
-//           orderedJobs.map(job => (
-//             <List.Item key={job.id}>
-//               <Grid.Container rowGap="md" alignItems="center">
-//                 <Grid.Column
-//                   colStart={{ xs: '1' }}
-//                   colEnd={{ xs: '-1', md: '1' }}
-//                 >
-//                   <Heading>{job.company}</Heading>
-//                   <Heading as="h3">{job.title}</Heading>
-//                   <Grid.Column
-//                     colStart={{ xs: '1', md: '4' }}
-//                     colEnd={{ xs: '-1', md: '4' }}
-//                   >
-//                     {' '}
-//                     <Text color="foregroundNeutral" fontSize="sm">
-//                       <VisuallyHidden>Duration</VisuallyHidden>
-//                       {job.startDate} &mdash;
-//                       {job.endDate ? job.endDate : 'Present'}
-//                     </Text>
-//                   </Grid.Column>
-//                 </Grid.Column>
-//                 <Grid.Column
-//                   colStart={{ xs: '1', md: '2' }}
-//                   colEnd={{ xs: '-1', md: '4' }}
-//                 >
-//                   <Text style={{ marginTop: variables.spacing.lg }}>
-//                     {job.description}
-//                     {job.slug && (
-//                       <>
-//                         {' '}
-//                         <Link href={`/experience/${job.slug}`}>Read more</Link>
-//                       </>
-//                     )}
-//                   </Text>
-//                   {job.tags ? (
-//                     <>
-//                       <Spacer height="sm" />
-//                       <Text fontSize="sm" color="foregroundNeutral">
-//                         <VisuallyHidden>Tools used:</VisuallyHidden>
-//                         {formatTags(job.tags)}
-//                       </Text>
-//                     </>
-//                   ) : null}
-//                 </Grid.Column>
-//               </Grid.Container>
-//             </List.Item>
-//           ))}
-//         <Spacer height="xxl" />
-//       </List>
-//     </>
-//   );
-// };
-
-// export default ExperienceItem;
+export default function ExperienceItem({ company }: Props) {
+  return (
+    <Box
+      key={company.title}
+      style={{
+        borderBottom: `1px solid ${variables.color.border}`,
+        marginBottom: variables.spacing.lg,
+      }}
+    >
+      <Heading fontSize="md" style={{ marginBottom: variables.spacing.sm }}>
+        {company.title}
+      </Heading>
+      <List.Container
+        testId={`ExperienceItem-list-${toCamelCase(company.title)}`}
+      >
+        {company.jobs
+          .sort(
+            (a, b) =>
+              parseDate(b.startDate).getTime() -
+              parseDate(a.startDate).getTime(),
+          )
+          .map(job => (
+            <List.Item key={job.id}>
+              <Grid.Container rowGap="md" alignItems="baseline">
+                <Grid.Column
+                  colStart={{ xs: '1' }}
+                  colEnd={{ xs: '-1', md: '1' }}
+                >
+                  <Heading as="h3" color="foregroundNeutral">
+                    {job.title}
+                  </Heading>
+                  <Text color="foregroundNeutral" fontSize="sm">
+                    {job.location}
+                  </Text>
+                </Grid.Column>
+                <Grid.Column
+                  colStart={{ xs: '1', md: '2' }}
+                  colEnd={{ xs: '-1', md: '4' }}
+                >
+                  <Text
+                    testId={`${toCamelCase(company.title)}-${toCamelCase(job.title)}-description`}
+                  >
+                    {job.description || 'No description yet'}
+                  </Text>
+                </Grid.Column>
+                <Grid.Column
+                  colStart={{ xs: '1', md: '4' }}
+                  colEnd={{ xs: '-1', md: '4' }}
+                >
+                  <Text
+                    color="foregroundNeutral"
+                    fontSize="sm"
+                    testId={`${toCamelCase(company.title)}-${toCamelCase(job.title)}-date-range`}
+                  >
+                    {format(parseDate(job.startDate), 'MMM yyyy')} &mdash;{' '}
+                    {job.endDate
+                      ? format(parseDate(job.endDate), 'MMM yyyy')
+                      : 'Now'}
+                    <br />
+                  </Text>
+                </Grid.Column>
+              </Grid.Container>
+            </List.Item>
+          ))}
+      </List.Container>
+    </Box>
+  );
+}

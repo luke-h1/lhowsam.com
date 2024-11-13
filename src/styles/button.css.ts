@@ -1,24 +1,6 @@
 import { gray } from '@radix-ui/colors';
-import { style } from '@vanilla-extract/css';
 import { recipe, type RecipeVariants } from '@vanilla-extract/recipes';
 import { variables } from './variables.css';
-
-export const buttonStyling = style({
-  padding: `${variables.spacing.sm} ${variables.spacing.md}`,
-  backgroundColor: variables.color.surfaceStrong,
-  color: variables.color.foregroundHighContrast,
-  borderRadius: variables.radius.md,
-  border: '1px solid transparent',
-  ':focus': {
-    outline: 'transparent',
-  },
-  ':focus-visible': {
-    outlineWidth: '2px',
-    outlineStyle: 'solid',
-    outlineOffset: '2px',
-    outlineColor: variables.color.outline,
-  },
-});
 
 export const buttonStyles = recipe({
   base: {
@@ -34,7 +16,7 @@ export const buttonStyles = recipe({
     fontWeight: variables.fontWeight.semiBold,
     border: '1px solid',
     borderColor: 'transparent',
-    borderRadius: variables.radius.lg,
+    borderRadius: variables.radii.lg,
     cursor: 'pointer',
   },
   variants: {
@@ -56,7 +38,7 @@ export const buttonStyles = recipe({
           inset: -1,
           borderRadius: 'inherit',
           padding: 1,
-          backgroundImage: `linear-gradient(to bottom right, rgba(255, 255, 255, .2), ${variables.color.borderFaint}, rgba(255, 255, 255, .1))`,
+          backgroundImage: `linear-gradient(to bottom right, rgba(255, 255, 255, .2), ${variables.color.borderFaint}, rba(255, 255, 255, .1))`,
           mask: 'linear-gradient(#000, #000) content-box, linear-gradient(#000, #000)',
           maskComposite: 'exclude',
           pointerEvents: 'none',
@@ -76,5 +58,4 @@ export const buttonStyles = recipe({
     type: 'highContrast',
   },
 });
-
 export type ButtonVariants = RecipeVariants<typeof buttonStyles>;

@@ -65,3 +65,19 @@ export interface Talk {
   location: string;
   image?: Image;
 }
+
+export interface Work {
+  _rev: string;
+  _createdAt: string;
+  _id: string;
+  _type: 'work';
+  _key?: string;
+  _updatedAt: string;
+  title: string;
+  slug: Slug;
+  intro: string;
+  image: Image;
+  content: string;
+  companySite: string;
+  publishedAt: string;
+}

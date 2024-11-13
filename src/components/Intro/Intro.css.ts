@@ -1,40 +1,48 @@
-import { variables } from '@frontend/styles/variables.css';
-import { responsiveStyle } from '@frontend/utils/style.css';
-import { globalStyle, style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css';
 
-export const page = style({
+export const header = style({
   display: 'flex',
   flexDirection: 'column',
-  rowGap: '1.5rem',
-  maxWidth: '75ch',
-  ...responsiveStyle({
-    sm: {
-      marginBottom: variables.spacing.xl,
+  alignItems: 'left',
+  padding: '2rem',
+  gap: '2rem',
+  '@media': {
+    'screen and (min-width: 768px)': {
+      flexDirection: 'row',
+      alignItems: 'flex-start',
     },
-  }),
+  },
 });
 
-globalStyle(`${page} & p`, {
-  fontSize: '1.1rem',
-  lineHeight: 1.4,
-  fontWeight: 500,
-  letterSpacing: '0.01em',
-  textWrap: 'pretty',
+export const imageContainer = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  textAlign: 'left',
+
+  '@media': {
+    'screen and (min-width: 768px)': {
+      justifyContent: 'flex-start',
+      textAlign: 'left',
+    },
+  },
 });
 
-export const title = style({
-  fontWeight: 400,
-  fontSize: variables.fontSize.xxxxl,
-  lineHeight: 1.1,
-  letterSpacing: '-0.0125em',
+export const image = style({
+  filter: 'grayscale(1)',
+  opacity: 0.45,
+  borderRadius: '8px',
 });
 
-globalStyle(`${title} & strong`, {
-  fontWeight: 700,
-});
-
-globalStyle(`${title} & a`, {
-  textDecoration: 'underline',
-  textUnderlineOffset: '0.125em',
-  textDecorationThickness: '0.075em',
+export const textContainer = style({
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  textAlign: 'left',
+  '@media': {
+    'screen and (min-width: 768px)': {
+      alignItems: 'flex-start',
+      textAlign: 'left',
+    },
+  },
 });
