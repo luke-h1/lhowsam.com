@@ -33,7 +33,18 @@ export default async function HomePage() {
     <Page>
       <Intro />
       <Spacer height="xxxl" />
+      <Box as="section">
+        <Heading as="h3" fontSize="xl">
+          Recent Posts
+        </Heading>
+        <Text fontSize="md" color="foregroundNeutral">
+          Recent blog posts I've written
+        </Text>
 
+        {posts &&
+          posts.map(post => <PostItem post={post} key={`${post._id}`} />)}
+      </Box>
+      <Spacer height="xxxl" />
       <Heading as="h3" fontSize="xl">
         Work Projects
       </Heading>
@@ -49,18 +60,6 @@ export default async function HomePage() {
               </List.Item>
             ))}
         </List.Container>
-      </Box>
-      <Spacer height="xxxl" />
-      <Box as="section">
-        <Heading as="h3" fontSize="xl">
-          Recent Posts
-        </Heading>
-        <Text fontSize="md" color="foregroundNeutral">
-          Recent blog posts I've written
-        </Text>
-
-        {posts &&
-          posts.map(post => <PostItem post={post} key={`${post._id}`} />)}
       </Box>
     </Page>
   );
