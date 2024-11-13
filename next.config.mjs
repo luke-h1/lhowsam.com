@@ -11,6 +11,7 @@ const contentSecurityPolicy = `
  media-src 'none';
  connect-src * cloudflareinsights.com;
  font-src 'self' fonts.gstatic.com https://maxcdn.bootstrapcdn.com/font-awesome/latest/fonts/fontawesome-webfont.woff2?;
+ frame-src https://dev.lhowsam.com https://lhowsam.com;
 `;
 
 const securityHeaders = [
@@ -27,7 +28,7 @@ const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
   {
     key: 'X-Frame-Options',
-    value: 'ALLOW-FROM https://cms.lhowsam.com/',
+    value: 'ALLOW-FROM https://dev.lhowsam.com https://lhowsam.com',
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
   {
