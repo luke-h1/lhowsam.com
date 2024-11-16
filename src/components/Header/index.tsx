@@ -51,12 +51,12 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      <div className={styles.logoContainer}>
-        <Text fontWeight="bold">
-          <Link href="/">Luke Howsam</Link>
-        </Text>
-        <Text color="foregroundNeutral">Software Engineer</Text>
-      </div>
+      <Link href="/">
+        <div className={styles.logoContainer}>
+          <Text fontWeight="bold">Luke Howsam</Text>
+          <Text color="foregroundNeutral">Software Engineer</Text>
+        </div>
+      </Link>
 
       {/* Desktop Navigation */}
       <nav className={styles.navbarDesktop}>
