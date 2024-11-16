@@ -84,6 +84,7 @@ globalStyle('.container', {
   paddingInline: variables.spacing.lg,
   maxInlineSize: variables.contentWidth.header,
   marginInline: 'auto',
+  maxWidth: variables.contentWidth.header,
 });
 
 globalStyle('.wrapper', {
