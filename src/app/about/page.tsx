@@ -75,7 +75,6 @@ export default async function AboutPage() {
           <Link
             href="/static/cv.pdf"
             className={buttonStyles({ type: 'highContrast' })}
-            prefetch
           >
             Read CV
           </Link>
