@@ -18,6 +18,8 @@ export default function Intro() {
           width="200"
           height="200"
           alt="Headshot"
+          priority
+          quality={80}
           className={styles.image}
           style={{
             maxWidth: '100%',
