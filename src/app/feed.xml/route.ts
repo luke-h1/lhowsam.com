@@ -10,13 +10,13 @@ export async function GET() {
     feed_url: `${process.env.NEXT_PUBLIC_URL}/feed.xml`,
   });
 
-  // const posts = await postService.getAllPosts();
-
   const [posts, projects, works] = await Promise.all([
     postService.getAllPosts(),
     projectService.getAllProjects(),
     workService.getWorks(),
   ]);
+
+  const publishedTags = posts.flatMap(post => post.tags);
 
   posts?.map(post => {
     return feed.item({
@@ -27,7 +27,7 @@ export async function GET() {
     });
   });
 
-  projects.map(project => {
+  projects?.map(project => {
     return feed.item({
       title: project.title,
       url: `${process.env.NEXT_PUBLIC_URL}/projects/${project.slug.current}`,
@@ -36,12 +36,22 @@ export async function GET() {
     });
   });
 
-  works.map(work => {
+  works?.map(work => {
     return feed.item({
       title: work.title,
       url: `${process.env.NEXT_PUBLIC_URL}/work/${work.slug.current}`,
       date: work.publishedAt,
       description: work.intro,
+    });
+  });
+
+  publishedTags?.map(tag => {
+    return feed.item({
+      title: tag.title,
+      date: new Date(),
+      url: `${process.env.NEXT_PUBLIC_URL}/blog/tags/${tag.slug.current}`,
+      description: '',
+      categories: [tag.title],
     });
   });
 
