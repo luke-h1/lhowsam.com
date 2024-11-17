@@ -6,12 +6,14 @@ import Page from '@frontend/components/Page';
 import PostItem from '@frontend/components/PostItem';
 import Spacer from '@frontend/components/Spacer';
 import Text from '@frontend/components/Text';
-import WorkItem from '@frontend/components/WorkItem';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import workService from '@frontend/services/workService';
 import { nrLogger } from '@frontend/utils/nrLogger';
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
+
+const WorkItem = dynamic(() => import('@frontend/components/WorkItem'));
 
 export const revalidate = siteConfig.defaultRevalidate;
 

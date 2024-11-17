@@ -5,8 +5,8 @@ import SkipLink from '@frontend/components/SkipLink';
 import siteConfig from '@frontend/config/site';
 import getPolicies from '@frontend/utils/getPolicies';
 // import newrelic from 'newrelic';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { Metadata } from 'next';
-import Script from 'next/script';
 import { ReactNode } from 'react';
 import '@frontend/styles/prism.css';
 
@@ -72,6 +72,7 @@ const RootLayout = async ({ children }: Props) => {
   //   hasToRemoveScriptWrapper: true,
   //   allowTransactionlessInjection: true,
   // });
+
   return (
     <html lang="en">
       <head>
@@ -96,23 +97,7 @@ const RootLayout = async ({ children }: Props) => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         {process.env.NEXT_PUBLIC_URL === 'https://lhowsam.com' && (
-          <>
-            {/* <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_TRACKING_ID} /> */}
-            <Script
-              async
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
-            />
-
-            <Script id="google-analytics">
-              {`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}');
-      `}
-            </Script>
-          </>
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_TRACKING_ID} />
         )}
         {/* <Script
           id="nr-browser-agent"
