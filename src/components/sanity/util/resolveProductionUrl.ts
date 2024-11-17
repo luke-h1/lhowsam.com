@@ -1,7 +1,7 @@
 // resolveProductionUrl.ts
 import type { SanityDocument, Slug } from 'sanity';
 
-const previewSecret = process.env.SANITY_DRAFT_SECRET;
+const previewSecret = process.env.SANITY_STUDIO_DRAFT_SECRET;
 const remoteUrl = process.env.NEXT_PUBLIC_URL;
 
 const localUrl = `http://localhost:3000`;
