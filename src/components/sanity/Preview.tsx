@@ -40,7 +40,7 @@ export function PreviewIFrame(props: {
     getUrl();
   }, [displayed]);
 
-  if (displayUrl === '')
+  if (displayUrl === '') {
     return (
       <ThemeProvider>
         <Flex padding={5} align="center" justify="center">
@@ -48,6 +48,7 @@ export function PreviewIFrame(props: {
         </Flex>
       </ThemeProvider>
     );
+  }
 
   return (
     <ThemeProvider>
