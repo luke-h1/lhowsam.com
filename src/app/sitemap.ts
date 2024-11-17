@@ -12,7 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const tags = posts.flatMap(post => post.tags);
 
-  const [blogPages, projectPages, workPages] = await Promise.all([
+  const [blogPages, projectPages, workPages, tagPages] = await Promise.all([
     posts.map(post => ({
       url: `${process.env.NEXT_PUBLIC_URL}/blog/${post.slug.current}`,
       lastModified: post.publishedAt,
@@ -33,5 +33,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: new Date().toISOString().split('T')[0],
   }));
 
-  return [...routes, ...blogPages, ...projectPages, ...workPages];
+  return [...routes, ...blogPages, ...projectPages, ...workPages, ...tagPages];
 }
