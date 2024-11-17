@@ -47,6 +47,7 @@ export default function Intro() {
             href="/static/cv.pdf"
             className={buttonStyles({ type: 'highContrast' })}
             testId="read-cv"
+            prefetch
           >
             Read CV
           </Link>
@@ -55,6 +56,7 @@ export default function Intro() {
             scroll
             className={buttonStyles({ type: 'outlined' })}
             testId="view-experience"
+            prefetch
           >
             View experience
           </Link>

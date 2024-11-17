@@ -10,7 +10,7 @@ const contentSecurityPolicy = `
  img-src * blob: data: https://*.googletagmanager.com;
  media-src 'none';
  connect-src * cloudflareinsights.com;
- font-src 'self' fonts.gstatic.com https://maxcdn.bootstrapcdn.com/font-awesome/latest/fonts/fontawesome-webfont.woff2?;
+ font-src 'self' fonts.gstatic.com https://maxcdn.bootstrapcdn.com/font-awesome/latest/fonts/fontawesome-webfont.woff2;
  frame-src https://dev.lhowsam.com https://lhowsam.com;
 `;
 
@@ -26,10 +26,6 @@ const securityHeaders = [
     value: 'origin-when-cross-origin',
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
-  {
-    key: 'X-Frame-Options',
-    value: 'ALLOW-FROM https://dev.lhowsam.com https://lhowsam.com',
-  },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
   {
     key: 'X-Content-Type-Options',
@@ -68,6 +64,7 @@ const nextConfig = {
     // Force SWC transform on build to stop Next.js trying to use babel
     // since babel is only needed to support vanilla-extract in unit tests
     forceSwcTransforms: true,
+
     serverComponentsExternalPackages: ['shiki'],
 
     // // monitoring
@@ -79,7 +76,6 @@ const nextConfig = {
   },
   images: {
     minimumCacheTTL: 120,
-    unoptimized: false,
     remotePatterns: [
       { hostname: 'cdn.sanity.io' },
       { hostname: 'localhost' },
