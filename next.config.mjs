@@ -1,11 +1,6 @@
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
-import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
 
 const withVanillaExtract = createVanillaExtractPlugin();
-
-if (process.env.NODE_ENV === 'development') {
-  await setupDevPlatform();
-}
 
 const contentSecurityPolicy = `
  default-src 'self';
