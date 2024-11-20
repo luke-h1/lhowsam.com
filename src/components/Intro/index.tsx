@@ -1,5 +1,4 @@
 import { buttonStyles } from '@frontend/styles/button.css';
-import featureFlags from '@frontend/utils/featureFlags';
 import Image from 'next/image';
 import ButtonGroup from '../ButtonGroup';
 import Link from '../Link';
@@ -8,8 +7,6 @@ import Text from '../Text';
 import * as styles from './Intro.css';
 
 export default function Intro() {
-  const newJobEnabled = featureFlags.find(f => f.name === 'newJob')?.enabled;
-
   return (
     <header className={styles.header}>
       <div className={styles.imageContainer}>
@@ -36,8 +33,6 @@ export default function Intro() {
         >
           Software Engineer interested in DevOps, React, Python, TypeScript and
           AWS.{' '}
-          {newJobEnabled &&
-            'Currently working at Ostrom, helping build and maintain a better way of managing energy in Germany'}
         </Text>
 
         <Spacer height="xl" />

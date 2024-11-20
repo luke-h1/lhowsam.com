@@ -15,10 +15,5 @@ const featureFlags: FeatureFlag[] = [
     description: 'Whether to show the talks page and navigation item',
     enabled: false,
   },
-  {
-    name: 'newJob',
-    description: 'Whether to show the new job on intro and about page',
-    enabled: false,
-  },
 ];
 export default featureFlags;
