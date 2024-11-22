@@ -7,9 +7,6 @@ runs:
         shell: bash
         run: ./scripts/ensure-rebased.sh
 
-      - name: install
-        uses: ./.github/actions/install
-
       - name: format:check
         run: pnpm format:check
         shell: bash

@@ -1,6 +1,5 @@
 name: Install
 description: Install dependencies and setup environment
-
 runs:
   using: composite
   steps:
