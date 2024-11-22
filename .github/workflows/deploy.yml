@@ -62,18 +62,6 @@ jobs:
       - name: Build
         run: pnpm run pages:build
 
-      - name: Publish to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          secrets: |
-            BASIC_AUTH_USER
-            BASIC_AUTH_PASSWORD
-            NEXT_PUBLIC_URL
-            NEXT_PUBLIC_SANITY_PROJECT_ID
-          command: |
-            pages deploy .vercel/output/static --project-name=lhowsam.com --branch=feat/cf-deploy --config wrangler.toml --name lhowsam --env staging
-
       - name: Build
         run: |
           response=$(curl -s -o /dev/null -w "%{http_code}" -X GET "https://api.cloudflare.com/client/v4/accounts/${{ secrets.CLOUDFLARE_ACCOUNT_ID }}/pages/projects/favicon" \
@@ -101,12 +89,13 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy --branch feat/cf-deploy
+          command: pages deploy .vercel/output/static --project-name=lhowsam.com --branch=feat/cf-deploy --config wrangler.toml --name lhowsam --env staging
         env:
           NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_URL }}
           NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
           BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
           BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
+# pages deploy .vercel/output/static --project-name=lhowsam.com --branch=feat/cf-deploy --config wrangler.toml --name lhowsam --env staging
 
   deploy-live:
     runs-on: ubuntu-latest

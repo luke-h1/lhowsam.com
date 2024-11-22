@@ -1,19 +1,5 @@
-name = "lhowsam-production"
-workers_dev = false
-compatibility_date = "2024-09-23"
+#:schema node_modules/wrangler/config-schema.json
+name = "lhowsam.com"
+compatibility_date = "2023-05-18"
 compatibility_flags = ["nodejs_compat"]
-
-routes = [
-	{ pattern = "prod.lhowsam.com", custom_domain = true }
-]
-
-
-[env.staging]
-name = "lhowsam-staging"
-workers_dev = false
-compatibility_date = "2024-09-23"
-compatibility_flags = ["nodejs_compat"]
-
-routes = [
-	{ pattern = "staging.lhowsam.com", custom_domain = true }
-]
+pages_build_output_dir = ".vercel/output/static"
