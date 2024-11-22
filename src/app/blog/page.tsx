@@ -9,6 +9,8 @@ import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 import { Metadata } from 'next';
 
+export const runtime = 'edge';
+
 export const revalidate = siteConfig.defaultRevalidate;
 
 export const metadata: Metadata = {

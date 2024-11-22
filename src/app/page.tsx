@@ -21,6 +21,8 @@ export const metadata: Metadata = {
   title: 'Home | lhowsam.com',
 };
 
+export const runtime = 'edge';
+
 export default async function HomePage() {
   const [posts, works] = await Promise.all([
     postService.getRecentPosts(),

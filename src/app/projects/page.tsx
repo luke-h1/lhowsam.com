@@ -8,6 +8,8 @@ import siteConfig from '@frontend/config/site';
 import projectService from '@frontend/services/projectService';
 import { Metadata } from 'next';
 
+export const runtime = 'edge';
+
 export const revalidate = siteConfig.defaultRevalidate;
 
 export const metadata: Metadata = {

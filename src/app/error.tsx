@@ -3,6 +3,8 @@
 import ErrorContent from '@frontend/components/ErrorContent';
 import { Metadata } from 'next';
 
+export const runtime = 'edge';
+
 export const metadata: Metadata = {
   title: '500 internal server error',
   description: '500 internal server error',

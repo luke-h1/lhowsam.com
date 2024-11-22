@@ -10,6 +10,8 @@ import { Metadata } from 'next';
 import { ReactNode } from 'react';
 import '@frontend/styles/prism.css';
 
+export const runtime = 'edge';
+
 interface Props {
   children: Readonly<ReactNode>;
 }

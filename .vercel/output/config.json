@@ -1,0 +1,455 @@
+{
+  "version": 3,
+  "routes": [
+    {
+      "src": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$",
+      "headers": {
+        "Location": "/$1"
+      },
+      "status": 308,
+      "continue": true
+    },
+    {
+      "src": "/_next/__private/trace",
+      "dest": "/404",
+      "status": 404,
+      "continue": true
+    },
+    {
+      "src": "^(?:/(.*))(?:/)?$",
+      "headers": {
+        "Content-Security-Policy": " default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com static.cloudflareinsights.com eu-assets.i.posthog.com js-agent.newrelic.com; child-src *.youtube.com *.google.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com; style-src 'self' 'unsafe-inline' *.googleapis.com app-static.eu.posthog.com https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css; img-src * blob: data: https://*.googletagmanager.com; media-src 'none'; connect-src * cloudflareinsights.com; font-src 'self' fonts.gstatic.com https://maxcdn.bootstrapcdn.com/font-awesome/latest/fonts/fontawesome-webfont.woff2; frame-src https://dev.lhowsam.com https://lhowsam.com;",
+        "Referrer-Policy": "origin-when-cross-origin",
+        "X-Content-Type-Options": "nosniff",
+        "X-DNS-Prefetch-Control": "on",
+        "Strict-Transport-Security": "max-age=31536000; includeSubDomains; preload",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=()"
+      },
+      "continue": true
+    },
+    {
+      "src": "^/public(?:/(.*))(?:/)?$",
+      "headers": {
+        "Cache-Control": "public, max-age=3600, immutable"
+      },
+      "continue": true
+    },
+    {
+      "src": "/404/?",
+      "status": 404,
+      "continue": true,
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-prerender-revalidate"
+        }
+      ]
+    },
+    {
+      "src": "/500",
+      "status": 500,
+      "continue": true
+    },
+    {
+      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/(.*).json",
+      "dest": "/$1",
+      "override": true,
+      "continue": true,
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ]
+    },
+    {
+      "src": "^/index(?:/)?",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "dest": "/",
+      "override": true,
+      "continue": true
+    },
+    {
+      "src": "^(?!/_next)/blog/deploying-a-full-stack-app-via-dokku(?:/)?$",
+      "headers": {
+        "Location": "/blog/full-stack-deploy-with-dokku"
+      },
+      "status": 308
+    },
+    {
+      "src": "^(?!/_next)/blog/nextjs-ssr-notes(?:/)?$",
+      "headers": {
+        "Location": "/blog/next-js-ssr-notes"
+      },
+      "status": 308
+    },
+    {
+      "src": "^(?!/_next)/cv(?:/)?$",
+      "headers": {
+        "Location": "/static/cv.pdf"
+      },
+      "status": 308
+    },
+    {
+      "src": "^(?!/_next)/branches(?:/)?$",
+      "headers": {
+        "Location": "https://branches.lhowsam.com"
+      },
+      "status": 308
+    },
+    {
+      "src": "^(?!/_next)/status(?:/)?$",
+      "headers": {
+        "Location": "https://status.lhowsam.com"
+      },
+      "status": 308
+    },
+    {
+      "continue": true,
+      "src": "^(?:\\/(_next\\/data\\/[^/]{1,}))?(?:\\/((?!api|_next\\/static|_next\\/image|favicon.ico).*))(.json)?[\\/#\\?]?$",
+      "missing": [
+        {
+          "type": "header",
+          "key": "x-prerender-revalidate",
+          "value": "e9475fafe77e9d8937acacb7f2c60012"
+        }
+      ],
+      "middlewarePath": "src/middleware",
+      "middlewareRawSrc": [
+        "/((?!api|_next/static|_next/image|favicon.ico).*)"
+      ],
+      "override": true
+    },
+    {
+      "src": "^/$",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "dest": "/_next/data/4LN0lRsFaK9OsHGnE4mB6/index.json",
+      "continue": true,
+      "override": true
+    },
+    {
+      "src": "^/((?!_next/)(?:.*[^/]|.*))/?$",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "dest": "/_next/data/4LN0lRsFaK9OsHGnE4mB6/$1.json",
+      "continue": true,
+      "override": true
+    },
+    {
+      "src": "^/?",
+      "has": [
+        {
+          "type": "header",
+          "key": "rsc"
+        }
+      ],
+      "dest": "/index.rsc",
+      "headers": {
+        "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch"
+      },
+      "continue": true,
+      "override": true
+    },
+    {
+      "src": "^/((?!.+\\.rsc).+?)(?:/)?$",
+      "has": [
+        {
+          "type": "header",
+          "key": "rsc"
+        }
+      ],
+      "dest": "/$1.rsc",
+      "headers": {
+        "vary": "RSC, Next-Router-State-Tree, Next-Router-Prefetch"
+      },
+      "continue": true,
+      "override": true
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/(.*).json",
+      "dest": "/$1",
+      "continue": true,
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ]
+    },
+    {
+      "src": "^/index(?:/)?",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "dest": "/",
+      "continue": true
+    },
+    {
+      "src": "/index(\\.action|\\.rsc)",
+      "dest": "/",
+      "continue": true
+    },
+    {
+      "src": "/\\.prefetch\\.rsc$",
+      "dest": "/__index.prefetch.rsc",
+      "check": true
+    },
+    {
+      "src": "/(.+)/\\.prefetch\\.rsc$",
+      "dest": "/$1.prefetch.rsc",
+      "check": true
+    },
+    {
+      "src": "/\\.rsc$",
+      "dest": "/index.rsc",
+      "check": true
+    },
+    {
+      "src": "/(.+)/\\.rsc$",
+      "dest": "/$1.rsc",
+      "check": true
+    },
+    {
+      "handle": "resource"
+    },
+    {
+      "src": "/.*",
+      "status": 404
+    },
+    {
+      "handle": "miss"
+    },
+    {
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media)/.+",
+      "status": 404,
+      "check": true,
+      "dest": "$0"
+    },
+    {
+      "handle": "rewrite"
+    },
+    {
+      "src": "^/$",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "dest": "/_next/data/4LN0lRsFaK9OsHGnE4mB6/index.json",
+      "continue": true
+    },
+    {
+      "src": "^/((?!_next/)(?:.*[^/]|.*))/?$",
+      "has": [
+        {
+          "type": "header",
+          "key": "x-nextjs-data"
+        }
+      ],
+      "dest": "/_next/data/4LN0lRsFaK9OsHGnE4mB6/$1.json",
+      "continue": true
+    },
+    {
+      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/blog/tags/(?<nxtPslug>[^/]+?)(?:/)?.json$",
+      "dest": "/blog/tags/[slug]?nxtPslug=$nxtPslug"
+    },
+    {
+      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/blog/(?<nxtPslug>[^/]+?)(?:/)?.json$",
+      "dest": "/blog/[slug]?nxtPslug=$nxtPslug"
+    },
+    {
+      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/projects/(?<nxtPslug>[^/]+?)(?:/)?.json$",
+      "dest": "/projects/[slug]?nxtPslug=$nxtPslug"
+    },
+    {
+      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/studio(?:/(?<nxtPindex>.+?))?(?:/)?.json$",
+      "dest": "/studio/[[...index]]?nxtPindex=$nxtPindex"
+    },
+    {
+      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/work/(?<nxtPslug>[^/]+?)(?:/)?.json$",
+      "dest": "/work/[slug]?nxtPslug=$nxtPslug"
+    },
+    {
+      "src": "^/blog/tags/(?<nxtPslug>[^/]+?)(?:\\.rsc)(?:/)?$",
+      "dest": "/blog/tags/[slug].rsc?nxtPslug=$nxtPslug"
+    },
+    {
+      "src": "^/blog/tags/(?<nxtPslug>[^/]+?)(?:/)?$",
+      "dest": "/blog/tags/[slug]?nxtPslug=$nxtPslug"
+    },
+    {
+      "src": "^/blog/(?<nxtPslug>[^/]+?)(?:\\.rsc)(?:/)?$",
+      "dest": "/blog/[slug].rsc?nxtPslug=$nxtPslug"
+    },
+    {
+      "src": "^/blog/(?<nxtPslug>[^/]+?)(?:/)?$",
+      "dest": "/blog/[slug]?nxtPslug=$nxtPslug"
+    },
+    {
+      "src": "^/projects/(?<nxtPslug>[^/]+?)(?:\\.rsc)(?:/)?$",
+      "dest": "/projects/[slug].rsc?nxtPslug=$nxtPslug"
+    },
+    {
+      "src": "^/projects/(?<nxtPslug>[^/]+?)(?:/)?$",
+      "dest": "/projects/[slug]?nxtPslug=$nxtPslug"
+    },
+    {
+      "src": "^/studio(?:/(?<nxtPindex>.+?))?(?:\\.rsc)(?:/)?$",
+      "dest": "/studio/[[...index]].rsc?nxtPindex=$nxtPindex"
+    },
+    {
+      "src": "^/studio(?:/(?<nxtPindex>.+?))?(?:/)?$",
+      "dest": "/studio/[[...index]]?nxtPindex=$nxtPindex"
+    },
+    {
+      "src": "^/work/(?<nxtPslug>[^/]+?)(?:\\.rsc)(?:/)?$",
+      "dest": "/work/[slug].rsc?nxtPslug=$nxtPslug"
+    },
+    {
+      "src": "^/work/(?<nxtPslug>[^/]+?)(?:/)?$",
+      "dest": "/work/[slug]?nxtPslug=$nxtPslug"
+    },
+    {
+      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/(.*).json",
+      "headers": {
+        "x-nextjs-matched-path": "/$1"
+      },
+      "continue": true,
+      "override": true
+    },
+    {
+      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/(.*).json",
+      "dest": "__next_data_catchall"
+    },
+    {
+      "handle": "hit"
+    },
+    {
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|4LN0lRsFaK9OsHGnE4mB6)/.+",
+      "headers": {
+        "cache-control": "public,max-age=31536000,immutable"
+      },
+      "continue": true,
+      "important": true
+    },
+    {
+      "src": "/index(?:/)?",
+      "headers": {
+        "x-matched-path": "/"
+      },
+      "continue": true,
+      "important": true
+    },
+    {
+      "src": "/((?!index$).*?)(?:/)?",
+      "headers": {
+        "x-matched-path": "/$1"
+      },
+      "continue": true,
+      "important": true
+    },
+    {
+      "handle": "error"
+    },
+    {
+      "src": "/.*",
+      "dest": "/_not-found",
+      "status": 404
+    },
+    {
+      "src": "/.*",
+      "dest": "/500",
+      "status": 500
+    }
+  ],
+  "images": {
+    "domains": [],
+    "sizes": [
+      640,
+      750,
+      828,
+      1080,
+      1200,
+      1920,
+      2048,
+      3840,
+      16,
+      32,
+      48,
+      64,
+      96,
+      128,
+      256,
+      384
+    ],
+    "remotePatterns": [
+      {
+        "hostname": "^(?:^(?:cdn\\.sanity\\.io)$)$",
+        "pathname": "^(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)\\/?)$"
+      },
+      {
+        "hostname": "^(?:^(?:localhost)$)$",
+        "pathname": "^(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)\\/?)$"
+      },
+      {
+        "hostname": "^(?:^(?:i\\.scdn\\.co)$)$",
+        "pathname": "^(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$))(?:(?:(?!(?:^|\\/)\\.{1,2}(?:\\/|$)).)*?)\\/?)$"
+      }
+    ],
+    "minimumCacheTTL": 120,
+    "formats": [
+      "image/avif",
+      "image/webp"
+    ],
+    "dangerouslyAllowSVG": false,
+    "contentSecurityPolicy": "script-src 'none'; frame-src 'none'; sandbox;",
+    "contentDispositionType": "inline"
+  },
+  "overrides": {
+    "500.html": {
+      "path": "500",
+      "contentType": "text/html; charset=utf-8"
+    },
+    "_app.rsc.json": {
+      "path": "_app.rsc",
+      "contentType": "application/json"
+    },
+    "_error.rsc.json": {
+      "path": "_error.rsc",
+      "contentType": "application/json"
+    },
+    "_document.rsc.json": {
+      "path": "_document.rsc",
+      "contentType": "application/json"
+    },
+    "__next_data_catchall.json": {
+      "path": "__next_data_catchall",
+      "contentType": "application/json"
+    }
+  },
+  "framework": {
+    "version": "14.2.18"
+  },
+  "crons": []
+}

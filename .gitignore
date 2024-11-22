@@ -13,7 +13,6 @@ yarn-debug.log*
 yarn-error.log*
 junit.xml
 tsconfig.tsbuildinfo
-.vercel
 sitemap.xml
 robots.txt
 analyze/

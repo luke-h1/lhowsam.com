@@ -9,6 +9,8 @@ import workService from '@frontend/services/workService';
 
 import { Metadata } from 'next';
 
+export const runtime = 'edge';
+
 export const metadata: Metadata = {
   title: 'Work',
 };

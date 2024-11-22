@@ -17,6 +17,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { FiGithub } from 'react-icons/fi';
 
+export const runtime = 'edge';
+
 interface Props {
   params: {
     slug: string;

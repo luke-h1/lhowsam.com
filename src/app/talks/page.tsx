@@ -7,6 +7,8 @@ import Text from '@frontend/components/Text';
 import talkService from '@frontend/services/talkService';
 import { Metadata } from 'next';
 
+export const runtime = 'edge';
+
 export const metadata: Metadata = {
   title: 'Talks',
 };
