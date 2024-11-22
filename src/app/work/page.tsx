@@ -6,6 +6,7 @@ import Spacer from '@frontend/components/Spacer';
 import Text from '@frontend/components/Text';
 import WorkItem from '@frontend/components/WorkItem';
 import workService from '@frontend/services/workService';
+import newrelic from 'newrelic';
 
 import { Metadata } from 'next';
 
@@ -15,6 +16,11 @@ export const metadata: Metadata = {
 
 export default async function WorkPage() {
   const works = await workService.getWorks();
+  newrelic.recordLogEvent({
+    message: 'WorkPageLoaded',
+    level: 'INFO',
+  });
+
   return (
     <Page>
       <Box as="section">
