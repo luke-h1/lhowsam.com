@@ -2,6 +2,9 @@ import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
 
 const withVanillaExtract = createVanillaExtractPlugin();
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const nrExternals = require('@newrelic/load-externals');
+
 const contentSecurityPolicy = `
  default-src 'self';
  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com static.cloudflareinsights.com eu-assets.i.posthog.com js-agent.newrelic.com;
@@ -60,7 +63,6 @@ const nextConfig = {
   experimental: {
     webVitalsAttribution: ['CLS', 'LCP'],
     optimizePackageImports: ['framer-motion'],
-
     // Force SWC transform on build to stop Next.js trying to use babel
     // since babel is only needed to support vanilla-extract in unit tests
     forceSwcTransforms: true,
@@ -131,6 +133,7 @@ const nextConfig = {
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   webpack: (config, { dev, isServer, ...options }) => {
+    nrExternals(config);
     if (process.env.ANALYZE) {
       // eslint-disable-next-line @typescript-eslint/no-require-imports, global-require
       const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
