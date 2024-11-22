@@ -1,3 +1,6 @@
-import { registerOTel } from '@vercel/otel';
-
-registerOTel({ serviceName: process.env.NEW_RELIC_APP_NAME });
+export async function register() {
+  if (process.env.NEXT_RUNTIME === 'nodejs') {
+    // eslint-disable-next-line global-require, @typescript-eslint/no-require-imports, import/extensions
+    require('./new-relic-instrumentation.js');
+  }
+}
