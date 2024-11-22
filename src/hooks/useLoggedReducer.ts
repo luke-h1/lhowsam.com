@@ -1,4 +1,4 @@
-import logger from '@frontend/utils/logger';
+import { logger } from '@frontend/utils/logger';
 import { produce, Immutable } from 'immer';
 import {
   Dispatch,
@@ -21,7 +21,7 @@ export default function useLoggedReducer<S, A>(
 ): [S, Dispatch<A>] {
   const cachedReducer = useCallback(
     (state: S, action: A) => {
-      logger.debugGroup(`${name} reducer:`);
+      logger.debug(`${name} reducer:`);
       logger.debug(
         '%cPrevious State:',
         'color: #9E9E9E; font-weight: 700;',
@@ -37,8 +37,6 @@ export default function useLoggedReducer<S, A>(
         'color: #47B04B; font-weight: 700;',
         nextState,
       );
-
-      logger.debugGroupEnd();
 
       return nextState;
     },
