@@ -9,7 +9,6 @@ routes = [
 
 
 [env.staging]
-
 name = "lhowsam-staging"
 workers_dev = false
 compatibility_date = "2024-09-23"
