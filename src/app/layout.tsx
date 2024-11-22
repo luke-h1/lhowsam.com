@@ -4,11 +4,8 @@ import Providers from '@frontend/components/Providers';
 import SkipLink from '@frontend/components/SkipLink';
 import siteConfig from '@frontend/config/site';
 import getPolicies from '@frontend/utils/getPolicies';
-// import newrelic from 'newrelic';
 import { GoogleAnalytics } from '@next/third-parties/google';
-import newrelic from 'newrelic';
 import { Metadata } from 'next';
-import Script from 'next/script';
 import { ReactNode } from 'react';
 import '@frontend/styles/prism.css';
 
@@ -63,28 +60,8 @@ export const metadata: Metadata = {
 };
 
 const RootLayout = async ({ children }: Props) => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  if (newrelic.agent.collector.isConnected() === false) {
-    await new Promise(resolve => {
-      // @ts-expect-error - trying to import newrelic.js file
-      newrelic.agent.on('connected', resolve);
-    });
-  }
-
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const browserTimingHeader = newrelic.getBrowserTimingHeader({
-    hasToRemoveScriptWrapper: true,
-    allowTransactionlessInjection: true,
-  });
-
   return (
     <html lang="en">
-      <Script
-        id="nr-browser-agent"
-        dangerouslySetInnerHTML={{ __html: browserTimingHeader }}
-      />
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link href="/icons/favicon-16x16.png" rel="icon" />

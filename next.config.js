@@ -1,9 +1,9 @@
-import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
+/* eslint-disable @typescript-eslint/no-require-imports */
+// eslint-disable-next-line import/no-unresolved
+
+const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 
 const withVanillaExtract = createVanillaExtractPlugin();
-
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const nrExternals = require('@newrelic/load-externals');
 
 const contentSecurityPolicy = `
  default-src 'self';
@@ -133,7 +133,6 @@ const nextConfig = {
   },
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   webpack: (config, { dev, isServer, ...options }) => {
-    nrExternals(config);
     if (process.env.ANALYZE) {
       // eslint-disable-next-line @typescript-eslint/no-require-imports, global-require
       const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
@@ -155,4 +154,4 @@ const nextConfig = {
     return config;
   },
 };
-export default withVanillaExtract(nextConfig);
+module.exports = withVanillaExtract(nextConfig);
