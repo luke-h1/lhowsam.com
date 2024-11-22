@@ -16,7 +16,7 @@
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "gen-env": "gen-env-types .env -o src/types/env.d.ts -e .",
     "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx .",
-    "pages:build": "pnpm next-on-pages",
+    "pages:build": "pnpx @cloudflare/next-on-pages",
     "prepare": "husky",
     "preview": "pnpm run pages:build && wrangler pages dev",
     "start": "next start -p 3000",
