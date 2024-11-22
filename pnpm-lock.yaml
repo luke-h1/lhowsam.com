@@ -23,6 +23,9 @@ importers:
       '@mdx-js/mdx':
         specifier: ^3.1.0
         version: 3.1.0(acorn@8.14.0)
+      '@newrelic/next':
+        specifier: ^0.10.0
+        version: 0.10.0(newrelic@12.8.0)
       '@next/eslint-plugin-next':
         specifier: ^14.2.18
         version: 14.2.18
@@ -3676,6 +3679,12 @@ packages:
   '@newrelic/native-metrics@11.0.0':
     resolution: {integrity: sha512-+j6mzlQ7BG8+diL8VaayewSQRo9/wXhB9yWTlvwuGOdJK5v0K4HEoQJ4Vc993kMjbHzJIRWuD04dwQcMklT0eQ==}
     engines: {node: '>=18', npm: '>=6'}
+
+  '@newrelic/next@0.10.0':
+    resolution: {integrity: sha512-66PcrzRDwGGLOrxEokbssoJ6x+HPeBYFoEUmXNISnVt6s+Ot1SvThd3B4WUvD98ZCJoPlncogoMviacoikZPwA==}
+    engines: {node: '>=16.0.0'}
+    peerDependencies:
+      newrelic: '>=11.12.0'
 
   '@newrelic/security-agent@2.1.1':
     resolution: {integrity: sha512-dcDmxLMyvwjImTd83X2ePCImOm5qPYkorMhZr1UytK0uPZqJGJXv8SzWYoDRSQM6nzhJ4p1/acj0STgaQQOGvg==}
@@ -17220,6 +17229,11 @@ snapshots:
       node-gyp-build: 4.8.2
       prebuildify: 6.0.1
     optional: true
+
+  '@newrelic/next@0.10.0(newrelic@12.8.0)':
+    dependencies:
+      newrelic: 12.8.0
+      semver: 7.6.3
 
   '@newrelic/security-agent@2.1.1':
     dependencies:
