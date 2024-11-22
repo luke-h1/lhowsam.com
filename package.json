@@ -126,7 +126,8 @@
     "unist-util-visit": "^5.0.0",
     "use-immer": "^0.10.0",
     "use-roving-index": "^2.0.0",
-    "webpack-bundle-analyzer": "^4.10.1"
+    "webpack-bundle-analyzer": "^4.10.1",
+    "wrangler": "3.81.0"
   },
   "devDependencies": {
     "@cloudflare/next-on-pages": "^1.13.5",
