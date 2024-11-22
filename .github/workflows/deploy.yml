@@ -59,6 +59,9 @@ jobs:
       #     vercel-project-id: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
       #     environment: dev
 
+      - name: Build
+        run: pnpm run pages:build
+
       - name: Publish to Cloudflare Pages
         uses: cloudflare/wrangler-action@v3
         with:
@@ -70,6 +73,7 @@ jobs:
             NEXT_PUBLIC_SANITY_PROJECT_ID=${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
           command: |
             pages deploy .vercel/output/static --project-name=lhowsam.com --branch=feat/cf-deploy --config wrangler-staging.toml
+
         env:
           # NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
           # NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}

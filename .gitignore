@@ -32,6 +32,10 @@ test-results
 newrelic_agent.log
 .terraform
 
+.vercel/*
+!.vercel/project.json/
+
+.wrangler
 
 # open-next
 .open-next

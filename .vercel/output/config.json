@@ -51,7 +51,7 @@
       "continue": true
     },
     {
-      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/(.*).json",
+      "src": "^/_next/data/ij\\-0bAXCufHaPA8MLhukD/(.*).json",
       "dest": "/$1",
       "override": true,
       "continue": true,
@@ -116,7 +116,7 @@
         {
           "type": "header",
           "key": "x-prerender-revalidate",
-          "value": "e9475fafe77e9d8937acacb7f2c60012"
+          "value": "97e8ab97ad6ef8e99477bb43808368a6"
         }
       ],
       "middlewarePath": "src/middleware",
@@ -133,7 +133,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/_next/data/4LN0lRsFaK9OsHGnE4mB6/index.json",
+      "dest": "/_next/data/ij-0bAXCufHaPA8MLhukD/index.json",
       "continue": true,
       "override": true
     },
@@ -145,7 +145,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/_next/data/4LN0lRsFaK9OsHGnE4mB6/$1.json",
+      "dest": "/_next/data/ij-0bAXCufHaPA8MLhukD/$1.json",
       "continue": true,
       "override": true
     },
@@ -183,7 +183,7 @@
       "handle": "filesystem"
     },
     {
-      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/(.*).json",
+      "src": "^/_next/data/ij\\-0bAXCufHaPA8MLhukD/(.*).json",
       "dest": "/$1",
       "continue": true,
       "has": [
@@ -256,7 +256,7 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/_next/data/4LN0lRsFaK9OsHGnE4mB6/index.json",
+      "dest": "/_next/data/ij-0bAXCufHaPA8MLhukD/index.json",
       "continue": true
     },
     {
@@ -267,27 +267,27 @@
           "key": "x-nextjs-data"
         }
       ],
-      "dest": "/_next/data/4LN0lRsFaK9OsHGnE4mB6/$1.json",
+      "dest": "/_next/data/ij-0bAXCufHaPA8MLhukD/$1.json",
       "continue": true
     },
     {
-      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/blog/tags/(?<nxtPslug>[^/]+?)(?:/)?.json$",
+      "src": "^/_next/data/ij\\-0bAXCufHaPA8MLhukD/blog/tags/(?<nxtPslug>[^/]+?)(?:/)?.json$",
       "dest": "/blog/tags/[slug]?nxtPslug=$nxtPslug"
     },
     {
-      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/blog/(?<nxtPslug>[^/]+?)(?:/)?.json$",
+      "src": "^/_next/data/ij\\-0bAXCufHaPA8MLhukD/blog/(?<nxtPslug>[^/]+?)(?:/)?.json$",
       "dest": "/blog/[slug]?nxtPslug=$nxtPslug"
     },
     {
-      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/projects/(?<nxtPslug>[^/]+?)(?:/)?.json$",
+      "src": "^/_next/data/ij\\-0bAXCufHaPA8MLhukD/projects/(?<nxtPslug>[^/]+?)(?:/)?.json$",
       "dest": "/projects/[slug]?nxtPslug=$nxtPslug"
     },
     {
-      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/studio(?:/(?<nxtPindex>.+?))?(?:/)?.json$",
+      "src": "^/_next/data/ij\\-0bAXCufHaPA8MLhukD/studio(?:/(?<nxtPindex>.+?))?(?:/)?.json$",
       "dest": "/studio/[[...index]]?nxtPindex=$nxtPindex"
     },
     {
-      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/work/(?<nxtPslug>[^/]+?)(?:/)?.json$",
+      "src": "^/_next/data/ij\\-0bAXCufHaPA8MLhukD/work/(?<nxtPslug>[^/]+?)(?:/)?.json$",
       "dest": "/work/[slug]?nxtPslug=$nxtPslug"
     },
     {
@@ -331,7 +331,7 @@
       "dest": "/work/[slug]?nxtPslug=$nxtPslug"
     },
     {
-      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/(.*).json",
+      "src": "^/_next/data/ij\\-0bAXCufHaPA8MLhukD/(.*).json",
       "headers": {
         "x-nextjs-matched-path": "/$1"
       },
@@ -339,14 +339,14 @@
       "override": true
     },
     {
-      "src": "^/_next/data/4LN0lRsFaK9OsHGnE4mB6/(.*).json",
+      "src": "^/_next/data/ij\\-0bAXCufHaPA8MLhukD/(.*).json",
       "dest": "__next_data_catchall"
     },
     {
       "handle": "hit"
     },
     {
-      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|4LN0lRsFaK9OsHGnE4mB6)/.+",
+      "src": "/_next/static/(?:[^/]+/pages|pages|chunks|runtime|css|image|media|ij\\-0bAXCufHaPA8MLhukD)/.+",
       "headers": {
         "cache-control": "public,max-age=31536000,immutable"
       },
