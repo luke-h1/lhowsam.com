@@ -27,7 +27,10 @@ export default async function HomePage() {
     workService.getWorks(),
   ]);
 
-  logger.log('homePage', 'loaded');
+  logger.log('info', 'HomePageLoaded', {
+    posts: posts.length,
+    works: works.length,
+  });
 
   return (
     <Page>
