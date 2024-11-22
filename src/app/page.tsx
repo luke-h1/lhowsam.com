@@ -9,8 +9,6 @@ import Text from '@frontend/components/Text';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import workService from '@frontend/services/workService';
-import { logger } from '@frontend/utils/logger';
-import pinoLogger from '@frontend/utils/pino';
 import newrelic from 'newrelic';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
@@ -29,12 +27,6 @@ export default async function HomePage() {
     workService.getWorks(),
   ]);
 
-  logger.log('info', 'HomePageLoaded', {
-    posts: posts.length,
-    works: works.length,
-  });
-
-  pinoLogger.info({ loaded: true }, 'HomePageLoaded');
   newrelic.recordLogEvent({
     message: 'HomePageLoaded',
     level: 'INFO',
