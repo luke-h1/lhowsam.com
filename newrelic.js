@@ -31,7 +31,6 @@ exports.config = {
       enabled: true,
     },
   },
-
   logging: {
     /**
      * Level at which to log. 'trace' is most useful to New Relic when diagnosing
