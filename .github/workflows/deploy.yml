@@ -108,7 +108,6 @@ jobs:
           BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
           BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
 
-
   deploy-live:
     runs-on: ubuntu-latest
     name: Deploy to live
