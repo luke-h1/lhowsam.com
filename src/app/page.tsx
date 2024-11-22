@@ -9,7 +9,7 @@ import Text from '@frontend/components/Text';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import workService from '@frontend/services/workService';
-import { nrLogger } from '@frontend/utils/nrLogger';
+import { logger } from '@frontend/utils/logger';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 
@@ -27,9 +27,7 @@ export default async function HomePage() {
     workService.getWorks(),
   ]);
 
-  nrLogger.log({
-    homePage: 'loaded',
-  });
+  logger.log('homePage', 'loaded');
 
   return (
     <Page>

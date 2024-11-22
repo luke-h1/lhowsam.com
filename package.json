@@ -15,7 +15,7 @@
     "gen-env": "gen-env-types .env -o src/types/env.d.ts -e .",
     "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx .",
     "prepare": "husky",
-    "start": "NODE_OPTIONS='-r newrelic' next start -p 3000",
+    "start": "NODE_OPTIONS='--loader newrelic/esm-loader.mjs -r @newrelic/next --no-warnings' next start -p 3000",
     "test": "jest",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test:snapshot": "jest -u",
@@ -124,7 +124,9 @@
     "unist-util-visit": "^5.0.0",
     "use-immer": "^0.10.0",
     "use-roving-index": "^2.0.0",
-    "webpack-bundle-analyzer": "^4.10.1"
+    "webpack-bundle-analyzer": "^4.10.1",
+    "winston": "^3.17.0",
+    "winston-nr": "^1.2.5"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
@@ -144,6 +146,7 @@
     "@types/jest": "^29.5.14",
     "@types/js-cookie": "^3.0.6",
     "@types/lodash": "^4.17.13",
+    "@types/newrelic": "^9.14.6",
     "@types/node": "20.14.10",
     "@types/nprogress": "^0.2.3",
     "@types/react": "18.3.12",
