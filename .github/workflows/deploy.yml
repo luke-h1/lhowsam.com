@@ -72,7 +72,7 @@ jobs:
             NEXT_PUBLIC_URL
             NEXT_PUBLIC_SANITY_PROJECT_ID
           command: |
-            pages deploy .vercel/output/static --project-name=lhowsam.com --branch=feat/cf-deploy --config wrangler-staging.toml --name lhowsam-staging
+            pages deploy .vercel/output/static --project-name=lhowsam.com --branch=feat/cf-deploy --config wrangler-staging.toml --name lhowsam --env staging
         env:
           # NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
           # NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
