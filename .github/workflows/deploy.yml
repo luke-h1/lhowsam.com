@@ -4,6 +4,7 @@ on:
     branches:
       - dev
       - main
+      - feat/cf-deploy
   workflow_dispatch:
 env:
   NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
@@ -25,10 +26,10 @@ env:
   TURBO_TEAM: luke-h1
 
 jobs:
-  deploy-dev:
+  deploy-staging:
     runs-on: ubuntu-latest
-    name: Deploy to dev
-    if: github.ref == 'refs/heads/dev' && github.event_name != 'pull_request'
+    name: Deploy to staging
+    # if: github.ref == 'refs/heads/dev' && github.event_name != 'pull_request'
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
@@ -42,16 +43,34 @@ jobs:
       - name: Ensure rebased with dev
         run: ./scripts/ensure-rebased.sh
 
-      - name: Build
-        uses: ./.github/actions/build
+      # - name: Build
+      #   uses: ./.github/actions/build
 
-      - name: Deploy to dev
-        uses: ./.github/actions/deploy
+      # - name: Deploy to dev
+      #   uses: ./.github/actions/deploy
+      #   with:
+      #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
+      #     vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+      #     vercel-project-id: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
+      #     environment: dev
+
+
+      - name: Deploy to cloudflare
+        uses: cloudflare/wrangler-action@v3
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
-          environment: dev
+          apiToken: ${{ secrets.CF_API_TOKEN }}
+          environment: staging
+          secrets: | 
+            NEXT_PUBLIC_SANITY_PROJECT_ID=${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+            NEXT_PUBLIC_URL=${{ secrets.NEXT_PUBLIC_URL }}
+            SANITY_API_READ_TOKEN=${{ secrets.SANITY_API_READ_TOKEN }}
+            NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL=${{ secrets.NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL }}
+            DEPLOYED_BY=${{ github.actor }}
+            DEPLOYED_AT=${{ github.event.created_at }}
+            GIT_SHA=${{ github.sha }}
+          accountId: ${{ secrets.CF_ACCOUNT_ID }}
+          command: pages deploy .vercel/output/static --project-name=lhowsam-staging --branch=staging
+      
 
   deploy-live:
     runs-on: ubuntu-latest
@@ -69,11 +88,11 @@ jobs:
       
       - name: Build
         uses: ./.github/actions/build
-      
-      - name: Deploy to live
-        uses: ./.github/actions/deploy
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
-          environment: prod
+
+      # - name: Deploy to live
+      #   uses: ./.github/actions/deploy
+      #   with:
+      #     vercel-token: ${{ secrets.VERCEL_TOKEN }}
+      #     vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+      #     vercel-project-id: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
+      #     environment: prod

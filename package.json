@@ -9,12 +9,14 @@
     "check:node": "check-node-version --package",
     "clean": "rm -rf node_modules",
     "commit": "cz",
+    "deploy": "pnpm run build && wrangler pages deploy",
     "dev": "next dev -p 3000",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "gen-env": "gen-env-types .env -o src/types/env.d.ts -e .",
     "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx .",
     "prepare": "husky",
+    "preview": "pnpm run build && wrangler pages dev",
     "start": "next start -p 3000",
     "test": "jest",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
@@ -24,7 +26,6 @@
     "uitest:local": "make e2e-local"
   },
   "dependencies": {
-    "@cloudflare/next-on-pages": "^1.13.5",
     "@cloudflare/workers-types": "^4.20241112.0",
     "@fontsource/poppins": "^5.1.0",
     "@lukemorales/query-key-factory": "^1.3.4",
@@ -128,6 +129,7 @@
     "webpack-bundle-analyzer": "^4.10.1"
   },
   "devDependencies": {
+    "@cloudflare/next-on-pages": "^1.13.5",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@next/env": "^14.2.18",
@@ -163,6 +165,7 @@
     "eslint-import-resolver-typescript": "^3.6.3",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-next-on-pages": "^1.13.5",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "git-cz": "^4.9.0",

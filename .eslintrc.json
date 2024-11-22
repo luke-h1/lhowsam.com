@@ -10,7 +10,8 @@
     "plugin:react-hooks/recommended",
     "plugin:@next/next/recommended",
     "prettier",
-    "prettier/prettier"
+    "prettier/prettier",
+    "plugin:eslint-plugin-next-on-pages/recommended"
   ],
   "settings": {
     "import/resolver": {
@@ -22,7 +23,7 @@
       "version": "detect"
     }
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["@typescript-eslint", "eslint-plugin-next-on-pages"],
   "env": {
     "browser": true,
     "jest": true,

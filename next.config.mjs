@@ -1,6 +1,11 @@
+import { setupDevPlatform } from '@cloudflare/next-on-pages/next-dev';
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin';
 
 const withVanillaExtract = createVanillaExtractPlugin();
+
+if (process.env.NODE_ENV === 'development') {
+  await setupDevPlatform();
+}
 
 const contentSecurityPolicy = `
  default-src 'self';
@@ -52,14 +57,12 @@ const securityHeaders = [
  * @type {import('next').NextConfig}
  */
 const nextConfig = {
-  reactStrictMode: true,
-  poweredByHeader: false,
   eslint: {
     ignoreDuringBuilds: true,
   },
   experimental: {
     webVitalsAttribution: ['CLS', 'LCP'],
-    optimizePackageImports: ['framer-motion'],
+    // optimizePackageImports: ['framer-motion'],
 
     // Force SWC transform on build to stop Next.js trying to use babel
     // since babel is only needed to support vanilla-extract in unit tests
