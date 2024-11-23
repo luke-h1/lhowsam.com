@@ -5,6 +5,8 @@ const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 
 const withVanillaExtract = createVanillaExtractPlugin();
 
+const million = require('million/compiler');
+
 const contentSecurityPolicy = `
  default-src 'self';
  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com static.cloudflareinsights.com eu-assets.i.posthog.com js-agent.newrelic.com;
@@ -150,4 +152,4 @@ const nextConfig = {
     return config;
   },
 };
-module.exports = withVanillaExtract(nextConfig);
+module.exports = million.next(withVanillaExtract(nextConfig));
