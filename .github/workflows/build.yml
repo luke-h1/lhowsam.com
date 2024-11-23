@@ -32,5 +32,8 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
 
+      - name: install
+        uses: ./.github/actions/install
+
       - name: Build frontend
         uses: ./.github/actions/build
