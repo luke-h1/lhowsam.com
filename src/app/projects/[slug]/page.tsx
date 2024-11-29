@@ -23,6 +23,7 @@ interface Props {
   };
 }
 
+export const runtime = 'edge';
 export const revalidate = siteConfig.defaultRevalidate;
 
 export default async function ProjectPage({ params }: Props) {
