@@ -5,8 +5,6 @@ const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 
 const withVanillaExtract = createVanillaExtractPlugin();
 
-const million = require('million/compiler');
-
 const contentSecurityPolicy = `
  default-src 'self';
  script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com static.cloudflareinsights.com eu-assets.i.posthog.com js-agent.newrelic.com;
@@ -63,8 +61,17 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
+    optimizePackageImports: [
+      'next-sanity',
+      '@sanity/cli',
+      '@sanity/client',
+      '@sanity/dashboard',
+      '@sanity/image-url',
+      '@sanity/ui',
+      '@sanity/vision',
+      'framer-motion',
+    ],
     webVitalsAttribution: ['CLS', 'LCP'],
-    optimizePackageImports: ['framer-motion'],
     // Force SWC transform on build to stop Next.js trying to use babel
     // since babel is only needed to support vanilla-extract in unit tests
     forceSwcTransforms: true,
@@ -152,4 +159,4 @@ const nextConfig = {
     return config;
   },
 };
-module.exports = million.next(withVanillaExtract(nextConfig));
+module.exports = withVanillaExtract(nextConfig);
