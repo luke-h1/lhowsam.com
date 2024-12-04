@@ -1,7 +1,5 @@
 import pkg from '../../../../package.json';
 
-export const runtime = 'edge';
-
 export async function GET() {
   const deployedAt = process.env.DEPLOYED_AT
     ? process.env.DEPLOYED_AT.trim()
