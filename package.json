@@ -9,15 +9,12 @@
     "check:node": "check-node-version --package",
     "clean": "rm -rf node_modules",
     "commit": "cz",
-    "deploy": "pnpm run pages:build && pnpm wrangler pages deploy",
     "dev": "NODE_OPTIONS='-r newrelic' next dev -p 3000",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "gen-env": "gen-env-types .env -o src/types/env.d.ts -e .",
     "lint": "eslint --fix --ext .ts,.tsx,.js,.jsx .",
-    "pages:build": "npx @cloudflare/next-on-pages",
     "prepare": "husky",
-    "preview": "pnpm run pages:build && pnpm wrangler pages dev",
     "start": "NODE_OPTIONS='--loader newrelic/esm-loader.mjs -r @newrelic/next --no-warnings' next start -p 3000",
     "test": "jest",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
@@ -136,11 +133,9 @@
     "use-roving-index": "^2.0.0",
     "webpack-bundle-analyzer": "^4.10.1",
     "winston": "^3.17.0",
-    "winston-nr": "^1.2.5",
-    "wrangler": "^3.91.0"
+    "winston-nr": "^1.2.5"
   },
   "devDependencies": {
-    "@cloudflare/next-on-pages": "^1.13.6",
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
     "@next/env": "^14.2.18",
