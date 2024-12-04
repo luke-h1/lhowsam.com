@@ -19,7 +19,6 @@ interface Props {
   };
 }
 
-export const runtime = 'edge';
 export const revalidate = siteConfig.defaultRevalidate;
 
 export default async function WorkSlugPage({ params }: Props) {

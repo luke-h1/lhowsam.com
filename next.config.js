@@ -61,25 +61,12 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
-    optimizePackageImports: [
-      'next-sanity',
-      '@sanity/cli',
-      '@sanity/client',
-      '@sanity/dashboard',
-      '@sanity/image-url',
-      '@sanity/ui',
-      '@sanity/vision',
-      'framer-motion',
-    ],
+    optimizePackageImports: ['framer-motion'],
     webVitalsAttribution: ['CLS', 'LCP'],
     // Force SWC transform on build to stop Next.js trying to use babel
     // since babel is only needed to support vanilla-extract in unit tests
     forceSwcTransforms: true,
-    serverComponentsExternalPackages: ['newrelic', 'shiki'],
-    instrumentationHook:
-      !!process.env.VERCEL_ENV &&
-      process.env.VERCEL_ENV !== 'development' &&
-      process.env.NEXT_PUBLIC_URL === 'lhowsam.com',
+    serverComponentsExternalPackages: ['shiki'],
   },
   images: {
     minimumCacheTTL: 120,
