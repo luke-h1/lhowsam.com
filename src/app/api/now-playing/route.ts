@@ -6,9 +6,9 @@ export const revalidate = 3;
 const isEnabled = false;
 
 export async function GET() {
-  const res = await spotifyService.getNowPlaying();
-
   if (isEnabled) {
+    const res = await spotifyService.getNowPlaying();
+
     if (res.status === 204 || res.status > 400) {
       return new Response(JSON.stringify({ isPlaying: false }), {
         status: 200,
