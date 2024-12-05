@@ -1,4 +1,4 @@
-import { logger } from '@frontend/utils/logger';
+/* eslint-disable no-console */
 import { produce, Immutable } from 'immer';
 import {
   Dispatch,
@@ -21,18 +21,18 @@ export default function useLoggedReducer<S, A>(
 ): [S, Dispatch<A>] {
   const cachedReducer = useCallback(
     (state: S, action: A) => {
-      logger.debug(`${name} reducer:`);
-      logger.debug(
+      console.debug(`${name} reducer:`);
+      console.debug(
         '%cPrevious State:',
         'color: #9E9E9E; font-weight: 700;',
         state,
       );
 
-      logger.debug('%cAction:', 'color: #00A7F7; font-weight: 700;', action);
+      console.debug('%cAction:', 'color: #00A7F7; font-weight: 700;', action);
 
       const nextState = reducer(state, action);
 
-      logger.debug(
+      console.debug(
         '%cNext State:',
         'color: #47B04B; font-weight: 700;',
         nextState,

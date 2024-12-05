@@ -9,7 +9,6 @@ import Text from '@frontend/components/Text';
 import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import workService from '@frontend/services/workService';
-import newrelic from 'newrelic';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 
@@ -26,11 +25,6 @@ export default async function HomePage() {
     postService.getRecentPosts(),
     workService.getWorks(),
   ]);
-
-  newrelic.recordLogEvent({
-    message: 'HomePageLoaded',
-    level: 'INFO',
-  });
 
   return (
     <Page>
