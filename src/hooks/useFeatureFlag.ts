@@ -5,14 +5,10 @@ const useFeatureFlag = (name: AllowedFeatureFlag): boolean => {
 
   if (!featureFlag) {
     // eslint-disable-next-line no-console
-    console.warn(`Feature flag "${name}" not found. Returning false.`);
+    console.warn(`Feature flag with name "${name}" not found`);
     return false;
   }
 
-  if (process.env.NODE_ENV === 'development') {
-    return true;
-  }
-
-  return featureFlag?.enabled as boolean;
+  return featureFlag.enabled;
 };
 export default useFeatureFlag;
