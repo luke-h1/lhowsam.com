@@ -32,7 +32,8 @@ const DefaultWrapper = ({ children }: { children?: ReactNode }) => {
  * that would otherwise create unnecessary boilerplate.
  */
 export default function render(
-  ui: ReactElement,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  ui: ReactElement<any>,
   options?: Omit<RenderOptions, 'queries'>,
 ): CustomRenderResult {
   return {

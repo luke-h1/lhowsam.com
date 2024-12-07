@@ -6,7 +6,6 @@ import Meta from '@frontend/components/Meta';
 import Page from '@frontend/components/Page';
 import Spacer from '@frontend/components/Spacer';
 import Text from '@frontend/components/Text';
-import siteConfig from '@frontend/config/site';
 import imageService from '@frontend/services/imageService';
 import postService from '@frontend/services/postService';
 import * as utils from '@frontend/styles/util.css';
@@ -17,18 +16,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-export const revalidate = siteConfig.defaultRevalidate;
+export const revalidate = 1800;
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 export default async function PostPage({ params }: Props) {
-  const { slug } = params;
+  const { slug } = await params;
 
-  const { isEnabled } = draftMode();
+  const { isEnabled } = await draftMode();
 
   const post = await postService.getPost(slug, isEnabled);
 
@@ -119,7 +118,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata(props: Props): Promise<Metadata> {
+  const params = await props.params;
   const { slug } = params;
 
   const post = await postService.getPost(slug, false);

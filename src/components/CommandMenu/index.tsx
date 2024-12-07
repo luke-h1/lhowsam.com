@@ -54,6 +54,8 @@ const CommandItem = ({ children, value, onSelect }: CommandItemProps) => {
         <LazyMotion features={domAnimation}>
           <motion.span
             layoutId="highlight"
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-expect-error
             className="highlight"
             transition={{
               duration: 0.2,
