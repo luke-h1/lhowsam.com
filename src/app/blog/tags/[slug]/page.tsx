@@ -3,20 +3,19 @@ import Heading from '@frontend/components/Heading';
 import Page from '@frontend/components/Page';
 import PostItem from '@frontend/components/PostItem';
 import Spacer from '@frontend/components/Spacer';
-import siteConfig from '@frontend/config/site';
 import postService from '@frontend/services/postService';
 import { Post } from '@frontend/types/sanity';
 
 interface Props {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
-export const revalidate = siteConfig.defaultRevalidate;
+export const revalidate = 1800;
 
 export default async function TagPage({ params }: Props) {
-  const { slug } = params;
+  const { slug } = await params;
 
   const posts = await postService.getAllPosts();
 

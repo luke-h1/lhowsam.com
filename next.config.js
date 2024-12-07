@@ -66,7 +66,6 @@ const nextConfig = {
     // Force SWC transform on build to stop Next.js trying to use babel
     // since babel is only needed to support vanilla-extract in unit tests
     forceSwcTransforms: true,
-    serverComponentsExternalPackages: ['shiki'],
   },
   images: {
     minimumCacheTTL: 120,
