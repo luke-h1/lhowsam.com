@@ -3,7 +3,7 @@ import React from 'react';
 import Intro from '.';
 
 describe('Intro Component', () => {
-  test('renders the intro heading correctly', () => {
+  test('renders intro heading correctly', () => {
     render(<Intro />);
 
     expect(screen.getByTestId('intro-heading')).toHaveTextContent(
@@ -11,14 +11,13 @@ describe('Intro Component', () => {
     );
   });
 
-  test('renders the image correctly', () => {
+  test('renders headshot correctly', () => {
     render(<Intro />);
 
-    const image = screen.getByAltText('Headshot');
-    expect(image).toBeInTheDocument();
+    expect(screen.getByAltText('Headshot')).toBeInTheDocument();
   });
 
-  test('renders the buttons correctly', () => {
+  test('renders cv and experience buttons correctly', () => {
     render(<Intro />);
 
     const readCvButton = screen.getByTestId('read-cv');

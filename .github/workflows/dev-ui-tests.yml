@@ -2,7 +2,7 @@ name: UI tests (dev)
 on:
   workflow_dispatch:
   schedule: 
-    - cron: '0 */12 * * *'
+    - cron: '0 */14 * * *'
 env: 
   NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
   NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
