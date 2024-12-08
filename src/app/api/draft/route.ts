@@ -26,7 +26,7 @@ export async function GET(request: Request) {
     });
   }
 
-  const draft = draftMode();
+  const draft = await draftMode();
 
   draft.enable();
 

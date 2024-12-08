@@ -1,5 +1,5 @@
 // CustomMarkdownInput.tsx
-import { useMemo } from 'react';
+import { useMemo, type JSX } from 'react';
 import { MarkdownInput, MarkdownInputProps } from 'sanity-plugin-markdown';
 
 export default function CustomMarkdownInput(

@@ -4,6 +4,7 @@ import { TooltipProvider as RadixTooltipProvider } from '@radix-ui/react-tooltip
 import { fireEvent, screen } from '@testing-library/react';
 import { usePathname } from 'next/navigation';
 import { MemoryRouterProvider } from 'next-router-mock/MemoryRouterProvider';
+import type { JSX } from 'react';
 import SocialShare from '.';
 
 function render(ui: JSX.Element) {

@@ -4,11 +4,10 @@ import * as List from '@frontend/components/List';
 import Page from '@frontend/components/Page';
 import ProjectItem from '@frontend/components/ProjectItem';
 import Text from '@frontend/components/Text';
-import siteConfig from '@frontend/config/site';
 import projectService from '@frontend/services/projectService';
 import { Metadata } from 'next';
 
-export const revalidate = siteConfig.defaultRevalidate;
+export const revalidate = 1800;
 
 export const metadata: Metadata = {
   title: 'Projects',
