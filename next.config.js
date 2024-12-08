@@ -15,6 +15,7 @@ const contentSecurityPolicy = `
  connect-src * cloudflareinsights.com;
  font-src 'self' fonts.gstatic.com https://maxcdn.bootstrapcdn.com/font-awesome/latest/fonts/fontawesome-webfont.woff2;
  frame-src https://dev.lhowsam.com https://lhowsam.com;
+ Access-Control-Allow-Origin: *;
 `;
 
 const securityHeaders = [
