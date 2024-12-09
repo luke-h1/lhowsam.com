@@ -81,7 +81,7 @@
     "mdx": "^0.3.1",
     "million": "^3.1.11",
     "motion": "^10.18.0",
-    "nanoid": "^5.0.8",
+    "nanoid": "^5.0.9",
     "next": "15.0.4",
     "next-mdx-remote": "^5.0.0",
     "next-sanity": "9.8.25",
