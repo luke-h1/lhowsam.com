@@ -13,7 +13,7 @@ export default function useInterval(
   const savedCallback = useRef<() => void>(callback);
   savedCallback.current = callback;
 
-  const interval = useRef<NodeJS.Timeout>();
+  const interval = useRef<NodeJS.Timeout>(undefined);
 
   const cancelInterval = useCallback(() => {
     if (interval.current) {
