@@ -57,7 +57,6 @@ export default function ProjectItem({ project }: Props) {
           </>
         </Box>
       </Link>
-
       <Box display="flex" alignItems="stretch" className={styles.links}>
         <Link
           testId="project-github"

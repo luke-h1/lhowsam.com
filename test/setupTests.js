@@ -13,24 +13,12 @@ jest.mock('nanoid', () => {
   };
 });
 
-// jest.mock('next/navigation', () => ({
-//   __esModule: true,
-//   useRouter: () => ({
-//     push: jest.fn(),
-//     replace: jest.fn(),
-//     prefetch: jest.fn(),
-//     isFallback: false,
-//   }),
-//   useSearchParams: () => ({
-//     get: () => {},
-//   }),
-// }));
-
 if (typeof window !== 'undefined') {
   // fetch polyfill for making API calls.
   // eslint-disable-next-line @typescript-eslint/no-require-imports
   require('cross-fetch');
 }
+
 global.Request = jest.requireActual('node-fetch').Request;
 global.Response = jest.requireActual('node-fetch').Response;
 

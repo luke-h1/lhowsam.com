@@ -10,7 +10,7 @@ const trueForNonBoolProp2 = /Warning: Received*/;
 const radixUiDialog =
   /`DialogContent` requires a `DialogTitle` for the component to be accessible for screen reader users./;
 const radixUiDialogWarn =
-  /Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}./;
+  /Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}*/;
 
 beforeAll(() => {
   console.error = (...args) => {
@@ -19,9 +19,15 @@ beforeAll(() => {
       forwardRefWarning.test(args[0]) ||
       trueForNonBoolProp.test(args[0]) ||
       trueForNonBoolProp2.test(args[0]) ||
-      radixUiDialog.test(args[0]) ||
-      radixUiDialogWarn.test(args[0])
+      radixUiDialog.test(args[0])
     ) {
+      return;
+    }
+    originalError.call(console, ...args);
+  };
+
+  console.warn = (...args) => {
+    if (radixUiDialogWarn.test(args[0])) {
       return;
     }
     originalError.call(console, ...args);

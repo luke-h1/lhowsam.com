@@ -37,11 +37,12 @@ export default function NowPlaying() {
               blurDataURL={data.albumImageUrl}
               placeholder="blur"
               alt="Album cover"
-              layout="intrinsic"
               width={65}
               height={65}
               style={{
                 borderRadius: '7px',
+                maxWidth: '100%',
+                height: 'auto',
               }}
             />
           </p>
