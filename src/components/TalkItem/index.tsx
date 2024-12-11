@@ -31,6 +31,8 @@ const TalkItem = ({ talk }: Props) => {
                 height={300}
                 style={{
                   marginBottom: variables.spacing.sm,
+                  maxWidth: '100%',
+                  height: 'auto',
                 }}
               />
             )}

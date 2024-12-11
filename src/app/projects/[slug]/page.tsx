@@ -49,6 +49,10 @@ export default async function ProjectPage({ params }: Props) {
           placeholder="blur"
           blurDataURL={imageService.urlFor(project.image.asset)}
           alt={project.image.alt ?? project.title}
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
         />
         <Meta
           items={[

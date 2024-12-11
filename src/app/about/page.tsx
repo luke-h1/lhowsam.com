@@ -91,7 +91,6 @@ export default async function AboutPage() {
           ))}
         </Box>
       </Link>
-
       <Spacer height="xxxxl" />
       <Box as="section">
         <Heading as="h3" fontSize="xl">

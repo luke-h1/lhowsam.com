@@ -50,6 +50,10 @@ export default async function PostPage({ params }: Props) {
           placeholder="blur"
           blurDataURL={imageService.urlFor(post.image.asset) ?? undefined}
           alt={post.image.alt ?? post.title}
+          style={{
+            maxWidth: '100%',
+            height: 'auto',
+          }}
         />
         <Meta
           items={[
