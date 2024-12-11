@@ -60,4 +60,42 @@ test.describe('blog', () => {
       await expect(page.locator('h1').first()).toHaveText('Blog');
     }
   });
+
+  test('searches correctly', async () => {
+    const input = page.getByRole('textbox');
+
+    await input.fill('Vault');
+
+    const title = page.locator('[data-testid="post-title"]', {
+      hasText: 'Getting started with aws-vault',
+    });
+
+    await expect(title).toHaveText('Getting started with aws-vault');
+
+    const otherBlogPost = page.locator('[data-testid="post-title"]', {
+      hasText: 'Code linters and formatters',
+    });
+
+    await expect(otherBlogPost).not.toBeVisible();
+
+    await expect(page).toHaveURL(`${baseUrl}/blog?title=Vault`);
+  });
+
+  test('searches correctly via visting URL param', async () => {
+    await page.goto(`${baseUrl}/blog?title=playwright`);
+    const input = page.getByRole('textbox');
+
+    await expect(input).toHaveValue('playwright');
+
+    const playwrightBlogPost = page.locator('[data-testid="post-title"]', {
+      hasText: 'Getting started with Playwright UI testing',
+    });
+
+    await expect(playwrightBlogPost).toBeVisible();
+
+    const otherBlogPost = page.locator('[data-testid="post-title"]', {
+      hasText: 'Code linters and formatters',
+    });
+    await expect(otherBlogPost).not.toBeVisible();
+  });
 });
