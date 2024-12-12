@@ -13,7 +13,7 @@ const TOP_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks`;
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const getConsumer = () => {
-  let consumer: string = '';
+  let consumer = '';
 
   switch (process.env.NEXT_PUBLIC_URL) {
     case 'https://dev.lhowsam.com':
@@ -23,8 +23,12 @@ const getConsumer = () => {
       consumer = 'lhowsam-prod';
       return consumer;
 
+    case 'http://localhost:3000':
+      consumer = 'lhowsam-local';
+      return consumer;
+
     default:
-      return '';
+      return 'unknown';
   }
 };
 
