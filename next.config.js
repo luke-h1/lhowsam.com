@@ -88,6 +88,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/projects/infra',
+        destination: '/projects/config',
+        permanent: true,
+      },
+      {
         source: '/blog/nextjs-ssr-notes',
         destination: '/blog/next-js-ssr-notes',
         permanent: true,
