@@ -53,6 +53,18 @@ const work = defineType({
       description: 'Link to company',
     }),
     defineField({
+      name: 'siteUrl',
+      title: 'Site URL',
+      type: 'string',
+      description: 'Link to deployed site',
+    }),
+    defineField({
+      name: 'githubUrl',
+      title: 'GitHub URL',
+      type: 'string',
+      description: 'Link to GitHub repo',
+    }),
+    defineField({
       name: 'publishedAt',
       title: 'publish date',
       type: 'date',

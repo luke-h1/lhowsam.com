@@ -79,5 +79,7 @@ export interface Work {
   image: Image;
   content: string;
   companySite: string;
+  siteUrl?: string;
+  githubUrl?: string;
   publishedAt: string;
 }

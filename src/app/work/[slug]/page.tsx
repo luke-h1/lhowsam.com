@@ -2,6 +2,7 @@ import Box from '@frontend/components/Box';
 import ContentRenderer from '@frontend/components/ContentRenderer';
 import FormattedDate from '@frontend/components/FormattedDate';
 import Heading from '@frontend/components/Heading';
+import Link from '@frontend/components/Link';
 import Meta from '@frontend/components/Meta';
 import Page from '@frontend/components/Page';
 import Spacer from '@frontend/components/Spacer';
@@ -11,6 +12,7 @@ import workService from '@frontend/services/workService';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
+import { FiGithub, FiLink } from 'react-icons/fi';
 
 interface Props {
   params: Promise<{
@@ -38,23 +40,45 @@ export default async function WorkSlugPage({ params }: Props) {
 
         <Meta
           items={[
-            {
-              title: 'Published',
-              description: (
-                <Text
-                  as="time"
-                  dateTime={work.publishedAt}
-                  color="foregroundNeutral"
-                  fontSize="sm"
-                  fontFamily="mono"
-                >
-                  <FormattedDate testId="time">
-                    {work.publishedAt ?? null}
-                  </FormattedDate>
-                </Text>
-              ),
-            },
-          ]}
+            work.publishedAt
+              ? {
+                  title: 'Published',
+                  description: (
+                    <Text
+                      as="time"
+                      dateTime={work.publishedAt}
+                      color="foregroundNeutral"
+                      fontSize="sm"
+                      fontFamily="mono"
+                    >
+                      <FormattedDate testId="time">
+                        {work.publishedAt ?? null}
+                      </FormattedDate>
+                    </Text>
+                  ),
+                }
+              : null,
+            work.githubUrl
+              ? {
+                  title: 'Repository',
+                  description: (
+                    <Link href={work.githubUrl}>
+                      <FiGithub size={20} />
+                    </Link>
+                  ),
+                }
+              : null,
+            work.siteUrl
+              ? {
+                  title: 'Site URL',
+                  description: (
+                    <Link href={work.siteUrl}>
+                      <FiLink size={20} />
+                    </Link>
+                  ),
+                }
+              : null,
+          ].filter(item => item !== null)}
         />
       </Box>
       <Box display="flex" alignItems="flex-start">
