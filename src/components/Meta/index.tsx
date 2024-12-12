@@ -8,7 +8,7 @@ interface MetaItem {
 }
 
 interface Props {
-  items: MetaItem[];
+  items?: MetaItem[];
 }
 
 const Meta = ({ items }: Props) => {
@@ -17,7 +17,7 @@ const Meta = ({ items }: Props) => {
       className={styles.root}
       style={
         {
-          '--length': items.length,
+          '--length': items && items.length,
         } as CSSProperties
       }
     >
