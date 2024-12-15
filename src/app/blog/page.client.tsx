@@ -4,6 +4,7 @@ import Box from '@frontend/components/Box';
 import Heading from '@frontend/components/Heading';
 import Input from '@frontend/components/Input';
 import PostItem from '@frontend/components/PostItem';
+import Select from '@frontend/components/Select';
 import Spacer from '@frontend/components/Spacer';
 import { Post } from '@frontend/types/sanity';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
@@ -13,6 +14,8 @@ interface Props {
   posts: Post[];
 }
 
+type SortOrder = 'asc' | 'desc';
+
 export default function PostsClient({ posts }: Props) {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -20,6 +23,9 @@ export default function PostsClient({ posts }: Props) {
   const [query, setQuery] = useState({
     title: searchParams.get('title') || '',
   });
+  const [sortOrder, setSortOrder] = useState<SortOrder>(
+    (searchParams.get('order') as SortOrder) || 'desc',
+  );
 
   const createQueryString = useCallback(
     (name: string, value: string) => {
@@ -48,20 +54,25 @@ export default function PostsClient({ posts }: Props) {
     router.push(`${pathname}?${queryString}`);
   };
 
+  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
+    setSortOrder(e.target.value as SortOrder);
+    const queryString = createQueryString('order', e.target.value);
+    router.push(`${pathname}?${queryString}`);
+  };
+
   const filteredPosts = posts
     .filter(post => {
       return post.title.toLowerCase().includes(query.title.toLowerCase());
     })
     .sort((a, b) => {
-      if (a.publishedAt < b.publishedAt) {
-        return 1;
+      if (sortOrder === 'asc') {
+        return (
+          new Date(a.publishedAt).getTime() - new Date(b.publishedAt).getTime()
+        );
       }
-
-      if (a.publishedAt > b.publishedAt) {
-        return -1;
-      }
-
-      return 0;
+      return (
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+      );
     });
 
   const postsByYear: Record<string, Post[]> = {};
@@ -76,9 +87,12 @@ export default function PostsClient({ posts }: Props) {
     postsByYear[year].push(post);
   });
 
-  const sortedYears = Object.keys(postsByYear).sort(
-    (a, b) => Number(b) - Number(a),
-  );
+  const sortedYears = Object.keys(postsByYear).sort((a, b) => {
+    if (sortOrder === 'asc') {
+      return Number(a) - Number(b);
+    }
+    return Number(b) - Number(a);
+  });
 
   return (
     <>
@@ -90,6 +104,24 @@ export default function PostsClient({ posts }: Props) {
           type="text"
           id="title"
           name="title"
+          label="Search"
+        />
+      </Box>
+      <Box>
+        <Select
+          data-testid="sort-order"
+          label="Sort Order"
+          onChange={handleSelectChange}
+          options={[
+            {
+              label: 'Descending',
+              value: 'desc',
+            },
+            {
+              label: 'Ascending',
+              value: 'asc',
+            },
+          ]}
         />
       </Box>
       <Spacer height="xxxl" />
@@ -97,7 +129,12 @@ export default function PostsClient({ posts }: Props) {
       <Box as="section">
         {sortedYears.map(year => (
           <Box key={year} marginBottom="xxxl">
-            <Heading fontSize="xl" as="h2" color="foregroundNeutral">
+            <Heading
+              fontSize="xl"
+              as="h2"
+              color="foregroundNeutral"
+              testId={`year-heading-${year}`}
+            >
               {year}
             </Heading>
             <Spacer height="xl" />
