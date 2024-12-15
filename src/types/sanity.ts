@@ -1,15 +1,15 @@
 export interface Slug {
-  _type: 'slug';
+  _type?: 'slug';
   current: string;
 }
 
 export interface Reference {
-  _type: 'reference';
+  _type?: 'reference';
   _ref: string;
 }
 
 export interface Image {
-  _type: 'image';
+  _type?: 'image';
   _key?: string;
   asset: Reference;
   alt?: string;
@@ -31,9 +31,9 @@ export interface Project {
 }
 
 export interface Tag {
-  _id: string;
-  _type: 'tag';
-  key: string;
+  _id?: string;
+  _type?: 'tag';
+  key?: string;
   title: string;
   slug: Slug;
 }
@@ -41,7 +41,10 @@ export interface Tag {
 export interface Post {
   _id: string;
   _type: 'post';
-  _key: string;
+  _key?: string;
+  _createdAt?: string;
+  _rev?: string;
+  _updatedAt?: string;
   title: string;
   intro: string;
   slug: Slug;

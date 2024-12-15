@@ -1,12 +1,20 @@
 import { variables } from '@frontend/styles/variables.css';
 import { globalStyle, style } from '@vanilla-extract/css';
 
+export const container = style({
+  display: 'flex',
+  flexDirection: 'column',
+});
+
+export const label = style({
+  color: variables.color.foregroundNeutral,
+});
+
 export const root = style({
   width: '50%',
   padding: variables.spacing.sm,
   border: '1px solid',
   borderColor: variables.color.border,
-  backgroundColor: variables.color.surface,
   borderRadius: variables.radii.md,
   ':focus': {
     outline: 'transparent',

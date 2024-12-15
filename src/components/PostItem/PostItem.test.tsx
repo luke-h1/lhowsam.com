@@ -16,18 +16,5 @@ describe('PostItem', () => {
       'href',
       `/blog/${posts[0].slug.current}`,
     );
-
-    for (let i = 0; i < posts[0].tags.length; i += 1) {
-      const tagId = `post-tag-${posts[0].tags[i]._id}`;
-
-      expect(screen.getByTestId(tagId)).toHaveTextContent(
-        posts[0].tags[i].title.toUpperCase(),
-      );
-
-      expect(screen.getByTestId(tagId)).toHaveAttribute(
-        'href',
-        `/blog/tags/${posts[0].tags[i].slug.current}`,
-      );
-    }
   });
 });

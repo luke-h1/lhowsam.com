@@ -7,9 +7,9 @@ const withVanillaExtract = createVanillaExtractPlugin();
 
 const contentSecurityPolicy = `
  default-src 'self';
- script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com static.cloudflareinsights.com eu-assets.i.posthog.com js-agent.newrelic.com;
+ script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com static.cloudflareinsights.com js-agent.newrelic.com;
  child-src *.youtube.com *.google.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com;
- style-src 'self' 'unsafe-inline' *.googleapis.com app-static.eu.posthog.com https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css;
+ style-src 'self' 'unsafe-inline' *.googleapis.com https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css;
  img-src * blob: data: https://*.googletagmanager.com;
  media-src 'none';
  connect-src * cloudflareinsights.com;
