@@ -86,7 +86,7 @@ export const skills: SkillItemProps[] = [
   },
   {
     icon: SiStyledComponents,
-    text: 'Styled component',
+    text: 'CSS in JS',
   },
   {
     icon: BiTestTube,

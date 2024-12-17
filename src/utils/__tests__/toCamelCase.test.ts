@@ -1,21 +1,15 @@
 import toCamelCase from '../toCamelCase';
 
 describe('toCamelCase', () => {
-  test('should convert a string to camel case', () => {
+  test('converts string to camel-case', () => {
     const str = 'Hello World';
     const result = toCamelCase(str);
-    expect(result).toBe('HelloWorld');
+    expect(result).toEqual('HelloWorld');
   });
 
-  test('should convert a string to camel case', () => {
-    const str = 'Hello World';
+  test('multiple gaps get converted to camel-case', () => {
+    const str = 'AWS Azure Vercel';
     const result = toCamelCase(str);
-    expect(result).toBe('HelloWorld');
-  });
-
-  test('should convert a string to camel case', () => {
-    const str = 'Hello World';
-    const result = toCamelCase(str);
-    expect(result).toBe('HelloWorld');
+    expect(result).toEqual('AWSAzureVercel');
   });
 });
