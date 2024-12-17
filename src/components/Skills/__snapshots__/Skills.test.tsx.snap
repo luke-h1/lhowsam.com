@@ -107,7 +107,7 @@ exports[`Skills renders correctly 1`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -355,7 +355,7 @@ exports[`Skills renders correctly 1`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -448,7 +448,7 @@ exports[`Skills renders correctly 1`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -472,14 +472,14 @@ exports[`Skills renders correctly 1`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -509,7 +509,7 @@ exports[`Skills renders correctly 1`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -540,7 +540,7 @@ exports[`Skills renders correctly 1`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -664,7 +664,7 @@ exports[`Skills renders correctly 1`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -803,7 +803,7 @@ exports[`Skills renders correctly 2`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -1051,7 +1051,7 @@ exports[`Skills renders correctly 2`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -1144,7 +1144,7 @@ exports[`Skills renders correctly 2`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -1168,14 +1168,14 @@ exports[`Skills renders correctly 2`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -1205,7 +1205,7 @@ exports[`Skills renders correctly 2`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -1236,7 +1236,7 @@ exports[`Skills renders correctly 2`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -1360,7 +1360,7 @@ exports[`Skills renders correctly 2`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -1499,7 +1499,7 @@ exports[`Skills renders correctly 3`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -1747,7 +1747,7 @@ exports[`Skills renders correctly 3`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -1840,7 +1840,7 @@ exports[`Skills renders correctly 3`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -1864,14 +1864,14 @@ exports[`Skills renders correctly 3`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -1901,7 +1901,7 @@ exports[`Skills renders correctly 3`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -1932,7 +1932,7 @@ exports[`Skills renders correctly 3`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -2056,7 +2056,7 @@ exports[`Skills renders correctly 3`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -2195,7 +2195,7 @@ exports[`Skills renders correctly 4`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -2443,7 +2443,7 @@ exports[`Skills renders correctly 4`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -2536,7 +2536,7 @@ exports[`Skills renders correctly 4`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -2560,14 +2560,14 @@ exports[`Skills renders correctly 4`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -2597,7 +2597,7 @@ exports[`Skills renders correctly 4`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -2628,7 +2628,7 @@ exports[`Skills renders correctly 4`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -2752,7 +2752,7 @@ exports[`Skills renders correctly 4`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -2891,7 +2891,7 @@ exports[`Skills renders correctly 5`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -3139,7 +3139,7 @@ exports[`Skills renders correctly 5`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -3232,7 +3232,7 @@ exports[`Skills renders correctly 5`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -3256,14 +3256,14 @@ exports[`Skills renders correctly 5`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -3293,7 +3293,7 @@ exports[`Skills renders correctly 5`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -3324,7 +3324,7 @@ exports[`Skills renders correctly 5`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -3448,7 +3448,7 @@ exports[`Skills renders correctly 5`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -3587,7 +3587,7 @@ exports[`Skills renders correctly 6`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -3835,7 +3835,7 @@ exports[`Skills renders correctly 6`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -3928,7 +3928,7 @@ exports[`Skills renders correctly 6`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -3952,14 +3952,14 @@ exports[`Skills renders correctly 6`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -3989,7 +3989,7 @@ exports[`Skills renders correctly 6`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -4020,7 +4020,7 @@ exports[`Skills renders correctly 6`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -4144,7 +4144,7 @@ exports[`Skills renders correctly 6`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -4283,7 +4283,7 @@ exports[`Skills renders correctly 7`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -4531,7 +4531,7 @@ exports[`Skills renders correctly 7`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -4624,7 +4624,7 @@ exports[`Skills renders correctly 7`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -4648,14 +4648,14 @@ exports[`Skills renders correctly 7`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -4685,7 +4685,7 @@ exports[`Skills renders correctly 7`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -4716,7 +4716,7 @@ exports[`Skills renders correctly 7`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -4840,7 +4840,7 @@ exports[`Skills renders correctly 7`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -4979,7 +4979,7 @@ exports[`Skills renders correctly 8`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -5227,7 +5227,7 @@ exports[`Skills renders correctly 8`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -5320,7 +5320,7 @@ exports[`Skills renders correctly 8`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -5344,14 +5344,14 @@ exports[`Skills renders correctly 8`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -5381,7 +5381,7 @@ exports[`Skills renders correctly 8`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -5412,7 +5412,7 @@ exports[`Skills renders correctly 8`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -5536,7 +5536,7 @@ exports[`Skills renders correctly 8`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -5675,7 +5675,7 @@ exports[`Skills renders correctly 9`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -5923,7 +5923,7 @@ exports[`Skills renders correctly 9`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -6016,7 +6016,7 @@ exports[`Skills renders correctly 9`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -6040,14 +6040,14 @@ exports[`Skills renders correctly 9`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -6077,7 +6077,7 @@ exports[`Skills renders correctly 9`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -6108,7 +6108,7 @@ exports[`Skills renders correctly 9`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -6232,7 +6232,7 @@ exports[`Skills renders correctly 9`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -6371,7 +6371,7 @@ exports[`Skills renders correctly 10`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -6619,7 +6619,7 @@ exports[`Skills renders correctly 10`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -6712,7 +6712,7 @@ exports[`Skills renders correctly 10`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -6736,14 +6736,14 @@ exports[`Skills renders correctly 10`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -6773,7 +6773,7 @@ exports[`Skills renders correctly 10`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -6804,7 +6804,7 @@ exports[`Skills renders correctly 10`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -6928,7 +6928,7 @@ exports[`Skills renders correctly 10`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -7067,7 +7067,7 @@ exports[`Skills renders correctly 11`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -7315,7 +7315,7 @@ exports[`Skills renders correctly 11`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -7408,7 +7408,7 @@ exports[`Skills renders correctly 11`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -7432,14 +7432,14 @@ exports[`Skills renders correctly 11`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -7469,7 +7469,7 @@ exports[`Skills renders correctly 11`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -7500,7 +7500,7 @@ exports[`Skills renders correctly 11`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -7624,7 +7624,7 @@ exports[`Skills renders correctly 11`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -7763,7 +7763,7 @@ exports[`Skills renders correctly 12`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -8011,7 +8011,7 @@ exports[`Skills renders correctly 12`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -8104,7 +8104,7 @@ exports[`Skills renders correctly 12`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -8128,14 +8128,14 @@ exports[`Skills renders correctly 12`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -8165,7 +8165,7 @@ exports[`Skills renders correctly 12`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -8196,7 +8196,7 @@ exports[`Skills renders correctly 12`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -8320,7 +8320,7 @@ exports[`Skills renders correctly 12`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -8459,7 +8459,7 @@ exports[`Skills renders correctly 13`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -8707,7 +8707,7 @@ exports[`Skills renders correctly 13`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -8800,7 +8800,7 @@ exports[`Skills renders correctly 13`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -8824,14 +8824,14 @@ exports[`Skills renders correctly 13`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -8861,7 +8861,7 @@ exports[`Skills renders correctly 13`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -8892,7 +8892,7 @@ exports[`Skills renders correctly 13`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -9016,7 +9016,7 @@ exports[`Skills renders correctly 13`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -9155,7 +9155,7 @@ exports[`Skills renders correctly 14`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -9403,7 +9403,7 @@ exports[`Skills renders correctly 14`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -9496,7 +9496,7 @@ exports[`Skills renders correctly 14`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -9520,14 +9520,14 @@ exports[`Skills renders correctly 14`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -9557,7 +9557,7 @@ exports[`Skills renders correctly 14`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -9588,7 +9588,7 @@ exports[`Skills renders correctly 14`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -9712,7 +9712,7 @@ exports[`Skills renders correctly 14`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -9851,7 +9851,7 @@ exports[`Skills renders correctly 15`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -10099,7 +10099,7 @@ exports[`Skills renders correctly 15`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -10192,7 +10192,7 @@ exports[`Skills renders correctly 15`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -10216,14 +10216,14 @@ exports[`Skills renders correctly 15`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -10253,7 +10253,7 @@ exports[`Skills renders correctly 15`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -10284,7 +10284,7 @@ exports[`Skills renders correctly 15`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -10408,7 +10408,7 @@ exports[`Skills renders correctly 15`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -10547,7 +10547,7 @@ exports[`Skills renders correctly 16`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -10795,7 +10795,7 @@ exports[`Skills renders correctly 16`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -10888,7 +10888,7 @@ exports[`Skills renders correctly 16`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -10912,14 +10912,14 @@ exports[`Skills renders correctly 16`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -10949,7 +10949,7 @@ exports[`Skills renders correctly 16`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -10980,7 +10980,7 @@ exports[`Skills renders correctly 16`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -11104,7 +11104,7 @@ exports[`Skills renders correctly 16`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -11243,7 +11243,7 @@ exports[`Skills renders correctly 17`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -11491,7 +11491,7 @@ exports[`Skills renders correctly 17`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -11584,7 +11584,7 @@ exports[`Skills renders correctly 17`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -11608,14 +11608,14 @@ exports[`Skills renders correctly 17`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -11645,7 +11645,7 @@ exports[`Skills renders correctly 17`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -11676,7 +11676,7 @@ exports[`Skills renders correctly 17`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -11800,7 +11800,7 @@ exports[`Skills renders correctly 17`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -11939,7 +11939,7 @@ exports[`Skills renders correctly 18`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -12187,7 +12187,7 @@ exports[`Skills renders correctly 18`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -12280,7 +12280,7 @@ exports[`Skills renders correctly 18`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -12304,14 +12304,14 @@ exports[`Skills renders correctly 18`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -12341,7 +12341,7 @@ exports[`Skills renders correctly 18`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -12372,7 +12372,7 @@ exports[`Skills renders correctly 18`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -12496,7 +12496,7 @@ exports[`Skills renders correctly 18`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -12635,7 +12635,7 @@ exports[`Skills renders correctly 19`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -12883,7 +12883,7 @@ exports[`Skills renders correctly 19`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -12976,7 +12976,7 @@ exports[`Skills renders correctly 19`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -13000,14 +13000,14 @@ exports[`Skills renders correctly 19`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -13037,7 +13037,7 @@ exports[`Skills renders correctly 19`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -13068,7 +13068,7 @@ exports[`Skills renders correctly 19`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -13192,7 +13192,7 @@ exports[`Skills renders correctly 19`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -13331,7 +13331,7 @@ exports[`Skills renders correctly 20`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -13579,7 +13579,7 @@ exports[`Skills renders correctly 20`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -13672,7 +13672,7 @@ exports[`Skills renders correctly 20`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -13696,14 +13696,14 @@ exports[`Skills renders correctly 20`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -13733,7 +13733,7 @@ exports[`Skills renders correctly 20`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -13764,7 +13764,7 @@ exports[`Skills renders correctly 20`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -13888,7 +13888,7 @@ exports[`Skills renders correctly 20`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -14027,7 +14027,7 @@ exports[`Skills renders correctly 21`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -14275,7 +14275,7 @@ exports[`Skills renders correctly 21`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -14368,7 +14368,7 @@ exports[`Skills renders correctly 21`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -14392,14 +14392,14 @@ exports[`Skills renders correctly 21`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -14429,7 +14429,7 @@ exports[`Skills renders correctly 21`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -14460,7 +14460,7 @@ exports[`Skills renders correctly 21`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -14584,7 +14584,7 @@ exports[`Skills renders correctly 21`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -14723,7 +14723,7 @@ exports[`Skills renders correctly 22`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="CSS/SCSS/pre-processors etc.-icon"
+        data-testid="CSS/SCSS/pre-processorsetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -14971,7 +14971,7 @@ exports[`Skills renders correctly 22`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="MySQL, Postgres-icon"
+        data-testid="MySQL,Postgres-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -15064,7 +15064,7 @@ exports[`Skills renders correctly 22`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Styled component-icon"
+        data-testid="CSSinJS-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -15088,14 +15088,14 @@ exports[`Skills renders correctly 22`] = `
         <small
           class="SkillItem_skillText__1hq4dke1"
         >
-          Styled component
+          CSS in JS
         </small>
       </div>
     </li>
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Automated and manual testing-icon"
+        data-testid="Automatedandmanualtesting-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -15125,7 +15125,7 @@ exports[`Skills renders correctly 22`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Git, GitHub, GitLab etc-icon"
+        data-testid="Git,GitHub,GitLabetc-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -15156,7 +15156,7 @@ exports[`Skills renders correctly 22`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="NPM, yarn, PNPM etc.-icon"
+        data-testid="NPM,yarn,PNPMetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
@@ -15280,7 +15280,7 @@ exports[`Skills renders correctly 22`] = `
     <li>
       <span
         class="SkillItem_bg__1hq4dke2"
-        data-testid="Jira, Trello, confluence etc.-icon"
+        data-testid="Jira,Trello,confluenceetc.-icon"
       >
         <svg
           class="SkillItem_skillIcon__1hq4dke0"
