@@ -1,5 +1,6 @@
 'use client';
 
+import toCamelCase from '@frontend/utils/toCamelCase';
 import { useTheme } from 'next-themes';
 import { useEffect } from 'react';
 import type { IconType } from 'react-icons';
@@ -24,7 +25,7 @@ const SkillItem = ({ icon, text }: SkillItemProps) => {
 
   return (
     <li>
-      <span className={styles.bg} data-testid={`${text}-icon`}>
+      <span className={styles.bg} data-testid={`${toCamelCase(text)}-icon`}>
         {icon({
           size: 30,
           className: styles.skillIcon,

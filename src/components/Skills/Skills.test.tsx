@@ -1,4 +1,5 @@
 import render from '@frontend/test/render';
+import toCamelCase from '@frontend/utils/toCamelCase';
 import { screen } from '@testing-library/react';
 import Skills, { skills } from '.';
 
@@ -7,7 +8,9 @@ describe('Skills', () => {
     const { container } = render(<Skills />);
     skills.forEach(skill => {
       expect(screen.getByText(skill.text)).toBeInTheDocument();
-      expect(screen.getByTestId(`${skill.text}-icon`)).toBeInTheDocument();
+      expect(
+        screen.getByTestId(`${toCamelCase(skill.text)}-icon`),
+      ).toBeInTheDocument();
       expect(container).toMatchSnapshot();
     });
   });
