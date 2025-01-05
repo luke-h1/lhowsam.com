@@ -10,6 +10,10 @@ const skyBet = companies.find(
   company => company.title === 'Sky Betting & Gaming',
 ) as Company;
 
+const flutter = companies.find(
+  company => company.title === 'Flutter UKI',
+) as Company;
+
 describe('ExperienceItem', () => {
   test.each(companies)('should render title for %s', company => {
     const { container } = render(<ExperienceItem company={company} />);
@@ -21,7 +25,7 @@ describe('ExperienceItem', () => {
     test('renders all jobs', () => {
       render(<ExperienceItem company={hive} />);
 
-      const list = screen.getByTestId(`ExperienceItem-list-HiveIT`);
+      const list = screen.getByTestId('ExperienceItem-list-HiveIT');
       const items = within(list).getAllByRole('listitem');
 
       expect(items).toHaveLength(3);
@@ -30,7 +34,7 @@ describe('ExperienceItem', () => {
     test('renders in desc order', () => {
       render(<ExperienceItem company={hive} />);
 
-      const list = screen.getByTestId(`ExperienceItem-list-HiveIT`);
+      const list = screen.getByTestId('ExperienceItem-list-HiveIT');
       const items = within(list).getAllByRole('listitem');
 
       expect(items[0]).toHaveTextContent('Software Engineer');
@@ -41,7 +45,7 @@ describe('ExperienceItem', () => {
     test('renders correct dates', () => {
       render(<ExperienceItem company={hive} />);
 
-      const list = screen.getByTestId(`ExperienceItem-list-HiveIT`);
+      const list = screen.getByTestId('ExperienceItem-list-HiveIT');
       const items = within(list).getAllByRole('listitem');
 
       expect(items[0]).toHaveTextContent('May 2022 — Aug 2023');
@@ -70,7 +74,7 @@ describe('ExperienceItem', () => {
 
       expect(
         screen.getByTestId(`HiveIT-${toCamelCase(job.title)}-description`),
-      ).toHaveTextContent(job.description);
+      ).toHaveTextContent(job.description as string);
     });
   });
 
@@ -78,17 +82,17 @@ describe('ExperienceItem', () => {
     test('renders all jobs', () => {
       render(<ExperienceItem company={skyBet} />);
 
-      const list = screen.getByTestId(`ExperienceItem-list-SkyBetting&Gaming`);
+      const list = screen.getByTestId('ExperienceItem-list-SkyBetting&Gaming');
       const items = within(list).getAllByRole('listitem');
       expect(items).toHaveLength(1);
 
       expect(items[0]).toHaveTextContent('Software Engineer');
     });
 
-    test('renders correct dates', () => {
+    test('renders correct date range', () => {
       render(<ExperienceItem company={skyBet} />);
 
-      const list = screen.getByTestId(`ExperienceItem-list-SkyBetting&Gaming`);
+      const list = screen.getByTestId('ExperienceItem-list-SkyBetting&Gaming');
       const items = within(list).getAllByRole('listitem');
 
       expect(items[0]).toHaveTextContent('Aug 2023 — Nov 2024');
@@ -107,7 +111,35 @@ describe('ExperienceItem', () => {
 
       expect(
         screen.getByTestId('SkyBetting&Gaming-SoftwareEngineer-description'),
-      ).toHaveTextContent(skyBet.jobs[0].description);
+      ).toHaveTextContent(skyBet.jobs[0].description as string);
+    });
+  });
+
+  describe('Flutter', () => {
+    test('renders all jobs', () => {
+      render(<ExperienceItem company={flutter} />);
+      const list = screen.getByTestId('ExperienceItem-list-FlutterUKI');
+      const items = within(list).getAllByRole('listitem');
+      expect(items).toHaveLength(1);
+
+      expect(items[0]).toHaveTextContent('Software Developer');
+    });
+
+    test('renders correct date range', () => {
+      render(<ExperienceItem company={flutter} />);
+
+      const list = screen.getByTestId('ExperienceItem-list-FlutterUKI');
+      const items = within(list).getAllByRole('listitem');
+
+      expect(items[0]).toHaveTextContent('Jan 2025 — Now');
+    });
+
+    test('renders description', () => {
+      render(<ExperienceItem company={flutter} />);
+
+      expect(
+        screen.getByTestId('FlutterUKI-SoftwareDeveloper-description'),
+      ).toHaveTextContent('No description yet');
     });
   });
 });

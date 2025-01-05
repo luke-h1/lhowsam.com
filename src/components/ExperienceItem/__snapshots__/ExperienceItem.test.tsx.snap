@@ -231,3 +231,73 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Sky Betting & G
   </div>
 </div>
 `;
+
+exports[`ExperienceItem should render title for { id: 3, title: 'Flutter UKI', jobs: [Array] } 1`] = `
+<div>
+  <script
+    nonce=""
+  >
+    ((e,s,n,m,o,l,u,h)=&gt;{let a=document.documentElement,v=["light","dark"];function p(c){(Array.isArray(e)?e:[e]).forEach(y=&gt;{let k=y==="class",S=k&&l?o.map(f=&gt;l[f]||f):o;k?(a.classList.remove(...S),a.classList.add(c)):a.setAttribute(y,c)}),C(c)}function C(c){h&&v.includes(c)&&(a.style.colorScheme=c)}function d(){return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}if(m)p(m);else try{let c=localStorage.getItem(s)||n,y=u&&c==="system"?d():c;p(y)}catch(c){}})("class","theme","system",null,["light","dark"],null,true,true)
+  </script>
+  <div
+    class=""
+  >
+    <h2
+      class="Heading_root__xkw1cf0 Heading_tracking_h2__xkw1cf2 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foreground__1fx8prsm5"
+    >
+      Flutter UKI
+    </h2>
+    <ul
+      class="List_list__3nqhft0"
+      data-testid="ExperienceItem-list-FlutterUKI"
+    >
+      <li
+        class="List_item__3nqhft1"
+      >
+        <div
+          class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
+        >
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
+          >
+            <h3
+              class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            >
+              Software Developer
+            </h3>
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            >
+              Leeds, UK
+            </p>
+          </div>
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_2_md__1fx8prsk2 sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+          >
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
+              data-testid="FlutterUKI-SoftwareDeveloper-description"
+            >
+              No description yet
+            </p>
+          </div>
+          <div
+            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_4_md__1fx8prska sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+          >
+            <p
+              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              data-testid="FlutterUKI-SoftwareDeveloper-date-range"
+            >
+              Jan 2025
+               —
+               
+              Now
+              <br />
+            </p>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+`;
