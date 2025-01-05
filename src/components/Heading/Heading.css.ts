@@ -16,3 +16,8 @@ export const tracking = styleVariants({
   h5: {},
   h6: {},
 });
+
+export const underlined = style({
+  textDecoration: 'underline dashed',
+  textUnderlineOffset: '8px',
+});
