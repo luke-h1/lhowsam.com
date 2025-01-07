@@ -80,16 +80,15 @@ export default async function AboutPage() {
           </Link>
         </div>
       </header>
+      <Spacer height="xxl" />
       <Link href="#experience">
-        <Box as="section">
-          <Heading as="h3" fontSize="xl">
-            Experience
-          </Heading>
-          <Spacer height="md" />
-          {sortedCompanies.map(company => (
-            <ExperienceItem company={company} key={company.id} />
-          ))}
-        </Box>
+        <Heading as="h3" fontSize="xl" color="highlight" underlined>
+          Experience
+        </Heading>
+        <Spacer height="xxl" />
+        {sortedCompanies.map(company => (
+          <ExperienceItem company={company} key={company.id} />
+        ))}
       </Link>
       <Spacer height="xxxxl" />
       <Box as="section">

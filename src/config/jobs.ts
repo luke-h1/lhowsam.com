@@ -4,7 +4,7 @@ interface Job {
   location: string;
   startDate: string;
   endDate?: string;
-  description: string;
+  description?: string;
 }
 
 export interface Company {
@@ -55,6 +55,18 @@ const companies: Company[] = [
         startDate: '14/08/2023',
         endDate: '14/11/2024',
         description: `Worked within the GLS (Game Launch Service) squad that provided game-launching capabilities for all gaming content across the business in addition to Reality Check (a safer gambling tool). Responsible for maintaining internal NPM packages, shared SDKs, web apps, serverless functions, driving DevOps improvements, monitoring our services (NewRelic, Grafana & Prometheus), supporting + mentoring teammates and captain duties (support queries etc.)`,
+      },
+    ],
+  },
+  {
+    id: 3,
+    title: 'Flutter UKI',
+    jobs: [
+      {
+        id: 5,
+        title: 'Software Developer',
+        location: 'Leeds, UK',
+        startDate: '06/01/2025',
       },
     ],
   },
