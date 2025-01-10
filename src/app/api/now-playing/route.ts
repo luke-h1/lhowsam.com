@@ -1,7 +1,7 @@
 import spotifyService from '@frontend/services/spotifyService';
 import { SongItem } from '@frontend/types/spotify';
 
-export const revalidate = 3;
+export const revalidate = false;
 
 const isEnabled = false;
 
