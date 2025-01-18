@@ -8,7 +8,7 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 import PostsClient from './page.client';
 
-export const revalidate = false;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Blog',

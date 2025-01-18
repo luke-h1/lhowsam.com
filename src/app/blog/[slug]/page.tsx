@@ -16,7 +16,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-export const revalidate = false;
+export const revalidate = 3600;
 
 interface Props {
   params: Promise<{

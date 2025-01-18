@@ -15,6 +15,8 @@ export default function Intro() {
           width="200"
           height="200"
           alt="Headshot"
+          placeholder="blur"
+          blurDataURL="/luke-1.png"
           priority
           quality={80}
           className={styles.image}

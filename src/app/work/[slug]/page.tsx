@@ -20,7 +20,7 @@ interface Props {
   }>;
 }
 
-export const revalidate = false;
+export const revalidate = 3600;
 
 export default async function WorkSlugPage({ params }: Props) {
   const { slug } = await params;

@@ -12,7 +12,7 @@ export default $config({
   },
   async run() {
     new sst.aws.Nextjs('lhowsam', {
-      warm: 1,
+      warm: 4,
     });
   },
 });
