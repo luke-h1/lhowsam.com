@@ -37,3 +37,6 @@ newrelic_agent.log
 # open-next
 .open-next
 .terraform.lock.hcl
+
+# sst
+.sst

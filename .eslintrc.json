@@ -130,6 +130,12 @@
         "import/no-dynamic-require": "off",
         "no-console": "off"
       }
+    },
+    {
+      "files": ["sst.config.ts"],
+      "rules": {
+        "all": "off"
+      }
     }
   ]
 }
