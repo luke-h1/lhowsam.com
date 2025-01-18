@@ -13,6 +13,12 @@ export default $config({
   async run() {
     new sst.aws.Nextjs('lhowsam', {
       warm: 4,
+      server: {
+        runtime: 'nodejs22.x',
+      },
+      imageOptimization: {
+        memory: `2048 MB`,
+      },
     });
   },
 });
