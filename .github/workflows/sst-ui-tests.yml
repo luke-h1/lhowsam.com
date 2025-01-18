@@ -34,7 +34,7 @@ jobs:
       - name: install dependencies
         uses: ./.github/actions/install
 
-      - name: UI tests dev
+      - name: UI tests sst
         uses: ./.github/actions/ui-test
         with:
           target: e2e-sst
