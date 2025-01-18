@@ -1,0 +1,40 @@
+name: UI tests (sst)
+on:
+  workflow_dispatch:
+  schedule: 
+    - cron: '0 4 * * *'
+env: 
+  NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
+  NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
+  NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_URL }}
+  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+  BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
+  BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
+  PNPM_VERSION: 9.12.3
+  SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
+  SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
+  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+  NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}  
+
+jobs:
+  test:
+    name: e2e sst
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}        
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+      
+      - name: install dependencies
+        uses: ./.github/actions/install
+
+      - name: UI tests dev
+        uses: ./.github/actions/ui-test
+        with:
+          target: e2e-sst

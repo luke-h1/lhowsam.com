@@ -39,3 +39,7 @@ e2e-prod:
 .PHONY: e2e-prod-open
 e2e-prod-open:
 	BASE_URL='https://lhowsam.com' ./node_modules/.bin/playwright test ${tests} --headed  --config=playwright-common.config.ts
+
+.PHONY: e2e-sst
+e2e-dev:
+	BASE_URL='https://d2bexdg6l1ina7.cloudfront.net' ./node_modules/.bin/playwright test ${tests} --config=playwright-common.config.ts
