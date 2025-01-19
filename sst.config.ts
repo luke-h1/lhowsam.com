@@ -1,6 +1,7 @@
 /* eslint-disable */
 /// <reference path="./.sst/platform/config.d.ts" />
 
+// https://github.com/taylorfsteele/TSS/blob/main/sst.config.ts
 export default $config({
   app(input) {
     return {
