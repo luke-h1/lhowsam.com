@@ -139,7 +139,7 @@ describe('ExperienceItem', () => {
 
       expect(
         screen.getByTestId('FlutterUKI-SoftwareDeveloper-description'),
-      ).toHaveTextContent('No description yet');
+      ).toHaveTextContent(flutter.jobs[0].description as string);
     });
   });
 });
