@@ -15,6 +15,7 @@ export default $config({
       warm: 4,
       server: {
         runtime: 'nodejs22.x',
+        memory: '2048 MB',
       },
       imageOptimization: {
         memory: `2048 MB`,
