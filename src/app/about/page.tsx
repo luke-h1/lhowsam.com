@@ -42,6 +42,8 @@ export default async function AboutPage() {
             width="200"
             height="200"
             alt=""
+            placeholder="blur"
+            blurDataURL="/luke-1.png"
             className={styles.image}
             style={{
               maxWidth: '100%',

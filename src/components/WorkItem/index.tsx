@@ -21,6 +21,8 @@ export default function WorkItem({ work }: Props) {
             src={imageService.urlFor(work.image.asset)}
             priority
             width={64}
+            placeholder="blur"
+            blurDataURL={imageService.urlFor(work.image.asset)}
             height={64}
             alt={work.image.alt ?? work.title}
             className={styles.image}

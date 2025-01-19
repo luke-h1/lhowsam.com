@@ -1,8 +1,8 @@
-name: UI tests (dev)
+name: UI tests (sst)
 on:
   workflow_dispatch:
   schedule: 
-    - cron: '0 22 * * *'
+    - cron: '0 */4 * * *'
 env: 
   NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
   NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
@@ -18,7 +18,7 @@ env:
 
 jobs:
   test:
-    name: e2e dev
+    name: e2e sst
     runs-on: ubuntu-latest
     timeout-minutes: 20
     concurrency:
@@ -34,7 +34,7 @@ jobs:
       - name: install dependencies
         uses: ./.github/actions/install
 
-      - name: UI tests dev
+      - name: UI tests sst
         uses: ./.github/actions/ui-test
         with:
-          target: e2e-dev
+          target: e2e-sst

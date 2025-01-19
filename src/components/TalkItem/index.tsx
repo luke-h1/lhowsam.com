@@ -28,6 +28,8 @@ const TalkItem = ({ talk }: Props) => {
                 src={imageService.urlFor(talk.image.asset)}
                 alt={talk.title}
                 width={400}
+                placeholder="blur"
+                blurDataURL={imageService.urlFor(talk.image.asset)}
                 height={300}
                 style={{
                   marginBottom: variables.spacing.sm,
