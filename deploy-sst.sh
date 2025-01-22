@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pnpx sst deploy --stage lhowsamdotcom
+pnpx sst deploy --stage staging

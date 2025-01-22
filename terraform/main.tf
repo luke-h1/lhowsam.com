@@ -5,10 +5,28 @@ data "aws_caller_identity" "current" {}
 # │ arn:aws:lambda:eu-west-2:<>:function:lhowsam-web-stg-server-function:1
 
 module "single_zone" {
-  source  = "RJPearson94/open-next/aws//modules/tf-aws-open-next-zone"
-  version = "3.1.0"
+  source            = "RJPearson94/open-next/aws//modules/tf-aws-open-next-zone"
+  version           = "3.1.0"
+  open_next_version = "v3.0.7"
 
-  prefix = "lhowsam-web-stg"
+  prefix             = "lho-stg"
+  folder_path        = "../.open-next"
+  s3_exclusion_regex = ".*\\.terragrunt*"
+
+  continuous_deployment = {
+    use        = true
+    deployment = "NONE"
+    traffic_config = {
+      header = {
+        name  = "aws-cf-cd-staging"
+        value = "true"
+      }
+    }
+  }
+
+  website_bucket = {
+    force_destroy = true
+  }
   providers = {
     aws                 = aws
     aws.server_function = aws.server_function
@@ -16,8 +34,6 @@ module "single_zone" {
     aws.dns             = aws.dns
     aws.global          = aws.global
   }
-  folder_path       = "../.open-next"
-  open_next_version = "v3.0.7"
 }
 
 provider "aws" {
@@ -26,12 +42,12 @@ provider "aws" {
 
 provider "aws" {
   alias  = "server_function"
-  region = "us-west-2"
+  region = "eu-west-2"
 }
 
 provider "aws" {
   alias  = "iam"
-  region = "us-west-2"
+  region = "eu-west-2"
 }
 
 provider "aws" {
@@ -41,5 +57,5 @@ provider "aws" {
 
 provider "aws" {
   alias  = "global"
-  region = "us-east-1"
+  region = "eu-west-2"
 }

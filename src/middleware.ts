@@ -4,7 +4,8 @@ import type { NextRequest } from 'next/server';
 
 export default function middleware(req: NextRequest) {
   switch (process.env.NEXT_PUBLIC_URL) {
-    case 'https://dev.lhowsam.com': {
+    case 'https://dev.lhowsam.com':
+    case 'https://staging.lhowsam.com': {
       const basicAuth = req.headers.get('Authorization')?.split(' ')[1];
       const url = req.nextUrl;
       if (basicAuth) {
