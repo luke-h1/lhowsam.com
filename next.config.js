@@ -72,6 +72,10 @@ const nextConfig = {
     forceSwcTransforms: true,
     serverComponentsHmrCache: true,
   },
+  excludeDefaultMomentLocales: true,
+  outputFileTracingExcludes: {
+    '*': ['node_modules/@swc*'],
+  },
   images: {
     remotePatterns: [
       { hostname: 'cdn.sanity.io' },
@@ -145,7 +149,6 @@ const nextConfig = {
         }),
       );
     }
-
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
