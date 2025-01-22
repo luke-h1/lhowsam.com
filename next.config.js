@@ -81,9 +81,9 @@ const nextConfig = {
     serverComponentsHmrCache: true,
   },
   // excludeDefaultMomentLocales: true,
-  outputFileTracingExcludes: {
-    '*': ['node_modules/@swc*/**', '!node_modules/@swc/helpers/**'],
-  },
+  // outputFileTracingExcludes: {
+  //   '*': ['node_modules/@swc*/**', '!node_modules/@swc/helpers/**'],
+  // },
   images: {
     remotePatterns: [
       { hostname: 'cdn.sanity.io' },
