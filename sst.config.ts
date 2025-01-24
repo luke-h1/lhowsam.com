@@ -43,6 +43,7 @@ export default $config({
       },
       imageOptimization: {
         memory: '2048 MB',
+        staticEtag: true,
       },
     });
   },
