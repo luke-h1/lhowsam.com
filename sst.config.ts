@@ -27,7 +27,7 @@ export default $config({
         dns: sst.cloudflare.dns({
           override: true,
           zone: process.env.CLOUDFLARE_ZONE_ID,
-          proxy: false,
+          proxy: true,
           transform: {
             record: {
               name: 'staging',
