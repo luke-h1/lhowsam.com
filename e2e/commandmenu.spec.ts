@@ -32,7 +32,6 @@ test.describe('command menu', () => {
 
   test.beforeEach(async () => {
     page.keyboard.press('Escape');
-    await page.waitForLoadState('networkidle');
     await page.focus('body');
     await sleep(2000);
   });

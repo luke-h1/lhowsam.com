@@ -65,13 +65,25 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
-    optimizePackageImports: ['framer-motion'],
+    optimizePackageImports: [
+      'framer-motion',
+      // swc
+      '@swc/core',
+      '@swc/helpers',
+      '@swc-node/register',
+      '@swc/register',
+      '@swc/webpack',
+    ],
     webVitalsAttribution: ['CLS', 'LCP'],
     // Force SWC transform on build to stop Next.js trying to use babel
     // since babel is only needed to support vanilla-extract in unit tests
     forceSwcTransforms: true,
     serverComponentsHmrCache: true,
   },
+  // excludeDefaultMomentLocales: true,
+  // outputFileTracingExcludes: {
+  //   '*': ['node_modules/@swc*/**', '!node_modules/@swc/helpers/**'],
+  // },
   images: {
     remotePatterns: [
       { hostname: 'cdn.sanity.io' },
@@ -145,7 +157,6 @@ const nextConfig = {
         }),
       );
     }
-
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],

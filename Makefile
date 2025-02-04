@@ -42,4 +42,4 @@ e2e-prod-open:
 
 .PHONY: e2e-sst
 e2e-sst:
-	BASE_URL='https://d2bexdg6l1ina7.cloudfront.net' ./node_modules/.bin/playwright test ${tests} --config=playwright-common.config.ts
+	BASE_URL='https://staging.lhowsam.com' ./node_modules/.bin/playwright test ${tests} --config=playwright-common.config.ts

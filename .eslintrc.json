@@ -132,7 +132,7 @@
       }
     },
     {
-      "files": ["sst.config.ts"],
+      "files": ["sst.config.ts", "open-next.config.ts"],
       "rules": {
         "all": "off"
       }

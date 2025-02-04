@@ -71,7 +71,7 @@ jobs:
         run: pnpm i --no-frozen-lockfile
 
       - name: Restore next build
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         id: restore-build-cache
         env:
           cache-name: cache-next-build
@@ -92,10 +92,11 @@ jobs:
         run: npx -p nextjs-bundle-analysis report
 
       - name: Upload bundle
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: bundle
           path: .next/analyze/__bundle_analysis.json
+          overwrite: true
 
       - name: Download base branch bundle stats
         uses: dawidd6/action-download-artifact@v2

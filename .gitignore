@@ -40,3 +40,5 @@ newrelic_agent.log
 
 # sst
 .sst
+*.tfstate
+*.tfstate.backup

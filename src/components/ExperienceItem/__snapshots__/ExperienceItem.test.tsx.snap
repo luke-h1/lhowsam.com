@@ -278,7 +278,7 @@ exports[`ExperienceItem should render title for { id: 3, title: 'Flutter UKI', j
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
               data-testid="FlutterUKI-SoftwareDeveloper-description"
             >
-              No description yet
+              Greenfield React Native development
             </p>
           </div>
           <div
