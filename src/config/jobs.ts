@@ -66,8 +66,7 @@ const companies: Company[] = [
         id: 5,
         title: 'Software Developer',
         location: 'Leeds, UK',
-        description:
-          'Currently working on a greenfield React Native project in a team of ~4+ developers',
+        description: 'Greenfield React Native development',
         startDate: '06/01/2025',
       },
     ],
