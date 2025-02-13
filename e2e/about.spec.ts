@@ -11,6 +11,9 @@ test.describe('about', () => {
 
   test('should render correctly', async () => {
     await expect(page.locator("[data-testid='AboutPage-intro']")).toBeVisible();
-    await expect(page.locator('text=Experience')).toBeVisible();
+
+    await expect(page.locator("a[href='/static/cv.pdf']")).toBeVisible();
+    await expect(page.locator('text=experience-heading')).toBeVisible();
+    await expect(page.locator('text=Skills')).toBeVisible();
   });
 });
