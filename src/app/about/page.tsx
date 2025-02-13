@@ -86,7 +86,13 @@ export default async function AboutPage() {
       </header>
       <Spacer height="xxl" />
       <Link href="#experience">
-        <Heading as="h3" fontSize="xl" color="highlight" underlined>
+        <Heading
+          as="h3"
+          fontSize="xl"
+          color="highlight"
+          underlined
+          testId="experience-heading"
+        >
           Experience
         </Heading>
         <Spacer height="xxl" />
