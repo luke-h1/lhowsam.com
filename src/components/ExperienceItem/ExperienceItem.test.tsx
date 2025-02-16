@@ -4,6 +4,10 @@ import toCamelCase from '@frontend/utils/toCamelCase';
 import { screen, within } from '@testing-library/react';
 import ExperienceItem from '.';
 
+const floow = companies.find(
+  company => company.title === 'The Floow',
+) as Company;
+
 const hive = companies.find(company => company.title === 'Hive IT') as Company;
 
 const skyBet = companies.find(
@@ -19,6 +23,42 @@ describe('ExperienceItem', () => {
     const { container } = render(<ExperienceItem company={company} />);
     expect(screen.getByText(company.title)).toBeInTheDocument();
     expect(container).toMatchSnapshot();
+  });
+
+  describe('Floow', () => {
+    test('renders all jobs', () => {
+      render(<ExperienceItem company={floow} />);
+
+      const list = screen.getByTestId('ExperienceItem-list-TheFloow');
+      const items = within(list).getAllByRole('listitem');
+
+      expect(items).toHaveLength(1);
+    });
+
+    test('renders in desc order', () => {
+      render(<ExperienceItem company={floow} />);
+
+      const list = screen.getByTestId('ExperienceItem-list-TheFloow');
+      const items = within(list).getAllByRole('listitem');
+
+      expect(items[0]).toHaveTextContent('Junior service desk analyst');
+    });
+
+    test('renders correct date range', () => {
+      render(<ExperienceItem company={floow} />);
+
+      expect(
+        screen.getByTestId('TheFloow-Juniorservicedeskanalyst-date-range'),
+      ).toHaveTextContent('Jun 2019 — Jul 2020');
+    });
+
+    test.each(floow.jobs)('renders description for %s', job => {
+      render(<ExperienceItem company={floow} />);
+
+      expect(
+        screen.getByTestId(`TheFloow-${toCamelCase(job.title)}-description`),
+      ).toHaveTextContent(job.description as string);
+    });
   });
 
   describe('Hive IT', () => {

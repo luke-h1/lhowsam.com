@@ -22,8 +22,8 @@ const companies: Company[] = [
         id: 1,
         title: 'Junior service desk analyst',
         location: 'Sheffield, UK',
-        startDate: '06/01/2019',
-        endDate: '05/25/2020',
+        startDate: '06/06/2019',
+        endDate: '01/07/2020',
         description:
           'L2 tech support for a sass insurance app that served customers throughout the EU, UKI, and NA (north America)',
       },
