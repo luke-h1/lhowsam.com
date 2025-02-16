@@ -16,6 +16,21 @@ export interface Company {
 const companies: Company[] = [
   {
     id: 1,
+    title: 'The Floow',
+    jobs: [
+      {
+        id: 1,
+        title: 'Junior service desk analyst',
+        location: 'Sheffield, UK',
+        startDate: '06/01/2019',
+        endDate: '05/25/2020',
+        description:
+          'L2 tech support for a sass insurance app that served customers throughout the EU, UKI, and NA (north America)',
+      },
+    ],
+  },
+  {
+    id: 2,
     title: 'Hive IT',
     jobs: [
       {
@@ -45,7 +60,7 @@ const companies: Company[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
     title: 'Sky Betting & Gaming',
     jobs: [
       {
@@ -59,7 +74,7 @@ const companies: Company[] = [
     ],
   },
   {
-    id: 3,
+    id: 4,
     title: 'Flutter UKI',
     jobs: [
       {
