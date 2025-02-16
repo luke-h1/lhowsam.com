@@ -38,17 +38,13 @@ export default async function AboutPage() {
       <header className={styles.header}>
         <div className={styles.imageContainer}>
           <Image
-            src="/luke-1.png"
+            src="/images/luke-ab-1.png"
             width="200"
             height="200"
             alt=""
             placeholder="blur"
-            blurDataURL="/luke-1.png"
+            blurDataURL="/images/luke-ab-1.png"
             className={styles.image}
-            style={{
-              maxWidth: '100%',
-              height: 'auto',
-            }}
           />
         </div>
         <div className={styles.textContainer}>
@@ -58,22 +54,28 @@ export default async function AboutPage() {
             fontFamily="mono"
             testId="AboutPage-intro"
           >
-            Hey, I'm Luke. I'm a Software Engineer interested in DevOps, React,
-            Python, TypeScript and AWS.
+            Luke, Software Engineer
           </Text>
           <Spacer height="lg" />
           <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
-            I'm comfortable with both frontend and backend technologies (React,
-            Next.js, Python, GraphQL, Express.js, Node etc.) and I'm always keen
-            to keep up with industry trends and new technologies.
+            Hey I'm Luke 👋, I'm a SWE currently focused on React-Native, Cloud
+            (AWS, Azure) and automation (Terraform etc.) along with a handful of
+            other tech (Next.js, Python etc.)
+          </Text>
+          <Spacer height="lg" />
+          <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
+            I have experience across both frontend and backend development,
+            working with technologies like React, Next.js, Python, GraphQL,
+            Express.js, and Node.js. I'm always eager to explore new industry
+            trends and emerging technologies.
+          </Text>
+          <Spacer height="lg" />
+          <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
+            Outside of work, I love traveling, music, building side projects,
+            and diving into fiction books.
           </Text>
           <Spacer height="lg" />
 
-          <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
-            In my spare time I enjoy being outdoors, travelling, discovering new
-            foods, finding new movies/tv-shows and reading
-          </Text>
-          <Spacer height="lg" />
           <Link
             href="/static/cv.pdf"
             className={buttonStyles({ type: 'highContrast' })}
@@ -84,7 +86,13 @@ export default async function AboutPage() {
       </header>
       <Spacer height="xxl" />
       <Link href="#experience">
-        <Heading as="h3" fontSize="xl" color="highlight" underlined>
+        <Heading
+          as="h3"
+          fontSize="xl"
+          color="highlight"
+          underlined
+          testId="experience-heading"
+        >
           Experience
         </Heading>
         <Spacer height="xxl" />
