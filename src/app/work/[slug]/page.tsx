@@ -89,14 +89,6 @@ export default async function WorkSlugPage({ params }: Props) {
   );
 }
 
-export async function generateStaticParams() {
-  const slugs = await workService.getSlugs();
-
-  return slugs.map(s => ({
-    slug: s.current,
-  }));
-}
-
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params;
   const { slug } = params;

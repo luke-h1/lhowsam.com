@@ -12,7 +12,7 @@ interface Props {
   }>;
 }
 
-export const revalidate = 3600;
+export const revalidate = 1200;
 
 export default async function TagPage({ params }: Props) {
   const { slug } = await params;
