@@ -75,7 +75,7 @@
     "react-dom": "19.0.0",
     "react-feather": "^2.0.10",
     "react-ga4": "^2.1.0",
-    "react-icons": "5.5.0",
+    "react-icons": "5.2.1",
     "react-spring": "^9.7.5",
     "react-syntax-highlighter": "^15.6.1",
     "rehype-pretty-code": "^0.14.0",

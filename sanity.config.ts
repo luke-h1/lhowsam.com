@@ -1,4 +1,3 @@
-import { schemaTypes } from '@frontend/schemas';
 import {
   dashboardTool,
   projectUsersWidget,
@@ -11,6 +10,7 @@ import { structureTool } from 'sanity/structure';
 import { markdownSchema } from 'sanity-plugin-markdown';
 import CustomMarkdownInput from './src/components/sanity/CustomMarkdownInput';
 import defaultDocumentNode from './src/components/sanity/util/defaultDocumentNode';
+import { schemaTypes } from './src/schemas';
 
 export default defineConfig({
   name: 'default',
