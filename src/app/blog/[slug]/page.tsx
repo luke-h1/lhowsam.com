@@ -114,14 +114,6 @@ export default async function PostPage({ params }: Props) {
   );
 }
 
-export async function generateStaticParams() {
-  const slugs = await postService.getSlugs();
-
-  return slugs.map(s => ({
-    slug: s.current,
-  }));
-}
-
 export async function generateMetadata(props: Props): Promise<Metadata> {
   const params = await props.params;
   const { slug } = params;
