@@ -22,7 +22,7 @@ interface Props {
   }>;
 }
 
-export const revalidate = 3600;
+export const revalidate = 1200;
 
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
