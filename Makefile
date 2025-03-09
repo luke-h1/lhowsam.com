@@ -14,7 +14,7 @@ help:
 
 .PHONY: e2e-install-browsers
 e2e-install-browsers:
-	pnpm exec playwright install --with-deps chromium
+	bun playwright install --with-deps chromium
 
 .PHONY: e2e-local
 e2e-local:

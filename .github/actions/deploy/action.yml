@@ -31,23 +31,23 @@ runs:
       shell: bash
       run: |
         # DEPLOYED_AT
-        pnpm vc env rm DEPLOYED_AT production --token ${VERCEL_TOKEN} --yes
-        echo ${{ steps.date.outputs.date }} | pnpm vc env add DEPLOYED_AT production --token ${VERCEL_TOKEN}
+        bun vc env rm DEPLOYED_AT production --token ${VERCEL_TOKEN} --yes
+        echo ${{ steps.date.outputs.date }} | bun vc env add DEPLOYED_AT production --token ${VERCEL_TOKEN}
 
         # DEPLOYED_BY
-        pnpm vc env rm DEPLOYED_BY production --token ${VERCEL_TOKEN} --yes
-        echo ${{ github.actor }} | pnpm vc env add DEPLOYED_BY production --token ${VERCEL_TOKEN}
+        bun vc env rm DEPLOYED_BY production --token ${VERCEL_TOKEN} --yes
+        echo ${{ github.actor }} | bun vc env add DEPLOYED_BY production --token ${VERCEL_TOKEN}
 
         # GIT_SHA
-        pnpm vc env rm GIT_SHA production --token ${VERCEL_TOKEN} --yes
-        echo ${{ steps.git-sha.outputs.git-sha }} | pnpm vc env add GIT_SHA production --token ${VERCEL_TOKEN}
+        bun vc env rm GIT_SHA production --token ${VERCEL_TOKEN} --yes
+        echo ${{ steps.git-sha.outputs.git-sha }} | bun vc env add GIT_SHA production --token ${VERCEL_TOKEN}
       env:
         VERCEL_TOKEN: ${{ inputs.vercel-token }}
         VERCEL_ORG_ID: ${{ inputs.vercel-org-id }}
         VERCEL_PROJECT_ID: ${{ inputs.vercel-project-id }}
 
     - name: Deploy to ${{ inputs.environment }}
-      run: pnpm vc -f --prod --token ${{ inputs.vercel-token }}
+      run: bun vc -f --prod --token ${{ inputs.vercel-token }}
       shell: bash
       env:
         VERCEL_TOKEN: ${{ inputs.vercel-token }}

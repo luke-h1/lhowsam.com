@@ -182,10 +182,5 @@
     "hooks": {
       "prepare-commit-msg": "exec < /dev/tty && npx cz --hook || true"
     }
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.0.1"
-    }
   }
 }

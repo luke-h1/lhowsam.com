@@ -27,7 +27,7 @@ runs:
 
     - name: UI tests
       if: ${{ inputs.target == 'e2e-local' }}
-      run: pnpx start-server-and-test start 3000 uitest:local
+      run: bunx start-server-and-test start 3000 uitest:local
       shell: bash
 
     - name: UI tests
