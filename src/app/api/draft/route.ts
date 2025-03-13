@@ -6,7 +6,9 @@ export async function GET(request: Request) {
   const slug = searchParams.get('slug');
   const documentType = searchParams.get('type');
 
-  if (secret !== process.env.SANITY_DRAFT_SECRET) {
+  const { SANITY_DRAFT_SECRET } = process.env;
+
+  if (secret !== SANITY_DRAFT_SECRET) {
     return new Response('Unauthorized', {
       status: 401,
     });

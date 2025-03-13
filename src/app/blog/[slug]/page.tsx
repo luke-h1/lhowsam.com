@@ -16,7 +16,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-export const revalidate = 1200;
+export const revalidate = 3600;
 
 interface Props {
   params: Promise<{
@@ -112,6 +112,14 @@ export default async function PostPage({ params }: Props) {
       </Box>
     </Page>
   );
+}
+
+export async function generateStaticParams() {
+  const slugs = await postService.getSlugs();
+
+  return slugs.map(s => ({
+    slug: s.current,
+  }));
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {

@@ -22,7 +22,7 @@ interface Props {
   }>;
 }
 
-export const revalidate = 1200;
+export const revalidate = 3600;
 
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
@@ -103,6 +103,14 @@ export default async function ProjectPage({ params }: Props) {
       </Box>
     </Page>
   );
+}
+
+export async function generateStaticParams() {
+  const slugs = await projectService.getSlugs();
+
+  return slugs.map(s => ({
+    slug: s.current,
+  }));
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {

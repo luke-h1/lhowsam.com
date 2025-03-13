@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic';
 
 const WorkItem = dynamic(() => import('@frontend/components/WorkItem'));
 
-export const revalidate = 1200;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Home | lhowsam.com',
