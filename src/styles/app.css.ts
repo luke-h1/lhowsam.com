@@ -1,14 +1,6 @@
 import { globalStyle, globalFontFace } from '@vanilla-extract/css';
 import { variables } from './variables.css';
 
-/**
- * Easing Linear Gradients
- * @see https://css-tricks.com/easing-linear-gradients/
- */
-const scrim = (to: 'top' | 'bottom'): string => {
-  return `linear-gradient(to ${to}, hsl(${variables.color.scrim}) 0%, hsla(${variables.color.scrim}, 0.738) 19%, hsla(${variables.color.scrim}, 0.541) 34%, hsla(${variables.color.scrim}, 0.382) 47%, hsla(${variables.color.scrim}, 0.278) 56.5%, hsla(${variables.color.scrim}, 0.194) 65%, hsla(${variables.color.scrim}, 0.126) 73%, hsla(${variables.color.scrim}, 0.075) 80.2%, hsla(${variables.color.scrim}, 0.042) 86.1%, hsla(${variables.color.scrim}, 0.021) 91%, hsla(${variables.color.scrim}, 0.008) 95.2%, hsla(${variables.color.scrim}, 0.002) 98.2%, hsla(${variables.color.scrim}, 0) 100%)`;
-};
-
 globalFontFace('Inter', {
   fontStyle: 'normal',
   fontWeight: '100 900',
@@ -41,17 +33,17 @@ globalStyle('body', {
   overflowX: 'hidden',
 });
 
-globalStyle('body::before', {
-  content: '',
-  position: 'fixed',
-  top: 0,
-  left: 0,
-  width: '100%',
-  height: variables.spacing.xxxl,
-  backgroundImage: scrim('bottom'),
-  zIndex: 100,
-  pointerEvents: 'none',
-});
+// globalStyle('body::before', {
+//   content: '',
+//   position: 'fixed',
+//   top: 0,
+//   left: 0,
+//   width: '100%',
+//   height: variables.spacing.xxxl,
+//   backgroundImage: scrim('bottom'),
+//   zIndex: 100,
+//   pointerEvents: 'none',
+// });
 
 globalStyle('body, #__next, .container', {
   display: 'flex',
@@ -59,17 +51,17 @@ globalStyle('body, #__next, .container', {
   minHeight: '100vh',
 });
 
-globalStyle('body::after', {
-  content: '',
-  position: 'fixed',
-  bottom: 0,
-  left: 0,
-  width: '100%',
-  height: variables.spacing.xxxl,
-  backgroundImage: scrim('top'),
-  zIndex: 100,
-  pointerEvents: 'none',
-});
+// globalStyle('body::after', {
+//   content: '',
+//   position: 'fixed',
+//   bottom: 0,
+//   left: 0,
+//   width: '100%',
+//   height: variables.spacing.xxxl,
+//   backgroundImage: scrim('top'),
+//   zIndex: 100,
+//   pointerEvents: 'none',
+// });
 
 globalStyle('.container', {
   display: 'flex',
