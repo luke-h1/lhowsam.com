@@ -76,7 +76,6 @@ export default async function PostPage({ params }: Props) {
             {
               title: 'Tags',
               description: (
-                // eslint-disable-next-line react/jsx-no-useless-fragment
                 <Box
                   style={{
                     display: 'flex',
