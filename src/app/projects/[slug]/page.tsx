@@ -59,7 +59,6 @@ export default async function ProjectPage({ params }: Props) {
             {
               title: 'Tags',
               description: (
-                // eslint-disable-next-line react/jsx-no-useless-fragment
                 <Box
                   style={{
                     display: 'flex',
