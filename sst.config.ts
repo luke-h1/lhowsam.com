@@ -21,7 +21,7 @@ export default $config({
 
   async run() {
     new sst.aws.Nextjs('lhowsam', {
-      warm: 4,
+      warm: 20,
       domain: {
         name: 'staging.lhowsam.com',
         dns: sst.cloudflare.dns({
