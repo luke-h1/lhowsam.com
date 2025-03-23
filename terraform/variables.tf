@@ -64,7 +64,7 @@ variable "environment_variables" {
   default = {
     "ENVIRONMENT" : "test",
     "NEXT_PUBLIC_URL" : "https://test.lhowsam.com",
-    "NEXT_PUBLIC_SANITY_PROJECT_ID" : "",
+    "NEXT_PUBLIC_SANITY_PROJECT_ID" : "wdj6ou2i",
     "NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL" : "https://nowplaying-staging.lhowsam.com"
   }
 }
