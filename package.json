@@ -104,7 +104,7 @@
     "@eslint/eslintrc": "^3.3.0",
     "@eslint/js": "^9.22.0",
     "@next/env": "15.2.2",
-    "@opennextjs/aws": "3.5.2",
+    "@opennextjs/aws": "3.4.2",
     "@playwright/test": "^1.51.0",
     "@svgr/webpack": "^8.1.0",
     "@swc/core": "^1.11.9",
