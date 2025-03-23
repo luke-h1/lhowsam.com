@@ -41,10 +41,10 @@ runs:
       run: |
         terraform init -backend-config="key=vpc/${{ inputs.environment }}.tfstate" -backend-config="bucket=lhowsam-web-${{ inputs.environment }}-terraform-state" -input=false
 
-    - name: Deploy DynamoDB lock table if not exists
-      shell: bash
-      working-directory: terraform
-      run: terraform apply -auto-approve -target=aws_dynamodb_table.dynamodb_terraform_lock
+    # - name: Deploy DynamoDB lock table if not exists
+    #   shell: bash
+    #   working-directory: terraform
+    #   run: terraform apply -auto-approve -target=aws_dynamodb_table.dynamodb_terraform_lock
 
     - name: Terraform fmt -check
       shell: bash
