@@ -61,13 +61,4 @@ variable "sanity_project_id" {
 
 variable "environment_variables" {
   type = map(string)
-  default = {
-    Environment                          = var.env
-    DEPLOYED_AT                          = timestamp()
-    DEPLOYED_BY                          = var.deployed_by
-    GIT_SHA                              = var.git_sha
-    NEXT_PUBLIC_URL                      = var.public_url
-    NEXT_PUBLIC_SANITY_PROJECT_ID        = var.sanity_project_id
-    NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL = "https://nowplaying-staging.lhowsam.com"
-  }
 }
