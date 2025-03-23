@@ -1,6 +1,5 @@
 'use client';
 
-/* eslint-disable no-shadow */
 import { useToast } from '@frontend/context/ToastContext';
 import * as ToastPrimitive from '@radix-ui/react-toast';
 import {

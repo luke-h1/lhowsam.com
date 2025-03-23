@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unstable-nested-components */
 import { variables } from '@frontend/styles/variables.css';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypePrism from 'rehype-prism-plus';

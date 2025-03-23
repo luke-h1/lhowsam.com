@@ -194,7 +194,6 @@ const CommandMenu = () => {
     return () => {
       unsubscribe();
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSetTheme = (value: string) => {
