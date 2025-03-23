@@ -31,6 +31,10 @@ runs:
         aws-region: eu-west-2
         mask-aws-account-id: true
 
+    - name: build
+      shell: bash
+      run: pnpm run build:open-next
+
     - name: Terraform init
       shell: bash
       working-directory: terraform
