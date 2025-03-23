@@ -26,7 +26,7 @@ env:
   TF_VAR_deployed_by: ${{ github.actor }}
   TF_VAR_git_sha: ${{ github.sha }}
   TF_VAR_sanity_project_id: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-  TF_VAR_ENVIRONMENT_VARIABLES: ${{ secrets.ENVIRONMENT_VARIABLES }}
+  TF_VAR_environment_variables: ${{ secrets.ENVIRONMENT_VARIABLES }}
 
 jobs:    
   deploy-dev:
