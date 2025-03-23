@@ -39,10 +39,11 @@ export default $config({
       },
       server: {
         runtime: 'nodejs22.x',
-        memory: '2048 MB',
+        architecture: 'arm64',
+        memory: '3008 MB',
       },
       imageOptimization: {
-        memory: '2048 MB',
+        memory: '3008 MB',
         staticEtag: true,
       },
     });

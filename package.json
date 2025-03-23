@@ -6,6 +6,7 @@
     "alphabetize": "node scripts/alphabetizePackageJson.js",
     "analyze": "ANALYZE=true next build && node scripts/analyze-bundle.js",
     "build": "next build",
+    "build:open-next": "open-next build",
     "check:node": "check-node-version --package",
     "clean": "rm -rf node_modules",
     "commit": "cz",

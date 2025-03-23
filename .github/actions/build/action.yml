@@ -36,6 +36,10 @@ runs:
         run: pnpm build
         shell: bash
 
+      - name: build open next
+        run: pnpm build:open-next
+        shell: bash
+
       - name: local UI tests
         uses: ./.github/actions/ui-test
         with:

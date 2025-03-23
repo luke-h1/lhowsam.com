@@ -4,6 +4,8 @@ on:
     branches:
       - dev
       - main
+      - feat/add-aws-tf-deploy
+
   workflow_dispatch:
 env:
   NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
@@ -16,45 +18,46 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
   BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
   BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
-  SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-  SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-  NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}  
   PNPM_VERSION: 9.12.3
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  TURBO_TEAM: luke-h1
+  # terraform
+  TF_VAR_env: 'test'
+  TF_VAR_root_domain: lhowsam.com
+  TF_VAR_sub_domain: test.lhowsam.com
+  TF_VAR_deployed_by: ${{ github.actor }}
+  TF_VAR_git_sha: ${{ github.sha }}
+  TF_VAR_sanity_project_id: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
 
-jobs:
-  # deploy-dev:
-  #   runs-on: ubuntu-latest
-  #   name: Deploy to dev
-  #   if: github.ref == 'refs/heads/dev' && github.event_name != 'pull_request'
-  #   concurrency:
-  #     group: ${{ github.workflow }}-${{ github.ref }}
-  #     cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4
-  #       with:
-  #         fetch-depth: 0
-  #         ref: ${{ github.head_ref }}
 
-  #     - name: Ensure rebased with dev
-  #       run: ./scripts/ensure-rebased.sh
+jobs:    
+  deploy-dev:
+    runs-on: ubuntu-latest
+    name: Deploy to test
+    # if: github.ref == 'refs/heads/dev' && github.event_name != 'pull_request'
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      # cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
 
-  #     - name: install
-  #       uses: ./.github/actions/install
+      - name: Ensure rebased with dev
+        run: ./scripts/ensure-rebased.sh
 
-  #     - name: Build
-  #       uses: ./.github/actions/build
+      - name: install
+        uses: ./.github/actions/install
 
-  #     - name: Deploy to dev
-  #       uses: ./.github/actions/deploy
-  #       with:
-  #         vercel-token: ${{ secrets.VERCEL_TOKEN }}
-  #         vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-  #         vercel-project-id: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
-  #         environment: dev
+      - name: Build
+        uses: ./.github/actions/build
+
+      - name: Deploy to test
+        uses: ./.github/actions/deploy-open-next
+        with:
+          aws-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          environment: test
 
   deploy-live:
     runs-on: ubuntu-latest
