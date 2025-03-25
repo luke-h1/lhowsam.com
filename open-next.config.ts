@@ -1,18 +1,6 @@
-import type { OpenNextConfig } from '@opennextjs/aws/types/open-next.js';
+import { defineCloudflareConfig } from "@opennextjs/cloudflare";
+import kvIncrementalCache from "@opennextjs/cloudflare/kv-cache";
 
-const config = {
-  default: {
-    override: {
-      wrapper: 'aws-lambda-streaming',
-      tagCache: 'dynamodb-lite',
-      incrementalCache: 's3-lite',
-      queue: 'sqs-lite',
-    },
-    minify: true,
-    placement: 'global',
-  },
-} satisfies OpenNextConfig;
-
-export default config;
-
-export type Config = typeof config;
+export default defineCloudflareConfig({
+  incrementalCache: kvIncrementalCache,
+});
