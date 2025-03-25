@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - dev
-      - main
+      # - main
   workflow_dispatch:
 env:
   NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
