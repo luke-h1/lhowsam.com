@@ -19,7 +19,7 @@ const AnimatedBars = () => {
 export default function NowPlaying() {
   const { data, isLoading, error } = useQuery({
     ...spotifyQueries.nowPlaying,
-    refetchInterval: 5000,
+    refetchInterval: 3000,
   });
 
   return !error && !isLoading ? (
