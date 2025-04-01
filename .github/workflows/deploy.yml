@@ -25,36 +25,36 @@ env:
   TURBO_TEAM: luke-h1
 
 jobs:
-  # deploy-dev:
-  #   runs-on: ubuntu-latest
-  #   name: Deploy to dev
-  #   if: github.ref == 'refs/heads/dev' && github.event_name != 'pull_request'
-  #   concurrency:
-  #     group: ${{ github.workflow }}-${{ github.ref }}
-  #     cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v4
-  #       with:
-  #         fetch-depth: 0
-  #         ref: ${{ github.head_ref }}
+  deploy-dev:
+    runs-on: ubuntu-latest
+    name: Deploy to dev
+    if: github.ref == 'refs/heads/dev' && github.event_name != 'pull_request'
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
 
-  #     - name: Ensure rebased with dev
-  #       run: ./scripts/ensure-rebased.sh
+      - name: Ensure rebased with dev
+        run: ./scripts/ensure-rebased.sh
 
-  #     - name: install
-  #       uses: ./.github/actions/install
+      - name: install
+        uses: ./.github/actions/install
 
-  #     - name: Build
-  #       uses: ./.github/actions/build
+      - name: Build
+        uses: ./.github/actions/build
 
-  #     - name: Deploy to dev
-  #       uses: ./.github/actions/deploy
-  #       with:
-  #         vercel-token: ${{ secrets.VERCEL_TOKEN }}
-  #         vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-  #         vercel-project-id: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
-  #         environment: dev
+      - name: Deploy to dev
+        uses: ./.github/actions/deploy
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
+          environment: dev
 
   deploy-live:
     runs-on: ubuntu-latest
