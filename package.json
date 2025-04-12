@@ -6,9 +6,11 @@
     "alphabetize": "node scripts/alphabetizePackageJson.js",
     "analyze": "ANALYZE=true next build && node scripts/analyze-bundle.js",
     "build": "next build",
+    "cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
     "check:node": "check-node-version --package",
     "clean": "rm -rf node_modules",
     "commit": "cz",
+    "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "dev": "next dev -p 3000",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
     "format:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
@@ -16,13 +18,15 @@
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "prepare": "husky",
+    "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "start": "next start -p 3000",
     "test": "jest",
     "test:ci": "jest --ci --reporters=default --reporters=jest-junit",
     "test:snapshot": "jest -u",
     "test:watch": "jest --watch",
     "tsc": "tsc --noEmit",
-    "uitest:local": "make e2e-local"
+    "uitest:local": "make e2e-local",
+    "upload": "opennextjs-cloudflare build && opennextjs-cloudflare upload"
   },
   "dependencies": {
     "@fontsource/poppins": "^5.1.1",
@@ -30,6 +34,7 @@
     "@mdx-js/mdx": "^3.1.0",
     "@next/eslint-plugin-next": "15.1.4",
     "@next/third-parties": "15.1.4",
+    "@opennextjs/cloudflare": "1.0.0-beta.2",
     "@radix-ui/colors": "^3.0.0",
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-toast": "^1.2.6",
@@ -155,7 +160,8 @@
     "prettier": "^3.5.3",
     "typescript": "^5.8.2",
     "unist-util-visit-parents": "^6.0.1",
-    "vercel": "^41.4.1"
+    "vercel": "^41.4.1",
+    "wrangler": "^4.10.0"
   },
   "nextBundleAnalysis": {
     "budget": 204800,
