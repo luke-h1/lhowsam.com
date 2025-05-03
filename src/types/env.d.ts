@@ -7,6 +7,7 @@ declare global {
       SANITY_DRAFT_SECRET: string;
       SANITY_STUDIO_DRAFT_SECRET: string;
       NEXT_PUBLIC_NOW_PLAYING_API_BASE_URL: string;
+      NOW_PLAYING_API_KEY: string;
       NEW_RELIC_APP_NAME: string;
       NEW_RELIC_LICENSE_KEY: string;
     }
