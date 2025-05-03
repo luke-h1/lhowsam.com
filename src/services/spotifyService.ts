@@ -80,7 +80,7 @@ const spotifyService = {
         headers: {
           'Content-Type': 'application/json',
           'x-consumer': consumer,
-          'x-api-key': process.env.NOW_PLAYING_API_KEY,
+          'x-api-key': process.env.NEXT_PUBLIC_NOW_PLAYING_API_KEY,
         },
       },
     );
