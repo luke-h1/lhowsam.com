@@ -38,6 +38,10 @@ newrelic_agent.log
 .open-next
 .terraform.lock.hcl
 
+# cloudflare
+.wrangler
+
+
 # sst
 .sst
 *.tfstate
