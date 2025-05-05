@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 
-// eslint-disable-next-line import/no-import-module-exports
+import MillionLint from '@million/lint';
 import { NextConfig } from 'next';
 
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
@@ -162,4 +162,5 @@ const nextConfig: NextConfig = {
     return config;
   },
 };
-module.exports = withVanillaExtract(nextConfig);
+const config = withVanillaExtract(nextConfig);
+export default MillionLint.next({ rsc: true })(config);
