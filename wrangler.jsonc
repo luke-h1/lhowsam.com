@@ -1,25 +1,115 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "main": ".open-next/worker.js",
-  "name": "lho-web-test",
+  "name": "lho-web",
   "compatibility_date": "2024-12-30",
-  "compatibility_flags": ["nodejs_compat"],
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
   "assets": {
     "directory": ".open-next/assets",
     "binding": "ASSETS",
   },
-  "services": [
+  "kv_namespaces": [
     {
-      "binding": "WORKER_SELF_REFERENCE",
-      // The service should match the "name" of your worker
-      "service": "lho-web-test",
+      "binding": "NEXT_INC_CACHE_KV",
+      "id": "bb85d7c30dbf482a952803510c19d511",
     },
   ],
   "r2_buckets": [
-    // Create a R2 binding with the binding name "NEXT_INC_CACHE_R2_BUCKET"
     {
       "binding": "NEXT_INC_CACHE_R2_BUCKET",
-      "bucket_name": "inc-cache-test",
+      "bucket_name": "lho-web-cache-staging",
     },
   ],
+  // DO Queue
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "NEXT_CACHE_DO_QUEUE",
+        "class_name": "DOQueueHandler",
+      },
+    ],
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["DOQueueHandler"],
+    },
+  ],
+
+  "d1_databases": [
+    {
+      "binding": "NEXT_TAG_CACHE_D1",
+      "database_id": "238743c4-05f8-4ede-9b80-9ed6544c11ed",
+      "database_name": "lho-web",
+    },
+  ],
+  "env": {
+    "staging": {
+      "name": "lho-web-staging",
+      "services": [
+        {
+          "binding": "WORKER_SELF_REFERENCE",
+          "service": "lho-web-staging",
+        },
+      ],
+      "r2_buckets": [
+        {
+          "binding": "NEXT_INC_CACHE_R2_BUCKET",
+          "bucket_name": "lho-web-cache-staging",
+        },
+      ],
+      "durable_objects": {
+        "bindings": [
+          {
+            "name": "NEXT_CACHE_DO_QUEUE",
+            "class_name": "DOQueueHandler",
+          },
+        ],
+      },
+      "d1_databases": [
+        {
+          "binding": "NEXT_TAG_CACHE_D1",
+          "database_id": "238743c4-05f8-4ede-9b80-9ed6544c11ed",
+          "database_name": "lho-web",
+        },
+      ],
+      "kv_namespaces": [
+        {
+          "binding": "NEXT_INC_CACHE_KV",
+          "id": "bb85d7c30dbf482a952803510c19d511",
+        },
+      ],
+      "routes": [
+        {
+          "pattern": "staging.lhowsam.com",
+          "zone_name": "lhowsam.com",
+        },
+      ],
+    },
+    // "production": {
+    //   "name": "lho-web-prod",
+    //   "services": [
+    //     {
+    //       "binding": "WORKER_SELF_REFERENCE",
+    //       "service": "lho-web-prod",
+    //     },
+    //   ],
+    //   "r2_buckets": [
+    //     {
+    //       "binding": "NEXT_INC_CACHE_R2_BUCKET",
+    //       "bucket_name": "lho-web-cache-prod",
+    //     },
+    //   ],
+    //   "routes": [
+    //     {
+    //       "pattern": "lhowsam.com",
+    //       "zone_name": "lhowsam.com",
+    //     },
+    //     {
+    //       "pattern": "www.lhowsam.com",
+    //       "zone_name": "lhowsam.com",
+    //     },
+    //   ],
+    // },
+  },
 }

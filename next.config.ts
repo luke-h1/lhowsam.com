@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-// eslint-disable-next-line import/no-unresolved
+
+// eslint-disable-next-line import/no-import-module-exports
+import { NextConfig } from 'next';
 
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 
@@ -55,10 +57,7 @@ const securityHeaders = [
   },
 ];
 
-/**
- * @type {import('next').NextConfig}
- */
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   eslint: {
@@ -80,10 +79,9 @@ const nextConfig = {
     forceSwcTransforms: true,
     serverComponentsHmrCache: true,
   },
-  // excludeDefaultMomentLocales: true,
-  // outputFileTracingExcludes: {
-  //   '*': ['node_modules/@swc*/**', '!node_modules/@swc/helpers/**'],
-  // },
+  outputFileTracingExcludes: {
+    '*': ['node_modules/@swc*/**', '!node_modules/@swc/helpers/**'],
+  },
   images: {
     remotePatterns: [
       { hostname: 'cdn.sanity.io' },
@@ -137,21 +135,20 @@ const nextConfig = {
         headers: [
           {
             key: 'Cache-Control',
-            value: 'public, max-age=3600, immutable', // 1 hour cache
+            value: 'public, max-age=3600, immutable',
           },
         ],
       },
     ];
   },
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  webpack: (config, { dev, isServer, ...options }) => {
+  webpack: (config, { isServer }) => {
     if (process.env.ANALYZE) {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports, global-require
+      // eslint-disable-next-line global-require
       const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
       config.plugins.push(
         new BundleAnalyzerPlugin({
           analyzerMode: 'static',
-          reportFilename: options.isServer
+          reportFilename: isServer
             ? '../analyze/server.html'
             : '../analyze/client.html',
         }),
