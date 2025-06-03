@@ -8,7 +8,7 @@ runs:
   using: composite
   steps:
     - name: Install browsers
-      run: pnpx playwright install --with-deps
+      run: npx playwright install --with-deps
       shell: bash
 
     - name: UI tests
