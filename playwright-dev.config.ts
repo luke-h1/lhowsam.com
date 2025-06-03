@@ -12,8 +12,6 @@ const credentialsBase64 = btoa(
 
 const config: PlaywrightTestConfig = {
   ...commonConfig,
-  workers: 2,
-  fullyParallel: true,
   use: {
     extraHTTPHeaders: {
       Authorization: `Basic ${credentialsBase64}`,
