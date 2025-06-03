@@ -8,7 +8,7 @@ runs:
   using: composite
   steps:
     - name: Install browsers
-      run: make e2e-install-browsers
+      run: pnpx playwright install --with-deps
       shell: bash
 
     - name: UI tests
