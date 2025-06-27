@@ -23,15 +23,6 @@ runs:
         run: pnpm tsc
         shell: bash
 
-      - name: Restore next build
-        uses: actions/cache@v3
-        id: restore-build-cache
-        env:
-          cache-name: cache-next-build
-        with:
-          path: .next/cache
-          key: ${{ runner.os }}-build-${{ env.cache-name }}
-
       - name: build
         run: pnpm build
         shell: bash

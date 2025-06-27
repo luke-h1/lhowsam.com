@@ -8,8 +8,8 @@ const commonConfig: PlaywrightTestConfig = {
   expect: {
     timeout: 30000,
   },
-  workers: 4,
-  fullyParallel: true,
+  workers: process.env.CI ? undefined : 4,
+  fullyParallel: !process.env.CI,
   retries: process.env.CI ? 2 : 0,
   reporter: process.env.CI ? 'github' : 'line',
   use: {
