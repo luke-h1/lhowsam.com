@@ -7,7 +7,7 @@ describe('Intro Component', () => {
     render(<Intro />);
 
     expect(screen.getByTestId('intro-heading')).toHaveTextContent(
-      'Software Engineer interested in DevOps, React, Python, TypeScript and AWS.',
+      'SWE interested in React Native, Mobile, DevOps, TypeScript and all things in-between',
     );
   });
 
