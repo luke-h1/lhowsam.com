@@ -9,6 +9,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Talks',
+  description: "Talks I've given at meetups and events",
 };
 
 export default async function TalksPage() {

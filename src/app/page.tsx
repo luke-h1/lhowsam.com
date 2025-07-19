@@ -17,6 +17,8 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Home | lhowsam.com',
+  description:
+    'Luke - SWE specializing in React Native, Mobile Development, DevOps, and TypeScript',
 };
 
 export default async function HomePage() {

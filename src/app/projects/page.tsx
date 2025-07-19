@@ -11,6 +11,7 @@ export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Projects',
+  description: "Personal projects I've worked on",
 };
 
 export default async function ProjectPage() {
