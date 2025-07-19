@@ -1,22 +1,20 @@
 const siteConfig = {
   name: 'lhowsam.com',
   description: 'Luke Howsam - Software Developer - my website',
-  defaultRevalidate: 3600, // 30 minutes
   keywords: [
     'Luke Howsam',
-    'Developer',
     'Software Developer',
-    'Software Engineer',
     'React',
+    'React Native',
     'Node',
+    'AWS',
+    'Azure',
+    'DevOps',
     'Typescript',
     'Javascript',
     'GraphQL',
-    'Node',
     'QA',
-    'Automated & manual testing',
-    'Sheffield',
-    'United Kingdom',
+    'Terraform',
   ],
 };
 

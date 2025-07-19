@@ -11,6 +11,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Work',
+  description: "Professional projects at work that I've been involved in",
 };
 
 export default async function WorkPage() {

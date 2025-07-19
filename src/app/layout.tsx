@@ -19,7 +19,8 @@ export const metadata: Metadata = {
     default: siteConfig.name,
     template: `%s | lhowsam.com`,
   },
-  description: `Software Engineer - Luke Howsam - my website`,
+  description:
+    'Luke - SWE specializing in React Native, Mobile Development, DevOps, and TypeScript',
   keywords: [...siteConfig.keywords],
   authors: [
     {
@@ -33,6 +34,8 @@ export const metadata: Metadata = {
     locale: 'en_GB',
     title: siteConfig.name,
     siteName: siteConfig.name,
+    description:
+      'Luke - SWE specializing in React Native, Mobile Development, DevOps, and TypeScript',
     images: [
       {
         url: `${process.env.NEXT_PUBLIC_URL}/icons/logo.png`,
@@ -86,10 +89,6 @@ const RootLayout = async ({ children }: Props) => {
         {process.env.NEXT_PUBLIC_URL === 'https://lhowsam.com' && (
           <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_TRACKING_ID} />
         )}
-        {/* <Script
-          id="nr-browser-agent"
-          dangerouslySetInnerHTML={{ __html: browserTimingHeader }}
-        /> */}
       </head>
       <body>
         <main id="main">

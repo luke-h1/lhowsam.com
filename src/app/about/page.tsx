@@ -15,6 +15,8 @@ import * as styles from './about.css';
 
 export const metadata: Metadata = {
   title: 'About',
+  description:
+    'Learn more about Luke, a Software Engineer focused on React-Native, Cloud, and automation technologies',
 };
 
 // Sort companies by the most recent job's end date in descending order
@@ -65,14 +67,14 @@ export default async function AboutPage() {
           <Spacer height="lg" />
           <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
             I have experience across both frontend and backend development,
-            working with technologies like React, Next.js, Python, GraphQL,
-            Express.js, and Node.js. I'm always eager to explore new industry
-            trends and emerging technologies.
+            working with technologies like React Native, React, Next.js, Python,
+            GraphQL and Node.js. I'm always eager to explore new industry trends
+            and emerging technologies.
           </Text>
           <Spacer height="lg" />
           <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
-            Outside of work, I love traveling, music, building side projects,
-            and diving into fiction books.
+            Outside of work, I love traveling, music, building side projects
+            etc.
           </Text>
           <Spacer height="lg" />
 
