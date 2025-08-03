@@ -103,6 +103,6 @@ describe('CommandMenu', () => {
     expect(mockPush).not.toHaveBeenCalled();
 
     const copiedText = await window.navigator.clipboard.readText();
-    expect(copiedText).toEqual('http://localhost/');
+    expect(copiedText).toEqual('http://localhost/#');
   });
 });

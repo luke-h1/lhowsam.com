@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`ExperienceItem should render title for { id: 1, title: 'The Floow', jobs: [Array] } 1`] = `
 <div>
@@ -9,9 +9,11 @@ exports[`ExperienceItem should render title for { id: 1, title: 'The Floow', job
   </script>
   <div
     class=""
+    style="border-bottom: 1px solid var(--color-border); margin-bottom: var(--spacing-lg__k8v0rxj);"
   >
     <h2
       class="Heading_root__xkw1cf0 Heading_tracking_h2__xkw1cf2 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foreground__1fx8prsm5"
+      style="margin-bottom: var(--spacing-sm__k8v0rxh);"
     >
       The Floow
     </h2>
@@ -79,9 +81,11 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
   </script>
   <div
     class=""
+    style="border-bottom: 1px solid var(--color-border); margin-bottom: var(--spacing-lg__k8v0rxj);"
   >
     <h2
       class="Heading_root__xkw1cf0 Heading_tracking_h2__xkw1cf2 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foreground__1fx8prsm5"
+      style="margin-bottom: var(--spacing-sm__k8v0rxh);"
     >
       Hive IT
     </h2>
@@ -241,9 +245,11 @@ exports[`ExperienceItem should render title for { id: 3, title: 'Sky Betting & G
   </script>
   <div
     class=""
+    style="border-bottom: 1px solid var(--color-border); margin-bottom: var(--spacing-lg__k8v0rxj);"
   >
     <h2
       class="Heading_root__xkw1cf0 Heading_tracking_h2__xkw1cf2 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foreground__1fx8prsm5"
+      style="margin-bottom: var(--spacing-sm__k8v0rxh);"
     >
       Sky Betting & Gaming
     </h2>
@@ -311,9 +317,11 @@ exports[`ExperienceItem should render title for { id: 4, title: 'Flutter UKI', j
   </script>
   <div
     class=""
+    style="border-bottom: 1px solid var(--color-border); margin-bottom: var(--spacing-lg__k8v0rxj);"
   >
     <h2
       class="Heading_root__xkw1cf0 Heading_tracking_h2__xkw1cf2 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foreground__1fx8prsm5"
+      style="margin-bottom: var(--spacing-sm__k8v0rxh);"
     >
       Flutter UKI
     </h2>
