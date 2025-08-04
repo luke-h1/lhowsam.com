@@ -58,11 +58,16 @@ export const socialLinks: FooterLink[] = [
   },
   {
     id: 2,
+    text: 'Twitter',
+    href: 'https://x.com/luke_h1__',
+  },
+  {
+    id: 3,
     text: 'Linkedin',
     href: 'https://www.linkedin.com/in/lukehowsam',
   },
   {
-    id: 3,
+    id: 4,
     text: 'Email',
     href: 'mailto:hey@lhowsam.com?subject=Get in touch (lhowsam.com)',
   },

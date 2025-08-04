@@ -47,6 +47,11 @@ test.describe('footer', () => {
       page.locator('[data-testid="footer"] >> text="Linkedin"'),
     ).toBeVisible();
 
+    // Twitter
+    await expect(
+      page.locator('[data-testid="footer"] >> text="Twitter"'),
+    ).toBeVisible();
+
     // Email
     await expect(
       page.locator('[data-testid="footer"] >> text="Email"'),
