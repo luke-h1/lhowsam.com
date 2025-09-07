@@ -8,10 +8,10 @@ const commonConfig: PlaywrightTestConfig = {
   expect: {
     timeout: 30000,
   },
-  workers: process.env.CI ? undefined : 4,
+  workers: process.env.CI ? 1 : 4,
   fullyParallel: !process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  reporter: process.env.CI ? 'github' : 'line',
+  reporter: process.env.CI ? [['github'], ['html', { open: 'never' }]] : 'line',
   use: {
     actionTimeout: 20000,
     navigationTimeout: 20000,
@@ -22,6 +22,11 @@ const commonConfig: PlaywrightTestConfig = {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
+        launchOptions: {
+          args: process.env.CI
+            ? ['--no-sandbox', '--disable-dev-shm-usage', '--disable-gpu']
+            : [],
+        },
       },
     },
   ],
