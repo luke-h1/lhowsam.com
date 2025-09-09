@@ -8,7 +8,7 @@ runs:
   using: composite
   steps:
     - name: Install browsers
-      run: npx playwright install --with-deps
+      run: ./node_modules/.bin/playwright install --with-deps chromium
       shell: bash
 
     - name: UI tests

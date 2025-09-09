@@ -13,7 +13,6 @@ env:
   SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
   SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
   NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
-  PLAYWRIGHT_BROWSERS_PATH: 0
 
 jobs:
   test:
@@ -37,43 +36,3 @@ jobs:
         uses: ./.github/actions/ui-test
         with:
           target: e2e-prod
-
-  discord-fail-message:
-    runs-on: ubuntu-latest
-    if: failure()
-    needs: test
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: ${{ github.head_ref }}
-
-      - name: get-npm-version
-        id: package-version
-        uses: martinbeentjes/npm-get-version-action@main
-        with:
-          path: apps/lambda
-
-      - name: Get current time
-        id: current-time
-        run: echo "TIME=$(date -u)" >> $GITHUB_ENV
-
-      - name: Get deployedAt from lhowsam.com
-        id: fetch-deployedAt
-        run: |
-          response=$(curl -s https://lhowsam.com/api/version)
-          deployedAt=$(echo $response | jq -r '.deployedAt')
-          echo "DEPLOYED_AT=$deployedAt" >> $GITHUB_ENV
-
-      - name: Discord fail notification
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_LIVE_WEBHOOK_URL }}
-        uses: Ilshidur/action-discord@master
-        with:
-          args: |
-            🚨 Live UI tests lhowsam.com failed! 🚨
-            **Failure Time**: ${{ env.TIME }}
-            **Last deployed at**: ${{ env.DEPLOYED_AT }}
-            **Vercel Status**: https://www.vercel-status.com
-            **CF status**: https://www.cloudflarestatus.com
