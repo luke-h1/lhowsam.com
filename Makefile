@@ -18,24 +18,24 @@ e2e-install-browsers:
 
 .PHONY: e2e-local
 e2e-local:
-	BASE_URL='http://localhost:3000' npx playwright test ${tests} --config=playwright-common.config.ts
+	BASE_URL='http://localhost:3000' ./node_modules/.bin/playwright test ${tests} --config=playwright-common.config.ts
 
 .PHONY: e2e-local-open
 e2e-local-open:
-	BASE_URL='http://localhost:3000' npx playwright test ${tests} --headed --config=playwright-common.config.ts
+	BASE_URL='http://localhost:3000' ./node_modules/.bin/playwright test ${tests} --headed --config=playwright-common.config.ts
 
 .PHONY: e2e-dev
 e2e-dev:
-	BASE_URL='https://dev.lhowsam.com' npx playwright test ${tests} --config=playwright-dev.config.ts
+	BASE_URL='https://dev.lhowsam.com' ./node_modules/.bin/playwright test ${tests} --config=playwright-dev.config.ts
 
 .PHONY: e2e-dev-open
 e2e-dev-open:
-	BASE_URL='https://dev.lhowsam.com' npx playwright test ${tests}  --headed --config=playwright-dev.config.ts
+	BASE_URL='https://dev.lhowsam.com' ./node_modules/.bin/playwright test ${tests}  --headed --config=playwright-dev.config.ts
 
 .PHONY: e2e-prod
 e2e-prod:
-	BASE_URL='https://lhowsam.com' npx playwright test ${tests} --config=playwright-common.config.ts
+	BASE_URL='https://lhowsam.com' ./node_modules/.bin/playwright test ${tests} --config=playwright-common.config.ts
 
 .PHONY: e2e-prod-open
 e2e-prod-open:
-	BASE_URL='https://lhowsam.com' npx playwright test ${tests} --headed  --config=playwright-common.config.ts
+	BASE_URL='https://lhowsam.com' ./node_modules/.bin/playwright test ${tests} --headed  --config=playwright-common.config.ts
