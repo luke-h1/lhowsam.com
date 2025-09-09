@@ -124,6 +124,29 @@ const nextConfig = {
         destination: 'https://status.lhowsam.com',
         permanent: true,
       },
+      /**
+       * Socials
+       */
+      {
+        source: '/twitter',
+        destination: 'https://x.com/luke_h1__',
+        permanent: true,
+      },
+      {
+        source: '/linkedin',
+        destination: 'https://www.linkedin.com/in/lukehowsam',
+        permanent: true,
+      },
+      {
+        source: '/github',
+        destination: 'https://github.com/luke-h1',
+        permanent: true,
+      },
+      {
+        source: '/bsky',
+        destination: 'https://bsky.app/profile/luke-h1.bsky.social',
+        permanent: true,
+      },
     ];
   },
   async headers() {
