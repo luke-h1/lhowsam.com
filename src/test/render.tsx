@@ -1,3 +1,4 @@
+import { TooltipProvider } from '@radix-ui/react-tooltip';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import {
   render as baseRender,
@@ -22,7 +23,9 @@ const DefaultWrapper = ({ children }: { children?: ReactNode }) => {
   });
   return (
     <QueryClientProvider client={queryClient}>
-      <NextThemeProvider attribute="class">{children}</NextThemeProvider>
+      <TooltipProvider>
+        <NextThemeProvider attribute="class">{children}</NextThemeProvider>
+      </TooltipProvider>
     </QueryClientProvider>
   );
 };
