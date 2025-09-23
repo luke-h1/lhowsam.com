@@ -21,6 +21,8 @@ exports[`ExperienceItem should render title for { id: 1, title: 'The Floow', job
     >
       <li
         class="List_item__3nqhft1"
+        id="TheFloow-Juniorservicedeskanalyst"
+        style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
       >
         <div
           class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
@@ -28,13 +30,45 @@ exports[`ExperienceItem should render title for { id: 1, title: 'The Floow', job
           <div
             class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
           >
-            <h3
-              class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            <div
+              class=""
+              style="display: flex; align-items: center; gap: var(--spacing-sm__k8v0rxh);"
             >
-              Junior service desk analyst
-            </h3>
+              <h3
+                class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Junior service desk analyst
+              </h3>
+              <button
+                data-state="closed"
+                data-testid="TheFloow-Juniorservicedeskanalyst-copy-link"
+                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__k8v0rxp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                type="button"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                  />
+                  <path
+                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                  />
+                </svg>
+              </button>
+            </div>
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              style="transition: color 0.3s ease-in-out;"
             >
               Sheffield, UK
             </p>
@@ -45,6 +79,7 @@ exports[`ExperienceItem should render title for { id: 1, title: 'The Floow', job
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
               data-testid="TheFloow-Juniorservicedeskanalyst-description"
+              style="transition: color 0.3s ease-in-out;"
             >
               L2 tech support for a sass insurance app that served customers throughout the EU, UKI, and NA (north America)
             </p>
@@ -55,6 +90,7 @@ exports[`ExperienceItem should render title for { id: 1, title: 'The Floow', job
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
               data-testid="TheFloow-Juniorservicedeskanalyst-date-range"
+              style="transition: color 0.3s ease-in-out;"
             >
               Jun 2019
                —
@@ -91,6 +127,8 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
     >
       <li
         class="List_item__3nqhft1"
+        id="HiveIT-SoftwareEngineer"
+        style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
       >
         <div
           class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
@@ -98,13 +136,45 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
           <div
             class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
           >
-            <h3
-              class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            <div
+              class=""
+              style="display: flex; align-items: center; gap: var(--spacing-sm__k8v0rxh);"
             >
-              Software Engineer
-            </h3>
+              <h3
+                class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Software Engineer
+              </h3>
+              <button
+                data-state="closed"
+                data-testid="HiveIT-SoftwareEngineer-copy-link"
+                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__k8v0rxp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                type="button"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                  />
+                  <path
+                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                  />
+                </svg>
+              </button>
+            </div>
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              style="transition: color 0.3s ease-in-out;"
             >
               Sheffield, UK
             </p>
@@ -115,6 +185,7 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
               data-testid="HiveIT-SoftwareEngineer-description"
+              style="transition: color 0.3s ease-in-out;"
             >
               Worked as a full-stack software engineer at a local digital agency mainly on government and charity projects. Responsible for driving DevOps + internal process improvement, feature + maintenance tasks ,presenting technical proof of concepts to stakeholders and supporting + mentoring teammates
             </p>
@@ -125,6 +196,7 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
               data-testid="HiveIT-SoftwareEngineer-date-range"
+              style="transition: color 0.3s ease-in-out;"
             >
               May 2022
                —
@@ -137,6 +209,8 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
       </li>
       <li
         class="List_item__3nqhft1"
+        id="HiveIT-SoftwareTester"
+        style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
       >
         <div
           class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
@@ -144,13 +218,45 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
           <div
             class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
           >
-            <h3
-              class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            <div
+              class=""
+              style="display: flex; align-items: center; gap: var(--spacing-sm__k8v0rxh);"
             >
-              Software Tester
-            </h3>
+              <h3
+                class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Software Tester
+              </h3>
+              <button
+                data-state="closed"
+                data-testid="HiveIT-SoftwareTester-copy-link"
+                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__k8v0rxp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                type="button"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                  />
+                  <path
+                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                  />
+                </svg>
+              </button>
+            </div>
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              style="transition: color 0.3s ease-in-out;"
             >
               Sheffield, UK
             </p>
@@ -161,6 +267,7 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
               data-testid="HiveIT-SoftwareTester-description"
+              style="transition: color 0.3s ease-in-out;"
             >
               Worked on improving the existing testing culture within the company to reduce technical debt and improve happiness
             </p>
@@ -171,6 +278,7 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
               data-testid="HiveIT-SoftwareTester-date-range"
+              style="transition: color 0.3s ease-in-out;"
             >
               May 2021
                —
@@ -183,6 +291,8 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
       </li>
       <li
         class="List_item__3nqhft1"
+        id="HiveIT-JuniorSoftwareTester"
+        style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
       >
         <div
           class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
@@ -190,13 +300,45 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
           <div
             class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
           >
-            <h3
-              class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            <div
+              class=""
+              style="display: flex; align-items: center; gap: var(--spacing-sm__k8v0rxh);"
             >
-              Junior Software Tester
-            </h3>
+              <h3
+                class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Junior Software Tester
+              </h3>
+              <button
+                data-state="closed"
+                data-testid="HiveIT-JuniorSoftwareTester-copy-link"
+                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__k8v0rxp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                type="button"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                  />
+                  <path
+                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                  />
+                </svg>
+              </button>
+            </div>
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              style="transition: color 0.3s ease-in-out;"
             >
               Sheffield, UK
             </p>
@@ -207,6 +349,7 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
               data-testid="HiveIT-JuniorSoftwareTester-description"
+              style="transition: color 0.3s ease-in-out;"
             >
               Worked as a Junior software tester to take over from the previous tester. Built up testing skills both automated and manual to aid in the maintenance of large and small projects
             </p>
@@ -217,6 +360,7 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
               data-testid="HiveIT-JuniorSoftwareTester-date-range"
+              style="transition: color 0.3s ease-in-out;"
             >
               Oct 2020
                —
@@ -253,6 +397,8 @@ exports[`ExperienceItem should render title for { id: 3, title: 'Sky Betting & G
     >
       <li
         class="List_item__3nqhft1"
+        id="SkyBetting&Gaming-SoftwareEngineer"
+        style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
       >
         <div
           class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
@@ -260,13 +406,45 @@ exports[`ExperienceItem should render title for { id: 3, title: 'Sky Betting & G
           <div
             class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
           >
-            <h3
-              class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            <div
+              class=""
+              style="display: flex; align-items: center; gap: var(--spacing-sm__k8v0rxh);"
             >
-              Software Engineer
-            </h3>
+              <h3
+                class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Software Engineer
+              </h3>
+              <button
+                data-state="closed"
+                data-testid="SkyBetting&Gaming-SoftwareEngineer-copy-link"
+                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__k8v0rxp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                type="button"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                  />
+                  <path
+                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                  />
+                </svg>
+              </button>
+            </div>
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              style="transition: color 0.3s ease-in-out;"
             >
               Leeds, UK
             </p>
@@ -277,6 +455,7 @@ exports[`ExperienceItem should render title for { id: 3, title: 'Sky Betting & G
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
               data-testid="SkyBetting&Gaming-SoftwareEngineer-description"
+              style="transition: color 0.3s ease-in-out;"
             >
               Worked within the GLS (Game Launch Service) squad that provided game-launching capabilities for all gaming content across the business in addition to Reality Check (a safer gambling tool). Responsible for maintaining internal NPM packages, shared SDKs, web apps, serverless functions, driving DevOps improvements, monitoring our services (NewRelic, Grafana & Prometheus), supporting + mentoring teammates and captain duties (support queries etc.)
             </p>
@@ -287,6 +466,7 @@ exports[`ExperienceItem should render title for { id: 3, title: 'Sky Betting & G
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
               data-testid="SkyBetting&Gaming-SoftwareEngineer-date-range"
+              style="transition: color 0.3s ease-in-out;"
             >
               Aug 2023
                —
@@ -323,6 +503,8 @@ exports[`ExperienceItem should render title for { id: 4, title: 'Flutter UKI', j
     >
       <li
         class="List_item__3nqhft1"
+        id="FlutterUKI-SoftwareDeveloper"
+        style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
       >
         <div
           class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
@@ -330,13 +512,45 @@ exports[`ExperienceItem should render title for { id: 4, title: 'Flutter UKI', j
           <div
             class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
           >
-            <h3
-              class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+            <div
+              class=""
+              style="display: flex; align-items: center; gap: var(--spacing-sm__k8v0rxh);"
             >
-              Software Developer
-            </h3>
+              <h3
+                class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Software Developer
+              </h3>
+              <button
+                data-state="closed"
+                data-testid="FlutterUKI-SoftwareDeveloper-copy-link"
+                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__k8v0rxp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                type="button"
+              >
+                <svg
+                  fill="none"
+                  height="16"
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                  />
+                  <path
+                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                  />
+                </svg>
+              </button>
+            </div>
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              style="transition: color 0.3s ease-in-out;"
             >
               Leeds, UK
             </p>
@@ -347,8 +561,9 @@ exports[`ExperienceItem should render title for { id: 4, title: 'Flutter UKI', j
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
               data-testid="FlutterUKI-SoftwareDeveloper-description"
+              style="transition: color 0.3s ease-in-out;"
             >
-              Greenfield React Native development
+              Greenfield React-Native development (alongside Software-Mansion for the first 9 months of the project). Spearheading development on shared SDKs for React & React Native projects. CI/CD (GH actions, AZ DevOps, etc), IAC (Terraform), cloud infrastructure (AWS, Azure). Maintenance + feature work on various frontend & backend projects
             </p>
           </div>
           <div
@@ -357,6 +572,7 @@ exports[`ExperienceItem should render title for { id: 4, title: 'Flutter UKI', j
             <p
               class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
               data-testid="FlutterUKI-SoftwareDeveloper-date-range"
+              style="transition: color 0.3s ease-in-out;"
             >
               Jan 2025
                —

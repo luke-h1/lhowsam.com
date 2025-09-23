@@ -69,7 +69,7 @@ export const socialLinks: FooterLink[] = [
   {
     id: 4,
     text: 'Email',
-    href: 'mailto:hey@lhowsam.com?subject=Get in touch (lhowsam.com)',
+    href: 'mailto:work@lhowsam.com?subject=Get in touch (lhowsam.com)',
   },
 ];
 
