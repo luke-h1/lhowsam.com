@@ -58,6 +58,14 @@ export default async function AboutPage() {
           >
             Luke, Software Engineer
           </Text>
+          <Link
+            href="mailto:hey@lhowsam.com"
+            className={buttonStyles({ type: 'outlined' })}
+            style={{ marginTop: '1rem', display: 'inline-block' }}
+          >
+            🟢 Open to Work
+          </Link>
+
           <Spacer height="lg" />
           <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
             Hey I'm Luke 👋, I'm a SWE currently focused on React-Native, Cloud
@@ -78,12 +86,21 @@ export default async function AboutPage() {
           </Text>
           <Spacer height="lg" />
 
-          <Link
-            href="/static/cv.pdf"
-            className={buttonStyles({ type: 'highContrast' })}
+          <div
+            style={{
+              display: 'flex',
+              gap: '1rem',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+            }}
           >
-            Read CV
-          </Link>
+            <Link
+              href="/static/cv.pdf"
+              className={buttonStyles({ type: 'highContrast' })}
+            >
+              Read CV
+            </Link>
+          </div>
         </div>
       </header>
       <Spacer height="xxl" />
