@@ -59,7 +59,7 @@ export default async function AboutPage() {
             Luke, Software Engineer
           </Text>
           <Link
-            href="mailto:hey@lhowsam.com"
+            href="mailto:work@lhowsam.com"
             className={buttonStyles({ type: 'outlined' })}
             style={{ marginTop: '1rem', display: 'inline-block' }}
           >
