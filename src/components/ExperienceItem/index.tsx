@@ -26,11 +26,15 @@ export default function ExperienceItem({ company }: Props) {
   const [highlightedJobId, setHighlightedJobId] = useState<string | null>(null);
 
   useEffect(() => {
-    // Check if there's a hash in the URL on mount
+    /**
+     * Check if there's a hash in the URL on mount
+     */
     const checkHash = () => {
       const hash = window.location.hash.slice(1); // Remove the # character
       if (hash) {
-        // Check if this hash corresponds to any job in this company
+        /**
+         * Check if this hash corresponds to any job in this company
+         */
         const matchingJob = company.jobs.find(job => {
           const jobId = `${toCamelCase(company.title)}-${toCamelCase(job.title)}`;
           return jobId === hash;
@@ -39,7 +43,6 @@ export default function ExperienceItem({ company }: Props) {
         if (matchingJob) {
           setHighlightedJobId(hash);
 
-          // Scroll to the element smoothly
           setTimeout(() => {
             const element = document.getElementById(hash);
             if (element) {
@@ -50,20 +53,20 @@ export default function ExperienceItem({ company }: Props) {
             }
           }, 100);
 
-          // Remove highlight after animation
           setTimeout(() => {
             setHighlightedJobId(null);
-          }, 3000);
+          }, 2500);
         }
       }
     };
 
-    // Check on mount
     checkHash();
 
-    // Listen for hash changes using Next.js router events would be ideal,
-    // but since Next.js App Router doesn't expose hash change events,
-    // we still need to use the native hashchange event
+    /**
+     * Listening for hash changes using Next.js router events would be ideal,
+     * but since Next.js App Router doesn't expose hash change events,
+     * we still need to use the native hashchange event
+     */
     const handleHashChange = () => {
       checkHash();
     };
@@ -84,7 +87,6 @@ export default function ExperienceItem({ company }: Props) {
       content: 'Job link copied to clipboard',
     });
 
-    // Use Next.js router to update the URL hash
     router.push(`#${jobId}`, { scroll: true });
   };
 
@@ -122,7 +124,6 @@ export default function ExperienceItem({ company }: Props) {
                     ? variables.color.highlight
                     : 'transparent',
                   borderRadius: isHighlighted ? variables.radii.lg : '0',
-                  // Override the default List.Item padding and manage it ourselves
                   paddingTop: isHighlighted
                     ? variables.spacing.xl
                     : variables.spacing.lg,
