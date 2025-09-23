@@ -81,7 +81,8 @@ const companies: Company[] = [
         id: 5,
         title: 'Software Developer',
         location: 'Leeds, UK',
-        description: 'Greenfield React Native development',
+        description:
+          'Greenfield React-Native development (alongside Software-Mansion for the first 9 months of the project). Spearheading development on shared SDKs for React & React Native projects. CI/CD (GH actions, AZ DevOps, etc), IAC (Terraform), cloud infrastructure (AWS, Azure). Maintenance + feature work on various frontend & backend projects',
         startDate: '06/01/2025',
       },
     ],
