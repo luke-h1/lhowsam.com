@@ -13,6 +13,19 @@ export const videoBlock = defineType({
       validation: rule => rule.required(),
     },
     {
+      name: 'playbackId',
+      title: 'Playback ID (for embedding)',
+      type: 'string',
+      readOnly: true,
+      description: 'Copy this ID to embed the video using {{video:playbackId}}',
+      initialValue: (
+        _doc: unknown,
+        context: { parent: { video: { asset: { playbackId: string } } } },
+      ) => {
+        return context.parent?.video?.asset?.playbackId || '';
+      },
+    },
+    {
       name: 'caption',
       title: 'Caption',
       type: 'string',
