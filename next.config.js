@@ -10,7 +10,7 @@ const contentSecurityPolicy = `
  child-src *.youtube.com *.google.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com *.sanity.io *.sanity-cdn.com;
  style-src 'self' 'unsafe-inline' *.googleapis.com https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css;
  img-src * blob: data: https://*.googletagmanager.com *.sanity.io *.sanity-cdn.com;
- media-src 'none';
+ media-src 'self' blob: data: *.mux.com *.sanity.io *.sanity-cdn.com;
  connect-src * cloudflareinsights.com *.sanity.io *.sanity-cdn.com;
  font-src 'self' fonts.gstatic.com https://maxcdn.bootstrapcdn.com/font-awesome/latest/fonts/fontawesome-webfont.woff2;
  frame-src https://dev.lhowsam.com https://lhowsam.com http://localhost:3000 *.sanity.io *.sanity-cdn.com;
@@ -157,7 +157,7 @@ const nextConfig = {
           {
             key: 'Content-Security-Policy',
             value:
-              "default-src 'self' *.sanity.io *.sanity-cdn.com; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.sanity.io *.sanity-cdn.com; style-src 'self' 'unsafe-inline' *.sanity.io *.sanity-cdn.com *.googleapis.com maxcdn.bootstrapcdn.com; img-src * blob: data:; connect-src * *.sanity.io *.sanity-cdn.com; frame-src 'self' http://localhost:3000 https://dev.lhowsam.com https://lhowsam.com; frame-ancestors 'none';",
+              "default-src 'self' *.sanity.io *.sanity-cdn.com; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.sanity.io *.sanity-cdn.com; style-src 'self' 'unsafe-inline' *.sanity.io *.sanity-cdn.com *.googleapis.com maxcdn.bootstrapcdn.com; img-src * blob: data:; media-src 'self' blob: data: *.mux.com *.sanity.io *.sanity-cdn.com; connect-src * *.sanity.io *.sanity-cdn.com; frame-src 'self' http://localhost:3000 https://dev.lhowsam.com https://lhowsam.com; frame-ancestors 'none';",
           },
         ],
       },
