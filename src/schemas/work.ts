@@ -18,18 +18,11 @@ export const videoBlock = defineType({
       type: 'string',
       description: 'Optional caption for the video',
     },
-    {
-      name: 'id',
-      title: 'Video ID',
-      type: 'string',
-      description: 'Unique identifier for this video (used in markdown)',
-      validation: rule => rule.required(),
-    },
   ],
   preview: {
     select: {
       title: 'caption',
-      subtitle: 'id',
+      subtitle: 'video.asset->playbackId',
       media: 'video',
     },
     prepare({ title, subtitle }) {
