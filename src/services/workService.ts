@@ -13,16 +13,65 @@ const slugsQuery = groq`
 
 const worksQuery = groq`
 *[_type == "work"] | order(publishedAt desc) {
-  ...,
+  _id,
+  _type,
+  _createdAt,
+  _updatedAt,
+  title,
+  slug {
+    current
+  },
+  intro,
+  content,
+  image {
+    alt,
+    asset-> {
+      _id,
+      url,
+      metadata {
+        dimensions {
+          width,
+          height
+        }
+      }
+    }
+  },
+  companySite,
+  siteUrl,
+  githubUrl,
+  publishedAt
 }
 `;
 
 const workQuery = groq`
 *[ _type == "work" && slug.current == $slug][0] {
-  ...,
+  _id,
+  _type,
+  _createdAt,
+  _updatedAt,
+  title,
   slug {
     current
-  }
+  },
+  intro,
+  content,
+  image {
+    alt,
+    asset-> {
+      _id,
+      url,
+      metadata {
+        dimensions {
+          width,
+          height
+        }
+      }
+    }
+  },
+  companySite,
+  siteUrl,
+  githubUrl,
+  publishedAt
 }
 `;
 

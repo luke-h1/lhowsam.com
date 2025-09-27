@@ -13,6 +13,8 @@ const slugsQuery = groq`
 
 const recentPostsQuery = groq`
 *[_type == "post"] | order(publishedAt desc)[0...3] {
+  _id,
+  _type,
   title,
   intro,
   publishedAt,
@@ -21,19 +23,31 @@ const recentPostsQuery = groq`
   },
   image {
     alt,
-    asset {
-      ...,
-    },
+    asset-> {
+      _id,
+      url,
+      metadata {
+        dimensions {
+          width,
+          height
+        }
+      }
+    }
   },
-  tags[]-> {
+  "tags": coalesce(tags[]-> {
+    _id,
     title,
-    slug
-  },
+    slug {
+      current
+    }
+  }, [])
 }
 `;
 
 const listAllPosts = groq`
 *[_type == "post"] | order(publishedAt desc) {
+  _id,
+  _type,
   title,
   intro,
   publishedAt,
@@ -42,33 +56,55 @@ const listAllPosts = groq`
   },
   image {
     alt,
-    asset {
-      ...,
-    },
+    asset-> {
+      _id,
+      url,
+      metadata {
+        dimensions {
+          width,
+          height
+        }
+      }
+    }
   },
-  tags[]-> {
+  "tags": coalesce(tags[]-> {
+    _id,
     title,
-    slug
-  },
+    slug {
+      current
+    }
+  }, [])
 }
 `;
 
 export const getPostQuery = groq`
 *[ _type == "post" && slug.current == $slug][0] {
+  _id,
+  _type,
   title,
   intro,  
   publishedAt,
   content,
   image {
     alt,
-    asset {
-    ...,
-   },
- },
-  tags[]-> {
-   title,
-   slug
+    asset-> {
+      _id,
+      url,
+      metadata {
+        dimensions {
+          width,
+          height
+        }
+      }
+    }
   },
+  "tags": coalesce(tags[]-> {
+    _id,
+    title,
+    slug {
+      current
+    }
+  }, [])
 }
 `;
 

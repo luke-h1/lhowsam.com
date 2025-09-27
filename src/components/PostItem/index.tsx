@@ -60,24 +60,26 @@ export default function PostItem({ post }: Props) {
           >
             {post.intro}
           </Text>
-          <Text
-            color="foregroundNeutral"
-            // textTransform="uppercase"
-            fontSize="xs"
-            fontFamily="mono"
-            data-testid="tag-container"
-          >
-            {post.tags.map(tag => (
-              <Link
-                data-testid={`post-tag-${tag._id}`}
-                key={tag.slug.current}
-                href={`/blog/tags/${tag.slug.current}`}
-                className={clsx(utils.tag, utils.anchor)}
-              >
-                {tag.title.toUpperCase()}
-              </Link>
-            ))}
-          </Text>{' '}
+          {/* Add defensive check for tags */}
+          {post.tags && post.tags.length > 0 && (
+            <Text
+              color="foregroundNeutral"
+              fontSize="xs"
+              fontFamily="mono"
+              data-testid="tag-container"
+            >
+              {post.tags.map(tag => (
+                <Link
+                  data-testid={`post-tag-${tag._id}`}
+                  key={tag.slug.current}
+                  href={`/blog/tags/${tag.slug.current}`}
+                  className={clsx(utils.tag, utils.anchor)}
+                >
+                  {tag.title.toUpperCase()}
+                </Link>
+              ))}
+            </Text>
+          )}
           <Spacer height="sm" />
           <Text
             color="foregroundNeutral"
