@@ -1,4 +1,3 @@
-import * as List from '@frontend/components/List';
 import { variables } from '@frontend/styles/variables.css';
 import Image, { ImageProps } from 'next/image';
 import { ComponentPropsWithoutRef } from 'react';
