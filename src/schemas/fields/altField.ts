@@ -1,6 +1,6 @@
 import { defineField } from 'sanity';
 
-const altField = () => {
+export const altField = () => {
   return defineField({
     title: 'Alt',
     name: 'alt',
@@ -10,4 +10,3 @@ const altField = () => {
     validation: rule => rule.required(),
   });
 };
-export default altField;

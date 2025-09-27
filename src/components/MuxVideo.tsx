@@ -1,0 +1,43 @@
+'use client';
+
+import { variables } from '@frontend/styles/variables.css';
+import MuxPlayer from '@mux/mux-player-react';
+
+interface MuxVideoProps {
+  playbackId: string;
+  caption?: string;
+}
+
+export default function MuxVideo({ playbackId, caption }: MuxVideoProps) {
+  return (
+    <div
+      style={{
+        marginTop: variables.spacing.lg,
+        marginBottom: variables.spacing.lg,
+      }}
+    >
+      <MuxPlayer
+        streamType="on-demand"
+        playbackId={playbackId}
+        metadataVideoTitle={caption}
+        style={{
+          width: '100%',
+          borderRadius: variables.radii.lg,
+        }}
+      />
+      {caption && (
+        <p
+          style={{
+            textAlign: 'center',
+            fontSize: variables.fontSize.sm,
+            color: variables.color.foregroundNeutral,
+            marginTop: variables.spacing.sm,
+            fontStyle: 'italic',
+          }}
+        >
+          {caption}
+        </p>
+      )}
+    </div>
+  );
+}

@@ -7,11 +7,11 @@ import {
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
 import { presentationTool } from 'sanity/presentation';
-// import { deskTool } from 'sanity/desk';
 import { structureTool } from 'sanity/structure';
 import { markdownSchema } from 'sanity-plugin-markdown';
 import CustomMarkdownInput from './src/components/sanity/CustomMarkdownInput';
 import defaultDocumentNode from './src/components/sanity/util/defaultDocumentNode';
+import { muxInput } from 'sanity-plugin-mux-input';
 
 export default defineConfig({
   name: 'default',
@@ -91,10 +91,7 @@ export default defineConfig({
         },
       },
       previewUrl: {
-        origin:
-          typeof window.location === 'undefined'
-            ? 'http://localhost:3000'
-            : process.env.NEXT_PUBLIC_URL,
+        origin: process.env.NEXT_PUBLIC_URL,
         draftMode: {
           enable: '/api/draft-mode/enable',
         },
@@ -102,6 +99,7 @@ export default defineConfig({
     }),
     visionTool(),
     markdownSchema({ input: CustomMarkdownInput }),
+    muxInput(),
     dashboardTool({
       widgets: [projectInfoWidget(), projectUsersWidget()],
     }),

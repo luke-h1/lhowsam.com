@@ -1,5 +1,45 @@
 import { defineField, defineType } from 'sanity';
-import altField from './fields/altField';
+import { altField } from './fields';
+
+export const videoBlock = defineType({
+  name: 'videoBlock',
+  title: 'Video Block',
+  type: 'object',
+  fields: [
+    {
+      name: 'video',
+      title: 'Video',
+      type: 'mux.video',
+      validation: rule => rule.required(),
+    },
+    {
+      name: 'caption',
+      title: 'Caption',
+      type: 'string',
+      description: 'Optional caption for the video',
+    },
+    {
+      name: 'id',
+      title: 'Video ID',
+      type: 'string',
+      description: 'Unique identifier for this video (used in markdown)',
+      validation: rule => rule.required(),
+    },
+  ],
+  preview: {
+    select: {
+      title: 'caption',
+      subtitle: 'id',
+      media: 'video',
+    },
+    prepare({ title, subtitle }) {
+      return {
+        title: title || 'Video',
+        subtitle: `ID: ${subtitle}`,
+      };
+    },
+  },
+});
 
 const work = defineType({
   name: 'work',
@@ -43,8 +83,17 @@ const work = defineType({
       name: 'content',
       title: 'Content',
       type: 'markdown',
-      description: 'Content of project post',
+      description:
+        'Content of project post. Use {{video:videoId}} to embed videos',
       validation: rule => rule.required(),
+    }),
+    defineField({
+      name: 'videos',
+      title: 'Videos',
+      type: 'array',
+      description:
+        'Videos that can be embedded in the content using {{video:id}}',
+      of: [{ type: 'videoBlock' }],
     }),
     defineField({
       name: 'companySite',

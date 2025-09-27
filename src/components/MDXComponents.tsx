@@ -3,9 +3,11 @@ import Image, { ImageProps } from 'next/image';
 import { ComponentPropsWithoutRef } from 'react';
 import Heading from './Heading';
 import Link from './Link';
+import MuxVideo from './MuxVideo';
 import Text from './Text';
 
 const MDXComponents = {
+  MuxVideo,
   Image: (props: ImageProps & { rounded?: boolean; bordered?: boolean }) => {
     const { rounded = true, alt } = props;
     return (
@@ -30,9 +32,6 @@ const MDXComponents = {
         textDecoration: 'underline',
         textDecorationThickness: '2px',
         textUnderlineOffset: '3px',
-        ':hover': {
-          textDecorationThickness: '3px',
-        },
       }}
       href={href as string}
     >
@@ -143,7 +142,6 @@ const MDXComponents = {
       {children}
     </Heading>
   ),
-  // Improved unordered list styling for blog content
   ul: ({ children, ...props }: ComponentPropsWithoutRef<'ul'>) => (
     <ul
       {...props}
@@ -160,7 +158,6 @@ const MDXComponents = {
       {children}
     </ul>
   ),
-  // Ordered list styling
   ol: ({ children, ...props }: ComponentPropsWithoutRef<'ol'>) => (
     <ol
       {...props}
@@ -177,7 +174,6 @@ const MDXComponents = {
       {children}
     </ol>
   ),
-  // Improved list item styling
   li: ({ children, ...props }: ComponentPropsWithoutRef<'li'>) => (
     <li
       {...props}
@@ -190,7 +186,6 @@ const MDXComponents = {
       {children}
     </li>
   ),
-  // Blockquote styling
   blockquote: ({
     children,
     ...props
@@ -216,7 +211,6 @@ const MDXComponents = {
       {children}
     </blockquote>
   ),
-  // Inline code styling
   code: ({ children, ...props }: ComponentPropsWithoutRef<'code'>) => (
     <code
       {...props}
@@ -233,7 +227,6 @@ const MDXComponents = {
       {children}
     </code>
   ),
-  // Pre/code block styling (enhanced)
   pre: ({ children, ...props }: ComponentPropsWithoutRef<'pre'>) => (
     <pre
       {...props}
@@ -249,7 +242,6 @@ const MDXComponents = {
       {children}
     </pre>
   ),
-  // Horizontal rule
   hr: ({ ...props }: ComponentPropsWithoutRef<'hr'>) => (
     <hr
       {...props}
@@ -262,7 +254,6 @@ const MDXComponents = {
       }}
     />
   ),
-  // Strong/bold text
   strong: ({ children, ...props }: ComponentPropsWithoutRef<'strong'>) => (
     <strong
       {...props}
@@ -274,7 +265,6 @@ const MDXComponents = {
       {children}
     </strong>
   ),
-  // Emphasis/italic text
   em: ({ children, ...props }: ComponentPropsWithoutRef<'em'>) => (
     <em
       {...props}
