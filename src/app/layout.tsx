@@ -1,11 +1,14 @@
 import 'the-new-css-reset';
 import '@frontend/styles/app.css';
+import { DisableDraftMode } from '@frontend/components/DisableDraftMode';
 import Providers from '@frontend/components/Providers';
 import SkipLink from '@frontend/components/SkipLink';
 import siteConfig from '@frontend/config/site';
 import getPolicies from '@frontend/utils/getPolicies';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { Metadata } from 'next';
+import { draftMode } from 'next/headers';
+import { VisualEditing } from 'next-sanity/visual-editing';
 import { ReactNode } from 'react';
 import '@frontend/styles/prism.css';
 
@@ -97,6 +100,12 @@ const RootLayout = async ({ children }: Props) => {
             {children}
           </Providers>
         </main>
+        {(await draftMode()).isEnabled && (
+          <>
+            <VisualEditing />
+            <DisableDraftMode />
+          </>
+        )}
       </body>
     </html>
   );

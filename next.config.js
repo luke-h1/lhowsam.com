@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
-// eslint-disable-next-line import/no-unresolved
 
 const { createVanillaExtractPlugin } = require('@vanilla-extract/next-plugin');
 
@@ -7,14 +6,15 @@ const withVanillaExtract = createVanillaExtractPlugin();
 
 const contentSecurityPolicy = `
  default-src 'self';
- script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com static.cloudflareinsights.com js-agent.newrelic.com;
- child-src *.youtube.com *.google.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com;
+ script-src 'self' 'unsafe-eval' 'unsafe-inline' *.youtube.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com static.cloudflareinsights.com js-agent.newrelic.com *.sanity.io *.sanity-cdn.com;
+ child-src *.youtube.com *.google.com *.twitter.com *.googletagmanager.com *.vitals.vercel-insights.com *.sanity.io *.sanity-cdn.com;
  style-src 'self' 'unsafe-inline' *.googleapis.com https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css;
- img-src * blob: data: https://*.googletagmanager.com;
+ img-src * blob: data: https://*.googletagmanager.com *.sanity.io *.sanity-cdn.com;
  media-src 'none';
- connect-src * cloudflareinsights.com;
+ connect-src * cloudflareinsights.com *.sanity.io *.sanity-cdn.com;
  font-src 'self' fonts.gstatic.com https://maxcdn.bootstrapcdn.com/font-awesome/latest/fonts/fontawesome-webfont.woff2;
- frame-src https://dev.lhowsam.com https://lhowsam.com;
+ frame-src https://dev.lhowsam.com https://lhowsam.com http://localhost:3000 *.sanity.io *.sanity-cdn.com;
+ frame-ancestors 'self' *.sanity.io *.sanity-cdn.com http://localhost:3000;
 `;
 
 const securityHeaders = [
@@ -152,7 +152,17 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: '/studio/(.*)',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value:
+              "default-src 'self' *.sanity.io *.sanity-cdn.com; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.sanity.io *.sanity-cdn.com; style-src 'self' 'unsafe-inline' *.sanity.io *.sanity-cdn.com *.googleapis.com maxcdn.bootstrapcdn.com; img-src * blob: data:; connect-src * *.sanity.io *.sanity-cdn.com; frame-src 'self' http://localhost:3000 https://dev.lhowsam.com https://lhowsam.com; frame-ancestors 'none';",
+          },
+        ],
+      },
+      {
+        source: '/((?!studio).*)',
         headers: securityHeaders,
       },
       {
@@ -169,7 +179,6 @@ const nextConfig = {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   webpack: (config, { dev, isServer, ...options }) => {
     if (process.env.ANALYZE) {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports, global-require
       const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
       config.plugins.push(
         new BundleAnalyzerPlugin({

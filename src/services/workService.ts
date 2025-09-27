@@ -1,5 +1,6 @@
 import { Slug, Work } from '@frontend/types/sanity';
 import { getSanityClient } from '@frontend/utils/sanity.client';
+import { sanityFetch } from '@frontend/utils/sanity.live';
 import groq from 'groq';
 
 const slugsQuery = groq`
@@ -11,7 +12,7 @@ const slugsQuery = groq`
 `;
 
 const worksQuery = groq`
-*[_type == "work"] {
+*[_type == "work"] | order(publishedAt desc) {
   ...,
 }
 `;
@@ -26,15 +27,26 @@ const workQuery = groq`
 `;
 
 const workService = {
-  async getWorks(): Promise<Work[]> {
+  async getWorks(draft = false): Promise<Work[]> {
+    if (draft) {
+      return getSanityClient(draft).fetch(worksQuery);
+    }
     return getSanityClient().fetch(worksQuery);
   },
   async getWork(slug: string, draft = false): Promise<Work> {
-    return getSanityClient(draft).fetch(workQuery, {
-      slug,
+    if (draft) {
+      return getSanityClient(draft).fetch(workQuery, { slug });
+    }
+    const result = await sanityFetch({
+      query: workQuery,
+      params: { slug },
     });
+    return result.data;
   },
-  async getSlugs(): Promise<Slug[]> {
+  async getSlugs(draft = false): Promise<Slug[]> {
+    if (draft) {
+      return getSanityClient(draft).fetch(slugsQuery);
+    }
     return getSanityClient().fetch(slugsQuery);
   },
 } as const;

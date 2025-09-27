@@ -1,61 +1,56 @@
 import { Post, Slug } from '@frontend/types/sanity';
+import { getSanityClient } from '@frontend/utils/sanity.client';
+import { sanityFetch } from '@frontend/utils/sanity.live';
 import groq from 'groq';
-import { getSanityClient } from '../utils/sanity.client';
 
 const slugsQuery = groq`
 *[_type == "post"] {
   slug {
     current
-  },
+  }
 }
 `;
 
 const recentPostsQuery = groq`
-*[ _type == "post"] | order(publishedAt desc) [0..2] {
-  _createdAt,
-  _id,
-    image {
-      ...,
-    },
+*[_type == "post"] | order(publishedAt desc)[0...3] {
   title,
-  intro,  
+  intro,
   publishedAt,
+  slug {
+    current
+  },
   image {
     alt,
     asset {
-      _ref
+      ...,
     },
   },
-  tags[] -> {
+  tags[]-> {
     title,
-    slug {
-      ...,
-      
-    }
-  },
-  slug {
-    current
+    slug
   },
 }
 `;
 
 const listAllPosts = groq`
-  *[ _type == "post"] | order(publishedAt desc) {
-    ...,
-    image {
-      alt,
-      asset {
-      _ref
-     },
+*[_type == "post"] | order(publishedAt desc) {
+  title,
+  intro,
+  publishedAt,
+  slug {
+    current
+  },
+  image {
+    alt,
+    asset {
+      ...,
     },
-    tags[]-> {
-      title,
-      slug
-   },
-    slug {
-      current
-    },
-  }
+  },
+  tags[]-> {
+    title,
+    slug
+  },
+}
 `;
 
 export const getPostQuery = groq`
@@ -82,14 +77,19 @@ const postService = {
     return getSanityClient().fetch(slugsQuery);
   },
   async getPost(slug: string, draft = false): Promise<Post> {
-    return getSanityClient(draft).fetch(getPostQuery, {
-      slug,
-    });
+    if (draft) {
+      return getSanityClient(draft).fetch(getPostQuery, { slug });
+    }
+    const result = await sanityFetch({ query: getPostQuery, params: { slug } });
+    return result.data;
   },
   async getAllPosts(): Promise<Post[]> {
     return getSanityClient().fetch(listAllPosts);
   },
-  async getRecentPosts(): Promise<Post[]> {
+  async getRecentPosts(draft = false): Promise<Post[]> {
+    if (draft) {
+      return getSanityClient(draft).fetch(recentPostsQuery);
+    }
     return getSanityClient().fetch(recentPostsQuery);
   },
 };

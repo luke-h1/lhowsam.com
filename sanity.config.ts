@@ -6,6 +6,7 @@ import {
 } from '@sanity/dashboard';
 import { visionTool } from '@sanity/vision';
 import { defineConfig } from 'sanity';
+import { presentationTool } from 'sanity/presentation';
 // import { deskTool } from 'sanity/desk';
 import { structureTool } from 'sanity/structure';
 import { markdownSchema } from 'sanity-plugin-markdown';
@@ -21,6 +22,83 @@ export default defineConfig({
   plugins: [
     structureTool({
       defaultDocumentNode,
+    }),
+    presentationTool({
+      allowOrigins: [
+        'http://localhost:3000',
+        'https://lhowsam.com',
+        'https://dev.lhowsam.com',
+      ],
+      title: 'lhowsam.com',
+      resolve: {
+        mainDocuments: [
+          {
+            route: '/blog/:slug',
+            filter: `_type == "post"`,
+          },
+          {
+            route: '/projects/:slug',
+            filter: `_type == "project"`,
+          },
+          {
+            route: '/work/:slug',
+            filter: `_type == "work"`,
+          },
+        ],
+        locations: {
+          post: {
+            select: {
+              title: 'title',
+              slug: 'slug.current',
+            },
+            resolve: doc => ({
+              locations: [
+                {
+                  title: doc?.title || 'Untitled',
+                  href: `/blog/${doc?.slug}`,
+                },
+              ],
+            }),
+          },
+          project: {
+            select: {
+              title: 'title',
+              slug: 'slug.current',
+            },
+            resolve: doc => ({
+              locations: [
+                {
+                  title: doc?.title || 'Untitled',
+                  href: `/projects/${doc?.slug}`,
+                },
+              ],
+            }),
+          },
+          work: {
+            select: {
+              title: 'title',
+              slug: 'slug.current',
+            },
+            resolve: doc => ({
+              locations: [
+                {
+                  title: doc?.title || 'Untitled',
+                  href: `/work/${doc?.slug}`,
+                },
+              ],
+            }),
+          },
+        },
+      },
+      previewUrl: {
+        origin:
+          typeof window.location === 'undefined'
+            ? 'http://localhost:3000'
+            : process.env.NEXT_PUBLIC_URL,
+        draftMode: {
+          enable: '/api/draft-mode/enable',
+        },
+      },
     }),
     visionTool(),
     markdownSchema({ input: CustomMarkdownInput }),
