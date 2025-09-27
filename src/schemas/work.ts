@@ -128,9 +128,3 @@ const work = defineType({
   ],
 });
 export default work;
-
-/**
- * 
-Refused to load media from 'blob:http://localhost:3000/c7e63342-9f48-47a1-84bc-36816ccf3ad6' because it violates the following Content Security Policy directive: "default-src 'self' *.sanity.io *.sanity-cdn.com". Note that 'media-src' was not explicitly set, so 'default-src' is used as a fallback.
-:3000/studio/presentation/work/5c692f10-be8a-4912-b33f-3b77c82d1199/videos[_key==%228a68ccd11b07%22]?preview=http%3A//localhost%3A3000/work/sporting-life-mobile%3Fsanity-preview-perspective%3Ddrafts:1 Refused to load media from 'https://image.mux.com/IIOTxxct4FjCIgVnSoTtOTejOHV8kl7G02cv0227ywWME/storyboard.vtt?format=webp' because it violates the following Content Security Policy directive: "default-src 'self' *.sanity.io *.sanity-cdn.com". Note that 'media-src' was not explicitly set, so 'default-src' is used as a fallback.
- */

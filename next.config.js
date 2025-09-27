@@ -157,7 +157,7 @@ const nextConfig = {
           {
             key: 'Content-Security-Policy',
             value:
-              "default-src 'self' *.sanity.io *.sanity-cdn.com; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.sanity.io *.sanity-cdn.com; style-src 'self' 'unsafe-inline' *.sanity.io *.sanity-cdn.com *.googleapis.com maxcdn.bootstrapcdn.com; img-src * blob: data:; media-src 'self' blob: data: *.mux.com *.sanity.io *.sanity-cdn.com; connect-src * *.sanity.io *.sanity-cdn.com; frame-src 'self' http://localhost:3000 https://dev.lhowsam.com https://lhowsam.com; frame-ancestors 'none';",
+              "default-src 'self' *.sanity.io *.sanity-cdn.com; script-src 'self' 'unsafe-eval' 'unsafe-inline' *.sanity.io *.sanity-cdn.com; style-src 'self' 'unsafe-inline' *.sanity.io *.sanity-cdn.com *.googleapis.com maxcdn.bootstrapcdn.com; img-src * blob: data:; media-src 'self' blob: data: *.mux.com *.sanity.io *.sanity-cdn.com; font-src 'self' fonts.gstatic.com https://maxcdn.bootstrapcdn.com/font-awesome/latest/fonts/fontawesome-webfont.woff2; connect-src * *.sanity.io *.sanity-cdn.com; frame-src 'self' http://localhost:3000 https://dev.lhowsam.com https://lhowsam.com; frame-ancestors 'none';",
           },
         ],
       },
