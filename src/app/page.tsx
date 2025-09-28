@@ -14,7 +14,7 @@ import { draftMode } from 'next/headers';
 
 const WorkItem = dynamic(() => import('@frontend/components/WorkItem'));
 
-export const revalidate = 3600;
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: 'Home | lhowsam.com',

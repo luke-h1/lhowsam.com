@@ -9,7 +9,7 @@ import workService from '@frontend/services/workService';
 
 import { Metadata } from 'next';
 
-export const revalidate = 86400; // 24 hours - increased since we have instant revalidation
+export const revalidate = 86400;
 
 export const metadata: Metadata = {
   title: 'Work | lhowsam.com',
