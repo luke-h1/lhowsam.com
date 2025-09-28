@@ -8,11 +8,11 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 import PostsClient from './page.client';
 
-export const revalidate = 3600;
+export const revalidate = 86400; // 24 hours - increased since we have instant revalidation
 
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'A collection of blog posts I have written',
+  title: 'Blog | lhowsam.com',
+  description: 'Blog posts on development, testing, and other topics',
   keywords: ['Blog', 'Posts', 'Articles', 'Software Development'],
 };
 
