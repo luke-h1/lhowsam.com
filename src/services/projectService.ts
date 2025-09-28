@@ -1,5 +1,6 @@
 import { Project, Slug } from '@frontend/types/sanity';
 import { getSanityClient } from '@frontend/utils/sanity.client';
+import { sanityFetch } from '@frontend/utils/sanity.live';
 import groq from 'groq';
 
 const slugsQuery = groq`
@@ -22,6 +23,7 @@ const listAllProjects = groq`
   },  
 }
 `;
+
 const listRecentProjects = groq`
 *[ _type == "project" && title in ["Now playing lambda", "My website", "Storify"]]  {
   ...,
@@ -43,18 +45,32 @@ const getProjectQuery = groq`
 `;
 
 const projectService = {
-  async getAllProjects(): Promise<Project[]> {
+  async getAllProjects(draft = false): Promise<Project[]> {
+    if (draft) {
+      return getSanityClient(draft).fetch(listAllProjects);
+    }
     return getSanityClient().fetch(listAllProjects);
   },
   async getProject(slug: string, draft = false): Promise<Project> {
-    return getSanityClient(draft).fetch(getProjectQuery, {
-      slug,
+    if (draft) {
+      return getSanityClient(draft).fetch(getProjectQuery, { slug });
+    }
+    const result = await sanityFetch({
+      query: getProjectQuery,
+      params: { slug },
     });
+    return result.data;
   },
-  async getRecentProjects(): Promise<Project[]> {
+  async getRecentProjects(draft = false): Promise<Project[]> {
+    if (draft) {
+      return getSanityClient(draft).fetch(listRecentProjects);
+    }
     return getSanityClient().fetch(listRecentProjects);
   },
-  async getSlugs(): Promise<Slug[]> {
+  async getSlugs(draft = false): Promise<Slug[]> {
+    if (draft) {
+      return getSanityClient(draft).fetch(slugsQuery);
+    }
     return getSanityClient().fetch(slugsQuery);
   },
 };

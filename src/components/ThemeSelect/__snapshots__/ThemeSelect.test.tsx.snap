@@ -8,7 +8,7 @@ exports[`ThemeSelect defaults to system theme 1`] = `
     ((e,s,n,m,o,l,u,h)=&gt;{let a=document.documentElement,v=["light","dark"];function p(c){(Array.isArray(e)?e:[e]).forEach(y=&gt;{let k=y==="class",S=k&&l?o.map(f=&gt;l[f]||f):o;k?(a.classList.remove(...S),a.classList.add(c)):a.setAttribute(y,c)}),C(c)}function C(c){h&&v.includes(c)&&(a.style.colorScheme=c)}function d(){return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}if(m)p(m);else try{let c=localStorage.getItem(s)||n,y=u&&c==="system"?d():c;p(y)}catch(c){}})("class","theme","system",null,["light","dark"],null,true,true)
   </script>
   <span
-    class="VisuallyHidden_root__rd7gei0"
+    class="VisuallyHidden_root__1j3z15c0"
     id="visually-hidden"
   >
     <label
@@ -18,10 +18,10 @@ exports[`ThemeSelect defaults to system theme 1`] = `
     </label>
   </span>
   <div
-    class="ThemeSelect_root__wmdp110"
+    class="ThemeSelect_root__14xq7xg0"
   >
     <span
-      class="ThemeSelect_icon__wmdp111"
+      class="ThemeSelect_icon__14xq7xg1"
     >
       <svg
         fill="none"
@@ -57,7 +57,7 @@ exports[`ThemeSelect defaults to system theme 1`] = `
       </svg>
     </span>
     <span
-      class="VisuallyHidden_root__rd7gei0"
+      class="VisuallyHidden_root__1j3z15c0"
       id="visually-hidden"
     >
       <label
@@ -67,7 +67,7 @@ exports[`ThemeSelect defaults to system theme 1`] = `
       </label>
     </span>
     <select
-      class="ThemeSelect_select__wmdp112"
+      class="ThemeSelect_select__14xq7xg2"
       id="theme-select"
     >
       <option
@@ -90,7 +90,7 @@ exports[`ThemeSelect defaults to system theme 1`] = `
       </option>
     </select>
     <span
-      class="ThemeSelect_arrow__wmdp113"
+      class="ThemeSelect_arrow__14xq7xg3"
       data-testid="ThemeSelect-system"
     >
       <svg

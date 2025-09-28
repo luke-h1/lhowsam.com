@@ -1,5 +1,5 @@
 import { defineType, defineField } from 'sanity';
-import altField from './fields/altField';
+import { altField } from './fields';
 
 const post = defineType({
   name: 'post',

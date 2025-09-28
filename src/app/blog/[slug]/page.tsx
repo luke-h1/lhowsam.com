@@ -15,6 +15,7 @@ import { draftMode } from 'next/headers';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { stegaClean } from 'next-sanity';
 
 export const revalidate = 3600;
 
@@ -138,9 +139,9 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   }
 
   return {
-    title: post.title,
-    description: post.intro,
+    title: stegaClean(post.title),
+    description: stegaClean(post.intro),
     assets: [imageService.urlFor(post.image.asset)],
-    keywords: post.tags.map(t => t.title).join(', '),
+    keywords: post.tags.map(t => stegaClean(t.title)).join(', '),
   };
 }

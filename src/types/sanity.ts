@@ -69,6 +69,17 @@ export interface Talk {
   image?: Image;
 }
 
+export interface VideoBlock {
+  _key?: string;
+  video: {
+    asset: {
+      playbackId: string;
+    };
+  };
+  playbackId: string;
+  caption?: string;
+}
+
 export interface Work {
   _rev: string;
   _createdAt: string;
@@ -85,4 +96,5 @@ export interface Work {
   siteUrl?: string;
   githubUrl?: string;
   publishedAt: string;
+  videos?: VideoBlock[];
 }

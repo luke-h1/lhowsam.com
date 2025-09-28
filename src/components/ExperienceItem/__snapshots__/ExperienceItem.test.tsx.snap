@@ -11,31 +11,31 @@ exports[`ExperienceItem should render title for { id: 1, title: 'The Floow', job
     class=""
   >
     <h2
-      class="Heading_root__xkw1cf0 Heading_tracking_h2__xkw1cf2 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foreground__1fx8prsm5"
+      class="Heading_root__14mbilk0 Heading_tracking_h2__14mbilk2 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foreground__1cnog2bm5"
     >
       The Floow
     </h2>
     <ul
-      class="List_list__3nqhft0"
+      class="List_list__mvqsai0"
       data-testid="ExperienceItem-list-TheFloow"
     >
       <li
-        class="List_item__3nqhft1"
+        class="List_item__mvqsai1"
         id="TheFloow-Juniorservicedeskanalyst"
         style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
       >
         <div
-          class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
+          class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
         >
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
           >
             <div
               class=""
-              style="display: flex; align-items: center; gap: var(--spacing-sm__k8v0rxh);"
+              style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
             >
               <h3
-                class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+                class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
                 style="transition: color 0.3s ease-in-out;"
               >
                 Junior service desk analyst
@@ -43,7 +43,7 @@ exports[`ExperienceItem should render title for { id: 1, title: 'The Floow', job
               <button
                 data-state="closed"
                 data-testid="TheFloow-Juniorservicedeskanalyst-copy-link"
-                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__k8v0rxp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
                 type="button"
               >
                 <svg
@@ -67,17 +67,17 @@ exports[`ExperienceItem should render title for { id: 1, title: 'The Floow', job
               </button>
             </div>
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
               style="transition: color 0.3s ease-in-out;"
             >
               Sheffield, UK
             </p>
           </div>
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_2_md__1fx8prsk2 sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
           >
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
               data-testid="TheFloow-Juniorservicedeskanalyst-description"
               style="transition: color 0.3s ease-in-out;"
             >
@@ -85,10 +85,10 @@ exports[`ExperienceItem should render title for { id: 1, title: 'The Floow', job
             </p>
           </div>
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_4_md__1fx8prska sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
           >
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
               data-testid="TheFloow-Juniorservicedeskanalyst-date-range"
               style="transition: color 0.3s ease-in-out;"
             >
@@ -117,31 +117,31 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
     class=""
   >
     <h2
-      class="Heading_root__xkw1cf0 Heading_tracking_h2__xkw1cf2 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foreground__1fx8prsm5"
+      class="Heading_root__14mbilk0 Heading_tracking_h2__14mbilk2 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foreground__1cnog2bm5"
     >
       Hive IT
     </h2>
     <ul
-      class="List_list__3nqhft0"
+      class="List_list__mvqsai0"
       data-testid="ExperienceItem-list-HiveIT"
     >
       <li
-        class="List_item__3nqhft1"
+        class="List_item__mvqsai1"
         id="HiveIT-SoftwareEngineer"
         style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
       >
         <div
-          class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
+          class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
         >
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
           >
             <div
               class=""
-              style="display: flex; align-items: center; gap: var(--spacing-sm__k8v0rxh);"
+              style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
             >
               <h3
-                class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+                class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
                 style="transition: color 0.3s ease-in-out;"
               >
                 Software Engineer
@@ -149,7 +149,7 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
               <button
                 data-state="closed"
                 data-testid="HiveIT-SoftwareEngineer-copy-link"
-                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__k8v0rxp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
                 type="button"
               >
                 <svg
@@ -173,17 +173,17 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
               </button>
             </div>
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
               style="transition: color 0.3s ease-in-out;"
             >
               Sheffield, UK
             </p>
           </div>
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_2_md__1fx8prsk2 sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
           >
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
               data-testid="HiveIT-SoftwareEngineer-description"
               style="transition: color 0.3s ease-in-out;"
             >
@@ -191,10 +191,10 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
             </p>
           </div>
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_4_md__1fx8prska sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
           >
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
               data-testid="HiveIT-SoftwareEngineer-date-range"
               style="transition: color 0.3s ease-in-out;"
             >
@@ -208,22 +208,22 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
         </div>
       </li>
       <li
-        class="List_item__3nqhft1"
+        class="List_item__mvqsai1"
         id="HiveIT-SoftwareTester"
         style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
       >
         <div
-          class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
+          class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
         >
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
           >
             <div
               class=""
-              style="display: flex; align-items: center; gap: var(--spacing-sm__k8v0rxh);"
+              style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
             >
               <h3
-                class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+                class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
                 style="transition: color 0.3s ease-in-out;"
               >
                 Software Tester
@@ -231,7 +231,7 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
               <button
                 data-state="closed"
                 data-testid="HiveIT-SoftwareTester-copy-link"
-                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__k8v0rxp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
                 type="button"
               >
                 <svg
@@ -255,17 +255,17 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
               </button>
             </div>
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
               style="transition: color 0.3s ease-in-out;"
             >
               Sheffield, UK
             </p>
           </div>
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_2_md__1fx8prsk2 sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
           >
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
               data-testid="HiveIT-SoftwareTester-description"
               style="transition: color 0.3s ease-in-out;"
             >
@@ -273,10 +273,10 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
             </p>
           </div>
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_4_md__1fx8prska sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
           >
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
               data-testid="HiveIT-SoftwareTester-date-range"
               style="transition: color 0.3s ease-in-out;"
             >
@@ -290,22 +290,22 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
         </div>
       </li>
       <li
-        class="List_item__3nqhft1"
+        class="List_item__mvqsai1"
         id="HiveIT-JuniorSoftwareTester"
         style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
       >
         <div
-          class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
+          class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
         >
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
           >
             <div
               class=""
-              style="display: flex; align-items: center; gap: var(--spacing-sm__k8v0rxh);"
+              style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
             >
               <h3
-                class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+                class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
                 style="transition: color 0.3s ease-in-out;"
               >
                 Junior Software Tester
@@ -313,7 +313,7 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
               <button
                 data-state="closed"
                 data-testid="HiveIT-JuniorSoftwareTester-copy-link"
-                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__k8v0rxp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
                 type="button"
               >
                 <svg
@@ -337,17 +337,17 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
               </button>
             </div>
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
               style="transition: color 0.3s ease-in-out;"
             >
               Sheffield, UK
             </p>
           </div>
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_2_md__1fx8prsk2 sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
           >
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
               data-testid="HiveIT-JuniorSoftwareTester-description"
               style="transition: color 0.3s ease-in-out;"
             >
@@ -355,10 +355,10 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
             </p>
           </div>
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_4_md__1fx8prska sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
           >
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
               data-testid="HiveIT-JuniorSoftwareTester-date-range"
               style="transition: color 0.3s ease-in-out;"
             >
@@ -387,31 +387,31 @@ exports[`ExperienceItem should render title for { id: 3, title: 'Sky Betting & G
     class=""
   >
     <h2
-      class="Heading_root__xkw1cf0 Heading_tracking_h2__xkw1cf2 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foreground__1fx8prsm5"
+      class="Heading_root__14mbilk0 Heading_tracking_h2__14mbilk2 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foreground__1cnog2bm5"
     >
       Sky Betting & Gaming
     </h2>
     <ul
-      class="List_list__3nqhft0"
+      class="List_list__mvqsai0"
       data-testid="ExperienceItem-list-SkyBetting&Gaming"
     >
       <li
-        class="List_item__3nqhft1"
+        class="List_item__mvqsai1"
         id="SkyBetting&Gaming-SoftwareEngineer"
         style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
       >
         <div
-          class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
+          class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
         >
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
           >
             <div
               class=""
-              style="display: flex; align-items: center; gap: var(--spacing-sm__k8v0rxh);"
+              style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
             >
               <h3
-                class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+                class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
                 style="transition: color 0.3s ease-in-out;"
               >
                 Software Engineer
@@ -419,7 +419,7 @@ exports[`ExperienceItem should render title for { id: 3, title: 'Sky Betting & G
               <button
                 data-state="closed"
                 data-testid="SkyBetting&Gaming-SoftwareEngineer-copy-link"
-                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__k8v0rxp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
                 type="button"
               >
                 <svg
@@ -443,17 +443,17 @@ exports[`ExperienceItem should render title for { id: 3, title: 'Sky Betting & G
               </button>
             </div>
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
               style="transition: color 0.3s ease-in-out;"
             >
               Leeds, UK
             </p>
           </div>
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_2_md__1fx8prsk2 sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
           >
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
               data-testid="SkyBetting&Gaming-SoftwareEngineer-description"
               style="transition: color 0.3s ease-in-out;"
             >
@@ -461,10 +461,10 @@ exports[`ExperienceItem should render title for { id: 3, title: 'Sky Betting & G
             </p>
           </div>
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_4_md__1fx8prska sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
           >
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
               data-testid="SkyBetting&Gaming-SoftwareEngineer-date-range"
               style="transition: color 0.3s ease-in-out;"
             >
@@ -493,31 +493,31 @@ exports[`ExperienceItem should render title for { id: 4, title: 'Flutter UKI', j
     class=""
   >
     <h2
-      class="Heading_root__xkw1cf0 Heading_tracking_h2__xkw1cf2 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foreground__1fx8prsm5"
+      class="Heading_root__14mbilk0 Heading_tracking_h2__14mbilk2 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foreground__1cnog2bm5"
     >
       Flutter UKI
     </h2>
     <ul
-      class="List_list__3nqhft0"
+      class="List_list__mvqsai0"
       data-testid="ExperienceItem-list-FlutterUKI"
     >
       <li
-        class="List_item__3nqhft1"
+        class="List_item__mvqsai1"
         id="FlutterUKI-SoftwareDeveloper"
         style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
       >
         <div
-          class="Grid_container__1otflmc0 sprinkles_columnGap_xxxl_xs__1fx8prsfo sprinkles_rowGap_md_xs__1fx8prse4 sprinkles_alignItems_baseline_xs__1fx8prs2s"
+          class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
         >
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_1_md__1fx8prski"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
           >
             <div
               class=""
-              style="display: flex; align-items: center; gap: var(--spacing-sm__k8v0rxh);"
+              style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
             >
               <h3
-                class="Heading_root__xkw1cf0 Heading_tracking_h3__xkw1cf3 sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_color_foregroundNeutral__1fx8prsm6"
+                class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
                 style="transition: color 0.3s ease-in-out;"
               >
                 Software Developer
@@ -525,7 +525,7 @@ exports[`ExperienceItem should render title for { id: 4, title: 'Flutter UKI', j
               <button
                 data-state="closed"
                 data-testid="FlutterUKI-SoftwareDeveloper-copy-link"
-                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__k8v0rxp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
                 type="button"
               >
                 <svg
@@ -549,17 +549,17 @@ exports[`ExperienceItem should render title for { id: 4, title: 'Flutter UKI', j
               </button>
             </div>
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
               style="transition: color 0.3s ease-in-out;"
             >
               Leeds, UK
             </p>
           </div>
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_2_md__1fx8prsk2 sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
           >
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_md_xs__1fx8prsj8 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foreground__1fx8prsm5"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
               data-testid="FlutterUKI-SoftwareDeveloper-description"
               style="transition: color 0.3s ease-in-out;"
             >
@@ -567,10 +567,10 @@ exports[`ExperienceItem should render title for { id: 4, title: 'Flutter UKI', j
             </p>
           </div>
           <div
-            class="sprinkles_gridColumnStart_1_xs__1fx8prsjw sprinkles_gridColumnStart_4_md__1fx8prska sprinkles_gridColumnEnd_-1_xs__1fx8prskw sprinkles_gridColumnEnd_4_md__1fx8prsku"
+            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
           >
             <p
-              class="sprinkles_maxWidth_prose_xs__1fx8prsfw sprinkles_fontSize_sm_xs__1fx8prsj4 sprinkles_fontWeight_normal__1fx8prsn0 sprinkles_color_foregroundNeutral__1fx8prsm6"
+              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
               data-testid="FlutterUKI-SoftwareDeveloper-date-range"
               style="transition: color 0.3s ease-in-out;"
             >
