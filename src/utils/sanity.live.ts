@@ -17,6 +17,9 @@ const { sanityFetch, SanityLive } = defineLive({
   client,
   serverToken: process.env.SANITY_API_TOKEN,
   browserToken: process.env.NEXT_PUBLIC_SANITY_VIEW_TOKEN,
+  fetchOptions: {
+    revalidate: 1800,
+  },
 });
 
 export { sanityFetch, SanityLive };

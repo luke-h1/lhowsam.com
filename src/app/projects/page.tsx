@@ -10,7 +10,7 @@ import { Metadata } from 'next';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Projects | lhowsam.com',
+  title: 'Projects',
   description: "Personal projects I've worked on",
 };
 

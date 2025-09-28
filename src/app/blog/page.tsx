@@ -11,8 +11,8 @@ import PostsClient from './page.client';
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: 'Blog | lhowsam.com',
-  description: 'Blog posts on development, testing, and other topics',
+  title: 'Blog',
+  description: 'A collection of blog posts I have written',
   keywords: ['Blog', 'Posts', 'Articles', 'Software Development'],
 };
 

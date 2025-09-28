@@ -197,7 +197,6 @@ const nextConfig = {
     return config;
   },
 };
-
 module.exports = withVanillaExtract(nextConfig);
 
 // eslint-disable-next-line import/order
@@ -210,6 +209,7 @@ module.exports = withSentryConfig(module.exports, {
   org: 'luke-howsam',
   project: 'lhowsamcom',
 
+  // Only print logs for uploading source maps in CI
   silent: !process.env.CI,
 
   // For all available options, see:
@@ -232,4 +232,5 @@ module.exports = withSentryConfig(module.exports, {
   // https://docs.sentry.io/product/crons/
   // https://vercel.com/docs/cron-jobs
   automaticVercelMonitors: true,
+  authToken: process.env.SENTRY_AUTH_TOKEN ?? undefined,
 });
