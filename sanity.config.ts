@@ -9,9 +9,9 @@ import { defineConfig } from 'sanity';
 import { presentationTool } from 'sanity/presentation';
 import { structureTool } from 'sanity/structure';
 import { markdownSchema } from 'sanity-plugin-markdown';
+import { muxInput } from 'sanity-plugin-mux-input';
 import CustomMarkdownInput from './src/components/sanity/CustomMarkdownInput';
 import defaultDocumentNode from './src/components/sanity/util/defaultDocumentNode';
-import { muxInput } from 'sanity-plugin-mux-input';
 
 export default defineConfig({
   name: 'default',

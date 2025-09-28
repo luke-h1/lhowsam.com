@@ -46,3 +46,6 @@ newrelic_agent.log
 .sst
 *.tfstate
 *.tfstate.backup
+
+# Sentry Config File
+.env.sentry-build-plugin
