@@ -10,6 +10,7 @@
     "check:node": "check-node-version --package",
     "clean": "rm -rf node_modules",
     "commit": "cz",
+    "proxy": "ngrok http http://localhost:3000",
     "deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "dev": "next dev -p 3000",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
