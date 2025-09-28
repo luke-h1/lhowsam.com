@@ -9,6 +9,7 @@ import Spacer from '@frontend/components/Spacer';
 import Text from '@frontend/components/Text';
 import imageService from '@frontend/services/imageService';
 import workService from '@frontend/services/workService';
+import { parseVideoShortcodes } from '@frontend/utils/parseVideoShortcodes';
 import { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
@@ -31,6 +32,18 @@ export default async function WorkSlugPage({ params }: Props) {
   if (!work) {
     notFound();
   }
+
+  // Process video shortcodes
+  const processedContent = parseVideoShortcodes(
+    work.content,
+    work.videos?.map(video => ({
+      id: video.video.asset.playbackId, // Use the actual playback ID from the asset
+      video: {
+        playbackId: video.video.asset.playbackId,
+      },
+      caption: video.caption,
+    })) || [],
+  );
 
   return (
     <Page>
@@ -83,7 +96,7 @@ export default async function WorkSlugPage({ params }: Props) {
       </Box>
       <Box display="flex" alignItems="flex-start">
         <Spacer height="md" />
-        <ContentRenderer content={work.content} />
+        <ContentRenderer content={processedContent} />
       </Box>
     </Page>
   );

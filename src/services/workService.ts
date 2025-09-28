@@ -71,7 +71,17 @@ const workQuery = groq`
   companySite,
   siteUrl,
   githubUrl,
-  publishedAt
+  publishedAt,
+  videos[] {
+    _key,
+    video {
+      asset-> {
+        playbackId
+      }
+    },
+    playbackId,
+    caption
+  }
 }
 `;
 
