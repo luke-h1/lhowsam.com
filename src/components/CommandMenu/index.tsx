@@ -24,6 +24,7 @@ import {
   BarChart,
 } from 'react-feather';
 import { AiFillProject } from 'react-icons/ai';
+// @ts-expect-error no types for tinykeys
 import { tinykeys } from 'tinykeys';
 import './CommandMenu.css';
 import Link from '../Link';

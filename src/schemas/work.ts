@@ -1,5 +1,51 @@
 import { defineField, defineType } from 'sanity';
-import altField from './fields/altField';
+import { altField } from './fields';
+
+export const videoBlock = defineType({
+  name: 'videoBlock',
+  title: 'Video Block',
+  type: 'object',
+  fields: [
+    {
+      name: 'video',
+      title: 'Video',
+      type: 'mux.video',
+      validation: rule => rule.required(),
+    },
+    {
+      name: 'playbackId',
+      title: 'Playback ID (for embedding)',
+      type: 'string',
+      readOnly: true,
+      description: 'Copy this ID to embed the video using {{video:playbackId}}',
+      initialValue: (
+        _doc: unknown,
+        context: { parent: { video: { asset: { playbackId: string } } } },
+      ) => {
+        return context.parent?.video?.asset?.playbackId || '';
+      },
+    },
+    {
+      name: 'caption',
+      title: 'Caption',
+      type: 'string',
+      description: 'Optional caption for the video',
+    },
+  ],
+  preview: {
+    select: {
+      title: 'caption',
+      subtitle: 'video.asset->playbackId',
+      media: 'video',
+    },
+    prepare({ title, subtitle }) {
+      return {
+        title: title || 'Video',
+        subtitle: `ID: ${subtitle}`,
+      };
+    },
+  },
+});
 
 const work = defineType({
   name: 'work',
@@ -43,8 +89,17 @@ const work = defineType({
       name: 'content',
       title: 'Content',
       type: 'markdown',
-      description: 'Content of project post',
+      description:
+        'Content of project post. Use {{video:muxPlaybackId}} to embed videos',
       validation: rule => rule.required(),
+    }),
+    defineField({
+      name: 'videos',
+      title: 'Videos',
+      type: 'array',
+      description:
+        'Videos that can be embedded in the content using {{video:muxPlaybackId}}',
+      of: [{ type: 'videoBlock' }],
     }),
     defineField({
       name: 'companySite',

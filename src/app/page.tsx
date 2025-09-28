@@ -10,6 +10,7 @@ import postService from '@frontend/services/postService';
 import workService from '@frontend/services/workService';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
+import { draftMode } from 'next/headers';
 
 const WorkItem = dynamic(() => import('@frontend/components/WorkItem'));
 
@@ -22,9 +23,10 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
+  const { isEnabled } = await draftMode();
   const [posts, works] = await Promise.all([
-    postService.getRecentPosts(),
-    workService.getWorks(),
+    postService.getRecentPosts(isEnabled),
+    workService.getWorks(isEnabled),
   ]);
 
   return (

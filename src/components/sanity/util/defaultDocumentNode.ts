@@ -18,6 +18,12 @@ const defaultDocumentNode: DefaultDocumentNodeResolver = (
         S.view.component(PreviewIFrame).options({}).title('Preview'),
       ]);
     }
+    case 'work': {
+      return S.document().views([
+        S.view.form(),
+        S.view.component(PreviewIFrame).options({}).title('Preview'),
+      ]);
+    }
     default:
       return S.document().views([S.view.form()]);
   }
