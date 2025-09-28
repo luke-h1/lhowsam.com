@@ -84,7 +84,6 @@ const nextConfig = {
     // since babel is only needed to support vanilla-extract in unit tests
     forceSwcTransforms: true,
     serverComponentsHmrCache: true,
-    ppr: true,
   },
   images: {
     remotePatterns: [
