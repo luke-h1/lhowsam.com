@@ -14,8 +14,8 @@ export default function MuxVideo({ playbackId, caption }: MuxVideoProps) {
       style={{
         marginTop: variables.spacing.md,
         marginBottom: variables.spacing.md,
-        maxWidth: '400px', // Limit the maximum width
-        margin: '0 auto', // Center the video
+        maxWidth: '400px',
+        margin: '0 auto',
       }}
     >
       <MuxPlayer
@@ -24,7 +24,7 @@ export default function MuxVideo({ playbackId, caption }: MuxVideoProps) {
         metadataVideoTitle={caption}
         style={{
           width: '100%',
-          height: '225px', // Fixed height instead of percentage
+          height: '225px',
           borderRadius: variables.radii.lg,
         }}
       />
