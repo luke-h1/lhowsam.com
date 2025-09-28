@@ -10,6 +10,7 @@ jest.setTimeout(10000);
 jest.mock('nanoid', () => {
   return {
     nanoid: () => Math.random().toString(),
+    customAlphabet: () => () => Math.random().toString(),
   };
 });
 
