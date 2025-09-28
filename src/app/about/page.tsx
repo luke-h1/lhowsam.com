@@ -43,7 +43,11 @@ export default async function AboutPage() {
             src="/images/luke-ab-1.png"
             width="200"
             height="200"
-            alt=""
+            alt="Headshot"
+            priority
+            loading="eager"
+            fetchPriority="high"
+            quality={100}
             placeholder="blur"
             blurDataURL="/images/luke-ab-1.png"
             className={styles.image}

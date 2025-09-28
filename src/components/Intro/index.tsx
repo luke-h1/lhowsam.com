@@ -18,7 +18,9 @@ export default function Intro() {
           placeholder="blur"
           blurDataURL="/luke-1.png"
           priority
-          quality={80}
+          loading="eager"
+          fetchPriority="high"
+          quality={100}
           className={styles.image}
           style={{
             maxWidth: '100%',

@@ -61,6 +61,11 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -80,10 +85,6 @@ const nextConfig = {
     forceSwcTransforms: true,
     serverComponentsHmrCache: true,
   },
-  // excludeDefaultMomentLocales: true,
-  // outputFileTracingExcludes: {
-  //   '*': ['node_modules/@swc*/**', '!node_modules/@swc/helpers/**'],
-  // },
   images: {
     remotePatterns: [
       { hostname: 'cdn.sanity.io' },
