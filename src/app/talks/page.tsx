@@ -7,7 +7,7 @@ import Text from '@frontend/components/Text';
 import talkService from '@frontend/services/talkService';
 import { Metadata } from 'next';
 
-export const revalidate = 86400;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Talks',

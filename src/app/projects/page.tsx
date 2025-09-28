@@ -7,7 +7,7 @@ import Text from '@frontend/components/Text';
 import projectService from '@frontend/services/projectService';
 import { Metadata } from 'next';
 
-export const revalidate = 86400;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Projects | lhowsam.com',

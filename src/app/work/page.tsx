@@ -9,7 +9,7 @@ import workService from '@frontend/services/workService';
 
 import { Metadata } from 'next';
 
-export const revalidate = 86400;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: 'Work | lhowsam.com',

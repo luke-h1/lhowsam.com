@@ -17,7 +17,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { stegaClean } from 'next-sanity';
 
-export const revalidate = 86400;
+export const revalidate = 3600;
 
 interface Props {
   params: Promise<{
