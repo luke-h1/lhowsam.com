@@ -5,6 +5,15 @@ on:
       - dev
       - main
   workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment to deploy to'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - prod
 env:
   NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
   NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
@@ -28,7 +37,7 @@ jobs:
   deploy-dev:
     runs-on: ubuntu-latest
     name: Deploy to dev
-    if: github.ref == 'refs/heads/dev' && github.event_name != 'pull_request'
+    if: (github.ref == 'refs/heads/dev' && github.event_name != 'pull_request') || (github.event_name == 'workflow_dispatch' && inputs.environment == 'dev')
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
@@ -40,6 +49,7 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Ensure rebased with dev
+        if: inputs.environment == 'dev' || github.ref == 'refs/heads/dev'
         run: ./scripts/ensure-rebased.sh
 
       - name: install
@@ -54,12 +64,12 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
-          environment: dev
+          environment: ${{ inputs.environment == 'prod' && 'prod' || 'dev' }}
 
   deploy-live:
     runs-on: ubuntu-latest
     name: Deploy to live
-    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    if: (github.ref == 'refs/heads/main' && github.event_name != 'pull_request') || (github.event_name == 'workflow_dispatch' && inputs.environment == 'prod')
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
       cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
@@ -81,5 +91,5 @@ jobs:
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
-          environment: prod
+          vercel-project-id: ${{ inputs.environment == 'prod' && secrets.VERCEL_PROD_PROJECT_ID || secrets.VERCEL_DEV_PROJECT_ID }}
+          environment: ${{ inputs.environment == 'prod' && 'prod' || 'dev' }}
