@@ -64,7 +64,7 @@ jobs:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
-          environment: ${{ inputs.environment == 'prod' && 'prod' || 'dev' }}
+          environment: dev
 
   deploy-live:
     runs-on: ubuntu-latest
@@ -91,5 +91,5 @@ jobs:
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }}
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ inputs.environment == 'prod' && secrets.VERCEL_PROD_PROJECT_ID || secrets.VERCEL_DEV_PROJECT_ID }}
-          environment: ${{ inputs.environment == 'prod' && 'prod' || 'dev' }}
+          vercel-project-id: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
+          environment: production
