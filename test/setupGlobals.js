@@ -64,6 +64,15 @@ beforeEach(() => {
     unobserve: jest.fn(),
     disconnect: jest.fn(),
   }));
+
+  delete window.IntersectionObserver;
+
+  window.IntersectionObserver = jest.fn(() => ({
+    observe: jest.fn(),
+    unobserve: jest.fn(),
+    disconnect: jest.fn(),
+    takeRecords: jest.fn(),
+  }));
 });
 
 afterEach(() => {

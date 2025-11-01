@@ -8,100 +8,104 @@ exports[`ExperienceItem should render title for { id: 1, title: 'The Floow', job
     ((e,s,n,m,o,l,u,h)=&gt;{let a=document.documentElement,v=["light","dark"];function p(c){(Array.isArray(e)?e:[e]).forEach(y=&gt;{let k=y==="class",S=k&&l?o.map(f=&gt;l[f]||f):o;k?(a.classList.remove(...S),a.classList.add(c)):a.setAttribute(y,c)}),C(c)}function C(c){h&&v.includes(c)&&(a.style.colorScheme=c)}function d(){return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}if(m)p(m);else try{let c=localStorage.getItem(s)||n,y=u&&c==="system"?d():c;p(y)}catch(c){}})("class","theme","system",null,["light","dark"],null,true,true)
   </script>
   <div
-    class=""
+    style="opacity: 0; transform: translateY(20px);"
   >
-    <h2
-      class="Heading_root__14mbilk0 Heading_tracking_h2__14mbilk2 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foreground__1cnog2bm5"
+    <div
+      class=""
     >
-      The Floow
-    </h2>
-    <ul
-      class="List_list__mvqsai0"
-      data-testid="ExperienceItem-list-TheFloow"
-    >
-      <li
-        class="List_item__mvqsai1"
-        id="TheFloow-Juniorservicedeskanalyst"
-        style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
+      <h2
+        class="Heading_root__14mbilk0 Heading_tracking_h2__14mbilk2 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foreground__1cnog2bm5"
       >
-        <div
-          class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
+        The Floow
+      </h2>
+      <ul
+        class="List_list__mvqsai0"
+        data-testid="ExperienceItem-list-TheFloow"
+      >
+        <li
+          class="List_item__mvqsai1"
+          id="TheFloow-Juniorservicedeskanalyst"
+          style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
         >
           <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
+            class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
           >
             <div
-              class=""
-              style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
             >
-              <h3
-                class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
+              <div
+                class=""
+                style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
+              >
+                <h3
+                  class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
+                  style="transition: color 0.3s ease-in-out;"
+                >
+                  Junior service desk analyst
+                </h3>
+                <button
+                  data-state="closed"
+                  data-testid="TheFloow-Juniorservicedeskanalyst-copy-link"
+                  style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="16"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                    />
+                    <path
+                      d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
                 style="transition: color 0.3s ease-in-out;"
               >
-                Junior service desk analyst
-              </h3>
-              <button
-                data-state="closed"
-                data-testid="TheFloow-Juniorservicedeskanalyst-copy-link"
-                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="16"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
-                  />
-                  <path
-                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
-                  />
-                </svg>
-              </button>
+                Sheffield, UK
+              </p>
             </div>
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
-              style="transition: color 0.3s ease-in-out;"
+            <div
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
             >
-              Sheffield, UK
-            </p>
-          </div>
-          <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
-          >
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
-              data-testid="TheFloow-Juniorservicedeskanalyst-description"
-              style="transition: color 0.3s ease-in-out;"
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
+                data-testid="TheFloow-Juniorservicedeskanalyst-description"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                L2 tech support for a sass insurance app that served customers throughout the EU, UKI, and NA (north America)
+              </p>
+            </div>
+            <div
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
             >
-              L2 tech support for a sass insurance app that served customers throughout the EU, UKI, and NA (north America)
-            </p>
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
+                data-testid="TheFloow-Juniorservicedeskanalyst-date-range"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Jun 2019
+                 —
+                 
+                Jul 2020
+                <br />
+              </p>
+            </div>
           </div>
-          <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
-          >
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
-              data-testid="TheFloow-Juniorservicedeskanalyst-date-range"
-              style="transition: color 0.3s ease-in-out;"
-            >
-              Jun 2019
-               —
-               
-              Jul 2020
-              <br />
-            </p>
-          </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;
@@ -114,264 +118,268 @@ exports[`ExperienceItem should render title for { id: 2, title: 'Hive IT', jobs:
     ((e,s,n,m,o,l,u,h)=&gt;{let a=document.documentElement,v=["light","dark"];function p(c){(Array.isArray(e)?e:[e]).forEach(y=&gt;{let k=y==="class",S=k&&l?o.map(f=&gt;l[f]||f):o;k?(a.classList.remove(...S),a.classList.add(c)):a.setAttribute(y,c)}),C(c)}function C(c){h&&v.includes(c)&&(a.style.colorScheme=c)}function d(){return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}if(m)p(m);else try{let c=localStorage.getItem(s)||n,y=u&&c==="system"?d():c;p(y)}catch(c){}})("class","theme","system",null,["light","dark"],null,true,true)
   </script>
   <div
-    class=""
+    style="opacity: 0; transform: translateY(20px);"
   >
-    <h2
-      class="Heading_root__14mbilk0 Heading_tracking_h2__14mbilk2 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foreground__1cnog2bm5"
+    <div
+      class=""
     >
-      Hive IT
-    </h2>
-    <ul
-      class="List_list__mvqsai0"
-      data-testid="ExperienceItem-list-HiveIT"
-    >
-      <li
-        class="List_item__mvqsai1"
-        id="HiveIT-SoftwareEngineer"
-        style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
+      <h2
+        class="Heading_root__14mbilk0 Heading_tracking_h2__14mbilk2 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foreground__1cnog2bm5"
       >
-        <div
-          class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
+        Hive IT
+      </h2>
+      <ul
+        class="List_list__mvqsai0"
+        data-testid="ExperienceItem-list-HiveIT"
+      >
+        <li
+          class="List_item__mvqsai1"
+          id="HiveIT-SoftwareEngineer"
+          style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
         >
           <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
+            class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
           >
             <div
-              class=""
-              style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
             >
-              <h3
-                class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
+              <div
+                class=""
+                style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
+              >
+                <h3
+                  class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
+                  style="transition: color 0.3s ease-in-out;"
+                >
+                  Software Engineer
+                </h3>
+                <button
+                  data-state="closed"
+                  data-testid="HiveIT-SoftwareEngineer-copy-link"
+                  style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="16"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                    />
+                    <path
+                      d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
                 style="transition: color 0.3s ease-in-out;"
               >
-                Software Engineer
-              </h3>
-              <button
-                data-state="closed"
-                data-testid="HiveIT-SoftwareEngineer-copy-link"
-                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="16"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
-                  />
-                  <path
-                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
-                  />
-                </svg>
-              </button>
+                Sheffield, UK
+              </p>
             </div>
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
-              style="transition: color 0.3s ease-in-out;"
+            <div
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
             >
-              Sheffield, UK
-            </p>
-          </div>
-          <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
-          >
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
-              data-testid="HiveIT-SoftwareEngineer-description"
-              style="transition: color 0.3s ease-in-out;"
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
+                data-testid="HiveIT-SoftwareEngineer-description"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Worked as a full-stack software engineer at a local digital agency mainly on government and charity projects. Responsible for driving DevOps + internal process improvement, feature + maintenance tasks ,presenting technical proof of concepts to stakeholders and supporting + mentoring teammates
+              </p>
+            </div>
+            <div
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
             >
-              Worked as a full-stack software engineer at a local digital agency mainly on government and charity projects. Responsible for driving DevOps + internal process improvement, feature + maintenance tasks ,presenting technical proof of concepts to stakeholders and supporting + mentoring teammates
-            </p>
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
+                data-testid="HiveIT-SoftwareEngineer-date-range"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                May 2022
+                 —
+                 
+                Aug 2023
+                <br />
+              </p>
+            </div>
           </div>
-          <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
-          >
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
-              data-testid="HiveIT-SoftwareEngineer-date-range"
-              style="transition: color 0.3s ease-in-out;"
-            >
-              May 2022
-               —
-               
-              Aug 2023
-              <br />
-            </p>
-          </div>
-        </div>
-      </li>
-      <li
-        class="List_item__mvqsai1"
-        id="HiveIT-SoftwareTester"
-        style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
-      >
-        <div
-          class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
+        </li>
+        <li
+          class="List_item__mvqsai1"
+          id="HiveIT-SoftwareTester"
+          style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
         >
           <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
+            class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
           >
             <div
-              class=""
-              style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
             >
-              <h3
-                class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
+              <div
+                class=""
+                style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
+              >
+                <h3
+                  class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
+                  style="transition: color 0.3s ease-in-out;"
+                >
+                  Software Tester
+                </h3>
+                <button
+                  data-state="closed"
+                  data-testid="HiveIT-SoftwareTester-copy-link"
+                  style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="16"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                    />
+                    <path
+                      d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
                 style="transition: color 0.3s ease-in-out;"
               >
-                Software Tester
-              </h3>
-              <button
-                data-state="closed"
-                data-testid="HiveIT-SoftwareTester-copy-link"
-                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="16"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
-                  />
-                  <path
-                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
-                  />
-                </svg>
-              </button>
+                Sheffield, UK
+              </p>
             </div>
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
-              style="transition: color 0.3s ease-in-out;"
+            <div
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
             >
-              Sheffield, UK
-            </p>
-          </div>
-          <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
-          >
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
-              data-testid="HiveIT-SoftwareTester-description"
-              style="transition: color 0.3s ease-in-out;"
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
+                data-testid="HiveIT-SoftwareTester-description"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Worked on improving the existing testing culture within the company to reduce technical debt and improve happiness
+              </p>
+            </div>
+            <div
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
             >
-              Worked on improving the existing testing culture within the company to reduce technical debt and improve happiness
-            </p>
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
+                data-testid="HiveIT-SoftwareTester-date-range"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                May 2021
+                 —
+                 
+                May 2022
+                <br />
+              </p>
+            </div>
           </div>
-          <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
-          >
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
-              data-testid="HiveIT-SoftwareTester-date-range"
-              style="transition: color 0.3s ease-in-out;"
-            >
-              May 2021
-               —
-               
-              May 2022
-              <br />
-            </p>
-          </div>
-        </div>
-      </li>
-      <li
-        class="List_item__mvqsai1"
-        id="HiveIT-JuniorSoftwareTester"
-        style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
-      >
-        <div
-          class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
+        </li>
+        <li
+          class="List_item__mvqsai1"
+          id="HiveIT-JuniorSoftwareTester"
+          style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
         >
           <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
+            class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
           >
             <div
-              class=""
-              style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
             >
-              <h3
-                class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
+              <div
+                class=""
+                style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
+              >
+                <h3
+                  class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
+                  style="transition: color 0.3s ease-in-out;"
+                >
+                  Junior Software Tester
+                </h3>
+                <button
+                  data-state="closed"
+                  data-testid="HiveIT-JuniorSoftwareTester-copy-link"
+                  style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="16"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                    />
+                    <path
+                      d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
                 style="transition: color 0.3s ease-in-out;"
               >
-                Junior Software Tester
-              </h3>
-              <button
-                data-state="closed"
-                data-testid="HiveIT-JuniorSoftwareTester-copy-link"
-                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="16"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
-                  />
-                  <path
-                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
-                  />
-                </svg>
-              </button>
+                Sheffield, UK
+              </p>
             </div>
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
-              style="transition: color 0.3s ease-in-out;"
+            <div
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
             >
-              Sheffield, UK
-            </p>
-          </div>
-          <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
-          >
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
-              data-testid="HiveIT-JuniorSoftwareTester-description"
-              style="transition: color 0.3s ease-in-out;"
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
+                data-testid="HiveIT-JuniorSoftwareTester-description"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Worked as a Junior software tester to take over from the previous tester. Built up testing skills both automated and manual to aid in the maintenance of large and small projects
+              </p>
+            </div>
+            <div
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
             >
-              Worked as a Junior software tester to take over from the previous tester. Built up testing skills both automated and manual to aid in the maintenance of large and small projects
-            </p>
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
+                data-testid="HiveIT-JuniorSoftwareTester-date-range"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Oct 2020
+                 —
+                 
+                May 2021
+                <br />
+              </p>
+            </div>
           </div>
-          <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
-          >
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
-              data-testid="HiveIT-JuniorSoftwareTester-date-range"
-              style="transition: color 0.3s ease-in-out;"
-            >
-              Oct 2020
-               —
-               
-              May 2021
-              <br />
-            </p>
-          </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;
@@ -384,100 +392,104 @@ exports[`ExperienceItem should render title for { id: 3, title: 'Sky Betting & G
     ((e,s,n,m,o,l,u,h)=&gt;{let a=document.documentElement,v=["light","dark"];function p(c){(Array.isArray(e)?e:[e]).forEach(y=&gt;{let k=y==="class",S=k&&l?o.map(f=&gt;l[f]||f):o;k?(a.classList.remove(...S),a.classList.add(c)):a.setAttribute(y,c)}),C(c)}function C(c){h&&v.includes(c)&&(a.style.colorScheme=c)}function d(){return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}if(m)p(m);else try{let c=localStorage.getItem(s)||n,y=u&&c==="system"?d():c;p(y)}catch(c){}})("class","theme","system",null,["light","dark"],null,true,true)
   </script>
   <div
-    class=""
+    style="opacity: 0; transform: translateY(20px);"
   >
-    <h2
-      class="Heading_root__14mbilk0 Heading_tracking_h2__14mbilk2 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foreground__1cnog2bm5"
+    <div
+      class=""
     >
-      Sky Betting & Gaming
-    </h2>
-    <ul
-      class="List_list__mvqsai0"
-      data-testid="ExperienceItem-list-SkyBetting&Gaming"
-    >
-      <li
-        class="List_item__mvqsai1"
-        id="SkyBetting&Gaming-SoftwareEngineer"
-        style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
+      <h2
+        class="Heading_root__14mbilk0 Heading_tracking_h2__14mbilk2 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foreground__1cnog2bm5"
       >
-        <div
-          class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
+        Sky Betting & Gaming
+      </h2>
+      <ul
+        class="List_list__mvqsai0"
+        data-testid="ExperienceItem-list-SkyBetting&Gaming"
+      >
+        <li
+          class="List_item__mvqsai1"
+          id="SkyBetting&Gaming-SoftwareEngineer"
+          style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
         >
           <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
+            class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
           >
             <div
-              class=""
-              style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
             >
-              <h3
-                class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
+              <div
+                class=""
+                style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
+              >
+                <h3
+                  class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
+                  style="transition: color 0.3s ease-in-out;"
+                >
+                  Software Engineer
+                </h3>
+                <button
+                  data-state="closed"
+                  data-testid="SkyBetting&Gaming-SoftwareEngineer-copy-link"
+                  style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="16"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                    />
+                    <path
+                      d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
                 style="transition: color 0.3s ease-in-out;"
               >
-                Software Engineer
-              </h3>
-              <button
-                data-state="closed"
-                data-testid="SkyBetting&Gaming-SoftwareEngineer-copy-link"
-                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="16"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
-                  />
-                  <path
-                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
-                  />
-                </svg>
-              </button>
+                Leeds, UK
+              </p>
             </div>
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
-              style="transition: color 0.3s ease-in-out;"
+            <div
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
             >
-              Leeds, UK
-            </p>
-          </div>
-          <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
-          >
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
-              data-testid="SkyBetting&Gaming-SoftwareEngineer-description"
-              style="transition: color 0.3s ease-in-out;"
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
+                data-testid="SkyBetting&Gaming-SoftwareEngineer-description"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Worked within the GLS (Game Launch Service) squad that provided game-launching capabilities for all gaming content across the business in addition to Reality Check (a safer gambling tool). Responsible for maintaining internal NPM packages, shared SDKs, web apps, serverless functions, driving DevOps improvements, monitoring our services (NewRelic, Grafana & Prometheus), supporting + mentoring teammates and captain duties (support queries etc.)
+              </p>
+            </div>
+            <div
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
             >
-              Worked within the GLS (Game Launch Service) squad that provided game-launching capabilities for all gaming content across the business in addition to Reality Check (a safer gambling tool). Responsible for maintaining internal NPM packages, shared SDKs, web apps, serverless functions, driving DevOps improvements, monitoring our services (NewRelic, Grafana & Prometheus), supporting + mentoring teammates and captain duties (support queries etc.)
-            </p>
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
+                data-testid="SkyBetting&Gaming-SoftwareEngineer-date-range"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Aug 2023
+                 —
+                 
+                Nov 2024
+                <br />
+              </p>
+            </div>
           </div>
-          <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
-          >
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
-              data-testid="SkyBetting&Gaming-SoftwareEngineer-date-range"
-              style="transition: color 0.3s ease-in-out;"
-            >
-              Aug 2023
-               —
-               
-              Nov 2024
-              <br />
-            </p>
-          </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;
@@ -490,100 +502,104 @@ exports[`ExperienceItem should render title for { id: 4, title: 'Flutter UKI', j
     ((e,s,n,m,o,l,u,h)=&gt;{let a=document.documentElement,v=["light","dark"];function p(c){(Array.isArray(e)?e:[e]).forEach(y=&gt;{let k=y==="class",S=k&&l?o.map(f=&gt;l[f]||f):o;k?(a.classList.remove(...S),a.classList.add(c)):a.setAttribute(y,c)}),C(c)}function C(c){h&&v.includes(c)&&(a.style.colorScheme=c)}function d(){return window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}if(m)p(m);else try{let c=localStorage.getItem(s)||n,y=u&&c==="system"?d():c;p(y)}catch(c){}})("class","theme","system",null,["light","dark"],null,true,true)
   </script>
   <div
-    class=""
+    style="opacity: 0; transform: translateY(20px);"
   >
-    <h2
-      class="Heading_root__14mbilk0 Heading_tracking_h2__14mbilk2 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foreground__1cnog2bm5"
+    <div
+      class=""
     >
-      Flutter UKI
-    </h2>
-    <ul
-      class="List_list__mvqsai0"
-      data-testid="ExperienceItem-list-FlutterUKI"
-    >
-      <li
-        class="List_item__mvqsai1"
-        id="FlutterUKI-SoftwareDeveloper"
-        style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
+      <h2
+        class="Heading_root__14mbilk0 Heading_tracking_h2__14mbilk2 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foreground__1cnog2bm5"
       >
-        <div
-          class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
+        Flutter UKI
+      </h2>
+      <ul
+        class="List_list__mvqsai0"
+        data-testid="ExperienceItem-list-FlutterUKI"
+      >
+        <li
+          class="List_item__mvqsai1"
+          id="FlutterUKI-SoftwareDeveloper"
+          style="transition: all 0.6s ease-in-out; background-color: transparent; border-radius: 0; padding-left: 0px; padding-right: 0px; margin: 0px; box-shadow: none; transform: scale(1);"
         >
           <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
+            class="Grid_container__1pwmnvv0 sprinkles_columnGap_xxxl_xs__1cnog2bfo sprinkles_rowGap_md_xs__1cnog2be4 sprinkles_alignItems_baseline_xs__1cnog2b2s"
           >
             <div
-              class=""
-              style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_1_md__1cnog2bki"
             >
-              <h3
-                class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
+              <div
+                class=""
+                style="display: flex; align-items: center; gap: var(--spacing-sm__12jg5ysh);"
+              >
+                <h3
+                  class="Heading_root__14mbilk0 Heading_tracking_h3__14mbilk3 sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_color_foregroundNeutral__1cnog2bm6"
+                  style="transition: color 0.3s ease-in-out;"
+                >
+                  Software Developer
+                </h3>
+                <button
+                  data-state="closed"
+                  data-testid="FlutterUKI-SoftwareDeveloper-copy-link"
+                  style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
+                  type="button"
+                >
+                  <svg
+                    fill="none"
+                    height="16"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
+                    />
+                    <path
+                      d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
                 style="transition: color 0.3s ease-in-out;"
               >
-                Software Developer
-              </h3>
-              <button
-                data-state="closed"
-                data-testid="FlutterUKI-SoftwareDeveloper-copy-link"
-                style="display: grid; place-items: center; cursor: pointer; width: 1.25rem; height: 1.25rem; border-radius: var(--radii-md__12jg5ysp); background: transparent; opacity: 0.7; transition: opacity 0.2s ease, color 0.3s ease-in-out;"
-                type="button"
-              >
-                <svg
-                  fill="none"
-                  height="16"
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"
-                  />
-                  <path
-                    d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"
-                  />
-                </svg>
-              </button>
+                Leeds, UK
+              </p>
             </div>
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
-              style="transition: color 0.3s ease-in-out;"
+            <div
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
             >
-              Leeds, UK
-            </p>
-          </div>
-          <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_2_md__1cnog2bk2 sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
-          >
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
-              data-testid="FlutterUKI-SoftwareDeveloper-description"
-              style="transition: color 0.3s ease-in-out;"
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_md_xs__1cnog2bj8 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foreground__1cnog2bm5"
+                data-testid="FlutterUKI-SoftwareDeveloper-description"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Greenfield React-Native development (alongside Software-Mansion for the first 9 months of the project). Spearheading development on shared SDKs for React & React Native projects. CI/CD (GH actions, AZ DevOps, etc), IAC (Terraform), cloud infrastructure (AWS, Azure). Maintenance + feature work on various frontend & backend projects
+              </p>
+            </div>
+            <div
+              class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
             >
-              Greenfield React-Native development (alongside Software-Mansion for the first 9 months of the project). Spearheading development on shared SDKs for React & React Native projects. CI/CD (GH actions, AZ DevOps, etc), IAC (Terraform), cloud infrastructure (AWS, Azure). Maintenance + feature work on various frontend & backend projects
-            </p>
+              <p
+                class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
+                data-testid="FlutterUKI-SoftwareDeveloper-date-range"
+                style="transition: color 0.3s ease-in-out;"
+              >
+                Jan 2025
+                 —
+                 
+                Now
+                <br />
+              </p>
+            </div>
           </div>
-          <div
-            class="sprinkles_gridColumnStart_1_xs__1cnog2bjw sprinkles_gridColumnStart_4_md__1cnog2bka sprinkles_gridColumnEnd_-1_xs__1cnog2bkw sprinkles_gridColumnEnd_4_md__1cnog2bku"
-          >
-            <p
-              class="sprinkles_maxWidth_prose_xs__1cnog2bfw sprinkles_fontSize_sm_xs__1cnog2bj4 sprinkles_fontWeight_normal__1cnog2bn0 sprinkles_color_foregroundNeutral__1cnog2bm6"
-              data-testid="FlutterUKI-SoftwareDeveloper-date-range"
-              style="transition: color 0.3s ease-in-out;"
-            >
-              Jan 2025
-               —
-               
-              Now
-              <br />
-            </p>
-          </div>
-        </div>
-      </li>
-    </ul>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
 `;
