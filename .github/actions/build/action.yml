@@ -7,24 +7,24 @@ runs:
         shell: bash
         run: ./scripts/ensure-rebased.sh
 
-      - name: format:check
-        run: pnpm format:check
+      - name: prettier:check
+        run: pnpm exec turbo run prettier:check
         shell: bash
 
       - name: lint
-        run: pnpm lint
+        run: pnpm exec turbo run lint
         shell: bash
 
       - name: jest
-        run: pnpm test:ci
+        run: pnpm exec turbo run test:ci
         shell: bash
 
-      - name: tsc
-        run: pnpm tsc
+      - name: ts:check
+        run: pnpm exec turbo run ts:check
         shell: bash
 
       - name: build
-        run: pnpm build
+        run: pnpm exec turbo run build
         shell: bash
 
       - name: local UI tests

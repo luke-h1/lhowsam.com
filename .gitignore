@@ -2,6 +2,7 @@ node_modules
 .env
 !.env.example
 .next
+.turbo
 
 # misc
 .DS_Store

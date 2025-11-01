@@ -21,6 +21,11 @@ const talks: Talk[] = [
     location: 'Sheffield, UK',
     slideUrl: 'https://feature-flags-24.talks.lhowsam.com/presenter/1',
     title: 'Feature flags frontend Sheffield',
+    content: 'content',
+    slug: {
+      _type: 'slug',
+      current: 'feature-flags-frontend-sheffield',
+    },
   },
 ];
 export default talks;

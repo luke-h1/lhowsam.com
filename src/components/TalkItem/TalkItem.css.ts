@@ -19,3 +19,10 @@ export const anchor = style([
 export const links = style({
   marginRight: '1rem',
 });
+
+export const content = style({
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+});
