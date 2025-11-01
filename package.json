@@ -2,6 +2,7 @@
   "name": "lhowsam.com",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "pnpm@9.12.3",
   "scripts": {
     "alphabetize": "node scripts/alphabetizePackageJson.js",
     "analyze": "ANALYZE=true next build && node scripts/analyze-bundle.js",
