@@ -1,19 +1,8 @@
-name: Deploy
+name: Deploy to Dev
 on:
   push:
     branches:
       - dev
-      - main
-  workflow_dispatch:
-    inputs:
-      environment:
-        description: 'Environment to deploy to'
-        required: true
-        default: 'dev'
-        type: choice
-        options:
-          - dev
-          - prod
 env:
   NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
   NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
@@ -37,10 +26,10 @@ jobs:
   deploy-dev:
     runs-on: ubuntu-latest
     name: Deploy to dev
-    if: (github.ref == 'refs/heads/dev' && github.event_name != 'pull_request') || (github.event_name == 'workflow_dispatch' && inputs.environment == 'dev')
+    if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+      cancel-in-progress: true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -49,7 +38,6 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Ensure rebased with dev
-        if: inputs.environment == 'dev' || github.ref == 'refs/heads/dev'
         run: ./scripts/ensure-rebased.sh
 
       - name: install
@@ -65,31 +53,3 @@ jobs:
           vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
           vercel-project-id: ${{ secrets.VERCEL_DEV_PROJECT_ID }}
           environment: dev
-
-  deploy-live:
-    runs-on: ubuntu-latest
-    name: Deploy to live
-    if: (github.ref == 'refs/heads/main' && github.event_name != 'pull_request') || (github.event_name == 'workflow_dispatch' && inputs.environment == 'prod')
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
-      cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: ${{ github.head_ref }}
-
-      - name: install
-        uses: ./.github/actions/install
-      
-      - name: Build
-        uses: ./.github/actions/build
-      
-      - name: Deploy to live
-        uses: ./.github/actions/deploy
-        with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
-          environment: production
