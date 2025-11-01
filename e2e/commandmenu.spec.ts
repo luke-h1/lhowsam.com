@@ -10,9 +10,11 @@ const delay = 600;
 
 // eslint-disable-next-line no-shadow
 const expectListboxToBeVisible = async (page: Page) => {
-  await expect(page.locator('[role="listbox"]')).toBeAttached({
+  const listbox = page.locator('[role="listbox"]');
+  await expect(listbox).toBeVisible({
     timeout: 10000,
   });
+  await sleep(300);
 };
 
 test.describe('command menu', () => {
@@ -31,9 +33,15 @@ test.describe('command menu', () => {
   });
 
   test.beforeEach(async () => {
-    page.keyboard.press('Escape');
+    await page.keyboard.press('Escape');
     await page.focus('body');
-    await sleep(2000);
+
+    const dialog = page.locator('[role="dialog"]');
+    await expect(dialog)
+      .not.toBeVisible({ timeout: 5000 })
+      .catch(() => {});
+
+    await sleep(500);
   });
 
   test('CMD+K opens command menu when clicked', async () => {
@@ -76,6 +84,7 @@ test.describe('command menu', () => {
 
     // home
     await navigation.locator('text=Home').click();
+    await expect(navigation).not.toBeVisible();
     await expect(page.locator('[data-testid="intro-heading"]')).toBeVisible();
 
     await page.keyboard.press(`${key}+K`, {
@@ -85,8 +94,10 @@ test.describe('command menu', () => {
 
     // about
     await navigation.locator('text=About').click();
+    await expect(navigation).not.toBeVisible();
     await expect(page.locator('[data-testid="AboutPage-intro"]')).toBeVisible();
     await page.goBack();
+    await page.waitForLoadState('domcontentloaded');
 
     await page.keyboard.press(`${key}+K`, {
       delay,
@@ -95,8 +106,10 @@ test.describe('command menu', () => {
 
     // blog
     await navigation.locator('text=Blog').click();
+    await expect(navigation).not.toBeVisible();
     await expect(page.locator('h1').first()).toHaveText('Blog');
     await page.goBack();
+    await page.waitForLoadState('domcontentloaded');
 
     await page.keyboard.press(`${key}+K`, {
       delay,
@@ -105,8 +118,10 @@ test.describe('command menu', () => {
 
     // projects
     await navigation.locator('text=Projects').click();
+    await expect(navigation).not.toBeVisible();
     await expect(page.locator('h1').first()).toHaveText('Projects');
     await page.goBack();
+    await page.waitForLoadState('domcontentloaded');
 
     await page.keyboard.press(`${key}+K`, {
       delay,
@@ -115,8 +130,10 @@ test.describe('command menu', () => {
 
     // talks
     await navigation.locator('text=Talks').click();
+    await expect(navigation).not.toBeVisible();
     await expect(page.locator('h1').first()).toHaveText('Talks');
     await page.goBack();
+    await page.waitForLoadState('domcontentloaded');
 
     await page.keyboard.press(`${key}+K`, {
       delay,
@@ -222,7 +239,9 @@ test.describe('command menu', () => {
   });
 
   test('renders Commands items correctly', async () => {
-    await page.goto(`${baseUrl}/blog`);
+    await page.goto(`${baseUrl}/blog`, { waitUntil: 'networkidle' });
+    await page.waitForLoadState('domcontentloaded');
+    await sleep(1000);
 
     await page.keyboard.press(`${key}+K`, {
       delay,
