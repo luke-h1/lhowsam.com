@@ -32,10 +32,10 @@ e2e-dev:
 e2e-dev-open:
 	BASE_URL='https://dev.lhowsam.com' ./node_modules/.bin/playwright test ${tests}  --headed --config=playwright-dev.config.ts
 
-.PHONY: e2e-prod
+.PHONY: e2e-production
 e2e-prod:
 	BASE_URL='https://lhowsam.com' ./node_modules/.bin/playwright test ${tests} --config=playwright-common.config.ts
 
-.PHONY: e2e-prod-open
+.PHONY: e2e-production-open
 e2e-prod-open:
 	BASE_URL='https://lhowsam.com' ./node_modules/.bin/playwright test ${tests} --headed  --config=playwright-common.config.ts
