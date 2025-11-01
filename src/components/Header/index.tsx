@@ -2,9 +2,9 @@
 
 import * as Dialog from '@frontend/components/Dialog';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'react-feather';
 import CommandMenu from '../CommandMenu';
 import Link from '../Link';
@@ -36,8 +36,8 @@ const headerLinks: HeaderLink[] = [
   },
   {
     id: 4,
-    text: 'Work',
-    href: '/work',
+    text: 'Talks',
+    href: '/talks',
   },
   {
     id: 5,
@@ -112,69 +112,131 @@ export default function Header() {
       <Dialog.Root open={panelOpen} onOpenChange={setPanelOpen}>
         <Dialog.Trigger asChild>
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             {...{ className: styles.toggle, type: 'button' }}
           >
             <VisuallyHidden.Root>Open menu</VisuallyHidden.Root>
             <Menu />
           </motion.button>
         </Dialog.Trigger>
-        <Dialog.Portal>
-          <Dialog.Overlay className={styles.panelOverlay} />
-          <Dialog.Content
-            className={styles.panelContent}
-            aria-describedby={undefined}
-          >
-            <VisuallyHidden.Root>
-              <Dialog.Title>Navigation</Dialog.Title>
-            </VisuallyHidden.Root>
-
-            <Text fontWeight="bold">Navigation</Text>
-            <nav>
-              {headerLinks.map((link, index) => (
-                <Fragment key={link.href}>
-                  <Spacer height="xs" />
-                  <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                  >
-                    <Text
-                      color="foregroundNeutral"
-                      className={
-                        pathname === link.href ? styles.activeLink : ''
-                      }
-                    >
-                      <Link
-                        href={link.href}
-                        aria-current={
-                          pathname === link.href ? 'page' : undefined
-                        }
-                      >
-                        {link.text}
-                      </Link>
-                    </Text>
-                  </motion.div>
-                </Fragment>
-              ))}
-              <CommandMenu />
-            </nav>
-
-            <Spacer height="xl" />
-
-            <Dialog.Close asChild>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                {...{ className: styles.panelClose, type: 'button' }}
+        <AnimatePresence>
+          {panelOpen && (
+            <Dialog.Portal forceMount>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
               >
-                <VisuallyHidden.Root>Close menu</VisuallyHidden.Root>
-                <X />
-              </motion.button>
-            </Dialog.Close>
-          </Dialog.Content>
-        </Dialog.Portal>
+                <Dialog.Overlay className={styles.panelOverlay} />
+              </motion.div>
+              <Dialog.Content
+                className={styles.panelContent}
+                aria-describedby={undefined}
+                asChild
+                forceMount
+              >
+                <motion.div
+                  initial={{ x: '100%' }}
+                  animate={{ x: 0 }}
+                  exit={{ x: '100%' }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 300,
+                    damping: 30,
+                  }}
+                >
+                  <VisuallyHidden.Root>
+                    <Dialog.Title>Navigation</Dialog.Title>
+                  </VisuallyHidden.Root>
+
+                  <div className={styles.mobileHeader}>
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.1, duration: 0.3 }}
+                    >
+                      <Text fontSize="lg" fontWeight="bold">
+                        Navigation
+                      </Text>
+                    </motion.div>
+
+                    <Dialog.Close asChild>
+                      <motion.button
+                        whileHover={{ scale: 1.1, rotate: 90 }}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{
+                          type: 'spring',
+                          stiffness: 400,
+                          damping: 17,
+                        }}
+                        {...{ className: styles.panelClose, type: 'button' }}
+                      >
+                        <VisuallyHidden.Root>Close menu</VisuallyHidden.Root>
+                        <X size={24} />
+                      </motion.button>
+                    </Dialog.Close>
+                  </div>
+
+                  <Spacer height="xl" />
+
+                  <nav className={styles.mobileNav}>
+                    {headerLinks.map((link, index) => (
+                      <motion.div
+                        key={link.href}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          delay: 0.15 + index * 0.08,
+                          duration: 0.4,
+                          ease: 'easeOut',
+                        }}
+                        whileHover={{ x: 4 }}
+                        whileTap={{ scale: 0.98 }}
+                        {...{ className: styles.mobileNavItem }}
+                      >
+                        <Link
+                          href={link.href}
+                          aria-current={
+                            pathname === link.href ? 'page' : undefined
+                          }
+                          {...{ className: styles.mobileNavLink }}
+                        >
+                          <Text
+                            fontSize="xl"
+                            fontWeight={
+                              pathname === link.href ? 'bold' : 'normal'
+                            }
+                            className={
+                              pathname === link.href
+                                ? styles.activeMobileLink
+                                : styles.inactiveMobileLink
+                            }
+                          >
+                            {link.text}
+                          </Text>
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </nav>
+
+                  <Spacer height="xl" />
+
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5, duration: 0.3 }}
+                    {...{ className: styles.mobileFooter }}
+                  >
+                    <CommandMenu />
+                  </motion.div>
+                </motion.div>
+              </Dialog.Content>
+            </Dialog.Portal>
+          )}
+        </AnimatePresence>
       </Dialog.Root>
     </motion.header>
   );

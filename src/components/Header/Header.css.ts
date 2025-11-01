@@ -44,27 +44,91 @@ export const panelOverlay = style({
   left: 0,
   right: 0,
   bottom: 0,
+  backgroundColor: 'rgba(0, 0, 0, 0.6)',
+  backdropFilter: 'blur(4px)',
+  zIndex: 998,
 });
 
 export const panelContent = style({
   position: 'fixed',
   top: 0,
   right: 0,
-  width: '80%',
-  maxWidth: '300px',
-  background: variables.color.border,
+  width: '85%',
+  maxWidth: '360px',
+  background: variables.color.page,
   height: '100%',
-  padding: '2rem',
+  padding: '1.5rem',
   display: 'flex',
   flexDirection: 'column',
+  boxShadow: '-4px 0 24px rgba(0, 0, 0, 0.15)',
+  zIndex: 999,
+  overflowY: 'auto',
+});
+
+export const mobileHeader = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  paddingBottom: '1rem',
+  borderBottom: `1px solid ${variables.color.border}`,
 });
 
 export const panelClose = style({
   background: 'none',
   border: 'none',
-  fontSize: '2rem',
   cursor: 'pointer',
-  alignSelf: 'flex-end',
+  padding: '0.5rem',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: variables.radii.md,
+  color: variables.color.foregroundNeutral,
+  transition: 'background-color 0.2s ease',
+  ':hover': {
+    backgroundColor: variables.color.surfaceHover,
+  },
+  ':active': {
+    backgroundColor: variables.color.surfaceHover,
+  },
+});
+
+export const mobileNav = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '0.25rem',
+  flex: 1,
+});
+
+export const mobileNavItem = style({
+  borderRadius: variables.radii.md,
+  transition: 'background-color 0.2s ease',
+});
+
+export const mobileNavLink = style({
+  display: 'block',
+  padding: '1rem',
+  textDecoration: 'none',
+  borderRadius: variables.radii.md,
+  transition: 'all 0.2s ease',
+});
+
+export const activeMobileLink = style({
+  color: variables.color.surfaceHighContrast,
+  background: `linear-gradient(90deg, ${variables.color.highlight}20, transparent)`,
+  borderLeft: `3px solid ${variables.color.surfaceHighContrast}`,
+  paddingLeft: '0.875rem',
+});
+
+export const inactiveMobileLink = style({
+  color: variables.color.foregroundNeutral,
+  ':hover': {
+    color: variables.color.foreground,
+  },
+});
+
+export const mobileFooter = style({
+  borderTop: `1px solid ${variables.color.border}`,
+  paddingTop: '1rem',
 });
 
 globalStyle('@media (max-width: 768px)', {
