@@ -45,16 +45,23 @@ export default async function TalksPage() {
           </Text>
         </Box>
       </Box>
-      <Spacer height="sm" />
-      <Box as="section" maxWidth={{ md: 'text' }} marginX={{ md: 'sm' }}>
-        <ul>
-          {talks &&
-            talks.map(talk => (
+      <Spacer height="lg" />
+      <Box as="section" maxWidth="container">
+        {talks && talks.length > 0 ? (
+          <Box as="ul" display="flex" flexDirection="column" gap="xl">
+            {talks.map(talk => (
               <li key={talk._id}>
                 <TalkItem talk={talk} />
               </li>
             ))}
-        </ul>
+          </Box>
+        ) : (
+          <Box textAlign="center">
+            <Text color="foregroundNeutral">
+              Failed to fetch talks. Check back soon!
+            </Text>
+          </Box>
+        )}
       </Box>
     </Page>
   );

@@ -23,5 +23,4 @@ Sentry.init({
   enabled:
     process.env.NEXT_PUBLIC_URL === 'https://lhowsam.com' ||
     process.env.NEXT_PUBLIC_URL === 'https://dev.lhowsam.com',
-  integrations: [Sentry.browserTracingIntegration()],
 });

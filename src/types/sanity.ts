@@ -62,11 +62,14 @@ export interface Talk {
   _key?: string;
   _updatedAt: string;
   title: string;
+  slug: Slug;
   description: string;
   date: string;
   slideUrl: string;
+  videoUrl?: string;
   location: string;
   image?: Image;
+  content: string;
 }
 
 export interface VideoBlock {

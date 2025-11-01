@@ -8,11 +8,13 @@ interface Props {
 }
 
 const ContentRenderer = ({ content }: Props) => {
+  const safeContent = typeof content === 'string' ? content : '';
+
   /**
-   * Hacky fix to inject the video component into the content
+   * Hacky fix to inject the video component into the content for https://lhowsam.com/work/sporting-life-mobile
    * since we can 't embed video blocks in markdown
    */
-  const processedContent = content.replace(
+  const processedContent = safeContent.replace(
     /And so when we scrolled the sports data out of view, it reused that same component \(which didn't cause an unmount\) just with different data:/g,
     `And so when we scrolled the sports data out of view, it reused that same component (which didn't cause an unmount) just with different data:
 

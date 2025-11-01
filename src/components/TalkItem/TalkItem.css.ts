@@ -15,3 +15,7 @@ export const anchor = style([
     display: 'inline-flex',
   },
 ]);
+
+export const links = style({
+  marginRight: '1rem',
+});
