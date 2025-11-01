@@ -9,7 +9,6 @@ export default async function markdownToHtml(markdown: string) {
   const result = await unified()
     .use(remarkParse)
     .use(remarkRehype, { allowDangerousHtml: true })
-    // @ts-expect-error - rehypePrettyCode types don't match unified plugin interface
     .use(rehypePrettyCode, {
       theme: 'catppuccin-macchiato',
       keepBackground: false,
