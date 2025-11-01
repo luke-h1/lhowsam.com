@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import { ReactNode } from 'react';
 import Box from './Box';
 import Header from './Header';
+import PageTransition from './PageTransition';
 import { Toaster } from './Toaster';
 
 interface PageProps {
@@ -21,15 +22,17 @@ export default function Page({
       <div className="container">
         {showHeader && <Header />}
 
-        <Box
-          maxWidth="container"
-          style={{
-            margin: '0 auto',
-          }}
-        >
-          {children}
-          <Toaster />
-        </Box>
+        <PageTransition>
+          <Box
+            maxWidth="container"
+            style={{
+              margin: '0 auto',
+            }}
+          >
+            {children}
+            <Toaster />
+          </Box>
+        </PageTransition>
       </div>
       {showFooter && <Footer />}
     </>

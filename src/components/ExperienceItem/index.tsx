@@ -8,6 +8,7 @@ import { variables } from '@frontend/styles/variables.css';
 import { parseDate } from '@frontend/utils/date';
 import toCamelCase from '@frontend/utils/toCamelCase';
 import { format } from 'date-fns';
+import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { Link as FeatherLink } from 'react-feather';
@@ -91,71 +92,126 @@ export default function ExperienceItem({ company }: Props) {
   };
 
   return (
-    <Box
-      key={company.title}
-      style={{
-        borderBottom: `1px solid ${variables.color.border}`,
-        marginBottom: variables.spacing.lg,
-      }}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
     >
-      <Heading fontSize="md" style={{ marginBottom: variables.spacing.sm }}>
-        {company.title}
-      </Heading>
-      <List.Container
-        testId={`ExperienceItem-list-${toCamelCase(company.title)}`}
+      <Box
+        key={company.title}
+        style={{
+          borderBottom: `1px solid ${variables.color.border}`,
+          marginBottom: variables.spacing.lg,
+        }}
       >
-        {company.jobs
-          .sort(
-            (a, b) =>
-              parseDate(b.startDate).getTime() -
-              parseDate(a.startDate).getTime(),
-          )
-          .map(job => {
-            const jobId = `${toCamelCase(company.title)}-${toCamelCase(job.title)}`;
-            const isHighlighted = highlightedJobId === jobId;
+        <Heading fontSize="md" style={{ marginBottom: variables.spacing.sm }}>
+          {company.title}
+        </Heading>
+        <List.Container
+          testId={`ExperienceItem-list-${toCamelCase(company.title)}`}
+        >
+          {company.jobs
+            .sort(
+              (a, b) =>
+                parseDate(b.startDate).getTime() -
+                parseDate(a.startDate).getTime(),
+            )
+            .map(job => {
+              const jobId = `${toCamelCase(company.title)}-${toCamelCase(job.title)}`;
+              const isHighlighted = highlightedJobId === jobId;
 
-            return (
-              <List.Item
-                key={job.id}
-                id={jobId}
-                style={{
-                  transition: 'all 0.6s ease-in-out',
-                  backgroundColor: isHighlighted
-                    ? variables.color.highlight
-                    : 'transparent',
-                  borderRadius: isHighlighted ? variables.radii.lg : '0',
-                  paddingTop: isHighlighted
-                    ? variables.spacing.xl
-                    : variables.spacing.lg,
-                  paddingBottom: isHighlighted
-                    ? variables.spacing.xl
-                    : variables.spacing.lg,
-                  paddingLeft: isHighlighted ? variables.spacing.md : '0',
-                  paddingRight: isHighlighted ? variables.spacing.md : '0',
-                  margin: isHighlighted ? `${variables.spacing.xs} 0` : '0',
-                  boxShadow: isHighlighted
-                    ? `0 0 0 2px ${variables.color.highlight}40`
-                    : 'none',
-                  transform: isHighlighted ? 'scale(1.02)' : 'scale(1)',
-                }}
-              >
-                <Grid.Container rowGap="md" alignItems="baseline">
-                  <Grid.Column
-                    colStart={{ xs: '1' }}
-                    colEnd={{ xs: '-1', md: '1' }}
-                  >
-                    <Box
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: variables.spacing.sm,
-                      }}
+              return (
+                <List.Item
+                  key={job.id}
+                  id={jobId}
+                  style={{
+                    transition: 'all 0.6s ease-in-out',
+                    backgroundColor: isHighlighted
+                      ? variables.color.highlight
+                      : 'transparent',
+                    borderRadius: isHighlighted ? variables.radii.lg : '0',
+                    paddingTop: isHighlighted
+                      ? variables.spacing.xl
+                      : variables.spacing.lg,
+                    paddingBottom: isHighlighted
+                      ? variables.spacing.xl
+                      : variables.spacing.lg,
+                    paddingLeft: isHighlighted ? variables.spacing.md : '0',
+                    paddingRight: isHighlighted ? variables.spacing.md : '0',
+                    margin: isHighlighted ? `${variables.spacing.xs} 0` : '0',
+                    boxShadow: isHighlighted
+                      ? `0 0 0 2px ${variables.color.highlight}40`
+                      : 'none',
+                    transform: isHighlighted ? 'scale(1.02)' : 'scale(1)',
+                  }}
+                >
+                  <Grid.Container rowGap="md" alignItems="baseline">
+                    <Grid.Column
+                      colStart={{ xs: '1' }}
+                      colEnd={{ xs: '-1', md: '1' }}
                     >
-                      <Heading
-                        as="h3"
+                      <Box
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: variables.spacing.sm,
+                        }}
+                      >
+                        <Heading
+                          as="h3"
+                          color={
+                            isHighlighted ? 'highlight' : 'foregroundNeutral'
+                          }
+                          style={{
+                            transition: 'color 0.3s ease-in-out',
+                            color: isHighlighted
+                              ? variables.color.foregroundInverted
+                              : undefined,
+                          }}
+                        >
+                          {job.title}
+                        </Heading>
+                        <Tooltip content="Copy link to this job">
+                          <button
+                            onClick={() => handleCopyJobLink(job.title)}
+                            type="button"
+                            data-testid={`${jobId}-copy-link`}
+                            style={{
+                              display: 'grid',
+                              placeItems: 'center',
+                              cursor: 'pointer',
+                              width: '1.25rem',
+                              height: '1.25rem',
+                              borderRadius: variables.radii.md,
+                              border: 'none',
+                              background: 'transparent',
+                              color: isHighlighted
+                                ? variables.color.foregroundInverted
+                                : variables.color.foregroundNeutral,
+                              opacity: 0.7,
+                              transition:
+                                'opacity 0.2s ease, color 0.3s ease-in-out',
+                            }}
+                            onMouseEnter={e => {
+                              e.currentTarget.style.opacity = '1';
+                            }}
+                            onMouseLeave={e => {
+                              e.currentTarget.style.opacity = '0.7';
+                            }}
+                            onFocus={e => {
+                              e.currentTarget.style.outline = 'transparent';
+                            }}
+                          >
+                            <FeatherLink size={16} />
+                          </button>
+                        </Tooltip>
+                      </Box>
+                      <Text
                         color={
-                          isHighlighted ? 'highlight' : 'foregroundNeutral'
+                          isHighlighted ? 'foreground' : 'foregroundNeutral'
                         }
+                        fontSize="sm"
                         style={{
                           transition: 'color 0.3s ease-in-out',
                           color: isHighlighted
@@ -163,100 +219,56 @@ export default function ExperienceItem({ company }: Props) {
                             : undefined,
                         }}
                       >
-                        {job.title}
-                      </Heading>
-                      <Tooltip content="Copy link to this job">
-                        <button
-                          onClick={() => handleCopyJobLink(job.title)}
-                          type="button"
-                          data-testid={`${jobId}-copy-link`}
-                          style={{
-                            display: 'grid',
-                            placeItems: 'center',
-                            cursor: 'pointer',
-                            width: '1.25rem',
-                            height: '1.25rem',
-                            borderRadius: variables.radii.md,
-                            border: 'none',
-                            background: 'transparent',
-                            color: isHighlighted
-                              ? variables.color.foregroundInverted
-                              : variables.color.foregroundNeutral,
-                            opacity: 0.7,
-                            transition:
-                              'opacity 0.2s ease, color 0.3s ease-in-out',
-                          }}
-                          onMouseEnter={e => {
-                            e.currentTarget.style.opacity = '1';
-                          }}
-                          onMouseLeave={e => {
-                            e.currentTarget.style.opacity = '0.7';
-                          }}
-                          onFocus={e => {
-                            e.currentTarget.style.outline = 'transparent';
-                          }}
-                        >
-                          <FeatherLink size={16} />
-                        </button>
-                      </Tooltip>
-                    </Box>
-                    <Text
-                      color={isHighlighted ? 'foreground' : 'foregroundNeutral'}
-                      fontSize="sm"
-                      style={{
-                        transition: 'color 0.3s ease-in-out',
-                        color: isHighlighted
-                          ? variables.color.foregroundInverted
-                          : undefined,
-                      }}
+                        {job.location}
+                      </Text>
+                    </Grid.Column>
+                    <Grid.Column
+                      colStart={{ xs: '1', md: '2' }}
+                      colEnd={{ xs: '-1', md: '4' }}
                     >
-                      {job.location}
-                    </Text>
-                  </Grid.Column>
-                  <Grid.Column
-                    colStart={{ xs: '1', md: '2' }}
-                    colEnd={{ xs: '-1', md: '4' }}
-                  >
-                    <Text
-                      testId={`${toCamelCase(company.title)}-${toCamelCase(job.title)}-description`}
-                      color={isHighlighted ? 'foreground' : undefined}
-                      style={{
-                        transition: 'color 0.3s ease-in-out',
-                        color: isHighlighted
-                          ? variables.color.foregroundInverted
-                          : undefined,
-                      }}
+                      <Text
+                        testId={`${toCamelCase(company.title)}-${toCamelCase(job.title)}-description`}
+                        color={isHighlighted ? 'foreground' : undefined}
+                        style={{
+                          transition: 'color 0.3s ease-in-out',
+                          color: isHighlighted
+                            ? variables.color.foregroundInverted
+                            : undefined,
+                        }}
+                      >
+                        {job.description || 'No description yet'}
+                      </Text>
+                    </Grid.Column>
+                    <Grid.Column
+                      colStart={{ xs: '1', md: '4' }}
+                      colEnd={{ xs: '-1', md: '4' }}
                     >
-                      {job.description || 'No description yet'}
-                    </Text>
-                  </Grid.Column>
-                  <Grid.Column
-                    colStart={{ xs: '1', md: '4' }}
-                    colEnd={{ xs: '-1', md: '4' }}
-                  >
-                    <Text
-                      color={isHighlighted ? 'foreground' : 'foregroundNeutral'}
-                      fontSize="sm"
-                      testId={`${toCamelCase(company.title)}-${toCamelCase(job.title)}-date-range`}
-                      style={{
-                        transition: 'color 0.3s ease-in-out',
-                        color: isHighlighted
-                          ? variables.color.foregroundInverted
-                          : undefined,
-                      }}
-                    >
-                      {format(parseDate(job.startDate), 'MMM yyyy')} &mdash;{' '}
-                      {job.endDate
-                        ? format(parseDate(job.endDate), 'MMM yyyy')
-                        : 'Now'}
-                      <br />
-                    </Text>
-                  </Grid.Column>
-                </Grid.Container>
-              </List.Item>
-            );
-          })}
-      </List.Container>
-    </Box>
+                      <Text
+                        color={
+                          isHighlighted ? 'foreground' : 'foregroundNeutral'
+                        }
+                        fontSize="sm"
+                        testId={`${toCamelCase(company.title)}-${toCamelCase(job.title)}-date-range`}
+                        style={{
+                          transition: 'color 0.3s ease-in-out',
+                          color: isHighlighted
+                            ? variables.color.foregroundInverted
+                            : undefined,
+                        }}
+                      >
+                        {format(parseDate(job.startDate), 'MMM yyyy')} &mdash;{' '}
+                        {job.endDate
+                          ? format(parseDate(job.endDate), 'MMM yyyy')
+                          : 'Now'}
+                        <br />
+                      </Text>
+                    </Grid.Column>
+                  </Grid.Container>
+                </List.Item>
+              );
+            })}
+        </List.Container>
+      </Box>
+    </motion.div>
   );
 }

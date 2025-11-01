@@ -1,9 +1,11 @@
 import Box from '@frontend/components/Box';
 import ExperienceItem from '@frontend/components/ExperienceItem';
+import FadeIn from '@frontend/components/FadeIn';
 import Heading from '@frontend/components/Heading';
 import Page from '@frontend/components/Page';
 import Skills from '@frontend/components/Skills';
 import Spacer from '@frontend/components/Spacer';
+import StaggerContainer from '@frontend/components/StaggerContainer';
 import Text from '@frontend/components/Text';
 import companies from '@frontend/config/jobs';
 import { buttonStyles } from '@frontend/styles/button.css';
@@ -37,99 +39,107 @@ const sortedCompanies = companies.sort((a, b) => {
 export default async function AboutPage() {
   return (
     <Page>
-      <header className={styles.header}>
-        <div className={styles.imageContainer}>
-          <Image
-            src="/images/luke-ab-1.png"
-            width="200"
-            height="200"
-            alt="Headshot"
-            priority
-            loading="eager"
-            fetchPriority="high"
-            quality={100}
-            placeholder="blur"
-            blurDataURL="/images/luke-ab-1.png"
-            className={styles.image}
-          />
-        </div>
-        <div className={styles.textContainer}>
-          <Text
-            fontSize={{ xs: 'lg', md: 'xl' }}
-            gradient
-            fontFamily="mono"
-            testId="AboutPage-intro"
-          >
-            Luke, Software Engineer
-          </Text>
-          <Link
-            href="mailto:work@lhowsam.com"
-            className={buttonStyles({ type: 'outlined' })}
-            style={{ marginTop: '1rem', display: 'inline-block' }}
-          >
-            🟢 Open to Work
-          </Link>
-
-          <Spacer height="lg" />
-          <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
-            Hey I'm Luke 👋, I'm a SWE currently focused on React-Native, Cloud
-            (AWS, Azure) and automation (Terraform etc.) along with a handful of
-            other tech (Next.js, Python etc.)
-          </Text>
-          <Spacer height="lg" />
-          <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
-            I have experience across both frontend and backend development,
-            working with technologies like React Native, React, Next.js, Python,
-            GraphQL and Node.js. I'm always eager to explore new industry trends
-            and emerging technologies.
-          </Text>
-          <Spacer height="lg" />
-          <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
-            Outside of work, I love traveling, music, building side projects
-            etc.
-          </Text>
-          <Spacer height="lg" />
-
-          <div
-            style={{
-              display: 'flex',
-              gap: '1rem',
-              flexWrap: 'wrap',
-              alignItems: 'center',
-            }}
-          >
-            <Link
-              href="/static/cv.pdf"
-              className={buttonStyles({ type: 'highContrast' })}
-            >
-              Read CV
-            </Link>
+      <FadeIn>
+        <header className={styles.header}>
+          <div className={styles.imageContainer}>
+            <Image
+              src="/images/luke-ab-1.png"
+              width="200"
+              height="200"
+              alt="Headshot"
+              priority
+              loading="eager"
+              fetchPriority="high"
+              quality={100}
+              placeholder="blur"
+              blurDataURL="/images/luke-ab-1.png"
+              className={styles.image}
+            />
           </div>
-        </div>
-      </header>
+          <div className={styles.textContainer}>
+            <Text
+              fontSize={{ xs: 'lg', md: 'xl' }}
+              gradient
+              fontFamily="mono"
+              testId="AboutPage-intro"
+            >
+              Luke, Software Engineer
+            </Text>
+            <Link
+              href="mailto:work@lhowsam.com"
+              className={buttonStyles({ type: 'outlined' })}
+              style={{ marginTop: '1rem', display: 'inline-block' }}
+            >
+              🟢 Open to Work
+            </Link>
+
+            <Spacer height="lg" />
+            <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
+              Hey I'm Luke 👋, I'm a SWE currently focused on React-Native,
+              Cloud (AWS, Azure) and automation (Terraform etc.) along with a
+              handful of other tech (Next.js, Python etc.)
+            </Text>
+            <Spacer height="lg" />
+            <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
+              I have experience across both frontend and backend development,
+              working with technologies like React Native, React, Next.js,
+              Python, GraphQL and Node.js. I'm always eager to explore new
+              industry trends and emerging technologies.
+            </Text>
+            <Spacer height="lg" />
+            <Text color="foregroundNeutral" fontSize={{ xs: 'sm', md: 'md' }}>
+              Outside of work, I love traveling, music, building side projects
+              etc.
+            </Text>
+            <Spacer height="lg" />
+
+            <div
+              style={{
+                display: 'flex',
+                gap: '1rem',
+                flexWrap: 'wrap',
+                alignItems: 'center',
+              }}
+            >
+              <Link
+                href="/static/cv.pdf"
+                className={buttonStyles({ type: 'highContrast' })}
+              >
+                Read CV
+              </Link>
+            </div>
+          </div>
+        </header>
+      </FadeIn>
       <Spacer height="xxl" />
-      <Link href="#experience">
-        <Heading
-          as="h3"
-          fontSize="xl"
-          color="highlight"
-          underlined
-          testId="experience-heading"
-        >
-          Experience
-        </Heading>
-        <Spacer height="xxl" />
+      <FadeIn delay={0.2}>
+        <Link href="#experience">
+          <Heading
+            as="h3"
+            fontSize="xl"
+            color="highlight"
+            underlined
+            testId="experience-heading"
+          >
+            Experience
+          </Heading>
+        </Link>
+      </FadeIn>
+      <Spacer height="xxl" />
+      <StaggerContainer>
         {sortedCompanies.map(company => (
           <ExperienceItem company={company} key={company.id} />
         ))}
-      </Link>
+      </StaggerContainer>
       <Spacer height="xxxxl" />
-      <Box as="section">
-        <Heading as="h3" fontSize="xl">
-          Skills
-        </Heading>
-        <Skills />
-      </Box>
+      <FadeIn delay={0.3}>
+        <Box as="section">
+          <Heading as="h3" fontSize="xl">
+            Skills
+          </Heading>
+          <Skills />
+        </Box>
+      </FadeIn>
     </Page>
   );
 }

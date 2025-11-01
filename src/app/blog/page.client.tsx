@@ -1,11 +1,13 @@
 'use client';
 
 import Box from '@frontend/components/Box';
+import FadeIn from '@frontend/components/FadeIn';
 import Heading from '@frontend/components/Heading';
 import Input from '@frontend/components/Input';
 import PostItem from '@frontend/components/PostItem';
 import Select from '@frontend/components/Select';
 import Spacer from '@frontend/components/Spacer';
+import StaggerContainer from '@frontend/components/StaggerContainer';
 import { Post } from '@frontend/types/sanity';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { ChangeEvent, useCallback, useState } from 'react';
@@ -96,52 +98,58 @@ export default function PostsClient({ posts }: Props) {
 
   return (
     <>
-      <Box>
-        <Input
-          onChange={handleInputChange}
-          placeholder="Search"
-          value={query.title}
-          type="text"
-          id="title"
-          name="title"
-          label="Search"
-        />
-      </Box>
-      <Box>
-        <Select
-          data-testid="sort-order"
-          label="Sort Order"
-          onChange={handleSelectChange}
-          options={[
-            {
-              label: 'Descending',
-              value: 'desc',
-            },
-            {
-              label: 'Ascending',
-              value: 'asc',
-            },
-          ]}
-        />
-      </Box>
+      <FadeIn>
+        <Box>
+          <Input
+            onChange={handleInputChange}
+            placeholder="Search"
+            value={query.title}
+            type="text"
+            id="title"
+            name="title"
+            label="Search"
+          />
+        </Box>
+        <Box>
+          <Select
+            data-testid="sort-order"
+            label="Sort Order"
+            onChange={handleSelectChange}
+            options={[
+              {
+                label: 'Descending',
+                value: 'desc',
+              },
+              {
+                label: 'Ascending',
+                value: 'asc',
+              },
+            ]}
+          />
+        </Box>
+      </FadeIn>
       <Spacer height="xxxl" />
 
       <Box as="section">
-        {sortedYears.map(year => (
-          <Box key={year} marginBottom="xxxl">
-            <Heading
-              fontSize="xl"
-              as="h2"
-              color="foregroundNeutral"
-              testId={`year-heading-${year}`}
-            >
-              {year}
-            </Heading>
-            <Spacer height="xl" />
-            {postsByYear[year].map(post => (
-              <PostItem post={post} key={post._id} />
-            ))}
-          </Box>
+        {sortedYears.map((year, index) => (
+          <FadeIn key={year} delay={index * 0.1}>
+            <Box marginBottom="xxxl">
+              <Heading
+                fontSize="xl"
+                as="h2"
+                color="foregroundNeutral"
+                testId={`year-heading-${year}`}
+              >
+                {year}
+              </Heading>
+              <Spacer height="xl" />
+              <StaggerContainer>
+                {postsByYear[year].map(post => (
+                  <PostItem post={post} key={post._id} />
+                ))}
+              </StaggerContainer>
+            </Box>
+          </FadeIn>
         ))}
       </Box>
     </>

@@ -2,6 +2,7 @@
 
 import * as Dialog from '@frontend/components/Dialog';
 import * as VisuallyHidden from '@radix-ui/react-visually-hidden';
+import { motion } from 'framer-motion';
 import { usePathname } from 'next/navigation';
 import { Fragment, useState } from 'react';
 import { Menu, X } from 'react-feather';
@@ -50,43 +51,74 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className={styles.header}>
-      <Link href="/">
-        <div className={styles.logoContainer}>
-          <Text fontWeight="bold">Luke Howsam</Text>
-          <Text color="foregroundNeutral">Software Engineer</Text>
-        </div>
-      </Link>
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      style={{ position: 'relative' }}
+      {...{ className: styles.header }}
+    >
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
+        <Link href="/">
+          <div className={styles.logoContainer}>
+            <Text fontWeight="bold">Luke Howsam</Text>
+            <Text color="foregroundNeutral">Software Engineer</Text>
+          </div>
+        </Link>
+      </motion.div>
 
       {/* Desktop Navigation */}
       <nav className={styles.navbarDesktop}>
-        {headerLinks.map(link => (
-          <Text
-            color="foregroundNeutral"
+        {headerLinks.map((link, index) => (
+          <motion.div
             key={link.href}
-            className={pathname === link.href ? styles.activeLink : ''}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 0.3,
+              delay: 0.1 + index * 0.05,
+              ease: 'easeOut',
+            }}
           >
-            <Link
-              href={link.href}
-              aria-current={pathname === link.href ? 'page' : undefined}
+            <Text
+              color="foregroundNeutral"
+              className={pathname === link.href ? styles.activeLink : ''}
             >
-              {link.text}
-            </Link>
-          </Text>
+              <Link
+                href={link.href}
+                aria-current={pathname === link.href ? 'page' : undefined}
+              >
+                {link.text}
+              </Link>
+            </Text>
+          </motion.div>
         ))}
       </nav>
 
-      <div className={styles.connectDesktop}>
+      <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        {...{ className: styles.connectDesktop }}
+      >
         <CommandMenu />
-      </div>
+      </motion.div>
 
       {/* Mobile Navigation */}
       <Dialog.Root open={panelOpen} onOpenChange={setPanelOpen}>
         <Dialog.Trigger asChild>
-          <button className={styles.toggle} type="button">
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            {...{ className: styles.toggle, type: 'button' }}
+          >
             <VisuallyHidden.Root>Open menu</VisuallyHidden.Root>
             <Menu />
-          </button>
+          </motion.button>
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className={styles.panelOverlay} />
@@ -100,20 +132,30 @@ export default function Header() {
 
             <Text fontWeight="bold">Navigation</Text>
             <nav>
-              {headerLinks.map(link => (
+              {headerLinks.map((link, index) => (
                 <Fragment key={link.href}>
                   <Spacer height="xs" />
-                  <Text
-                    color="foregroundNeutral"
-                    className={pathname === link.href ? styles.activeLink : ''}
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
                   >
-                    <Link
-                      href={link.href}
-                      aria-current={pathname === link.href ? 'page' : undefined}
+                    <Text
+                      color="foregroundNeutral"
+                      className={
+                        pathname === link.href ? styles.activeLink : ''
+                      }
                     >
-                      {link.text}
-                    </Link>
-                  </Text>
+                      <Link
+                        href={link.href}
+                        aria-current={
+                          pathname === link.href ? 'page' : undefined
+                        }
+                      >
+                        {link.text}
+                      </Link>
+                    </Text>
+                  </motion.div>
                 </Fragment>
               ))}
               <CommandMenu />
@@ -122,14 +164,18 @@ export default function Header() {
             <Spacer height="xl" />
 
             <Dialog.Close asChild>
-              <button className={styles.panelClose} type="button">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                {...{ className: styles.panelClose, type: 'button' }}
+              >
                 <VisuallyHidden.Root>Close menu</VisuallyHidden.Root>
                 <X />
-              </button>
+              </motion.button>
             </Dialog.Close>
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>
-    </header>
+    </motion.header>
   );
 }

@@ -1,10 +1,12 @@
 import Box from '@frontend/components/Box';
+import FadeIn from '@frontend/components/FadeIn';
 import Heading from '@frontend/components/Heading';
 import Intro from '@frontend/components/Intro';
 import * as List from '@frontend/components/List';
 import Page from '@frontend/components/Page';
 import PostItem from '@frontend/components/PostItem';
 import Spacer from '@frontend/components/Spacer';
+import StaggerContainer from '@frontend/components/StaggerContainer';
 import Text from '@frontend/components/Text';
 import postService from '@frontend/services/postService';
 import workService from '@frontend/services/workService';
@@ -33,34 +35,40 @@ export default async function HomePage() {
     <Page>
       <Intro />
       <Spacer height="xxxl" />
-      <Box as="section">
+      <FadeIn>
+        <Box as="section">
+          <Heading as="h3" fontSize="xl">
+            Recent Posts
+          </Heading>
+          <Text fontSize="md" color="foregroundNeutral">
+            Recent blog posts I've written
+          </Text>
+
+          <StaggerContainer>
+            {posts &&
+              posts.map(post => <PostItem post={post} key={`${post._id}`} />)}
+          </StaggerContainer>
+        </Box>
+      </FadeIn>
+      <Spacer height="xxxl" />
+      <FadeIn delay={0.2}>
         <Heading as="h3" fontSize="xl">
-          Recent Posts
+          Work Projects
         </Heading>
         <Text fontSize="md" color="foregroundNeutral">
-          Recent blog posts I've written
+          Projects I've contributed to at work
         </Text>
-
-        {posts &&
-          posts.map(post => <PostItem post={post} key={`${post._id}`} />)}
-      </Box>
-      <Spacer height="xxxl" />
-      <Heading as="h3" fontSize="xl">
-        Work Projects
-      </Heading>
-      <Text fontSize="md" color="foregroundNeutral">
-        Projects I've contributed to at work
-      </Text>
-      <Box as="section">
-        <List.Container>
-          {works &&
-            works.map(work => (
-              <List.Item key={work._id}>
-                <WorkItem work={work} key={work._id} />
-              </List.Item>
-            ))}
-        </List.Container>
-      </Box>
+        <Box as="section">
+          <List.Container>
+            {works &&
+              works.map(work => (
+                <List.Item key={work._id}>
+                  <WorkItem work={work} key={work._id} />
+                </List.Item>
+              ))}
+          </List.Container>
+        </Box>
+      </FadeIn>
     </Page>
   );
 }

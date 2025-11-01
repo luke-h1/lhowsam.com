@@ -1,4 +1,5 @@
 import Box from '@frontend/components/Box';
+import FadeIn from '@frontend/components/FadeIn';
 import Heading from '@frontend/components/Heading';
 import Page from '@frontend/components/Page';
 import Spacer from '@frontend/components/Spacer';
@@ -21,15 +22,17 @@ export default async function BlogPage() {
 
   return (
     <Page>
-      <Box as="section">
-        <Heading fontSize="xxl" as="h1">
-          Blog
-        </Heading>
-        <Spacer height="xxs" />
-        <Text color="foregroundNeutral" fontSize="lg">
-          Blog posts on development, testing, and other topics
-        </Text>
-      </Box>
+      <FadeIn>
+        <Box as="section">
+          <Heading fontSize="xxl" as="h1">
+            Blog
+          </Heading>
+          <Spacer height="xxs" />
+          <Text color="foregroundNeutral" fontSize="lg">
+            Blog posts on development, testing, and other topics
+          </Text>
+        </Box>
+      </FadeIn>
       <Spacer height="xxxl" />
       <Suspense>
         <PostsClient posts={posts} />

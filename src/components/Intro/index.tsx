@@ -1,4 +1,7 @@
+'use client';
+
 import { buttonStyles } from '@frontend/styles/button.css';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import ButtonGroup from '../ButtonGroup';
 import Link from '../Link';
@@ -9,7 +12,12 @@ import * as styles from './Intro.css';
 export default function Intro() {
   return (
     <header className={styles.header}>
-      <div className={styles.imageContainer}>
+      <motion.div
+        {...{ className: styles.imageContainer }}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
         <Image
           src="/luke-1.png"
           width="200"
@@ -27,39 +35,51 @@ export default function Intro() {
             height: 'auto',
           }}
         />
-      </div>
+      </motion.div>
       <div className={styles.textContainer}>
-        <Text
-          fontSize={{ xs: 'lg', md: 'xl' }}
-          gradient
-          fontFamily="mono"
-          testId="intro-heading"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
         >
-          SWE interested in React Native, Mobile, DevOps, TypeScript and all
-          things in-between
-        </Text>
+          <Text
+            fontSize={{ xs: 'lg', md: 'xl' }}
+            gradient
+            fontFamily="mono"
+            testId="intro-heading"
+          >
+            SWE interested in React Native, Mobile, DevOps, TypeScript and all
+            things in-between
+          </Text>
+        </motion.div>
 
         <Spacer height="xl" />
 
-        <ButtonGroup>
-          <Link
-            href="/static/cv.pdf"
-            className={buttonStyles({ type: 'highContrast' })}
-            testId="read-cv"
-            prefetch={false}
-          >
-            Read CV
-          </Link>
-          <Link
-            href="/about#experience"
-            scroll
-            className={buttonStyles({ type: 'outlined' })}
-            testId="view-experience"
-            prefetch={false}
-          >
-            View experience
-          </Link>
-        </ButtonGroup>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: 'easeOut' }}
+        >
+          <ButtonGroup>
+            <Link
+              href="/static/cv.pdf"
+              className={buttonStyles({ type: 'highContrast' })}
+              testId="read-cv"
+              prefetch={false}
+            >
+              Read CV
+            </Link>
+            <Link
+              href="/about#experience"
+              scroll
+              className={buttonStyles({ type: 'outlined' })}
+              testId="view-experience"
+              prefetch={false}
+            >
+              View experience
+            </Link>
+          </ButtonGroup>
+        </motion.div>
       </div>
     </header>
   );

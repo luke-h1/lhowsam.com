@@ -1,7 +1,10 @@
+'use client';
+
 import * as utils from '@frontend/styles/util.css';
 import { variables } from '@frontend/styles/variables.css';
 import { Post } from '@frontend/types/sanity';
 import clsx from 'clsx';
+import { motion } from 'framer-motion';
 import Box from '../Box';
 import FormattedDate from '../FormattedDate';
 import Heading from '../Heading';
@@ -16,7 +19,13 @@ interface Props {
 
 export default function PostItem({ post }: Props) {
   return (
-    <article>
+    <motion.article
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      whileHover={{ y: -4 }}
+    >
       <Box
         display="flex"
         flexDirection={{ xs: 'column', sm: 'row-reverse' }}
@@ -91,6 +100,6 @@ export default function PostItem({ post }: Props) {
           </Text>
         </Box>
       </Box>
-    </article>
+    </motion.article>
   );
 }
