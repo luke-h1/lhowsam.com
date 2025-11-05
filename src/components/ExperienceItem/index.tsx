@@ -226,18 +226,86 @@ export default function ExperienceItem({ company }: Props) {
                       colStart={{ xs: '1', md: '2' }}
                       colEnd={{ xs: '-1', md: '4' }}
                     >
-                      <Text
-                        testId={`${toCamelCase(company.title)}-${toCamelCase(job.title)}-description`}
-                        color={isHighlighted ? 'foreground' : undefined}
-                        style={{
-                          transition: 'color 0.3s ease-in-out',
-                          color: isHighlighted
-                            ? variables.color.foregroundInverted
-                            : undefined,
-                        }}
-                      >
-                        {job.description || 'No description yet'}
-                      </Text>
+                      <Box>
+                        {job.blurb && (
+                          <Text
+                            testId={`${toCamelCase(company.title)}-${toCamelCase(job.title)}-blurb`}
+                            color={isHighlighted ? 'foreground' : undefined}
+                            style={{
+                              transition: 'color 0.3s ease-in-out',
+                              color: isHighlighted
+                                ? variables.color.foregroundInverted
+                                : undefined,
+                              marginBottom:
+                                job.keyAchievements &&
+                                job.keyAchievements.length > 0
+                                  ? variables.spacing.sm
+                                  : 0,
+                            }}
+                          >
+                            {job.blurb}
+                          </Text>
+                        )}
+                        {job.keyAchievements &&
+                          job.keyAchievements.length > 0 && (
+                            <Box
+                              as="ul"
+                              style={{
+                                margin: 0,
+                                paddingLeft: variables.spacing.lg,
+                                listStyleType: 'disc',
+                              }}
+                            >
+                              {job.keyAchievements.map((achievement, index) => {
+                                const achievementKey = `${jobId}-achievement-${achievement.slice(0, 20)}-${index}`;
+                                const isLastItem =
+                                  job.keyAchievements &&
+                                  index < job.keyAchievements.length - 1;
+
+                                return (
+                                  <Box
+                                    as="li"
+                                    key={achievementKey}
+                                    style={{
+                                      marginBottom: isLastItem
+                                        ? variables.spacing.xs
+                                        : 0,
+                                    }}
+                                  >
+                                    <Text
+                                      testId={`${toCamelCase(company.title)}-${toCamelCase(job.title)}-achievement-${index}`}
+                                      color={
+                                        isHighlighted ? 'foreground' : undefined
+                                      }
+                                      style={{
+                                        transition: 'color 0.3s ease-in-out',
+                                        color: isHighlighted
+                                          ? variables.color.foregroundInverted
+                                          : undefined,
+                                      }}
+                                    >
+                                      {achievement}
+                                    </Text>
+                                  </Box>
+                                );
+                              })}
+                            </Box>
+                          )}
+                        {!job.blurb && !job.keyAchievements && (
+                          <Text
+                            testId={`${toCamelCase(company.title)}-${toCamelCase(job.title)}-description`}
+                            color={isHighlighted ? 'foreground' : undefined}
+                            style={{
+                              transition: 'color 0.3s ease-in-out',
+                              color: isHighlighted
+                                ? variables.color.foregroundInverted
+                                : undefined,
+                            }}
+                          >
+                            {job.description || 'No achievements listed yet'}
+                          </Text>
+                        )}
+                      </Box>
                     </Grid.Column>
                     <Grid.Column
                       colStart={{ xs: '1', md: '4' }}
