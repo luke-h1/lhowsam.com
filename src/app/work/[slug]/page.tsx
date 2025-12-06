@@ -103,11 +103,15 @@ export default async function WorkSlugPage({ params }: Props) {
 }
 
 export async function generateStaticParams() {
-  const slugs = await workService.getSlugs();
+  try {
+    const slugs = await workService.getSlugs();
 
-  return slugs.map(s => ({
-    slug: s.current,
-  }));
+    return slugs.map(s => ({
+      slug: s.current,
+    }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
