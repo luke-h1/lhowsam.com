@@ -4,11 +4,7 @@ import { sanityFetch } from '@frontend/utils/sanity.live';
 import groq from 'groq';
 
 const slugsQuery = groq`
-*[_type == "project"] {
-  slug {
-    current
-  }
-}
+*[_type == "project"].slug
 `;
 
 const listAllProjects = groq`

@@ -105,11 +105,17 @@ export default async function ProjectPage({ params }: Props) {
 }
 
 export async function generateStaticParams() {
-  const slugs = await projectService.getSlugs();
+  try {
+    const slugs = (await projectService.getSlugs()) ?? [];
 
-  return slugs.map(s => ({
-    slug: s.current,
-  }));
+    return slugs
+      .filter(slug => slug?.current)
+      .map(s => ({
+        slug: s.current,
+      }));
+  } catch {
+    return [];
+  }
 }
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
