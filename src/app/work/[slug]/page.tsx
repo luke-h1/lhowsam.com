@@ -106,9 +106,11 @@ export async function generateStaticParams() {
   try {
     const slugs = await workService.getSlugs();
 
-    return slugs.map(s => ({
-      slug: s.current,
-    }));
+    return slugs
+      .filter(slug => slug?.current)
+      .map(s => ({
+        slug: s.current ?? '',
+      }));
   } catch {
     return [];
   }
