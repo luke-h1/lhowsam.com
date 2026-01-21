@@ -167,7 +167,7 @@
     "typescript": "^5.8.2",
     "unist-util-visit-parents": "^6.0.1",
     "vercel": "^41.4.1",
-    "wrangler": "^4.10.0"
+    "wrangler": "^4.59.1"
   },
   "nextBundleAnalysis": {
     "budget": 204800,
