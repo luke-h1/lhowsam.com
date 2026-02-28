@@ -1,7 +1,0 @@
-node_modules
-.github
-.next
-.vercel
-public
-build
-cypress
