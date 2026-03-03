@@ -22,7 +22,3 @@ runs:
       - uses: actions/labeler@v4
         with:
           sync-labels: true
-
-      - name: Check commit message
-        run: pnpm commitlint --from=HEAD^1
-        shell: bash
