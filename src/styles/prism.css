@@ -1,7 +1,7 @@
 code[class*='language-'],
 pre[class*='language-'] {
   color: #ccc;
-  background: 0 0;
+  background: transparent;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1em;
   text-align: left;
@@ -72,13 +72,18 @@ pre[class*='language-'] {
 .token.attr-value,
 .token.char,
 .token.regex,
-.token.string,
-.token.variable {
+.token.string {
   color: #7ec699;
+}
+.token.variable {
+  color: #67cdcc;
 }
 .token.entity,
 .token.operator,
 .token.url {
+  color: #67cdcc;
+}
+.token.parameter {
   color: #67cdcc;
 }
 .token.bold,
