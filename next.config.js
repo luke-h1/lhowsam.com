@@ -61,6 +61,7 @@ const securityHeaders = [
 const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
+  transpilePackages: ['next-mdx-remote'],
   logging: {
     fetches: {
       fullUrl: true,
