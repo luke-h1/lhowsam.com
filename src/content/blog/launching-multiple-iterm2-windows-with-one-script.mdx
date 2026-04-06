@@ -1,10 +1,10 @@
 ---
-title: "Launching multiple Iterm2 windows with one script"
-slug: "launching-multiple-iterm2-windows-with-one-script"
+title: 'Launching multiple Iterm2 windows with one script'
+slug: 'launching-multiple-iterm2-windows-with-one-script'
 intro: "As your project grows in size it can become a bit tedious when you're starting up your local environment. In this post, we'll go from having to run 4 commands to only one command to start a project with multiple sub-projects"
 publishedAt: 2022-08-05
-tags: ["bash","automation"]
-heroImage: "../../assets/blog/launching-multiple-iterm2-windows-with-one-script-hero.png"
+tags: ['bash', 'automation']
+heroImage: '../../assets/blog/launching-multiple-iterm2-windows-with-one-script-hero.png'
 ---
 
 I've been recently working on a project that has over 9 projects that need to be started in order to have a fully working environment. This project consists of multiple APIs, serverless functions, 2 primary frontend apps & 1 common frontend project. Recently I've switched from using windows to mac OS for this particular project. On Windows, I use a script that opens a new terminal tab for each project. Here's a short snippet of it:
@@ -22,21 +22,19 @@ cmd -new_console:t:"data":d:C:\Users\luke /k "sleep 10 & cd C:\Users\luke\projec
 
 This opens each project in a new tab which is great for keeping an eye on different services & for debugging.
 
-
 ![image](../../assets/blog/launching-multiple-iterm2-windows-with-one-script-inline-1.png)
 
 Obviously, while this works on windows, it wasn't compatible with Mac OS.
 
 ### The solution
 
-* Iterm2 
-* AppleScript
-* ZSH alias 
+- Iterm2
+- AppleScript
+- ZSH alias
 
 The above 3 combined to make the experience of starting up a complex project simple.
 
-Here is the full script which will each sub-project in its own tab and label the tab appropriately 
-
+Here is the full script which will each sub-project in its own tab and label the tab appropriately
 
 ```bash
 
@@ -74,11 +72,9 @@ EOF
 
 ![image](../../assets/blog/launching-multiple-iterm2-windows-with-one-script-inline-2.png)
 
-
 This script first tells iterm2 to open a new window with the default profile. Then we open a tab, set the tab name to whatever the project is, cd to the `root_path` specified by the script & run the command to start the project.
 
-
-Now all that's left to do is to alias this script to something memorable so you can easily start your project with one command: 
+Now all that's left to do is to alias this script to something memorable so you can easily start your project with one command:
 
 ```bash
 

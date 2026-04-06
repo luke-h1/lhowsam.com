@@ -1,30 +1,30 @@
 ---
-title: "How to use the Spotify API with Next.js"
-slug: "how-to-use-the-spotify-api-with-next-js"
+title: 'How to use the Spotify API with Next.js'
+slug: 'how-to-use-the-spotify-api-with-next-js'
 intro: "Recently I aimed to showcase the current Spotify song I was listening to on my website. To achieve this, I connected the Spotify API with Next.js route handlers. In this post, we'll go over how to do this to help you get started with Spotify's API"
 publishedAt: 2023-09-09
-tags: ["spotify","next-js","react"]
-heroImage: "../../assets/blog/how-to-use-the-spotify-api-with-next-js-hero.jpg"
+tags: ['spotify', 'next-js', 'react']
+heroImage: '../../assets/blog/how-to-use-the-spotify-api-with-next-js-hero.jpg'
 ---
 
 ## Create an Application
 
 Initially, we need to generate a Spotify application in order to obtain the neccesary credentials for authenticating with the API
 
-* Go to your Spotify [Developer Dashboard](https://developer.spotify.com/dashboard) & login
+- Go to your Spotify [Developer Dashboard](https://developer.spotify.com/dashboard) & login
 
-* Click **Create an App**
-* Fill out the name and description and click *create*
-* Click **Show Client Secret**
-* Save your Client ID and secret somewhere safe, we'll need these later
-* Click **Edit settings**
-* Add `http://localhost:3000` as a redirect URI
-
+- Click **Create an App**
+- Fill out the name and description and click _create_
+- Click **Show Client Secret**
+- Save your Client ID and secret somewhere safe, we'll need these later
+- Click **Edit settings**
+- Add `http://localhost:3000` as a redirect URI
 
 You now have a correct Spotify config and the credentials to make requests
 
 ## Auth
-There are a few ways to authenticate with the Spotify API, depending on your app. As we require permission to be granted only once, we will use the authorization code flow:  https://developer.spotify.com/documentation/web-api/concepts/authorization#authorization-code-flow
+
+There are a few ways to authenticate with the Spotify API, depending on your app. As we require permission to be granted only once, we will use the authorization code flow: https://developer.spotify.com/documentation/web-api/concepts/authorization#authorization-code-flow
 
 Initially, our app will gather authorization by logging in with the necesary scopes. Below is an example of what the URL will resemble. Remember to swap out the `client_id` and `scopes` for your own values:
 
@@ -49,9 +49,9 @@ Next, we will need to obtain the refresh token. You will need to generate a Base
 curl -H "Authorization: Basic <base64 encoded client_id:client_secret>"
 -d grant_type=authorization_code -d code=<code> -d redirect_uri=http%3A
 %2F%2Flocalhost:3000 https://accounts.spotify.com/api/token
-````
-This will return a JSON response containing `refresh_token`. This token will remain valid indefinitely unless you choose to revoke access, so it's very important to keep this safe and only store it as an environment variable that is only available on the server.
+```
 
+This will return a JSON response containing `refresh_token`. This token will remain valid indefinitely unless you choose to revoke access, so it's very important to keep this safe and only store it as an environment variable that is only available on the server.
 
 ## Using the Spotify API
 
@@ -63,12 +63,9 @@ SPOTIFY_CLIENT_SECRET=
 SPOTIFY_REFRESH_TOKEN=
 ```
 
-
 At this stage, we can now request an access token using our client ID, client secret and refresh token
 
-
 ```ts title="spotifyService.ts"
-
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const spotifyService = {
@@ -87,9 +84,8 @@ const spotifyService = {
       }),
     });
     return response.json();
-    },
-}
-
+  },
+};
 ```
 
 This `access_token` will now securely request things such as your top tracks, now playing etc. (this assumes you added the `user-top-read` scope at the beginning of the post)
@@ -114,8 +110,7 @@ const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-pla
 
 ## Creating a route handler
 
-In order to validate that everything is set up correctly with Spotify, let's begin with creating a route handler that communicates with Spotify to get our currently playing song. 
-
+In order to validate that everything is set up correctly with Spotify, let's begin with creating a route handler that communicates with Spotify to get our currently playing song.
 
 ```typescript title="app/api/spotify/now-playing/route.ts"
 import spotifyService from '@frontend/services/spotifyService';
@@ -162,20 +157,18 @@ export async function GET() {
     songUrl,
     title,
   });
-	
-console.log(body)
+
+  console.log(body);
 
   return new Response(body, {
     status: 200,
   });
 }
-
 ```
 
-This handler will return the currently playing song, formatted to satisfy eslint / remove unneccesary info. If everything is working correctly, you should see some data in the console like the following after running `next dev` and hitting the endpoint when you're listening to a song on Spotify :)  
+This handler will return the currently playing song, formatted to satisfy eslint / remove unneccesary info. If everything is working correctly, you should see some data in the console like the following after running `next dev` and hitting the endpoint when you're listening to a song on Spotify :)
 
 ```json title="Example response"
-
 {
   "album": "Jongen Van De Straat",
   "albumImageUrl": "https://i.scdn.co/image/ab67616d0000b2738d30694491e182ea7e38f517",

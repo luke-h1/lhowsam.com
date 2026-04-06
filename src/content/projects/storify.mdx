@@ -1,10 +1,10 @@
 ---
-title: "Storify"
-slug: "storify"
-intro: "Storify is a full-stack eCommerce app built to learn more about advanced database relationships, React & Stripe."
-tags: ["next-js","node","typescript","redis","aws","graphql"]
-heroImage: "../../assets/projects/storify-hero.png"
-githubUrl: "https://github.com/luke-h1/storify"
+title: 'Storify'
+slug: 'storify'
+intro: 'Storify is a full-stack eCommerce app built to learn more about advanced database relationships, React & Stripe.'
+tags: ['next-js', 'node', 'typescript', 'redis', 'aws', 'graphql']
+heroImage: '../../assets/projects/storify-hero.png'
+githubUrl: 'https://github.com/luke-h1/storify'
 order: 0
 ---
 
@@ -15,29 +15,33 @@ This project was an eye-opener on which technologies I most like working with (b
 ### Architecture overview:
 
 **Server**:
-* The server is built with Node, Typescript, TypegraphQL (server-side graphQL library) & TypeORM (a type-safe ORM). This combo makes the server extremely typesafe and strict which makes it an ideal choice for backend use.
 
-**Auth**: 
-* Authentication is done via sessions. This project uses a package called 
+- The server is built with Node, Typescript, TypegraphQL (server-side graphQL library) & TypeORM (a type-safe ORM). This combo makes the server extremely typesafe and strict which makes it an ideal choice for backend use.
 
-```express-session```
+**Auth**:
+
+- Authentication is done via sessions. This project uses a package called
+
+`express-session`
 
 This package stores some data on the user on the server. This package allows you to choose where you store this data. I chose to store this data in Redis in order for users to not be logged out on every deployment to production and because Redis is super fast. On the majority of queries and mutations, we need to check if the user is logged in. Because of this, we are hitting Redis every time the user performs a query or mutation that requires the user to be logged in. This is a big reason why I chose Redis (due to how its speed and robustness)
 
-**GraphQL client & caching**: 
-* This project uses Next.js on the frontend. We use a GraphQL client library called [URQL](https://formidable.com/open-source/urql/) to conditionally opt pages into server-side rendering pages.
-We do this by connecting URQL to the page we are exporting like so: 
+**GraphQL client & caching**:
+
+- This project uses Next.js on the frontend. We use a GraphQL client library called [URQL](https://formidable.com/open-source/urql/) to conditionally opt pages into server-side rendering pages.
+  We do this by connecting URQL to the page we are exporting like so:
 
 ```typescript title="index.tsx"
 export default withUrqlClient(createUrqlClient, { ssr: true })(IndexPage);
 ```
+
 In this project, we have a `createUrqlClient` file which is responsible for setting up URQL.
 
 By default, URQL doesn't come with a normalized cache. They have this set up in a package called [Graphcache](https://formidable.com/open-source/urql/docs/graphcache/). The `updates` config in this project receives cache-specific arguments that allow us to create, update & revalidate client-side cache.
 
+**Error handling**:
 
-**Error handling**: 
-* In the case of any errors we typically send a message to the frontend in the following format: 
+- In the case of any errors we typically send a message to the frontend in the following format:
 
 ```typescript title="GraphQL error payload"
         errors: [
@@ -48,8 +52,7 @@ By default, URQL doesn't come with a normalized cache. They have this set up in 
         ],
 ```
 
-I've found this to be the best approach when working with [Formik](https://formik.org/) which is what the frontend uses for forms. We then create a form mapper utility function which is responsible for mapping server validation errors to the relevant form field: 
-
+I've found this to be the best approach when working with [Formik](https://formik.org/) which is what the frontend uses for forms. We then create a form mapper utility function which is responsible for mapping server validation errors to the relevant form field:
 
 ```typescript title="toErrorMap.ts"
 import { FieldError } from '../generated/graphql';
@@ -63,9 +66,9 @@ export const toErrorMap = (errors: FieldError[]) => {
 };
 ```
 
-**Protected routes** 
-- Dealing with protected routes with GraphQL & Next.js is really simple. First, we create a simple hook to detect whether a user is logged in: 
+**Protected routes**
 
+- Dealing with protected routes with GraphQL & Next.js is really simple. First, we create a simple hook to detect whether a user is logged in:
 
 ```typescript title="useIsAuth.ts"
 import { useRouter } from 'next/router';
@@ -81,40 +84,43 @@ export const useIsAuth = () => {
     }
   }, [fetching, data, router]);
 };
-``` 
+```
 
-We then import this hook and place it at the top level of the page we want to protect: 
+We then import this hook and place it at the top level of the page we want to protect:
 
 ```typescript title="products/create-product.tsx"
 const createProductPage = () => {
   useIsAuth()
 
 return (
- // component render 
+ // component render
 )
 }
 ```
 
-In addition to this, we have additional protection in `createUrqlClient.ts` to ensure a user isn't allowed to view a protected page. We use the `errorExchange` functionality to check if the server sends back an authentication error. The errorExchange allows you to inspect errors thrown from a given GraphQL server. This can be useful for showing error messages, logging, or other types of errors. 
+In addition to this, we have additional protection in `createUrqlClient.ts` to ensure a user isn't allowed to view a protected page. We use the `errorExchange` functionality to check if the server sends back an authentication error. The errorExchange allows you to inspect errors thrown from a given GraphQL server. This can be useful for showing error messages, logging, or other types of errors.
 
 ```typescript title="createUrqlClient.ts"
-const errorExchange: Exchange = ({ forward }) => (ops$) => {
-  return pipe(
-    forward(ops$),
-    tap(({ error }) => {
-      if (error?.message.includes('Not Authenticated')) {
-        Router.replace('/login');
-      }
-    }),
-  );
-};
+const errorExchange: Exchange =
+  ({ forward }) =>
+  ops$ => {
+    return pipe(
+      forward(ops$),
+      tap(({ error }) => {
+        if (error?.message.includes('Not Authenticated')) {
+          Router.replace('/login');
+        }
+      }),
+    );
+  };
 ```
 
-Lessons learned: 
-* Better knowledge of SQL 
-* Server-side rendering 
-* Data structures 
-* Advanced database relationships
-* Stripe
-* Redis debugging 
-* GraphQL
+Lessons learned:
+
+- Better knowledge of SQL
+- Server-side rendering
+- Data structures
+- Advanced database relationships
+- Stripe
+- Redis debugging
+- GraphQL

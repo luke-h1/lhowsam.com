@@ -1,16 +1,17 @@
 ---
-title: "Next.js SSR notes"
-slug: "next-js-ssr-notes"
-intro: "Notes on the different methods of rendering that you can use with Next.js"
+title: 'Next.js SSR notes'
+slug: 'next-js-ssr-notes'
+intro: 'Notes on the different methods of rendering that you can use with Next.js'
 publishedAt: 2021-04-06
-tags: ["next-js","react","ssr"]
-heroImage: "../../assets/blog/next-js-ssr-notes-hero.png"
+tags: ['next-js', 'react', 'ssr']
+heroImage: '../../assets/blog/next-js-ssr-notes-hero.png'
 ---
 
 ### SSR
 
 Pre rendering is the term for rendering HTML before it is sent down to the client. By default, Next will pre-render every page. This however can be done in two different ways:
-- Static generation (referred to as static site generation) 
+
+- Static generation (referred to as static site generation)
 - SSR (server-side rendering)
 
 A next site can use a combination of these methods (which method you pick to use is usually determined by what data your page needs). Static generation means that the HTML is generated once on the server at build time & this HTML is reused for each request the client makes.

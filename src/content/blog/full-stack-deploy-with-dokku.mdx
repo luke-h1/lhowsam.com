@@ -1,57 +1,56 @@
 ---
-title: "Full stack deploy with dokku"
-slug: "full-stack-deploy-with-dokku"
-intro: "How to deploy a full-stack app with Dokku to AWS / Digital Ocean. Cost-effective deployment for Node, PostgreSQL & Redis"
+title: 'Full stack deploy with dokku'
+slug: 'full-stack-deploy-with-dokku'
+intro: 'How to deploy a full-stack app with Dokku to AWS / Digital Ocean. Cost-effective deployment for Node, PostgreSQL & Redis'
 publishedAt: 2021-05-29
-tags: ["docker","devops"]
-heroImage: "../../assets/blog/full-stack-deploy-with-dokku-hero.jpg"
+tags: ['docker', 'devops']
+heroImage: '../../assets/blog/full-stack-deploy-with-dokku-hero.jpg'
 ---
 
-Dokku is an easy to use & cost-effective solution to deploying your application in a language-agnostic way. It's an open-source, self-hosted alternative to Heroku. Once everything is set up, we can simply use a bash script to deploy your app on your own server. 
+Dokku is an easy to use & cost-effective solution to deploying your application in a language-agnostic way. It's an open-source, self-hosted alternative to Heroku. Once everything is set up, we can simply use a bash script to deploy your app on your own server.
 
 You can find a real-world example of a full-stack project that has been deployed using this method [here](https://github.com/luke-h1/storify)
 
 Summary:
-* Choose a server 
-* Install Dokku
-* Create the app 
-* Install PostgreSQL & Redis 
-* Configure ports
-* Configure domain, DNS & HTTPS 
-* Deploy the app
-* Bash script deployment 
+
+- Choose a server
+- Install Dokku
+- Create the app
+- Install PostgreSQL & Redis
+- Configure ports
+- Configure domain, DNS & HTTPS
+- Deploy the app
+- Bash script deployment
 
 ### **Choose a server**
 
-Since this will be a self-hosted app, you need to have a server. A good choice would be AWS EC2 (which offers a free tier) and Digital Ocean (you can grab free credits for this). If you're not eligible for a free tier they tend to cost a few euros/dollars per month. 
+Since this will be a self-hosted app, you need to have a server. A good choice would be AWS EC2 (which offers a free tier) and Digital Ocean (you can grab free credits for this). If you're not eligible for a free tier they tend to cost a few euros/dollars per month.
 
-- Choose Ubuntu as your Linux distribution 
+- Choose Ubuntu as your Linux distribution
 
-We will use a custom domain to deploy our app so make sure you've created a DNS A record of the domain or subdomain of your choice to the IP address of your server. 
+We will use a custom domain to deploy our app so make sure you've created a DNS A record of the domain or subdomain of your choice to the IP address of your server.
 
 ### **Install Dokku**
 
 Now that the server is up & running, we can connect to it via SSH and start installing the packages we will need. Run the following commands to install Dokku:
 
-
-```bash 
-sudo apt install -y apt-transport-https 
+```bash
+sudo apt install -y apt-transport-https
 wget https://raw.githubusercontent.com/dokku/dokku/v0.26.5/bootstrap.sh
 sudo DOKKU_TAG=v0.26.5 bash bootstrap.sh
 ```
 
-This typically takes a couple of minutes to finish. It will install all of the dependencies and start a web server (Nginx) 
+This typically takes a couple of minutes to finish. It will install all of the dependencies and start a web server (Nginx)
 
 ### **Create the app**
 
 Now that the server has Dokku installed the next step is to create an app. You should create an app for each API / app you want to deploy on your server.
 
-`
-dokku apps:create my-app
-` 
+`dokku apps:create my-app`
 
 ### **Install PostgreSQL & Redis**
-Since the app we are using as an example (https://github.com/luke-h1/tmtodos.me) requires a PostgreSQL and Redis instance, we need to install it with Dokku. To do so we just have to install the following plugins: 
+
+Since the app we are using as an example (https://github.com/luke-h1/tmtodos.me) requires a PostgreSQL and Redis instance, we need to install it with Dokku. To do so we just have to install the following plugins:
 
 ```bash
 sudo dokku plugin:install https://github.com/dokku/dokku-postgres.git
@@ -63,27 +62,29 @@ Now that the relevant plugins are installed we can link them to our Node app:
 ```bash
 # postgres
 dokku postgres:create db
-dokku postgres:link db app 
+dokku postgres:link db app
 # redis
-dokku redis:create cache 
-dokku redis:link cache app 
+dokku redis:create cache
+dokku redis:link cache app
 ```
 
 ### **Deploy your app**
 
-Now that our app & database are ready we can start to deploy our app for the first time. We need to create a Dockerfile and push this to Docker hub in order for our server to run this. 
+Now that our app & database are ready we can start to deploy our app for the first time. We need to create a Dockerfile and push this to Docker hub in order for our server to run this.
 
 **Locally**
 
-Open your favorite code editor 
-- Create a new Docker repository by going to https://hub.docker.com and clicking 'Create repository' 
+Open your favorite code editor
+
+- Create a new Docker repository by going to https://hub.docker.com and clicking 'Create repository'
 - Create a Dockerfile (example here: [tmtodos Dockerfile](https://github.com/luke-h1/tmtodos.me/blob/dev/src/tm-server/Dockerfile)).
 - Build the docker image: `docker build -t <user>/app:1.0.0 .`
 - Push the image to Docker hub: `docker push <user>/app:1.0.0`
 
-**Server** 
+**Server**
 
 SSH back into your VPS
+
 - Pull the image you've just pushed to Docker hub: `docker pull <USERNAME>/<API_NAME>:1.0.0`
 - Tag the docker image: `docker tag <user>/app:1.0.0 dokku/app:latest`
 - Deploy the image via Dokku: `dokku deploy app latest`
@@ -105,31 +106,31 @@ dokku config:set --global DOKKU_LETSENCRYPT_EMAIL=your-email@your.domain.com
 
 Now that the Let's Encrypt plugin is installed we can go ahead and configure your domain and HTTPS for your app.
 
-First, we need to remove any globally configured domains which have been automatically set by Dokku. This by default is the hostname of your VPS. 
+First, we need to remove any globally configured domains which have been automatically set by Dokku. This by default is the hostname of your VPS.
 
-To make removing this easier we will rename the hostname of the VPS first: 
+To make removing this easier we will rename the hostname of the VPS first:
 
 ```bash
 sudo su - && hostnamectl set-hostname <new hostname>
 ```
 
-Now that is done we can remove the globally configured domains" 
+Now that is done we can remove the globally configured domains"
 
 `dokku domains:remove-global <hostname>`
 `dokku domains:remove app <hostname>`
 
-
-Once that's done we can check if the global domain has been removed with: 
+Once that's done we can check if the global domain has been removed with:
 
 `dokku domains:report`
 
-Now we are ready to configure your domain & HTTPS for your app: 
+Now we are ready to configure your domain & HTTPS for your app:
+
 ```bash
 # set a custom domain that you own for your application
 dokku domains:set app api.mydomain.com
 
 # enable letsencrypt
-dokku letsencrypt:enable app 
+dokku letsencrypt:enable app
 
 # enable auto-renewal
 dokku letsencrypt:cron-job --add
@@ -143,24 +144,23 @@ acme: error: 403 :: urn:ietf:params:acme:error:unauthorized
 
 make sure that you have correctly configured your domain name so it points to your VPS IP.
 
-If everything has worked correctly you should see a message such as 
+If everything has worked correctly you should see a message such as
 
 ```bash
 served key authenticated for ...
 ```
 
-Now we can enable letsencrypt: 
+Now we can enable letsencrypt:
 
 `dokku letsencrypt:enable app `
 
 ### **Deploy the app**
 
-Now we should all be set to deploy our app to production. Run the following command to deploy the latest: 
+Now we should all be set to deploy our app to production. Run the following command to deploy the latest:
 
 `dokku deploy app latest`
 
 At this stage, your app should be publicly accessible at the domain you defined with HTTPS support out of the box 😎 🎉
-
 
 ### **Bash script deployment**
 

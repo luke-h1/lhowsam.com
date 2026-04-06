@@ -1,10 +1,10 @@
 ---
-title: "Forcing git merges"
-slug: "forcing-git-merges"
-intro: "Isolating features into separate branches is a really common practice for most developers. By separating features & bug fixes you can avoid a lot of problems and keep your branches clean."
+title: 'Forcing git merges'
+slug: 'forcing-git-merges'
+intro: 'Isolating features into separate branches is a really common practice for most developers. By separating features & bug fixes you can avoid a lot of problems and keep your branches clean.'
 publishedAt: 2020-12-15
-tags: ["git"]
-heroImage: "../../assets/blog/forcing-git-merges-hero.jpg"
+tags: ['git']
+heroImage: '../../assets/blog/forcing-git-merges-hero.jpg'
 ---
 
 Isolating features into separate branches is a really common practice for most developers. By separating features & bug fixes you can avoid a lot of problems and keep your branches clean.
@@ -37,7 +37,7 @@ git checkout master && git pull
 git checkout hotfix && git merge --strategy=ours master
 ```
 
-At this point, you will receive a prompt asking if you want to merge master into your hotfix branch. Ignore this & quit of the editor (with vim: `:q!`) 
+At this point, you will receive a prompt asking if you want to merge master into your hotfix branch. Ignore this & quit of the editor (with vim: `:q!`)
 
 **Merge hotfix into master 😎**
 

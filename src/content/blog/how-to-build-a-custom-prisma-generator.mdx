@@ -1,39 +1,33 @@
 ---
-title: "How to build a custom Prisma generator"
-slug: "how-to-build-a-custom-prisma-generator"
-intro: "Learn how to create a Prisma generator that outputs TypeScript types from your Prisma schema"
+title: 'How to build a custom Prisma generator'
+slug: 'how-to-build-a-custom-prisma-generator'
+intro: 'Learn how to create a Prisma generator that outputs TypeScript types from your Prisma schema'
 publishedAt: 2023-08-27
-tags: ["prisma","node"]
-heroImage: "../../assets/blog/how-to-build-a-custom-prisma-generator-hero.png"
+tags: ['prisma', 'node']
+heroImage: '../../assets/blog/how-to-build-a-custom-prisma-generator-hero.png'
 ---
 
 ## What is a prisma generator?
 
-
-A prisma Generator is a tool that introspects your Prisma schema and outputs code from it. If you've used Prisma before, you should already be quite familiar with `prisma-client-js` which generates a prisma client and TypeScript types from your schema. 
+A prisma Generator is a tool that introspects your Prisma schema and outputs code from it. If you've used Prisma before, you should already be quite familiar with `prisma-client-js` which generates a prisma client and TypeScript types from your schema.
 
 When you're working with Prisma, you'll often notice that there are a few things you always want to change after modifying your prisma Schema, and that is where generators come into the picture.
 
-
-
 Now that we've gone over a high level overview of what Prisma generators are, let's go over a real world example where we build a custom generator to generate custom enums and publish it to NPM
-
 
 ## How to create a custom Prisma generator
 
+### Create a new NPM project
 
-### Create a new NPM project 
-
-
-First we'll create a new folder and initialize a new git + NPM project 
+First we'll create a new folder and initialize a new git + NPM project
 
 ```bash title="Terminal"
 mkdir prisma-ts-enums && cd prisma-ts-enums && git init . && pnpm init
 ```
 
-### Install dependencies 
+### Install dependencies
 
-Secondly, we'll install all the required dependencies 
+Secondly, we'll install all the required dependencies
 
 Production dependencies:
 
@@ -50,57 +44,53 @@ pnpm i -D @prisma/client @types/node typescript prisma prettier eslint eslint-co
 
 We won't go over the linting dependencies too much for brevity's sake. You can find a copy of the linting config files [on the repo](https://github.com/luke-h1/prisma-custom-enums). These config files are optional and are not required to follow along with this tutorial
 
-
 The important file that we need to include is the `tsconfig.json` file in order to build the project correctly and enforce good TypeScript practices throughout the project:
+
 ```json title="tsconfig.json"
 {
-    "compilerOptions": {
-      "allowJs": true,
-      "alwaysStrict": true,
-      "allowSyntheticDefaultImports": true,
-      "module": "esnext",
-      "moduleResolution": "node",
-      "outDir": "./dist",
-      "noEmit": true,
-      "noImplicitAny": true,
-      "strict": true,
-      "strictNullChecks": true,
-      "jsx": "preserve",
-      "target": "ES2022",
-      "lib": ["dom", "dom.iterable", "esnext", "webworker"],
-      "skipLibCheck": true,
-      "esModuleInterop": true,
-      "forceConsistentCasingInFileNames": true,
-      "resolveJsonModule": true,
-      "baseUrl": ".",
-    },
-    "exclude": ["node_modules"],
-		"include": ["src"]
-  }
-	
+  "compilerOptions": {
+    "allowJs": true,
+    "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "noEmit": true,
+    "noImplicitAny": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "jsx": "preserve",
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext", "webworker"],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "baseUrl": "."
+  },
+  "exclude": ["node_modules"],
+  "include": ["src"]
+}
 ```
 
+Now we're ready to start writing our new generator
 
-Now we're ready to start writing our new generator 
-
-
-### Create a prisma generator 
+### Create a prisma generator
 
 Now with the setup out of the way, we'll get started with creating the generator. We will seperate each part of the generator into its own file for organisation purposes. Create a new file in the src folder, call it `generator.ts` and add the following code:
 
 ```typescript title="src/generator.ts"
-import { generatorHandler } from "@prisma/generator-helper";
-import onManifest from "./onManifest";
-import { onGenerate } from "./onGenerate";
+import { generatorHandler } from '@prisma/generator-helper';
+import onManifest from './onManifest';
+import { onGenerate } from './onGenerate';
 
 generatorHandler({
-    onManifest: onManifest,
-    onGenerate: onGenerate,
-  });
-
+  onManifest: onManifest,
+  onGenerate: onGenerate,
+});
 ```
 
-Let's start with writing the `onManifest` function. This allows us to specify defaults & other information for our generator. Create a new file called `onManifest` in `src` and add the following code: 
+Let's start with writing the `onManifest` function. This allows us to specify defaults & other information for our generator. Create a new file called `onManifest` in `src` and add the following code:
 
 ```typescript title="src/onManifest.ts"
 import type { GeneratorManifest } from '@prisma/generator-helper';
@@ -112,10 +102,9 @@ export default function onManifest(): GeneratorManifest {
     version: '0.0.1',
   };
 }
-
 ```
 
-Now we'll move onto the `onGenerate function`. This is responsible for actually generating our custom types. From this point forward I'll explain what each piece of code does. Create a new file called `onGenerate` in `src` and add the following code: 
+Now we'll move onto the `onGenerate function`. This is responsible for actually generating our custom types. From this point forward I'll explain what each piece of code does. Create a new file called `onGenerate` in `src` and add the following code:
 
 ```typescript title="src/onGenerate.ts"
 import { GeneratorOptions } from '@prisma/generator-helper';
@@ -131,120 +120,110 @@ export default async function onGenerate(options: GeneratorOptions) {
 }
 
 // rest of generator code...
-
 ```
 
-Here we are defining the `onGenerate` function. We are defining a start variable which we will use later on for calculating how fast the custom generation takes and displaying this to the end user. We are then grabbing the enums out of the datamodel as we will want to modify this. 
-
+Here we are defining the `onGenerate` function. We are defining a start variable which we will use later on for calculating how fast the custom generation takes and displaying this to the end user. We are then grabbing the enums out of the datamodel as we will want to modify this.
 
 ```typescript title="Enum mapping logic"
-  const output = enums.map(e => {
-    let enumString = `export const ${e.name} = {\n`;
-    e.values.forEach(({ name: value }) => {
-      enumString += `  ${value}: "${value}",\n`;
-    });
-    enumString += `} as const;\n\n`;
-    enumString += `export type ${e.name} = (typeof ${e.name})[keyof typeof ${e.name}];\n`;
-
-    return enumString;
+const output = enums.map(e => {
+  let enumString = `export const ${e.name} = {\n`;
+  e.values.forEach(({ name: value }) => {
+    enumString += `  ${value}: "${value}",\n`;
   });
-	
+  enumString += `} as const;\n\n`;
+  enumString += `export type ${e.name} = (typeof ${e.name})[keyof typeof ${e.name}];\n`;
+
+  return enumString;
+});
 ```
 
-Here we are tranforming the prisma enum type from something that looks like: 
-
+Here we are tranforming the prisma enum type from something that looks like:
 
 ```typescript title="Native TypeScript enum"
 enum Status {
-    DRAFT = "DRAFT",
-    PUBLISHED = "PUBLISHED",
+  DRAFT = 'DRAFT',
+  PUBLISHED = 'PUBLISHED',
 }
-
 ```
 
-to 
+to
 
 ```typescript title="Const assertion alternative"
 const Status = {
-    DRAFT: 'DRAFT',
-    PUBLISHED: 'PUBLISHED',
+  DRAFT: 'DRAFT',
+  PUBLISHED: 'PUBLISHED',
 } as const;
 
 type Status = keyof typeof Status;
 ```
 
-At this point you may be wondering why we're going to all this trouble to not use native TypeScript enums. The main reason I don't use native TypeScript enums is because the TypeScript team themselves have mentioned it was a mistake on their part to create them. A few other reasons include: 
+At this point you may be wondering why we're going to all this trouble to not use native TypeScript enums. The main reason I don't use native TypeScript enums is because the TypeScript team themselves have mentioned it was a mistake on their part to create them. A few other reasons include:
 
-* Bloats bundle size
-* Numeric enums are NOT type-safe
-
+- Bloats bundle size
+- Numeric enums are NOT type-safe
 
 Because of these issues we are using the const assertion feature. This helps us keep our bundle light and at the same time, provides us with the same typing feature as the `enum`.
 
 To use this feature you:
-* declare the object like you would in plain JS
-* Add `as const` after the declaration
+
+- declare the object like you would in plain JS
+- Add `as const` after the declaration
 
 ```typescript title="httpStatusCode.ts"
 export const httpStatusCode = {
-    Ok: 200,
-    BadRequest: 400,
-    Unauthorized: 401,
-    Forbidden: 403,
-    NotFound: 404,
-    ServerError: 500,
+  Ok: 200,
+  BadRequest: 400,
+  Unauthorized: 401,
+  Forbidden: 403,
+  NotFound: 404,
+  ServerError: 500,
 } as const;
-
 ```
 
-Extract the type from it: 
+Extract the type from it:
 
 ```typescript title="Derived TypeScript type"
 type HttpStatusCodeKey = keyof typeof httpStatusCode;
-export type HttpStatusCode = typeof httpStatusCode[HttpStatusCodeKey];
-
+export type HttpStatusCode = (typeof httpStatusCode)[HttpStatusCodeKey];
 ```
 
-Now we have the real type which represents the union of the `httpStatusCode` object's values. The good news is that this type is only used for building TS and is then removed from the transpiled output. 
+Now we have the real type which represents the union of the `httpStatusCode` object's values. The good news is that this type is only used for building TS and is then removed from the transpiled output.
 
 ```typescript title="HttpResponse.ts"
 class HttpResponse {
- code: HttpStatusCode = httpStatusCode.Ok;
-// other stuff here
+  code: HttpStatusCode = httpStatusCode.Ok;
+  // other stuff here
 }
 ```
 
 The native TypeScript enum is a C# flavor brought to TypeScript. While it provides inoccent enough syntax when you're coming from a C# background, it can be harmful to end users. As mentioned before TypeScript authors are also aware of these pitfalls and are doing great work to provide alternative solutions. So if you don't know what to use you can follow this logic:
 
-* Do you need reverse mapping? (If you don't know, then the answer is probably "No")
-* If Yes, and your enum is not about strings, then you'll have to use a standard enum
-* If No, continue at point 2
-* Do you need to loop over enum members?
-* If Yes, then use const assertion
-* If No, continue at point 3
-* Use const enum and live happy
+- Do you need reverse mapping? (If you don't know, then the answer is probably "No")
+- If Yes, and your enum is not about strings, then you'll have to use a standard enum
+- If No, continue at point 2
+- Do you need to loop over enum members?
+- If Yes, then use const assertion
+- If No, continue at point 3
+- Use const enum and live happy
 
-
-Back to the generator code: 
+Back to the generator code:
 
 ```typescript title="Writing the generated file"
-  const outputFile = options.generator.output;
-  if (!outputFile || !outputFile.value) {
-    throw new Error('No output file specified');
-  }
+const outputFile = options.generator.output;
+if (!outputFile || !outputFile.value) {
+  throw new Error('No output file specified');
+}
 
-  const outputPath = path.resolve(outputFile.value);
-  await fs.mkdir(path.dirname(outputPath), { recursive: true });
-  await fs.writeFile(outputPath, header + output.join('\n'));
+const outputPath = path.resolve(outputFile.value);
+await fs.mkdir(path.dirname(outputPath), { recursive: true });
+await fs.writeFile(outputPath, header + output.join('\n'));
 
-  const end = Date.now();
+const end = Date.now();
 
-  console.log(`[custom-enum-generator] - Generated enums in ${end - start}ms`);
-
+console.log(`[custom-enum-generator] - Generated enums in ${end - start}ms`);
 ```
 
-Here we are specifying an output file where the generated code will be written to. We're also logging to the console how long it took for the `onGenerate` function to run. 
-
+Here we are specifying an output file where the generated code will be written to. We're also logging to the console how long it took for the `onGenerate` function to run.
 
 ### Final code
 
@@ -284,24 +263,20 @@ export default async function onGenerate(options: GeneratorOptions) {
 
   console.log(`[custom-enum-generator] - Generated enums in ${end - start}ms`);
 }
-
 ```
 
+### Wrapping up
 
-### Wrapping up 
-
-We also need a node bash file to run the generator. Prisma will look for this file when consumers run `prisma generate`.  Create a file called `bin.ts` in `src` and add the following code: 
+We also need a node bash file to run the generator. Prisma will look for this file when consumers run `prisma generate`. Create a file called `bin.ts` in `src` and add the following code:
 
 ```typescript title="src/bin.ts"
-#!/usr/bin/env node 
-import './generator'
+#!/usr/bin/env node
+import './generator';
 ```
 
+### Publishing
 
-### Publishing 
-
-before we can go ahead with publishing the pacakge, we need to modify add the following properties to the `package.json` file: 
-
+before we can go ahead with publishing the pacakge, we need to modify add the following properties to the `package.json` file:
 
 ```json title="package.json"
 "main": "dist/generator.js",
@@ -314,14 +289,14 @@ before we can go ahead with publishing the pacakge, we need to modify add the fo
 }
 
 ```
-* `main` is the entry point. This is where prisma will look for the generator
-* `files` is the files that will be includes when publishing a package
-* `bin` is the executable file that Prisma will run when consumers run `prisma`
-generate
-* `build` - build command to transpile TypeScript down to JS
 
+- `main` is the entry point. This is where prisma will look for the generator
+- `files` is the files that will be includes when publishing a package
+- `bin` is the executable file that Prisma will run when consumers run `prisma`
+  generate
+- `build` - build command to transpile TypeScript down to JS
 
-Once you've added the above, we can build the package: 
+Once you've added the above, we can build the package:
 
 ```bash title="Terminal"
 pnpm build
@@ -335,7 +310,7 @@ npm publish
 
 ### Usage
 
-Consumers will now be able to use this utility in their `schema.prisma` file like so: 
+Consumers will now be able to use this utility in their `schema.prisma` file like so:
 
 ```prisma title="schema.prisma"
 datasource db {
@@ -354,7 +329,6 @@ generator enums {
 }
 
 ```
-
 
 ### Repo
 

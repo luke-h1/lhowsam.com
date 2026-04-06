@@ -1,22 +1,22 @@
 ---
-title: "Extending multiple classes in TypegraphQL"
-slug: "extending-multiple-classes-in-typegraphql"
-intro: "How to extend multiple classes in TypeGraphQL and Typescript"
+title: 'Extending multiple classes in TypegraphQL'
+slug: 'extending-multiple-classes-in-typegraphql'
+intro: 'How to extend multiple classes in TypeGraphQL and Typescript'
 publishedAt: 2021-06-05
-tags: ["graphql","node"]
-heroImage: "../../assets/blog/extending-multiple-classes-in-typegraphql-hero.jpg"
+tags: ['graphql', 'node']
+heroImage: '../../assets/blog/extending-multiple-classes-in-typegraphql-hero.jpg'
 ---
 
-In the past, I've worked on side projects that use TypegraphQL and Node.js as the backend API. Quite often when working on these projects, I've run into the problem of having a single [Input type](https://typegraphql.com/docs/resolvers.html#input-types) that needed to extend multiple classes. 
+In the past, I've worked on side projects that use TypegraphQL and Node.js as the backend API. Quite often when working on these projects, I've run into the problem of having a single [Input type](https://typegraphql.com/docs/resolvers.html#input-types) that needed to extend multiple classes.
 
 Input types in TypegraphQL is used to define what a query or mutation argument's type is. When working in TypegraphQL, we pass an @Arg decorator in order to specify what this Query or Mutation accepts as arguments. An example of this would be:
 
 ```typescript
-@Mutation(() => Boolean) 
+@Mutation(() => Boolean)
   async register(
     @Arg('email') email: string,
     @Arg('password') password: string,
-): Promise<boolean> { 
+): Promise<boolean> {
   // mutation logic removed from brevity's sake
 }
 ```
@@ -29,30 +29,29 @@ It's common for input types to become more and more complex as your project grow
 
 So, how do we get around this problem?
 
-### Mixins! 
+### Mixins!
 
-To get around this issue, we need to use a [Mixin](https://www.typescriptlang.org/docs/handbook/mixins.html). Mixins rely on using generics with class inheritance to extend a base class 
+To get around this issue, we need to use a [Mixin](https://www.typescriptlang.org/docs/handbook/mixins.html). Mixins rely on using generics with class inheritance to extend a base class
 
-Here is an example that solves the multiple class inheritance problem: 
+Here is an example that solves the multiple class inheritance problem:
 
 ```typescript
- // ConfirmedMixin.ts 
-import { ClassType, Field, InputType } from "type-graphql";
+// ConfirmedMixin.ts
+import { ClassType, Field, InputType } from 'type-graphql';
 
 export const ConfirmedMixin = <T extends ClassType>(BaseClass: T) => {
   @InputType()
   class ConfirmedInput extends BaseClass {
     @Field()
-    confirmed: boolean; 
-  } 
+    confirmed: boolean;
+  }
   return ConfirmedInput;
-}; 
+};
 ```
 
-Here we have a function that has an input type (ConfirmedInput). It has a single field called 'confirmed' which is a boolean. In short, all this Mixin does is take in a class and return the ConfirmedInput. So, how do we implement this mixin in the inputs we wish to extend? 
+Here we have a function that has an input type (ConfirmedInput). It has a single field called 'confirmed' which is a boolean. In short, all this Mixin does is take in a class and return the ConfirmedInput. So, how do we implement this mixin in the inputs we wish to extend?
 
 Let's refactor the original register example to inherit from a Mixin. First, we shall create a simple register input without a mixin.
-
 
 ```typescript
 export class RegisterInput {
@@ -66,16 +65,15 @@ export class RegisterInput {
 
 Now let's create two mixins that have some additional fields that you would typically include when you register a new user:
 
-
 ```typescript
 export const NotificationMixin = <T extends ClassType>(BaseClass: T) => {
-  @InputType({ isAbstract: true }) 
+  @InputType({ isAbstract: true })
   class NotificationInput extends BaseClass {
     @Field()
-     enabled: boolean;
-  } 
-  return NotificationInput 
-}; 
+    enabled: boolean;
+  }
+  return NotificationInput;
+};
 ```
 
 ```typescript
@@ -84,24 +82,22 @@ export const UserMixin = <T extends ClassType>(BaseClass: T) => {
   class RegisterInput extends BaseClass {
     @Field()
     acceptMarketingEmails: boolean;
-   
+
     @Field()
     emailConfirmed: boolean;
 
     @Field()
     twoFactorEnabled: boolean;
-  } 
+  }
   return userInput;
-}; 
+};
 ```
 
 Note: I've included 'isAbstract: true' to get around the following error:
 
-
 ```typescript
 Error: Schema must contain uniquely named types but contains multiple types named "RegisterInput".
 ```
-
 
 This happens because we have created multiple input types with the same name. You could rename the mixin input to a different name to avoid this error.
 
@@ -110,7 +106,7 @@ Now with the errors taken care of, we can go ahead and use the mixin in the Regi
 ```typescript
 export class RegisterInput extends UserMixin(NotificationMixin(class {})) {
   @Field()
-   email: string;
+  email: string;
 
   @Field()
   password: string;
