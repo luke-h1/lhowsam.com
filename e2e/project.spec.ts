@@ -1,7 +1,6 @@
 /* eslint-disable no-await-in-loop */
-import { test, expect, Page } from '@playwright/test';
+import { expect, type Page, test } from '@playwright/test';
 import { baseUrl } from './config/baseUrl';
-import { projectsWithSiteUrls } from './utils/projects';
 
 let page: Page;
 
@@ -9,51 +8,30 @@ test.describe('project', () => {
   test.beforeAll(async ({ browser }) => {
     page = await browser.newPage();
     await page.goto(`${baseUrl}/projects`);
-    await expect(page.locator('[data-testid=project-heading]')).toHaveText(
-      'Projects',
-    );
-    await expect(page.locator('[data-testid=project-description]')).toHaveText(
-      "Personal projects I've worked on",
+    await expect(page.getByTestId('page-title')).toHaveText('Projects');
+    await expect(page.getByTestId('page-hero-description')).toHaveText(
+      'Open source apps',
     );
   });
 
   test('shows project posts & project slug pages correctly', async () => {
-    const links: string[] = [];
+    const cards = page.getByTestId('project-card');
+    const count = await cards.count();
 
-    const projects = await page.$$('data-testid=project-link');
+    for (let i = 0; i < count; i += 1) {
+      const card = cards.nth(i);
+      const titleLink = card.getByTestId('project-card-title');
+      await expect(titleLink).toBeVisible();
+      await expect(card.getByTestId('project-card-description')).not.toBeEmpty();
 
-    for (let i = 0; i < projects.length; i += 1) {
-      await expect(
-        page.locator('[data-testid="project-title"]').nth(i),
-      ).toBeVisible();
-      await expect(page.locator('p').nth(i)).not.toBeEmpty();
+      const href = await titleLink.getAttribute('href');
+      expect(href).toBeTruthy();
+      await page.goto(`${baseUrl}${href}`);
 
-      const link = await page
-        .locator('[data-testid="project-link"]')
-        .nth(i)
-        .getAttribute('href');
+      await expect(page.getByTestId('article-title')).toBeVisible();
+      await expect(page.getByTestId('article-title')).not.toBeEmpty();
 
-      links.push(`${baseUrl}${link}`);
-
-      await page.goto(links[i]);
-      await expect(page.locator('h1')).toBeVisible();
-      await expect(page.locator('h1')).not.toBeEmpty();
-
-      const projectsIncludingSiteUrls = links.filter(
-        l => projectsWithSiteUrls.indexOf(l) > -1,
-      );
-
-      if (projectsIncludingSiteUrls.length > 0) {
-        await expect(
-          page.locator('[data-testid="project-siteUrl"]'),
-        ).toBeVisible();
-      }
-
-      // GitHub
-      await expect(page.getByTestId('meta-title-2')).toContainText(
-        'Repository',
-      );
-      await expect(page.getByTestId('meta-description-2')).toBeVisible();
+      await expect(page.getByTestId('project-page-github-link')).toBeVisible();
 
       await page.goto(`${baseUrl}/projects`);
     }

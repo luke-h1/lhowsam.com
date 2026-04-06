@@ -1,4 +1,4 @@
-import { test, expect, Page } from '@playwright/test';
+import { expect, type Page, test } from '@playwright/test';
 import { baseUrl } from './config/baseUrl';
 import { getMetaKey } from './utils/getMetaKey';
 import { sleep } from './utils/sleep';
@@ -8,9 +8,8 @@ let page: Page;
 const key = getMetaKey();
 const delay = 600;
 
-// eslint-disable-next-line no-shadow
-const expectListboxToBeVisible = async (page: Page) => {
-  const listbox = page.locator('[role="listbox"]');
+const expectListboxToBeVisible = async (p: Page) => {
+  const listbox = p.getByTestId('command-menu-listbox');
   await expect(listbox).toBeVisible({
     timeout: 10000,
   });
@@ -18,6 +17,8 @@ const expectListboxToBeVisible = async (page: Page) => {
 };
 
 test.describe('command menu', () => {
+  test.describe.configure({ mode: 'serial' });
+
   test.beforeAll(async ({ browser }) => {
     const ctx = await browser.newContext({
       permissions: ['clipboard-read', 'clipboard-write'],
@@ -36,8 +37,8 @@ test.describe('command menu', () => {
     await page.keyboard.press('Escape');
     await page.focus('body');
 
-    const dialog = page.locator('[role="dialog"]');
-    await expect(dialog)
+    const listbox = page.getByTestId('command-menu-listbox');
+    await expect(listbox)
       .not.toBeVisible({ timeout: 5000 })
       .catch(() => {});
 
@@ -45,7 +46,7 @@ test.describe('command menu', () => {
   });
 
   test('CMD+K opens command menu when clicked', async () => {
-    await page.click('[data-testid="cmdk-icon"]');
+    await page.getByTestId('cmdk-icon').click();
     await expectListboxToBeVisible(page);
   });
 
@@ -62,128 +63,61 @@ test.describe('command menu', () => {
     });
     await expectListboxToBeVisible(page);
 
-    const navigation = page.locator('[role="dialog"]');
+    const navigation = page.getByTestId('CommandMenu-navigation');
     await expect(navigation).toBeVisible();
 
-    const links = ['Home', 'About', 'Blog', 'Projects', 'Talks'];
-
-    links.forEach(async link => {
-      await expect(navigation.locator(`text=${link}`)).toBeVisible();
-    });
+    const navItemTestIds = [
+      'command-menu-item-nav-/',
+      'command-menu-item-nav-/about',
+      'command-menu-item-nav-/blog',
+      'command-menu-item-nav-/projects',
+    ] as const;
+    await Promise.all(
+      navItemTestIds.map(id => expect(page.getByTestId(id)).toBeVisible()),
+    );
   });
 
   test('navigation items navigate correctly', async () => {
-    await page.keyboard.press(`${key}+K`, {
-      delay,
-    });
-    await expectListboxToBeVisible(page);
+    const openMenu = async () => {
+      await page.keyboard.press('Escape');
+      await page.focus('body');
+      await sleep(300);
+      await page.keyboard.press(`${key}+K`, { delay });
+      await expectListboxToBeVisible(page);
+    };
 
-    const navigation = page.locator('[role="dialog"]');
+    const navigation = () => page.getByTestId('CommandMenu-navigation');
 
-    await expect(navigation).toBeVisible();
+    await openMenu();
+    await expect(navigation()).toBeVisible();
 
-    // home
-    await navigation.locator('text=Home').click();
-    await expect(navigation).not.toBeVisible();
-    await expect(page.locator('[data-testid="intro-heading"]')).toBeVisible();
+    await page.getByTestId('command-menu-item-nav-/').click();
+    await expect(page.getByTestId('command-menu-listbox')).not.toBeVisible();
+    await expect(page.getByTestId('home-page-title')).toBeVisible();
 
-    await page.keyboard.press(`${key}+K`, {
-      delay,
-    });
-    await expectListboxToBeVisible(page);
+    await openMenu();
+    await page.getByTestId('command-menu-item-nav-/about').click();
+    await expect(page.getByTestId('command-menu-listbox')).not.toBeVisible();
+    await expect(page.getByTestId('about-page-title')).toBeVisible();
 
-    // about
-    await navigation.locator('text=About').click();
-    await expect(navigation).not.toBeVisible();
-    await expect(page.locator('[data-testid="AboutPage-intro"]')).toBeVisible();
-    await page.goBack();
+    await page.goto(baseUrl);
     await page.waitForLoadState('domcontentloaded');
 
-    await page.keyboard.press(`${key}+K`, {
-      delay,
-    });
-    await expectListboxToBeVisible(page);
+    await openMenu();
+    await page.getByTestId('command-menu-item-nav-/blog').click();
+    await expect(page.getByTestId('command-menu-listbox')).not.toBeVisible();
+    await expect(page.getByTestId('page-title')).toHaveText('Blog');
 
-    // blog
-    await navigation.locator('text=Blog').click();
-    await expect(navigation).not.toBeVisible();
-    await expect(page.locator('h1').first()).toHaveText('Blog');
-    await page.goBack();
+    await page.goto(baseUrl);
     await page.waitForLoadState('domcontentloaded');
 
-    await page.keyboard.press(`${key}+K`, {
-      delay,
-    });
-    await expectListboxToBeVisible(page);
+    await openMenu();
+    await page.getByTestId('command-menu-item-nav-/projects').click();
+    await expect(page.getByTestId('command-menu-listbox')).not.toBeVisible();
+    await expect(page.getByTestId('page-title')).toHaveText('Projects');
 
-    // projects
-    await navigation.locator('text=Projects').click();
-    await expect(navigation).not.toBeVisible();
-    await expect(page.locator('h1').first()).toHaveText('Projects');
-    await page.goBack();
+    await page.goto(baseUrl);
     await page.waitForLoadState('domcontentloaded');
-
-    await page.keyboard.press(`${key}+K`, {
-      delay,
-    });
-    await expectListboxToBeVisible(page);
-
-    // talks
-    await navigation.locator('text=Talks').click();
-    await expect(navigation).not.toBeVisible();
-    await expect(page.locator('h1').first()).toHaveText('Talks');
-    await page.goBack();
-    await page.waitForLoadState('domcontentloaded');
-
-    await page.keyboard.press(`${key}+K`, {
-      delay,
-    });
-    await expectListboxToBeVisible(page);
-  });
-
-  test('Appearance items changes theme correctly', async () => {
-    await page.keyboard.press(`${key}+K`, {
-      delay,
-    });
-    await expectListboxToBeVisible(page);
-
-    const appearance = page.locator('[role="dialog"]');
-
-    await expect(appearance).toBeVisible();
-
-    await appearance.locator('text=Dark').click();
-    await expect(page.locator('html')).toHaveAttribute('class', 'dark');
-
-    await page.focus('body');
-    await expect(page.locator('text=Theme set to Dark').first()).toBeVisible();
-
-    await page.keyboard.press(`${key}+K`, {
-      delay,
-    });
-    await expectListboxToBeVisible(page);
-
-    await appearance.locator('text=Light').click();
-
-    await expect(page.locator('html')).toHaveAttribute('class', 'light');
-
-    await page.focus('body');
-    await expect(page.locator('text=Theme set to Light').first()).toBeVisible();
-
-    await page.focus('body');
-
-    await page.keyboard.press(`${key}+K`, {
-      delay,
-    });
-    await expectListboxToBeVisible(page);
-
-    await appearance.locator('text=System').click();
-
-    await expect(page.locator('html')).toHaveAttribute('class', 'light');
-
-    await page.focus('body');
-    await expect(
-      page.locator('text=Theme set to System').first(),
-    ).toBeVisible();
   });
 
   test('Commands item copies currently URL to clipboard', async () => {
@@ -193,18 +127,18 @@ test.describe('command menu', () => {
 
     await expectListboxToBeVisible(page);
 
-    const commands = page.locator('[role="dialog"]');
+    const commands = page.getByTestId('command-menu-root');
 
     await commands.scrollIntoViewIfNeeded();
 
     await expect(commands).toBeVisible();
 
-    await commands.locator('text=Copy current URL').click();
+    await page.getByTestId('command-menu-item-command-copy-url').click();
 
     const clipboardText = await page.evaluate(() =>
       navigator.clipboard.readText(),
     );
-    expect(clipboardText).toBe(`${baseUrl}/`);
+    expect(clipboardText.replace(/\/$/, '')).toBe(baseUrl);
   });
 
   test('renders social items correctly', async () => {
@@ -213,29 +147,14 @@ test.describe('command menu', () => {
     });
     await expectListboxToBeVisible(page);
 
-    const social = page.locator('[role="dialog"]');
+    const social = page.getByTestId('command-menu-root');
 
     await expect(social).toBeVisible();
 
-    await expect(social.locator('text=Twitter')).toBeVisible();
-    await expect(social.locator('text=GitHub')).toBeVisible();
-    await expect(social.locator('text=LinkedIn')).toBeVisible();
-  });
-
-  test('renders Appearance items correctly', async () => {
-    await page.focus('body');
-    await page.keyboard.press(`${key}+K`, {
-      delay,
-    });
-    await expectListboxToBeVisible(page);
-
-    const appearance = page.locator('[role="dialog"]');
-
-    await expect(appearance).toBeVisible();
-
-    await expect(appearance.locator('text=System')).toBeVisible();
-    await expect(appearance.locator('text=Light')).toBeVisible();
-    await expect(appearance.locator('text=Dark')).toBeVisible();
+    await expect(page.getByTestId('command-menu-item-social-github')).toBeVisible();
+    await expect(
+      page.getByTestId('command-menu-item-social-linkedin'),
+    ).toBeVisible();
   });
 
   test('renders Commands items correctly', async () => {
@@ -248,16 +167,72 @@ test.describe('command menu', () => {
     });
     await expectListboxToBeVisible(page);
 
-    const commands = page.locator('[role="dialog"]');
+    const commands = page.getByTestId('command-menu-root');
 
     await expect(commands).toBeVisible();
 
-    await expect(commands.locator('text=Copy current URL')).toBeVisible();
+    await expect(
+      page.getByTestId('command-menu-item-command-copy-url'),
+    ).toBeVisible();
 
-    // expect it to copy to the clipboard
-    await commands.locator('text=Copy current URL').click();
-    expect(await page.evaluate(() => navigator.clipboard.readText())).toEqual(
-      `${baseUrl}/blog`,
+    await page.getByTestId('command-menu-item-command-copy-url').click();
+    const copied = await page.evaluate(() => navigator.clipboard.readText());
+    expect(copied.replace(/\/$/, '')).toBe(`${baseUrl}/blog`);
+  });
+
+  test('searches blog posts, projects and experience anchors', async () => {
+    await page.goto(baseUrl);
+    await page.waitForLoadState('domcontentloaded');
+    await page.focus('body');
+    await sleep(500);
+
+    await page.keyboard.press('Escape');
+    await page.keyboard.press(`${key}+K`, { delay });
+    await expectListboxToBeVisible(page);
+
+    await page.getByTestId('command-menu-input').fill('foam');
+    await page.getByTestId('command-menu-item-project-foam').click();
+    await expect(page.getByTestId('article-title')).toHaveText('Foam');
+
+    await page.goto(baseUrl);
+    await page.waitForLoadState('domcontentloaded');
+    await page.focus('body');
+    await sleep(400);
+
+    await page.keyboard.press(`${key}+K`, { delay });
+    await expectListboxToBeVisible(page);
+
+    await page
+      .getByTestId('command-menu-input')
+      .fill('forcing git merges');
+    await page
+      .getByTestId('command-menu-item-blog-forcing-git-merges')
+      .click();
+    await expect(page.getByTestId('article-title')).toHaveText(
+      'Forcing git merges',
     );
+
+    await page.goto(baseUrl);
+    await page.waitForLoadState('domcontentloaded');
+    await page.focus('body');
+    await sleep(400);
+
+    await page.keyboard.press(`${key}+K`, { delay });
+    await expectListboxToBeVisible(page);
+
+    await page
+      .getByTestId('command-menu-input')
+      .fill('software engineer hive');
+    await page
+      .getByTestId(
+        'command-menu-item-experience-hive-it-software-engineer-2022-05-01',
+      )
+      .click();
+    await expect(page).toHaveURL(
+      /\/about#hive-it-software-engineer-2022-05-01$/,
+    );
+    await expect(
+      page.getByTestId('experience-hive-it-software-engineer-2022-05-01'),
+    ).toBeVisible();
   });
 });

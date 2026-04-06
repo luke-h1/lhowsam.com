@@ -1,0 +1,256 @@
+---
+import '../../styles/theme.css';
+import '../../styles/animations.css';
+import '../../styles/global.css';
+import '../../styles/article.css';
+import '../../styles/about.css';
+
+import '@fontsource/inter/latin-300.css';
+import '@fontsource/inter/latin-400.css';
+import '@fontsource/inter/latin-500.css';
+import '@fontsource/caveat/latin-600.css';
+import '@fontsource/instrument-serif/latin-400.css';
+import '@fontsource/roboto-mono/latin-400.css';
+
+import caveatSemiBoldWoff2 from '@fontsource/caveat/files/caveat-latin-600-normal.woff2?url';
+import instrumentSerifWoff2 from '@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2?url';
+import interRegularWoff2 from '@fontsource/inter/files/inter-latin-400-normal.woff2?url';
+import interMediumWoff2 from '@fontsource/inter/files/inter-latin-500-normal.woff2?url';
+import lukeImage from '../../assets/luke.png';
+import { siteConfig } from '../../config/site';
+import { absoluteUrl, toJsonLd } from '../../util/seo';
+import StatsigAnalytics from '../analytics/StatsigAnalytics.astro';
+import Footer from '../ui/Footer.astro';
+import Header from '../ui/Header.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  canonicalURL?: string | URL;
+  pageType?: 'website' | 'article' | 'profile';
+  robots?: string;
+  structuredData?: object | object[];
+}
+
+const {
+  title,
+  description,
+  image = lukeImage.src,
+  canonicalURL = Astro.url,
+  pageType = 'website',
+  robots = 'index,follow,max-image-preview:large',
+  structuredData,
+} = Astro.props;
+
+const canonicalHref = canonicalURL instanceof URL
+  ? canonicalURL.toString()
+  : canonicalURL;
+const socialImage = absoluteUrl(image);
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <meta name="theme-color" content="#111111" />
+    <meta name="apple-mobile-web-app-title" content={siteConfig.siteName} />
+    <style is:inline>
+      html[data-theme='dark'] {
+        --bg-color: #111111;
+        --bg-color-muted: #1a1a1a;
+        --text-color: #f5f5f5;
+        --text-muted: #d1d1d1;
+        --link-color: #60a5fa;
+        --border-color: rgba(255, 255, 255, 0.1);
+        --hover-bg: rgba(255, 255, 255, 0.05);
+        --mesh-color-1: rgba(34, 211, 238, 0.18);
+        --mesh-color-2: rgba(168, 85, 247, 0.22);
+        --glow-color: rgba(168, 85, 247, 0.5);
+        --top-glow-color: rgba(236, 72, 153, 0.16);
+        --font-sans:
+          'Source Sans Pro', system-ui, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        --font-mono: 'Roboto Mono', Consolas, 'Courier New', monospace;
+        --font-primary:
+          'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          sans-serif;
+        --font-title:
+          'Instrument Serif', Georgia, 'Times New Roman', serif;
+        --transition-base: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+
+      html[data-theme='dark'] body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+
+      html {
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        scrollbar-gutter: stable;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', sans-serif;
+      }
+
+      main {
+        flex: 1 0 auto;
+        width: 100%;
+        max-width: min(80rem, 100%);
+        margin: 0 auto;
+      }
+
+      .post-page {
+        width: min(100%, 1100px);
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 2rem 1.5rem 3rem;
+        min-width: 0;
+      }
+
+      .post-layout {
+        display: grid;
+        gap: 2rem;
+        align-items: start;
+        width: 100%;
+        min-width: 0;
+      }
+
+      .post {
+        margin-top: 1.5rem;
+        min-width: 0;
+        font-size: 1.125rem;
+        line-height: 1.75;
+        color: var(--text-color);
+      }
+
+      .post-title {
+        margin: 0 0 0.75rem;
+        font-family: var(--font-title);
+        font-size: clamp(1.75rem, 2.75vw + 1rem, 2.375rem);
+        font-weight: 400;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        color: var(--text-color);
+      }
+
+      .post-header {
+        margin-bottom: 2.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .content {
+        line-height: 1.75;
+        font-size: 1.125rem;
+      }
+
+      @media (min-width: 1024px) {
+        .post-layout {
+          grid-template-columns: minmax(0, 1fr) minmax(14rem, 17rem);
+          gap: 2.5rem;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .post-page {
+          padding: 1.5rem 1.25rem 2.5rem;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .post-page {
+          padding: 1rem 1rem 2rem;
+        }
+        .post-title {
+          font-size: clamp(1.6rem, 8vw, 2rem);
+        }
+      }
+    </style>
+
+    <link
+      rel="preload"
+      href={instrumentSerifWoff2}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href={interRegularWoff2}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="preload"
+      href={interMediumWoff2}
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+    />
+    <link rel="canonical" href={canonicalHref} />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={`${siteConfig.authorName} RSS Feed`}
+      href={absoluteUrl('/rss.xml')}
+    />
+    <meta property="og:type" content={pageType} />
+    <meta property="og:url" content={canonicalHref} />
+    <meta property="og:site_name" content={siteConfig.siteName} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content={title} />
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalHref} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={socialImage} />
+    <meta name="author" content={siteConfig.authorName} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/icon-192.png" sizes="192x192" />
+    <link rel="icon" type="image/png" href="/icon-512.png" sizes="512x512" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+    <meta name="generator" content={Astro.generator} />
+    {structuredData && (
+      <script is:inline type="application/ld+json">
+        {toJsonLd(structuredData)}
+      </script>
+    )}
+    <StatsigAnalytics />
+  </head>
+  <body class="initial-load">
+    <div class="top-glow"></div>
+    <main>
+      <div class="nav-container">
+        <Header />
+      </div>
+      <slot />
+    </main>
+    <div>
+      <Footer />
+    </div>
+    <div class="bottom-glow"></div>
+  </body>
+</html>

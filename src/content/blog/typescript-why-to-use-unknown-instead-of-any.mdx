@@ -1,0 +1,52 @@
+---
+title: "TypeScript - why to use unknown instead of any"
+slug: "typescript-why-to-use-unknown-instead-of-any"
+intro: "How to manage TypeScript codebases when you don't know the exact shape of something"
+publishedAt: 2023-09-09
+tags: ["typescript","javascript"]
+heroImage: "../../assets/blog/typescript-why-to-use-unknown-instead-of-any-hero.png"
+---
+
+From time to time, we encounter a situation when we don't know the type of something, whether that be from an external API, a service etc. Before TypeScript V3, we would use 'any' to describe these types. This comes with a few tradeoffs such as lack of type safety provided by TypeScript. Take the following example:
+
+```typescript
+const myObject: any = { 
+ a: "yo",
+ b: "yo yo"
+}
+```
+You would be able to access the properties of the object above, i.e. `myObject.a`, `myObject.b` and everything would work as intended. If you tried to access `myObject.c`, TypeScript **would not** throw an error at build time, since the object `myObject` can be anything. This defeats the point of TypeScript, to check types at build time and prevent you from shipping code that will blow up at runtime. i.e. if your frontend application tried to access `myObject.c` at runtime (in the browser or in a Node environment), your application would thrown an error since it wouldn't be able to access a non-existant variable
+
+This can be a source of many bugs and footguns, since you've told TypeScript not to check the type of this object at build time by using `any`. When you use the `any` type, you are opting out of type checking and telling TypeScript "I know what I'm doing, leave me alone and don't check this type". This leads us onto the conversation of why unknown is a much more preferable type than 'any'
+
+
+## why use unknown instead of 'any' ?
+
+The unknown type was introduced in V3 of TypeScript as a sidekick to 'any'. The unknown type, when assigned to a variable, tells the TypeScript compiler that the type is not known. TypeScript does not allow you to use a variable of an `unknown` type unless you either cast the variable to a known type or narrow its type. This results in us having to use type-safe operators to narrow its type. Take the following example:
+
+```typescript
+const myVariable: unknown = 1;
+```
+ 
+ If we tried to perform an arithmetic operator on `myVariable` without narrowing the type, TypeScript will throw the following error: 
+ 
+ ```bash
+ Object is of type 'unknown'.
+ ```
+ 
+ In order to fix the above type error in a type safe way, we can use type guards to check that `myVariable` is a number before performing arithmetic operations on it: 
+ 
+ ```typescript
+ 
+ if (typeof myVariable === "number") {
+   console.log(myVariable * 10)
+}
+ 
+ ```
+ 
+ As you can now see, the unknown type forces you to determine what a variable typed as unknown actually is, either via type casting or narrowing. This results in TypeScript being able to check the resulting type, resulting in a more type-safe application
+ 
+ 
+ ## Conclusion
+ 
+ The unknown type can be very handy in preventing accidental footguns and bugs in your application. Unknown was only introduced in TypeScript v3 which meant that it came well after the 'any' type. I don't think the 'any' type was a mistake even though it pretty much turns off TypeScript. JavaScript is a fast and loose language for a reason. Sometimes you don't want the rigidity of TypeScript to get in your way just for the sake of satisfying the compiler and not for building a feature. Whenever possible (imo) it's best to try to blend both and try to use the most of TypeScript whenever possible

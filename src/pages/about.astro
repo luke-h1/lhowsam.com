@@ -1,0 +1,160 @@
+---
+import { Image } from 'astro:assets';
+import {
+  experience,
+  profileTags,
+  timelineRoles,
+} from '../data/aboutExperience';
+import { formatDateRange } from '../util/dateRange';
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import Container from '../components/ui/Container.astro';
+import { siteConfig } from '../config/site';
+import { absoluteUrl } from '../util/seo';
+import lukeImage from '../assets/luke.png';
+
+const title = `About ${siteConfig.authorName} | Software Developer`;
+const description =
+  'Learn more about Luke Howsam, a software developer focused on React Native, TypeScript, mobile engineering, backend systems, and DevOps.';
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfilePage',
+    name: title,
+    url: `${siteConfig.siteUrl}/about`,
+    description,
+    mainEntity: {
+      '@type': 'Person',
+      name: siteConfig.authorName,
+      url: siteConfig.siteUrl,
+      image: absoluteUrl(lukeImage.src),
+      jobTitle: siteConfig.authorJobTitle,
+      sameAs: siteConfig.socialLinks.map(link => link.url),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: siteConfig.siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'About',
+        item: `${siteConfig.siteUrl}/about`,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={lukeImage.src}
+  pageType="profile"
+  structuredData={structuredData}
+>
+  <Container>
+    <section class="about-hero">
+      <div class="avatar-wrap">
+        <Image
+          src={lukeImage}
+          alt="Luke Howsam"
+          width={280}
+          height={280}
+          class="avatar"
+        />
+      </div>
+
+      <div class="hero-copy">
+        <h1 data-testid="about-page-title">Luke Howsam</h1>
+        <p class="headline" data-testid="about-page-headline">
+          Software Developer focused on React Native, mobile, backend
+          engineering and DevOps
+        </p>
+
+        <div class="bio">
+          <p>
+            I'm a software developer who likes building polished products, but
+            I'm just as interested in how they're shipped and run. That usually
+            means a mix of React Native, backend work, CI/CD and cloud
+            infrastructure.
+          </p>
+          <p>
+            At the moment I'm especially enjoying mobile engineering with React
+            Native, backend work (API, DevOps etc.).
+          </p>
+        </div>
+
+        <div class="hero-actions">
+          <a
+            class="cv-link"
+            href="/static/cv.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics-event="cv_click"
+            data-analytics-label="about_cv"
+            data-analytics-surface="about_hero"
+          >
+            View CV
+          </a>
+        </div>
+
+        <div class="profile-tags">
+          {profileTags.map(tag => <span class="tag">{tag}</span>)}
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider" />
+
+    <section class="experience-section">
+      <h2>Experience</h2>
+
+      <div class="timeline">
+        {
+          timelineRoles.map(role => (
+            <article
+              class="timeline-item"
+              id={role.anchor}
+              data-testid={`experience-${role.anchor}`}
+            >
+              <div class="timeline-marker" aria-hidden="true" />
+              <div class="timeline-body">
+                <div class="timeline-header">
+                  <div>
+                    <h3>{role.title}</h3>
+                    <p class="company-name">{role.company}</p>
+                  </div>
+                  <span class="date-badge">
+                    {formatDateRange(role.from, role.to)}
+                  </span>
+                </div>
+
+                <p class="location">{role.location}</p>
+                <p class="summary">{role.summary}</p>
+
+                <div class="tech-list">
+                  {role.techStack.map(tech => (
+                    <span class="tag">{tech}</span>
+                  ))}
+                </div>
+
+                <ul class="achievements">
+                  {role.achievements.map(achievement => (
+                    <li>{achievement}</li>
+                  ))}
+                </ul>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </Container>
+</BaseLayout>

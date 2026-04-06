@@ -1,6 +1,9 @@
 {
-  "$schema": "https://openapi.vercel.sh/vercel.json",
-  "github": {
-    "enabled": false
-  }
+  "redirects": [
+    {
+      "source": "/work/",
+      "destination": "/work-projects/",
+      "permanent": true
+    }
+  ]
 }

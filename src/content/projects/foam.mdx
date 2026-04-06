@@ -1,0 +1,44 @@
+---
+title: 'Foam'
+slug: 'foam'
+intro: 'Foam is a React Native Twitch client built to create a cleaner mobile viewing experience with better chat support and a stronger mobile delivery workflow.'
+tags:
+  [
+    'react-native',
+    'expo',
+    'typescript',
+    'bun',
+    'maestro',
+    'twitch',
+    '7tv',
+    'bttv',
+  ]
+githubUrl: 'https://github.com/luke-h1/foam'
+order: 0
+featured: true
+---
+
+Foam is a custom mobile Twitch client that I started as a way to improve my React Native skills while building something I would actually want to use day to day. The native Twitch mobile app still feels limited compared with desktop, especially around chat customisation and support for third-party extensions, so this project explores what a cleaner and more capable mobile experience could look like.
+
+The app is built with React Native, Expo, React Navigation and TypeScript, with Bun used for package management and runtime tooling. It integrates with Twitch APIs for core app functionality, and pulls in third-party chat providers like 7TV (and BTTV) to make chat feel closer to desktop. I also set the project up with Storybook for isolated UI development, Maestro for end-to-end testing, and EAS for building and distributing multiple app variants across iOS and Android.
+
+One of the more interesting parts of Foam is the amount of platform and delivery work around the app itself. The repository supports separate development and production variants, includes a local auth proxy for Twitch authentication, and is structured so local development builds, preview builds and production builds can all coexist without clashing on the same device.
+
+This project has been a good way to go deeper on modern mobile workflows as well as app architecture. It has pushed me to think more seriously about native build tooling, CI/CD for mobile, automated UI testing, release management and how to keep a React Native codebase maintainable as it grows.
+
+It's still a work in progress, and I'm iterating on features as I use it.
+
+### What I focused on
+
+- Building a React Native app around a real product problem rather than a generic starter
+- Exploring Expo and EAS workflows for multiple mobile build variants
+- Improving developer experience with Bun, Storybook, conventional commits and stronger project documentation
+- Adding more confidence around releases with Maestro-based end-to-end testing
+- Working through Twitch integrations and the infrastructure needed to support authentication properly
+
+### What I learned
+
+- How to structure a React Native app so development and production variants can live side by side
+- More about the realities of mobile delivery, including signing, build pipelines and store-facing workflows
+- The value of treating documentation, release process and testing as first-class parts of the project
+- How much stronger a side project becomes when it is tied to a genuine user experience problem

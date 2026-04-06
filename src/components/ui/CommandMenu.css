@@ -1,0 +1,300 @@
+:root {
+  --cmdk-surface: #232323;
+  --cmdk-border: #3e3e3e;
+  --cmdk-surface-hover: #282828;
+  --cmdk-fg: #eeeeee;
+  --cmdk-fg-neutral: #b4b4b4;
+  --cmdk-overlay: rgba(0, 0, 0, 0.61);
+}
+
+.command-menu {
+  display: flex;
+  align-items: center;
+}
+
+@keyframes cmdk-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cmdk-fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes cmdk-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateX(-50%);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateX(-50%);
+  }
+}
+
+@keyframes cmdk-exit {
+  from {
+    opacity: 1;
+    transform: scale(1) translateX(-50%);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateX(-50%);
+  }
+}
+
+.command-menu__visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.command-menu__toggle {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.command-menu__toggle:focus {
+  outline: transparent;
+}
+
+.command-menu__toggle:focus-visible {
+  outline: 2px solid var(--link-color, #60a5fa);
+  outline-offset: 2px;
+}
+
+.command-menu__toggle:hover,
+.command-menu__toggle:focus-visible {
+  color: var(--text-color);
+}
+
+.command-menu__toggle-highlight {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 4px;
+  background-color: var(--cmdk-surface-hover);
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.2s ease-in-out;
+}
+
+.command-menu__toggle:hover .command-menu__toggle-highlight,
+.command-menu__toggle:focus-visible .command-menu__toggle-highlight {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.command-menu__toggle-icon {
+  display: grid;
+  place-items: center;
+}
+
+[cmdk-overlay] {
+  position: fixed;
+  inset: 0;
+  z-index: 998;
+  background-color: var(--cmdk-overlay);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+[cmdk-overlay][data-state='open'] {
+  animation: cmdk-fade-in 150ms both;
+}
+
+[cmdk-overlay][data-state='closed'] {
+  animation: cmdk-fade-out 200ms both;
+}
+
+[cmdk-dialog] {
+  transform-origin: 0 0;
+  position: fixed;
+  z-index: 999;
+  top: 6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 640px;
+  width: calc(100% - 2rem);
+  isolation: isolate;
+  border-radius: 4px;
+  background-color: var(--cmdk-surface);
+}
+
+@media (min-width: 576px) {
+  [cmdk-dialog] {
+    margin-top: 8rem;
+  }
+}
+
+[cmdk-dialog][data-state='open'] {
+  animation: cmdk-enter 200ms both;
+}
+
+[cmdk-dialog][data-state='closed'] {
+  animation: cmdk-exit 150ms both;
+}
+
+[cmdk-root] {
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--cmdk-surface);
+  border: 1px solid var(--cmdk-border);
+  border-radius: 4px;
+}
+
+[cmdk-header] {
+  position: relative;
+}
+
+[cmdk-header-esc] {
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  padding: 0.375rem 0.5rem;
+  border: 1px solid var(--cmdk-border);
+  border-radius: 4px;
+  background: transparent;
+  color: var(--cmdk-fg-neutral);
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  cursor: pointer;
+}
+
+[cmdk-input] {
+  position: relative;
+  width: 100%;
+  border: 0;
+  border-bottom: 1px solid var(--cmdk-border);
+  outline: 0;
+  background: transparent;
+  color: var(--cmdk-fg);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  padding: 0.6875rem 0.875rem;
+  padding-inline-end: calc(1.5rem + 42px);
+}
+
+[cmdk-input]::placeholder {
+  color: var(--cmdk-fg-neutral);
+}
+
+[cmdk-list] {
+  height: min(300px, calc(var(--cmdk-list-height) + 28px));
+  max-height: 400px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  transition: height 100ms ease;
+  padding-block: 0.75rem;
+  scroll-padding-block: 0.75rem;
+}
+
+*:not([hidden]) + [cmdk-group] {
+  margin-block-start: 0.75rem;
+}
+
+[cmdk-group-heading] {
+  position: relative;
+  z-index: 10;
+  user-select: none;
+  padding-inline: 0.875rem;
+  margin-block-end: 0.5rem;
+  color: var(--cmdk-fg-neutral);
+  font-size: 0.6875rem;
+  letter-spacing: 0.02em;
+}
+
+[cmdk-item] {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.8125rem;
+  padding-inline: 0.875rem;
+  padding-block: 0.5rem;
+  color: var(--cmdk-fg);
+}
+
+[cmdk-item] .content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[cmdk-item] .highlight {
+  position: absolute;
+  inset: 0 0.75rem;
+  border-radius: 4px;
+  background-color: var(--cmdk-surface-hover);
+  pointer-events: none;
+}
+
+[cmdk-item] svg {
+  flex-shrink: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+  color: var(--cmdk-fg-neutral);
+  transition: color 0.1s ease-in-out 0.1s;
+}
+
+[cmdk-item][aria-selected='true'] svg {
+  color: var(--cmdk-fg);
+}
+
+[cmdk-empty] {
+  text-align: center;
+  color: var(--cmdk-fg-neutral);
+  font-size: 0.8125rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [cmdk-overlay][data-state='open'],
+  [cmdk-overlay][data-state='closed'],
+  [cmdk-dialog][data-state='open'],
+  [cmdk-dialog][data-state='closed'] {
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+
+  .command-menu__toggle-highlight {
+    transition-duration: 0.01ms;
+  }
+
+  [cmdk-item] svg {
+    transition-duration: 0.01ms;
+    transition-delay: 0s;
+  }
+}

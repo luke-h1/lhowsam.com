@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import ErrorState from '../components/ui/ErrorState.astro';
+
+const title = '500 | Something went wrong';
+const description =
+  'Something broke while rendering the page. Try again, or head back to the main site sections.';
+---
+
+<BaseLayout title={title} description={description}>
+  <ErrorState
+    code="500"
+    title="Something went wrong"
+    description={description}
+  />
+</BaseLayout>

@@ -1,0 +1,73 @@
+---
+title: "Conventional commits, a better way to commit"
+slug: "conventional-commits-a-better-way-to-commit"
+intro: "Conventional commits is a specification that seeks to improve and standardize commit messages in general. In this post, we'll go over the reasoning behind why you might want to use it & its benefits"
+publishedAt: 2023-01-09
+tags: ["git","github"]
+heroImage: "../../assets/blog/conventional-commits-a-better-way-to-commit-hero.png"
+---
+
+## Introduction
+
+Conventional commits define a standard format that commit messages should adhere to. When using conventional commits, the reader (i.e. someone using `git log`) can easily glean valuable context & info about a given commit such as whether the commit implements a new fixture, fixes a bug, refactors existing code, etc. 
+
+While I like conventional commits, I don't use it typically on every project. I've found it's quite common to just follow the convention of using the Jira ticket number as a template for a commit message such as: 
+
+```bash
+BOARD-ID-3988 - add tests for BE product handlers 
+```
+
+In the case when I or the project however doesn't follow the above convention, I think conventional commits are a great way to go about making commit messages. 
+
+
+### Standardizing commit messages
+
+Conventional commits are simply a spec for adding human and machine-readable meaning to commit messages. The concept behind it is to provide a rich commit history that can be read by both humans and automated tools (think release tools such as GitHub releases, changelogs, etc). Conventional commits have the following format: 
+
+```bash
+<type>[(optional<scope>)]: <description>
+```
+
+In practice this would look something like this: 
+
+```bash
+feat(server): add endpoints for the new event system
+```
+
+### Commit types 
+
+The `<type>` field provides the context for the commit. What intent did this change make? Did the commit introduce a new feature? improve unit testing? fix a bug? etc. The `<type>` field can be quite flexible and your project can define what values you want to use. I typically use the following on a daily basis: 
+
+* `feat` - This commit implements a new feature 
+* `chore` - This commit includes a maintenance task that is necessary for managing the repository but doesn't introduce a major change. A good example of when I use this is when I've made a typo or am cleaning up some leftover work from a separate PR. 
+* `ci` - This commit makes changes to continuous integration scripts or configuration files
+* `fix` - This commit fixes a bug
+* `test` - This commit enhances, adds to, revises, or does something else to a suite of automated tests in the repository
+ 
+ 
+ 
+### Scopes 
+The scope field is optional and is used to tag a given module or package in the repository. The `Scope` field is flexible, like the `<type>` field can change based on the project you're working on. If you have several packages inside a monorepo, you could preface the `Scope` field with the area you're working on i.e. 
+
+```bash
+feat(common): add common utilities
+```
+
+### Description 
+The `<description>` field is a short summary of the intent or content included in the commit. The description field can be used as a title to introduce the change and then you can write a further description on your Git provider to provide more details. 
+
+When writing the description, it should be written in the imperative or future-tense mood, such as 'change' instead of 'changed' or 'fix' instead of 'fixed'. Instead of writing `created function MyFunction` I will write `create function MyFunction`. 
+
+### Footers 
+Footers are optional & I don't typically use them too much but they can be a great way to provide additional metadata for a commit. I typically use them for linking related issues, issues that will be closed by this PR, etc. Example: 
+
+* Closes #3232
+* Resolves #1111
+
+
+### Enforce conventional commits adoption
+
+Adopting & following the conventional commits spec is one thing, but enforcing and making sure that everyone is following these standards is another thing. Fortunately, there are a few tools that you can use to ensure that commit messages follow the standards you set out. I typically utilize tools that make use of commit hooks to ensure these rules get enforced before a push occurs. 
+
+
+* [Commit lint](https://commitlint.js.org/#/) - commitlint is a nodejs-based tool that will validate commit messages to ensure they use the conventional commit convention. This tool can be combined with a pre-commit tool such as [Husky](https://typicode.github.io/husky/#/) to ensure that a commit does not succeed if it doesn't meet the team's rules for properly formed commit messages.

@@ -9,23 +9,7 @@ on:
         type: string
 
 env:
-  NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
-  NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
-  NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_URL }}
-  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-  VERCEL_PROD_PROJECT_ID: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
-  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
-  BASIC_AUTH_USER: ${{ secrets.BASIC_AUTH_USER }}
-  BASIC_AUTH_PASSWORD: ${{ secrets.BASIC_AUTH_PASSWORD }}
-  SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-  SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-  NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}  
-  PNPM_VERSION: 9.12.3
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  TURBO_TEAM: luke-h1
+  OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
 
 jobs:
   deploy-live:
@@ -41,24 +25,31 @@ jobs:
           fetch-depth: 0
           ref: ${{ inputs.branch }}
 
+      - name: Load secrets
+        uses: 1password/load-secrets-action@v3
+        with:
+          export-env: true
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ env.OP_SERVICE_ACCOUNT_TOKEN }}
+          PUBLIC_URL: op://ci-cd/lhowsam-prod/PUBLIC_URL
+          VERCEL_PROJECT_ID: op://ci-cd/lhowsam-prod/VERCEL_PROJECT_ID
+          VERCEL_TOKEN: op://ci-cd/lhowsam-prod/VERCEL_TOKEN
+          VERCEL_ORG_ID: op://ci-cd/lhowsam-prod/VERCEL_ORG_ID
+          SENTRY_ORG: op://ci-cd/lhowsam-prod/SENTRY_ORG
+          SENTRY_PROJECT: op://ci-cd/lhowsam-prod/SENTRY_PROJECT
+          SENTRY_AUTH_TOKEN: op://ci-cd/lhowsam-prod/SENTRY_AUTH_TOKEN
+          PUBLIC_SENTRY_DSN: op://ci-cd/lhowsam-prod/PUBLIC_SENTRY_DSN
+
       - name: install
         uses: ./.github/actions/install
 
-      - name: Cache Turbo
-        uses: actions/cache@v4
-        with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
-      
       - name: Build
         uses: ./.github/actions/build
       
       - name: Deploy to live
         uses: ./.github/actions/deploy
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
-          vercel-project-id: ${{ secrets.VERCEL_PROD_PROJECT_ID }}
+          vercel-token: ${{ env.VERCEL_TOKEN }}
+          vercel-org-id: ${{ env.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ env.VERCEL_PROJECT_ID }}
           environment: production

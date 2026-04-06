@@ -1,0 +1,164 @@
+---
+import { getCollection } from 'astro:content';
+import Hero from '../../components/Hero.astro';
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import Container from '../../components/ui/Container.astro';
+import ProjectCard from '../../components/ui/ProjectCard.astro';
+import { siteConfig } from '../../config/site';
+
+const projects = await getCollection('projects');
+
+const sortedProjects = [...projects].sort((a, b) => {
+  const aOrder = a.data.order ?? Number.MAX_SAFE_INTEGER;
+  const bOrder = b.data.order ?? Number.MAX_SAFE_INTEGER;
+
+  if (aOrder !== bOrder) {
+    return aOrder - bOrder;
+  }
+
+  return a.data.title.localeCompare(b.data.title);
+});
+
+const featuredProjects = sortedProjects.filter(
+  project => project.data.featured,
+);
+const allProjects = sortedProjects.filter(project => !project.data.featured);
+const title = `Projects | ${siteConfig.authorName}`;
+const description =
+  'Projects built by Luke Howsam across React Native, TypeScript, web, mobile, and developer tooling.';
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: `${siteConfig.siteUrl}/projects/`,
+    description,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: sortedProjects.map((project, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${siteConfig.siteUrl}/projects/${project.data.slug}/`,
+        name: project.data.title,
+      })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: siteConfig.siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Projects',
+        item: `${siteConfig.siteUrl}/projects/`,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  structuredData={structuredData}
+>
+  <Container class="projects-container">
+    <Hero title="Projects" description="Open source apps" />
+    {
+      featuredProjects.length > 0 && (
+        <section class="projects-section" aria-labelledby="featured-projects">
+          <h2 id="featured-projects" class="section-title">
+            Featured Projects
+          </h2>
+          <div class="projects-grid featured-grid">
+            {featuredProjects.map(project => (
+              <ProjectCard project={project} analyticsSurface="projects_index" />
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    {
+      featuredProjects.length > 0 && allProjects.length > 0 && (
+        <hr class="section-divider" />
+      )
+    }
+
+    {
+      allProjects.length > 0 && (
+        <section class="projects-section" aria-labelledby="all-projects">
+          <h2 id="all-projects" class="section-title">
+            Other Projects
+          </h2>
+          <div class="projects-grid all-grid">
+            {allProjects.map(project => (
+              <ProjectCard project={project} analyticsSurface="projects_index" />
+            ))}
+          </div>
+        </section>
+      )
+    }
+  </Container>
+</BaseLayout>
+
+<style>
+  .projects-container {
+    max-width: none;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    margin: 0 0 1.75rem;
+    font-size: var(--text-2xl);
+  }
+
+  .projects-section {
+    padding-bottom: 4.5rem;
+  }
+
+  .projects-grid {
+    display: grid;
+    gap: 1.25rem;
+    align-items: stretch;
+  }
+
+  .featured-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .all-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-divider {
+    margin: 0 0 3rem;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  @media (max-width: 640px) {
+    .projects-section {
+      padding-bottom: 3.5rem;
+    }
+
+    .section-title {
+      margin-bottom: 1.25rem;
+    }
+
+    .projects-grid {
+      gap: 1rem;
+    }
+
+    .section-divider {
+      margin-bottom: 2.25rem;
+    }
+  }
+</style>

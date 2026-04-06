@@ -1,0 +1,96 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import Container from '../../../components/ui/Container.astro';
+import Hero from '../../../components/Hero.astro';
+import { siteConfig } from '../../../config/site';
+import { toTagSlug } from '../../../util/tags';
+
+const posts = await getCollection('blog', ({ data }) => {
+  return import.meta.env.PROD ? !data.draft : true;
+});
+
+const tagCounts = posts.reduce((accumulator, post) => {
+  post.data.tags.forEach(tag => {
+    const existing = accumulator.get(tag);
+
+    if (existing) {
+      existing.count += 1;
+      return;
+    }
+
+    accumulator.set(tag, {
+      label: tag,
+      slug: toTagSlug(tag),
+      count: 1,
+    });
+  });
+
+  return accumulator;
+}, new Map<string, { label: string; slug: string; count: number }>());
+
+const tags = [...tagCounts.values()].sort((a, b) =>
+  a.label.localeCompare(b.label),
+);
+
+const title = `Blog Tags | ${siteConfig.authorName}`;
+const description = 'Browse blog posts by tag.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Container>
+    <Hero title="Blog tags" description="Browse posts by topic" />
+    <div class="tags-grid">
+      {
+        tags.map(tag => (
+          <a class="tag-card" href={`/blog/tags/${tag.slug}/`}>
+            <span class="tag-label">{tag.label}</span>
+            <span class="tag-count">
+              {tag.count} post{tag.count === 1 ? '' : 's'}
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </Container>
+</BaseLayout>
+
+<style>
+  .tags-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    gap: 1rem;
+  }
+
+  .tag-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1rem 1.05rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    color: inherit;
+    text-decoration: none;
+    transition:
+      background-color var(--transition-base),
+      border-color var(--transition-base),
+      transform var(--transition-base);
+  }
+
+  .tag-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.14);
+    transform: translateY(-1px);
+  }
+
+  .tag-label {
+    color: var(--text-color);
+    font-size: 1rem;
+  }
+
+  .tag-count {
+    color: rgba(255, 255, 255, 0.56);
+    font-size: 0.85rem;
+  }
+</style>

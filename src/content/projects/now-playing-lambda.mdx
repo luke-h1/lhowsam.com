@@ -1,0 +1,13 @@
+---
+title: 'Now playing lambda'
+slug: 'now-playing-lambda'
+intro: 'In this project, I built an AWS lambda serverless function that makes requests to the Spotify API to get the currently playing song'
+tags: ['aws']
+heroImage: '../../assets/projects/now-playing-lambda-hero.jpg'
+githubUrl: 'https://github.com/luke-h1/lho-lambda'
+siteUrl: 'https://nowplaying.lhowsam.com/api/version'
+order: 2
+featured: true
+---
+
+In this project, I built an AWS lambda serverless function that makes requests to the Spotify api to get the currently playing song. Terraform is used to provision the infrastructure, API gateway is used to expose a HTTP endpoint and Cloudflare is used to provision SSL certificates and protect the API from DDOS attacks. Semver versioning is used to track the current version deployed and commitlint is used to enforce strict commit messages.

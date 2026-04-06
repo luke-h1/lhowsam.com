@@ -1,0 +1,266 @@
+.about-hero {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+  padding: 1.5rem 0 3.5rem;
+}
+
+.avatar-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  width: 220px;
+  height: 220px;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  object-fit: cover;
+}
+
+.hero-copy {
+  max-width: 40rem;
+}
+
+.hero-copy h1 {
+  margin-bottom: 0.35rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+}
+
+.headline {
+  margin: 0;
+  max-width: 32rem;
+  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.location {
+  margin-bottom: 1rem;
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 1.4rem;
+  max-width: 36rem;
+}
+
+.bio p {
+  margin: 0;
+  max-width: none;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.profile-tags,
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.profile-tags {
+  margin-top: 1.85rem;
+}
+
+.hero-actions {
+  margin-top: 1.5rem;
+  display: flex;
+}
+
+.cv-link {
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.26);
+  text-underline-offset: 0.28em;
+  transition:
+    color var(--transition-base),
+    text-decoration-color var(--transition-base);
+}
+
+.cv-link:hover {
+  color: var(--text-color);
+  text-decoration-color: rgba(255, 255, 255, 0.55);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.68);
+  font-size: var(--text-xs);
+  line-height: 1;
+  letter-spacing: 0.01em;
+}
+
+.section-divider {
+  margin: 0 0 3rem;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.experience-section {
+  padding-bottom: 4rem;
+}
+
+.experience-section h2 {
+  margin-bottom: 1.75rem;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0.8rem;
+  bottom: 0.8rem;
+  left: 0.43rem;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.5rem minmax(0, 1fr);
+  gap: 1.15rem;
+}
+
+.timeline-marker {
+  width: 0.72rem;
+  height: 0.72rem;
+  margin-top: 0.45rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 2px solid var(--bg-color);
+  z-index: 1;
+}
+
+.timeline-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 1rem;
+}
+
+.timeline-header h3 {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.company-name,
+.summary {
+  margin: 0;
+}
+
+.company-name {
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.date-badge {
+  flex-shrink: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: var(--text-xs);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.summary {
+  color: rgba(255, 255, 255, 0.62);
+  max-width: none;
+}
+
+.achievements {
+  margin: 0.1rem 0 0;
+  padding-left: 1rem;
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.achievements li {
+  margin-bottom: 0.3rem;
+}
+
+.achievements li::marker {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+@media (max-width: 640px) {
+  .about-hero {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding-bottom: 2.25rem;
+    align-items: start;
+  }
+
+  .avatar-wrap {
+    justify-content: flex-start;
+  }
+
+  .avatar {
+    width: 144px;
+    height: 144px;
+  }
+
+  .hero-copy {
+    max-width: none;
+  }
+
+  .bio {
+    margin-top: 1.15rem;
+    max-width: none;
+  }
+
+  .timeline-header {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .timeline {
+    gap: 1.25rem;
+  }
+
+  .timeline-item {
+    grid-template-columns: 1.25rem minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .timeline::before {
+    left: 0.33rem;
+  }
+
+  .date-badge {
+    align-self: flex-start;
+  }
+
+  .section-divider {
+    margin-bottom: 2.25rem;
+  }
+}

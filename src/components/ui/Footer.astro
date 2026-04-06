@@ -1,0 +1,89 @@
+---
+import { siteConfig } from '../../config/site';
+import NowPlaying from './NowPlaying.tsx';
+---
+
+<footer class="site-footer">
+  <div class="site-footer__inner">
+    <div
+      class="site-footer__copy"
+      aria-label={`Copyright ${new Date().getFullYear()} ${siteConfig.authorName}`}
+    >
+      <span class="site-footer__copyright">© {new Date().getFullYear()}</span>
+      <span class="site-footer__signature">luke-h1</span>
+    </div>
+    <div class="site-footer__spotify">
+      <NowPlaying client:idle />
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    width: 100%;
+    max-width: min(80rem, 100%);
+    margin: 0 auto;
+    margin-top: auto;
+    padding: 2rem 1.5rem 2.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .site-footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .site-footer__inner {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem 1.5rem;
+    }
+  }
+
+  .site-footer__copy {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 0.08rem;
+    color: var(--text-muted);
+  }
+
+  .site-footer__copyright {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.72;
+    font-family: var(--font-mono);
+  }
+
+  .site-footer__signature {
+    display: inline-block;
+    width: fit-content;
+    font-family: var(--font-signature);
+    font-size: clamp(1.35rem, 1.8vw, 1.8rem);
+    font-weight: 600;
+    line-height: 0.9;
+    color: color-mix(in srgb, var(--text-color) 74%, var(--link-color) 8%);
+    letter-spacing: 0.01em;
+    transform: rotate(-8deg) skewX(-6deg);
+    transform-origin: left center;
+    text-wrap: nowrap;
+    font-variant-ligatures: common-ligatures discretionary-ligatures;
+    opacity: 0.92;
+  }
+
+  .site-footer__spotify {
+    min-height: 3rem;
+    min-width: min(100%, 17rem);
+  }
+
+  @media (min-width: 640px) {
+    .site-footer__copy {
+      gap: 0;
+    }
+  }
+</style>

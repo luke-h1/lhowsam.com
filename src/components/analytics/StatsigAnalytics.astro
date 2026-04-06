@@ -1,0 +1,16 @@
+---
+import StatsigAnalyticsClient from './StatsigAnalyticsClient.tsx';
+
+const clientKey = import.meta.env.PUBLIC_STATSIG_CLIENT_KEY ?? '';
+const environment = import.meta.env.PUBLIC_STATSIG_ENVIRONMENT ?? 'development';
+---
+
+{
+  clientKey && (
+    <StatsigAnalyticsClient
+      clientKey={clientKey}
+      environment={environment}
+      client:idle
+    />
+  )
+}

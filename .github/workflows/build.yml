@@ -3,17 +3,7 @@ on:
   pull_request:
     branches: [dev, main]
 env:
-  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-  NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
-  NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
-  PNPM_VERSION: 9.12.3
-  SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-  SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-  NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
-  TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
-  TURBO_TEAM: luke-h1
-  NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_URL }}
+  OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
 
 jobs:
   build:
@@ -30,16 +20,20 @@ jobs:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
 
+      - name: Load secrets
+        uses: 1password/load-secrets-action@v3
+        with:
+          export-env: true
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ env.OP_SERVICE_ACCOUNT_TOKEN }}
+          SENTRY_ORG: op://ci-cd/lhowsam-dev/SENTRY_ORG
+          SENTRY_PROJECT: op://ci-cd/lhowsam-dev/SENTRY_PROJECT
+          SENTRY_AUTH_TOKEN: op://ci-cd/lhowsam-dev/SENTRY_AUTH_TOKEN
+          PUBLIC_SENTRY_DSN: op://ci-cd/lhowsam-dev/PUBLIC_SENTRY_DSN
+          PUBLIC_URL: op://ci-cd/lhowsam-dev/PUBLIC_URL
+
       - name: install
         uses: ./.github/actions/install
-
-      - name: Cache Turbo
-        uses: actions/cache@v4
-        with:
-          path: .turbo
-          key: ${{ runner.os }}-turbo-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-turbo-
 
       - name: Build frontend
         uses: ./.github/actions/build

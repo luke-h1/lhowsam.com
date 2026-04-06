@@ -1,0 +1,75 @@
+---
+title: "Getting started with aws-vault"
+slug: "getting-started-with-aws-vault"
+intro: "AWS vault is a handy tool I use every day to manage my AWS credentials when developing locally"
+publishedAt: 2024-03-06
+tags: ["aws","cloud"]
+heroImage: "../../assets/blog/getting-started-with-aws-vault-hero.png"
+---
+
+## Why aws-vault?
+
+
+When we are configuring the AWS CLI on our machines, it will save access key and secrets in plain text format in your home directory  `~/.aws/credentials`. As you can imagine, this becomes a big security concern as everyone knows where to look for your credentials, they're in plain text and anyone can scan/look for those keys. If you're unlucky, you've just given someone easy access to your account.  
+
+
+In order to prevent situations like this from happening, aws-vault comes to the rescue! aws-vault is an open source tool developed by [99Designs](https://github.com/99designs) which is widely used to secure our AWS keys in an encrypted format.
+
+Moreover, aws-vault maximizes security through transient credentials obtained from Amazon's STS service. These are procured via `GetSessionToken` and `AssumeRole` API calls and have a limited timespan. Since these credentials are temporary, the danger of becoming compromised is significantly reduced. 
+
+
+
+## Getting started
+
+Here's a quick starter on how you can get up and running with aws-vault
+
+
+### Setting up the tool
+
+On mac OS, we can install aws-vault with one command:
+
+```bash
+brew install --cask aws-vault
+
+```
+
+### Transfer any existing credentials 
+
+
+Move existing credentials to aws-vault: 
+
+```bash
+cat ~/.aws/credentials
+aws-vault add profile_1
+aws-vault add profile_2
+```
+
+### Pick an account to launch 
+
+To review all your available accounts run: 
+
+```bash 
+
+aws-vault list
+
+```
+
+To assume an account role: 
+
+```bash
+
+aws-vault exec my_profile
+
+```
+
+## Passwordless AWS console access 
+
+Another advantage of using aws-vault is that you can perform safe sign-in to the aws console. This saves the hassle of having to use your browser to navigate to aws. This command utilises your MacOS keychain and 2FA to authenticate you with your profile: 
+
+```
+aws-vault login my-profile --duration 2h
+```
+
+## Ending the session 
+
+To Safeguard against your account becoming comprimised you can terminate the vault session by pressing `ctrl+d`. In addition to this you can set short session durations to avoid being authenticated longer than necessary

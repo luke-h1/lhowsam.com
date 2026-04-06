@@ -4,15 +4,7 @@ on:
   schedule: 
     - cron: '0 */14 * * *'
 env: 
-  NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
-  NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
-  NEXT_PUBLIC_URL: ${{ secrets.NEXT_PUBLIC_URL }}
-  NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
-  PNPM_VERSION: 9.12.3
-  SENTRY_ORG: ${{ secrets.SENTRY_ORG }}
-  SENTRY_PROJECT: ${{ secrets.SENTRY_PROJECT }}
-  SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
-  NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}
+  OP_SERVICE_ACCOUNT_TOKEN: ${{ secrets.OP_SERVICE_ACCOUNT_TOKEN }}
 
 jobs:
   test:
@@ -28,6 +20,18 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.head_ref }}
+
+      - name: Load secrets
+        uses: 1password/load-secrets-action@v3
+        with:
+          export-env: true
+        env:
+          OP_SERVICE_ACCOUNT_TOKEN: ${{ env.OP_SERVICE_ACCOUNT_TOKEN }}
+          PUBLIC_URL: op://ci-cd/lhowsam-prod/PUBLIC_URL
+          SENTRY_ORG: op://ci-cd/lhowsam-prod/SENTRY_ORG
+          SENTRY_PROJECT: op://ci-cd/lhowsam-prod/SENTRY_PROJECT
+          SENTRY_AUTH_TOKEN: op://ci-cd/lhowsam-prod/SENTRY_AUTH_TOKEN
+          PUBLIC_SENTRY_DSN: op://ci-cd/lhowsam-prod/PUBLIC_SENTRY_DSN
       
       - name: install dependencies
         uses: ./.github/actions/install

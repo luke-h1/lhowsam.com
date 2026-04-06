@@ -4,21 +4,20 @@ description: Install dependencies and setup environment
 runs:
   using: composite
   steps:
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          version: ${{ env.PNPM_VERSION }}
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version-file: .nvmrc
-          cache: pnpm
+          bun-version: 1.3.5
 
       - name: Install dependencies
-        run: pnpm i
+        run: bun install --frozen-lockfile
         shell: bash
 
       - uses: actions/labeler@v4
         with:
           sync-labels: true
+
+      - name: Check commit message
+        if: ${{ hashFiles('commitlint.config.js', 'commitlint.config.cjs', '.commitlintrc.json', '.commitlintrc.js', '.commitlintrc.cjs') != '' }}
+        run: bunx @commitlint/cli --from=HEAD^1
+        shell: bash

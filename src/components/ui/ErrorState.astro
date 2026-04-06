@@ -1,0 +1,96 @@
+---
+import Container from './Container.astro';
+
+interface Props {
+  code: string;
+  title: string;
+  description: string;
+}
+
+const { code, title, description } = Astro.props;
+---
+
+<Container>
+  <section class="error-state">
+    <p class="error-code">{code}</p>
+    <h1>{title}</h1>
+    <p class="error-description">{description}</p>
+    <div class="error-actions">
+      <a href="/">Back home</a>
+      <a href="/projects">View projects</a>
+      <a href="/blog">Read blog</a>
+    </div>
+  </section>
+</Container>
+
+<style>
+  .error-state {
+    width: min(100%, 44rem);
+    margin: 6rem auto 5rem;
+    padding: 2rem 0 1rem;
+  }
+
+  .error-code {
+    margin: 0 0 0.9rem;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 0.8rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .error-state h1 {
+    margin: 0 0 1rem;
+    font-size: clamp(2.75rem, 6vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+    text-wrap: balance;
+  }
+
+  .error-description {
+    max-width: 38rem;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1.08rem;
+    line-height: 1.8;
+  }
+
+  .error-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    margin-top: 1.75rem;
+  }
+
+  .error-actions a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.5rem;
+    padding: 0 0.95rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition:
+      background-color var(--transition-base),
+      border-color var(--transition-base),
+      color var(--transition-base);
+  }
+
+  .error-actions a:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.14);
+    color: var(--text-color);
+  }
+
+  @media (max-width: 640px) {
+    .error-state {
+      margin: 4rem auto 3rem;
+    }
+
+    .error-state h1 {
+      font-size: clamp(2.5rem, 14vw, 3.4rem);
+      line-height: 0.98;
+    }
+  }
+</style>

@@ -1,0 +1,93 @@
+---
+title: "Preventing fouc with Chakra UI"
+slug: "preventing-fouc-with-chakra-ui"
+intro: "How to prevent FOUC (flash of unstyled content) when using Next.js & Chakra UI"
+publishedAt: 2022-03-26
+tags: ["next-js","react","styled-components"]
+heroImage: "../../assets/blog/preventing-fouc-with-chakra-ui-hero.png"
+---
+
+### How to fix FOUC with Chakra UI & Next.js 
+
+Chakra UI is a modular component library which under the hood uses [Emotion](https://emotion.sh/docs/introduction) & [styled system](https://styled-system.com/). I like using Chakra UI if I want to quickly build a UI for prototype purposes. In addition to this, I typically reach for Chakra UI because it is: 
+ - CSS-in-JS based
+- Easily customizable
+- Written in Typescript
+- Not too bloated
+
+If you've used emotion and Next.js, there is a high chance you've encountered [FOUC (flash of unstyled content)](https://en.wikipedia.org/wiki/Flash_of_unstyled_content).
+
+This happens because the `<ChakraProivder />` stylesheets are only loaded on the client. Since Chakra UI uses [Emotion](https://emotion.sh/docs/introduction), the solution is to render the styles on the server-side & cache them using additional Emotion packages, `@emotion/cache` & `@emotion/server`.
+
+```bash title="Terminal"
+# yarn 
+yarn add @emotion/cache @emotion/server 
+
+# npm 
+npm i @emotion/cache @emotion/server
+```
+
+After adding these dependencies, we need to create a cache for emotion to utilize: 
+
+```typescript title="src/utils/cache.ts"
+import createCache from "@emotion/cache";
+
+export default createCache({
+  key: "css",
+});
+```
+
+Now we can render these stylesheets on the server-side in `src/pages/_document.tsx` with `Document.getInitialProps`: 
+
+```typescript title="src/pages/_document.tsx"
+import { ColorModeScript } from "@chakra-ui/react";
+import createEmotionServer from "@emotion/server/create-instance";
+import Document, {
+  DocumentContext,
+  DocumentInitialProps,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from "next/document";
+import emotionCache from "../utils/cache";
+const { extractCritical } = createEmotionServer(emotionCache);
+
+export default class CustomDocument extends Document {
+  static async getInitialProps(
+    ctx: DocumentContext
+  ): Promise<DocumentInitialProps> {
+    const initialProps = await Document.getInitialProps(ctx);
+    const styles = extractCritical(initialProps.html);
+    return {
+      ...initialProps,
+      styles: [
+        initialProps.styles,
+        <style
+          key="emotion-css"
+          dangerouslySetInnerHTML={{ __html: styles.css }}
+          data-emotion-css={styles.ids.join(" ")}
+        />,
+      ],
+    };
+  }
+  render() {
+    return (
+      <Html lang="en">
+        <Head>
+          <meta charSet="UTF-8" />
+          <meta content="ie=edge" httpEquiv="X-UA-Compatible" />
+        </Head>
+
+        <body>
+          <ColorModeScript />
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
+}
+```
+
+Now that this is in place, the page should render the chakra UI stylesheets on both the server-side & client-side (and the FOUC issue should be fixed!).

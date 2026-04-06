@@ -1,4 +1,4 @@
-import { test, expect, Page } from '@playwright/test';
+import { expect, type Page, test } from '@playwright/test';
 import { baseUrl } from './config/baseUrl';
 
 let page: Page;
@@ -9,9 +9,10 @@ const domainsWithwwwRedirect = [
 ];
 
 test.describe('domains', () => {
-  if (!domainsWithwwwRedirect.includes(baseUrl)) {
-    test.skip();
-  }
+  test.skip(
+    !domainsWithwwwRedirect.includes(baseUrl),
+    `www redirect check only for production base URL (current: ${baseUrl})`,
+  );
 
   test.beforeAll(async ({ browser }) => {
     page = await browser.newPage();

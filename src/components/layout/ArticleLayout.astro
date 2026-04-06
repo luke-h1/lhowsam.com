@@ -1,0 +1,90 @@
+---
+import { format } from 'date-fns';
+import TableOfContents from '../blog/TableOfContents.astro';
+import BaseLayout from './BaseLayout.astro';
+
+type Heading = {
+  depth: number;
+  slug: string;
+  text: string;
+};
+
+interface Props {
+  title: string;
+  seoTitle?: string;
+  description: string;
+  headings?: Heading[];
+  publishedAt?: Date;
+  intro?: string;
+  image?: string;
+  canonicalURL?: string | URL;
+  pageType?: 'website' | 'article' | 'profile';
+  structuredData?: object | object[];
+}
+
+const {
+  title,
+  seoTitle = title,
+  description,
+  headings = [],
+  publishedAt,
+  intro,
+  image,
+  canonicalURL,
+  pageType = 'article',
+  structuredData,
+} = Astro.props;
+
+const hasToc = headings.some(h => h.depth >= 2 && h.depth <= 4);
+---
+
+<BaseLayout
+  title={seoTitle}
+  description={description}
+  image={image}
+  canonicalURL={canonicalURL}
+  pageType={pageType}
+  structuredData={structuredData}
+>
+  <div class:list={['post-page', hasToc && 'post-page--with-toc']}>
+    {
+      hasToc && (
+        <div class="post-toc-mobile">
+          <TableOfContents headings={headings} collapsible />
+        </div>
+      )
+    }
+    <div class="post-layout">
+      <article class="post" lang="en">
+        <header class="post-header">
+          <h1 class="post-title" data-testid="article-title">{title}</h1>
+          {
+            publishedAt && (
+              <time
+                class="post-date"
+                data-testid="article-published-at"
+                datetime={publishedAt.toISOString()}
+              >
+                {format(publishedAt, 'MMMM d, yyyy')}
+              </time>
+            )
+          }
+          {intro && <p class="post-intro">{intro}</p>}
+          <slot name="headerExtras" />
+        </header>
+        <div class="content" data-testid="article-body">
+          <slot />
+        </div>
+      </article>
+      {
+        hasToc && (
+          <aside class="post-toc-aside">
+            <div class="post-toc-sticky">
+              <TableOfContents headings={headings} />
+            </div>
+          </aside>
+        )
+      }
+    </div>
+  </div>
+</BaseLayout>

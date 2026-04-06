@@ -1,0 +1,186 @@
+---
+title: 'Setting up k3s + Immich on a VPS'
+slug: 'setting-up-k3s-and-immich-on-a-vps'
+intro: 'How I run Immich on k3s with Cloudflare Tunnel, backups, and a scripts-first repo you can copy.'
+publishedAt: 2026-04-06
+tags:
+  [
+    'devops',
+    'kubernetes',
+    'k3s',
+    'immich',
+    'cloudflare',
+    'terraform',
+    'self-hosting',
+  ]
+heroImage: '../../assets/blog/getting-started-with-aws-vault-hero.png'
+---
+
+Recently I've had issues with Google and Icloud photos. I've noticed that they didn't sync as fast as I'd like, and after a while I've quickly been running out of storage. Not wanting to pay for more storage and also wanting to set up a home server, I decided to set up k3s + Immich on a VPS.
+
+I've been really happy with Immich. For me it's ended up being a genuinely better experience than iCloud / Google Photos
+
+The best part is that it doesn't have to be expensive. I'm running this stack on a small Hetzner VPS that costs about **€5/month**, and it's been more than enough for k3s, Immich and the monitoring stack
+
+This setup lives in [`home-server`](https://github.com/luke-h1/home-server). The goal is pretty simple:
+
+- Immich
+- k3s
+- monitoring + logs
+- Cloudflare Tunnel so I don’t have to expose ports to the internet
+- automated backups
+
+This post walks through how the repo is structured and how to set up **k3s + Immich** on a VPS.
+
+## What you get
+
+- **Terraform** for provisioning the VPS
+- **Bootstrap** script that installs k3s + base tooling
+- **Deploy** scripts that validate env, create secrets, and apply manifests
+- **Immich** deployed into its own namespace with Postgres + Redis
+- **Cloudflare Tunnel** fronting Traefik so everything routes by `Host`
+- **Backups**: weekly Postgres dumps to S3 and library sync from the Immich sidecar
+- **Monitoring**: Prometheus + Grafana + Alertmanager (+ Loki/Promtail for fail2ban logs)
+
+## Prereqs
+
+Locally, you'll need:
+
+- `terraform`
+- `kubectl`
+- `envsubst` (e.g. `gettext-base`)
+
+On the server, the scripts handle most of the work.
+
+## 1) Provision the VPS with Terraform
+
+```bash
+cd terraform
+cp terraform.tfvars.example envs/prod.tfvars
+terraform init
+terraform plan -var-file=envs/prod.tfvars
+terraform apply -var-file=envs/prod.tfvars
+```
+
+Once the VPS is up, SSH in and move onto bootstraping the server
+
+## 2) Bootstrap: install k3s + tooling
+
+```bash
+git clone https://github.com/luke-h1/home-server
+cd home-server
+sudo ./scripts/setup-server.sh
+```
+
+Ensure k3s is installed properly and running:
+
+```bash
+systemctl status k3s
+kubectl get nodes
+```
+
+## 3) Configure your environment (`kubernetes/.env`)
+
+```bash
+cp kubernetes/.env.example kubernetes/.env
+```
+
+You need at least:
+
+- **URLs**: `IMMICH_DOMAIN`, `IMMICH_PUBLIC_URL`, `GRAFANA_DOMAIN`, `GRAFANA_ROOT_URL`, `PROMETHEUS_DOMAIN`, `ALERTS_DOMAIN`
+- **Secrets**: `IMMICH_DB_PASSWORD`, `GRAFANA_ADMIN_*`, `ALERTS_BASIC_AUTH_*`, `ALERTMANAGER_TELEGRAM_*`
+- **S3 backups**: `BACKUP_S3_BUCKET`, `BACKUP_S3_PREFIX`, `AWS_REGION`, `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`
+- **Tunnel**: `CLOUDFLARE_TUNNEL_TOKEN`, `CLOUDFLARE_TUNNEL_ORIGIN` (defaults to Traefik on `http://127.0.0.1:80`)
+
+Then validate it:
+
+```bash
+./scripts/k8s.sh env-check
+```
+
+## 4) Create secrets + deploy Immich
+
+The flow I use is:
+
+```bash
+./scripts/k8s.sh secrets
+./scripts/k8s.sh apply immich
+```
+
+this will apply the secrets to the kubernetes cluster and deploy Immich
+
+Or if you want to deploy everything in one go:
+
+```bash
+./scripts/k8s.sh apply all
+```
+
+## 5) Cloudflare Tunnel
+
+I chose to use Cloudflare Tunnel to front Traefik rather than expose ports to the internet. A lot of services on hetzner have a history of being targetted by IP spoofing attacks, which can lead to your account being suspended/flagged. To avoid the hassle of dealing with this, I opted to use Cloudflare Tunnel in order to not expose any ports to the internet (aside from ssh).
+
+1. Cloudflare Zero Trust → Tunnels → create tunnel → copy **install token**
+2. Put it into `CLOUDFLARE_TUNNEL_TOKEN` in `kubernetes/.env`
+3. Install the tunnel on the server:
+
+```bash
+sudo ./scripts/cloudflare-tunnel.sh install-token
+```
+
+Then for each hostname, add a **public hostname** in the Cloudflare UI pointing to:
+
+- `http://127.0.0.1:80`
+
+Traefik routes based on `Host`, so the tunnel always points at Traefik and not at random pod ports
+
+Immich mobile config is intentionally boring:
+
+- server URL = `https://<IMMICH_DOMAIN>` (same as `IMMICH_PUBLIC_URL`)
+
+## 6) Backups
+
+This setup does two things:
+
+- **Weekly Postgres dump to S3** (CronJob)
+- **Library sync to S3** (from the `immich-server` sidecar)
+
+I try to keep this aligned with the **3-2-1 backup** idea:
+
+- **3 copies** of your data (VPS disk, S3, Google photos)
+- **2 different media types** (e.g. disk + object storage)
+- **1 offsite** (Icloud / Google photos)
+
+If you ever need to restore from backups (i.e. on a new server):
+
+```bash
+./scripts/restore-immich-from-s3.sh
+```
+
+## 7) Monitoring + logs
+
+Monitoring lives in a separate namespace and includes:
+
+- Prometheus
+- Grafana
+- Alertmanager
+- Loki + Promtail (cluster logs)
+- blackbox checks
+
+Deploy:
+
+```bash
+./scripts/k8s.sh apply monitoring
+```
+
+Useful Loki queries:
+
+```logql
+{job="node-authlog"} |= "sshd"
+{namespace="immich"} |= "error"
+```
+
+## Closing thoughts
+
+If you want to see the exact scripts/manifests, the repo is here:
+
+- [`luke-h1/home-server`](https://github.com/luke-h1/home-server)

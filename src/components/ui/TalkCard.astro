@@ -1,0 +1,68 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { format } from 'date-fns';
+
+interface Props {
+  talk: CollectionEntry<'talks'>;
+  analyticsSurface?: string;
+}
+
+const { talk, analyticsSurface = 'talks_list' } = Astro.props;
+---
+
+<article>
+  <a
+    class="title-link"
+    href={`/talks/${talk.data.slug}`}
+    data-analytics-event="talk_click"
+    data-analytics-label={talk.data.slug}
+    data-analytics-surface={analyticsSurface}
+  >
+    {talk.data.title}
+  </a>
+  <time datetime={talk.data.publishedAt.toISOString()}>
+    {format(talk.data.publishedAt, 'MMMM d, yyyy')}
+  </time>
+  <p class="location">{talk.data.location}</p>
+  <p class="muted-text">{talk.data.intro}</p>
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .title-link {
+    font-size: var(--text-lg);
+    text-decoration: none;
+    color: var(--text-color);
+    line-height: 1.35;
+  }
+
+  .title-link:hover {
+    color: var(--link-color);
+  }
+
+  time {
+    font-size: var(--text-sm);
+    opacity: 0.7;
+    line-height: 1.25;
+  }
+
+  .location {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: 1.35;
+  }
+
+  .muted-text {
+    margin: 0;
+    max-width: 42rem;
+    line-height: 1.6;
+  }
+</style>
