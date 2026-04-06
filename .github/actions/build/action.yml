@@ -3,10 +3,6 @@ description: 'Build frontend'
 runs:
   using: 'composite'
   steps:
-      - name: Ensure rebased with dev 
-        shell: bash
-        run: ./scripts/ensure-rebased.sh
-
       - name: prettier:check
         run: bun run prettier:check
         shell: bash

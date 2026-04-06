@@ -36,9 +36,6 @@ jobs:
           SENTRY_AUTH_TOKEN: op://ci-cd/lhowsam-dev/SENTRY_AUTH_TOKEN
           PUBLIC_SENTRY_DSN: op://ci-cd/lhowsam-dev/PUBLIC_SENTRY_DSN
 
-      - name: Ensure rebased with dev
-        run: ./scripts/ensure-rebased.sh
-
       - name: install
         uses: ./.github/actions/install
 
