@@ -26,6 +26,7 @@
     "e2e:dev:open": "BASE_URL='https://dev.lhowsam.com' playwright test --headed",
     "e2e:prod": "BASE_URL='https://lhowsam.com' playwright test",
     "e2e:prod:open": "BASE_URL='https://lhowsam.com' playwright test --headed",
+    "e2e:production:open": "BASE_URL='https://lhowsam.com' playwright test --headed",
     "prepare": "husky"
   },
   "dependencies": {
