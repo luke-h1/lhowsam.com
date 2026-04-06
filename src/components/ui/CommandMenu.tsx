@@ -24,6 +24,7 @@ import {
 } from 'lucide-react';
 import React, { useEffect, useState } from 'react';
 import type { CommandMenuGroup, CommandMenuItem } from '../../util/commandMenu';
+import { navigateToInternalUrl } from '../../util/navigateToInternalUrl';
 import './CommandMenu.css';
 
 interface Props {
@@ -192,7 +193,7 @@ const CommandMenu = ({ groups }: Props) => {
       return;
     }
 
-    window.open(new URL(item.href, currentOrigin).toString(), '_self');
+    navigateToInternalUrl(item.href, currentOrigin);
   };
 
   return (

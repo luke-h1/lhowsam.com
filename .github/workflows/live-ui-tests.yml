@@ -39,4 +39,4 @@ jobs:
       - name: UI tests prod
         uses: ./.github/actions/ui-test
         with:
-          target: e2e-prod
+          target: e2e:prod

@@ -139,17 +139,15 @@ const structuredData = [
                   {project.data.techStack.map(stack => (
                     <span class="tag">
                       {stack.name}
-                      {
-                        stack.imagePath && (
-                          <Image
-                            src={stack.imagePath}
-                            alt={stack.name}
-                            width={16}
-                            height={16}
-                            class="tag-image"
-                          />
-                        )
-                      }
+                      {stack.imagePath && (
+                        <Image
+                          src={stack.imagePath}
+                          alt={stack.name}
+                          width={16}
+                          height={16}
+                          class="tag-image"
+                        />
+                      )}
                     </span>
                   ))}
                 </div>

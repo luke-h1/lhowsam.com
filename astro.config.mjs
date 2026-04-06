@@ -7,7 +7,6 @@ import sentry from '@sentry/astro';
 import { transformerNotationDiff } from '@shikijs/transformers';
 import { defineConfig } from 'astro/config';
 
-
 // https://astro.build/config
 export default defineConfig({
   site: 'https://lhowsam.com',
@@ -17,9 +16,18 @@ export default defineConfig({
   redirects: {
     '/work/': '/work-projects/',
     '/work/[slug]': '/work-projects/[slug]',
+    '/sitemap.xml': '/sitemap-index.xml',
+    '/blog/deploying-a-full-stack-app-via-dokku': '/blog/full-stack-deploy-with-dokku',
+    '/projects/infra': '/projects/config',
+    '/blog/nextjs-ssr-notes': '/blog/next-js-ssr-notes',
+    '/cv': '/static/cv.pdf',
+    '/branches': 'https://branches.lhowsam.com',
+    '/status': 'https://status.lhowsam.com',
+    '/linkedin': 'https://www.linkedin.com/in/lukehowsam',
+    '/github': 'https://github.com/luke-h1',
   },
   adapter: vercel({
-    edgeMiddleware: true,
+    edgeMiddleware: false,
     skewProtection: true,
   }),
   integrations: [

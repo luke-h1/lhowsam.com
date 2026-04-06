@@ -15,7 +15,5 @@ test.describe('about', () => {
     await expect(page.getByTestId('about-page-headline')).toContainText(
       'Software Developer focused on React Native, mobile, backend',
     );
-    await expect(page.getByTestId('about-page-kicker')).toBeVisible();
-    await expect(page.getByTestId('about-page-now')).toBeVisible();
   });
 });

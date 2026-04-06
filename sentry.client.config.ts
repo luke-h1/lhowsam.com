@@ -8,5 +8,5 @@ Sentry.init({
       : 'development',
   enabled: true,
   integrations: [],
-  tunnel: '/tunnel',
+  tunnel: '/api/tunnel',
 });

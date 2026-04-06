@@ -2,21 +2,30 @@ name: UI tests
 description: Run UI tests
 inputs:
   target:
-    description: 'make target to execute'
+    description: 'bun script target to execute'
     required: true
 runs:
   using: composite
   steps:
     - name: Install browsers
-      run: ./node_modules/.bin/playwright install --with-deps chromium
+      run: bunx playwright install --with-deps --only-shell chromium
       shell: bash
+      env:
+        DEBUG: pw:install*
+        PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
 
     - name: UI tests
       if: ${{ inputs.target == 'e2e-local' }}
-      run: bunx start-server-and-test start 3000 uitest:local
+      run: bun run e2e:local
       shell: bash
+      env:
+        DEBUG: pw:browser*
+        PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
 
     - name: UI tests
       if: ${{ inputs.target != 'e2e-local' }}
-      run: make ${{ inputs.target }}
+      run: bun run ${{ inputs.target }}
       shell: bash
+      env:
+        DEBUG: pw:browser*
+        PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright

@@ -11,7 +11,12 @@ import type {
   CommandMenuGroup,
   CommandMenuItem,
 } from '../../../util/commandMenu';
+import { navigateToInternalUrl } from '../../../util/navigateToInternalUrl';
 import CommandMenu from '../CommandMenu';
+
+vi.mock('../../../util/navigateToInternalUrl', () => ({
+  navigateToInternalUrl: vi.fn(),
+}));
 
 const groups: CommandMenuGroup<CommandMenuItem>[] = [
   {
@@ -127,7 +132,6 @@ const groups: CommandMenuGroup<CommandMenuItem>[] = [
   },
 ];
 
-const mockAssign = vi.fn();
 const mockOpen = vi.fn();
 const writeText = vi.fn();
 const baseUrl = 'http://localhost:3000';
@@ -158,8 +162,8 @@ describe('CommandMenu', () => {
   beforeEach(() => {
     writeText.mockReset();
     writeText.mockResolvedValue(undefined);
-    mockAssign.mockReset();
     mockOpen.mockReset();
+    vi.mocked(navigateToInternalUrl).mockReset();
 
     Object.assign(navigator, {
       clipboard: {
@@ -246,10 +250,8 @@ describe('CommandMenu', () => {
   ])('navigates to internal links from %s', (label, href) => {
     fireEvent.click(getRequiredVisibleByText(label));
 
-    expect(mockOpen).toHaveBeenCalledWith(
-      new URL(href, baseUrl).toString(),
-      '_self',
-    );
+    expect(navigateToInternalUrl).toHaveBeenCalledWith(href, baseUrl);
+    expect(mockOpen).not.toHaveBeenCalled();
   });
 
   test('opens external links in new tab', () => {

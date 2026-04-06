@@ -41,6 +41,5 @@ test.describe('blog', () => {
     }
   });
 
-  // Legacy ~/lhowsam.com blog search + ?title= URL sync — not implemented on Astro blog index.
   test.describe.skip('search', () => {});
 });

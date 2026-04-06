@@ -3,6 +3,9 @@ import { baseUrl } from './config/baseUrl';
 
 let page: Page;
 
+const escapeRegExp = (value: string) =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
 const domainsWithwwwRedirect = [
   'https://lhowsam.com',
   'https://dev.lhowsam.com',
@@ -22,8 +25,7 @@ test.describe('domains', () => {
   test('vercel redirects www to non-www', async () => {
     expect(page.url()).not.toContain('www');
     const wwwUrl = baseUrl.replace('https://', 'https://www.');
-    await page.goto(wwwUrl);
-    await page.waitForLoadState('networkidle');
-    expect(page.url()).not.toContain('www');
+    await page.goto(wwwUrl, { waitUntil: 'domcontentloaded' });
+    await expect(page).toHaveURL(new RegExp(`^${escapeRegExp(baseUrl)}/?$`));
   });
 });

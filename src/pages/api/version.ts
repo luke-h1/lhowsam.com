@@ -10,6 +10,10 @@ export const GET: APIRoute = async () => {
     }),
     {
       status: 200,
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8',
+        'Cache-Control': 'no-store',
+      },
     },
   );
 };

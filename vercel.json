@@ -4,6 +4,56 @@
       "source": "/work/",
       "destination": "/work-projects/",
       "permanent": true
+    },
+    {
+      "source": "/work/:slug",
+      "destination": "/work-projects/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml",
+      "permanent": true
+    },
+    {
+      "source": "/blog/deploying-a-full-stack-app-via-dokku",
+      "destination": "/blog/full-stack-deploy-with-dokku",
+      "permanent": true
+    },
+    {
+      "source": "/projects/infra",
+      "destination": "/projects/config",
+      "permanent": true
+    },
+    {
+      "source": "/blog/nextjs-ssr-notes",
+      "destination": "/blog/next-js-ssr-notes",
+      "permanent": true
+    },
+    {
+      "source": "/cv",
+      "destination": "/static/cv.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/branches",
+      "destination": "https://branches.lhowsam.com",
+      "permanent": true
+    },
+    {
+      "source": "/status",
+      "destination": "https://status.lhowsam.com",
+      "permanent": true
+    },
+    {
+      "source": "/linkedin",
+      "destination": "https://www.linkedin.com/in/lukehowsam",
+      "permanent": true
+    },
+    {
+      "source": "/github",
+      "destination": "https://github.com/luke-h1",
+      "permanent": true
     }
   ]
 }
