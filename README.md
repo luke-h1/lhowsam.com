@@ -1,43 +1,40 @@
-# Astro Starter Kit: Minimal
+# [lhowsam.com](https://lhowsam.com)
 
-```sh
-bun create astro@latest -- --template minimal
-```
+My website & blog
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Tech Stack:
 
-## 🚀 Project Structure
+- [React](https://github.com/facebook/react)
+- [Astro](https://github.com/withastro/astro)
+- [Typescript](https://github.com/Microsoft/TypeScript)
+- [Playwright](https://playwright.dev/)
+- [Jest](https://jestjs.io)
+- [MDX](https://github.com/mdx-js/mdx)
+- [Vercel](https://vercel.com)
+- [AWS lambda](https://aws.amazon.com/lambda/)
 
-Inside of your Astro project, you'll see the following folders and files:
+<br />
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+[![CI / build](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/build.yml)
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+[![Deploy](https://github.com/luke-h1/lhowsam.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/deploy.yml)
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+[![CI / UI tests (live)](https://github.com/luke-h1/lhowsam.com/actions/workflows/live-ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/live-ui-tests.yml)
 
-Any static assets, like images, can be placed in the `public/` directory.
+[![CI / UI tests (development)](https://github.com/luke-h1/lhowsam.com/actions/workflows/dev-ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/dev-ui-tests.yml)
 
-## 🧞 Commands
+[![CodeQL](https://github.com/luke-h1/lhowsam.com/actions/workflows/codeql.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/codeql.yml)
 
-All commands are run from the root of the project, from a terminal:
+[![Dependency Review](https://github.com/luke-h1/lhowsam.com/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/dependency-review.yml)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+## Environments
 
-## 👀 Want to learn more?
+| Environment | URL                     | Version endpoint                    |
+| ----------- | ----------------------- | ----------------------------------- |
+| Production  | https://lhowsam.com     | https://lhowsam.com/api/version     |
+| Development | https://dev.lhowsam.com | https://dev.lhowsam.com/api/version |
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Supporting repositories
+
+- [AWS lambdas](https://github.com/luke-h1/lho-lambda)
+- [Sanity studio](https://github.com/luke-h1/lhowsam-studio)
