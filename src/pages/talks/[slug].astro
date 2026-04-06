@@ -5,7 +5,7 @@ import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../components/layout/ArticleLayout.astro';
 import { siteConfig } from '../../config/site';
 import { absoluteUrl } from '../../util/seo';
-import lukeImage from '../../assets/luke.png';
+import { defaultSocialImagePath } from '../../util/socialImage';
 
 export const getStaticPaths = (async () => {
   const talks = await getCollection('talks');
@@ -23,7 +23,7 @@ const { talk } = Astro.props;
 const { Content, headings } = await render(talk);
 const canonicalURL = `${siteConfig.siteUrl}/talks/${talk.data.slug}/`;
 const seoTitle = `${talk.data.title} | Talks | ${siteConfig.authorName}`;
-const ogImageSrc = talk.data.heroImage?.src ?? lukeImage.src;
+const ogImageSrc = talk.data.heroImage?.src ?? defaultSocialImagePath;
 const structuredData = [
   {
     '@context': 'https://schema.org',

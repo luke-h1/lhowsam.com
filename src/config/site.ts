@@ -6,7 +6,7 @@ export const siteConfig = {
   defaultTitle: 'Luke Howsam | Software Developer',
   defaultDescription:
     'Personal website of Luke Howsam, a software developer writing about React Native, TypeScript, mobile engineering, backend systems, and DevOps.',
-  defaultOgImage: '/favicon.svg',
+  defaultOgImage: '/og-signature.png',
   socialLinks: [
     {
       name: 'GitHub',

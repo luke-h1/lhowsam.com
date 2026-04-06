@@ -16,9 +16,9 @@ import caveatSemiBoldWoff2 from '@fontsource/caveat/files/caveat-latin-600-norma
 import instrumentSerifWoff2 from '@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2?url';
 import interRegularWoff2 from '@fontsource/inter/files/inter-latin-400-normal.woff2?url';
 import interMediumWoff2 from '@fontsource/inter/files/inter-latin-500-normal.woff2?url';
-import lukeImage from '../../assets/luke.png';
 import { siteConfig } from '../../config/site';
 import { absoluteUrl, toJsonLd } from '../../util/seo';
+import { resolveSocialImage } from '../../util/socialImage';
 import StatsigAnalytics from '../analytics/StatsigAnalytics.astro';
 import Footer from '../ui/Footer.astro';
 import Header from '../ui/Header.astro';
@@ -36,7 +36,7 @@ interface Props {
 const {
   title,
   description,
-  image = lukeImage.src,
+  image,
   canonicalURL = Astro.url,
   pageType = 'website',
   robots = 'index,follow,max-image-preview:large',
@@ -46,7 +46,7 @@ const {
 const canonicalHref = canonicalURL instanceof URL
   ? canonicalURL.toString()
   : canonicalURL;
-const socialImage = absoluteUrl(image);
+const socialImage = absoluteUrl(resolveSocialImage(image));
 ---
 
 <!doctype html>
