@@ -53,3 +53,7 @@ jobs:
           vercel-org-id: ${{ env.VERCEL_ORG_ID }}
           vercel-project-id: ${{ env.VERCEL_PROJECT_ID }}
           environment: prod
+
+      - name: prod UI tests
+        run: bun run e2e:prod
+        shell: bash
