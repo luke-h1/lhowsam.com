@@ -1,17 +1,20 @@
-import { defineConfig, globalIgnores } from 'eslint/config';
 import { fixupConfigRules, fixupPluginRules } from '@eslint/compat';
+import { FlatCompat } from '@eslint/eslintrc';
+import js from '@eslint/js';
+import nextPlugin from '@next/eslint-plugin-next';
 import typescriptEslint from '@typescript-eslint/eslint-plugin';
-import globals from 'globals';
 import tsParser from '@typescript-eslint/parser';
+import astroParser from 'astro-eslint-parser';
+import astroPlugin from 'eslint-plugin-astro';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import globals from 'globals';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import js from '@eslint/js';
-import { FlatCompat } from '@eslint/eslintrc';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const filename = fileURLToPath(import.meta.url);
+const dirname = path.dirname(filename);
 const compat = new FlatCompat({
-  baseDirectory: __dirname,
+  baseDirectory: dirname,
   recommendedConfig: js.configs.recommended,
   allConfig: js.configs.all,
 });
@@ -33,6 +36,7 @@ export default defineConfig([
     '**/@sanity',
   ]),
   {
+    files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'],
     extends: fixupConfigRules(
       compat.extends(
         'airbnb',
@@ -41,7 +45,6 @@ export default defineConfig([
         'plugin:@typescript-eslint/strict',
         'plugin:react/recommended',
         'plugin:react-hooks/recommended',
-        'plugin:@next/next/recommended',
         'prettier',
         'prettier/prettier',
       ),
@@ -56,6 +59,9 @@ export default defineConfig([
         ...globals.node,
       },
       parser: tsParser,
+      parserOptions: {
+        project: ['tsconfig.json'],
+      },
     },
     settings: {
       'import/resolver': {
@@ -88,7 +94,7 @@ export default defineConfig([
       'import/no-unresolved': [
         'error',
         {
-          ignore: ['^(part|all):'],
+          ignore: ['^(part|all):', '^astro:'],
         },
       ],
       'import/order': [
@@ -163,12 +169,45 @@ export default defineConfig([
     },
   },
   {
+    ...nextPlugin.configs.recommended,
+    files: ['**/*.{js,mjs,cjs,jsx,ts,tsx}'],
+    rules: {
+      ...nextPlugin.configs.recommended.rules,
+      '@next/next/no-img-element': 'off',
+    },
+  },
+  ...astroPlugin.configs['flat/recommended'],
+  {
+    files: ['**/*.astro'],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      parser: astroParser,
+      parserOptions: {
+        parser: tsParser,
+        extraFileExtensions: ['.astro'],
+        project: ['tsconfig.json'],
+      },
+    },
+    rules: {
+      'astro/no-set-html-directive': 'error',
+    },
+  },
+  {
     files: ['**/*.js'],
     rules: {
       '@typescript-eslint/no-var-requires': 'off',
       'global-require': 'off',
       'import/no-dynamic-require': 'off',
       'no-console': 'off',
+    },
+  },
+  {
+    files: ['eslint.config.mjs'],
+    rules: {
+      'import/order': 'off',
     },
   },
   {

@@ -1,5 +1,5 @@
 name: 'Build frontend'
-description: 'Build frontend app'
+description: 'Build frontend'
 runs:
   using: 'composite'
   steps:
@@ -8,23 +8,23 @@ runs:
         run: ./scripts/ensure-rebased.sh
 
       - name: prettier:check
-        run: pnpm exec turbo run prettier:check
+        run: bun run prettier:check
         shell: bash
 
       - name: lint
-        run: pnpm exec turbo run lint
+        run: bun run lint
         shell: bash
 
-      - name: jest
-        run: pnpm exec turbo run test:ci
+      - name: test
+        run: bun run test
         shell: bash
 
       - name: ts:check
-        run: pnpm exec turbo run ts:check
+        run: bun run ts:check
         shell: bash
 
       - name: build
-        run: pnpm exec turbo run build
+        run: bun run build
         shell: bash
 
       - name: local UI tests

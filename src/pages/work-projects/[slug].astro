@@ -1,0 +1,120 @@
+---
+import type { GetStaticPaths } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import { Globe } from 'lucide-astro';
+import ArticleLayout from '../../components/layout/ArticleLayout.astro';
+import { siteConfig } from '../../config/site';
+import { absoluteUrl } from '../../util/seo';
+
+export const getStaticPaths = (async () => {
+  const projects = await getCollection('workProjects');
+  return projects.map(project => ({
+    params: { slug: project.data.slug },
+    props: { project },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  project: CollectionEntry<'workProjects'>;
+}
+
+const { project } = Astro.props;
+const { Content, headings } = await render(project);
+const canonicalURL = `${siteConfig.siteUrl}/work-projects/${project.data.slug}/`;
+const seoTitle = `${project.data.title} | Work projects | ${siteConfig.authorName}`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: project.data.title,
+    description: project.data.intro,
+    datePublished: project.data.publishedAt.toISOString(),
+    image: absoluteUrl(project.data.heroImage.src),
+    url: canonicalURL,
+    mainEntityOfPage: canonicalURL,
+    author: {
+      '@type': 'Person',
+      name: siteConfig.authorName,
+      url: siteConfig.siteUrl,
+    },
+    publisher: {
+      '@type': 'Person',
+      name: siteConfig.authorName,
+      url: siteConfig.siteUrl,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: siteConfig.siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Work projects',
+        item: `${siteConfig.siteUrl}/work-projects/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: project.data.title,
+        item: canonicalURL,
+      },
+    ],
+  },
+];
+---
+
+<ArticleLayout
+  title={project.data.title}
+  seoTitle={seoTitle}
+  description={project.data.intro}
+  headings={headings}
+  publishedAt={project.data.publishedAt}
+  image={project.data.heroImage.src}
+  canonicalURL={canonicalURL}
+  structuredData={structuredData}
+>
+  <Fragment slot="headerExtras">
+    {
+      project.data.companySite && (
+        <div class="work-project-company-link">
+          <a
+            href={project.data.companySite}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Globe size={16} />
+            <span>Company site</span>
+          </a>
+        </div>
+      )
+    }
+  </Fragment>
+  <Content />
+</ArticleLayout>
+
+<style>
+  .work-project-company-link {
+    margin-top: 1.25rem;
+  }
+
+  .work-project-company-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+
+  .work-project-company-link a:hover {
+    color: var(--text-color);
+  }
+</style>

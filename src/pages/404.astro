@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import ErrorState from '../components/ui/ErrorState.astro';
+
+const title = '404 | Page not found';
+const description =
+  'The page you were looking for does not exist, or the link is out of date.';
+---
+
+<BaseLayout title={title} description={description}>
+  <ErrorState
+    code="404"
+    title="Page not found"
+    description={description}
+  />
+</BaseLayout>

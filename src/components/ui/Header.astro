@@ -1,0 +1,519 @@
+---
+import { getCollection } from 'astro:content';
+import { siteConfig } from '../../config/site';
+import { timelineRoles } from '../../data/aboutExperience';
+import type { CommandMenuGroup, CommandMenuItem } from '../../util/commandMenu';
+import CommandMenu from './CommandMenu.tsx';
+
+const pathname = new URL(Astro.request.url).pathname;
+const [blogPosts, projectPosts, talkEntries] = await Promise.all([
+  getCollection('blog'),
+  getCollection('projects'),
+  getCollection('talks'),
+]);
+
+const isActive = (path: string) => {
+  if (path === '/') {
+    return pathname === '/';
+  }
+  return pathname.startsWith(path);
+};
+
+interface NavItem {
+  name: string;
+  path: string;
+}
+
+const navItems: NavItem[] = [
+  {
+    name: 'Home',
+    path: '/',
+  },
+  {
+    name: 'About',
+    path: '/about',
+  },
+  {
+    name: 'Projects',
+    path: '/projects',
+  },
+  {
+    name: 'Work',
+    path: '/work-projects',
+  },
+  {
+    name: 'Blog',
+    path: '/blog',
+  },
+];
+
+const commandNavItems: NavItem[] = [
+  ...navItems,
+  {
+    name: 'Talks',
+    path: '/talks',
+  },
+];
+
+const commandGroups = [
+  {
+    heading: 'Navigation',
+    items: commandNavItems.map(link => ({
+      id: `nav-${link.path}`,
+      label: link.name,
+      searchText: `${link.name} navigation page`,
+      type: 'internal-link',
+      href: link.path,
+    })),
+  },
+  {
+    heading: 'Blog',
+    items: blogPosts
+      .filter(post => !post.data.draft)
+      .map(post => ({
+        id: `blog-${post.data.slug}`,
+        label: post.data.title,
+        searchText: [post.data.title, post.data.intro, ...post.data.tags].join(
+          ' ',
+        ),
+        type: 'internal-link',
+        href: `/blog/${post.data.slug}/`,
+        section: 'Blog',
+      })),
+  },
+  {
+    heading: 'Talks',
+    items: talkEntries
+      .filter(t => !t.data.draft)
+      .map(talk => ({
+        id: `talk-${talk.data.slug}`,
+        label: talk.data.title,
+        searchText: [talk.data.title, talk.data.intro, talk.data.location].join(
+          ' ',
+        ),
+        type: 'internal-link',
+        href: `/talks/${talk.data.slug}/`,
+        section: 'Talks',
+      })),
+  },
+  {
+    heading: 'Projects',
+    items: projectPosts.map(project => ({
+      id: `project-${project.data.slug}`,
+      label: project.data.title,
+      searchText: [
+        project.data.title,
+        project.data.intro,
+        ...(project.data.tags ?? []),
+        ...(project.data.techStack?.map(tech => tech.name) ?? []),
+      ].join(' '),
+      type: 'internal-link',
+      href: `/projects/${project.data.slug}/`,
+      section: 'Projects',
+    })),
+  },
+  {
+    heading: 'Experience',
+    items: timelineRoles.map(role => ({
+      id: `experience-${role.anchor}`,
+      label: `${role.title} · ${role.company}`,
+      searchText: [
+        role.title,
+        role.company,
+        role.location,
+        role.summary,
+        ...role.techStack,
+        ...role.achievements,
+      ].join(' '),
+      type: 'internal-link',
+      href: `/about#${role.anchor}`,
+      section: 'Experience',
+    })),
+  },
+  {
+    heading: 'Social',
+    items: siteConfig.socialLinks.map(link => ({
+      id: `social-${link.name.toLowerCase()}`,
+      label: link.name,
+      searchText: `${link.name} social external`,
+      type: 'external-link',
+      href: link.url,
+    })),
+  },
+  {
+    heading: 'Commands',
+    items: [
+      {
+        id: 'command-copy-url',
+        label: 'Copy current URL',
+        searchText: 'copy current url link clipboard',
+        type: 'copy-url',
+      },
+    ],
+  },
+].filter(
+  group => group.items.length > 0,
+) as CommandMenuGroup<CommandMenuItem>[];
+---
+
+<nav class="header-nav" data-header-nav aria-label="Main">
+  <div class="header-nav__bar">
+    <button
+      type="button"
+      class="header-nav__burger"
+      data-nav-burger
+      aria-expanded="false"
+      aria-controls="header-nav-panel"
+      aria-label="Open menu"
+    >
+      <span class="header-nav__burger-lines" aria-hidden="true"></span>
+    </button>
+    <div id="header-nav-panel" class="header-nav__panel">
+      <button
+        type="button"
+        class="header-nav__backdrop"
+        data-nav-backdrop
+        tabindex="-1"
+        aria-hidden="true"></button>
+      <div class="header-nav__links">
+        {
+          navItems.map(link => (
+            <a
+              href={link.path}
+              class:list={['header-nav__link', isActive(link.path) && 'active']}
+              data-nav-link
+            >
+              {link.name}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+    <CommandMenu client:load groups={commandGroups} />
+  </div>
+</nav>
+
+<script is:inline>
+  (() => {
+    const nav = document.querySelector('[data-header-nav]');
+    if (!nav || !(nav instanceof HTMLElement)) return;
+
+    const burger = nav.querySelector('[data-nav-burger]');
+    const panel = nav.querySelector('#header-nav-panel');
+    const backdrop = nav.querySelector('[data-nav-backdrop]');
+    const links = nav.querySelectorAll('[data-nav-link]');
+    const mq = window.matchMedia('(max-width: 480px)');
+
+    if (
+      !burger ||
+      !panel ||
+      !(burger instanceof HTMLButtonElement) ||
+      !(panel instanceof HTMLElement)
+    ) {
+      return;
+    }
+
+    const syncPanelHidden = () => {
+      if (!mq.matches) {
+        panel.removeAttribute('aria-hidden');
+        return;
+      }
+      panel.setAttribute(
+        'aria-hidden',
+        nav.classList.contains('header-nav--open') ? 'false' : 'true',
+      );
+    };
+
+    const setOpen = open => {
+      nav.classList.toggle('header-nav--open', open);
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      syncPanelHidden();
+      document.body.style.overflow = open && mq.matches ? 'hidden' : '';
+    };
+
+    const close = () => setOpen(false);
+
+    burger.addEventListener('click', () => {
+      setOpen(!nav.classList.contains('header-nav--open'));
+    });
+
+    backdrop?.addEventListener('click', close);
+
+    links.forEach(a => {
+      a.addEventListener('click', close);
+    });
+
+    window.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && nav.classList.contains('header-nav--open')) {
+        close();
+        burger.focus();
+      }
+    });
+
+    const onViewportChange = () => {
+      if (!mq.matches) {
+        close();
+      }
+      syncPanelHidden();
+    };
+
+    mq.addEventListener('change', onViewportChange);
+    syncPanelHidden();
+
+    window.addEventListener('resize', onViewportChange, { passive: true });
+  })();
+</script>
+
+<style>
+  .header-nav {
+    width: 100%;
+  }
+
+  .header-nav__bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .header-nav__burger {
+    display: none;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--color-text);
+    cursor: pointer;
+    transition:
+      background var(--transition-base),
+      border-color var(--transition-base);
+  }
+
+  .header-nav__burger:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .header-nav__burger:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px var(--bg-color),
+      0 0 0 4px rgba(96, 165, 250, 0.45);
+  }
+
+  .header-nav__burger-lines {
+    position: relative;
+    display: block;
+    width: 1.1rem;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: background 0.15s ease;
+  }
+
+  .header-nav__burger-lines::before,
+  .header-nav__burger-lines::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform 0.2s ease;
+  }
+
+  .header-nav__burger-lines::before {
+    top: -6px;
+  }
+
+  .header-nav__burger-lines::after {
+    top: 6px;
+  }
+
+  .header-nav--open .header-nav__burger-lines {
+    background: transparent;
+  }
+
+  .header-nav--open .header-nav__burger-lines::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
+  .header-nav--open .header-nav__burger-lines::after {
+    top: 0;
+    transform: rotate(-45deg);
+  }
+
+  .header-nav__panel {
+    display: contents;
+  }
+
+  .header-nav__backdrop {
+    display: none;
+  }
+
+  .header-nav__links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+    justify-content: flex-start;
+    margin-right: auto;
+  }
+
+  .header-nav__link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    transition: color var(--transition-base);
+    position: relative;
+    white-space: nowrap;
+  }
+
+  .header-nav__link:hover {
+    color: var(--color-text);
+  }
+
+  .header-nav__link.active {
+    color: var(--color-text) !important;
+  }
+
+  .header-nav__link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .header-nav__link {
+      font-size: 0.8125rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .header-nav__bar {
+      align-items: center;
+    }
+
+    .header-nav__burger {
+      display: inline-flex;
+    }
+
+    .header-nav__panel {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      pointer-events: none;
+      visibility: hidden;
+    }
+
+    .header-nav--open .header-nav__panel {
+      pointer-events: auto;
+      visibility: visible;
+    }
+
+    .header-nav__backdrop {
+      display: block;
+      position: absolute;
+      inset: 0;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      background: rgba(6, 8, 12, 0.72);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity var(--transition-base);
+    }
+
+    .header-nav--open .header-nav__backdrop {
+      opacity: 1;
+    }
+
+    .header-nav__links {
+      position: absolute;
+      top: 0.65rem;
+      bottom: 0.65rem;
+      left: 0.65rem;
+      width: min(18.5rem, calc(100vw - 1.5rem));
+      margin: 0;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: stretch;
+      gap: 0.2rem;
+      padding: max(1rem, env(safe-area-inset-top, 0px)) 0.85rem
+        max(1rem, env(safe-area-inset-bottom, 0px));
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-radius: 1.2rem;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.055),
+          rgba(255, 255, 255, 0.02)
+        ),
+        rgba(12, 15, 20, 0.97);
+      box-shadow:
+        0 24px 80px rgba(0, 0, 0, 0.45),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transform: translateX(calc(-100% - 0.65rem));
+      transition:
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .header-nav--open .header-nav__links {
+      transform: translateX(0);
+    }
+
+    .header-nav__link {
+      padding: 0.6rem 0.75rem;
+      font-size: 0.9375rem;
+      line-height: 1.35;
+      border-radius: 0.65rem;
+      border: 1px solid transparent;
+      transition:
+        color var(--transition-base),
+        background-color var(--transition-base),
+        border-color var(--transition-base);
+    }
+
+    .header-nav__link:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.06);
+    }
+
+    .header-nav__link:focus-visible {
+      outline: none;
+      border-color: rgba(96, 165, 250, 0.35);
+      background: rgba(96, 165, 250, 0.08);
+    }
+
+    .header-nav__link.active::after {
+      display: none;
+    }
+
+    .header-nav__link.active {
+      color: var(--link-color) !important;
+      background: rgba(96, 165, 250, 0.1);
+      border-color: rgba(96, 165, 250, 0.18);
+    }
+  }
+</style>

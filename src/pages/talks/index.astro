@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../components/layout/BaseLayout.astro';
+import Container from '../../components/ui/Container.astro';
+import Hero from '../../components/Hero.astro';
+import ContentList from '../../components/ContentList.astro';
+import TalkCard from '../../components/ui/TalkCard.astro';
+import { siteConfig } from '../../config/site';
+
+const talks = await getCollection('talks', ({ data }) => {
+  return import.meta.env.PROD ? !data.draft : true;
+});
+
+const sortedTalks = talks.sort(
+  (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+);
+const title = `Talks | ${siteConfig.authorName}`;
+const description =
+  "Talks I've given at meetups and conferences — feature flags, frontend, and more.";
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: `${siteConfig.siteUrl}/talks/`,
+    description,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: sortedTalks.map((talk, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${siteConfig.siteUrl}/talks/${talk.data.slug}/`,
+        name: talk.data.title,
+      })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: siteConfig.siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Talks',
+        item: `${siteConfig.siteUrl}/talks/`,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description} structuredData={structuredData}>
+  <Container>
+    <Hero title="Talks" description="Talks I've given at meetups and events" />
+    <ContentList>
+      {sortedTalks.map(talk => (
+        <TalkCard talk={talk} analyticsSurface="talks_index" />
+      ))}
+    </ContentList>
+  </Container>
+</BaseLayout>

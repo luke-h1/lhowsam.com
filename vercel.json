@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/work/",
+      "destination": "/work-projects/",
+      "permanent": true
+    }
+  ]
+}

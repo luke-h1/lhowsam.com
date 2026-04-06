@@ -1,0 +1,62 @@
+---
+title: 'Expo Router'
+slug: 'expo-router'
+intro: 'Expo Router, a file-based routing framework for React Native that makes it easier to build apps that run beautifully on Android, iOS, and the web. By leaning on native technologies like Jetpack Compose, SwiftUI, and the browser, Expo Router gives both solo devs and teams a way to create unified cross-platform experiences—without leaving behind the web primitives they already know.'
+publishedAt: 2025-10-30
+location: 'Sheffield, UK'
+slideUrl: 'https://expo-router.lhowsam.com/presenter/1'
+---
+
+## Why Expo Router?
+
+Building apps that work seamlessly across mobile and web has traditionally meant choosing between native performance and web accessibility. Expo Router changes this equation by bringing file-based routing—a concept familiar to web developers—to React Native.
+
+## The challenge of cross-platform development
+
+For years, developers have faced a difficult choice: build native apps for superior performance and user experience, or build web apps for broader reach and easier deployment. Teams often end up maintaining separate codebases, duplicating logic, and struggling to keep feature parity across platforms.
+
+React Native promised to bridge this gap, but routing and navigation remained complex, especially when trying to support web alongside mobile platforms.
+
+## Enter Expo Router
+
+Expo Router takes inspiration from Next.js and other file-based routing frameworks, applying these battle-tested patterns to cross-platform development. Simply create a file in your `app` directory, and you've created a route. No manual route configuration, no complex navigation stacks to manage.
+
+### Key features
+
+**File-based routing:** Routes are automatically generated based on your file structure. `app/profile.tsx` becomes `/profile`, and `app/posts/[id].tsx` handles dynamic routes like `/posts/123`.
+
+**Deep linking:** Every screen in your app gets a URL automatically. This isn't just good for web—it dramatically improves the mobile experience too, enabling better sharing, notifications, and app-to-app communication.
+
+**Platform-specific optimization:** While your code remains unified, Expo Router leverages native navigation primitives on each platform. On iOS, you get native navigation controllers. On Android, you get proper back stack management. On web, you get real URLs and browser history.
+
+## The technology stack
+
+What makes Expo Router special is how it embraces each platform's strengths:
+
+- **iOS:** Leverages SwiftUI's navigation patterns for smooth, native-feeling transitions
+- **Android:** Integrates with Jetpack Compose and Android's navigation component
+- **Web:** Uses standard browser APIs, giving you real URLs, back/forward buttons, and SEO-friendly routing
+
+## Real-world benefits
+
+### For solo developers
+
+You can build and deploy to three platforms without tripling your workload. Write your component once, and it works everywhere—with platform-specific optimizations happening automatically.
+
+### For teams
+
+Teams can share code, design systems, and business logic across platforms while still delivering native-quality experiences. New team members familiar with web frameworks can be productive immediately.
+
+### For users
+
+Users get fast, native-feeling apps with better deep linking, improved sharing capabilities, and consistent experiences whether they're on their phone, tablet, or desktop browser.
+
+## Getting started
+
+The beauty of Expo Router is its simplicity. Install it in your Expo project, create an `app` directory, add a file, and you're routing. The learning curve is minimal if you've used any modern web framework.
+
+## Looking forward
+
+As the boundaries between web and native continue to blur, tools like Expo Router represent the future of application development. We're moving toward a world where developers can focus on building great features instead of managing platform differences.
+
+Whether you're a solo developer building your first app or part of a team maintaining a complex application, Expo Router offers a path to truly unified cross-platform development—without the compromises.

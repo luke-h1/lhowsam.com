@@ -1,0 +1,167 @@
+---
+import type { GetStaticPaths } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import { Github, Globe } from 'lucide-astro';
+import ArticleLayout from '../../components/layout/ArticleLayout.astro';
+import { siteConfig } from '../../config/site';
+import { absoluteUrl } from '../../util/seo';
+
+export const getStaticPaths = (async () => {
+  const projects = await getCollection('projects');
+
+  return projects.map(project => ({
+    params: { slug: project.data.slug },
+    props: { project },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { Content, headings } = await render(project);
+const techItems =
+  project.data.techStack?.map(tech => tech.name) ?? project.data.tags ?? [];
+const canonicalURL = `${siteConfig.siteUrl}/projects/${project.data.slug}/`;
+const seoTitle = `${project.data.title} | Projects | ${siteConfig.authorName}`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareSourceCode',
+    name: project.data.title,
+    description: project.data.intro,
+    url: canonicalURL,
+    image: project.data.heroImage ? absoluteUrl(project.data.heroImage.src) : undefined,
+    codeRepository: project.data.githubUrl,
+    programmingLanguage: techItems,
+    author: {
+      '@type': 'Person',
+      name: siteConfig.authorName,
+      url: siteConfig.siteUrl,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: siteConfig.siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Projects',
+        item: `${siteConfig.siteUrl}/projects/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: project.data.title,
+        item: canonicalURL,
+      },
+    ],
+  },
+];
+---
+
+<ArticleLayout
+  title={project.data.title}
+  seoTitle={seoTitle}
+  description={project.data.intro}
+  headings={headings}
+  intro={project.data.intro}
+  image={project.data.heroImage?.src}
+  canonicalURL={canonicalURL}
+  structuredData={structuredData}
+>
+  <Fragment slot="headerExtras">
+    <div class="project-header-meta">
+      <div class="project-links">
+        {
+          project.data.githubUrl && (
+            <a
+              href={project.data.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-testid="project-page-github-link"
+            >
+              <Github size={16} />
+              <span>GitHub</span>
+            </a>
+          )
+        }
+        {
+          project.data.siteUrl && (
+            <a
+              href={project.data.siteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Globe size={16} />
+              <span>Live site</span>
+            </a>
+          )
+        }
+      </div>
+
+      {
+        techItems.length > 0 && (
+          <div class="project-tags" aria-label="Project technologies">
+            {techItems.map(tech => <span>{tech}</span>)}
+          </div>
+        )
+      }
+    </div>
+  </Fragment>
+
+  <Content />
+</ArticleLayout>
+
+<style>
+  .project-header-meta {
+    margin-top: 1.25rem;
+  }
+
+  .project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+  }
+
+  .project-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+
+  .project-links a:hover {
+    color: var(--text-color);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .project-tags span {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 0.75rem;
+    line-height: 1;
+  }
+  </style>

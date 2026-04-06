@@ -1,0 +1,123 @@
+---
+import type { GetStaticPaths } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../components/layout/ArticleLayout.astro';
+import { siteConfig } from '../../config/site';
+import { absoluteUrl } from '../../util/seo';
+import { toTagSlug } from '../../util/tags';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+const canonicalURL = `${siteConfig.siteUrl}/blog/${post.data.slug}/`;
+const seoTitle = `${post.data.title} | Blog | ${siteConfig.authorName}`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.data.title,
+    description: post.data.intro,
+    datePublished: post.data.publishedAt.toISOString(),
+    image: absoluteUrl(post.data.heroImage.src),
+    url: canonicalURL,
+    mainEntityOfPage: canonicalURL,
+    author: {
+      '@type': 'Person',
+      name: siteConfig.authorName,
+      url: siteConfig.siteUrl,
+    },
+    publisher: {
+      '@type': 'Person',
+      name: siteConfig.authorName,
+      url: siteConfig.siteUrl,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: siteConfig.siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: `${siteConfig.siteUrl}/blog/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: post.data.title,
+        item: canonicalURL,
+      },
+    ],
+  },
+];
+---
+
+<ArticleLayout
+  title={post.data.title}
+  seoTitle={seoTitle}
+  description={post.data.intro}
+  headings={headings}
+  publishedAt={post.data.publishedAt}
+  image={post.data.heroImage.src}
+  canonicalURL={canonicalURL}
+  structuredData={structuredData}
+>
+  <Fragment slot="headerExtras">
+    {
+      post.data.tags.length > 0 && (
+        <div class="post-tags">
+          {post.data.tags.map(tag => (
+            <a href={`/blog/tags/${toTagSlug(tag)}/`}>{tag}</a>
+          ))}
+        </div>
+      )
+    }
+  </Fragment>
+  <Content />
+</ArticleLayout>
+
+<style>
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .post-tags a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.75rem;
+    line-height: 1;
+    text-decoration: none;
+  }
+
+  .post-tags a:hover {
+    color: var(--text-color);
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+</style>

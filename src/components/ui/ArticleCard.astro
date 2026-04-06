@@ -1,0 +1,93 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { format } from 'date-fns';
+import { toTagSlug } from '../../util/tags';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+  analyticsSurface?: string;
+}
+
+const { post, analyticsSurface = 'blog_list' } = Astro.props;
+---
+
+<article data-testid="blog-post-card">
+  <a
+    class="title-link"
+    data-testid="blog-post-card-title"
+    href={`/blog/${post.data.slug}`}
+    data-analytics-event="blog_post_click"
+    data-analytics-label={post.data.slug}
+    data-analytics-surface={analyticsSurface}
+  >
+    {post.data.title}
+  </a>
+  <time datetime={post.data.publishedAt.toISOString()}>
+    {format(post.data.publishedAt, 'MMMM d, yyyy')}
+  </time>
+  <p class="muted-text" data-testid="blog-post-card-intro">{post.data.intro}</p>
+  {post.data.tags.length > 0 && (
+    <div class="tags">
+      {post.data.tags.map(tag => (
+        <a class="tag" href={`/blog/tags/${toTagSlug(tag)}/`}>{tag}</a>
+      ))}
+    </div>
+  )}
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .title-link {
+    font-size: var(--text-lg);
+    text-decoration: none;
+    color: var(--text-color);
+    line-height: 1.35;
+  }
+
+  .title-link:hover {
+    color: var(--link-color);
+  }
+
+  time {
+    font-size: var(--text-sm);
+    opacity: 0.7;
+    line-height: 1.25;
+  }
+
+  .muted-text {
+    margin: 0;
+    max-width: 42rem;
+    line-height: 1.6;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  .tag {
+    text-decoration: none;
+    font-size: var(--text-xs);
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1;
+    letter-spacing: 0.01em;
+  }
+
+  .tag:hover {
+    color: var(--text-color);
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+</style>

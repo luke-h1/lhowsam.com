@@ -1,0 +1,170 @@
+---
+import type { GetStaticPaths } from 'astro';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../components/layout/ArticleLayout.astro';
+import { siteConfig } from '../../config/site';
+import { absoluteUrl } from '../../util/seo';
+import lukeImage from '../../assets/luke.png';
+
+export const getStaticPaths = (async () => {
+  const talks = await getCollection('talks');
+  return talks.map(talk => ({
+    params: { slug: talk.data.slug },
+    props: { talk },
+  }));
+}) satisfies GetStaticPaths;
+
+interface Props {
+  talk: CollectionEntry<'talks'>;
+}
+
+const { talk } = Astro.props;
+const { Content, headings } = await render(talk);
+const canonicalURL = `${siteConfig.siteUrl}/talks/${talk.data.slug}/`;
+const seoTitle = `${talk.data.title} | Talks | ${siteConfig.authorName}`;
+const ogImageSrc = talk.data.heroImage?.src ?? lukeImage.src;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: talk.data.title,
+    description: talk.data.intro,
+    startDate: talk.data.publishedAt.toISOString(),
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    location: {
+      '@type': 'Place',
+      name: talk.data.location,
+    },
+    url: canonicalURL,
+    organizer: {
+      '@type': 'Person',
+      name: siteConfig.authorName,
+      url: siteConfig.siteUrl,
+    },
+    image: absoluteUrl(ogImageSrc),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: siteConfig.siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Talks',
+        item: `${siteConfig.siteUrl}/talks/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: talk.data.title,
+        item: canonicalURL,
+      },
+    ],
+  },
+];
+---
+
+<ArticleLayout
+  title={talk.data.title}
+  seoTitle={seoTitle}
+  description={talk.data.intro}
+  headings={headings}
+  publishedAt={talk.data.publishedAt}
+  image={ogImageSrc}
+  canonicalURL={canonicalURL}
+  structuredData={structuredData}
+>
+  <Fragment slot="headerExtras">
+    <div class="talk-meta">
+      <p class="talk-meta__row">
+        <span class="talk-meta__label">Location</span>
+        <span class="talk-meta__value">{talk.data.location}</span>
+      </p>
+      <p class="talk-meta__resources">
+        <a href={talk.data.slideUrl} target="_blank" rel="noopener noreferrer">
+          Slides
+        </a>
+        {
+          talk.data.videoUrl && (
+            <>
+              <span class="talk-meta__sep" aria-hidden="true">
+                ·
+              </span>
+              <a
+                href={talk.data.videoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Video
+              </a>
+            </>
+          )
+        }
+      </p>
+    </div>
+  </Fragment>
+  <Content />
+</ArticleLayout>
+
+<style>
+  .talk-meta {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .talk-meta__row {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 0.75rem;
+    align-items: baseline;
+  }
+
+  .talk-meta__label {
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.85;
+  }
+
+  .talk-meta__value {
+    color: var(--text-color);
+  }
+
+  .talk-meta__resources {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0.5rem;
+  }
+
+  .talk-meta__resources a {
+    color: var(--link-color);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+  }
+
+  .talk-meta__resources a:hover {
+    filter: brightness(1.08);
+  }
+
+  .talk-meta__sep {
+    opacity: 0.5;
+    user-select: none;
+  }
+</style>

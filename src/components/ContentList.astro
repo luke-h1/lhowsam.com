@@ -1,0 +1,19 @@
+---
+interface Props {
+  testId?: string;
+}
+
+const { testId } = Astro.props;
+---
+
+<div class="content-list" data-testid={testId}>
+  <slot />
+</div>
+
+<style>
+  .content-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+</style>

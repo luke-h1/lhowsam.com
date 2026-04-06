@@ -1,0 +1,276 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import ContentList from '../components/ContentList.astro';
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import Container from '../components/ui/Container.astro';
+import Section from '../components/ui/Section.astro';
+import { siteConfig } from '../config/site';
+import { absoluteUrl } from '../util/seo';
+import { format } from 'date-fns';
+import lukeImage from '../assets/luke.png';
+
+const posts = await getCollection('blog', ({ data }) => {
+  return import.meta.env.PROD ? !data.draft : true;
+});
+
+const recentPosts = posts
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
+  .slice(0, 3);
+
+const projects = await getCollection('projects');
+
+const featuredProjects = projects.filter(project => project.data.featured);
+const title = siteConfig.defaultTitle;
+const description =
+  'Luke Howsam is a software developer writing about React Native, TypeScript, mobile engineering, backend systems, and DevOps.';
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: siteConfig.siteName,
+    url: siteConfig.siteUrl,
+    description,
+    author: {
+      '@type': 'Person',
+      name: siteConfig.authorName,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: siteConfig.authorName,
+    url: siteConfig.siteUrl,
+    image: absoluteUrl(lukeImage.src),
+    jobTitle: siteConfig.authorJobTitle,
+    sameAs: siteConfig.socialLinks.map(link => link.url),
+    knowsAbout: [
+      'React Native',
+      'TypeScript',
+      'Mobile Engineering',
+      'Backend Development',
+      'DevOps',
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={lukeImage.src}
+  structuredData={structuredData}
+>
+  <Container>
+    <section class="hero" data-testid="home-hero">
+      <h1 data-testid="home-page-title">luke-h1</h1>
+      <p class="muted-text" data-testid="home-author-name">Luke Howsam</p>
+      <p class="subtitle">Software Developer</p>
+      <p class="intro" data-testid="home-intro">
+        SWE interested in React Native, Mobile, DevOps, TypeScript and all
+        things in-between
+      </p>
+      <div class="social-links">
+        {
+          siteConfig.socialLinks.map(link => (
+            <a href={link.url} target="_blank" rel="noopener noreferrer">
+              {link.name}
+            </a>
+          ))
+        }
+      </div>
+    </section>
+    <Section testId="home-recent-posts">
+      <div class="section-header">
+        <h2 data-testid="home-recent-posts-heading">Recent blog posts</h2>
+        <a href="/blog">View all</a>
+      </div>
+      <ContentList>
+        {
+          recentPosts.map(post => (
+            <article data-testid="home-recent-post-card">
+              <div class="title-row">
+                <a
+                  href={`/blog/${post.data.slug}`}
+                  data-testid="home-recent-post-title"
+                  data-analytics-event="blog_post_click"
+                  data-analytics-label={post.data.slug}
+                  data-analytics-surface="home_recent_posts"
+                >
+                  {post.data.title}
+                </a>
+                <time
+                  data-testid="home-recent-post-date"
+                  datetime={post.data.publishedAt.toISOString()}
+                >
+                  {format(post.data.publishedAt, 'MMM d, yyyy')}
+                </time>
+              </div>
+              <p class="muted-text" data-testid="home-recent-post-intro">
+                {post.data.intro}
+              </p>
+            </article>
+          ))
+        }
+      </ContentList>
+    </Section>
+    <section class="section">
+      <div class="section-header">
+        <h2>Recent projects</h2>
+        <a href="/projects">View All</a>
+      </div>
+      <ContentList>
+        {
+          featuredProjects.map(project => (
+            <article>
+              <div class="title-row">
+                <a
+                  href={`/projects/${project.data.slug}`}
+                  data-analytics-event="project_click"
+                  data-analytics-label={project.data.slug}
+                  data-analytics-surface="home_featured_projects"
+                >
+                  {project.data.title}
+                </a>
+              </div>
+              <p class="muted-text">{project.data.intro}</p>
+              {project.data.techStack && (
+                <div class="tags">
+                  {project.data.techStack.map(stack => (
+                    <span class="tag">
+                      {stack.name}
+                      {
+                        stack.imagePath && (
+                          <Image
+                            src={stack.imagePath}
+                            alt={stack.name}
+                            width={16}
+                            height={16}
+                            class="tag-image"
+                          />
+                        )
+                      }
+                    </span>
+                  ))}
+                </div>
+              )}
+            </article>
+          ))
+        }
+      </ContentList>
+    </section>
+  </Container>
+</BaseLayout>
+
+<style>
+  main {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 0;
+  }
+
+  .hero {
+    padding: 4rem 0;
+  }
+
+  .hero > * {
+    margin: 0;
+  }
+
+  .hero > * + * {
+    margin-top: 0.5rem;
+  }
+
+  .introduction {
+    margin: 1.5rem 0;
+    opacity: 0.9;
+  }
+
+  .section {
+    margin: 4rem 0;
+  }
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2rem;
+    opacity: 0.7;
+  }
+
+  .title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    font-size: var(--text-sm);
+  }
+
+  /* experience */
+  .company-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .company-logo {
+    width: 1.5rem;
+    height: 1.5rem;
+    object-fit: contain;
+  }
+
+  time {
+    font-size: var(--text-xs);
+    opacity: 0.5;
+    white-space: nowrap;
+  }
+
+  .tags {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .tags span {
+    font-size: var(--text-xs);
+    opacity: 0.5;
+  }
+
+  .tag-image {
+    width: 1rem;
+    height: 1rem;
+    object-fit: contain;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 640px) {
+    main {
+      padding: 1rem 0;
+    }
+
+    .hero {
+      padding: 3rem 0;
+    }
+
+    .section-header,
+    .title-row {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.35rem;
+    }
+
+    .tags {
+      flex-wrap: wrap;
+    }
+
+    .container {
+      padding: 0 1rem;
+    }
+  }
+</style>

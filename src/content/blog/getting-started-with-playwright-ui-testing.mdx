@@ -1,0 +1,192 @@
+---
+title: "Getting started with Playwright UI testing"
+slug: "getting-started-with-playwright-ui-testing"
+intro: "Playwright is a cross-browser end-to-end testing framework created by Microsoft. It's reliable, supports several languages, and is flake-resistant. In this post, we'll go over how to get started with Playwright."
+publishedAt: 2022-11-13
+tags: ["e2e","testing","typescript"]
+heroImage: "../../assets/blog/getting-started-with-playwright-ui-testing-hero.jpg"
+---
+
+Playwright is a cross-browser end-to-end testing framework created by Microsoft. It's reliable, supports several languages, and is flake-resistant. In this post, we'll go over how to get started with Playwright.
+
+
+Before we go over playwright & its benefits, let's first take a look at what makes UI / e2e testing hard:
+
+These days, websites need to be rich, featured packed, fast & responsive. Nowadays, there is a multitude of frontend frameworks that do a lot more in the browser than web applications used to do a decade ago. Because of this, you may run into cases where the UI changes, shifts, or something takes longer than usual (i.e. component re-renders, state changes, WebSocket interactions, etc.). This makes any type of UI testing a difficult task. This is where the concept of brittle and flaky tests comes into focus. 
+
+
+Because of this, a few new testing frameworks have been created in the past few years that aim to keep up with ever-changing web standards and newer approaches to web development.
+
+
+
+### Enter Playwright
+
+<br />
+
+Playwright is a newer, open-source cross-browser automation library for end-to-end / UI testing. It initially started off as a Javascript-based library but has since expanded to support Python, Java, DotNet & other bindings.
+
+
+The main goal of Playwright is to provide a single API to developers and testers to automate web applications across today's three major browser engines: 
+
+* Chromium
+* Firefox 
+* Webkit 
+
+
+Playwright tries to approach the problems mentioned above by introducing intelligent defaults that reduce test flake/reliability out of the box. This includes things such as making sure the UI is ready, navigation is complete, automatically scrolling to elements, automatic retries, etc. As a tester, this saves tons of false positives and flakiness which can degrade your test confidence (and eat up a lot of your time up). 
+
+
+Some of the feature highlights of Playwright:
+
+* Support for 3 browser engines (Chromium, Firefox, and WebKit)
+* Write tests in JavaScript & TypeScript, Python, .NET, and Java
+* Runs tests in parallel using worker processes (built into Playwright)
+* Support for screenshots and videos snapshots taking
+* Support for visual regression testing 
+* Provides a great set of debugging tools
+* Wide range of element selectors (CSS, text, X-path, and more)
+* Intercept network activity for stubbing and mocking network requests (e.g API calls)
+
+<br />
+
+
+### Getting started 
+
+<br />
+
+**Install dependencies**
+
+```bash
+npm init playwright@latest
+
+```
+
+This command will: 
+
+* Choose between TypeScript or JavaScript (the default is TypeScript)
+* Name of your Tests folder (default is tests or e2e if you already have a tests folder in your project)
+* Add a GitHub Actions workflow to easily run tests on CI
+
+<br />
+
+
+**Install browsers**
+
+<br />
+
+By default, Playwright tests run in a headless browser. Each version of Playwright needs specific versions of [browser binaries to operate](https://playwright.dev/docs/browsers). This command installs all supported browser binaries (by default): 
+
+```bash
+npx playwright install 
+
+```
+
+Browser binaries are installed in OS-specific cache folders by default. 
+
+**Write & run your first test**
+
+The tutorial provides a simple [first test](https://playwright.dev/docs/writing-tests#the-example-test) script that you can run. Put simply, the test visits the Playwright website and asserts that the title has the text content "Playwright".
+
+
+**Run in headed mode**
+
+<br />
+
+Sometimes when you're debugging or creating new UI tests, you don't want to run the browser in headless mode. To see the browser, simply pass the `--headed` flag: 
+
+
+```bash
+npx playwright test --headed
+
+```
+
+<br />
+
+**Custom configuration**
+
+<br />
+
+You can edit the configuration by looking in the `playwright.config.ts` file that was created as part of the creation process. 
+
+Some options to look out for are:
+
+* workers - responsible for setting the level of parallelization
+* webServer - can start your app before running tests (useful in CI)
+* reporter - enables different reports
+
+
+These are the modifications I typically make to the config file when starting a new project: 
+
+```typescript 
+
+import type { PlaywrightTestConfig } from '@playwright/test';
+import { devices } from '@playwright/test';
+
+/**
+ * Read environment variables from file.
+ * https://github.com/motdotla/dotenv
+ */
+// require('dotenv').config();
+
+/**
+ * See https://playwright.dev/docs/test-configuration.
+ */
+const config: PlaywrightTestConfig = {
+  testDir: './e2e',
+  /* Maximum time one test can run for. */
+  timeout: 30 * 1000,
+
+  expect: {
+    /**
+     * Maximum time expect() should wait for the condition to be met.
+     * For example in `await expect(locator).toHaveText();`
+     */
+    timeout: 10000,
+  },
+  /* Run tests in files in parallel */
+  fullyParallel: true,
+  /* Retry on CI only */
+  retries: process.env.CI ? 2 : 0,
+  reporter: [['list'], ['html'], ['github']],
+  workers: 4,
+  use: {
+    /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
+    actionTimeout: 0,
+    /* Base URL to use in actions like `await page.goto('/')`. */
+    // baseURL: 'http://localhost:3000',
+    trace: 'on-first-retry',
+  },
+
+  projects: [
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+      },
+    },
+  ],
+  outputDir: 'test-results/',
+  webServer:
+    // eslint-disable-next-line no-constant-condition
+    // start frontend app in CI
+    {
+      command: 'npm run start',
+      port: 3000,
+      timeout: 20000,
+    },
+};
+
+export default config;
+
+```
+
+<br />
+
+
+**Wrapping up**
+
+<br />
+
+While playwright is new to the market, I think it's matured well over the past few years & has the potential to pack a punch when it comes to building an e2e testing solution. It certainly solves some of the long-standing issues with libraries such as Selenium whose behavior doesn't quite gel well with libraries such as React or Vue.
+
+In addition to this, you still have full control over the web driver (unlike Cypress for example). This means that Selenium testers will feel right at home when developing extensive or advanced test cases

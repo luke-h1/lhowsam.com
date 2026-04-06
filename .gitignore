@@ -1,52 +1,32 @@
-node_modules
-.env
-!.env.example
-.next
-.turbo
+# build output
+dist/
+coverage/
+playwright-report/
+test-results/
+# generated types
+.astro/
 
-# misc
-.DS_Store
-*.pem
-junit.xml
-# debug
+# dependencies
+node_modules/
+
+# logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-junit.xml
-tsconfig.tsbuildinfo
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+
+.vercel/
+
 .vercel
-sitemap.xml
-robots.txt
-analyze/
-.eslintcache
-screenshots
-tsconfig.tsbuildinfo
-.sentryclirc
-sitemap.xml
-sitemap-0.xml
-.vscode
-/test-results/
-/playwright-report/
-/playwright/.cache/
-test-results
-.vscode
-.idea
-newrelic_agent.log
-.terraform
-
-
-# open-next
-.open-next
-.terraform.lock.hcl
-
-# cloudflare
-.wrangler
-
-
-# sst
-.sst
-*.tfstate
-*.tfstate.backup
-
-# Sentry Config File
-.env.sentry-build-plugin

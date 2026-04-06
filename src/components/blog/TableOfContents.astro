@@ -1,0 +1,157 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+  headings: MarkdownHeading[];
+  collapsible?: boolean;
+}
+
+const { headings, collapsible = false } = Astro.props;
+
+const items = headings.filter(h => h.depth >= 2 && h.depth <= 4);
+---
+
+{
+  items.length > 0 &&
+    (collapsible ? (
+      <details class="toc toc--collapsible">
+        <summary class="toc__summary">On this page</summary>
+        <nav class="toc__nav" aria-label="Table of contents">
+          <ul class="toc__list">
+            {items.map(h => (
+              <li class="toc__item" style={`--toc-depth: ${h.depth - 2}`}>
+                <a class="toc__link" href={`#${h.slug}`}>
+                  {h.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </details>
+    ) : (
+      <nav class="toc" aria-labelledby="toc-label">
+        <p id="toc-label" class="toc__title">
+          On this page
+        </p>
+        <ul class="toc__list">
+          {items.map(h => (
+            <li class="toc__item" style={`--toc-depth: ${h.depth - 2}`}>
+              <a class="toc__link" href={`#${h.slug}`}>
+                {h.text}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    ))
+}
+
+<style>
+  .toc__title {
+    margin: 0 0 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .toc__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .toc__item {
+    margin: 0;
+    padding: 0.2rem 0;
+    padding-left: calc(var(--toc-depth, 0) * 0.75rem);
+    border-left: 2px solid transparent;
+  }
+
+  .toc__link {
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.45;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-radius: 0.25rem;
+    padding: 0.2rem 0.35rem;
+    margin-left: -0.35rem;
+    transition:
+      color 0.15s ease,
+      background-color 0.15s ease;
+  }
+
+  .toc__link:hover {
+    color: var(--text-color);
+    background: var(--hover-bg);
+  }
+
+  .toc__link:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+  }
+
+  .toc--collapsible {
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    background: var(--hover-bg);
+    overflow: hidden;
+  }
+
+  .toc--collapsible .toc__summary {
+    padding: 0.85rem 1rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-color);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .toc--collapsible .toc__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .toc--collapsible .toc__summary::after {
+    content: '';
+    float: right;
+    width: 0.5rem;
+    height: 0.5rem;
+    margin-top: 0.35rem;
+    border-right: 2px solid var(--text-muted);
+    border-bottom: 2px solid var(--text-muted);
+    transform: rotate(45deg);
+    transition: transform 0.2s ease;
+  }
+
+  .toc--collapsible[open] .toc__summary::after {
+    transform: rotate(-135deg);
+    margin-top: 0.5rem;
+  }
+
+  .toc--collapsible .toc__summary:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: -2px;
+  }
+
+  .toc--collapsible .toc__nav {
+    padding: 0 1rem 1rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 0;
+    padding-top: 0.75rem;
+  }
+
+  .toc--collapsible .toc__title {
+    display: none;
+  }
+
+  /* Disable global animated link underline inside TOC */
+  .toc a.toc__link::after,
+  .toc--collapsible a.toc__link::after {
+    content: none !important;
+    display: none !important;
+  }
+</style>

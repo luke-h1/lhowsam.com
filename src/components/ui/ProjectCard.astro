@@ -1,0 +1,231 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Github, Globe } from 'lucide-astro';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  class?: string;
+  analyticsSurface?: string;
+}
+
+const {
+  project,
+  class: className = '',
+  analyticsSurface = 'projects_list',
+} = Astro.props;
+
+const techItems =
+  project.data.techStack?.map(tech => tech.name) ?? project.data.tags ?? [];
+
+const cardClassName = ['project-card', className].filter(Boolean).join(' ');
+---
+
+<article class={cardClassName} data-testid="project-card">
+  <div class="card-header">
+    <div class="project-meta">
+      <div class="title-group">
+        <h3>
+          <a
+            class="title-link"
+            data-testid="project-card-title"
+            href={`/projects/${project.data.slug}`}
+            data-analytics-event="project_click"
+            data-analytics-label={project.data.slug}
+            data-analytics-surface={analyticsSurface}
+          >
+            {project.data.title}
+          </a>
+        </h3>
+      </div>
+    </div>
+
+    <div class="actions">
+      {
+        project.data.githubUrl && (
+          <a
+            class="icon-link"
+            href={project.data.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${project.data.title} on GitHub`}
+            data-analytics-event="project_github_click"
+            data-analytics-label={project.data.slug}
+            data-analytics-surface={analyticsSurface}
+          >
+            <Github />
+          </a>
+        )
+      }
+
+      {
+        project.data.siteUrl && (
+          <a
+            class="icon-link"
+            href={project.data.siteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Open ${project.data.title} website`}
+            data-analytics-event="project_site_click"
+            data-analytics-label={project.data.slug}
+            data-analytics-surface={analyticsSurface}
+          >
+            <Globe />
+          </a>
+        )
+      }
+    </div>
+  </div>
+
+  <div class="content">
+    <p data-testid="project-card-description">{project.data.intro}</p>
+  </div>
+
+  {
+    techItems.length > 0 && (
+      <div class="tech-list" aria-label="Project technologies">
+        {techItems.map(tech => (
+          <span class="tech-badge">{tech}</span>
+        ))}
+      </div>
+    )
+  }
+
+  {
+    null
+  }
+</article>
+
+<style>
+  .project-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    min-height: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 0.875rem;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 1.25rem;
+    transition:
+      background-color var(--transition-base),
+      border-color var(--transition-base);
+  }
+
+  .project-card:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.14);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .project-meta {
+    display: flex;
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .title-group {
+    min-width: 0;
+  }
+
+  .title-group h3 {
+    margin: 0;
+    font-family: var(--font-primary);
+    font-size: var(--text-lg);
+    font-weight: 300;
+    line-height: 1.35;
+    letter-spacing: -0.03em;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: unset;
+    color: inherit;
+  }
+
+  .title-link {
+    color: var(--text-color);
+    text-decoration: none;
+    position: relative;
+    z-index: 2;
+  }
+
+  .title-link:hover {
+    color: var(--link-color);
+  }
+
+  .actions {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.65;
+  }
+
+  .icon-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    color: var(--text-muted);
+    transition: color var(--transition-base), opacity var(--transition-base);
+  }
+
+  .icon-link:hover {
+    color: var(--text-color);
+  }
+
+  .actions svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .content {
+    flex: 1;
+  }
+
+  .content p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+    line-height: 1.6;
+    max-width: 42rem;
+  }
+
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .tech-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.65rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.65);
+    font-size: var(--text-xs);
+    line-height: 1;
+    letter-spacing: 0.01em;
+  }
+
+  @media (max-width: 640px) {
+    .project-card {
+      padding: 1rem;
+      gap: 0.75rem;
+    }
+
+    .card-header {
+      gap: 0.75rem;
+    }
+  }
+</style>

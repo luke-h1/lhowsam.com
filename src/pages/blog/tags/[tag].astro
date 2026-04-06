@@ -1,0 +1,58 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { getCollection } from 'astro:content';
+import ArticleCard from '../../../components/ui/ArticleCard.astro';
+import BaseLayout from '../../../components/layout/BaseLayout.astro';
+import Container from '../../../components/ui/Container.astro';
+import ContentList from '../../../components/ContentList.astro';
+import Hero from '../../../components/Hero.astro';
+import { siteConfig } from '../../../config/site';
+import { toTagSlug } from '../../../util/tags';
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection('blog', ({ data }) => {
+    return import.meta.env.PROD ? !data.draft : true;
+  });
+
+  const tagMap = new Map<string, string>();
+
+  posts.forEach(post => {
+    post.data.tags.forEach(tag => {
+      tagMap.set(toTagSlug(tag), tag);
+    });
+  });
+
+  return [...tagMap.entries()].map(([tag, label]) => ({
+    params: { tag },
+    props: {
+      tag,
+      label,
+      posts: posts
+        .filter(post =>
+          post.data.tags.some(postTag => toTagSlug(postTag) === tag),
+        )
+        .sort(
+          (a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime(),
+        ),
+    },
+  }));
+}) satisfies GetStaticPaths;
+
+const { label, posts } = Astro.props;
+const title = `${label} | Blog Tags | ${siteConfig.authorName}`;
+const description = `Blog posts tagged with ${label}.`;
+---
+
+<BaseLayout title={title} description={description}>
+  <Container>
+    <Hero
+      title={`Posts tagged with "${label}"`}
+      description={`${posts.length} matching post${posts.length === 1 ? '' : 's'}`}
+    />
+    <ContentList>
+      {posts.map(post => (
+        <ArticleCard post={post} analyticsSurface="blog_tag_index" />
+      ))}
+    </ContentList>
+  </Container>
+</BaseLayout>

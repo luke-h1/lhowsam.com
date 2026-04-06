@@ -1,0 +1,48 @@
+---
+title: "Forcing git merges"
+slug: "forcing-git-merges"
+intro: "Isolating features into separate branches is a really common practice for most developers. By separating features & bug fixes you can avoid a lot of problems and keep your branches clean."
+publishedAt: 2020-12-15
+tags: ["git"]
+heroImage: "../../assets/blog/forcing-git-merges-hero.jpg"
+---
+
+Isolating features into separate branches is a really common practice for most developers. By separating features & bug fixes you can avoid a lot of problems and keep your branches clean.
+
+At some point, you may reach a state where you want to integrate your feature branch with the rest of your project. This is where the git merge command comes into play
+
+I recently ran into an issue where my feature branch conflicted with the dev branch. If I tried to merge my feature into the dev branch I would have had to deal with endless conflicts. This is where I needed to force the merge into my development branch
+
+### **Preparing to merge**
+
+Let's assume you want to merge branch hotfix into your master branch but the changes made in hotfix conflict with master. You know the changes in hotfix won't overwrite any important code in master and you need to get this fix deployed.
+
+Before you touch anything ensure that your local repository (hotfix branch) is up to date with the latest changes from your remote origin:
+
+```bash
+git fetch && git status
+```
+
+If anything shows up at this point move it to a safe place or stash it
+
+**Prepare your main / master branch**
+
+```bash
+git checkout master && git pull
+```
+
+**Prepare your hotfix branch**
+
+```bash
+git checkout hotfix && git merge --strategy=ours master
+```
+
+At this point, you will receive a prompt asking if you want to merge master into your hotfix branch. Ignore this & quit of the editor (with vim: `:q!`) 
+
+**Merge hotfix into master 😎**
+
+```bash
+git checkout master && git merge --no-ff hotfix
+```
+
+This merge approach will add one commit on top of your master / main branch which pastes in whatever is in your feature branch without complaining about any pre-existing merge conflict.

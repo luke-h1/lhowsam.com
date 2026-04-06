@@ -1,0 +1,38 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  titleTestId?: string;
+  descriptionTestId?: string;
+}
+
+const {
+  title,
+  description,
+  titleTestId = 'page-title',
+  descriptionTestId = 'page-hero-description',
+} = Astro.props;
+---
+
+<section class="hero">
+  <h1 data-testid={titleTestId}>{title}</h1>
+  <p class="subtitle" data-testid={descriptionTestId}>{description}</p>
+</section>
+
+<style>
+  .hero {
+    padding: 4rem 0;
+  }
+
+  @media (max-width: 900px) {
+    .hero {
+      padding: 3rem 0;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding: 2.25rem 0;
+    }
+  }
+</style>

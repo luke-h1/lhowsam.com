@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { format } from 'date-fns';
+
+interface Props {
+  project: CollectionEntry<'workProjects'>;
+}
+
+const { project } = Astro.props;
+---
+
+<article>
+  <a class="title-link" href={`/work-projects/${project.data.slug}`}>
+    {project.data.title}
+  </a>
+  <time datetime={project.data.publishedAt.toISOString()}>
+    {format(project.data.publishedAt, 'MMMM d, yyyy')}
+  </time>
+  <p class="muted-text">{project.data.intro}</p>
+</article>
+
+<style>
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .title-link {
+    font-size: var(--text-lg);
+    text-decoration: none;
+    color: var(--text-color);
+    line-height: 1.35;
+  }
+
+  .title-link:hover {
+    color: var(--link-color);
+  }
+
+  time {
+    font-size: var(--text-sm);
+    opacity: 0.7;
+    line-height: 1.25;
+  }
+
+  .muted-text {
+    margin: 0;
+    max-width: 42rem;
+    line-height: 1.6;
+  }
+</style>
