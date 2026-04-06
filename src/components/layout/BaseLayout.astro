@@ -43,9 +43,8 @@ const {
   structuredData,
 } = Astro.props;
 
-const canonicalHref = canonicalURL instanceof URL
-  ? canonicalURL.toString()
-  : canonicalURL;
+const canonicalHref =
+  canonicalURL instanceof URL ? canonicalURL.toString() : canonicalURL;
 const socialImage = absoluteUrl(resolveSocialImage(image));
 ---
 
@@ -79,8 +78,7 @@ const socialImage = absoluteUrl(resolveSocialImage(image));
         --font-primary:
           'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
           sans-serif;
-        --font-title:
-          'Instrument Serif', Georgia, 'Times New Roman', serif;
+        --font-title: 'Instrument Serif', Georgia, 'Times New Roman', serif;
         --transition-base: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         background-color: var(--bg-color);
         color: var(--text-color);
@@ -92,8 +90,13 @@ const socialImage = absoluteUrl(resolveSocialImage(image));
       }
 
       html {
-        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
-          'Segoe UI', sans-serif;
+        font-family:
+          'Inter',
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         scrollbar-gutter: stable;
@@ -104,8 +107,13 @@ const socialImage = absoluteUrl(resolveSocialImage(image));
         flex-direction: column;
         min-height: 100vh;
         margin: 0;
-        font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont,
-          'Segoe UI', sans-serif;
+        font-family:
+          'Inter',
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          sans-serif;
       }
 
       main {
@@ -232,11 +240,15 @@ const socialImage = absoluteUrl(resolveSocialImage(image));
     <link rel="icon" type="image/png" href="/icon-512.png" sizes="512x512" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
     <meta name="generator" content={Astro.generator} />
-    {structuredData && (
-      <script is:inline type="application/ld+json">
-        {toJsonLd(structuredData)}
-      </script>
-    )}
+    {
+      structuredData && (
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={toJsonLd(structuredData)}
+        />
+      )
+    }
     <StatsigAnalytics />
   </head>
   <body class="initial-load">

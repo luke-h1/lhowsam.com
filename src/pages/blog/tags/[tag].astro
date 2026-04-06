@@ -50,9 +50,11 @@ const description = `Blog posts tagged with ${label}.`;
       description={`${posts.length} matching post${posts.length === 1 ? '' : 's'}`}
     />
     <ContentList>
-      {posts.map(post => (
-        <ArticleCard post={post} analyticsSurface="blog_tag_index" />
-      ))}
+      {
+        posts.map(post => (
+          <ArticleCard post={post} analyticsSurface="blog_tag_index" />
+        ))
+      }
     </ContentList>
   </Container>
 </BaseLayout>

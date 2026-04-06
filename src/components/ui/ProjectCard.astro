@@ -90,9 +90,7 @@ const cardClassName = ['project-card', className].filter(Boolean).join(' ');
     )
   }
 
-  {
-    null
-  }
+  {null}
 </article>
 
 <style>
@@ -174,7 +172,9 @@ const cardClassName = ['project-card', className].filter(Boolean).join(' ');
     width: 1.75rem;
     height: 1.75rem;
     color: var(--text-muted);
-    transition: color var(--transition-base), opacity var(--transition-base);
+    transition:
+      color var(--transition-base),
+      opacity var(--transition-base);
   }
 
   .icon-link:hover {

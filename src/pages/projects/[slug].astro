@@ -33,7 +33,9 @@ const structuredData = [
     name: project.data.title,
     description: project.data.intro,
     url: canonicalURL,
-    image: project.data.heroImage ? absoluteUrl(project.data.heroImage.src) : undefined,
+    image: project.data.heroImage
+      ? absoluteUrl(project.data.heroImage.src)
+      : undefined,
     codeRepository: project.data.githubUrl,
     programmingLanguage: techItems,
     author: {
@@ -112,7 +114,9 @@ const structuredData = [
       {
         techItems.length > 0 && (
           <div class="project-tags" aria-label="Project technologies">
-            {techItems.map(tech => <span>{tech}</span>)}
+            {techItems.map(tech => (
+              <span>{tech}</span>
+            ))}
           </div>
         )
       }
@@ -164,4 +168,4 @@ const structuredData = [
     font-size: 0.75rem;
     line-height: 1;
   }
-  </style>
+</style>

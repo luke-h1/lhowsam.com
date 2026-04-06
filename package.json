@@ -10,8 +10,8 @@
     "start": "astro preview --host 127.0.0.1 --port 3000",
     "astro": "astro",
     "sync": "astro sync",
-    "prettier:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
-    "prettier:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html}\"",
+    "prettier:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html,astro,md,mdx}\"",
+    "prettier:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html,astro,md,mdx}\"",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "lint:fix": "eslint \"src/**/*.{ts,tsx}\" --fix",
     "ts:check": "tsc --noEmit",
@@ -83,6 +83,7 @@
     "jsdom": "^29.0.1",
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
     "start-server-and-test": "^2.0.12",
     "typescript": "^6.0.2",
     "vitest": "^4.1.2"

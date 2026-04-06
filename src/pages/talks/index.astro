@@ -55,13 +55,19 @@ const structuredData = [
 ];
 ---
 
-<BaseLayout title={title} description={description} structuredData={structuredData}>
+<BaseLayout
+  title={title}
+  description={description}
+  structuredData={structuredData}
+>
   <Container>
     <Hero title="Talks" description="Talks I've given at meetups and events" />
     <ContentList>
-      {sortedTalks.map(talk => (
-        <TalkCard talk={talk} analyticsSurface="talks_index" />
-      ))}
+      {
+        sortedTalks.map(talk => (
+          <TalkCard talk={talk} analyticsSurface="talks_index" />
+        ))
+      }
     </ContentList>
   </Container>
 </BaseLayout>

@@ -26,13 +26,17 @@ const { post, analyticsSurface = 'blog_list' } = Astro.props;
     {format(post.data.publishedAt, 'MMMM d, yyyy')}
   </time>
   <p class="muted-text" data-testid="blog-post-card-intro">{post.data.intro}</p>
-  {post.data.tags.length > 0 && (
-    <div class="tags">
-      {post.data.tags.map(tag => (
-        <a class="tag" href={`/blog/tags/${toTagSlug(tag)}/`}>{tag}</a>
-      ))}
-    </div>
-  )}
+  {
+    post.data.tags.length > 0 && (
+      <div class="tags">
+        {post.data.tags.map(tag => (
+          <a class="tag" href={`/blog/tags/${toTagSlug(tag)}/`}>
+            {tag}
+          </a>
+        ))}
+      </div>
+    )
+  }
 </article>
 
 <style>

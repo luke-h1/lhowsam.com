@@ -55,13 +55,19 @@ const structuredData = [
 ];
 ---
 
-<BaseLayout title={title} description={description} structuredData={structuredData}>
+<BaseLayout
+  title={title}
+  description={description}
+  structuredData={structuredData}
+>
   <Container>
     <Hero title="Blog" description="Read my latest blog posts" />
     <ContentList testId="blog-post-list">
-      {sortedPosts.map(post => (
-        <ArticleCard post={post} analyticsSurface="blog_index" />
-      ))}
+      {
+        sortedPosts.map(post => (
+          <ArticleCard post={post} analyticsSurface="blog_index" />
+        ))
+      }
     </ContentList>
   </Container>
 </BaseLayout>
