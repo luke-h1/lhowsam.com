@@ -1,4 +1,4 @@
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import { siteConfig } from '../config/site';
 
 function escapeXml(value: string) {
@@ -71,18 +71,21 @@ function entryToItemXml(entry: FeedEntry): string {
 
 export async function GET() {
   const [posts, workProjects, projects] = await Promise.all([
-    getCollection('blog', ({ data }) => {
+    getCollection('blog', ({ data }: CollectionEntry<'blog'>) => {
       return import.meta.env.PROD ? !data.draft : true;
     }),
-    getCollection('workProjects', ({ data }) => {
-      return import.meta.env.PROD ? !data.draft : true;
-    }),
+    getCollection(
+      'workProjects',
+      ({ data }: CollectionEntry<'workProjects'>) => {
+        return import.meta.env.PROD ? !data.draft : true;
+      },
+    ),
     getCollection('projects'),
   ]);
 
   const entries: FeedEntry[] = [
     ...posts.map(
-      (post): FeedEntry => ({
+      (post: CollectionEntry<'blog'>): FeedEntry => ({
         kind: 'blog',
         title: post.data.title,
         slug: post.data.slug,
@@ -91,7 +94,7 @@ export async function GET() {
       }),
     ),
     ...workProjects.map(
-      (wp): FeedEntry => ({
+      (wp: CollectionEntry<'workProjects'>): FeedEntry => ({
         kind: 'work',
         title: wp.data.title,
         slug: wp.data.slug,
@@ -100,7 +103,7 @@ export async function GET() {
       }),
     ),
     ...projects.map(
-      (project): FeedEntry => ({
+      (project: CollectionEntry<'projects'>): FeedEntry => ({
         kind: 'project',
         title: project.data.title,
         slug: project.data.slug,
