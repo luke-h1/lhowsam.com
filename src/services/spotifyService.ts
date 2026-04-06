@@ -29,13 +29,16 @@ const spotifyService = {
     const baseUrl = import.meta.env.PUBLIC_NOW_PLAYING_API_BASE_URL;
     const key = import.meta.env.PUBLIC_NOW_PLAYING_API_KEY;
     const consumer = getConsumer();
-    const response = await fetch(`${String(baseUrl).replace(/\/$/, '')}/api/now-playing`, {
-      headers: {
-        'Content-Type': 'application/json',
-        'x-consumer': consumer,
-        'x-api-key': key ?? '',
+    const response = await fetch(
+      `${String(baseUrl).replace(/\/$/, '')}/api/now-playing`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          'x-consumer': consumer,
+          'x-api-key': key ?? '',
+        },
       },
-    });
+    );
     return response.json() as Promise<Song>;
   },
 };

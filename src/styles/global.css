@@ -8,8 +8,7 @@
   --font-primary:
     'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
     sans-serif;
-  --font-title:
-    'Instrument Serif', Georgia, 'Times New Roman', serif;
+  --font-title: 'Instrument Serif', Georgia, 'Times New Roman', serif;
   --font-signature: 'Caveat', 'Snell Roundhand', 'Segoe Script', cursive;
   --font-mono: 'Roboto Mono', Consolas, 'Courier New', monospace;
 

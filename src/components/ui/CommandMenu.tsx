@@ -1,5 +1,10 @@
 import { Command, useCommandState } from 'cmdk';
-import { domAnimation, LazyMotion, motion, useReducedMotion } from 'framer-motion';
+import {
+  domAnimation,
+  LazyMotion,
+  motion,
+  useReducedMotion,
+} from 'framer-motion';
 import {
   AtSign,
   Boxes,
@@ -169,14 +174,9 @@ const CommandMenu = ({ groups }: Props) => {
   const handleSelect = (item: CommandMenuItem) => {
     if (item.type === 'copy-url') {
       const { pathname, search, hash } = document.location;
-      const shareUrl = new URL(
-        `${pathname}${search}${hash}`,
-        currentOrigin,
-      );
+      const shareUrl = new URL(`${pathname}${search}${hash}`, currentOrigin);
 
-      navigator.clipboard
-        .writeText(shareUrl.toString())
-        .catch(() => undefined);
+      navigator.clipboard.writeText(shareUrl.toString()).catch(() => undefined);
       setOpen(false);
       return;
     }
@@ -203,9 +203,7 @@ const CommandMenu = ({ groups }: Props) => {
         onClick={() => setOpen(true)}
         data-testid="cmdk-icon"
       >
-        <span className="command-menu__visually-hidden">
-          Open command menu
-        </span>
+        <span className="command-menu__visually-hidden">Open command menu</span>
         <span className="command-menu__toggle-highlight" aria-hidden="true" />
         <span className="command-menu__toggle-icon" aria-hidden="true">
           <CommandKeyIcon size={16} strokeWidth={2} aria-hidden />

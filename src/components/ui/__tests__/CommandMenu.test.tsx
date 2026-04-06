@@ -7,7 +7,10 @@ import {
 } from '@testing-library/react';
 import React from 'react';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
-import type { CommandMenuGroup, CommandMenuItem } from '../../../util/commandMenu';
+import type {
+  CommandMenuGroup,
+  CommandMenuItem,
+} from '../../../util/commandMenu';
 import CommandMenu from '../CommandMenu';
 
 const groups: CommandMenuGroup<CommandMenuItem>[] = [
@@ -190,7 +193,9 @@ describe('CommandMenu', () => {
   });
 
   test('renders navigation items correctly', async () => {
-    const navigationItems = getRequiredVisibleByTestId('CommandMenu-navigation');
+    const navigationItems = getRequiredVisibleByTestId(
+      'CommandMenu-navigation',
+    );
 
     expect(within(navigationItems).getByText('Home')).toBeInTheDocument();
     expect(within(navigationItems).getByText('About')).toBeInTheDocument();
@@ -234,7 +239,10 @@ describe('CommandMenu', () => {
     ['Forcing git merges', '/blog/forcing-git-merges/'],
     ['Feature flags at scale', '/talks/feature-flags-at-scale/'],
     ['Foam', '/projects/foam/'],
-    ['Software Engineer · Hive IT', '/about#hive-it-software-engineer-2022-05-01'],
+    [
+      'Software Engineer · Hive IT',
+      '/about#hive-it-software-engineer-2022-05-01',
+    ],
   ])('navigates to internal links from %s', (label, href) => {
     fireEvent.click(getRequiredVisibleByText(label));
 
