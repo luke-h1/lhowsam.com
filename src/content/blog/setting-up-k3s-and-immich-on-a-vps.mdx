@@ -1,7 +1,7 @@
 ---
 title: 'Setting up k3s + Immich on a VPS'
 slug: 'setting-up-k3s-and-immich-on-a-vps'
-intro: 'How I run Immich on k3s with Cloudflare Tunnel, backups, and a scripts-first repo you can copy.'
+intro: 'How I run Immich on k3s with Cloudflare Tunnel and automated backups'
 publishedAt: 2026-04-06
 tags:
   [
@@ -16,18 +16,20 @@ tags:
 heroImage: '../../assets/blog/getting-started-with-aws-vault-hero.png'
 ---
 
+[Immich](https://immich.app) is an open-source, self-hosted photo and video backup stack similar to Google Photos or iCloud, but it runs on your own hardware.
+
 Recently I've had issues with Google and Icloud photos. I've noticed that they didn't sync as fast as I'd like, and after a while I've quickly been running out of storage. Not wanting to pay for more storage and also wanting to set up a home server, I decided to set up k3s + Immich on a VPS.
 
 I've been really happy with Immich. For me it's ended up being a genuinely better experience than iCloud / Google Photos
 
-The best part is that it doesn't have to be expensive. I'm running this stack on a small Hetzner VPS that costs about **€5/month**, and it's been more than enough for k3s, Immich and the monitoring stack
+The best part is that it doesn't have to be expensive. I'm running this stack on a small Hetzner server that costs me around **€5/month**, and it's been more than enough for k3s, Immich and the monitoring stack
 
 This setup lives in [`home-server`](https://github.com/luke-h1/home-server). The goal is pretty simple:
 
 - Immich
 - k3s
 - monitoring + logs
-- Cloudflare Tunnel so I don’t have to expose ports to the internet
+- Cloudflare Tunnel so I don't have to expose ports to the internet
 - automated backups
 
 This post walks through how the repo is structured and how to set up **k3s + Immich** on a VPS.
@@ -133,9 +135,7 @@ Then for each hostname, add a **public hostname** in the Cloudflare UI pointing 
 
 Traefik routes based on `Host`, so the tunnel always points at Traefik and not at random pod ports
 
-Immich mobile config is intentionally boring:
-
-- server URL = `https://<IMMICH_DOMAIN>` (same as `IMMICH_PUBLIC_URL`)
+**Immich mobile** is intentionally boring: you mostly just enter your **server URL** (include **`:port`** in the URL when you are not on the default HTTPS port). Match `IMMICH_PUBLIC_URL`; in this setup that is `https://<IMMICH_DOMAIN>`.
 
 ## 6) Backups
 
