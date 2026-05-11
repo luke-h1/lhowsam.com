@@ -30,3 +30,5 @@ pnpm-debug.log*
 .vercel/
 
 .vercel
+
+.vscode

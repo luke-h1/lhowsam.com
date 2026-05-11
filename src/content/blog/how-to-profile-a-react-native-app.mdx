@@ -1,0 +1,406 @@
+---
+title: 'How to profile a React Native app'
+slug: 'how-to-profile-a-react-native-app'
+intro: 'How I profile React Native apps without guessing: React DevTools for render evidence, Instruments and xctrace for iOS, Android Studio for Android, and release traces when debug builds start lying.'
+publishedAt: 2026-04-25
+tags: ['react-native', 'performance', 'profiling', 'expo']
+heroImage: '../../assets/blog/how-to-performance-test-a-react-native-app-hero.png'
+---
+
+React Native performance profiling can be awkward when you first get into it because there isn't one magic profiler that tells you everything.
+
+When a screen feels slow, stutters during navigation, or hangs when switching tabs, the problem could be React rendering. It could be the JS thread. It could be layout, text rendering, the UI thread, Hermes GC, or a weird mix of a few of them.
+
+This is why I don't like relying on a single profiler for React Native performance work. If you only look at one layer, it's very easy to spend a day optimizing the wrong thing.
+
+The workflow I normally use is:
+
+1. React DevTools for rerenders and commit evidence
+2. Xcode Instruments or `xcrun xctrace` for iOS native evidence
+3. Android Studio Profiler for Android native evidence
+4. SpeedScope, Perfetto, or Margelo's `react-native-release-profiler` when I need exported traces or release-build numbers
+
+This post is the routine I use when I want to prove where the time is going instead of just poking around and hoping the app feels better afterwards.
+
+I'll use Expo dev client commands in the examples because they're easy to follow, but the process is not Expo-specific.
+
+## Start with one exact flow
+
+The biggest mistake I see with profiling is comparing random app usage.
+
+If you want numbers that mean anything, you need to repeat the same flow every time.
+
+Some good examples are:
+
+- cold launch to a specific screen
+- opening a list and navigating to a detail screen
+- switching between two tabs on the same screen
+- opening a heavy screen, waiting for it to settle, then switching to another screen
+
+Keep the following as consistent as possible:
+
+- simulator or device
+- OS version
+- build type (development or release)
+- network conditions
+- exact taps and waits
+
+If you change the flow between runs, the data gets noisy very quickly.
+
+## Start the app properly
+
+For Expo dev client apps, the startup flow is usually:
+
+```bash
+bun run start
+```
+
+and in another terminal:
+
+```bash
+bun run ios
+```
+
+or:
+
+```bash
+bun run android
+```
+
+If you've only changed JS / TS code, a reload is often enough for another profiling pass.
+
+If you've changed native config, or you want a stricter before / after comparison, do a clean rebuild first:
+
+```bash
+rm -rf ios android
+bunx expo prebuild -p ios
+bun run ios
+```
+
+Then in another terminal:
+
+```bash
+bun run start
+```
+
+## React DevTools
+
+React DevTools is usually where I start because it answers one question quickly:
+
+<br />
+
+**is this screen slow because React is doing too much work?**
+
+<br />
+
+On newer React Native versions you can often get this through React Native DevTools. If you need the standalone version, run:
+
+```bash
+bunx react-devtools
+```
+
+Then:
+
+1. Open the `Profiler` tab
+2. Click `Start profiling`
+3. Perform the exact flow
+4. Click `Stop profiling`
+5. Save or export the profile if you can
+
+The things I normally look for are:
+
+- total commit count
+- slowest commit
+- repeated commits during initial navigation
+- components rerendering more than expected
+- rerenders on screen switch that should really only happen on mount
+
+If one small interaction causes loads of commits, that's usually a good clue that the issue is in React land.
+
+Some common causes are:
+
+- recreated context values
+- rebuilt arrays or objects on every render
+- unstable callback props
+- `onLayout -> setState -> rerender` loops
+- heavy text-based subtrees
+
+This is especially useful for narrowing down components like:
+
+- tab bars
+- calendars
+- headers
+- cards
+- dropdown triggers
+- large lists
+
+React DevTools is great for rerender evidence, but it does not replace native profiling. Once React looks reasonable, the next question is what is happening on the native side
+
+## Xcode Instruments on iOS
+
+On iOS, Instruments gives you native evidence for things like:
+
+- CPU usage
+- hangs
+- memory leaks
+- UI thread pressure
+- suspicious call stacks
+
+If you're new to Instruments, start with:
+
+- `Time Profiler`
+- `Hangs`
+- `Leaks`
+
+The normal GUI workflow is:
+
+1. Launch the app first
+2. Open `Xcode > Open Developer Tool > Instruments`
+3. Create a new recording
+4. Choose `Time Profiler`
+5. Add `Hangs`
+6. Add `Leaks`
+7. Select the running simulator or device
+8. Attach to your app process
+9. Click Record
+10. Perform the exact flow
+11. Stop and save the trace
+
+If you don't know where to start, `Time Profiler` is usually the safest default.
+
+### No Recording Options Available
+
+Sometimes Instruments opens and says `No Recording Options Available`.
+
+Most of the time that just means Instruments does not have a valid target.
+
+Common causes:
+
+- you opened an old `.trace` instead of a fresh recording
+- no simulator or device is selected
+- the app is not running
+- no process is attached
+- Instruments lost its connection to the simulator
+
+If that happens, I usually do this:
+
+1. Quit Instruments
+2. Quit Simulator
+3. Relaunch the app
+4. Open Instruments fresh
+5. Create a new `Time Profiler` recording
+6. Re-select the target and process
+
+If Instruments is still being awkward, I usually stop fighting the UI and use `xctrace`.
+
+## `xctrace`
+
+The CLI version is often more reliable than the Instruments UI when you just want a clean trace.
+
+Useful commands:
+
+```bash
+xcrun xctrace version
+xcrun xctrace list devices
+xcrun xctrace list templates
+xcrun xctrace help record
+xcrun xctrace help export
+```
+
+Here's an example `Time Profiler` recording:
+
+```bash
+xcrun xctrace record \
+  --template 'Time Profiler' \
+  --device 'iPhone 17' \
+  --attach 'MyApp' \
+  --output /tmp/myapp-profile.trace \
+  --time-limit 30s
+```
+
+While it records, perform the flow manually.
+
+If attaching by process name doesn't work, get the PID:
+
+```bash
+pgrep -fl MyApp
+```
+
+Then attach by PID:
+
+```bash
+xcrun xctrace record \
+  --template 'Time Profiler' \
+  --device 'iPhone 17' \
+  --attach 12345 \
+  --output /tmp/myapp-profile.trace \
+  --time-limit 30s
+```
+
+You can also try adding Hangs and Leaks:
+
+```bash
+xcrun xctrace record \
+  --template 'Time Profiler' \
+  --instrument 'Hangs' \
+  --instrument 'Leaks' \
+  --device 'iPhone 17' \
+  --attach 'MyApp' \
+  --output /tmp/myapp-profile.trace \
+  --time-limit 30s
+```
+
+If that combination doesn't work locally, record separate traces.
+
+Once it's saved, open the trace in Instruments:
+
+```bash
+open /tmp/myapp-profile.trace
+```
+
+This is usually the least painful iOS workflow:
+
+1. record via CLI
+2. inspect in Instruments
+3. take screenshots from the saved trace
+
+## Android Studio Profiler
+
+Android Studio Profiler is the Android side of the same idea.
+
+It's useful for inspecting:
+
+- CPU activity
+- memory usage
+- frame rendering issues
+- UI thread activity
+- network behavior
+
+The workflow is pretty similar:
+
+1. Launch the app on an emulator or device
+2. Open Android Studio
+3. Open the `Profiler`
+4. Select your app process
+5. Start a system trace or CPU recording
+6. Perform the exact flow
+7. Stop and inspect the results
+
+## SpeedScope and Perfetto
+
+Sometimes Xcode and Android Studio are not the nicest places to inspect a saved trace.
+
+That's where tools like SpeedScope and Perfetto help:
+
+- [SpeedScope](https://www.speedscope.app/) for interactive flamegraphs
+- [Perfetto UI](https://ui.perfetto.dev/) for timeline-style trace inspection
+- `chrome://tracing` for Chrome's tracing viewer
+
+They're especially handy when:
+
+- you exported trace data from another tool
+- you want to share traces with teammates
+- you want a cleaner flamegraph view
+
+## Margelo's `react-native-release-profiler`
+
+Another useful tool is Margelo's [`react-native-release-profiler`](https://github.com/margelo/react-native-release-profiler).
+
+This is useful when you want to answer a more specific question:
+
+<br />
+
+**what is Hermes / JS doing in a real release build?**
+
+<br />
+
+That matters because debug builds can distort the results. The project calls out things like debug markers, debugger overhead, and GC behavior being different enough to mislead you.
+
+The basic usage looks like this:
+
+```tsx
+import { startProfiling, stopProfiling } from 'react-native-release-profiler';
+
+startProfiling();
+
+// Perform the flow you want to measure
+const path = await stopProfiling(true);
+```
+
+You can then process the trace and inspect it in SpeedScope, Perfetto or another supported tool.
+
+I tend to use this as:
+
+- a follow-up tool when debug results look suspicious
+- a release-build JS / Hermes profiler
+- another source of evidence when you're comparing before / after changes
+
+## What to record
+
+For each run, note:
+
+- The branch you're on
+- simulator or device model
+- OS version
+- build type (release or debug)
+- exact flow used
+- fresh launch or reload
+- trace filename
+- React profile filename if exported
+
+From native tooling, note:
+
+- total CPU samples or overall CPU hot spots
+- worst hang duration
+- number of hangs
+- top call stack hot spots
+- whether the UI thread was dominant
+- whether Hermes GC was significant
+- leak count or suspicious memory growth
+
+From React DevTools, note:
+
+- number of commits
+- slowest commit
+- components rerendering during the flow
+- whether rerenders happened only on mount or also on later interactions
+
+## Comparing before / after
+
+Your comparison should be based on exact runs, not just whether the screen felt a bit nicer.
+
+Example table:
+
+| Metric               | Before | After |         Change |
+| -------------------- | -----: | ----: | -------------: |
+| Worst hang           | 6865ms | 407ms |         -94.1% |
+| UI hangs             |      1 |     2 | lower severity |
+| CPU samples          |  77105 | 63898 |         -17.1% |
+| Leak groups          |     85 |    80 |          -5.9% |
+| Slowest React commit |  148ms |  42ms |         -71.6% |
+
+## Common mistakes
+
+The mistakes I try to avoid are:
+
+- comparing different user flows
+- measuring only once
+- trusting debug-build numbers too much (lots of optimizations get applied to release builds)
+- assuming every slowdown is a React rerender problem
+- assuming every slowdown is a UI thread problem
+- not writing down device, build type and trace file names
+- trying to optimize before proving where the time is actually going
+
+## A practical routine
+
+If you just want the short version, this is the routine:
+
+1. Pick one exact flow
+2. Run React DevTools Profiler and capture the flow
+3. Capture native evidence on iOS with Instruments or `xctrace`
+4. Capture native evidence on Android with Android Studio Profiler
+5. If needed, inspect exported traces in SpeedScope or Perfetto
+6. If debug results look suspicious, profile a release build with `react-native-release-profiler`
+7. Record the numbers in a small before/after table
+
+That combination is usually enough to get a pretty accurate picture of what is actually going on.
