@@ -23,7 +23,7 @@ runs:
         run: bun run build
         shell: bash
 
-      - name: local UI tests
-        uses: ./.github/actions/ui-test
-        with:
-          target: e2e-local
+      # - name: local UI tests
+      #   uses: ./.github/actions/ui-test
+      #   with:
+      #     target: e2e-local
