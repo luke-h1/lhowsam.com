@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 
-import { absoluteUrl, toJsonLd } from '../seo';
+import { absoluteUrl, toJsonLd, toJsonLdScripts } from '../seo';
 
 describe('absoluteUrl', () => {
   test('returns the site root for an empty path', () => {
@@ -28,5 +28,25 @@ describe('toJsonLd', () => {
     ).toBe(
       '{"@context":"https://schema.org","name":"Luke \\u003cscript>alert(\\"xss\\")\\u003c/script> Howsam"}',
     );
+  });
+});
+
+describe('toJsonLdScripts', () => {
+  test('serializes array values as separate JSON-LD script payloads', () => {
+    expect(
+      toJsonLdScripts([
+        {
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+        },
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Person',
+        },
+      ]),
+    ).toEqual([
+      '{"@context":"https://schema.org","@type":"WebSite"}',
+      '{"@context":"https://schema.org","@type":"Person"}',
+    ]);
   });
 });

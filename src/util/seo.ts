@@ -15,3 +15,7 @@ export function absoluteUrl(path: string) {
 export function toJsonLd(value: object) {
   return JSON.stringify(value).replace(/</g, '\\u003c');
 }
+
+export function toJsonLdScripts(value: object | object[]) {
+  return (Array.isArray(value) ? value : [value]).map(toJsonLd);
+}

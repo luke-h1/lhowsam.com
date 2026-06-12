@@ -17,7 +17,7 @@ import instrumentSerifWoff2 from '@fontsource/instrument-serif/files/instrument-
 import interRegularWoff2 from '@fontsource/inter/files/inter-latin-400-normal.woff2?url';
 import interMediumWoff2 from '@fontsource/inter/files/inter-latin-500-normal.woff2?url';
 import { siteConfig } from '../../config/site';
-import { absoluteUrl, toJsonLd } from '../../util/seo';
+import { absoluteUrl, toJsonLdScripts } from '../../util/seo';
 import { resolveSocialImage } from '../../util/socialImage';
 import StatsigAnalytics from '../analytics/StatsigAnalytics.astro';
 import Footer from '../ui/Footer.astro';
@@ -46,6 +46,7 @@ const {
 const canonicalHref =
   canonicalURL instanceof URL ? canonicalURL.toString() : canonicalURL;
 const socialImage = absoluteUrl(resolveSocialImage(image));
+const jsonLdScripts = structuredData ? toJsonLdScripts(structuredData) : [];
 ---
 
 <!doctype html>
@@ -241,13 +242,9 @@ const socialImage = absoluteUrl(resolveSocialImage(image));
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
     <meta name="generator" content={Astro.generator} />
     {
-      structuredData && (
-        <script
-          is:inline
-          type="application/ld+json"
-          set:html={toJsonLd(structuredData)}
-        />
-      )
+      jsonLdScripts.map(jsonLd => (
+        <script is:inline type="application/ld+json" set:html={jsonLd} />
+      ))
     }
     <StatsigAnalytics />
   </head>
