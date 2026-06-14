@@ -51,5 +51,6 @@ jobs:
           environment: dev
 
       - name: dev UI tests
-        run: bun run e2e:dev
-        shell: bash
+        uses: ./.github/actions/ui-test
+        with:
+          target: e2e:dev
