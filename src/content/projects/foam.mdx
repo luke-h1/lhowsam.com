@@ -6,8 +6,13 @@ tags:
   [
     'react-native',
     'expo',
+    'expo-router',
     'typescript',
     'bun',
+    'legend-state',
+    'legend-list',
+    'react-query',
+    'i18next',
     'maestro',
     'twitch',
     '7tv',
@@ -18,9 +23,30 @@ order: 0
 featured: true
 ---
 
+import { Image } from 'astro:assets';
+import chatScreenshot from '../../assets/projects/foam-chat.png';
+import searchScreenshot from '../../assets/projects/foam-search.png';
+
 Foam is a custom mobile Twitch client that I started as a way to improve my React Native skills while building something I would actually want to use day to day. The native Twitch mobile app still feels limited compared with desktop, especially around chat customisation and support for third-party extensions, so this project explores what a cleaner and more capable mobile experience could look like.
 
-The app is built with React Native, Expo, React Navigation and TypeScript, with Bun used for package management and runtime tooling. It integrates with Twitch APIs for core app functionality, and pulls in third-party chat providers like 7TV (and BTTV) to make chat feel closer to desktop. I also set the project up with Storybook for isolated UI development, Maestro for end-to-end testing, and EAS for building and distributing multiple app variants across iOS and Android.
+<div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0;">
+  <Image
+    src={chatScreenshot}
+    alt="Foam stream chat screen showing Twitch messages with third-party emotes and badges"
+    width={260}
+    style="margin: 0; max-width: 45%; height: auto; border-radius: 0.75rem;"
+  />
+  <Image
+    src={searchScreenshot}
+    alt="Foam search screen listing live Twitch channels"
+    width={260}
+    style="margin: 0; max-width: 45%; height: auto; border-radius: 0.75rem;"
+  />
+</div>
+
+The app is built with React Native, Expo, Expo Router and TypeScript, with Bun used for package management and runtime tooling. It integrates with Twitch APIs for core app functionality, and pulls in third-party chat providers like 7TV, BTTV, FFZ and StreamElements to make chat feel closer to desktop. I also set the project up with Storybook for isolated UI development, Maestro for end-to-end testing, and EAS for building and distributing multiple app variants across iOS and Android.
+
+The high-churn parts of Twitch (live playback, fast-moving chat, third-party emotes, badges and cosmetics) drove most of the architecture. Chat state lives outside React in [Legend State](https://legendapp.com/open-source/state/) so frequent message, emote and badge updates avoid broad re-renders, and chat rows are virtualised with [Legend List](https://github.com/LegendApp/legend-list) using bounded message windows and memoised rows. Networking goes through a single tagged API client built on TanStack Query with per-request timeouts, image loading is handled by expo-image and react-native-nitro-image behind a custom priority-queued cache, persistence uses MMKV, and the app is internationalised with i18next. Sentry covers error and performance monitoring, while Reassure guards against chat performance regressions in CI.
 
 One of the more interesting parts of Foam is the amount of platform and delivery work around the app itself. The repository supports separate development and production variants, includes an [auth proxy](https://github.com/luke-h1/foam-proxy) for Twitch authentication, and is structured so local development builds, preview builds and production builds can all coexist without clashing on the same device (different bundle identifiers).
 
