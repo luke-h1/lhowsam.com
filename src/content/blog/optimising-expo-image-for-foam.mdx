@@ -216,7 +216,7 @@ Those are instantaneous readings, and under the old code the overlay lurches: th
 
 The UI thread stayed high either way, because this is a 120Hz device so it runs up near 100fps rather than 60, and the part the user actually sees was never the thing in trouble. The real change is on the **JS thread**: it went from drowning (26fps, more than half the frames late) to keeping up (57fps, 5%), with CPU and memory falling alongside it
 
-### Where the CPU actually goes
+### CPU
 
 130% CPU is better than 180%, but it's still a lot of work for a chat screen. So I sampled the native process under the same flood and drew an on-CPU flamegraph, before and after:
 
