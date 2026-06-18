@@ -117,6 +117,13 @@ const groups: CommandMenuGroup<CommandMenuItem>[] = [
         type: 'external-link',
         href: 'https://github.com/luke-h1',
       },
+      {
+        id: 'social-twitter',
+        label: 'Twitter',
+        searchText: 'twitter social external',
+        type: 'external-link',
+        href: 'https://x.com/luke_h1__',
+      },
     ],
   },
   {
@@ -224,6 +231,7 @@ describe('CommandMenu', () => {
     const socialItems = getRequiredVisibleByTestId('CommandMenu-social');
 
     expect(within(socialItems).getByText('GitHub')).toBeInTheDocument();
+    expect(within(socialItems).getByText('Twitter')).toBeInTheDocument();
   });
 
   test('renders Commands items correctly', () => {

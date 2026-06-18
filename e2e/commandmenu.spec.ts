@@ -242,6 +242,9 @@ test.describe.skip('command menu', () => {
     await expect(
       page.getByTestId('command-menu-item-social-linkedin'),
     ).toBeVisible();
+    await expect(
+      page.getByTestId('command-menu-item-social-twitter'),
+    ).toBeVisible();
   });
 
   test('renders Commands items correctly', async () => {

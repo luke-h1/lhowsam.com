@@ -16,5 +16,9 @@ export const siteConfig = {
       name: 'LinkedIn',
       url: 'https://www.linkedin.com/in/lukehowsam',
     },
+    {
+      name: 'Twitter',
+      url: 'https://x.com/luke_h1__',
+    },
   ],
 };
