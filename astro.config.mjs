@@ -10,6 +10,10 @@ import { defineConfig } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://lhowsam.com',
+  // Astro 7 changed the default to 'jsx' (collapses whitespace between inline
+  // elements like React). Keep the v6 HTML-rules behaviour to avoid layout
+  // regressions; revisit if/when adopting JSX whitespace intentionally.
+  compressHTML: true,
   server: {
     port: 3000,
   },
