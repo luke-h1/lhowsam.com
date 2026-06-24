@@ -203,8 +203,8 @@ const CommandMenu = ({ groups }: Props) => {
         className="command-menu__toggle"
         onClick={() => setOpen(true)}
         data-testid="cmdk-icon"
+        aria-label="Open command menu"
       >
-        <span className="command-menu__visually-hidden">Open command menu</span>
         <span className="command-menu__toggle-highlight" aria-hidden="true" />
         <span className="command-menu__toggle-icon" aria-hidden="true">
           <CommandKeyIcon size={16} strokeWidth={2} aria-hidden />

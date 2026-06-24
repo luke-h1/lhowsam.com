@@ -63,8 +63,11 @@ const structuredData = [
   <Container>
     <section class="hero" data-testid="home-hero">
       <h1 data-testid="home-page-title">luke-h1</h1>
-      <p class="muted-text" data-testid="home-author-name">Luke Howsam</p>
-      <p class="subtitle">Software Developer</p>
+      <p class="subtitle">
+        <span data-testid="home-author-name">Luke Howsam</span>
+        <span class="subtitle__sep" aria-hidden="true">·</span>
+        <span>Software Developer</span>
+      </p>
       <p class="intro" data-testid="home-intro">
         SWE interested in React Native, Mobile, DevOps, TypeScript and all
         things in-between
@@ -177,6 +180,11 @@ const structuredData = [
 
   .hero > * + * {
     margin-top: 0.5rem;
+  }
+
+  .subtitle__sep {
+    margin: 0 0.4rem;
+    opacity: 0.5;
   }
 
   .introduction {
