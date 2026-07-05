@@ -127,6 +127,7 @@ const structuredData = [
             <article>
               <div class="title-row">
                 <a
+                  class="project-title"
                   href={`/projects/${project.data.slug}`}
                   data-analytics-event="project_click"
                   data-analytics-label={project.data.slug}
@@ -209,6 +210,18 @@ const structuredData = [
     align-items: baseline;
     gap: 1rem;
     font-size: var(--text-sm);
+  }
+
+  .project-title {
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  .project-title:hover {
+    color: var(--text-muted);
+    text-decoration: underline;
   }
 
   /* experience */
