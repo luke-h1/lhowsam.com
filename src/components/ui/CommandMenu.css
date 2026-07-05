@@ -248,6 +248,12 @@
   border-radius: 4px;
   background-color: var(--cmdk-surface-hover);
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.15s ease-in-out;
+}
+
+[cmdk-item][aria-selected='true'] .highlight {
+  opacity: 1;
 }
 
 [cmdk-item] svg {
@@ -284,5 +290,9 @@
   [cmdk-item] svg {
     transition-duration: 0.01ms;
     transition-delay: 0s;
+  }
+
+  [cmdk-item] .highlight {
+    transition-duration: 0.01ms;
   }
 }

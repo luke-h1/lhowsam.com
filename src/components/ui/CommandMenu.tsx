@@ -1,10 +1,4 @@
-import { Command, useCommandState } from 'cmdk';
-import {
-  domAnimation,
-  LazyMotion,
-  motion,
-  useReducedMotion,
-} from 'framer-motion';
+import { Command } from 'cmdk';
 import {
   AtSign,
   Boxes,
@@ -121,9 +115,6 @@ function CommandMenuRow({
   keywords: string[];
   onSelect: () => void;
 }) {
-  const selected = useCommandState(s => s.value === value);
-  const reduceMotion = useReducedMotion();
-
   return (
     <Command.Item
       value={value}
@@ -135,16 +126,7 @@ function CommandMenuRow({
         {commandMenuIconFor(item, groupHeading)}
         <span>{item.label}</span>
       </span>
-      {selected &&
-        (reduceMotion ? (
-          <span className="highlight" />
-        ) : (
-          <motion.span
-            layoutId="highlight"
-            className="highlight"
-            transition={{ duration: 0.2 }}
-          />
-        ))}
+      <span className="highlight" aria-hidden="true" />
     </Command.Item>
   );
 }
@@ -218,62 +200,60 @@ const CommandMenu = ({ groups }: Props) => {
         aria-label="Global Command Menu"
         data-testid="command-menu-root"
       >
-        <LazyMotion features={domAnimation}>
-          <div
-            className="command-menu__header"
+        <div
+          className="command-menu__header"
+          {...({
+            'cmdk-header': '',
+          } as Record<string, string>)}
+        >
+          <Command.Input
+            placeholder="Type a command or search..."
+            data-testid="command-menu-input"
+          />
+          <button
+            aria-label="Close command menu"
+            type="button"
+            tabIndex={-1}
+            onClick={() => setOpen(false)}
             {...({
-              'cmdk-header': '',
+              'cmdk-header-esc': '',
             } as Record<string, string>)}
           >
-            <Command.Input
-              placeholder="Type a command or search..."
-              data-testid="command-menu-input"
-            />
-            <button
-              aria-label="Close command menu"
-              type="button"
-              tabIndex={-1}
-              onClick={() => setOpen(false)}
-              {...({
-                'cmdk-header-esc': '',
-              } as Record<string, string>)}
-            >
-              ESC
-            </button>
-          </div>
-          <div data-testid="command-menu-listbox">
-            <Command.List role="listbox">
-              <Command.Empty>No results found.</Command.Empty>
+            ESC
+          </button>
+        </div>
+        <div data-testid="command-menu-listbox">
+          <Command.List role="listbox">
+            <Command.Empty>No results found.</Command.Empty>
 
-              {groups.map(group => (
-                <Command.Group
-                  key={group.heading}
-                  heading={group.heading}
-                  aria-label={group.heading}
-                  data-testid={groupTestIds[group.heading]}
-                >
-                  {group.items.map(item => (
-                    <CommandMenuRow
-                      key={item.id}
-                      item={item}
-                      groupHeading={group.heading}
-                      value={item.id}
-                      keywords={[
-                        item.label,
-                        item.searchText,
-                        item.section ?? '',
-                        group.heading,
-                      ]}
-                      onSelect={() => {
-                        handleSelect(item);
-                      }}
-                    />
-                  ))}
-                </Command.Group>
-              ))}
-            </Command.List>
-          </div>
-        </LazyMotion>
+            {groups.map(group => (
+              <Command.Group
+                key={group.heading}
+                heading={group.heading}
+                aria-label={group.heading}
+                data-testid={groupTestIds[group.heading]}
+              >
+                {group.items.map(item => (
+                  <CommandMenuRow
+                    key={item.id}
+                    item={item}
+                    groupHeading={group.heading}
+                    value={item.id}
+                    keywords={[
+                      item.label,
+                      item.searchText,
+                      item.section ?? '',
+                      group.heading,
+                    ]}
+                    onSelect={() => {
+                      handleSelect(item);
+                    }}
+                  />
+                ))}
+              </Command.Group>
+            ))}
+          </Command.List>
+        </div>
       </Command.Dialog>
     </div>
   );
