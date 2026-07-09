@@ -182,16 +182,75 @@
   max-width: none;
 }
 
+.code-block {
+  position: relative;
+  margin: 1.75rem 0;
+}
+
+.content-copy-code {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 0.375rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(23, 21, 29, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: rgba(255, 255, 255, 0.65);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  opacity: 0;
+  transition:
+    opacity 150ms ease,
+    color var(--transition-base),
+    border-color var(--transition-base);
+}
+
+.code-block:hover .content-copy-code,
+.content-copy-code:focus-visible {
+  opacity: 1;
+}
+
+.content-copy-code:hover {
+  color: var(--text-color);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.content-copy-code.copied {
+  opacity: 1;
+  color: var(--link-color);
+  border-color: rgba(var(--accent-rgb), 0.35);
+}
+
+@media (hover: none) {
+  .content-copy-code {
+    opacity: 1;
+  }
+}
+
 .content pre {
   padding: 1.125rem 1.25rem;
   margin: 1.75rem 0;
-  border-radius: 0.5rem;
-  background: var(--hover-bg);
+  border-radius: 0.65rem;
+  /* wins over Shiki's inline background */
+  background: #16151b !important;
   overflow-x: auto;
   border: 1px solid var(--border-color);
-  font-size: 0.9375rem;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  font-size: 0.875rem;
   line-height: 1.65;
   -webkit-overflow-scrolling: touch;
+}
+
+.code-block pre {
+  margin: 0;
 }
 
 .content pre code {
@@ -199,6 +258,43 @@
   line-height: inherit;
   background: none;
   padding: 0;
+}
+
+.content :is(h2, h3, h4) {
+  width: fit-content;
+  max-width: 100%;
+}
+
+.content .heading-anchor {
+  margin-left: 0.4em;
+  font-family: var(--font-mono);
+  font-size: 0.75em;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  opacity: 0;
+  transition:
+    opacity 150ms ease,
+    color var(--transition-base);
+}
+
+.content :is(h2, h3, h4):hover .heading-anchor,
+.heading-anchor:focus-visible {
+  opacity: 1;
+}
+
+.heading-anchor:hover {
+  color: var(--link-color);
+}
+
+.heading-anchor.copied {
+  opacity: 1;
+  color: var(--link-color);
+}
+
+@media (hover: none) {
+  .content .heading-anchor {
+    opacity: 0.55;
+  }
 }
 
 .content :not(pre) > code {

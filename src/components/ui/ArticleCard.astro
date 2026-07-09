@@ -23,14 +23,14 @@ const { post, analyticsSurface = 'blog_list' } = Astro.props;
     {post.data.title}
   </a>
   <time datetime={post.data.publishedAt.toISOString()}>
-    {format(post.data.publishedAt, 'MMMM d, yyyy')}
+    {format(post.data.publishedAt, 'MMM d, yyyy')}
   </time>
   <p class="muted-text" data-testid="blog-post-card-intro">{post.data.intro}</p>
   {
     post.data.tags.length > 0 && (
-      <div class="tags">
+      <div class="hash-tags">
         {post.data.tags.map(tag => (
-          <a class="tag" href={`/blog/tags/${toTagSlug(tag)}/`}>
+          <a class="hash-tag" href={`/blog/tags/${toTagSlug(tag)}/`}>
             {tag}
           </a>
         ))}
@@ -48,8 +48,14 @@ const { post, analyticsSurface = 'blog_list' } = Astro.props;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
+  article:last-child {
+    border-bottom: none;
+  }
+
   .title-link {
+    align-self: flex-start;
     font-size: var(--text-lg);
+    font-weight: 500;
     text-decoration: none;
     color: var(--text-color);
     line-height: 1.35;
@@ -60,8 +66,11 @@ const { post, analyticsSurface = 'blog_list' } = Astro.props;
   }
 
   time {
-    font-size: var(--text-sm);
-    opacity: 0.7;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+    opacity: 0.55;
     line-height: 1.25;
   }
 
@@ -69,29 +78,5 @@ const { post, analyticsSurface = 'blog_list' } = Astro.props;
     margin: 0;
     max-width: 42rem;
     line-height: 1.6;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 0.25rem;
-  }
-
-  .tag {
-    text-decoration: none;
-    font-size: var(--text-xs);
-    padding: 0.3rem 0.65rem;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.65);
-    line-height: 1;
-    letter-spacing: 0.01em;
-  }
-
-  .tag:hover {
-    color: var(--text-color);
-    border-color: rgba(255, 255, 255, 0.16);
   }
 </style>

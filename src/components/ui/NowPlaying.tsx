@@ -131,18 +131,19 @@ export default function NowPlaying() {
   }
 
   return (
-    <div className={styles.row} data-testid="now-playing">
+    <div className={styles.row} data-testid="now-playing" aria-live="polite">
       {showCover && data?.albumImageUrl && data?.songUrl && (
         <a
           className={styles.coverLink}
           href={data?.songUrl}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={`Open ${statusLabel} on Spotify`}
         >
           <img
             className={styles.cover}
             src={data.albumImageUrl}
-            alt="Album cover"
+            alt=""
             width={44}
             height={44}
           />

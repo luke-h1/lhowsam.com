@@ -36,7 +36,12 @@ const { talk, analyticsSurface = 'talks_list' } = Astro.props;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
+  article:last-child {
+    border-bottom: none;
+  }
+
   .title-link {
+    align-self: flex-start;
     font-size: var(--text-lg);
     text-decoration: none;
     color: var(--text-color);

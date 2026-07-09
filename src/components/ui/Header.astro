@@ -305,7 +305,7 @@ const commandGroups = [
     outline: none;
     box-shadow:
       0 0 0 2px var(--bg-color),
-      0 0 0 4px rgba(96, 165, 250, 0.45);
+      0 0 0 4px rgba(var(--accent-rgb), 0.45);
   }
 
   .header-nav__burger-lines {
@@ -502,8 +502,8 @@ const commandGroups = [
 
     .header-nav__link:focus-visible {
       outline: none;
-      border-color: rgba(96, 165, 250, 0.35);
-      background: rgba(96, 165, 250, 0.08);
+      border-color: rgba(var(--accent-rgb), 0.35);
+      background: rgba(var(--accent-rgb), 0.08);
     }
 
     .header-nav__link.active::after {
@@ -512,8 +512,8 @@ const commandGroups = [
 
     .header-nav__link.active {
       color: var(--link-color) !important;
-      background: rgba(96, 165, 250, 0.1);
-      border-color: rgba(96, 165, 250, 0.18);
+      background: rgba(var(--accent-rgb), 0.1);
+      border-color: rgba(var(--accent-rgb), 0.18);
     }
   }
 </style>

@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import ContentList from '../components/ContentList.astro';
 import BaseLayout from '../components/layout/BaseLayout.astro';
@@ -7,6 +6,7 @@ import Container from '../components/ui/Container.astro';
 import Section from '../components/ui/Section.astro';
 import { siteConfig } from '../config/site';
 import { absoluteUrl } from '../util/seo';
+import { toTagSlug } from '../util/tags';
 import { format } from 'date-fns';
 import lukeImage from '../assets/luke.png';
 
@@ -77,6 +77,9 @@ const structuredData = [
           siteConfig.socialLinks.map(link => (
             <a href={link.url} target="_blank" rel="noopener noreferrer">
               {link.name}
+              <span class="ext-arrow" aria-hidden="true">
+                ↗
+              </span>
             </a>
           ))
         }
@@ -111,6 +114,15 @@ const structuredData = [
               <p class="muted-text" data-testid="home-recent-post-intro">
                 {post.data.intro}
               </p>
+              {post.data.tags.length > 0 && (
+                <div class="hash-tags">
+                  {post.data.tags.map(tag => (
+                    <a class="hash-tag" href={`/blog/tags/${toTagSlug(tag)}/`}>
+                      {tag}
+                    </a>
+                  ))}
+                </div>
+              )}
             </article>
           ))
         }
@@ -119,7 +131,7 @@ const structuredData = [
     <section class="section">
       <div class="section-header">
         <h2>Recent projects</h2>
-        <a href="/projects">View All</a>
+        <a href="/projects">View all</a>
       </div>
       <ContentList>
         {
@@ -138,20 +150,9 @@ const structuredData = [
               </div>
               <p class="muted-text">{project.data.intro}</p>
               {project.data.techStack && (
-                <div class="tags">
+                <div class="hash-tags">
                   {project.data.techStack.map(stack => (
-                    <span class="tag">
-                      {stack.name}
-                      {stack.imagePath && (
-                        <Image
-                          src={stack.imagePath}
-                          alt={stack.name}
-                          width={16}
-                          height={16}
-                          class="tag-image"
-                        />
-                      )}
-                    </span>
+                    <span class="hash-tag">{stack.name}</span>
                   ))}
                 </div>
               )}
@@ -164,13 +165,6 @@ const structuredData = [
 </BaseLayout>
 
 <style>
-  main {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem 0;
-  }
-
   .hero {
     padding: 4rem 0;
   }
@@ -181,6 +175,10 @@ const structuredData = [
 
   .hero > * + * {
     margin-top: 0.5rem;
+  }
+
+  .hero .intro {
+    margin-top: 1rem;
   }
 
   .subtitle__sep {
@@ -200,8 +198,11 @@ const structuredData = [
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: 2rem;
-    opacity: 0.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-header h2 {
+    margin-bottom: 0;
   }
 
   .title-row {
@@ -210,6 +211,10 @@ const structuredData = [
     align-items: baseline;
     gap: 1rem;
     font-size: var(--text-sm);
+  }
+
+  article .muted-text {
+    margin-bottom: 0;
   }
 
   .project-title {
@@ -238,33 +243,36 @@ const structuredData = [
   }
 
   time {
+    font-family: var(--font-mono);
     font-size: var(--text-xs);
-    opacity: 0.5;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0;
+    opacity: 0.55;
     white-space: nowrap;
-  }
-
-  .tags {
-    display: flex;
-    gap: 0.75rem;
-    margin-top: 0.5rem;
-  }
-
-  .tags span {
-    font-size: var(--text-xs);
-    opacity: 0.5;
-  }
-
-  .tag-image {
-    width: 1rem;
-    height: 1rem;
-    object-fit: contain;
   }
 
   .social-links {
     display: flex;
-    gap: 1rem;
+    gap: 1.25rem;
     margin-top: 1.5rem;
-    opacity: 0.7;
+    font-size: var(--text-sm);
+  }
+
+  .ext-arrow {
+    display: inline-block;
+    margin-left: 0.2em;
+    font-size: 0.75em;
+    opacity: 0.55;
+    transition:
+      transform 160ms var(--ease-out),
+      opacity 160ms ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .social-links a:hover .ext-arrow {
+      transform: translate(1px, -1px);
+      opacity: 1;
+    }
   }
 
   @media (max-width: 640px) {
@@ -281,10 +289,6 @@ const structuredData = [
       flex-direction: column;
       align-items: flex-start;
       gap: 0.35rem;
-    }
-
-    .tags {
-      flex-wrap: wrap;
     }
 
     .container {
