@@ -261,40 +261,72 @@
 }
 
 .content :is(h2, h3, h4) {
+  position: relative;
   width: fit-content;
   max-width: 100%;
 }
 
 .content .heading-anchor {
-  margin-left: 0.4em;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
+  padding: 0.35rem;
   font-family: var(--font-mono);
   font-size: 0.75em;
   color: rgba(255, 255, 255, 0.4);
   text-decoration: none;
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
   transition:
     opacity 150ms ease,
+    visibility 150ms ease,
     color var(--transition-base);
 }
 
-.content :is(h2, h3, h4):hover .heading-anchor,
+@media (hover: hover) {
+  .content :is(h2, h3, h4):hover,
+  .content :is(h2, h3, h4):has(.heading-anchor:hover) {
+    padding-right: 2rem;
+  }
+
+  .content :is(h2, h3, h4):hover .heading-anchor,
+  .content :is(h2, h3, h4):has(.heading-anchor:hover) .heading-anchor,
+  .content .heading-anchor:hover {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+@media (hover: none) {
+  .content :is(h2, h3, h4):active,
+  .content :is(h2, h3, h4):focus-within {
+    padding-right: 2rem;
+  }
+
+  .content :is(h2, h3, h4):active .heading-anchor,
+  .content :is(h2, h3, h4):focus-within .heading-anchor {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
 .heading-anchor:focus-visible {
   opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 .heading-anchor:hover {
   color: var(--link-color);
-}
-
-.heading-anchor.copied {
-  opacity: 1;
-  color: var(--link-color);
-}
-
-@media (hover: none) {
-  .content .heading-anchor {
-    opacity: 0.55;
-  }
 }
 
 .content :not(pre) > code {

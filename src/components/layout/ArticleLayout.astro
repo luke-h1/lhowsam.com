@@ -105,6 +105,13 @@ const hasToc = headings.some(h => h.depth >= 2 && h.depth <= 4);
       }, 1600);
     };
 
+    const getHeadingText = heading =>
+      [...heading.childNodes]
+        .filter(node => node.nodeType === Node.TEXT_NODE)
+        .map(node => node.textContent)
+        .join('')
+        .trim();
+
     document
       .querySelectorAll('.content :is(h2, h3, h4)[id]')
       .forEach(heading => {
@@ -112,19 +119,18 @@ const hasToc = headings.some(h => h.depth >= 2 && h.depth <= 4);
         anchor.className = 'heading-anchor';
         anchor.href = `#${heading.id}`;
         anchor.textContent = '#';
+        anchor.title = 'Copy link to section';
         anchor.setAttribute(
           'aria-label',
-          `Copy link to "${heading.textContent.trim()}"`,
+          `Copy link to "${getHeadingText(heading)}"`,
         );
         anchor.addEventListener('click', event => {
           event.preventDefault();
           const url = new URL(`#${heading.id}`, window.location.href);
           history.replaceState(null, '', url);
-          copyToClipboard(url.toString())
-            .then(() => flash(anchor, '#', '#'))
-            .catch(() => {
-              window.location.hash = heading.id;
-            });
+          copyToClipboard(url.toString()).catch(() => {
+            window.location.hash = heading.id;
+          });
         });
         heading.appendChild(anchor);
       });
