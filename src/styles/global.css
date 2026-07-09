@@ -394,7 +394,8 @@ button {
 
 .hash-tag::before {
   content: '#';
-  opacity: 0.6;
+  opacity: 0;
+  transition: opacity 150ms ease;
 }
 
 a.hash-tag {
@@ -406,8 +407,19 @@ a.hash-tag::after {
 }
 
 @media (hover: hover) and (pointer: fine) {
+  article:hover .hash-tag::before,
+  .hash-tag:hover::before {
+    opacity: 0.6;
+  }
+
   a.hash-tag:hover {
     color: var(--link-color);
+  }
+}
+
+@media (hover: none) {
+  .hash-tag::before {
+    opacity: 0.6;
   }
 }
 
