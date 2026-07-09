@@ -82,9 +82,9 @@ const cardClassName = ['project-card', className].filter(Boolean).join(' ');
 
   {
     techItems.length > 0 && (
-      <div class="tech-list" aria-label="Project technologies">
+      <div class="hash-tags" aria-label="Project technologies">
         {techItems.map(tech => (
-          <span class="tech-item">{tech}</span>
+          <span class="hash-tag">{tech}</span>
         ))}
       </div>
     )
@@ -159,6 +159,13 @@ const cardClassName = ['project-card', className].filter(Boolean).join(' ');
       opacity var(--transition-base);
   }
 
+  @media (pointer: coarse) {
+    .icon-link {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+  }
+
   .icon-link:hover {
     color: var(--text-color);
   }
@@ -174,27 +181,6 @@ const cardClassName = ['project-card', className].filter(Boolean).join(' ');
     font-size: var(--text-base);
     line-height: 1.6;
     max-width: 42rem;
-  }
-
-  .tech-list {
-    display: flex;
-    flex-wrap: wrap;
-    column-gap: 0.75rem;
-    row-gap: 0.35rem;
-    margin-top: 0.25rem;
-  }
-
-  .tech-item {
-    color: rgba(255, 255, 255, 0.45);
-    font-size: var(--text-xs);
-    line-height: 1.4;
-    letter-spacing: 0.01em;
-  }
-
-  .tech-item + .tech-item::before {
-    content: '·';
-    margin-right: 0.75rem;
-    opacity: 0.6;
   }
 
   @media (max-width: 640px) {

@@ -88,3 +88,65 @@ const hasToc = headings.some(h => h.depth >= 2 && h.depth <= 4);
     </div>
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (() => {
+    const copyToClipboard = text =>
+      navigator.clipboard
+        ? navigator.clipboard.writeText(text)
+        : Promise.reject();
+
+    const flash = (el, message, originalText, succeeded = true) => {
+      if (succeeded) el.classList.add('copied');
+      el.textContent = message;
+      window.setTimeout(() => {
+        el.classList.remove('copied');
+        el.textContent = originalText;
+      }, 1600);
+    };
+
+    document
+      .querySelectorAll('.content :is(h2, h3, h4)[id]')
+      .forEach(heading => {
+        const anchor = document.createElement('a');
+        anchor.className = 'heading-anchor';
+        anchor.href = `#${heading.id}`;
+        anchor.textContent = '#';
+        anchor.setAttribute(
+          'aria-label',
+          `Copy link to "${heading.textContent.trim()}"`,
+        );
+        anchor.addEventListener('click', event => {
+          event.preventDefault();
+          const url = new URL(`#${heading.id}`, window.location.href);
+          history.replaceState(null, '', url);
+          copyToClipboard(url.toString())
+            .then(() => flash(anchor, '#', '#'))
+            .catch(() => {
+              window.location.hash = heading.id;
+            });
+        });
+        heading.appendChild(anchor);
+      });
+
+    document.querySelectorAll('.content pre.astro-code').forEach(pre => {
+      const wrapper = document.createElement('div');
+      wrapper.className = 'code-block';
+      pre.replaceWith(wrapper);
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'content-copy-code';
+      button.textContent = 'Copy';
+      button.setAttribute('aria-label', 'Copy code to clipboard');
+      button.addEventListener('click', () => {
+        const code = pre.querySelector('code')?.innerText ?? pre.innerText;
+        copyToClipboard(code.replace(/\n$/, ''))
+          .then(() => flash(button, 'Copied', 'Copy'))
+          .catch(() => flash(button, 'Failed', 'Copy', false));
+      });
+
+      wrapper.append(pre, button);
+    });
+  })();
+</script>

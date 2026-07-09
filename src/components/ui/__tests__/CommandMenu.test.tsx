@@ -192,7 +192,7 @@ describe('CommandMenu', () => {
   });
 
   test('Search filters list of items correctly', async () => {
-    const input = screen.getByPlaceholderText('Type a command or search...');
+    const input = screen.getByPlaceholderText('Type a command or search…');
     fireEvent.change(input, { target: { value: 'foam' } });
 
     expect(screen.getByText('Foam')).toBeVisible();

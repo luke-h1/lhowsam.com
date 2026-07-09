@@ -149,6 +149,17 @@ const CommandMenu = ({ groups }: Props) => {
     };
   }, []);
 
+  useEffect(() => {
+    if (!open) return undefined;
+    // cmdk's sizer div breaks aria-required-children
+    const frame = requestAnimationFrame(() => {
+      document
+        .querySelector('[cmdk-list-sizer]')
+        ?.setAttribute('role', 'presentation');
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [open]);
+
   const currentOrigin =
     typeof window !== 'undefined'
       ? window.location.origin
@@ -207,7 +218,7 @@ const CommandMenu = ({ groups }: Props) => {
           } as Record<string, string>)}
         >
           <Command.Input
-            placeholder="Type a command or search..."
+            placeholder="Type a command or search…"
             data-testid="command-menu-input"
           />
           <button
@@ -230,7 +241,6 @@ const CommandMenu = ({ groups }: Props) => {
               <Command.Group
                 key={group.heading}
                 heading={group.heading}
-                aria-label={group.heading}
                 data-testid={groupTestIds[group.heading]}
               >
                 {group.items.map(item => (
