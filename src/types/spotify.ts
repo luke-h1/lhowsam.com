@@ -6,6 +6,34 @@ export interface Song {
   songUrl?: string;
 }
 
+export interface RecentTrack {
+  title: string;
+  artist: string;
+  album: string;
+  albumImageUrl: string;
+  songUrl: string;
+  nowPlaying: boolean;
+  playedAt: number | null;
+}
+
+export interface RecentTracksResponse {
+  tracks: RecentTrack[];
+}
+
+export interface TopTrack {
+  title: string;
+  artist: string;
+  album: string;
+  albumImageUrl: string;
+  songUrl: string;
+}
+
+export interface TopTracksResponse {
+  tracks: TopTrack[];
+}
+
+export type TopTracksTimeRange = 'short_term' | 'medium_term' | 'long_term';
+
 export interface Artist {
   external_urls: {
     spotify: string;

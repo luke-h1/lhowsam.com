@@ -1,0 +1,110 @@
+---
+import Hero from '../components/Hero.astro';
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import Container from '../components/ui/Container.astro';
+import RecentTracks from '../components/ui/RecentTracks.tsx';
+import TopTracks from '../components/ui/TopTracks.tsx';
+import { siteConfig } from '../config/site';
+
+const title = `Tracks | ${siteConfig.authorName}`;
+const description =
+  'What Luke Howsam has been listening to lately - recently played tracks from Last.fm and top tracks from Spotify.';
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: title,
+    url: `${siteConfig.siteUrl}/tracks/`,
+    description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: siteConfig.siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Tracks',
+        item: `${siteConfig.siteUrl}/tracks/`,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  structuredData={structuredData}
+>
+  <Container class="tracks-container">
+    <Hero title="Tracks" description="What I've been listening to lately" />
+
+    <section class="tracks-section" aria-labelledby="recently-played">
+      <div class="tracks-section__head">
+        <h2 id="recently-played" class="tracks-section__title">
+          Recently played
+        </h2>
+        <p class="tracks-section__meta">Live from Last.fm</p>
+      </div>
+      <RecentTracks client:load />
+    </section>
+
+    <section class="tracks-section" aria-labelledby="top-tracks-heading">
+      <div class="tracks-section__head">
+        <h2 id="top-tracks-heading" class="tracks-section__title">
+          Top tracks
+        </h2>
+        <p class="tracks-section__meta">From Spotify</p>
+      </div>
+      <TopTracks client:load />
+    </section>
+  </Container>
+</BaseLayout>
+
+<style>
+  .tracks-container {
+    max-width: none;
+    margin: 0 auto;
+  }
+
+  .tracks-section {
+    padding: 1.5rem 0 2.5rem;
+    border-top: 2px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .tracks-section__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .tracks-section__title {
+    margin: 0;
+    font-family: var(--font-primary);
+    font-size: var(--text-xl);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .tracks-section__meta {
+    margin: 0;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .tracks-section {
+      padding-bottom: 2rem;
+    }
+  }
+</style>
