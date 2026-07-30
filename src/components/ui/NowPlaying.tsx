@@ -132,7 +132,7 @@ export default function NowPlaying() {
 
   return (
     <div className={styles.row} data-testid="now-playing" aria-live="polite">
-      {showCover && data?.albumImageUrl && data?.songUrl && (
+      {showCover && data?.albumImageUrl !== '' && data?.songUrl && (
         <a
           className={styles.coverLink}
           href={data?.songUrl}
