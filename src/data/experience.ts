@@ -39,8 +39,8 @@ export const experience: ExperienceCompany[] = [
     company: 'Flutter UKI',
     slug: 'flutter-uki',
     from: '2023-08-14',
-    to: null,
-    isPresent: true,
+    to: '2026-08-06',
+    isPresent: false,
     roles: [
       {
         title: 'Software Developer - SBG',
@@ -68,7 +68,7 @@ export const experience: ExperienceCompany[] = [
         title: 'Software Developer - Sporting Life',
         location: 'Leeds, UK',
         from: '2025-01-06',
-        to: null,
+        to: '2026-08-06',
         summary:
           'Software Developer within the Sporting Life TimeForm division, focused on mobile, shared platform work and delivery improvements.',
         achievements: [
