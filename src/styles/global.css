@@ -261,7 +261,13 @@ a {
   color: var(--link-color);
   text-decoration: none;
   position: relative;
-  transition: opacity var(--link-animation-duration) var(--ease-out);
+  transition:
+    opacity var(--link-animation-duration) var(--ease-out),
+    filter var(--link-animation-duration) var(--ease-out);
+}
+a:active {
+  filter: brightness(0.85);
+  transition-duration: 0s;
 }
 
 a:not(.category-link)::after {

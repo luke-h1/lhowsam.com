@@ -19,3 +19,11 @@ export function toJsonLd(value: object) {
 export function toJsonLdScripts(value: object | object[]) {
   return (Array.isArray(value) ? value : [value]).map(toJsonLd);
 }
+export const SEO_TITLE_MAX = 60;
+
+export function withBrand(title: string, ...suffixes: string[]) {
+  return suffixes.reduce((current, suffix) => {
+    const next = `${current} | ${suffix}`;
+    return next.length <= SEO_TITLE_MAX ? next : current;
+  }, title);
+}

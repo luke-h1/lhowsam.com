@@ -20,6 +20,7 @@ interface Props {
   canonicalURL?: string | URL;
   pageType?: 'website' | 'article' | 'profile';
   structuredData?: object | object[];
+  updatedAt?: Date;
 }
 
 const {
@@ -33,6 +34,7 @@ const {
   canonicalURL,
   pageType = 'article',
   structuredData,
+  updatedAt,
 } = Astro.props;
 
 const hasToc = headings.some(h => h.depth >= 2 && h.depth <= 4);
@@ -45,6 +47,8 @@ const hasToc = headings.some(h => h.depth >= 2 && h.depth <= 4);
   canonicalURL={canonicalURL}
   pageType={pageType}
   structuredData={structuredData}
+  publishedTime={publishedAt?.toISOString()}
+  modifiedTime={(updatedAt ?? publishedAt)?.toISOString()}
 >
   <div class:list={['post-page', hasToc && 'post-page--with-toc']}>
     {

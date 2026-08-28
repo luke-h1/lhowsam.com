@@ -77,9 +77,6 @@ const structuredData = [
           siteConfig.socialLinks.map(link => (
             <a href={link.url} target="_blank" rel="noopener noreferrer">
               {link.name}
-              <span class="ext-arrow" aria-hidden="true">
-                ↗
-              </span>
             </a>
           ))
         }
@@ -226,7 +223,6 @@ const structuredData = [
 
   .project-title:hover {
     color: var(--text-muted);
-    text-decoration: underline;
   }
 
   /* experience */
@@ -256,23 +252,6 @@ const structuredData = [
     gap: 1.25rem;
     margin-top: 1.5rem;
     font-size: var(--text-sm);
-  }
-
-  .ext-arrow {
-    display: inline-block;
-    margin-left: 0.2em;
-    font-size: 0.75em;
-    opacity: 0.55;
-    transition:
-      transform 160ms var(--ease-out),
-      opacity 160ms ease;
-  }
-
-  @media (hover: hover) and (pointer: fine) {
-    .social-links a:hover .ext-arrow {
-      transform: translate(1px, -1px);
-      opacity: 1;
-    }
   }
 
   @media (max-width: 640px) {

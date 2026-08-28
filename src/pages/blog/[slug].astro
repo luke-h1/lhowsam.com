@@ -4,7 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../components/layout/ArticleLayout.astro';
 import { siteConfig } from '../../config/site';
-import { absoluteUrl } from '../../util/seo';
+import { absoluteUrl, withBrand } from '../../util/seo';
 import { toTagSlug } from '../../util/tags';
 
 export const getStaticPaths = (async () => {
@@ -21,15 +21,17 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content, headings } = await render(post);
+const seoDescription = post.data.seoDescription ?? post.data.intro;
 const canonicalURL = `${siteConfig.siteUrl}/blog/${post.data.slug}/`;
-const seoTitle = `${post.data.title} | Blog | ${siteConfig.authorName}`;
+const seoTitle = withBrand(post.data.title, siteConfig.authorName);
 const structuredData = [
   {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.data.title,
-    description: post.data.intro,
+    description: seoDescription,
     datePublished: post.data.publishedAt.toISOString(),
+    dateModified: (post.data.updatedAt ?? post.data.publishedAt).toISOString(),
     image: absoluteUrl(post.data.heroImage.src),
     url: canonicalURL,
     mainEntityOfPage: canonicalURL,
@@ -74,9 +76,10 @@ const structuredData = [
 <ArticleLayout
   title={post.data.title}
   seoTitle={seoTitle}
-  description={post.data.intro}
+  description={seoDescription}
   headings={headings}
   publishedAt={post.data.publishedAt}
+  updatedAt={post.data.updatedAt}
   image={post.data.heroImage.src}
   canonicalURL={canonicalURL}
   structuredData={structuredData}

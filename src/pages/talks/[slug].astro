@@ -4,7 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../components/layout/ArticleLayout.astro';
 import { siteConfig } from '../../config/site';
-import { absoluteUrl } from '../../util/seo';
+import { absoluteUrl, withBrand } from '../../util/seo';
 import { defaultSocialImagePath } from '../../util/socialImage';
 
 export const getStaticPaths = (async () => {
@@ -21,15 +21,16 @@ interface Props {
 
 const { talk } = Astro.props;
 const { Content, headings } = await render(talk);
+const seoDescription = talk.data.seoDescription ?? talk.data.intro;
 const canonicalURL = `${siteConfig.siteUrl}/talks/${talk.data.slug}/`;
-const seoTitle = `${talk.data.title} | Talks | ${siteConfig.authorName}`;
+const seoTitle = withBrand(talk.data.title, 'Talks', siteConfig.authorName);
 const ogImageSrc = talk.data.heroImage?.src ?? defaultSocialImagePath;
 const structuredData = [
   {
     '@context': 'https://schema.org',
     '@type': 'Event',
     name: talk.data.title,
-    description: talk.data.intro,
+    description: seoDescription,
     startDate: talk.data.publishedAt.toISOString(),
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location: {
@@ -74,7 +75,7 @@ const structuredData = [
 <ArticleLayout
   title={talk.data.title}
   seoTitle={seoTitle}
-  description={talk.data.intro}
+  description={seoDescription}
   headings={headings}
   publishedAt={talk.data.publishedAt}
   image={ogImageSrc}
@@ -141,30 +142,5 @@ const structuredData = [
 
   .talk-meta__value {
     color: var(--text-color);
-  }
-
-  .talk-meta__resources {
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.35rem 0.5rem;
-  }
-
-  .talk-meta__resources a {
-    color: var(--link-color);
-    font-weight: 500;
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.2em;
-  }
-
-  .talk-meta__resources a:hover {
-    filter: brightness(1.08);
-  }
-
-  .talk-meta__sep {
-    opacity: 0.5;
-    user-select: none;
   }
 </style>

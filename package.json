@@ -84,7 +84,8 @@
     "prettier-plugin-astro": "^0.14.1",
     "start-server-and-test": "^3.0.2",
     "typescript": "^6.0.3",
-    "vitest": "^4.1.4"
+    "vitest": "^4.1.4",
+    "yaml": "^2.9.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,scss,html,astro,md,mdx,json,yml,yaml}": [

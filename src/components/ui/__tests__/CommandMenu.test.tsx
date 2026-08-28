@@ -5,6 +5,7 @@ import {
   screen,
   within,
 } from '@testing-library/react';
+import { defaultFilter } from 'cmdk';
 import React from 'react';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import type {
@@ -12,7 +13,10 @@ import type {
   CommandMenuItem,
 } from '../../../util/commandMenu';
 import { navigateToInternalUrl } from '../../../util/navigateToInternalUrl';
-import CommandMenu from '../CommandMenu';
+import CommandMenu, {
+  commandMenuFilter,
+  MIN_MATCH_SCORE,
+} from '../CommandMenu';
 
 vi.mock('../../../util/navigateToInternalUrl', () => ({
   navigateToInternalUrl: vi.fn(),
@@ -280,5 +284,99 @@ describe('CommandMenu', () => {
     expect(writeText).toHaveBeenCalledWith(
       new URL('/projects/foam/', baseUrl).toString(),
     );
+  });
+});
+
+describe('commandMenuFilter', () => {
+  const keywords = [
+    'Forcing git merges',
+    'Isolating features into separate branches is a really common practice for most developers. By separating features & bug fixes you can avoid a lot of problems and keep your branches clean.',
+    '',
+    'Blog',
+  ];
+
+  test('drops subsequence noise that the default matcher still scores', () => {
+    expect(
+      defaultFilter?.('blog-forcing-git-merges', 'foam', keywords) ?? 0,
+    ).toBeGreaterThan(0);
+    expect(commandMenuFilter('blog-forcing-git-merges', 'foam', keywords)).toBe(
+      0,
+    );
+  });
+
+  test('keeps a genuine match', () => {
+    expect(
+      commandMenuFilter('blog-forcing-git-merges', 'forcing', keywords),
+    ).toBeGreaterThanOrEqual(MIN_MATCH_SCORE);
+  });
+
+  test('every prefix of a real query stays above the floor', () => {
+    const query = 'forcing';
+
+    for (let i = 1; i <= query.length; i += 1) {
+      expect(
+        commandMenuFilter(
+          'blog-forcing-git-merges',
+          query.slice(0, i),
+          keywords,
+        ),
+      ).toBeGreaterThanOrEqual(MIN_MATCH_SCORE);
+    }
+  });
+});
+
+describe('CommandMenu toggle', () => {
+  const openMenu = () =>
+    screen.getByRole('button', { name: 'Open command menu' });
+
+  const isOpen = () =>
+    Boolean(screen.queryByPlaceholderText('Type a command or search…'));
+
+  afterEach(() => {
+    cleanup();
+  });
+
+  test('opens on primary pointer press rather than on release', () => {
+    render(<CommandMenu groups={groups} />);
+
+    fireEvent.pointerDown(openMenu(), { button: 0 });
+
+    expect(isOpen()).toBe(true);
+  });
+
+  test('stays closed for a non-primary press', () => {
+    render(<CommandMenu groups={groups} />);
+
+    fireEvent.pointerDown(openMenu(), { button: 2 });
+
+    expect(isOpen()).toBe(false);
+  });
+
+  test('opens on keyboard activation, which fires no pointer event', () => {
+    render(<CommandMenu groups={groups} />);
+
+    fireEvent.click(openMenu(), { detail: 0 });
+
+    expect(isOpen()).toBe(true);
+  });
+
+  test('a pointer press followed by its click does not close the menu again', () => {
+    render(<CommandMenu groups={groups} />);
+    const button = openMenu();
+
+    fireEvent.pointerDown(button, { button: 0 });
+    fireEvent.click(button, { detail: 1 });
+
+    expect(isOpen()).toBe(true);
+  });
+
+  test('toggles with the meta+k shortcut', () => {
+    render(<CommandMenu groups={groups} />);
+
+    fireEvent.keyDown(window, { key: 'k', metaKey: true });
+    expect(isOpen()).toBe(true);
+
+    fireEvent.keyDown(window, { key: 'K', ctrlKey: true });
+    expect(isOpen()).toBe(false);
   });
 });

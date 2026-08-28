@@ -30,6 +30,8 @@ interface Props {
   pageType?: 'website' | 'article' | 'profile';
   robots?: string;
   structuredData?: object | object[];
+  publishedTime?: string;
+  modifiedTime?: string;
 }
 
 const {
@@ -40,6 +42,8 @@ const {
   pageType = 'website',
   robots = 'index,follow,max-image-preview:large',
   structuredData,
+  publishedTime,
+  modifiedTime,
 } = Astro.props;
 
 const canonicalHref =
@@ -236,12 +240,27 @@ const jsonLdScripts = structuredData ? toJsonLdScripts(structuredData) : [];
     <meta property="og:description" content={description} />
     <meta property="og:image" content={socialImage} />
     <meta property="og:image:alt" content={title} />
+    {
+      pageType === 'article' && (
+        <>
+          <meta property="article:author" content={absoluteUrl('/about/')} />
+          {publishedTime && (
+            <meta property="article:published_time" content={publishedTime} />
+          )}
+          {modifiedTime && (
+            <meta property="article:modified_time" content={modifiedTime} />
+          )}
+        </>
+      )
+    }
 
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalHref} />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalHref} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:site" content={siteConfig.twitterHandle} />
+    <meta name="twitter:creator" content={siteConfig.twitterHandle} />
     <meta name="author" content={siteConfig.authorName} />
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />

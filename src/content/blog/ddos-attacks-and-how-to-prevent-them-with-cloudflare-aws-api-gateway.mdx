@@ -11,23 +11,23 @@ Recently I ran into an issue with one of my lambda + API Gateway services. It se
 
 ## Investigating the traffic spike
 
-![](../../assets/blog/ddos-attacks-and-how-to-prevent-them-with-cloudflare-aws-api-gateway-inline-1.png)
+![AWS CloudWatch metrics for the Lambda function showing invocations jumping from near zero to a sustained plateau on 05/02](../../assets/blog/ddos-attacks-and-how-to-prevent-them-with-cloudflare-aws-api-gateway-inline-1.png)
 
-![](../../assets/blog/ddos-attacks-and-how-to-prevent-them-with-cloudflare-aws-api-gateway-inline-2.png)
+![Cloudflare traffic analytics for the attack window: 27.2k total requests, 540 mitigated by the WAF, 1.01k served by Cloudflare and 25.65k reaching the origin](../../assets/blog/ddos-attacks-and-how-to-prevent-them-with-cloudflare-aws-api-gateway-inline-2.png)
 
 The first step in mitigating this attack was to find out what the attacker's IP address is. This was fairly simple in Cloudflare as I could simply navigate to the security tab, see the requests being made to my API and filter via IP address:
 
-![](../../assets/blog/ddos-attacks-and-how-to-prevent-them-with-cloudflare-aws-api-gateway-inline-3.png)
+![Cloudflare request activity filtered by source IP 75.164.217.225, attributing all 15.03k requests to that single address](../../assets/blog/ddos-attacks-and-how-to-prevent-them-with-cloudflare-aws-api-gateway-inline-3.png)
 
 ## Blocking the attacker in Cloudflare
 
-The next step after identifiying the IP address is to navigate to the security rules tab and to create a rule that blocks the traffic from the offending IP address:
+The next step after identifying the IP address is to navigate to the security rules tab and to create a rule that blocks the traffic from the offending IP address:
 
-![](../../assets/blog/ddos-attacks-and-how-to-prevent-them-with-cloudflare-aws-api-gateway-inline-4.png)
+![Cloudflare security rule expression builder matching IP Source Address equals 75.164.217.225](../../assets/blog/ddos-attacks-and-how-to-prevent-them-with-cloudflare-aws-api-gateway-inline-4.png)
 
 After this step you should notice that Cloudflare's WAF begins to block the traffic and the traffic to your origin server drops off a cliff:
 
-![](../../assets/blog/ddos-attacks-and-how-to-prevent-them-with-cloudflare-aws-api-gateway-inline-5.png)
+![Cloudflare traffic analytics after the block: 9.13k requests now mitigated by the WAF while traffic reaching the origin drops away](../../assets/blog/ddos-attacks-and-how-to-prevent-them-with-cloudflare-aws-api-gateway-inline-5.png)
 
 ## Adding API authentication with a Lambda authorizer
 

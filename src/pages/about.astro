@@ -63,6 +63,8 @@ const structuredData = [
           width={280}
           height={280}
           class="avatar"
+          loading="eager"
+          fetchpriority="high"
         />
       </div>
 
@@ -88,7 +90,7 @@ const structuredData = [
 
         <div class="hero-actions">
           <a
-            class="cv-link"
+            class="hero-action"
             href="/static/cv.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -98,6 +100,18 @@ const structuredData = [
           >
             View CV
           </a>
+          {
+            siteConfig.socialLinks.map(link => (
+              <a
+                class="hero-action"
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.name}
+              </a>
+            ))
+          }
         </div>
 
         <div class="profile-tags">

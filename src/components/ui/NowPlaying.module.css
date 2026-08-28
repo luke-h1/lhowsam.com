@@ -31,6 +31,10 @@
   max-width: min(12rem, 40vw);
 }
 
+.title.title::after {
+  content: none;
+}
+
 .title:hover {
   text-decoration: underline;
   text-underline-offset: 2px;

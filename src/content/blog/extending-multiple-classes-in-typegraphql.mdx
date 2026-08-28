@@ -2,6 +2,7 @@
 title: 'Extending multiple classes in TypegraphQL'
 slug: 'extending-multiple-classes-in-typegraphql'
 intro: 'How to extend multiple classes in TypeGraphQL and Typescript'
+seoDescription: 'A TypeScript class can only extend one parent. Here is how I used mixins to share fields across several TypeGraphQL input types without duplicating them.'
 publishedAt: 2021-06-05
 tags: ['graphql', 'node']
 heroImage: '../../assets/blog/extending-multiple-classes-in-typegraphql-hero.jpg'
@@ -29,7 +30,7 @@ It's common for input types to become more and more complex as your project grow
 
 So, how do we get around this problem?
 
-### Mixins!
+## Mixins!
 
 To get around this issue, we need to use a [Mixin](https://www.typescriptlang.org/docs/handbook/mixins.html). Mixins rely on using generics with class inheritance to extend a base class
 

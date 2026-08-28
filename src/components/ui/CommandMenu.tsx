@@ -1,4 +1,4 @@
-import { Command } from 'cmdk';
+import { Command, defaultFilter } from 'cmdk';
 import {
   AtSign,
   Boxes,
@@ -35,9 +35,20 @@ const groupTestIds: Record<string, string> = {
   Commands: 'CommandMenu-commands',
 };
 
+export const MIN_MATCH_SCORE = 0.8;
+
+export const commandMenuFilter = (
+  value: string,
+  search: string,
+  keywords?: string[],
+) => {
+  const score = defaultFilter?.(value, search, keywords) ?? 0;
+  return score < MIN_MATCH_SCORE ? 0 : score;
+};
+
 const listIconProps = {
-  size: 24,
-  strokeWidth: 2,
+  size: 16,
+  strokeWidth: 2.25,
   'aria-hidden': true as const,
 };
 
@@ -194,7 +205,14 @@ const CommandMenu = ({ groups }: Props) => {
       <button
         type="button"
         className="command-menu__toggle"
-        onClick={() => setOpen(true)}
+        onPointerDown={event => {
+          if (event.button !== 0) return;
+          event.preventDefault();
+          setOpen(true);
+        }}
+        onClick={event => {
+          if (event.detail === 0) setOpen(true);
+        }}
         data-testid="cmdk-icon"
         aria-label="Open command menu"
       >
@@ -205,6 +223,7 @@ const CommandMenu = ({ groups }: Props) => {
       </button>
 
       <Command.Dialog
+        filter={commandMenuFilter}
         open={open}
         onOpenChange={setOpen}
         label="Global Command Menu"

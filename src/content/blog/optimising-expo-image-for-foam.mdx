@@ -247,6 +247,6 @@ The flamegraph points the way: with the duplicated decodes and per-row uploads g
 - Make the load reproducible before you measure anything. Mock the transport and replay a fixed fixture, or your before/after numbers are just noise.
 - Measure the **UI thread** with `useFrameCallback`, not `requestAnimationFrame`. RAF runs on the JS thread, so under load it counts the wrong thread's stalls and sends you optimising the wrong thing. Watch CPU and memory next to fps too.
 
-# closing statements
+## closing statements
 
 Go checkout Foam! We've not released to the stores just yet as we work through the final crashes and bugs however you can try the [beta](https://foam-app.com) today! or you can checkout the source code [here](https://github.com/luke-h1/foam)

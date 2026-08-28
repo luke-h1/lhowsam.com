@@ -1,6 +1,12 @@
 import { describe, expect, test } from 'vitest';
 
-import { absoluteUrl, toJsonLd, toJsonLdScripts } from '../seo';
+import {
+  SEO_TITLE_MAX,
+  absoluteUrl,
+  toJsonLd,
+  toJsonLdScripts,
+  withBrand,
+} from '../seo';
 
 describe('absoluteUrl', () => {
   test('returns the site root for an empty path', () => {
@@ -32,6 +38,12 @@ describe('toJsonLd', () => {
 });
 
 describe('toJsonLdScripts', () => {
+  test('wraps a single value in a one-entry list', () => {
+    expect(toJsonLdScripts({ '@type': 'Person' })).toEqual([
+      '{"@type":"Person"}',
+    ]);
+  });
+
   test('serializes array values as separate JSON-LD script payloads', () => {
     expect(
       toJsonLdScripts([
@@ -48,5 +60,32 @@ describe('toJsonLdScripts', () => {
       '{"@context":"https://schema.org","@type":"WebSite"}',
       '{"@context":"https://schema.org","@type":"Person"}',
     ]);
+  });
+});
+
+describe('withBrand', () => {
+  test('appends each suffix while the title stays within the SERP budget', () => {
+    expect(withBrand('Short title', 'Projects', 'Luke Howsam')).toBe(
+      'Short title | Projects | Luke Howsam',
+    );
+  });
+
+  test('drops the suffixes that would push the title past the limit', () => {
+    const long =
+      'DDOS attacks and how to prevent them with Cloudflare + AWS API gateway';
+
+    expect(withBrand(long, 'Luke Howsam')).toBe(long);
+  });
+
+  test('keeps an earlier suffix that fits when a later one does not', () => {
+    const title = 'A forty-four character title used for testing';
+
+    expect(withBrand(title, 'Talks', 'Luke Howsam')).toBe(`${title} | Talks`);
+  });
+
+  test('never returns a title longer than the limit unless the title itself is', () => {
+    expect(withBrand('Tiny', 'Luke Howsam').length).toBeLessThanOrEqual(
+      SEO_TITLE_MAX,
+    );
   });
 });
