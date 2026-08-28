@@ -42,7 +42,6 @@ export const getStaticPaths = (async () => {
 const { label, posts } = Astro.props;
 const title = `${label} | Blog Tags | ${siteConfig.authorName}`;
 const description = `${posts.length} post${posts.length === 1 ? '' : 's'} about ${label} by ${siteConfig.authorName}.`;
-// Thin tag pages stay crawlable for discovery but out of the index.
 const robots = isIndexableTagPage(posts.length)
   ? 'index,follow,max-image-preview:large'
   : 'noindex,follow';

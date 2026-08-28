@@ -89,7 +89,6 @@
     text-decoration-color var(--transition-base);
 }
 
-/* the global a::after sweep would stack a second line under the underline */
 .hero-actions .hero-action::after {
   content: none;
 }

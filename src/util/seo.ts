@@ -19,12 +19,6 @@ export function toJsonLd(value: object) {
 export function toJsonLdScripts(value: object | object[]) {
   return (Array.isArray(value) ? value : [value]).map(toJsonLd);
 }
-
-/**
- * Google truncates titles around 60 characters. Append the brand suffix only
- * while it still fits, so a long post title keeps its own words rather than
- * spending the visible budget on a suffix that gets clipped anyway.
- */
 export const SEO_TITLE_MAX = 60;
 
 export function withBrand(title: string, ...suffixes: string[]) {

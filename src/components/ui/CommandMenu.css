@@ -48,7 +48,6 @@
   }
 }
 
-/* Exits stay softer than enters: less travel, not more. */
 @keyframes cmdk-exit {
   from {
     opacity: 1;
@@ -150,11 +149,6 @@
     0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
-/*
- * Prefixed fallbacks live in @supports blocks: the CSS minifier collapses
- * -webkit-backdrop-filter and backdrop-filter into one property and keeps the
- * last, which would drop whichever form the browser actually needs.
- */
 @supports (-webkit-backdrop-filter: blur(1px)) and
   (not (backdrop-filter: blur(1px))) {
   [cmdk-overlay] {
@@ -301,8 +295,8 @@
   opacity: 1;
 }
 
-/* Press feedback on the row itself, on pointer-down like the menu bar. */
 [cmdk-item]:active .highlight {
+  opacity: 1;
   background-color: var(--cmdk-surface-active);
 }
 

@@ -212,7 +212,6 @@
     border-color var(--transition-base);
 }
 
-/* prefixed fallback in its own block; the minifier keeps only one otherwise */
 @supports (-webkit-backdrop-filter: blur(1px)) and
   (not (backdrop-filter: blur(1px))) {
   .content-copy-code {
@@ -517,7 +516,6 @@
   gap: 0.35rem 0.5rem;
 }
 
-/* the global a::after sweep would stack a second line under the underline */
 .talk-meta__resources a:not(.category-link)::after {
   content: none;
 }

@@ -31,4 +31,17 @@ describe('navigateToInternalUrl', () => {
       'http://localhost:3000/projects/foam',
     );
   });
+
+  test('defaults to a full page load', () => {
+    const assign = vi.fn();
+
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: { ...window.location, assign },
+    });
+
+    navigateToInternalUrl('/blog', 'http://localhost:3000');
+
+    expect(assign).toHaveBeenCalledWith('http://localhost:3000/blog');
+  });
 });

@@ -62,4 +62,4 @@ jobs:
         uses: davelosert/vitest-coverage-report-action@v2
         with:
           name: test-coverage
-          json-summary-compare-path: coverage/base/coverage-summary.json
+          json-summary-compare-path: ${{ hashFiles('coverage/base/coverage-summary.json') != '' && 'coverage/base/coverage-summary.json' || '' }}

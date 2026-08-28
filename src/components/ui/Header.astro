@@ -437,13 +437,6 @@ const commandGroups = [
       opacity: 0;
       transition: opacity var(--transition-base);
     }
-
-    /*
-     * The CSS minifier treats -webkit-backdrop-filter and backdrop-filter as
-     * one property and keeps only the last, so the prefixed fallback lives in
-     * its own @supports block. Modern engines take the standard property;
-     * Safari <= 17, which never shipped it unprefixed, takes this.
-     */
     @supports (-webkit-backdrop-filter: blur(1px)) and
       (not (backdrop-filter: blur(1px))) {
       .header-nav__backdrop {

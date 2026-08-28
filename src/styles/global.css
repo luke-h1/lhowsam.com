@@ -265,20 +265,6 @@ a {
     opacity var(--link-animation-duration) var(--ease-out),
     filter var(--link-animation-duration) var(--ease-out);
 }
-
-/*
- * Press feedback lands on pointer-down, not on release, and it is instant:
- * the transition above only runs on the way back out. The hover sweep below
- * is gated to fine pointers, so without this touch users get no feedback
- * between tapping a link and the page navigating.
- *
- * brightness() rather than opacity so the dim is relative: several links
- * (the footer social row, the copy button) already sit at a reduced opacity,
- * and an absolute value would barely move them.
- *
- * 0.85 is the strongest dim that keeps every link family at or above 4.5:1
- * while pressed. .hash-tag is the binding constraint at 6.41:1 resting.
- */
 a:active {
   filter: brightness(0.85);
   transition-duration: 0s;

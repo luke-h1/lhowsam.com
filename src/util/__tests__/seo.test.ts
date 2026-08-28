@@ -38,6 +38,12 @@ describe('toJsonLd', () => {
 });
 
 describe('toJsonLdScripts', () => {
+  test('wraps a single value in a one-entry list', () => {
+    expect(toJsonLdScripts({ '@type': 'Person' })).toEqual([
+      '{"@type":"Person"}',
+    ]);
+  });
+
   test('serializes array values as separate JSON-LD script payloads', () => {
     expect(
       toJsonLdScripts([
