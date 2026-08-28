@@ -5,12 +5,28 @@ import NowPlaying from './NowPlaying.tsx';
 
 <footer class="site-footer">
   <div class="site-footer__inner">
-    <div
-      class="site-footer__copy"
-      aria-label={`Copyright ${new Date().getFullYear()} ${siteConfig.authorName}`}
-    >
-      <span class="site-footer__copyright">© {new Date().getFullYear()}</span>
-      <span class="site-footer__signature">luke-h1</span>
+    <div class="site-footer__brand">
+      <div
+        class="site-footer__copy"
+        aria-label={`Copyright ${new Date().getFullYear()} ${siteConfig.authorName}`}
+      >
+        <span class="site-footer__copyright">© {new Date().getFullYear()}</span>
+        <span class="site-footer__signature">luke-h1</span>
+      </div>
+      <nav class="site-footer__social" aria-label="Social links">
+        {
+          siteConfig.socialLinks.map(link => (
+            <a
+              class="site-footer__social-link"
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {link.name}
+            </a>
+          ))
+        }
+      </nav>
     </div>
     <div class="site-footer__spotify">
       <NowPlaying client:idle />
@@ -45,6 +61,21 @@ import NowPlaying from './NowPlaying.tsx';
     }
   }
 
+  .site-footer__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
+
+  @media (min-width: 640px) {
+    .site-footer__brand {
+      flex-direction: row;
+      align-items: center;
+      gap: 2rem;
+    }
+  }
+
   .site-footer__copy {
     display: inline-flex;
     flex-direction: column;
@@ -74,6 +105,31 @@ import NowPlaying from './NowPlaying.tsx';
     text-wrap: nowrap;
     font-variant-ligatures: common-ligatures discretionary-ligatures;
     opacity: 0.92;
+  }
+
+  .site-footer__social {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .site-footer__social-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.72;
+    transition:
+      color var(--transition-base),
+      opacity var(--transition-base);
+  }
+
+  .site-footer__social-link:hover {
+    color: var(--text-color);
+    opacity: 1;
   }
 
   .site-footer__spotify {

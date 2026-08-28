@@ -5,6 +5,7 @@ import {
   screen,
   within,
 } from '@testing-library/react';
+import { defaultFilter } from 'cmdk';
 import React from 'react';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 import type {
@@ -12,7 +13,10 @@ import type {
   CommandMenuItem,
 } from '../../../util/commandMenu';
 import { navigateToInternalUrl } from '../../../util/navigateToInternalUrl';
-import CommandMenu from '../CommandMenu';
+import CommandMenu, {
+  commandMenuFilter,
+  MIN_MATCH_SCORE,
+} from '../CommandMenu';
 
 vi.mock('../../../util/navigateToInternalUrl', () => ({
   navigateToInternalUrl: vi.fn(),
@@ -280,5 +284,47 @@ describe('CommandMenu', () => {
     expect(writeText).toHaveBeenCalledWith(
       new URL('/projects/foam/', baseUrl).toString(),
     );
+  });
+});
+
+describe('commandMenuFilter', () => {
+  // The real searchText for this post: title, intro and tags joined, exactly
+  // as Header.astro builds it. The full intro is what makes "foam" match as a
+  // subsequence, so a shortened stand-in would not reproduce the problem.
+  const keywords = [
+    'Forcing git merges',
+    'Isolating features into separate branches is a really common practice for most developers. By separating features & bug fixes you can avoid a lot of problems and keep your branches clean.',
+    '',
+    'Blog',
+  ];
+
+  test('drops subsequence noise that the default matcher still scores', () => {
+    // "foam" is not in this post, but f-o-a-m appear in order in the intro.
+    expect(
+      defaultFilter?.('blog-forcing-git-merges', 'foam', keywords) ?? 0,
+    ).toBeGreaterThan(0);
+    expect(commandMenuFilter('blog-forcing-git-merges', 'foam', keywords)).toBe(
+      0,
+    );
+  });
+
+  test('keeps a genuine match', () => {
+    expect(
+      commandMenuFilter('blog-forcing-git-merges', 'forcing', keywords),
+    ).toBeGreaterThanOrEqual(MIN_MATCH_SCORE);
+  });
+
+  test('every prefix of a real query stays above the floor', () => {
+    const query = 'forcing';
+
+    for (let i = 1; i <= query.length; i += 1) {
+      expect(
+        commandMenuFilter(
+          'blog-forcing-git-merges',
+          query.slice(0, i),
+          keywords,
+        ),
+      ).toBeGreaterThanOrEqual(MIN_MATCH_SCORE);
+    }
   });
 });

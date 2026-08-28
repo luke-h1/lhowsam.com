@@ -20,17 +20,17 @@ Steps:
 
 Navigate to the cloudflare dashboard, select the site of interest, navigate to the SSL/TLS menu and click 'Overview'. Ensure the SSL/TLS encryption mode is set to full otherwise we will get 521 errors from cloudflare.
 
-![](../../assets/blog/how-to-connect-a-custom-domain-to-aws-api-gateway-inline-1.png)
+![Cloudflare SSL/TLS settings with the encryption mode set to Full, showing browser-to-Cloudflare and Cloudflare-to-origin traffic both encrypted](../../assets/blog/how-to-connect-a-custom-domain-to-aws-api-gateway-inline-1.png)
 
 Navigate to origin server, click 'create certificate' and enter the domain you want. This must match what you enter in 'custom domain name' in AWS API gateway.
 
-![](../../assets/blog/how-to-connect-a-custom-domain-to-aws-api-gateway-inline-2.png)
+![Cloudflare Origin Certificate Installation form generating an RSA (2048) key and CSR for the hostname api.lhowsam.com with two years validity](../../assets/blog/how-to-connect-a-custom-domain-to-aws-api-gateway-inline-2.png)
 
 Click create and save the origin certificate and private key somewhere safe. Ideally you should also provide AWS API gateway with the certificate chain. You can find cloudflare's certificate chain [here](https://developers.cloudflare.com/ssl/origin-configuration/origin-ca/#cloudflare-origin-ca-root-certificate)
 
 ## Import the cloudflare certificate into AWS certificate manager
 
-![](../../assets/blog/how-to-connect-a-custom-domain-to-aws-api-gateway-inline-3.png)
+![AWS Certificate Manager import screen with empty fields for the certificate body, private key and optional certificate chain](../../assets/blog/how-to-connect-a-custom-domain-to-aws-api-gateway-inline-3.png)
 
 Fill out the required info and click Next. Enter any tags you want and click 'review and import'. Now that we've got our certificate imported we can move on to adding the domain to the API gateway.
 
@@ -38,11 +38,11 @@ Fill out the required info and click Next. Enter any tags you want and click 're
 
 Go to AWS API gateway and navigate to the custom domain names section and click 'create'
 
-![](../../assets/blog/how-to-connect-a-custom-domain-to-aws-api-gateway-inline-4.png)
+![The AWS API Gateway console sidebar with Custom domain names selected](../../assets/blog/how-to-connect-a-custom-domain-to-aws-api-gateway-inline-4.png)
 
 Fill in the domain name with the domain you entered when creating the certificate in cloudflare and then for the ACM certificate choose the certificate you just imported.
 
-![](../../assets/blog/how-to-connect-a-custom-domain-to-aws-api-gateway-inline-5.png)
+![The AWS API Gateway Create domain name form showing the domain name field, TLS 1.2 minimum version, a Regional endpoint type and the ACM certificate selector](../../assets/blog/how-to-connect-a-custom-domain-to-aws-api-gateway-inline-5.png)
 
 At this point select the created domain and go to API mappings and click the Configure API mappings.
 
@@ -52,7 +52,7 @@ Add a new mapping selecting the API Gateway route and relevant stage.
 
 Now that everything is imported in AWS, we can go back to the cloudflare dashboard and enter our new DNS records for the gateway. Navigate to DNS and records. Click 'Add record', choose CNAME, ensure cloudflare is proxying the traffic and then enter your values. You can get the gateway domain name by navigating to API gateway > custom domain names > configurations > 'API Gateway domain name'
 
-![](../../assets/blog/how-to-connect-a-custom-domain-to-aws-api-gateway-inline-6.png)
+![Cloudflare DNS record editor adding a proxied CNAME named api that targets the API Gateway domain name](../../assets/blog/how-to-connect-a-custom-domain-to-aws-api-gateway-inline-6.png)
 
 ## Resources
 

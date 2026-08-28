@@ -2,6 +2,7 @@
   --cmdk-surface: rgba(23, 21, 29, 0.88);
   --cmdk-border: rgba(255, 255, 255, 0.1);
   --cmdk-surface-hover: rgba(255, 255, 255, 0.06);
+  --cmdk-surface-active: rgba(255, 255, 255, 0.11);
   --cmdk-fg: #f2f2f2;
   --cmdk-fg-neutral: #a9a9b0;
   --cmdk-overlay: rgba(8, 7, 12, 0.55);
@@ -37,14 +38,17 @@
   from {
     opacity: 0;
     transform: scale(0.96) translateX(-50%);
+    backdrop-filter: blur(0) saturate(100%);
   }
 
   to {
     opacity: 1;
     transform: scale(1) translateX(-50%);
+    backdrop-filter: blur(24px) saturate(160%);
   }
 }
 
+/* Exits stay softer than enters: less travel, not more. */
 @keyframes cmdk-exit {
   from {
     opacity: 1;
@@ -53,7 +57,7 @@
 
   to {
     opacity: 0;
-    transform: scale(0.95) translateX(-50%);
+    transform: scale(0.985) translateX(-50%);
   }
 }
 
@@ -116,7 +120,6 @@
   z-index: 998;
   background-color: var(--cmdk-overlay);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 
 [cmdk-overlay][data-state='open'] {
@@ -140,7 +143,6 @@
   border-radius: var(--cmdk-radius);
   background-color: var(--cmdk-surface);
   backdrop-filter: blur(24px) saturate(160%);
-  -webkit-backdrop-filter: blur(24px) saturate(160%);
   border: 1px solid var(--cmdk-border);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.07),
@@ -148,11 +150,33 @@
     0 4px 16px rgba(0, 0, 0, 0.35);
 }
 
+/*
+ * Prefixed fallbacks live in @supports blocks: the CSS minifier collapses
+ * -webkit-backdrop-filter and backdrop-filter into one property and keeps the
+ * last, which would drop whichever form the browser actually needs.
+ */
+@supports (-webkit-backdrop-filter: blur(1px)) and
+  (not (backdrop-filter: blur(1px))) {
+  [cmdk-overlay] {
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  [cmdk-dialog] {
+    -webkit-backdrop-filter: blur(24px) saturate(160%);
+  }
+}
+
 @media (prefers-reduced-transparency: reduce) {
   [cmdk-dialog] {
     background-color: #1a1920;
     backdrop-filter: none;
-    -webkit-backdrop-filter: none;
+  }
+
+  @supports (-webkit-backdrop-filter: blur(1px)) and
+    (not (backdrop-filter: blur(1px))) {
+    [cmdk-dialog] {
+      -webkit-backdrop-filter: none;
+    }
   }
 }
 
@@ -271,19 +295,22 @@
   background-color: var(--cmdk-surface-hover);
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.15s ease;
 }
 
 [cmdk-item][aria-selected='true'] .highlight {
   opacity: 1;
 }
 
+/* Press feedback on the row itself, on pointer-down like the menu bar. */
+[cmdk-item]:active .highlight {
+  background-color: var(--cmdk-surface-active);
+}
+
 [cmdk-item] svg {
   flex-shrink: 0;
-  width: 0.8rem;
-  height: 0.8rem;
+  width: 1rem;
+  height: 1rem;
   color: var(--cmdk-fg-neutral);
-  transition: color 0.1s ease-in-out 0.1s;
 }
 
 [cmdk-item][aria-selected='true'] svg {
@@ -306,15 +333,6 @@
   }
 
   .command-menu__toggle-highlight {
-    transition-duration: 0.01ms;
-  }
-
-  [cmdk-item] svg {
-    transition-duration: 0.01ms;
-    transition-delay: 0s;
-  }
-
-  [cmdk-item] .highlight {
     transition-duration: 0.01ms;
   }
 }

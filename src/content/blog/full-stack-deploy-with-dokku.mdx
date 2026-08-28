@@ -22,7 +22,7 @@ Summary:
 - Deploy the app
 - Bash script deployment
 
-### **Choose a server**
+## **Choose a server**
 
 Since this will be a self-hosted app, you need to have a server. A good choice would be AWS EC2 (which offers a free tier) and Digital Ocean (you can grab free credits for this). If you're not eligible for a free tier they tend to cost a few euros/dollars per month.
 
@@ -30,7 +30,7 @@ Since this will be a self-hosted app, you need to have a server. A good choice w
 
 We will use a custom domain to deploy our app so make sure you've created a DNS A record of the domain or subdomain of your choice to the IP address of your server.
 
-### **Install Dokku**
+## **Install Dokku**
 
 Now that the server is up & running, we can connect to it via SSH and start installing the packages we will need. Run the following commands to install Dokku:
 
@@ -42,13 +42,13 @@ sudo DOKKU_TAG=v0.26.5 bash bootstrap.sh
 
 This typically takes a couple of minutes to finish. It will install all of the dependencies and start a web server (Nginx)
 
-### **Create the app**
+## **Create the app**
 
 Now that the server has Dokku installed the next step is to create an app. You should create an app for each API / app you want to deploy on your server.
 
 `dokku apps:create my-app`
 
-### **Install PostgreSQL & Redis**
+## **Install PostgreSQL & Redis**
 
 Since the app we are using as an example (https://github.com/luke-h1/tmtodos.me) requires a PostgreSQL and Redis instance, we need to install it with Dokku. To do so we just have to install the following plugins:
 
@@ -68,7 +68,7 @@ dokku redis:create cache
 dokku redis:link cache app
 ```
 
-### **Deploy your app**
+## **Deploy your app**
 
 Now that our app & database are ready we can start to deploy our app for the first time. We need to create a Dockerfile and push this to Docker hub in order for our server to run this.
 
@@ -89,13 +89,13 @@ SSH back into your VPS
 - Tag the docker image: `docker tag <user>/app:1.0.0 dokku/app:latest`
 - Deploy the image via Dokku: `dokku deploy app latest`
 
-### **Configure ports**
+## **Configure ports**
 
 We now need to ensure that our app is able to run on the port we specified in the Dockerfile you created (8000 in the example provided). We will assign a port to our app. This should match whatever you've exposed in your Docker image
 
 `dokku proxy:ports-add app http:80:<port in docker image>`
 
-### **Configure domain, DNS & HTTPS**
+## **Configure domain, DNS & HTTPS**
 
 At this stage, the DNS should have finished propagating to your domain by now **if everything is configured correctly**. Connect back to your VPS with SSH & Install Let's Encrypt so we can enable HTTPS support for your custom domain.
 
@@ -154,7 +154,7 @@ Now we can enable letsencrypt:
 
 `dokku letsencrypt:enable app `
 
-### **Deploy the app**
+## **Deploy the app**
 
 Now we should all be set to deploy our app to production. Run the following command to deploy the latest:
 
@@ -162,6 +162,6 @@ Now we should all be set to deploy our app to production. Run the following comm
 
 At this stage, your app should be publicly accessible at the domain you defined with HTTPS support out of the box 😎 🎉
 
-### **Bash script deployment**
+## **Bash script deployment**
 
 Obviously repeating the above steps isn't ideal when you want to deploy your app after you've made changes. To get around this I created a simple bash script that builds, pushes & deploys new code. You can find this [here](https://github.com/luke-h1/tmtodos.me/blob/dev/scripts/deploy:server.sh)

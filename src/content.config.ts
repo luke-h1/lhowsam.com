@@ -12,7 +12,11 @@ const blog = defineCollection({
       title: z.string(),
       slug: z.string(),
       intro: z.string(),
+      // Meta description only; falls back to `intro`, which is visible copy
+      // and is often too short or too long to work as a SERP snippet.
+      seoDescription: z.string().optional(),
       publishedAt: z.date(),
+      updatedAt: z.date().optional(),
       tags: z.array(z.string()),
       heroImage: image(),
       draft: z.boolean().default(false).optional(),
@@ -29,6 +33,9 @@ const projects = defineCollection({
       title: z.string(),
       slug: z.string(),
       intro: z.string(),
+      // Meta description only; falls back to `intro`, which is visible copy
+      // and is often too short or too long to work as a SERP snippet.
+      seoDescription: z.string().optional(),
       featured: z.boolean().default(false),
       order: z.number().optional(),
       tags: z.array(z.string()),
@@ -56,6 +63,9 @@ const workProjects = defineCollection({
       title: z.string(),
       slug: z.string(),
       intro: z.string(),
+      // Meta description only; falls back to `intro`, which is visible copy
+      // and is often too short or too long to work as a SERP snippet.
+      seoDescription: z.string().optional(),
       publishedAt: z.date(),
       heroImage: image(),
       companySite: z.string().optional(),
@@ -88,6 +98,9 @@ const talks = defineCollection({
       title: z.string(),
       slug: z.string(),
       intro: z.string(),
+      // Meta description only; falls back to `intro`, which is visible copy
+      // and is often too short or too long to work as a SERP snippet.
+      seoDescription: z.string().optional(),
       publishedAt: z.date(),
       location: z.string(),
       slideUrl: z.string(),

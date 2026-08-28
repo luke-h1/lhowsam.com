@@ -31,6 +31,16 @@
   max-width: min(12rem, 40vw);
 }
 
+/*
+ * The global a::after sweep underline would stack a second line under the
+ * hover underline below. It cannot replace it either: .title is overflow:
+ * hidden for the ellipsis, which clips a pseudo-element sitting at bottom: -2px.
+ * Doubled class only to out-specify the global rule in global.css.
+ */
+.title.title::after {
+  content: none;
+}
+
 .title:hover {
   text-decoration: underline;
   text-underline-offset: 2px;

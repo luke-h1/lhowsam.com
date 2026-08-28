@@ -7,6 +7,7 @@ import Container from '../../../components/ui/Container.astro';
 import ContentList from '../../../components/ContentList.astro';
 import Hero from '../../../components/Hero.astro';
 import { siteConfig } from '../../../config/site';
+import { isIndexableTagPage } from '../../../util/tagIndex';
 import { toTagSlug } from '../../../util/tags';
 
 export const getStaticPaths = (async () => {
@@ -40,10 +41,14 @@ export const getStaticPaths = (async () => {
 
 const { label, posts } = Astro.props;
 const title = `${label} | Blog Tags | ${siteConfig.authorName}`;
-const description = `Blog posts tagged with ${label}.`;
+const description = `${posts.length} post${posts.length === 1 ? '' : 's'} about ${label} by ${siteConfig.authorName}.`;
+// Thin tag pages stay crawlable for discovery but out of the index.
+const robots = isIndexableTagPage(posts.length)
+  ? 'index,follow,max-image-preview:large'
+  : 'noindex,follow';
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout title={title} description={description} robots={robots}>
   <Container>
     <Hero
       title={`Posts tagged with "${label}"`}

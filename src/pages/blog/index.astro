@@ -62,6 +62,9 @@ const structuredData = [
 >
   <Container>
     <Hero title="Blog" description="Read my latest blog posts" />
+    <p class="blog-index__tags-link">
+      <a href="/blog/tags/">Browse posts by tag</a>
+    </p>
     <ContentList testId="blog-post-list">
       {
         sortedPosts.map(post => (
@@ -71,3 +74,19 @@ const structuredData = [
     </ContentList>
   </Container>
 </BaseLayout>
+
+<style>
+  .blog-index__tags-link {
+    margin: -0.75rem 0 0;
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+  }
+
+  .blog-index__tags-link a {
+    color: var(--text-muted);
+  }
+
+  .blog-index__tags-link a:hover {
+    color: var(--text-color);
+  }
+</style>

@@ -200,7 +200,6 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(23, 21, 29, 0.85);
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   color: rgba(255, 255, 255, 0.65);
   font-family: var(--font-mono);
   font-size: 0.6875rem;
@@ -211,6 +210,14 @@
     opacity 150ms ease,
     color var(--transition-base),
     border-color var(--transition-base);
+}
+
+/* prefixed fallback in its own block; the minifier keeps only one otherwise */
+@supports (-webkit-backdrop-filter: blur(1px)) and
+  (not (backdrop-filter: blur(1px))) {
+  .content-copy-code {
+    -webkit-backdrop-filter: blur(8px);
+  }
 }
 
 .code-block:hover .content-copy-code,
@@ -508,6 +515,11 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 0.35rem 0.5rem;
+}
+
+/* the global a::after sweep would stack a second line under the underline */
+.talk-meta__resources a:not(.category-link)::after {
+  content: none;
 }
 
 .talk-meta__resources a {

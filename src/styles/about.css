@@ -75,19 +75,26 @@
 .hero-actions {
   margin-top: 1.5rem;
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
 }
 
-.cv-link {
+.hero-action {
   color: rgba(255, 255, 255, 0.82);
   text-decoration: underline;
-  text-decoration-color: rgba(255, 255, 255, 0.26);
+  text-decoration-color: rgba(255, 255, 255, 0.38);
   text-underline-offset: 0.28em;
   transition:
     color var(--transition-base),
     text-decoration-color var(--transition-base);
 }
 
-.cv-link:hover {
+/* the global a::after sweep would stack a second line under the underline */
+.hero-actions .hero-action::after {
+  content: none;
+}
+
+.hero-action:hover {
   color: var(--text-color);
   text-decoration-color: rgba(255, 255, 255, 0.55);
 }

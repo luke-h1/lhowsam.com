@@ -5,7 +5,7 @@ import { getCollection, render } from 'astro:content';
 import { Github, Globe } from 'lucide-astro';
 import ArticleLayout from '../../components/layout/ArticleLayout.astro';
 import { siteConfig } from '../../config/site';
-import { absoluteUrl } from '../../util/seo';
+import { absoluteUrl, withBrand } from '../../util/seo';
 
 export const getStaticPaths = (async () => {
   const projects = await getCollection('projects');
@@ -24,14 +24,19 @@ const { project } = Astro.props;
 const { Content, headings } = await render(project);
 const techItems =
   project.data.techStack?.map(tech => tech.name) ?? project.data.tags ?? [];
+const seoDescription = project.data.seoDescription ?? project.data.intro;
 const canonicalURL = `${siteConfig.siteUrl}/projects/${project.data.slug}/`;
-const seoTitle = `${project.data.title} | Projects | ${siteConfig.authorName}`;
+const seoTitle = withBrand(
+  project.data.title,
+  'Projects',
+  siteConfig.authorName,
+);
 const structuredData = [
   {
     '@context': 'https://schema.org',
     '@type': 'SoftwareSourceCode',
     name: project.data.title,
-    description: project.data.intro,
+    description: seoDescription,
     url: canonicalURL,
     image: project.data.heroImage
       ? absoluteUrl(project.data.heroImage.src)
@@ -74,7 +79,7 @@ const structuredData = [
 <ArticleLayout
   title={project.data.title}
   seoTitle={seoTitle}
-  description={project.data.intro}
+  description={seoDescription}
   headings={headings}
   intro={project.data.intro}
   image={project.data.heroImage?.src}

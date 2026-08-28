@@ -45,15 +45,13 @@ const navItems: NavItem[] = [
     name: 'Blog',
     path: '/blog',
   },
-];
-
-const commandNavItems: NavItem[] = [
-  ...navItems,
   {
     name: 'Talks',
     path: '/talks',
   },
 ];
+
+const commandNavItems: NavItem[] = [...navItems];
 
 const commandGroups = [
   {
@@ -289,7 +287,7 @@ const commandGroups = [
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 0.5rem;
     background: rgba(255, 255, 255, 0.04);
-    color: var(--color-text);
+    color: var(--text-color);
     cursor: pointer;
     transition:
       background var(--transition-base),
@@ -380,11 +378,11 @@ const commandGroups = [
   }
 
   .header-nav__link:hover {
-    color: var(--color-text);
+    color: var(--text-color);
   }
 
   .header-nav__link.active {
-    color: var(--color-text) !important;
+    color: var(--text-color) !important;
   }
 
   .header-nav__link.active::after {
@@ -435,10 +433,36 @@ const commandGroups = [
       margin: 0;
       background: rgba(6, 8, 12, 0.72);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       cursor: pointer;
       opacity: 0;
       transition: opacity var(--transition-base);
+    }
+
+    /*
+     * The CSS minifier treats -webkit-backdrop-filter and backdrop-filter as
+     * one property and keeps only the last, so the prefixed fallback lives in
+     * its own @supports block. Modern engines take the standard property;
+     * Safari <= 17, which never shipped it unprefixed, takes this.
+     */
+    @supports (-webkit-backdrop-filter: blur(1px)) and
+      (not (backdrop-filter: blur(1px))) {
+      .header-nav__backdrop {
+        -webkit-backdrop-filter: blur(12px);
+      }
+    }
+
+    @media (prefers-reduced-transparency: reduce) {
+      .header-nav__backdrop {
+        background: rgba(6, 8, 12, 0.97);
+        backdrop-filter: none;
+      }
+
+      @supports (-webkit-backdrop-filter: blur(1px)) and
+        (not (backdrop-filter: blur(1px))) {
+        .header-nav__backdrop {
+          -webkit-backdrop-filter: none;
+        }
+      }
     }
 
     .header-nav--open .header-nav__backdrop {

@@ -6,6 +6,10 @@ import vercel from '@astrojs/vercel';
 import sentry from '@sentry/astro';
 import { transformerNotationDiff } from '@shikijs/transformers';
 import { defineConfig } from 'astro/config';
+import { MIN_INDEXABLE_TAG_POSTS } from './src/util/tagIndex.ts';
+import { thinTagSlugs } from './src/util/thinTagPages.mjs';
+
+const excludedTagSlugs = thinTagSlugs(MIN_INDEXABLE_TAG_POSTS);
 
 // https://astro.build/config
 export default defineConfig({
@@ -36,7 +40,14 @@ export default defineConfig({
   }),
   integrations: [
     mdx(),
-    sitemap(),
+    sitemap({
+      // Keep the sitemap to indexable URLs only; thin tag pages are noindexed
+      // in src/pages/blog/tags/[tag].astro.
+      filter: page => {
+        const match = new URL(page).pathname.match(/^\/blog\/tags\/([^/]+)\/$/);
+        return !match || !excludedTagSlugs.has(match[1]);
+      },
+    }),
     react(),
     sentry(),
   ],
