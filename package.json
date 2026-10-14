@@ -42,6 +42,7 @@
     "@statsig/js-client": "^3.32.6",
     "@statsig/react-bindings": "^3.32.6",
     "@statsig/web-analytics": "^3.32.6",
+    "@tanstack/react-query": "^5.104.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "astro": "^7.0.0",
