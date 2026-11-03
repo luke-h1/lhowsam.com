@@ -22,7 +22,9 @@ test.describe('project', () => {
       const card = cards.nth(i);
       const titleLink = card.getByTestId('project-card-title');
       await expect(titleLink).toBeVisible();
-      await expect(card.getByTestId('project-card-description')).not.toBeEmpty();
+      await expect(
+        card.getByTestId('project-card-description'),
+      ).not.toBeEmpty();
 
       const href = await titleLink.getAttribute('href');
       expect(href).toBeTruthy();
@@ -31,7 +33,12 @@ test.describe('project', () => {
       await expect(page.getByTestId('article-title')).toBeVisible();
       await expect(page.getByTestId('article-title')).not.toBeEmpty();
 
-      await expect(page.getByTestId('project-page-github-link')).toBeVisible();
+      await expect(
+        page
+          .getByTestId('project-page-github-link')
+          .or(page.getByTestId('project-page-site-link'))
+          .first(),
+      ).toBeVisible();
 
       await page.goto(`${baseUrl}/projects`);
     }

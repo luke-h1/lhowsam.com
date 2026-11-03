@@ -9,10 +9,10 @@ import '@fontsource/inter/latin-300.css';
 import '@fontsource/inter/latin-400.css';
 import '@fontsource/inter/latin-500.css';
 import '@fontsource/caveat/latin-600.css';
-import '@fontsource/instrument-serif/latin-400.css';
+import '@fontsource-variable/fraunces/opsz.css';
 import '@fontsource/roboto-mono/latin-400.css';
 
-import instrumentSerifWoff2 from '@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2?url';
+import frauncesWoff2 from '@fontsource-variable/fraunces/files/fraunces-latin-opsz-normal.woff2?url';
 import interRegularWoff2 from '@fontsource/inter/files/inter-latin-400-normal.woff2?url';
 import interMediumWoff2 from '@fontsource/inter/files/inter-latin-500-normal.woff2?url';
 import { siteConfig } from '../../config/site';
@@ -85,7 +85,7 @@ const jsonLdScripts = structuredData ? toJsonLdScripts(structuredData) : [];
         --font-primary:
           'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
           sans-serif;
-        --font-title: 'Instrument Serif', Georgia, 'Times New Roman', serif;
+        --font-title: 'Fraunces Variable', Georgia, 'Times New Roman', serif;
         --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
         --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
         --transition-base: 0.2s var(--ease-out);
@@ -206,7 +206,7 @@ const jsonLdScripts = structuredData ? toJsonLdScripts(structuredData) : [];
 
     <link
       rel="preload"
-      href={instrumentSerifWoff2}
+      href={frauncesWoff2}
       as="font"
       type="font/woff2"
       crossorigin="anonymous"

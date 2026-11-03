@@ -32,15 +32,15 @@ test.describe('index', () => {
       await expect(article.getByTestId('home-recent-post-title')).toBeVisible();
       await expect(article.getByTestId('home-recent-post-date')).toBeVisible();
       await expect(article.getByTestId('home-recent-post-intro')).toBeVisible();
-      await expect(article.getByTestId('home-recent-post-title')).not.toHaveText(
-        '',
-      );
+      await expect(
+        article.getByTestId('home-recent-post-title'),
+      ).not.toHaveText('');
       await expect(article.getByTestId('home-recent-post-date')).not.toHaveText(
         '',
       );
-      await expect(article.getByTestId('home-recent-post-intro')).not.toHaveText(
-        '',
-      );
+      await expect(
+        article.getByTestId('home-recent-post-intro'),
+      ).not.toHaveText('');
     }
   });
 });
