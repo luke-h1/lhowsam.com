@@ -27,8 +27,6 @@ jobs:
         env:
           OP_SERVICE_ACCOUNT_TOKEN: ${{ env.OP_SERVICE_ACCOUNT_TOKEN }}
           PUBLIC_URL: op://ci-cd/lhowsam-dev/PUBLIC_URL
-          BASIC_AUTH_USER: op://ci-cd/lhowsam-dev/BASIC_AUTH_USER
-          BASIC_AUTH_PASSWORD: op://ci-cd/lhowsam-dev/BASIC_AUTH_PASSWORD
           SENTRY_ORG: op://ci-cd/lhowsam-dev/SENTRY_ORG
           SENTRY_PROJECT: op://ci-cd/lhowsam-dev/SENTRY_PROJECT
           SENTRY_AUTH_TOKEN: op://ci-cd/lhowsam-dev/SENTRY_AUTH_TOKEN
