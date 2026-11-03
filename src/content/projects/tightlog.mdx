@@ -1,0 +1,92 @@
+---
+title: 'Tightlog'
+slug: 'tightlog'
+intro: 'Tightlog is an offline-first fishing logbook for iOS & Android that helps you capture good memories while fishing.'
+tags:
+  [
+    'react-native',
+    'expo',
+    'typescript',
+    'bun',
+    'cloudflare-workers',
+    'turso',
+    'legend-state',
+    'react-query',
+    'apple-intelligence',
+    'terraform',
+  ]
+heroImage: '../../assets/projects/tightlog-hero.png'
+siteUrl: 'https://tightlog.com'
+order: 0
+featured: true
+---
+
+import { Image } from 'astro:assets';
+import logbookScreenshot from '../../assets/projects/tightlog-logbook.png';
+import insightsScreenshot from '../../assets/projects/tightlog-insights.png';
+
+Tightlog is a fishing logbook for fishermen. I started it because every fishing app I tried either was lacking in terms of UX/UI or they locked basic features behind a paywall. The idea is quite simple: log the fish (species, weight, photo) and the app takes care of the rest. Weather, barometric pressure and its trend, wind, moon phase, tides and live UK river levels are captured automatically, and over a season the app learns from your activity.
+
+Go check it out on the [App Store](https://apps.apple.com/app/id6790888529).
+
+<div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin: 2rem 0;">
+  <Image
+    src={logbookScreenshot}
+    alt="Tightlog logbook screen showing current weather, moon phase, a bite forecast and recent catches"
+    width={260}
+    style="margin: 0; max-width: 45%; height: auto; border-radius: 0.75rem;"
+  />
+  <Image
+    src={insightsScreenshot}
+    alt="Tightlog insights screen showing total catches, species count, personal bests and records by species"
+    width={260}
+    style="margin: 0; max-width: 45%; height: auto; border-radius: 0.75rem;"
+  />
+</div>
+
+The app is built with [React Native](https://reactnative.dev), [Expo](https://expo.dev), [Expo Router](https://docs.expo.dev/router/introduction/) and [TypeScript](https://www.typescriptlang.org). It's offline-first: the logbook is a [SQLite](https://docs.expo.dev/versions/latest/sdk/sqlite/) database on the device. Syncing it to either [iCloud](https://developer.apple.com/icloud/cloudkit/) or our servers is optional and off until you turn it on. People fish in places with no signal, so everything core has to work without a network.
+
+Weather data is pulled from [Open-Meteo](https://open-meteo.com), the [Environment Agency flood monitoring API](https://environment.data.gov.uk/flood-monitoring/doc/reference) and [OpenStreetMap](https://www.openstreetmap.org) when a connection is available. State lives in [Legend State](https://legendapp.com/open-source/state/), networking goes through [TanStack Query](https://tanstack.com/query), and the UI leans on native [SwiftUI](https://developer.apple.com/xcode/swiftui/)/[Jetpack Compose](https://developer.android.com/compose) components via [Expo UI](https://docs.expo.dev/versions/latest/sdk/ui/), [SF Symbols](https://developer.apple.com/sf-symbols/) and [Skia](https://shopify.github.io/react-native-skia/) where it makes sense.
+
+There's an AI coach that has read access to your logbook. It gives you a 'read of the day' (which time to fish, what the pressure is doing, how today compares with sessions that worked) and you can ask it about rigs, baits and other fishing terminology. The daily read runs on device with [Apple Intelligence](https://developer.apple.com/apple-intelligence/), and the chat falls back to a [Cloudflare Worker](https://workers.cloudflare.com) proxying [Gemini](https://ai.google.dev) when Apple Intelligence isn't available.
+
+I also trained a small on-device species classifier ([PyTorch](https://pytorch.org), exported to [Core ML](https://developer.apple.com/documentation/coreml) and [TFLite](https://ai.google.dev/edge/litert)) because Apple's built-in image classifier has no idea what a lot of fish species are. This helps you if you're a beginner and aren't sure what a fish looks like or if you're experienced and have caught something strange.
+
+The app has several rest APIs that support the app. They are hosted on Cloudflare Workers and communicate internally to each other via [RPC](https://developers.cloudflare.com/workers/runtime-apis/rpc/). To name a few:
+
+- a sync API backed by [Turso](https://turso.tech) (open source mirror [here](https://github.com/luke-h1/sync-api))
+
+- a social API for the shared catches feed, friends, groups and private competitions
+
+- a push API that stores records in [Cloudflare D1](https://developers.cloudflare.com/d1/) for reminders via [OneSignal](https://onesignal.com)
+
+- AI worker for [MCP](https://modelcontextprotocol.io) and communicating with [OpenAI](https://platform.openai.com) + Gemini (image generation)
+
+## Moderation
+
+Because the shared feed is user generated content, we have to have a few layers of moderation to comply with app store rules and also to provide a safe experience for our users.
+
+The fish photos are checked on device via Apple's [sensitive content analyser](https://developer.apple.com/documentation/sensitivecontentanalysis) before it's uploaded. Once a catch is shared, it goes onto a [Cloudflare Queue](https://developers.cloudflare.com/queues/) where the photo and text are ran through OpenAI's [moderation model](https://platform.openai.com/docs/guides/moderation), falling back to [Llama Guard](https://developers.cloudflare.com/workers-ai/models/llama-guard-3-8b/) and a vision model on [Workers AI](https://developers.cloudflare.com/workers-ai/) if OpenAI is unavailable. If both are down we retry later on.
+
+Anything flagged is taken down and its photo are deleted automatically. Users can report catches and block other anglers and have to accept the feed terms before they can post. Reports and automatic removals land in [Discord](https://discord.com) and [Telegram](https://telegram.org) with a link to an internal moderation dashboard behind [Cloudflare Access](https://developers.cloudflare.com/cloudflare-one/policies/access/), where I can review reports, restore false positives and track how accurate the classifier is over time.
+
+## Closing thoughts
+
+A lot of the work has been around running it as a real product rather than a side project. Infrastructure is managed with [Terraform](https://developer.hashicorp.com/terraform) (Cloudflare Access in front of private product dashboards, [Resend](https://resend.com) for support mail, [Grafana Cloud](https://grafana.com/products/cloud/) for worker metrics), a [tail worker](https://developers.cloudflare.com/workers/observability/logs/tail-workers/) forwards exceptions to Discord and Telegram, a public [status page](https://status.tightlog.com), and there are internal dashboards for moderation, push and support mail. The app has separate development, internal, TestFlight, E2E and production variants that can all live on the same device for proper QA, with [Sentry](https://sentry.io) and [PostHog](https://posthog.com) covering errors, analytics and feature flags.
+
+## What I focused on
+
+- Building an offline-first app where the logbook stays on the device by default
+- Capturing useful conditions data automatically so logging a catch takes seconds
+- Using on-device AI (Apple Intelligence and a custom Core ML model)
+- Privacy by default for social features, with location rounding done on the phone
+- Running a small production backend on Cloudflare Workers with proper monitoring, alerting and operator tooling
+- A fair free tier with no hard paywall at first launch and no ads
+
+## What I learned
+
+- How much harder sync, conflict handling and backups get once a user's data really matters to them and you can't make breaking schema changes
+- Training, exporting and shipping a custom ML model inside a React Native app
+- The realities of App Store review, subscriptions and store listing work
+- How far Cloudflare Workers, D1 and Turso can go for a solo project
+- Operational side (status pages, alerting, moderation, support)
