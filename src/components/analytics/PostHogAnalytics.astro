@@ -1,0 +1,14 @@
+<script>
+  const key = import.meta.env.PUBLIC_POSTHOG_KEY;
+
+  if (key && window.location.hostname === 'lhowsam.com') {
+    import('posthog-js').then(({ default: posthog }) => {
+      posthog.init(key, {
+        api_host:
+          import.meta.env.PUBLIC_POSTHOG_HOST ?? 'https://eu.i.posthog.com',
+        ui_host: 'https://eu.posthog.com',
+        defaults: '2025-05-24',
+      });
+    });
+  }
+</script>

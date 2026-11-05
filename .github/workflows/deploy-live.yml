@@ -40,6 +40,8 @@ jobs:
           PUBLIC_SENTRY_DSN: op://ci-cd/lhowsam-prod/PUBLIC_SENTRY_DSN
           PUBLIC_STATSIG_CLIENT_KEY: op://ci-cd/lhowsam-prod/PUBLIC_STATSIG_CLIENT_KEY
           PUBLIC_STATSIG_ENVIRONMENT: op://ci-cd/lhowsam-prod/PUBLIC_STATSIG_ENVIRONMENT
+          PUBLIC_POSTHOG_KEY: op://ci-cd/lhowsam-prod/PUBLIC_POSTHOG_KEY
+          PUBLIC_POSTHOG_HOST: op://ci-cd/lhowsam-prod/PUBLIC_POSTHOG_HOST
           PUBLIC_NOW_PLAYING_API_BASE_URL: op://ci-cd/lhowsam-prod/PUBLIC_NOW_PLAYING_API_BASE_URL
           PUBLIC_NOW_PLAYING_API_KEY: op://ci-cd/lhowsam-prod/PUBLIC_NOW_PLAYING_API_KEY
 

@@ -19,6 +19,7 @@ import interMediumWoff2 from '@fontsource/inter/files/inter-latin-500-normal.wof
 import { siteConfig } from '../../config/site';
 import { absoluteUrl, toJsonLdScripts } from '../../util/seo';
 import { resolveSocialImage } from '../../util/socialImage';
+import PostHogAnalytics from '../analytics/PostHogAnalytics.astro';
 import StatsigAnalytics from '../analytics/StatsigAnalytics.astro';
 import Footer from '../ui/Footer.astro';
 import Header from '../ui/Header.astro';
@@ -275,6 +276,7 @@ const jsonLdScripts = structuredData ? toJsonLdScripts(structuredData) : [];
       ))
     }
     <StatsigAnalytics />
+    <PostHogAnalytics />
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
