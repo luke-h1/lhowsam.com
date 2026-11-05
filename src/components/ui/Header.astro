@@ -45,13 +45,15 @@ const navItems: NavItem[] = [
     name: 'Blog',
     path: '/blog',
   },
+];
+
+const commandNavItems: NavItem[] = [
+  ...navItems,
   {
     name: 'Talks',
     path: '/talks',
   },
 ];
-
-const commandNavItems: NavItem[] = [...navItems];
 
 const commandGroups = [
   {

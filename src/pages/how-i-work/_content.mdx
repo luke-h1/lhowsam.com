@@ -1,0 +1,678 @@
+---
+title: How I work
+description: The principles I use to build, ship and run software, and to work with a team.
+intro: A living list of the principles I try to adhere to.
+publishedAt: 2026-11-05
+---
+
+I wrote this post to showcase how I think about software engineering, working within teams and collaborating with businesses and aligning on product goals.
+
+## Make technical decisions that stay easy to change
+
+There is a time and place for making something a bit more complex in the effort of making it scalable and having good abstractions. It's much harder to make a complex solution simple than it is to make a simple solution complex.
+
+For example, let's say we have an authentication service running on one big server. That might be perfect for the stage the business is at. It may even save us money in the short term while we don't have a lot of users and could be quite simple to manage.
+
+As our user base grows and we see that the server is starting to consume more resources, scaling up could cost us more money than using something such as containers. In addition to this, it's quite risky to run a mission critical service on one server. We might want to switch to something such as [ECS](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html) with some horizontal scaling rules, so that we can:
+
+- quickly scale up to meet user demand
+- have less risk by having a load balancer that will replace failing compute
+- save on cost when our services aren't as busy (scale down containers)
+
+In contrast, starting off with ECS or something such as kubernetes could be a sign of premature optimisation. We start off by paying more than a single server (due to things like AWS LB, Ingress controllers etc.) and have quite a bit more infrastructure to manage. If you expect to grow your business by quite a lot, then ECS or kubernetes would be a good choice to start out on.
+
+But in our case, swapping from a single server to ECS/Kubernetes wouldn't result in too much of a change. We could simply deploy a new fleet of ECS / Kubernetes nodes, verify they are healthy and swap over our domain records.
+
+## Pragmatism
+
+Perfect is the enemy of good.
+
+As engineers it's tempting to want to build a perfect solution, get rid of all technical debt, work on the shiny problems and so on. This is a great attitude to have but it's not always where the value lies.
+
+Being able to ship something today that is not perfect and you can iterate on is far superior than waiting months and months to ship something perfect.
+
+## Small, incremental changes
+
+Ship small changes often rather than one huge PR at the end of a project.
+
+A 2000 line PR is hard to review properly, so it either sits in review for days or gets approved with a "LGTM" and nobody really checks it. A 200 line PR can be reviewed, tested and understood in one sitting. If something goes wrong, it's also much easier to find the problem and roll it back.
+
+Feature flags make this a lot easier. We can merge unfinished work behind a flag so it never reaches users, keep our branches short lived and avoid painful merge conflicts. When the feature is ready, we turn it on for a small percentage of users first, keep an eye on our metrics and error monitoring, then roll it out to everyone. If something breaks, we can turn the flag off.
+
+This ties closely to pragmatism. Shipping something small today and iterating on it based on real feedback beats spending three months building something big that users might not even want.
+
+## Leave things better than you found them
+
+When you touch a piece of code, try to leave it better than you found it. Is there a confusing variable? Are there unit tests that don't test what they should? Rename the variable, fix the tests.
+
+It might seem inconsequential but over time these small changes make a big difference and stop the codebase from rotting.
+
+## Own it in production
+
+Your job isn't done when the PR is merged. It's done when the change is working for users in production. After you deploy something:
+
+- check the dashboards
+- look at error monitoring (Sentry for example)
+- keep an eye on the metrics that the change should affect
+
+If I built a new checkout flow, I want to know if conversion went up or down, not just that it's working
+
+To do this properly, we need good observability:
+
+- **Logs** tells us what happened, with enough context (user ID, request ID) to follow a single request through the system.
+- **Metrics** shows us how the system behaves over time, such as error rates, latency and business numbers like signups or payments.
+- **Traces** shows us where time is spent across services. So we know where the slow part is (our API, the database or a third party etc.)
+- **Alerts** wake someone up when a critical error threshold is breached
+
+Be careful with alerts. An alert that fires every day and everyone ignores is just as bad as a flaky test. Over time the team learns to ignore all alerts and then the one that actually matters gets ignored. Every alert should be actionable.
+
+We also need a fast way to roll it back. Some bugs will always get through, no matter how good our tests are. If we can roll back a deploy or turn off a feature flag in two minutes, a bad release costs us very little. If a rollback means a 40 minute pipeline and three people on a call, every bug becomes an incident.
+
+## Blameless culture
+
+Things can and will go wrong. What matters is how your team responds.
+
+If you say "who did this?" you have the wrong attitude. The question should be "how did our systems allow this to happen". When you have a blame culture, why are people going to own up to mistakes or consult you for advice?
+
+Quite often we see this in the form of catastrophic incidents such as "our junior engineer dropped the production database".
+
+Sure the junior made a mistake but why were they allowed to make such a mistake? Why haven't they been taught how to connect to the production database in a read only mode? It's a failure of the processes, not the individual.
+
+If anything the junior has found a problem in our systems:
+
+- we didn't train them well enough
+- we don't have proper access controls in place
+
+Blameless culture doesn't mean nobody is accountable. The person who made the mistake should still be a part of the postmortem, explain what they tried to do and what led to the mistake. But they should not be punished for the mistake.
+
+The payoff here is two-fold. When people know they aren't going to be thrown under the bus for making a mistake, they will speak up early.
+
+> "I broke something 5 minutes ago, can you help me?"
+
+That's much better than staying quiet about it and a customer noticing 5 hours later.
+
+That openness helps a team find issues faster, and it keeps the engineering culture healthy enough to learn from its mistakes.
+
+## Communication
+
+A lot of our work as engineers is communication:
+
+- **Design documentation or RFCs** written before a change can save weeks of meetings.
+- **Clear PR descriptions and evidence** can save lots of back & forth Slack communication.
+- **Good incident write-ups** help the entire team learn from past mistakes.
+
+### Write it down
+
+Not everyone can attend the meeting you just launched. Maybe they're on holiday or are on a call with a client. Besides, most people forget what was talked about in a quick call 2 weeks ago.
+
+A written document can be read by anyone at any time, including new starters. It also allows you to more easily iterate on your ideas and spend less time filling people in who missed the meeting.
+
+### PRs
+
+PRs work the same way. A PR description should explain:
+
+- why you did this
+- how you tested it, with screenshots and videos for UI changes
+
+This will cover a lot of the reviewers questions before they've even asked it.
+
+### Async communication
+
+The common theme here is async communication.
+
+Async communication doesn't mean never talking to one another. Some things are faster on calls, and most times these are better handled on a call:
+
+- a complicated tech discussion that is going in circles on Slack
+- an incident that is happening right now
+- a daily team sync
+
+But you need to know where to draw the line. Constantly being on calls with your team can lead to context switching, less time for deep work and decisions that only the people on the call know about.
+
+An engineer with six meetings across the day isn't going to get much work done. They might have a handful of 30 minute gaps which is not enough time to get back into the head space to work on a hard problem before the next meeting starts.
+
+## Code review
+
+Code review is one of the best tools a team has for sharing knowledge, catching bugs and mentoring. It's also quickly becoming a major bottleneck in terms of agents producing lots of PRs
+
+A few things I try to do when reviewing:
+
+- **Review quickly.** A PR waiting two days for a review blocks the author and makes the eventual merge harder. I try to review within a few hours, even if it's just a first pass.
+- **Agent reviews**. Have a solid set of agents review the PR first. This can be automated by GitHub workflows to check the PR first. It's typically quite good at catching bugs and suggesting improvements
+- **Separate real problems from personal preference.** A bug, a security issue or a missing test is worth blocking on. The way someone named a variable usually isn't. If it's a nitpick, label it as a nitpick so the author knows they can ignore it and keep it in mind for later.
+- **Ask questions rather than give orders.** "What happens if this is null? 🤔" lands much better than "this is wrong" and more often times than not, the author has a good reason you didn't think of.
+- **Say what's good too.** If someone solved a hard problem, congratulate them! reviews shouldn't only be a list of things that are wrong.
+
+## Care deeply about mentoring and growing your team
+
+One of the best measures in my opinion of a good engineer is the positive effect they're able to have on their team. One of the best experiences I've had is seeing my teammates grow.
+
+If you are someone who can sit down with an engineer and through slack conversations + pair programming you can make them become someone who can confidently own features e2e and make good technical decisions on their own then you're going to be a force multiplier for your team.
+
+We are limited by the hours in a day but if you can help someone grow, your impact multiplies and most importantly you are actively contributing to a healthy team culture.
+
+## Go beyond development
+
+If all you do in your day to day as an engineer is code (or prompt with Claude xd) from tickets on a Jira board you're NGMI. We don't write code for the sake of it. We code to solve business problems.
+
+Talking to different people at a company that are outside your realm (sales, CTOs, growth engineers) will give you a sharp understanding of why we're actually building the things we do. Having this understanding is crucial as you will be able to:
+
+- interact with people who have amazing ideas that you can bring to life
+- get a sharper understanding of the problems of the company and the future of the product
+- make better technical decisions
+
+Lots of companies will give you a Jira ticket to complete and expect you to code it without questions. That's more than fine and sometimes it's necessary, but you are limiting yourself and your impact on the business if you strictly follow this thought pattern.
+
+Being able to brainstorm new business ideas and communicating "do we want to build it like this? have you considered x way?" is a great way to push yourself beyond just being a code monkey
+
+## Working with agents
+
+Agents are incredibly powerful. What used to take 1 month can be done in a few days.
+
+But (at the time of writing) agents are an extension of you. They amplify the ideas you present to them. Tell the agent a vague idea "build an auth service" and point it at a codebase with no skills or rules and it will make a mess. Most of it will look ok but through further inspection you will notice problems such as:
+
+- new abstractions that are hard to read
+- inconsistent style
+- poor testing quality
+- bad architecture decisions
+
+As an engineer you should be able to guide the agent to make the right decisions. We can achieve this in a few ways.
+
+### Prompting
+
+Instead of a prompt such as 'build an auth service' we might want to tweak that to something such as
+
+```
+I want to build a scalable auth service for our product
+
+## context
+- purpose: get rid of our old auth provider and provide faster auth for our mobile apps and websites
+- Scale: Our old service handles 2k logins per sec and 50k token validations per second
+- Stack: Node on AWS lambda for compute, Postgres for storage and Redis for caching
+
+## requirements
+- signup + login: email/password, magic links, social (Apple, Google, GitHub), passKeys etc.
+- MFA: TOTP, recovery codes
+- session-management: short lived cookies, rotating refresh tokens
+- rate limiting + account lockouts
+- GDPR - account deletion, data exports
+
+
+## what i want back
+1. architecture diagram + walkthrough of each flow
+2. Each service's responsibility and reason for any tech decisions
+3. API design (endpoints, error semantics)
+4. how does it scale?
+5. Phased migration plan
+```
+
+A detailed prompt should tell the agent the exact constraints of your problem and what you are hoping to achieve from it
+
+### Rules and skills
+
+Set up an `AGENTS.md` or `CLAUDE.md` file in your code base. This should explain how we structure code, which patterns to use, what libraries to prefer, how to run tests and verify changes etc. This stops the agent from tripping up on simple mistakes that would require you to prompt the agent again to get it to fix the problems it's created
+
+Install the relevant skills for the area you're working in. This will help the agent understand the tech stack you're working with better and any footguns it has.
+
+### Guardrails
+
+Rules are just guidelines and agents can sometimes just ignore them. We need some way to enforce these guidelines.
+
+This ties quite closely to the 'blameless' culture I mentioned earlier. Don't rely on the agent (or a junior engineer), make it impossible for them to make bad mistakes
+
+We can setup several layers of guardrails to stop the agent going off track:
+
+- Git hooks that run linting/formatting jobs to make it adhere with our codebase style
+- Custom lint rules to catch bad behaviour such as performance + design defects
+- Unit/integration/e2e tests to catch regressions
+- Run adversarial reviews with another model. Make another model check the other model's work. Don't trust just trust one model
+
+### Stay accountable
+
+Saying 'my agent did it not me' is not good enough.
+
+Agents can be confidently wrong in ways people aren't. They invent specs, business rules and write tests that pass. We should take extra care when making changes with agents, especially if that change is large. Understanding what the agent produces and its consequences should always be at the forefront of your mind
+
+## Verification / QA
+
+I'm a big believer in the principle that we need to ship quality products to our end users. You can provide the best services in your area but if your app constantly breaks and is unreliable, users will flock to a competitor.
+
+From a manual testing point of view: It's important to think like a user who uses your application and not just like a developer. Use the app like you would in real life. Put yourself in their shoes and take note of anything that feels rough, incomplete or doesn't align with a good user experience. This is a cheap way to find bugs or bad user journeys. If you don't do this, then your users will feel like the company isn't doing all it can to make the product better.
+
+You need to have a testing methodology that is reliable and robust.
+
+Every team I've worked within (even before agents) have been incredibly busy working on product improvements. Taking a step back to work on automated testing can often feel like the team is trading velocity for something that doesn't benefit the user. This often leads to teams moving far too fast and impacting user trust by building new features that have bugs, design that users don't agree with etc.
+
+That is why it's incredibly important to build/use a testing platform that is reliable, gives you insight (flakiness, testing on a wide range of browsers/devices) to give you confidence to ship these big changes.
+
+### Speed / Velocity
+
+Having a fast testing core is imperative for having a healthy engineering mindset around testing and to build trust with product teams.
+
+Our tests could be perfect and cover every aspect of the platform, but if they take an hour to pass CI it starts to weigh heavily on developer confidence and shipping velocity.
+
+If dealing with flaky tests and long test CI runs becomes normal, the team starts to spend more time fixing tests than shipping new features. This is where teams start to lose buy-in from the rest of the business on the importance of testing.
+
+If the test build is consistently flaky, we have no observability into past test runs and the tests are harder to debug, failing tests become normal and we start to trust it less and less. Shipping a new feature that potentially breaks something becomes normal because our test suites are unreliable
+
+If on the other hand our tests take 5 minutes to run (unit,integration,e2e) in CI and pass consistently, a red build becomes an immediate concern. We've clearly broken something and we need to look into what's happened rather than clicking the merge button.
+
+So how do we get to this point?
+
+#### 1. Measure first
+
+Well we first need to actually measure what's taking the longest. CI logs are great but they're not exactly human readable over time.
+
+Ideally we need to use a test management platform that enables us to see how long tests take, recordings of the tests (to see what's actually happening), what's getting faster vs what's getting slower across each run.
+
+#### 2. Run tests in parallel
+
+A lot of testing frameworks run sequentially by default. This is good for debugging purposes but not so good in CI when we want them to pass as fast as possible. We can split our tests to run in parallel across different threads.
+
+```yaml
+strategy:
+  matrix:
+    shard: [1, 2, 3, 4]
+steps:
+  - run: npx playwright test --shard=${{ matrix.shard }}/4
+```
+
+This will run our e2e tests on four machines, with each suite finishing in roughly a quarter of the time
+
+#### 3. Only run what changed
+
+Not every change needs a full test run.
+
+If a PR only touches our company blog for example, we don't need to run the entire Stripe checkout suite. Monorepo tools such as [Turborepo](https://turborepo.dev/) work out what packages have changed and only tests those. Vitest's `--changed` and Playwright's `--only-changed` do something similar
+
+#### 4. Speed up everything around the tests
+
+- Cache `node_modules`, browser installations, build your mobile app once only when native code changes and share these artefacts with the rest of the builds that need it. Doing these things uncached or having to rebuild your application every time is going to cost precious time.
+
+  Expo's [QA Swarm workflow](https://docs.expo.dev/agentic-workflows/qa-swarm/) is a good example of this. It fingerprints the native code of the app and only builds a new binary if no build with that fingerprint exists. If one does, it repacks the existing build with the latest JavaScript. Then every agent lane runs against that same build on its own cloud simulator at the same time, so a full run only takes as long as the slowest flow.
+
+  ![Expo's QA Swarm workflow in six steps: a person starts the workflow, a job finds or builds the app for each platform, each lane starts its own cloud simulator at the same time, a coding agent in each lane runs one flow and saves screenshots, each lane deploys an evidence site, and a person reads the report with the verdict of each lane](../../assets/how-i-work/expo-qa-swarm-diagram.png)
+
+- Beef up your CI runners. If your CI is running on a very small machine, the chances of flakiness and failures go up because of the CPU and memory getting saturated.
+
+### Testing pyramid
+
+You can write lots of unit, e2e and integration tests etc. but if these tests mock heavily, aren't testing the right things or aren't covering the application like a user would, then it's all for nothing.
+
+We should strive to have a testing trifecta that covers unit (small business logic), integration (does our application interact with services correctly?) and e2e (testing the app like a user would through something such as [Playwright](https://playwright.dev) for the web or [E2E](https://e2e.com) for mobile)
+
+#### Unit tests
+
+Unit tests make sure our core business logic works as expected. They should be fast, have no network calls and test pure functions with clear inputs and outputs. Unit tests are typically very fast, so it's cheap to write tests for this.
+
+Let's say we let users split a payment into monthly instalments. On the surface this is simple: divide the total by the number of months. £100 over 3 months is £33.333 and we can't charge a user a third of a penny. If we round every instalment to £33.33, we collect £99.99 and lose a penny on every split.
+
+To avoid this, we work in pence (integers) instead of floating point numbers and give the remainder to the first instalment:
+
+```ts
+export function splitIntoInstalments(
+  totalPence: number,
+  count: number,
+): number[] {
+  if (!Number.isInteger(totalPence) || totalPence <= 0) {
+    throw new Error('totalPence must be a positive integer');
+  }
+  if (!Number.isInteger(count) || count <= 0) {
+    throw new Error('count must be a positive integer');
+  }
+
+  const base = Math.floor(totalPence / count);
+  const remainder = totalPence % count;
+
+  return Array.from({ length: count }, (_, i) =>
+    i < remainder ? base + 1 : base,
+  );
+}
+```
+
+The tests then describe the business rules, not how the function is built:
+
+```ts
+describe('splitIntoInstalments', () => {
+  test('splits an even total into equal instalments', () => {
+    expect(splitIntoInstalments(9000, 3)).toEqual([3000, 3000, 3000]);
+  });
+
+  test('gives the remainder to the first instalments', () => {
+    expect(splitIntoInstalments(10000, 3)).toEqual([3334, 3333, 3333]);
+  });
+
+  test('instalments always add up to the total', () => {
+    for (const [total, count] of [
+      [10000, 3],
+      [1, 2],
+      [99999, 12],
+    ]) {
+      const sum = splitIntoInstalments(total, count).reduce((a, b) => a + b, 0);
+      expect(sum).toBe(total);
+    }
+  });
+
+  test('rejects fractional pence and invalid counts', () => {
+    expect(() => splitIntoInstalments(100.5, 2)).toThrow();
+    expect(() => splitIntoInstalments(10000, 0)).toThrow();
+  });
+});
+```
+
+A few things you should look for in unit tests:
+
+- **Test the business logic, not the code.** "Instalments always add up to the total" is a rule that someone in the finance team would understand. If someone changes the implementation later, that test still holds and can catch regressions.
+- **Cover the edge cases.** Totals that don't divide evenly, a total smaller than the number of instalments (1p over 2 months) and invalid input are where nasty bugs can hide.
+- **No mocks.** The function takes numbers and returns numbers. If business logic needs heavy mocking to test, that's often a sign it's tangled up and should be pulled out into a pure function.
+
+#### Integration tests
+
+Integration tests should assert that our application talks to the things around it correctly. For example databases, queues, third party APIs etc.
+
+If we go back to the instalment example: Once we've split the payment, we need to save the payment plan to the database and set the payment schedule with Stripe.
+
+There are a few ways this could go wrong that even unit tests wouldn't be able to catch:
+
+- a typo in a SQL query
+- a missing column
+- a migration that hasn't run
+
+```ts
+export async function createInstalmentPlan(
+  db: Pool,
+  stripe: Stripe,
+  input: CreatePlanInput,
+) {
+  const amounts = splitIntoInstalments(input.totalPence, input.months);
+  const client = await db.connect();
+
+  try {
+    await client.query('BEGIN');
+
+    const { rows } = await client.query<{ id: string }>(
+      `INSERT INTO instalment_plans (stripe_customer_id, total_pence, status)
+       VALUES ($1, $2, 'pending') RETURNING id`,
+      [input.stripeCustomerId, input.totalPence],
+    );
+    const planId = rows[0].id;
+
+    for (const [i, amount] of amounts.entries()) {
+      await client.query(
+        `INSERT INTO instalments (plan_id, sequence, amount_pence, status)
+         VALUES ($1, $2, $3, 'scheduled')`,
+        [planId, i + 1, amount],
+      );
+    }
+
+    const paymentIntent = await stripe.paymentIntents.create(
+      {
+        amount: amounts[0],
+        currency: 'gbp',
+        customer: input.stripeCustomerId,
+        payment_method: input.paymentMethodId,
+        off_session: true,
+        confirm: true,
+        metadata: { plan_id: planId, sequence: '1' },
+      },
+      { idempotencyKey: `plan-${planId}-instalment-1` },
+    );
+
+    await client.query(
+      `UPDATE instalments SET status = 'paid', stripe_payment_intent_id = $1
+       WHERE plan_id = $2 AND sequence = 1`,
+      [paymentIntent.id, planId],
+    );
+    await client.query(
+      `UPDATE instalment_plans SET status = 'active' WHERE id = $1`,
+      [planId],
+    );
+    await client.query('COMMIT');
+
+    return { planId, paymentIntentId: paymentIntent.id };
+  } catch (err) {
+    await client.query('ROLLBACK');
+    Sentry.captureException(err, {
+      extra: { customerId: input.stripeCustomerId },
+    });
+    throw err;
+  } finally {
+    client.release();
+  }
+}
+```
+
+To ensure we have full coverage, I like to run tests against the real thing. We can spin up a Postgres container and use something like Stripe sandbox testing to assert everything works as expected without using mocks
+
+```ts
+const stripeKey = process.env.STRIPE_TEST_SECRET_KEY;
+if (!stripeKey?.startsWith('sk_test_')) {
+  throw new Error(
+    'STRIPE_TEST_SECRET_KEY must be a Stripe test mode key (sk_test_...)',
+  );
+}
+const stripe = new Stripe(stripeKey);
+
+let container: StartedPostgreSqlContainer;
+let db: Pool;
+
+beforeAll(async () => {
+  container = await new PostgreSqlContainer('postgres:17').start();
+  db = new Pool({ connectionString: container.getConnectionUri() });
+  await migrate(db);
+}, 60_000);
+
+afterEach(async () => {
+  await db.query('TRUNCATE instalment_plans, instalments CASCADE');
+  vi.restoreAllMocks();
+});
+
+afterAll(async () => {
+  await db.end();
+  await container.stop();
+});
+
+async function createTestCustomer(paymentMethod: string) {
+  const customer = await stripe.customers.create({
+    payment_method: paymentMethod,
+  });
+  const { data } = await stripe.customers.listPaymentMethods(customer.id);
+  return { customerId: customer.id, paymentMethodId: data[0].id };
+}
+```
+
+This way, our tests are covering how our application behaves in production (or as close to production as possible)
+
+- The instalments in our DB are the same amounts we ask Stripe to charge
+- If Stripe rejects our request, the DB transaction rolls back / calls our error monitoring service
+- We can assert if the constraints we set on our DB (no negative integers for example) actually work
+- Every test starts from a clean slate (DB gets reset etc.)
+
+```ts
+describe('createInstalmentPlan', { timeout: 30_000 }, () => {
+  test('the instalments in our DB match what Stripe charged', async () => {
+    const { customerId, paymentMethodId } =
+      await createTestCustomer('pm_card_visa');
+
+    const { planId, paymentIntentId } = await createInstalmentPlan(db, stripe, {
+      stripeCustomerId: customerId,
+      paymentMethodId,
+      totalPence: 10000,
+      months: 3,
+    });
+
+    const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId);
+    expect(paymentIntent).toMatchObject({
+      status: 'succeeded',
+      amount: 3334,
+      currency: 'gbp',
+    });
+
+    const instalments = await db.query(
+      'SELECT amount_pence, status FROM instalments WHERE plan_id = $1 ORDER BY sequence',
+      [planId],
+    );
+    expect(instalments.rows).toEqual([
+      { amount_pence: paymentIntent.amount, status: 'paid' },
+      { amount_pence: 3333, status: 'scheduled' },
+      { amount_pence: 3333, status: 'scheduled' },
+    ]);
+  });
+
+  test('a declined card rolls back the transaction and reports the error', async () => {
+    const captureException = vi.spyOn(Sentry, 'captureException');
+    const { customerId, paymentMethodId } = await createTestCustomer(
+      'pm_card_chargeCustomerFail',
+    );
+
+    await expect(
+      createInstalmentPlan(db, stripe, {
+        stripeCustomerId: customerId,
+        paymentMethodId,
+        totalPence: 10000,
+        months: 3,
+      }),
+    ).rejects.toMatchObject({ type: 'StripeCardError', code: 'card_declined' });
+
+    const plans = await db.query(
+      'SELECT count(*)::int AS n FROM instalment_plans',
+    );
+    const instalments = await db.query(
+      'SELECT count(*)::int AS n FROM instalments',
+    );
+    expect(plans.rows[0].n).toBe(0);
+    expect(instalments.rows[0].n).toBe(0);
+    expect(captureException).toHaveBeenCalledOnce();
+  });
+
+  test('the DB rejects a negative instalment', async () => {
+    const { rows } = await db.query(
+      `INSERT INTO instalment_plans (stripe_customer_id, total_pence, status)
+       VALUES ('cus_test', 10000, 'pending') RETURNING id`,
+    );
+
+    await expect(
+      db.query(
+        `INSERT INTO instalments (plan_id, sequence, amount_pence, status)
+         VALUES ($1, 1, -1, 'scheduled')`,
+        [rows[0].id],
+      ),
+    ).rejects.toThrow(/check constraint/);
+  });
+});
+```
+
+If on the other hand we mock our DB in this test, we're just testing the mocks and could get different behaviour when we deploy our code and interact with a real DB
+
+#### E2E tests
+
+E2E tests are where we get the most value. They interact with your website or app exactly like a user would do by using a tool such as [Playwright](https://playwright.dev) or [E2E](https://e2e.com).
+
+They're also the most expensive form of testing, because booting up a real browser or app is expensive
+
+Unit and integration tests can all pass and the user can still end up with a bug:
+
+- a button could be hidden behind a cookie banner
+- the Stripe payment form could fail to load on Safari
+- the confirmation page could show the wrong amount
+
+E2E tests are the only tests that see the app the way the user sees it.
+
+Because they're expensive, I don't try to E2E test everything. I pick the core journeys that would cost the business money or trust if they broke (sign up, log in, checkout etc.) and leave the edge cases to the unit and integration tests.
+
+Going back to the instalment example, the most important journey is a user picking a plan, paying the first instalment and seeing their schedule:
+
+```ts
+import { expect, test } from '@playwright/test';
+
+test.describe('instalment checkout', () => {
+  // authentication etc. removed for brevity
+  test.beforeEach(async ({ page }) => {
+    await page.goto('/checkout?basket=test-basket-100');
+  });
+
+  test('user can pay for an order over 3 months', async ({ page }) => {
+    await page
+      .getByRole('radio', { name: 'Pay in 3 monthly instalments' })
+      .check();
+    await expect(
+      page.getByText('3 payments of £33.34, £33.33, £33.33'),
+    ).toBeVisible();
+
+    const stripe = page.frameLocator(
+      'iframe[title="Secure payment input frame"]',
+    );
+    await stripe
+      .getByPlaceholder('1234 1234 1234 1234')
+      .fill('4242 4242 4242 4242');
+    await stripe.getByPlaceholder('MM / YY').fill('12 / 34');
+    await stripe.getByPlaceholder('CVC').fill('123');
+
+    await page.getByRole('button', { name: 'Pay £33.34 today' }).click();
+
+    await expect(
+      page.getByRole('heading', { name: 'Your payment plan is set up' }),
+    ).toBeVisible();
+    const schedule = page.getByRole('list', { name: 'Payment schedule' });
+    await expect(schedule.getByRole('listitem')).toHaveText([
+      /£33\.34.*Paid/,
+      /£33\.33.*Scheduled/,
+      /£33\.33.*Scheduled/,
+    ]);
+  });
+
+  test('user sees an error and can retry when their card is declined', async ({
+    page,
+  }) => {
+    await page
+      .getByRole('radio', { name: 'Pay in 3 monthly instalments' })
+      .check();
+
+    const stripe = page.frameLocator(
+      'iframe[title="Secure payment input frame"]',
+    );
+    await stripe
+      .getByPlaceholder('1234 1234 1234 1234')
+      .fill('4000 0000 0000 0002');
+    await stripe.getByPlaceholder('MM / YY').fill('12 / 34');
+    await stripe.getByPlaceholder('CVC').fill('123');
+
+    await page.getByRole('button', { name: 'Pay £33.34 today' }).click();
+
+    await expect(page.getByRole('alert')).toContainText(/declined/i);
+    await expect(
+      page.getByRole('button', { name: 'Pay £33.34 today' }),
+    ).toBeEnabled();
+  });
+});
+```
+
+The test doesn't know anything about our database, our API or how `splitIntoInstalments` works. It only does what a user would do, so if we rewrite the whole backend tomorrow, this test should still pass.
+
+A few things I look for in E2E tests:
+
+- **Find elements like a user would.** Locators such as `getByRole` and `getByLabel` find elements by what they say and do, not by CSS classes or test IDs that change when the design changes. They also catch accessibility problems, because if a screen reader can't find the button, neither can the test.
+- **No fixed waits.** `await page.waitForTimeout(3000)` is one of the biggest causes of flaky tests. Playwright's `expect` retries until the element appears, so let it do the waiting. If the wait times out, try to tie an explicit wait to an event (such as a 200 ok response from stripe) with a fixed timeout.
+- **Test on the browsers and devices our users have.** Playwright can run the same test on Chromium, Firefox, WebKit and mobile viewports. If 40% of our users are on iPhones, a test that only targets desktop browsers won't give us much confidence.
+- **Each test sets up its own data.** Seed what the individual test needs (a basket, a user) through an API or a fixture, so tests can run in parallel and don't fail because another test is changing test data
+- **Make failures easy to debug.** Turn on traces, screenshots and videos for failed tests. A flaky test that nobody can reproduce usually gets skipped, then deleted, and then the bug ships.
+- **Track flakiness.** A test that passes on a retry is a problem. If we don't track and fix flaky tests, the team stops trusting the suite and starts ignoring failures and then the tests are worthless
+
+## Security and privacy by default
+
+It's a lot cheaper to think about security from the start than to fix it after a breach. Users rarely forgive a company that loses their data.
+
+A few things I try to do by default:
+
+- **Least privilege.** People, services and agents only get the access they need. Production access is read only by default and anything destructive needs a second pair of eyes.
+- **Keep secrets out of code.** Secrets should live in a secrets manager, not in the repo or in a `.env` file that is committed.
+- **Keep dependencies up to date.** Tools such as Dependabot or Renovate make this almost automatic. Small, regular updates are much easier than a big upgrade once a year when a CVE requires you to do a big update
+- **Only collect the data you need.** Data you don't store can't leak. Think about GDPR requirements such as account deletion and data exports when you design a feature
+- **Validate everything at the edges.** Never trust input from users, third party webhooks or other services. Validate it as soon as it enters the system, on both the frontend and backend
+
+## Things I'm still figuring out
+
+I don't have all the answers and some of my thinking here will probably change. A few things I'm still working out:
+
+- **How much to trust agents.** Agents are getting better every few months, so the right amount of review and guardrails keeps moving. What felt risky six months ago is normal now.
+- **Where the right testing line is.** Every team I've worked with has a different idea of "enough" testing. Too little hurts, but too much slows a team down and becomes its own burden. Finding that balance for each product is quite a balancing act
+- **Balancing async and face to face.** Async communication works well for most things, but I still think some relationships and decisions need real time together. There's no right answer here, it just depends on the company.

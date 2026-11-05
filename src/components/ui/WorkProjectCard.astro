@@ -9,50 +9,14 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<article>
-  <a class="title-link" href={`/work-projects/${project.data.slug}`}>
-    {project.data.title}
-  </a>
-  <time datetime={project.data.publishedAt.toISOString()}>
-    {format(project.data.publishedAt, 'MMMM d, yyyy')}
-  </time>
-  <p class="muted-text">{project.data.intro}</p>
+<article class="entry">
+  <div class="entry__head">
+    <a class="entry__title" href={`/work-projects/${project.data.slug}`}>
+      {project.data.title}
+    </a>
+    <time class="entry__meta" datetime={project.data.publishedAt.toISOString()}>
+      {format(project.data.publishedAt, 'MMM')}
+    </time>
+  </div>
+  <p class="entry__desc">{project.data.intro}</p>
 </article>
-
-<style>
-  article {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  article:last-child {
-    border-bottom: none;
-  }
-
-  .title-link {
-    align-self: flex-start;
-    font-size: var(--text-lg);
-    text-decoration: none;
-    color: var(--text-color);
-    line-height: 1.35;
-  }
-
-  .title-link:hover {
-    color: var(--link-color);
-  }
-
-  time {
-    font-size: var(--text-sm);
-    opacity: 0.7;
-    line-height: 1.25;
-  }
-
-  .muted-text {
-    margin: 0;
-    max-width: 42rem;
-    line-height: 1.6;
-  }
-</style>

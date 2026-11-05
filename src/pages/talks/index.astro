@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../components/layout/BaseLayout.astro';
 import Container from '../../components/ui/Container.astro';
 import Hero from '../../components/Hero.astro';
-import ContentList from '../../components/ContentList.astro';
+import Group from '../../components/ui/Group.astro';
+import { groupByYear } from '../../util/groupByYear';
 import TalkCard from '../../components/ui/TalkCard.astro';
 import { siteConfig } from '../../config/site';
 
@@ -53,6 +54,7 @@ const structuredData = [
     ],
   },
 ];
+const byYear = groupByYear(sortedTalks, item => item.data.publishedAt);
 ---
 
 <BaseLayout
@@ -62,12 +64,14 @@ const structuredData = [
 >
   <Container>
     <Hero title="Talks" description="Talks I've given at meetups and events" />
-    <ContentList>
-      {
-        sortedTalks.map(talk => (
-          <TalkCard talk={talk} analyticsSurface="talks_index" />
-        ))
-      }
-    </ContentList>
+    {
+      byYear.map(group => (
+        <Group label={String(group.year)} id={`year-${group.year}`}>
+          {group.items.map(item => (
+            <TalkCard talk={item} analyticsSurface="talks_index" />
+          ))}
+        </Group>
+      ))
+    }
   </Container>
 </BaseLayout>

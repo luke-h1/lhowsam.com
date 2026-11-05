@@ -1,0 +1,204 @@
+---
+interface Props {
+  target: string;
+}
+
+const { target } = Astro.props;
+const RING_RADIUS = 18;
+const ringCircumference = 2 * Math.PI * RING_RADIUS;
+---
+
+<div class="reading-progress" aria-hidden="true">
+  <div class="reading-progress__bar" data-reading-bar></div>
+</div>
+
+<button
+  type="button"
+  class="scroll-top"
+  data-scroll-top
+  data-target={target}
+  aria-label="Scroll to top"
+  tabindex="-1"
+>
+  <svg class="scroll-top__ring" viewBox="0 0 40 40" aria-hidden="true">
+    <circle class="scroll-top__track" cx="20" cy="20" r={RING_RADIUS}></circle>
+    <circle
+      class="scroll-top__fill"
+      cx="20"
+      cy="20"
+      r={RING_RADIUS}
+      stroke-dasharray={ringCircumference}
+      stroke-dashoffset={ringCircumference}
+      data-reading-ring></circle>
+  </svg>
+  <svg class="scroll-top__arrow" viewBox="0 0 16 16" aria-hidden="true">
+    <path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"></path>
+  </svg>
+</button>
+
+<script>
+  const SHOW_AFTER = 480;
+
+  const button = document.querySelector<HTMLButtonElement>('[data-scroll-top]');
+  const bar = document.querySelector<HTMLElement>('[data-reading-bar]');
+  const ring = document.querySelector<SVGCircleElement>('[data-reading-ring]');
+  const article = button?.dataset.target
+    ? document.querySelector<HTMLElement>(button.dataset.target)
+    : null;
+
+  if (button && bar && ring && article) {
+    const circumference = Number(ring.getAttribute('stroke-dasharray'));
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      const rect = article.getBoundingClientRect();
+      const readable = rect.height - window.innerHeight;
+      const progress =
+        readable > 0 ? Math.min(Math.max(-rect.top / readable, 0), 1) : 1;
+
+      bar.style.transform = `scaleX(${progress})`;
+      ring.style.strokeDashoffset = String(circumference * (1 - progress));
+
+      const visible = window.scrollY > SHOW_AFTER;
+      button.classList.toggle('is-visible', visible);
+      button.tabIndex = visible ? 0 : -1;
+    };
+
+    const requestUpdate = () => {
+      if (!frame) {
+        frame = requestAnimationFrame(update);
+      }
+    };
+
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate);
+    new ResizeObserver(requestUpdate).observe(article);
+
+    button.addEventListener('click', () => {
+      const reducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      ).matches;
+
+      window.scrollTo({ top: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
+
+      document
+        .querySelector<HTMLElement>('[data-testid="article-title"]')
+        ?.focus({ preventScroll: true });
+    });
+
+    update();
+  }
+</script>
+
+<style>
+  .reading-progress {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 200;
+    height: 2px;
+    pointer-events: none;
+  }
+
+  .reading-progress__bar {
+    width: 100%;
+    height: 100%;
+    background: var(--link-color);
+    transform: scaleX(0);
+    transform-origin: left;
+    will-change: transform;
+  }
+
+  .scroll-top {
+    position: fixed;
+    right: max(1.5rem, env(safe-area-inset-right));
+    bottom: max(1.5rem, env(safe-area-inset-bottom));
+    z-index: 150;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(23, 21, 29, 0.85);
+    backdrop-filter: blur(8px);
+    color: rgba(255, 255, 255, 0.72);
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(0.5rem);
+    transition:
+      opacity 200ms var(--ease-out),
+      transform 200ms var(--ease-out),
+      visibility 200ms,
+      color var(--transition-base);
+  }
+
+  .scroll-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .scroll-top:hover {
+    color: var(--text-color);
+  }
+
+  .scroll-top:active {
+    transform: scale(0.94);
+  }
+
+  .scroll-top:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 3px;
+  }
+
+  .scroll-top > svg {
+    grid-area: 1 / 1;
+  }
+
+  .scroll-top__ring {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+  }
+
+  .scroll-top__track,
+  .scroll-top__fill {
+    fill: none;
+    stroke-width: 2;
+  }
+
+  .scroll-top__track {
+    stroke: rgba(255, 255, 255, 0.1);
+  }
+
+  .scroll-top__fill {
+    stroke: var(--link-color);
+    stroke-linecap: round;
+  }
+
+  .scroll-top__arrow {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-top {
+      transition: none;
+    }
+  }
+
+  @media print {
+    .reading-progress,
+    .scroll-top {
+      display: none;
+    }
+  }
+</style>

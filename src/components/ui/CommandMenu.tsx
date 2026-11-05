@@ -12,6 +12,7 @@ import {
   Home,
   Linkedin,
   Package,
+  Search,
   SquarePen,
   Triangle,
   Twitter,
@@ -133,11 +134,13 @@ function CommandMenuRow({
       onSelect={onSelect}
       data-testid={`command-menu-item-${value}`}
     >
-      <span className="content">
+      <span className="command-menu__item-content">
         {commandMenuIconFor(item, groupHeading)}
         <span>{item.label}</span>
       </span>
-      <span className="highlight" aria-hidden="true" />
+      <span className="command-menu__enter" aria-hidden="true">
+        ↵
+      </span>
     </Command.Item>
   );
 }
@@ -236,6 +239,12 @@ const CommandMenu = ({ groups }: Props) => {
             'cmdk-header': '',
           } as Record<string, string>)}
         >
+          <Search
+            className="command-menu__search-icon"
+            size={16}
+            strokeWidth={1.75}
+            aria-hidden
+          />
           <Command.Input
             placeholder="Type a command or search…"
             data-testid="command-menu-input"
@@ -282,6 +291,18 @@ const CommandMenu = ({ groups }: Props) => {
               </Command.Group>
             ))}
           </Command.List>
+        </div>
+        <div className="command-menu__footer" aria-hidden="true">
+          <span>
+            <kbd>↑</kbd>
+            <kbd>↓</kbd> navigate
+          </span>
+          <span>
+            <kbd>↵</kbd> open
+          </span>
+          <span>
+            <kbd>esc</kbd> close
+          </span>
         </div>
       </Command.Dialog>
     </div>

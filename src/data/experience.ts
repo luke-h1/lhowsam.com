@@ -25,15 +25,6 @@ export type TimelineRole = ExperienceRole & {
   anchor: string;
 };
 
-export const profileTags = [
-  'React Native',
-  'TypeScript',
-  'DevOps',
-  'Mobile',
-  'Backend',
-  'Frontend',
-];
-
 export const experience: ExperienceCompany[] = [
   {
     company: 'Flutter UKI',

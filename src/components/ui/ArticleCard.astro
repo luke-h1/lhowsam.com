@@ -6,26 +6,35 @@ import { toTagSlug } from '../../util/tags';
 interface Props {
   post: CollectionEntry<'blog'>;
   analyticsSurface?: string;
+  dateFormat?: string;
 }
 
-const { post, analyticsSurface = 'blog_list' } = Astro.props;
+const {
+  post,
+  analyticsSurface = 'blog_list',
+  dateFormat = 'MMM d, yyyy',
+} = Astro.props;
 ---
 
-<article data-testid="blog-post-card">
-  <a
-    class="title-link"
-    data-testid="blog-post-card-title"
-    href={`/blog/${post.data.slug}`}
-    data-analytics-event="blog_post_click"
-    data-analytics-label={post.data.slug}
-    data-analytics-surface={analyticsSurface}
-  >
-    {post.data.title}
-  </a>
-  <time datetime={post.data.publishedAt.toISOString()}>
-    {format(post.data.publishedAt, 'MMM d, yyyy')}
-  </time>
-  <p class="muted-text" data-testid="blog-post-card-intro">{post.data.intro}</p>
+<article class="entry" data-testid="blog-post-card">
+  <div class="entry__head">
+    <a
+      class="entry__title"
+      data-testid="blog-post-card-title"
+      href={`/blog/${post.data.slug}`}
+      data-analytics-event="blog_post_click"
+      data-analytics-label={post.data.slug}
+      data-analytics-surface={analyticsSurface}
+    >
+      {post.data.title}
+    </a>
+    <time class="entry__meta" datetime={post.data.publishedAt.toISOString()}>
+      {format(post.data.publishedAt, dateFormat)}
+    </time>
+  </div>
+  <p class="entry__desc" data-testid="blog-post-card-intro">
+    {post.data.intro}
+  </p>
   {
     post.data.tags.length > 0 && (
       <div class="hash-tags">
@@ -38,45 +47,3 @@ const { post, analyticsSurface = 'blog_list' } = Astro.props;
     )
   }
 </article>
-
-<style>
-  article {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  }
-
-  article:last-child {
-    border-bottom: none;
-  }
-
-  .title-link {
-    align-self: flex-start;
-    font-size: var(--text-lg);
-    font-weight: 500;
-    text-decoration: none;
-    color: var(--text-color);
-    line-height: 1.35;
-  }
-
-  .title-link:hover {
-    color: var(--link-color);
-  }
-
-  time {
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    font-variant-numeric: tabular-nums;
-    letter-spacing: 0;
-    opacity: 0.55;
-    line-height: 1.25;
-  }
-
-  .muted-text {
-    margin: 0;
-    max-width: 42rem;
-    line-height: 1.6;
-  }
-</style>
