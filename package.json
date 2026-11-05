@@ -39,9 +39,6 @@
     "@fontsource/inter": "5.2.8",
     "@fontsource/roboto-mono": "5.2.8",
     "@sentry/astro": "^10.49.0",
-    "@statsig/js-client": "^3.32.6",
-    "@statsig/react-bindings": "^3.32.6",
-    "@statsig/web-analytics": "^3.32.6",
     "@tanstack/react-query": "^5.104.1",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -50,6 +47,7 @@
     "date-fns": "^4.1.0",
     "lucide-astro": "^0.556.0",
     "lucide-react": "0.556.0",
+    "posthog-js": "^1.442.1",
     "react": "^19.2.5",
     "react-dom": "^19.2.5"
   },

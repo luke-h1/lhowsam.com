@@ -1,0 +1,36 @@
+<script>
+  const key = import.meta.env.PUBLIC_POSTHOG_KEY;
+
+  if (key && window.location.hostname === 'lhowsam.com') {
+    import('posthog-js').then(({ default: posthog }) => {
+      posthog.init(key, {
+        api_host:
+          import.meta.env.PUBLIC_POSTHOG_HOST ?? 'https://eu.i.posthog.com',
+        ui_host: 'https://eu.posthog.com',
+        defaults: '2025-05-24',
+      });
+
+      document.addEventListener('click', event => {
+        if (!(event.target instanceof Element)) {
+          return;
+        }
+
+        const el = event.target.closest<HTMLElement>('[data-analytics-event]');
+        const { analyticsEvent, analyticsLabel, analyticsSurface } =
+          el?.dataset ?? {};
+
+        if (!el || !analyticsEvent) {
+          return;
+        }
+
+        posthog.capture(analyticsEvent, {
+          type: el.dataset.analyticsType ?? el.tagName.toLowerCase(),
+          label: analyticsLabel,
+          surface: analyticsSurface,
+          href:
+            el.dataset.analyticsHref ?? el.getAttribute('href') ?? undefined,
+        });
+      });
+    });
+  }
+</script>
