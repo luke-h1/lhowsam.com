@@ -1,6 +1,7 @@
 ---
 import { siteConfig } from '../../config/site';
 import NowPlaying from './NowPlaying.tsx';
+import SocialLinks from './SocialLinks.astro';
 ---
 
 <footer class="site-footer">
@@ -13,19 +14,8 @@ import NowPlaying from './NowPlaying.tsx';
         <span class="site-footer__copyright">© {new Date().getFullYear()}</span>
         <span class="site-footer__signature">luke-h1</span>
       </div>
-      <nav class="site-footer__social" aria-label="Social links">
-        {
-          siteConfig.socialLinks.map(link => (
-            <a
-              class="site-footer__social-link"
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {link.name}
-            </a>
-          ))
-        }
+      <nav class="site-footer__social" aria-label="Social">
+        <SocialLinks size={16} />
       </nav>
     </div>
     <div class="site-footer__spotify">
@@ -108,28 +98,7 @@ import NowPlaying from './NowPlaying.tsx';
   }
 
   .site-footer__social {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.9rem;
-  }
-
-  .site-footer__social-link {
-    color: var(--text-muted);
-    text-decoration: none;
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    opacity: 0.72;
-    transition:
-      color var(--transition-base),
-      opacity var(--transition-base);
-  }
-
-  .site-footer__social-link:hover {
-    color: var(--text-color);
-    opacity: 1;
+    margin-left: -0.5rem;
   }
 
   .site-footer__spotify {

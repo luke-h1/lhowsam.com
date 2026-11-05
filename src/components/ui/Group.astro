@@ -1,0 +1,30 @@
+---
+interface Props {
+  label: string;
+  href?: string;
+  testId?: string;
+  headingTestId?: string;
+  id?: string;
+}
+
+const { label, href, testId, headingTestId, id } = Astro.props;
+const headingId = id ?? `group-${label.toLowerCase().replace(/\W+/g, '-')}`;
+---
+
+<section class="group" data-testid={testId} aria-labelledby={headingId}>
+  <div class="group__aside">
+    <h2 class="group__label" id={headingId} data-testid={headingTestId}>
+      {label}
+    </h2>
+    {
+      href && (
+        <a class="group__link" href={href}>
+          View all →
+        </a>
+      )
+    }
+  </div>
+  <div class="group__body">
+    <slot />
+  </div>
+</section>

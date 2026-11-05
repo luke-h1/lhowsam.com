@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import ArticleCard from '../../../components/ui/ArticleCard.astro';
 import BaseLayout from '../../../components/layout/BaseLayout.astro';
 import Container from '../../../components/ui/Container.astro';
-import ContentList from '../../../components/ContentList.astro';
+import Group from '../../../components/ui/Group.astro';
 import Hero from '../../../components/Hero.astro';
 import { siteConfig } from '../../../config/site';
 import { isIndexableTagPage } from '../../../util/tagIndex';
@@ -53,12 +53,16 @@ const robots = isIndexableTagPage(posts.length)
       title={`Posts tagged with "${label}"`}
       description={`${posts.length} matching post${posts.length === 1 ? '' : 's'}`}
     />
-    <ContentList>
+    <p class="page-links">
+      <a href="/blog/tags/">All tags →</a>
+      <a href="/blog/">All posts →</a>
+    </p>
+    <Group label="Posts" id="tagged-posts">
       {
         posts.map(post => (
           <ArticleCard post={post} analyticsSurface="blog_tag_index" />
         ))
       }
-    </ContentList>
+    </Group>
   </Container>
 </BaseLayout>

@@ -1,0 +1,62 @@
+---
+import ArticleLayout from '../../components/layout/ArticleLayout.astro';
+import { siteConfig } from '../../config/site';
+import { withBrand } from '../../util/seo';
+import Content, { frontmatter, getHeadings } from './_content.mdx';
+
+const publishedAt = new Date(frontmatter.publishedAt);
+const updatedAt = frontmatter.updatedAt
+  ? new Date(frontmatter.updatedAt)
+  : undefined;
+const canonicalURL = `${siteConfig.siteUrl}/how-i-work/`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: frontmatter.title,
+    description: frontmatter.description,
+    datePublished: publishedAt.toISOString(),
+    dateModified: (updatedAt ?? publishedAt).toISOString(),
+    url: canonicalURL,
+    mainEntityOfPage: canonicalURL,
+    author: {
+      '@type': 'Person',
+      name: siteConfig.authorName,
+      url: siteConfig.siteUrl,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: siteConfig.siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: frontmatter.title,
+        item: canonicalURL,
+      },
+    ],
+  },
+];
+---
+
+<ArticleLayout
+  title={frontmatter.title}
+  seoTitle={withBrand(frontmatter.title, siteConfig.authorName)}
+  description={frontmatter.description}
+  intro={frontmatter.intro}
+  headings={getHeadings()}
+  publishedAt={publishedAt}
+  updatedAt={updatedAt}
+  canonicalURL={canonicalURL}
+  structuredData={structuredData}
+  readingProgress
+>
+  <Content />
+</ArticleLayout>

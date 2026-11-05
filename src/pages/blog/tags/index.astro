@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../components/layout/BaseLayout.astro';
 import Container from '../../../components/ui/Container.astro';
 import Hero from '../../../components/Hero.astro';
+import Group from '../../../components/ui/Group.astro';
 import { siteConfig } from '../../../config/site';
 import { toTagSlug } from '../../../util/tags';
 
@@ -40,57 +41,64 @@ const description = 'Browse blog posts by tag.';
 <BaseLayout title={title} description={description}>
   <Container>
     <Hero title="Blog tags" description="Browse posts by topic" />
-    <div class="tags-grid">
-      {
-        tags.map(tag => (
-          <a class="tag-card" href={`/blog/tags/${tag.slug}/`}>
-            <span class="tag-label">{tag.label}</span>
-            <span class="tag-count">
-              {tag.count} post{tag.count === 1 ? '' : 's'}
-            </span>
-          </a>
-        ))
-      }
-    </div>
+    <p class="page-links">
+      <a href="/blog/">All posts →</a>
+    </p>
+    <Group label={`${tags.length} tags`} id="all-tags">
+      <ul class="tag-list">
+        {
+          tags.map(tag => (
+            <li>
+              <a class="tag-row" href={`/blog/tags/${tag.slug}/`}>
+                <span class="tag-row__label">#{tag.label}</span>
+                <span class="tag-row__count">{tag.count}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </Group>
   </Container>
 </BaseLayout>
 
 <style>
-  .tags-grid {
+  .tag-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 0 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  .tag-card {
+  .tag-list li {
+    margin: 0;
+  }
+
+  .tag-row {
     display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    padding: 1rem 1.05rem;
-    border-radius: 1rem;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    background: rgba(255, 255, 255, 0.03);
-    color: inherit;
-    text-decoration: none;
-    transition:
-      background-color var(--transition-base),
-      border-color var(--transition-base),
-      transform var(--transition-base);
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--border-color);
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.72);
+    transition: color var(--transition-base);
   }
 
-  .tag-card:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.14);
-    transform: translateY(-1px);
+  .tag-row::after {
+    content: none;
   }
 
-  .tag-label {
+  .tag-row:hover {
     color: var(--text-color);
-    font-size: 1rem;
   }
 
-  .tag-count {
-    color: rgba(255, 255, 255, 0.56);
-    font-size: 0.85rem;
+  .tag-row__count {
+    font-size: var(--text-xs);
+    font-variant-numeric: tabular-nums;
+    color: rgba(255, 255, 255, 0.52);
   }
 </style>

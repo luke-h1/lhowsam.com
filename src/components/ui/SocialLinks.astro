@@ -1,0 +1,91 @@
+---
+import { Github, Linkedin, Twitter } from 'lucide-astro';
+import { siteConfig } from '../../config/site';
+
+interface Props {
+  size?: number;
+}
+
+const { size = 18 } = Astro.props;
+
+const icons: Record<string, typeof Github> = {
+  GitHub: Github,
+  LinkedIn: Linkedin,
+  Twitter,
+};
+---
+
+<ul class="social-links" aria-label="Social links">
+  {
+    siteConfig.socialLinks.map(link => {
+      const Icon = icons[link.name];
+      return (
+        <li>
+          <a
+            class="social-links__link"
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={link.name}
+            title={link.name}
+          >
+            {Icon ? (
+              <Icon size={size} strokeWidth={1.75} aria-hidden="true" />
+            ) : (
+              link.name
+            )}
+          </a>
+        </li>
+      );
+    })
+  }
+</ul>
+
+<style>
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .social-links li {
+    display: flex;
+    margin: 0;
+  }
+
+  .social-links__link {
+    display: inline-grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.5rem;
+    color: rgba(255, 255, 255, 0.6);
+    transition:
+      color var(--transition-base),
+      background-color var(--transition-base);
+  }
+
+  .social-links__link::after {
+    content: none;
+  }
+
+  .social-links__link:hover {
+    color: var(--text-color);
+    background: var(--hover-bg);
+  }
+
+  .social-links__link:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+  }
+
+  @media (pointer: coarse) {
+    .social-links__link {
+      width: 2.75rem;
+      height: 2.75rem;
+    }
+  }
+</style>

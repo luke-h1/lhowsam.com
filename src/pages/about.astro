@@ -1,12 +1,49 @@
 ---
-import { Image } from 'astro:assets';
-import { profileTags, timelineRoles } from '../data/experience';
+import { experience, getExperienceRoleAnchor } from '../data/experience';
 import { formatDateRange } from '../util/dateRange';
 import BaseLayout from '../components/layout/BaseLayout.astro';
 import Container from '../components/ui/Container.astro';
 import { siteConfig } from '../config/site';
 import { absoluteUrl } from '../util/seo';
 import lukeImage from '../assets/luke.png';
+import appJsConfImage from '../assets/work-projects/sporting-life-mobile-inline-1.jpg';
+import appJsConf2026Image from '../assets/about/appjs-2026.jpg';
+import fishImage from '../assets/about/fish.jpg';
+import PolaroidStack from '../components/ui/PolaroidStack.astro';
+import SocialLinks from '../components/ui/SocialLinks.astro';
+
+const photos = [
+  {
+    src: lukeImage,
+    alt: 'Luke sitting on stone steps in front of a red door',
+    caption: '🇳🇱 2025',
+  },
+  {
+    src: appJsConfImage,
+    alt: 'A polaroid of Luke and the team in front of the App.js Conf backdrop in Kraków',
+    caption: 'App.js 2025',
+  },
+  {
+    src: appJsConf2026Image,
+    alt: 'Luke and the team smiling on a rooftop terrace at night, with Wawel Castle lit up over Kraków behind them',
+    caption: 'App.js 2026',
+  },
+  {
+    src: fishImage,
+    caption: '🎣',
+    alt: 'Luke crouching on a lake bank, smiling and holding up a large common carp',
+  },
+] satisfies { src: ImageMetadata; alt: string; caption: string }[];
+
+const companies = experience.map(company => ({
+  ...company,
+  roles: [...company.roles]
+    .sort((a, b) => b.from.localeCompare(a.from))
+    .map(role => ({
+      ...role,
+      anchor: getExperienceRoleAnchor(company.slug, role.title, role.from),
+    })),
+}));
 
 const title = `About ${siteConfig.authorName} | Software Developer`;
 const description =
@@ -56,41 +93,25 @@ const structuredData = [
 >
   <Container>
     <section class="about-hero">
-      <div class="avatar-wrap">
-        <Image
-          src={lukeImage}
-          alt="Luke Howsam"
-          width={280}
-          height={280}
-          class="avatar"
-          loading="eager"
-          fetchpriority="high"
-        />
-      </div>
-
-      <div class="hero-copy">
+      <div class="about-hero__copy">
         <h1 data-testid="about-page-title">Luke Howsam</h1>
-        <p class="headline" data-testid="about-page-headline">
-          Software Developer focused on React Native, mobile, backend
+        <p class="about-headline" data-testid="about-page-headline">
+          Software Developer focused on React Native + mobile, backend
           engineering and DevOps
         </p>
 
-        <div class="bio">
+        <div class="about-bio">
           <p>
             I'm a software developer who likes building polished products, but
-            I'm just as interested in how they're shipped and run. That usually
-            means a mix of React Native, backend work, CI/CD and cloud
-            infrastructure.
-          </p>
-          <p>
-            At the moment I'm especially enjoying mobile engineering with React
-            Native and backend work (Cloud infrastructure, APIs etc.).
+            I'm just as interested in how they're shipped and run. That
+            typically involves a mix of React Native, AI & backend systems,
+            CI/CD and cloud infrastructure.
           </p>
         </div>
 
-        <div class="hero-actions">
+        <div class="about-links">
           <a
-            class="hero-action"
+            class="about-links__cv"
             href="/static/cv.pdf"
             target="_blank"
             rel="noopener noreferrer"
@@ -98,72 +119,76 @@ const structuredData = [
             data-analytics-label="about_cv"
             data-analytics-surface="about_hero"
           >
-            View CV
+            CV
           </a>
-          {
-            siteConfig.socialLinks.map(link => (
-              <a
-                class="hero-action"
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {link.name}
-              </a>
-            ))
-          }
-        </div>
-
-        <div class="profile-tags">
-          {profileTags.map(tag => <span class="tag">{tag}</span>)}
+          <SocialLinks />
         </div>
       </div>
+
+      <PolaroidStack photos={photos} label="Photos of Luke" />
     </section>
 
-    <hr class="section-divider" />
+    <a
+      class="about-row-link"
+      href="/how-i-work/"
+      data-testid="about-how-i-work-link"
+    >
+      <span class="about-row-link__label">How I work</span>
+      <span class="about-row-link__text">
+        The principles I use to build, ship and run software
+      </span>
+      <span class="about-row-link__arrow" aria-hidden="true">→</span>
+    </a>
 
-    <section class="experience-section">
-      <h2>Experience</h2>
+    <section class="about-experience" aria-labelledby="experience-heading">
+      <h2 id="experience-heading" class="about-section-label">Experience</h2>
 
-      <div class="timeline">
-        {
-          timelineRoles.map(role => (
-            <article
-              class="timeline-item"
-              id={role.anchor}
-              data-testid={`experience-${role.anchor}`}
-            >
-              <div class="timeline-marker" aria-hidden="true" />
-              <div class="timeline-body">
-                <div class="timeline-header">
-                  <div>
-                    <h3>{role.title}</h3>
-                    <p class="company-name">{role.company}</p>
-                  </div>
-                  <span class="date-badge">
-                    {formatDateRange(role.from, role.to)}
-                  </span>
-                </div>
+      {
+        companies.map(company => (
+          <section class="about-company">
+            <header class="about-company__header">
+              <h3>{company.company}</h3>
+              <p class="about-company__meta">
+                <span>{company.roles[0]?.location}</span>
+                <span>
+                  {formatDateRange(
+                    company.from,
+                    company.isPresent ? null : company.to,
+                    'yyyy',
+                  )}
+                </span>
+              </p>
+            </header>
 
-                <p class="location">{role.location}</p>
-                <p class="summary">{role.summary}</p>
-
-                <div class="tech-list">
-                  {role.techStack.map(tech => (
-                    <span class="tag">{tech}</span>
-                  ))}
-                </div>
-
-                <ul class="achievements">
-                  {role.achievements.map(achievement => (
-                    <li>{achievement}</li>
-                  ))}
-                </ul>
-              </div>
-            </article>
-          ))
-        }
-      </div>
+            <div class="about-roles">
+              {company.roles.map(role => (
+                <article
+                  class="about-role"
+                  id={role.anchor}
+                  data-testid={`experience-${role.anchor}`}
+                >
+                  <header class="about-role__header">
+                    <h4>{role.title}</h4>
+                    <span class="about-role__dates">
+                      {formatDateRange(role.from, role.to)}
+                    </span>
+                  </header>
+                  <p class="about-role__summary">{role.summary}</p>
+                  <ul class="about-role__achievements">
+                    {role.achievements.map(achievement => (
+                      <li>{achievement}</li>
+                    ))}
+                  </ul>
+                  <p class="about-role__stack">
+                    <span class="sr-only">Tech stack: </span>
+                    {role.techStack.join(' / ')}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+        ))
+      }
     </section>
   </Container>
 </BaseLayout>

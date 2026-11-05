@@ -1,0 +1,365 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+
+interface Photo {
+  src: ImageMetadata;
+  alt: string;
+  caption: string;
+}
+
+interface Props {
+  photos: Photo[];
+  label: string;
+}
+
+const { photos, label } = Astro.props;
+const tilts = [-3, 6, -7, 3, 5, -4];
+---
+
+<div
+  class="polaroids"
+  data-polaroids
+  role="group"
+  aria-roledescription="carousel"
+  aria-label={label}
+  tabindex={photos.length > 1 ? 0 : undefined}
+>
+  <div class="polaroids__stack">
+    {
+      photos.map((photo, index) => (
+        <figure
+          class="polaroid"
+          data-polaroid
+          style={`--tilt: ${tilts[index % tilts.length]}deg`}
+          aria-roledescription="slide"
+          aria-label={`${index + 1} of ${photos.length}`}
+        >
+          <Image
+            src={photo.src}
+            alt={photo.alt}
+            width={480}
+            class="polaroid__image"
+            loading={index === 0 ? 'eager' : 'lazy'}
+            draggable="false"
+          />
+          <figcaption class="polaroid__caption">{photo.caption}</figcaption>
+        </figure>
+      ))
+    }
+  </div>
+
+  {
+    photos.length > 1 && (
+      <div class="polaroids__controls">
+        <button
+          type="button"
+          class="polaroids__button"
+          data-polaroids-prev
+          aria-label="Previous photo"
+        >
+          ←
+        </button>
+        <p class="polaroids__count" aria-live="polite" data-polaroids-count>
+          1 / {photos.length}
+        </p>
+        <button
+          type="button"
+          class="polaroids__button"
+          data-polaroids-next
+          aria-label="Next photo"
+        >
+          →
+        </button>
+      </div>
+    )
+  }
+</div>
+
+<script>
+  const SWIPE_DISTANCE = 80;
+  const SWIPE_VELOCITY = 0.5;
+  const MAX_VISIBLE = 4;
+  const MIN_FLICK_DISTANCE = 12;
+  const THROW_TIMEOUT = 450;
+
+  const setUp = (root: HTMLElement) => {
+    const cards = [...root.querySelectorAll<HTMLElement>('[data-polaroid]')];
+    const count = root.querySelector<HTMLElement>('[data-polaroids-count]');
+    if (cards.length < 2) {
+      return;
+    }
+
+    let order = cards.map((_, index) => index);
+    let busy = false;
+
+    const layout = () => {
+      order.forEach((cardIndex, position) => {
+        const card = cards[cardIndex];
+        const depth = Math.min(position, MAX_VISIBLE - 1);
+        card.style.zIndex = String(cards.length - position);
+        card.style.setProperty('--depth', String(depth));
+        card.style.opacity = position < MAX_VISIBLE ? '1' : '0';
+        card.style.transform = '';
+        card.classList.toggle('is-top', position === 0);
+        card.setAttribute('aria-hidden', position === 0 ? 'false' : 'true');
+      });
+
+      if (count) {
+        count.textContent = `${order[0] + 1} / ${cards.length}`;
+      }
+    };
+
+    const reducedMotion = () =>
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const next = (direction = 1) => {
+      if (busy) {
+        return;
+      }
+      const top = cards[order[0]];
+
+      if (reducedMotion()) {
+        order = [...order.slice(1), order[0]];
+        layout();
+        return;
+      }
+
+      busy = true;
+      top.classList.add('is-leaving');
+      top.style.transform = `translate(${direction * 120}%, -4%) rotate(${direction * 18}deg)`;
+      let finished = false;
+      const finish = () => {
+        if (finished) {
+          return;
+        }
+        finished = true;
+        top.classList.remove('is-leaving');
+        order = [...order.slice(1), order[0]];
+        layout();
+        busy = false;
+      };
+      top.addEventListener('transitionend', finish, { once: true });
+      window.setTimeout(finish, THROW_TIMEOUT);
+    };
+
+    const previous = () => {
+      if (busy) {
+        return;
+      }
+      order = [order[order.length - 1], ...order.slice(0, -1)];
+      layout();
+    };
+
+    let startX = 0;
+    let startY = 0;
+    let startTime = 0;
+    let dragging: HTMLElement | null = null;
+
+    root.addEventListener('pointerdown', event => {
+      const card = (event.target as HTMLElement).closest<HTMLElement>(
+        '[data-polaroid]',
+      );
+      if (!card?.classList.contains('is-top') || busy) {
+        return;
+      }
+      dragging = card;
+      startX = event.clientX;
+      startY = event.clientY;
+      startTime = performance.now();
+      card.setPointerCapture(event.pointerId);
+      card.classList.add('is-dragging');
+    });
+
+    root.addEventListener('pointermove', event => {
+      if (!dragging) {
+        return;
+      }
+      const dx = event.clientX - startX;
+      const dy = (event.clientY - startY) * 0.3;
+      dragging.style.transform = `translate(${dx}px, ${dy}px) rotate(${dx * 0.06}deg)`;
+    });
+
+    const release = (event: PointerEvent) => {
+      if (!dragging) {
+        return;
+      }
+      const card = dragging;
+      dragging = null;
+      card.classList.remove('is-dragging');
+
+      const dx = event.clientX - startX;
+      const velocity = Math.abs(dx) / (performance.now() - startTime);
+      const isFlick =
+        Math.abs(dx) > MIN_FLICK_DISTANCE && velocity > SWIPE_VELOCITY;
+
+      if (
+        event.type === 'pointerup' &&
+        (Math.abs(dx) > SWIPE_DISTANCE || isFlick)
+      ) {
+        next(Math.sign(dx) || 1);
+      } else {
+        card.style.transform = '';
+      }
+    };
+
+    root.addEventListener('pointerup', release);
+    root.addEventListener('pointercancel', release);
+
+    root.addEventListener('keydown', event => {
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        next(1);
+      } else if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        previous();
+      }
+    });
+
+    root
+      .querySelector('[data-polaroids-next]')
+      ?.addEventListener('click', () => next(1));
+
+    root
+      .querySelector('[data-polaroids-prev]')
+      ?.addEventListener('click', previous);
+
+    layout();
+  };
+
+  document
+    .querySelectorAll<HTMLElement>('[data-polaroids]')
+    .forEach(element => setUp(element));
+</script>
+
+<style>
+  .polaroids {
+    --card-width: 13rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    width: fit-content;
+    border-radius: 0.75rem;
+  }
+
+  .polaroids:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 0.75rem;
+  }
+
+  .polaroids__stack {
+    position: relative;
+    display: grid;
+    width: var(--card-width);
+    user-select: none;
+  }
+
+  .polaroid {
+    --depth: 0;
+    grid-area: 1 / 1;
+    margin: 0;
+    padding: 0.6rem 0.6rem 0;
+    border-radius: 0.2rem;
+    background: #f4f1ea;
+    box-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.3),
+      0 12px 28px -12px rgba(0, 0, 0, 0.7);
+    translate: calc(var(--depth) * 0.6rem) calc(var(--depth) * 0.45rem);
+    rotate: var(--tilt);
+    transition:
+      transform 420ms var(--ease-out),
+      translate 420ms var(--ease-out),
+      opacity 300ms var(--ease-out);
+    touch-action: pan-y;
+  }
+
+  .polaroid.is-top {
+    rotate: calc(var(--tilt) * 0.4);
+    cursor: grab;
+  }
+
+  .polaroid.is-dragging {
+    cursor: grabbing;
+    transition: none;
+  }
+
+  .polaroid.is-leaving {
+    transition: transform 320ms var(--ease-in-out);
+  }
+
+  .polaroid__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 0;
+    object-fit: cover;
+    pointer-events: none;
+    background: #ddd;
+  }
+
+  .polaroid__caption {
+    padding: 0.55rem 0 0.7rem;
+    font-family: var(--font-signature);
+    font-size: 1.35rem;
+    line-height: 1.2;
+    text-align: center;
+    color: #2b2b2b;
+  }
+
+  .polaroids__controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .polaroids__count {
+    min-width: 3.5rem;
+    margin: 0;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .polaroids__button {
+    display: inline-grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.72);
+    font: inherit;
+    cursor: pointer;
+    transition:
+      color var(--transition-base),
+      border-color var(--transition-base);
+  }
+
+  .polaroids__button:hover {
+    color: var(--text-color);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .polaroids__button:focus-visible {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+  }
+
+  @media (max-width: 640px) {
+    .polaroids {
+      --card-width: 11rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .polaroid,
+    .polaroid.is-leaving {
+      transition: none;
+    }
+  }
+</style>

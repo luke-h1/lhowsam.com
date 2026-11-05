@@ -1,7 +1,3 @@
-:global(main) {
-  max-width: 1100px;
-}
-
 .post-page {
   width: min(100%, 1100px);
   max-width: 100%;
@@ -28,6 +24,7 @@
 
 .post-toc-aside {
   display: none;
+  align-self: stretch;
   min-width: 0;
 }
 
@@ -68,13 +65,14 @@
 }
 
 .post {
+  --text-body: #d4d4d8;
   margin-top: 1.5rem;
   min-width: 0;
   font-size: 1.125rem;
   line-height: 1.75;
   font-weight: 400;
-  letter-spacing: 0.01em;
-  color: var(--text-color);
+  letter-spacing: 0;
+  color: var(--text-body);
 }
 
 .post-header {
@@ -93,6 +91,10 @@
   letter-spacing: -0.02em;
   color: var(--text-color);
   text-wrap: balance;
+}
+
+.post-title:focus {
+  outline: none;
 }
 
 .post-date {
@@ -117,11 +119,19 @@
   font-size: 1.125rem;
 }
 
+.content :is(h2, h3, h4) {
+  text-wrap: balance;
+}
+
+.content > :first-child {
+  margin-top: 0;
+}
+
 .content h2 {
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
+  margin-top: 4rem;
+  margin-bottom: 1.25rem;
   font-family: var(--font-title);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: -0.02em;
@@ -130,10 +140,10 @@
 }
 
 .content h3 {
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  margin-top: 2.75rem;
+  margin-bottom: 0.875rem;
   font-family: var(--font-title);
-  font-size: 1.25rem;
+  font-size: 1.375rem;
   font-weight: 400;
   line-height: 1.4;
   letter-spacing: -0.02em;
@@ -142,20 +152,27 @@
 }
 
 .content h4 {
-  margin-top: 1.75rem;
-  margin-bottom: 0.5rem;
-  font-family: var(--font-title);
+  margin-top: 2.25rem;
+  margin-bottom: 0.625rem;
+  font-family: var(--font-primary);
   font-size: 1.125rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.45;
+  letter-spacing: -0.01em;
   color: var(--text-color);
   scroll-margin-top: 5rem;
 }
 
 .content p {
   margin-bottom: 1.35em;
-  max-width: 72ch;
+  max-width: 68ch;
   line-height: 1.75;
+  text-wrap: pretty;
+}
+
+.content strong {
+  font-weight: 600;
+  color: var(--text-color);
 }
 
 .content p:last-child {
@@ -184,7 +201,7 @@
 
 .code-block {
   position: relative;
-  margin: 1.75rem 0;
+  margin: 2rem 0;
 }
 
 .content-copy-code {
@@ -372,15 +389,20 @@
 
 .content ul,
 .content ol {
-  margin: 1.25rem 0;
+  margin: 1.25rem 0 1.75rem;
   padding-left: 1.625rem;
-  max-width: 72ch;
+  max-width: 68ch;
 }
 
 .content li {
-  margin: 0.5rem 0;
+  margin: 0.625rem 0;
   line-height: 1.7;
   padding-left: 0.25rem;
+  text-wrap: pretty;
+}
+
+.content li > :is(p, pre, .code-block, img) {
+  margin-top: 1rem;
 }
 
 .content li::marker {
@@ -389,10 +411,12 @@
 
 .content blockquote {
   margin: 1.75rem 0;
-  padding: 0.25rem 0 0.25rem 1.25rem;
-  border-left: 4px solid var(--border-color);
-  font-style: italic;
-  color: var(--text-muted);
+  max-width: 68ch;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid rgba(var(--accent-rgb), 0.6);
+  border-radius: 0 0.5rem 0.5rem 0;
+  background: var(--hover-bg);
+  color: var(--text-color);
   line-height: 1.65;
 }
 
@@ -421,37 +445,6 @@
   font-weight: 600;
   background: var(--hover-bg);
   color: var(--text-color);
-}
-
-.content .code-copy-button {
-  position: absolute;
-  top: 0.625rem;
-  right: 0.75rem;
-  appearance: none;
-  border: 1px solid var(--border-color);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text-muted);
-  padding: 0.35rem 0.7rem;
-  font: inherit;
-  font-size: 0.75rem;
-  line-height: 1;
-  cursor: pointer;
-  transition:
-    background-color var(--transition-base),
-    border-color var(--transition-base),
-    color var(--transition-base);
-}
-
-.content .code-copy-button:hover {
-  color: var(--text-color);
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.14);
-}
-
-.content .code-copy-button:focus-visible {
-  outline: 2px solid var(--link-color);
-  outline-offset: 2px;
 }
 
 .post-tags {
@@ -704,10 +697,6 @@
 }
 
 @media (max-width: 900px) {
-  :global(main) {
-    max-width: 100%;
-  }
-
   .post-page {
     width: 100%;
     padding: 1.5rem 1.25rem 2.5rem;
@@ -728,13 +717,13 @@
   }
 
   .content h2 {
-    margin-top: 2rem;
-    font-size: 1.35rem;
+    margin-top: 3rem;
+    font-size: 1.5rem;
   }
 
   .content h3 {
-    margin-top: 1.6rem;
-    font-size: 1.15rem;
+    margin-top: 2.25rem;
+    font-size: 1.25rem;
   }
 
   .content pre {
@@ -743,10 +732,6 @@
 }
 
 @media (max-width: 640px) {
-  :global(main) {
-    max-width: 100%;
-  }
-
   .post-page {
     width: 100%;
     padding: 1rem 1rem 2rem;
@@ -777,15 +762,19 @@
   }
 
   .content h2 {
-    margin-top: 1.75rem;
-    margin-bottom: 0.75rem;
-    font-size: 1.25rem;
+    margin-top: 2.75rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
   }
 
   .content h3 {
-    margin-top: 1.35rem;
-    margin-bottom: 0.6rem;
-    font-size: 1.1rem;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+  }
+
+  .content h4 {
+    margin-top: 1.75rem;
   }
 
   .content p {

@@ -3,7 +3,8 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../components/layout/BaseLayout.astro';
 import Container from '../../components/ui/Container.astro';
 import Hero from '../../components/Hero.astro';
-import ContentList from '../../components/ContentList.astro';
+import Group from '../../components/ui/Group.astro';
+import { groupByYear } from '../../util/groupByYear';
 import ArticleCard from '../../components/ui/ArticleCard.astro';
 import { siteConfig } from '../../config/site';
 
@@ -53,6 +54,7 @@ const structuredData = [
     ],
   },
 ];
+const postsByYear = groupByYear(sortedPosts, post => post.data.publishedAt);
 ---
 
 <BaseLayout
@@ -62,31 +64,23 @@ const structuredData = [
 >
   <Container>
     <Hero title="Blog" description="Read my latest blog posts" />
-    <p class="blog-index__tags-link">
-      <a href="/blog/tags/">Browse posts by tag</a>
+    <p class="page-links">
+      <a href="/blog/tags/">Browse by tag →</a>
     </p>
-    <ContentList testId="blog-post-list">
+    <div data-testid="blog-post-list">
       {
-        sortedPosts.map(post => (
-          <ArticleCard post={post} analyticsSurface="blog_index" />
+        postsByYear.map(group => (
+          <Group label={String(group.year)} id={`year-${group.year}`}>
+            {group.items.map(post => (
+              <ArticleCard
+                post={post}
+                analyticsSurface="blog_index"
+                dateFormat="MMM d"
+              />
+            ))}
+          </Group>
         ))
       }
-    </ContentList>
+    </div>
   </Container>
 </BaseLayout>
-
-<style>
-  .blog-index__tags-link {
-    margin: -0.75rem 0 0;
-    font-size: var(--text-sm);
-    color: var(--text-muted);
-  }
-
-  .blog-index__tags-link a {
-    color: var(--text-muted);
-  }
-
-  .blog-index__tags-link a:hover {
-    color: var(--text-color);
-  }
-</style>

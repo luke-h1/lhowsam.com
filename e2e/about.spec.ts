@@ -13,7 +13,7 @@ test.describe('about', () => {
     await expect(page.getByTestId('about-page-title')).toBeVisible();
     await expect(page.getByTestId('about-page-headline')).toBeVisible();
     await expect(page.getByTestId('about-page-headline')).toContainText(
-      'Software Developer focused on React Native, mobile, backend',
+      'Software Developer focused on React Native + mobile, backend',
     );
   });
 });

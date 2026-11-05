@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Hero from '../../components/Hero.astro';
 import BaseLayout from '../../components/layout/BaseLayout.astro';
 import Container from '../../components/ui/Container.astro';
+import Group from '../../components/ui/Group.astro';
 import ProjectCard from '../../components/ui/ProjectCard.astro';
 import { siteConfig } from '../../config/site';
 import { sortProjects } from '../../util/projects';
@@ -61,73 +62,25 @@ const structuredData = [
   description={description}
   structuredData={structuredData}
 >
-  <Container class="projects-container">
+  <Container>
     <Hero title="Projects" description="Open source apps" />
     {
       featuredProjects.length > 0 && (
-        <section class="projects-section" aria-labelledby="featured-projects">
-          <h2 id="featured-projects" class="section-title">
-            Featured Projects
-          </h2>
-          <div class="projects-list">
-            {featuredProjects.map(project => (
-              <ProjectCard
-                project={project}
-                analyticsSurface="projects_index"
-              />
-            ))}
-          </div>
-        </section>
+        <Group label="Featured" id="featured-projects">
+          {featuredProjects.map(project => (
+            <ProjectCard project={project} analyticsSurface="projects_index" />
+          ))}
+        </Group>
       )
     }
-
     {
       allProjects.length > 0 && (
-        <section class="projects-section" aria-labelledby="all-projects">
-          <h2 id="all-projects" class="section-title">
-            Other Projects
-          </h2>
-          <div class="projects-list">
-            {allProjects.map(project => (
-              <ProjectCard
-                project={project}
-                analyticsSurface="projects_index"
-              />
-            ))}
-          </div>
-        </section>
+        <Group label="Other" id="all-projects">
+          {allProjects.map(project => (
+            <ProjectCard project={project} analyticsSurface="projects_index" />
+          ))}
+        </Group>
       )
     }
   </Container>
 </BaseLayout>
-
-<style>
-  .projects-container {
-    max-width: none;
-    margin: 0 auto;
-  }
-
-  .section-title {
-    margin: 0 0 0.75rem;
-    font-family: var(--font-primary);
-    font-size: var(--text-xl);
-    font-weight: 700;
-    letter-spacing: -0.01em;
-  }
-
-  .projects-section {
-    padding: 1.5rem 0 2.5rem;
-    border-top: 2px solid rgba(255, 255, 255, 0.08);
-  }
-
-  .projects-list {
-    display: flex;
-    flex-direction: column;
-  }
-
-  @media (max-width: 640px) {
-    .projects-section {
-      padding-bottom: 2rem;
-    }
-  }
-</style>
