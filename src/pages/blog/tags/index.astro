@@ -35,10 +35,52 @@ const tags = [...tagCounts.values()].sort((a, b) =>
 );
 
 const title = `Blog Tags | ${siteConfig.authorName}`;
-const description = 'Browse blog posts by tag.';
+const topTags = [...tags]
+  .sort((a, b) => b.count - a.count)
+  .slice(0, 5)
+  .map(tag => tag.label);
+const description = `Browse ${posts.length} blog posts by ${siteConfig.authorName} by topic, including ${topTags.join(', ')}.`;
+const tagsUrl = `${siteConfig.siteUrl}/blog/tags/`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: tagsUrl,
+    description,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: siteConfig.siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: `${siteConfig.siteUrl}/blog/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Tags',
+        item: tagsUrl,
+      },
+    ],
+  },
+];
 ---
 
-<BaseLayout title={title} description={description}>
+<BaseLayout
+  title={title}
+  description={description}
+  structuredData={structuredData}
+>
   <Container>
     <Hero title="Blog tags" description="Browse posts by topic" />
     <p class="page-links">

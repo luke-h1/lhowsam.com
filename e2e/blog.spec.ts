@@ -33,6 +33,7 @@ test.describe('blog', () => {
       await expect(page.getByTestId('article-title')).not.toBeEmpty();
 
       await expect(page.getByTestId('article-published-at')).toBeVisible();
+      await expect(page.getByTestId('article-hero')).toBeVisible();
       await expect(page.getByTestId('article-body')).toBeVisible();
       await expect(page.getByTestId('article-body')).not.toBeEmpty();
 

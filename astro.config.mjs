@@ -6,10 +6,12 @@ import vercel from '@astrojs/vercel';
 import sentry from '@sentry/astro';
 import { transformerNotationDiff } from '@shikijs/transformers';
 import { defineConfig } from 'astro/config';
+import { contentLastmod } from './src/util/sitemapLastmod.ts';
 import { MIN_INDEXABLE_TAG_POSTS } from './src/util/tagIndex.ts';
 import { thinTagSlugs } from './src/util/thinTagPages.ts';
 
 const excludedTagSlugs = thinTagSlugs(MIN_INDEXABLE_TAG_POSTS);
+const lastmod = contentLastmod();
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,7 +27,8 @@ export default defineConfig({
     '/work/': '/work-projects/',
     '/work/[slug]': '/work-projects/[slug]',
     '/sitemap.xml': '/sitemap-index.xml',
-    '/blog/deploying-a-full-stack-app-via-dokku': '/blog/full-stack-deploy-with-dokku',
+    '/blog/deploying-a-full-stack-app-via-dokku':
+      '/blog/full-stack-deploy-with-dokku',
     '/projects/infra': '/projects/config',
     '/blog/nextjs-ssr-notes': '/blog/next-js-ssr-notes',
     '/cv': '/static/cv.pdf',
@@ -45,12 +48,20 @@ export default defineConfig({
         const match = new URL(page).pathname.match(/^\/blog\/tags\/([^/]+)\/$/);
         return !match || !excludedTagSlugs.has(match[1]);
       },
+      serialize: item => {
+        const date = lastmod.get(new URL(item.url).pathname);
+        return date ? { ...item, lastmod: date.toISOString() } : item;
+      },
     }),
     react(),
     sentry(),
   ],
   prefetch: true,
   markdown: {
+    syntaxHighlight: {
+      type: 'shiki',
+      excludeLangs: ['math', 'mermaid'],
+    },
     shikiConfig: {
       theme: 'andromeeda',
       wrap: true,

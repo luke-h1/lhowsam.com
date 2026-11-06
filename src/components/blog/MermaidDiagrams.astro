@@ -1,0 +1,686 @@
+<script>
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const XLINK_NS = 'http://www.w3.org/1999/xlink';
+
+  interface Player {
+    play: () => void;
+    pause: () => void;
+    seek: (position: number) => void;
+    position: () => number;
+    currentStep: () => number;
+    stepCount: number;
+    continuous: boolean;
+  }
+
+  const blocks = [
+    ...document.querySelectorAll<HTMLElement>(
+      '.content pre > code.language-mermaid',
+    ),
+  ];
+
+  const createSvgElement = (
+    name: string,
+    attributes: Record<string, string>,
+  ) => {
+    const element = document.createElementNS(SVG_NS, name);
+    for (const [key, value] of Object.entries(attributes)) {
+      element.setAttribute(key, value);
+    }
+    return element;
+  };
+
+  const animateFlowchart = (svg: SVGSVGElement): Player | null => {
+    const edges = [
+      ...svg.querySelectorAll<SVGPathElement>('path.flowchart-link[id]'),
+    ];
+    if (edges.length === 0) {
+      return null;
+    }
+
+    const travel = 1.2;
+    const stagger = 0.5;
+    const rest = 1.4;
+    const cycle = (edges.length - 1) * stagger + travel + rest;
+    const scale =
+      svg.viewBox.baseVal.width / svg.getBoundingClientRect().width || 1;
+    const radius = (5 * Math.max(scale, 1)).toFixed(2);
+
+    edges.forEach((edge, index) => {
+      const start = ((index * stagger) / cycle).toFixed(4);
+      const end = ((index * stagger + travel) / cycle).toFixed(4);
+      const muted = edge.classList.contains('edge-pattern-dotted');
+
+      const packet = createSvgElement('circle', {
+        r: radius,
+        class: muted
+          ? 'mermaid-packet mermaid-packet--muted'
+          : 'mermaid-packet',
+        opacity: '0',
+      });
+
+      const motion = createSvgElement('animateMotion', {
+        dur: `${cycle}s`,
+        repeatCount: 'indefinite',
+        calcMode: 'linear',
+        keyPoints: '0;0;1;1',
+        keyTimes: `0;${start};${end};1`,
+      });
+      const path = createSvgElement('mpath', { href: `#${edge.id}` });
+      path.setAttributeNS(XLINK_NS, 'xlink:href', `#${edge.id}`);
+      motion.append(path);
+
+      const visibility = createSvgElement('animate', {
+        attributeName: 'opacity',
+        dur: `${cycle}s`,
+        repeatCount: 'indefinite',
+        calcMode: 'discrete',
+        values: '0;1;0',
+        keyTimes: `0;${start};${end}`,
+      });
+
+      packet.append(motion, visibility);
+      edge.after(packet);
+    });
+
+    svg.pauseAnimations();
+
+    const position = () => (svg.getCurrentTime() % cycle) / cycle;
+
+    return {
+      play: () => svg.unpauseAnimations(),
+      pause: () => svg.pauseAnimations(),
+      seek: value => svg.setCurrentTime(value * cycle),
+      position,
+      currentStep: () =>
+        Math.min(edges.length, Math.floor((position() * cycle) / stagger) + 1),
+      stepCount: edges.length,
+      continuous: true,
+    };
+  };
+
+  const centreY = (element: SVGGraphicsElement) => {
+    const box = element.getBBox();
+    return box.y + box.height / 2;
+  };
+
+  const drawsLeftToRight = (element: SVGGraphicsElement) => {
+    if (element instanceof SVGLineElement) {
+      return element.x1.baseVal.value <= element.x2.baseVal.value;
+    }
+    if (element instanceof SVGPathElement) {
+      const length = element.getTotalLength();
+      return (
+        element.getPointAtLength(0).x <= element.getPointAtLength(length).x
+      );
+    }
+    return true;
+  };
+
+  const animateSequence = (svg: SVGSVGElement): Player | null => {
+    const lines = [
+      ...svg.querySelectorAll<SVGGraphicsElement>(
+        '.messageLine0, .messageLine1',
+      ),
+    ];
+    if (lines.length === 0) {
+      return null;
+    }
+
+    const steps = lines.map(line => {
+      line.classList.add('seq-step', 'seq-step--line');
+      line.style.transformOrigin = drawsLeftToRight(line)
+        ? '0% 50%'
+        : '100% 50%';
+      return { y: centreY(line), elements: [line] as Element[] };
+    });
+
+    for (const text of svg.querySelectorAll<SVGGraphicsElement>(
+      '.messageText',
+    )) {
+      const y = centreY(text);
+      const owner =
+        steps.filter(step => step.y >= y).sort((a, b) => a.y - b.y)[0] ??
+        steps.at(-1)!;
+      text.classList.add('seq-step');
+      owner.elements.push(text);
+    }
+
+    for (const note of svg.querySelectorAll<SVGRectElement>('rect.note')) {
+      const box = note.getBBox();
+      const elements: Element[] = [note];
+      for (const text of svg.querySelectorAll<SVGGraphicsElement>(
+        '.noteText',
+      )) {
+        const y = centreY(text);
+        if (y >= box.y && y <= box.y + box.height) {
+          elements.push(text);
+        }
+      }
+      elements.forEach(element => element.classList.add('seq-step'));
+      steps.push({ y: box.y, elements });
+    }
+
+    steps.sort((a, b) => a.y - b.y);
+
+    const stepDelay = 750;
+    const holdDelay = 2600;
+    const restartDelay = 500;
+    let index = 0;
+    let timer: number | undefined;
+    let playing = false;
+
+    const reset = () => {
+      steps.forEach(step =>
+        step.elements.forEach(element => element.classList.remove('is-shown')),
+      );
+      index = 0;
+    };
+
+    const schedule = (callback: () => void, delay: number) => {
+      timer = window.setTimeout(callback, delay);
+    };
+
+    const tick = () => {
+      if (!playing) {
+        return;
+      }
+      if (index < steps.length) {
+        steps[index].elements.forEach(element =>
+          element.classList.add('is-shown'),
+        );
+        index += 1;
+        schedule(tick, stepDelay);
+        return;
+      }
+      schedule(() => {
+        reset();
+        schedule(tick, restartDelay);
+      }, holdDelay);
+    };
+
+    const showUpTo = (target: number) => {
+      steps.forEach((step, stepIndex) =>
+        step.elements.forEach(element =>
+          element.classList.toggle('is-shown', stepIndex < target),
+        ),
+      );
+      index = target;
+    };
+
+    return {
+      play: () => {
+        if (playing) {
+          return;
+        }
+        playing = true;
+        tick();
+      },
+      pause: () => {
+        playing = false;
+        window.clearTimeout(timer);
+      },
+      seek: value => {
+        window.clearTimeout(timer);
+        showUpTo(Math.round(value * steps.length));
+        if (playing) {
+          schedule(tick, stepDelay);
+        }
+      },
+      position: () => index / steps.length,
+      currentStep: () => index,
+      stepCount: steps.length,
+      continuous: false,
+    };
+  };
+
+  const MIN_SCALE = 0.7;
+  const MAX_VERTICAL_HEIGHT = 1.4;
+
+  const naturalWidth = (svg: SVGSVGElement) => svg.viewBox.baseVal.width;
+
+  const fitScale = (svg: SVGSVGElement, available: number) =>
+    Math.min(1, available / naturalWidth(svg));
+
+  const fitToCanvas = (svg: SVGSVGElement, canvas: HTMLElement) => {
+    const width = naturalWidth(svg);
+    const tooSmall = canvas.clientWidth / width < MIN_SCALE;
+    svg.style.maxWidth = tooSmall ? 'none' : `${width}px`;
+    svg.style.width = tooSmall ? `${width * MIN_SCALE}px` : '100%';
+    canvas.classList.toggle('is-scrollable', tooSmall);
+    if (tooSmall) {
+      canvas.tabIndex = 0;
+      canvas.setAttribute('role', 'region');
+      canvas.setAttribute(
+        'aria-label',
+        'Diagram, scroll sideways to see all of it',
+      );
+    } else {
+      canvas.removeAttribute('tabindex');
+      canvas.removeAttribute('role');
+      canvas.removeAttribute('aria-label');
+    }
+  };
+
+  const attachControls = (figure: HTMLElement, player: Player) => {
+    let wantsPlay = true;
+    let visible = false;
+    let scrubbing = false;
+    let frame: number | undefined;
+
+    const controls = document.createElement('div');
+    controls.className = 'mermaid-diagram__controls';
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'mermaid-diagram__toggle';
+
+    const max = player.continuous ? 1000 : player.stepCount;
+    const scrubber = document.createElement('input');
+    scrubber.type = 'range';
+    scrubber.className = 'mermaid-diagram__scrubber';
+    scrubber.min = '0';
+    scrubber.max = String(max);
+    scrubber.step = '1';
+    scrubber.setAttribute('aria-label', 'Diagram progress');
+
+    const counter = document.createElement('span');
+    counter.className = 'mermaid-diagram__step';
+    counter.setAttribute('aria-hidden', 'true');
+
+    const render = () => {
+      const step = player.currentStep();
+      if (!scrubbing) {
+        scrubber.value = String(
+          player.continuous ? Math.round(player.position() * max) : step,
+        );
+      }
+      scrubber.style.setProperty(
+        '--progress',
+        `${(Number(scrubber.value) / max) * 100}%`,
+      );
+      scrubber.setAttribute(
+        'aria-valuetext',
+        `Step ${step} of ${player.stepCount}`,
+      );
+      counter.textContent = `${step} / ${player.stepCount}`;
+    };
+
+    const loop = () => {
+      render();
+      frame = window.requestAnimationFrame(loop);
+    };
+
+    const sync = () => {
+      const running = wantsPlay && visible && !scrubbing;
+      button.textContent = wantsPlay ? 'Pause' : 'Play';
+      button.setAttribute(
+        'aria-label',
+        wantsPlay ? 'Pause diagram animation' : 'Play diagram animation',
+      );
+      window.cancelAnimationFrame(frame ?? 0);
+      if (running) {
+        player.play();
+        loop();
+      } else {
+        player.pause();
+        render();
+      }
+    };
+
+    button.addEventListener('click', () => {
+      wantsPlay = !wantsPlay;
+      sync();
+    });
+
+    scrubber.addEventListener('pointerdown', () => {
+      scrubbing = true;
+      sync();
+    });
+
+    scrubber.addEventListener('input', () => {
+      player.seek(Number(scrubber.value) / max);
+      render();
+    });
+
+    const endScrub = () => {
+      if (!scrubbing) {
+        return;
+      }
+      scrubbing = false;
+      sync();
+    };
+    scrubber.addEventListener('pointerup', endScrub);
+    scrubber.addEventListener('pointercancel', endScrub);
+    scrubber.addEventListener('change', endScrub);
+
+    new IntersectionObserver(
+      ([entry]) => {
+        visible = entry.isIntersecting;
+        sync();
+      },
+      { threshold: 0.35 },
+    ).observe(figure);
+
+    controls.append(button, scrubber, counter);
+    figure.prepend(controls);
+    sync();
+  };
+
+  const renderDiagrams = async () => {
+    const [{ default: mermaid }] = await Promise.all([
+      import('mermaid'),
+      document.fonts.ready,
+    ]);
+    const styles = getComputedStyle(document.documentElement);
+    const token = (name: string) => styles.getPropertyValue(name).trim();
+    const reducedMotion = window.matchMedia(
+      '(prefers-reduced-motion: reduce)',
+    ).matches;
+
+    mermaid.initialize({
+      startOnLoad: false,
+      securityLevel: 'strict',
+      theme: 'base',
+      flowchart: {
+        diagramPadding: 8,
+        nodeSpacing: 30,
+        rankSpacing: 40,
+        padding: 10,
+        wrappingWidth: 150,
+      },
+      sequence: {
+        diagramMarginX: 8,
+        diagramMarginY: 8,
+        actorMargin: 24,
+        width: 120,
+        boxMargin: 8,
+        noteMargin: 8,
+        messageMargin: 32,
+        wrap: true,
+      },
+      fontFamily: token('--font-primary'),
+      themeVariables: {
+        darkMode: true,
+        background: token('--bg-color'),
+        primaryColor: token('--bg-color-muted'),
+        primaryTextColor: token('--text-color'),
+        primaryBorderColor: `rgb(${token('--accent-rgb')})`,
+        secondaryColor: token('--bg-color-muted'),
+        tertiaryColor: token('--bg-color'),
+        lineColor: token('--text-muted'),
+        textColor: token('--text-color'),
+        noteBkgColor: token('--bg-color-muted'),
+        noteTextColor: token('--text-color'),
+        noteBorderColor: token('--border-color'),
+        actorBkg: token('--bg-color-muted'),
+        actorTextColor: token('--text-color'),
+        actorBorder: `rgb(${token('--accent-rgb')})`,
+        signalColor: token('--text-muted'),
+        signalTextColor: token('--text-color'),
+        clusterBkg: token('--bg-color'),
+        clusterBorder: token('--border-color'),
+        edgeLabelBackground: token('--bg-color-muted'),
+      },
+    });
+
+    const renderSvg = async (id: string, source: string) => {
+      const { svg } = await mermaid.render(id, source);
+      const template = document.createElement('template');
+      template.innerHTML = svg;
+      return template.content.querySelector('svg');
+    };
+
+    for (const [index, code] of blocks.entries()) {
+      const pre = code.parentElement!;
+      try {
+        const source = code.textContent ?? '';
+        const figure = document.createElement('figure');
+        figure.className = 'mermaid-diagram';
+        const canvas = document.createElement('div');
+        canvas.className = 'mermaid-diagram__canvas';
+        const hint = document.createElement('figcaption');
+        hint.className = 'mermaid-diagram__hint';
+        hint.textContent = 'Scroll sideways to see the full diagram';
+        figure.append(canvas, hint);
+        pre.replaceWith(figure);
+
+        const available = canvas.clientWidth;
+        let element = await renderSvg(`mermaid-diagram-${index}`, source);
+        if (!element) {
+          continue;
+        }
+
+        const vertical = source.replace(
+          /^(\s*(?:flowchart|graph)\s+)(?:LR|RL)\b/m,
+          '$1TD',
+        );
+        if (vertical !== source && fitScale(element, available) < MIN_SCALE) {
+          const alternative = await renderSvg(
+            `mermaid-diagram-${index}-vertical`,
+            vertical,
+          );
+          if (alternative) {
+            const scale = fitScale(alternative, available);
+            const height = alternative.viewBox.baseVal.height * scale;
+            if (
+              scale > fitScale(element, available) &&
+              height <= window.innerHeight * MAX_VERTICAL_HEIGHT
+            ) {
+              element = alternative;
+            }
+          }
+        }
+
+        canvas.append(element);
+        fitToCanvas(element, canvas);
+        const svgElement = element;
+        new ResizeObserver(() => fitToCanvas(svgElement, canvas)).observe(
+          canvas,
+        );
+
+        if (reducedMotion) {
+          continue;
+        }
+        const role = element.getAttribute('aria-roledescription') ?? '';
+        const player = role.startsWith('flowchart')
+          ? animateFlowchart(element)
+          : role === 'sequence'
+            ? animateSequence(element)
+            : null;
+        if (player) {
+          attachControls(figure, player);
+        }
+      } catch (error) {
+        console.error('Failed to render mermaid diagram', error);
+      }
+    }
+  };
+
+  if (blocks.length > 0) {
+    void renderDiagrams();
+  }
+</script>
+
+<style is:global>
+  .mermaid-diagram {
+    position: relative;
+    margin: 1.75rem 0;
+    padding: 1.25rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    background: var(--bg-color-muted);
+    text-align: center;
+  }
+
+  .mermaid-diagram__canvas {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  .mermaid-diagram__canvas:focus-visible {
+    outline: 2px solid rgb(var(--accent-rgb));
+    outline-offset: 4px;
+    border-radius: 0.25rem;
+  }
+
+  .mermaid-diagram svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .mermaid-diagram__hint {
+    display: none;
+    margin-top: 0.75rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .mermaid-diagram__canvas.is-scrollable + .mermaid-diagram__hint {
+    display: block;
+  }
+
+  @media (max-width: 640px) {
+    .mermaid-diagram {
+      margin-inline: -0.5rem;
+      padding: 0.75rem;
+    }
+  }
+
+  .mermaid-diagram__controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .mermaid-diagram__toggle {
+    flex-shrink: 0;
+    min-width: 4rem;
+    min-height: 1.75rem;
+    padding: 0.25rem 0.625rem;
+    border: 1px solid var(--border-color);
+    border-radius: 999px;
+    background: var(--bg-color);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+      color var(--transition-base),
+      border-color var(--transition-base);
+  }
+
+  .mermaid-diagram__toggle:hover {
+    color: var(--text-color);
+    border-color: rgba(var(--accent-rgb), 0.6);
+  }
+
+  .mermaid-diagram__toggle:focus-visible {
+    outline: 2px solid rgb(var(--accent-rgb));
+    outline-offset: 2px;
+  }
+
+  .mermaid-diagram__scrubber {
+    --progress: 0%;
+    flex: 1;
+    min-width: 0;
+    height: 1.75rem;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    cursor: pointer;
+    appearance: none;
+  }
+
+  .mermaid-diagram__scrubber::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(
+      to right,
+      rgb(var(--accent-rgb)) var(--progress),
+      var(--border-color) var(--progress)
+    );
+  }
+
+  .mermaid-diagram__scrubber::-moz-range-track {
+    height: 4px;
+    border-radius: 999px;
+    background: var(--border-color);
+  }
+
+  .mermaid-diagram__scrubber::-moz-range-progress {
+    height: 4px;
+    border-radius: 999px;
+    background: rgb(var(--accent-rgb));
+  }
+
+  .mermaid-diagram__scrubber::-webkit-slider-thumb {
+    width: 14px;
+    height: 14px;
+    margin-top: -5px;
+    border: 2px solid rgb(var(--accent-rgb));
+    border-radius: 50%;
+    background: var(--text-color);
+    appearance: none;
+  }
+
+  .mermaid-diagram__scrubber::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    border: 2px solid rgb(var(--accent-rgb));
+    border-radius: 50%;
+    background: var(--text-color);
+  }
+
+  .mermaid-diagram__scrubber:focus-visible {
+    outline: 2px solid rgb(var(--accent-rgb));
+    outline-offset: 2px;
+    border-radius: 0.25rem;
+  }
+
+  .mermaid-diagram__step {
+    flex-shrink: 0;
+    min-width: 3.5rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+  }
+
+  .mermaid-packet {
+    fill: rgb(var(--accent-rgb));
+  }
+
+  .mermaid-packet--muted {
+    fill: var(--text-muted);
+  }
+
+  .mermaid-diagram .seq-step {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .mermaid-diagram .seq-step--line {
+    transform: scaleX(0);
+    transform-box: fill-box;
+    transition:
+      opacity 0.2s ease,
+      transform 0.55s var(--ease-out);
+  }
+
+  .mermaid-diagram .seq-step.is-shown {
+    opacity: 1;
+  }
+
+  .mermaid-diagram .seq-step--line.is-shown {
+    transform: scaleX(1);
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
 import type { GetStaticPaths } from 'astro';
+import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, render } from 'astro:content';
 import ArticleLayout from '../../components/layout/ArticleLayout.astro';
@@ -8,7 +9,9 @@ import { absoluteUrl, withBrand } from '../../util/seo';
 import { toTagSlug } from '../../util/tags';
 
 export const getStaticPaths = (async () => {
-  const posts = await getCollection('blog');
+  const posts = await getCollection('blog', ({ data }) =>
+    import.meta.env.PROD ? !data.draft : true,
+  );
   return posts.map(post => ({
     params: { slug: post.data.slug },
     props: { post },
@@ -23,7 +26,10 @@ const { post } = Astro.props;
 const { Content, headings } = await render(post);
 const seoDescription = post.data.seoDescription ?? post.data.intro;
 const canonicalURL = `${siteConfig.siteUrl}/blog/${post.data.slug}/`;
-const seoTitle = withBrand(post.data.title, siteConfig.authorName);
+const seoTitle = withBrand(
+  post.data.seoTitle ?? post.data.title,
+  siteConfig.authorName,
+);
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -95,11 +101,36 @@ const structuredData = [
         </div>
       )
     }
+    <Image
+      src={post.data.heroImage}
+      alt=""
+      widths={[480, 800, 1200, 1750]}
+      sizes="(max-width: 56rem) 100vw, 44rem"
+      class="post-hero"
+      loading="eager"
+      fetchpriority="high"
+      data-testid="article-hero"
+    />
   </Fragment>
   <Content />
 </ArticleLayout>
 
 <style>
+  .post-hero {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-top: 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+  }
+
+  @media (max-width: 640px) {
+    .post-hero {
+      margin-top: 2rem;
+    }
+  }
+
   .post-tags {
     display: flex;
     flex-wrap: wrap;
