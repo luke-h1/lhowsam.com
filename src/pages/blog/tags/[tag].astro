@@ -8,7 +8,7 @@ import Group from '../../../components/ui/Group.astro';
 import Hero from '../../../components/Hero.astro';
 import { siteConfig } from '../../../config/site';
 import { isIndexableTagPage } from '../../../util/tagIndex';
-import { toTagSlug } from '../../../util/tags';
+import { tagPageDescription, toTagSlug } from '../../../util/tags';
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection('blog', ({ data }) => {
@@ -39,15 +39,73 @@ export const getStaticPaths = (async () => {
   }));
 }) satisfies GetStaticPaths;
 
-const { label, posts } = Astro.props;
+const { tag, label, posts } = Astro.props;
 const title = `${label} | Blog Tags | ${siteConfig.authorName}`;
-const description = `${posts.length} post${posts.length === 1 ? '' : 's'} about ${label} by ${siteConfig.authorName}.`;
+const description = tagPageDescription(
+  label,
+  posts.map(post => post.data.title),
+  siteConfig.authorName,
+);
+const tagUrl = `${siteConfig.siteUrl}/blog/tags/${tag}/`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    url: tagUrl,
+    description,
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: posts.map((post, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: `${siteConfig.siteUrl}/blog/${post.data.slug}/`,
+        name: post.data.title,
+      })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: siteConfig.siteUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Blog',
+        item: `${siteConfig.siteUrl}/blog/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Tags',
+        item: `${siteConfig.siteUrl}/blog/tags/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 4,
+        name: label,
+        item: tagUrl,
+      },
+    ],
+  },
+];
 const robots = isIndexableTagPage(posts.length)
   ? 'index,follow,max-image-preview:large'
   : 'noindex,follow';
 ---
 
-<BaseLayout title={title} description={description} robots={robots}>
+<BaseLayout
+  title={title}
+  description={description}
+  robots={robots}
+  structuredData={structuredData}
+>
   <Container>
     <Hero
       title={`Posts tagged with "${label}"`}

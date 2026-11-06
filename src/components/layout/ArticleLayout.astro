@@ -1,5 +1,6 @@
 ---
 import { format } from 'date-fns';
+import MermaidDiagrams from '../blog/MermaidDiagrams.astro';
 import ReadingProgress from '../blog/ReadingProgress.astro';
 import TableOfContents from '../blog/TableOfContents.astro';
 import BaseLayout from './BaseLayout.astro';
@@ -101,6 +102,7 @@ const hasToc = headings.some(h => h.depth >= 2 && h.depth <= 4);
     </div>
   </div>
   {readingProgress && <ReadingProgress target="[data-article]" />}
+  <MermaidDiagrams />
 </BaseLayout>
 
 <script is:inline>
