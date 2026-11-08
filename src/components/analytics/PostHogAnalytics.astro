@@ -1,7 +1,8 @@
 <script>
   const key = import.meta.env.PUBLIC_POSTHOG_KEY;
+  const isE2E = navigator.userAgent.includes('e2e-test');
 
-  if (key && window.location.hostname === 'lhowsam.com') {
+  if (key && !isE2E && window.location.hostname === 'lhowsam.com') {
     import('posthog-js').then(({ default: posthog }) => {
       posthog.init(key, {
         api_host: import.meta.env.PUBLIC_POSTHOG_HOST,
