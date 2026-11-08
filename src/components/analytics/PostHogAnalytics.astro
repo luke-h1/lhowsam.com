@@ -4,10 +4,12 @@
   if (key && window.location.hostname === 'lhowsam.com') {
     import('posthog-js').then(({ default: posthog }) => {
       posthog.init(key, {
-        api_host:
-          import.meta.env.PUBLIC_POSTHOG_HOST ?? 'https://eu.i.posthog.com',
+        api_host: '/ingest',
         ui_host: 'https://eu.posthog.com',
-        defaults: '2025-05-24',
+        defaults: '2026-08-30',
+        capture_pageview: 'history_change',
+        capture_pageleave: true,
+        capture_performance: { web_vitals: true },
       });
 
       document.addEventListener('click', event => {
