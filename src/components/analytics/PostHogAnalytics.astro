@@ -4,7 +4,7 @@
   if (key && window.location.hostname === 'lhowsam.com') {
     import('posthog-js').then(({ default: posthog }) => {
       posthog.init(key, {
-        api_host: '/ingest',
+        api_host: import.meta.env.PUBLIC_POSTHOG_HOST,
         ui_host: 'https://eu.posthog.com',
         defaults: '2026-08-30',
         capture_pageview: 'history_change',

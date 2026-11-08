@@ -11,6 +11,7 @@ interface ImportMetaEnv {
   readonly PUBLIC_SENTRY_ENVIRONMENT?: string;
   readonly PUBLIC_SENTRY_RELEASE?: string;
   readonly PUBLIC_POSTHOG_KEY?: string;
+  readonly PUBLIC_POSTHOG_HOST?: string;
 }
 
 interface ImportMeta {

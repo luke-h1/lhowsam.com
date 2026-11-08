@@ -47,11 +47,8 @@ runs:
         VERCEL_PROJECT_ID: ${{ inputs.vercel-project-id }}
 
     - name: Deploy to ${{ inputs.environment }}
+      run: bunx vercel -f --prod --token ${{ inputs.vercel-token }}
       shell: bash
-      run: |
-        bunx vercel pull --yes --environment=production --token ${{ inputs.vercel-token }}
-        bunx vercel build --prod --token ${{ inputs.vercel-token }}
-        bunx vercel deploy --prebuilt -f --prod --token ${{ inputs.vercel-token }}
       env:
         VERCEL_TOKEN: ${{ inputs.vercel-token }}
         VERCEL_ORG_ID: ${{ inputs.vercel-org-id }}
