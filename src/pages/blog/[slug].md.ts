@@ -6,10 +6,12 @@ import {
 } from '../../util/contentMarkdown';
 
 export const getStaticPaths = (async () => {
-  const posts = await getCollection('blog', ({ data }) =>
-    import.meta.env.PROD ? !data.draft : true,
+  const posts = await getCollection(
+    'blog',
+    ({ data }: CollectionEntry<'blog'>) =>
+      import.meta.env.PROD ? !data.draft : true,
   );
-  return posts.map(post => ({
+  return posts.map((post: CollectionEntry<'blog'>) => ({
     params: { slug: post.data.slug },
     props: { post },
   }));

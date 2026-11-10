@@ -7,7 +7,7 @@ import {
 
 export const getStaticPaths = (async () => {
   const projects = await getCollection('projects');
-  return projects.map(project => ({
+  return projects.map((project: CollectionEntry<'projects'>) => ({
     params: { slug: project.data.slug },
     props: { project },
   }));
