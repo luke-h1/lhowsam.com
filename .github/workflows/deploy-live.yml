@@ -13,7 +13,7 @@ env:
 
 jobs:
   deploy-live:
-    runs-on: ubuntu-latest
+    runs-on: ${{ (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) && 'self-hosted' || 'ubuntu-latest' }}
     name: Deploy to live
     concurrency:
       group: deploy-live-${{ inputs.branch }}
