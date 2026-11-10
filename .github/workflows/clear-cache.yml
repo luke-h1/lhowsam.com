@@ -7,7 +7,7 @@ permissions:
 
 jobs:
   clear-github-actions-cache:
-    runs-on: ${{ (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) && 'self-hosted' || 'ubuntu-latest' }}
+    runs-on: ubuntu-latest
     steps:
       - name: Clear cache
         uses: actions/github-script@v6
