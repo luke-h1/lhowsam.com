@@ -28,3 +28,6 @@ jobs:
         env:
           BASE_REF: ${{ github.event.pull_request.base.ref }}
         run: bun run changeset -- status --since="origin/${BASE_REF}"
+
+      - name: Check every changeset has a bump and a note
+        run: bun scripts/release-notes.ts pending
