@@ -22,7 +22,22 @@ type Notes = Map<Bump, string[]>;
 
 function flag(args: string[], name: string): string | undefined {
   const index = args.indexOf(name);
-  return index === -1 ? undefined : args[index + 1];
+  if (index === -1) {
+    return undefined;
+  }
+  const value = args[index + 1];
+  if (value === undefined) {
+    throw new Error(`${name} needs a value`);
+  }
+  return value;
+}
+
+function levelFlag(args: string[]): number {
+  const level = Number(flag(args, '--level') ?? '3');
+  if (!Number.isInteger(level) || level < 1) {
+    throw new Error('--level must be a positive integer');
+  }
+  return level;
 }
 
 function requiredFlag(args: string[], name: string): string {
@@ -51,9 +66,9 @@ function collectNotes(changesets: Changeset[]): Notes {
 
 function highestBump(changesets: Changeset[]): Bump | undefined {
   const bumps = new Set(
-    changesets.flatMap(changeset =>
-      changeset.releases.map(entry => entry.type),
-    ),
+    changesets
+      .filter(changeset => changeset.summary.trim())
+      .flatMap(changeset => changeset.releases.map(entry => entry.type)),
   );
   return BUMP_ORDER.find(bump => bumps.has(bump));
 }
@@ -145,8 +160,7 @@ function appendToSection(
 
 async function pending(args: string[]): Promise<void> {
   const notes = collectNotes(await readChangesets(process.cwd()));
-  const level = Number(flag(args, '--level') ?? '3');
-  const rendered = renderNotes(notes, level);
+  const rendered = renderNotes(notes, levelFlag(args));
   console.log(
     rendered || 'No release notes are waiting since the last release.',
   );
@@ -191,6 +205,17 @@ async function release(args: string[]): Promise<void> {
   console.log(section ? updated.slice(section.start, section.end).trim() : '');
 }
 
+function show(args: string[]): void {
+  const version = requiredFlag(args, '--version');
+  const changelogPath = flag(args, '--changelog') ?? DEFAULT_CHANGELOG;
+  const changelog = readFileSync(changelogPath, 'utf8');
+  const section = findSection(changelog, version);
+  if (!section) {
+    throw new Error(`${changelogPath} has no section for ${version}`);
+  }
+  console.log(changelog.slice(section.headingEnd, section.end).trim());
+}
+
 async function main(): Promise<void> {
   const [command, ...args] = process.argv.slice(2);
   switch (command) {
@@ -203,9 +228,12 @@ async function main(): Promise<void> {
     case 'release':
       await release(args);
       return;
+    case 'show':
+      show(args);
+      return;
     default:
       throw new Error(
-        'Usage: bun scripts/release-notes.ts <pending [--level 3] | next-version --current X.Y.Z | release --version <version> [--date YYYY-MM-DD] [--changelog path]>',
+        'Usage: bun scripts/release-notes.ts <pending [--level 3] | next-version --current X.Y.Z | release --version <version> [--date YYYY-MM-DD] [--changelog path] | show --version <version> [--changelog path]>',
       );
   }
 }

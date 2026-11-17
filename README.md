@@ -48,7 +48,14 @@ the highest bump of the waiting changesets to pick the next version, writes the
 notes into `CHANGELOG.md` under that version, deletes the files, sets `version`
 in `package.json`, pushes the commit to the deployed branch, tags `vX.Y.Z` and
 creates a GitHub release. A deploy with no bump waiting makes no release.
-`/api/version` reports the `package.json` version.
+The build gets that next version as `PUBLIC_APP_VERSION`, so `/api/version`
+reports the version the deploy releases.
+
+The release job pushes with the `RELEASE_TOKEN` repository secret, a personal
+access token with `contents: write`. The `dev` ruleset requires a pull request
+and lets only repository admins bypass it, so the default `GITHUB_TOKEN` cannot
+push the release commit. Without the secret the job falls back to
+`GITHUB_TOKEN` and the push fails.
 
 Preview the waiting notes with `bun run release:notes pending`.
 
