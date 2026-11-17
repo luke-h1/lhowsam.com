@@ -57,12 +57,12 @@ function checkChangesets(changesets: Changeset[]): Changeset[] {
     const hasText = changeset.summary.trim().length > 0;
     if (hasText && !hasBump(changeset)) {
       throw new Error(
-        `${CHANGESET_DIR}/${changeset.id}.md has text but no package and bump; run bun run changeset`,
+        `${CHANGESET_DIR}/${changeset.id}.md has text but no package and bump; add them to the file or delete it and run bun run changeset`,
       );
     }
     if (!hasText && hasBump(changeset)) {
       throw new Error(
-        `${CHANGESET_DIR}/${changeset.id}.md has a bump but no text; write the note or use bun run changeset -- --empty`,
+        `${CHANGESET_DIR}/${changeset.id}.md has a bump but no text; write the note in the file or delete it and run bun run changeset -- --empty`,
       );
     }
   });

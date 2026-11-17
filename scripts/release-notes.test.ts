@@ -83,14 +83,14 @@ describe('next-version', () => {
   it('rejects a bump with no text', () => {
     addChangeset('blank', 'major', '   ');
     expect(fails('next-version', '--current', '1.2.3')).toBe(
-      '.changeset/blank.md has a bump but no text; write the note or use bun run changeset -- --empty',
+      '.changeset/blank.md has a bump but no text; write the note in the file or delete it and run bun run changeset -- --empty',
     );
   });
 
   it('rejects text with no package and bump', () => {
     addChangeset('loose', null, 'Fix the footer.');
     expect(fails('next-version', '--current', '1.2.3')).toBe(
-      '.changeset/loose.md has text but no package and bump; run bun run changeset',
+      '.changeset/loose.md has text but no package and bump; add them to the file or delete it and run bun run changeset',
     );
   });
 
