@@ -60,3 +60,57 @@ jobs:
         uses: ./.github/actions/ui-test
         with:
           target: e2e:prod
+
+  release:
+    runs-on: ubuntu-latest
+    name: Release
+    needs: deploy-live
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.branch }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: install
+        uses: ./.github/actions/install
+
+      - name: Pick the next version from the changesets
+        id: version
+        run: |
+          set -euo pipefail
+          CURRENT="$(jq -r .version package.json)"
+          NEXT="$(bun scripts/release-notes.ts next-version --current "$CURRENT")"
+          if [ -z "$NEXT" ]; then
+            echo "No changeset with a bump is waiting since ${CURRENT}; no release"
+          else
+            echo "Releasing ${NEXT} (was ${CURRENT})"
+          fi
+          echo "next=$NEXT" >> "$GITHUB_OUTPUT"
+
+      - name: Cut CHANGELOG.md, tag and release
+        if: steps.version.outputs.next != ''
+        env:
+          BRANCH: ${{ inputs.branch }}
+          NEXT: ${{ steps.version.outputs.next }}
+          GH_TOKEN: ${{ secrets.RELEASE_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          bun scripts/release-notes.ts release --version "$NEXT" > "$RUNNER_TEMP/release-notes.md"
+          node -e '
+            const fs = require("node:fs");
+            const pkg = JSON.parse(fs.readFileSync("package.json", "utf8"));
+            pkg.version = process.env.NEXT;
+            fs.writeFileSync("package.json", `${JSON.stringify(pkg, null, 2)}\n`);
+          '
+          git config user.name "luke-h1"
+          git config user.email "55030296+luke-h1@users.noreply.github.com"
+          git add CHANGELOG.md .changeset package.json
+          git commit -m "chore(changelog): release ${NEXT} [skip ci]"
+          git tag -a "v${NEXT}" -m "v${NEXT}"
+          AUTH_HEADER="$(printf 'luke-h1:%s' "$GH_TOKEN" | base64 | tr -d '\n')"
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic ${AUTH_HEADER}" push "https://github.com/${GITHUB_REPOSITORY}.git" "HEAD:${BRANCH}" "refs/tags/v${NEXT}"
+          gh release create "v${NEXT}" --title "v${NEXT}" --notes-file "$RUNNER_TEMP/release-notes.md"
