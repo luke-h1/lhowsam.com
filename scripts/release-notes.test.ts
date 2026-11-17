@@ -156,7 +156,9 @@ describe('release', () => {
         '',
       ].join('\n'),
     );
-    expect(output).toBe(changelog.slice('# Changelog\n\n'.length));
+    expect(output).toBe(
+      changelog.slice('# Changelog\n\n## 2.0.0 - 2026-01-02\n\n'.length),
+    );
     expect(changesetFiles()).toEqual(['config.json']);
   });
 
@@ -187,6 +189,19 @@ describe('release', () => {
         '',
       ].join('\n'),
     );
+  });
+
+  it('refuses an option token as the version', () => {
+    addChangeset('fix', 'patch', 'Fix the footer.');
+
+    expect(fails('release', '--version', '--date', '2026-01-02')).toBe(
+      '--version needs a value',
+    );
+
+    expect(readFileSync(join(repo, 'CHANGELOG.md'), 'utf8')).toBe(
+      '# Changelog\n',
+    );
+    expect(changesetFiles()).toEqual(['config.json', 'fix.md']);
   });
 
   it('appends to an existing section for the same version', () => {

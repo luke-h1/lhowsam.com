@@ -26,7 +26,7 @@ function flag(args: string[], name: string): string | undefined {
     return undefined;
   }
   const value = args[index + 1];
-  if (value === undefined) {
+  if (value === undefined || value.startsWith('--')) {
     throw new Error(`${name} needs a value`);
   }
   return value;
@@ -202,7 +202,9 @@ async function release(args: string[]): Promise<void> {
   });
 
   const section = findSection(updated, version);
-  console.log(section ? updated.slice(section.start, section.end).trim() : '');
+  console.log(
+    section ? updated.slice(section.headingEnd, section.end).trim() : '',
+  );
 }
 
 function show(args: string[]): void {
