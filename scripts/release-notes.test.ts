@@ -80,10 +80,18 @@ describe('next-version', () => {
     expect(run('next-version', '--current', 'v1.2.3')).toBe('2.0.0\n');
   });
 
-  it('ignores a bump with no text', () => {
+  it('rejects a bump with no text', () => {
     addChangeset('blank', 'major', '   ');
-    addChangeset('fix', 'patch', 'Fix the footer.');
-    expect(run('next-version', '--current', '1.2.3')).toBe('1.2.4\n');
+    expect(fails('next-version', '--current', '1.2.3')).toBe(
+      '.changeset/blank.md has a bump but no text; write the note in the file or delete it and run bun run changeset -- --empty',
+    );
+  });
+
+  it('rejects text with no package and bump', () => {
+    addChangeset('loose', null, 'Fix the footer.');
+    expect(fails('next-version', '--current', '1.2.3')).toBe(
+      '.changeset/loose.md has text but no package and bump; add them to the file or delete it and run bun run changeset',
+    );
   });
 
   it('rejects a flag with no value', () => {

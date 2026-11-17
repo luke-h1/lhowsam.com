@@ -41,7 +41,8 @@ Release notes are changesets. A pull request adds a `.changeset/*.md` file with
 reads the site. The `Changeset present` check fails a pull request that adds no
 file. Use `bun run changeset -- --empty` for a change with nothing to tell a
 reader. `major`, `minor` and `patch` select the heading (Breaking changes, New,
-Fixed) and the size of the next version.
+Fixed) and the size of the next version. The check also fails a note that has
+text but no bump, or a bump but no text.
 
 The `Deploy to Production` workflow releases after the live deploy. It takes
 the highest bump of the waiting changesets to pick the next version, writes the
