@@ -18,6 +18,9 @@ jobs:
     concurrency:
       group: deploy-live-${{ inputs.branch }}
       cancel-in-progress: false
+    outputs:
+      next-version: ${{ steps.version.outputs.next }}
+      sha: ${{ steps.sha.outputs.sha }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -42,12 +45,30 @@ jobs:
           PUBLIC_NOW_PLAYING_API_BASE_URL: op://ci-cd/lhowsam-prod/PUBLIC_NOW_PLAYING_API_BASE_URL
           PUBLIC_NOW_PLAYING_API_KEY: op://ci-cd/lhowsam-prod/PUBLIC_NOW_PLAYING_API_KEY
 
+      - name: Record the deployed commit
+        id: sha
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
       - name: install
         uses: ./.github/actions/install
 
+      - name: Pick the next version from the changesets
+        id: version
+        run: |
+          set -euo pipefail
+          CURRENT="$(jq -r .version package.json)"
+          NEXT="$(bun scripts/release-notes.ts next-version --current "$CURRENT")"
+          if [ -z "$NEXT" ]; then
+            echo "No changeset with a bump is waiting since ${CURRENT}; the build reports ${CURRENT}"
+          else
+            echo "The build reports ${NEXT}; the release job cuts it after the deploy"
+          fi
+          echo "next=$NEXT" >> "$GITHUB_OUTPUT"
+          echo "PUBLIC_APP_VERSION=${NEXT:-$CURRENT}" >> "$GITHUB_ENV"
+
       - name: Build
         uses: ./.github/actions/build
-      
+
       - name: Deploy to live
         uses: ./.github/actions/deploy
         with:
@@ -55,8 +76,75 @@ jobs:
           vercel-org-id: ${{ env.VERCEL_ORG_ID }}
           vercel-project-id: ${{ env.VERCEL_PROJECT_ID }}
           environment: prod
+          app-version: ${{ env.PUBLIC_APP_VERSION }}
 
       - name: prod UI tests
         uses: ./.github/actions/ui-test
         with:
           target: e2e:prod
+
+  release:
+    runs-on: ubuntu-latest
+    name: Release
+    needs: deploy-live
+    concurrency:
+      group: release-${{ inputs.branch }}
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout the deployed commit
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.deploy-live.outputs.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: install
+        uses: ./.github/actions/install
+
+      - name: Recover a release that a failed run left without a GitHub release
+        id: recover
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          CURRENT="$(jq -r .version package.json)"
+          if git rev-parse -q --verify "refs/tags/v${CURRENT}" >/dev/null && ! gh release view "v${CURRENT}" >/dev/null 2>&1; then
+            echo "v${CURRENT} is tagged but has no GitHub release; creating it"
+            bun scripts/release-notes.ts show --version "$CURRENT" > "$RUNNER_TEMP/release-notes.md"
+            gh release create "v${CURRENT}" --title "v${CURRENT}" --notes-file "$RUNNER_TEMP/release-notes.md"
+            echo "recovered=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "recovered=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Cut CHANGELOG.md, tag and release
+        if: steps.recover.outputs.recovered == 'false' && needs.deploy-live.outputs.next-version != ''
+        env:
+          BRANCH: ${{ inputs.branch }}
+          DEPLOYED_SHA: ${{ needs.deploy-live.outputs.sha }}
+          NEXT: ${{ needs.deploy-live.outputs.next-version }}
+          GH_TOKEN: ${{ secrets.RELEASE_TOKEN || secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          bun scripts/release-notes.ts release --version "$NEXT" > "$RUNNER_TEMP/release-notes.md"
+          jq --arg version "$NEXT" ".version = \$version" package.json > "$RUNNER_TEMP/package.json"
+          mv "$RUNNER_TEMP/package.json" package.json
+          git config user.name "luke-h1"
+          git config user.email "55030296+luke-h1@users.noreply.github.com"
+          git add CHANGELOG.md .changeset package.json
+          git commit -m "chore(changelog): release ${NEXT} [skip ci]"
+          git fetch origin "$BRANCH"
+          if [ "$(git rev-parse "origin/${BRANCH}")" != "$DEPLOYED_SHA" ]; then
+            echo "${BRANCH} moved since the deploy; rebasing the release commit onto it"
+            if ! git rebase "origin/${BRANCH}"; then
+              git rebase --abort
+              echo "::error::The release commit for ${NEXT} conflicts with new commits on ${BRANCH}. Rerun the deploy."
+              exit 1
+            fi
+          fi
+          git tag -a "v${NEXT}" -m "v${NEXT}"
+          AUTH_HEADER="$(printf 'luke-h1:%s' "$GH_TOKEN" | base64 | tr -d '\n')"
+          git -c "http.https://github.com/.extraheader=AUTHORIZATION: basic ${AUTH_HEADER}" push --atomic "https://github.com/${GITHUB_REPOSITORY}.git" "HEAD:${BRANCH}" "refs/tags/v${NEXT}"
+          gh release create "v${NEXT}" --title "v${NEXT}" --notes-file "$RUNNER_TEMP/release-notes.md"

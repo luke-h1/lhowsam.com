@@ -10,6 +10,8 @@
     "start": "astro preview --host 127.0.0.1 --port 3000",
     "astro": "astro",
     "sync": "astro sync",
+    "changeset": "changeset",
+    "release:notes": "bun scripts/release-notes.ts",
     "prettier:check": "prettier --list-different \"src/**/*.{js,jsx,ts,tsx,css,scss,html,astro,md,mdx}\"",
     "prettier:fix": "prettier --write \"src/**/*.{js,jsx,ts,tsx,css,scss,html,astro,md,mdx}\"",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --fix",
@@ -53,6 +55,8 @@
     "react-dom": "^19.2.5"
   },
   "devDependencies": {
+    "@changesets/cli": "3.0.3",
+    "@changesets/read": "1.0.1",
     "@eslint/compat": "^2.0.5",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^9",

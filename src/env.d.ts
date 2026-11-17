@@ -7,6 +7,7 @@ interface ImportMetaEnv {
   readonly PUBLIC_DEPLOYED_BY?: string;
   readonly PUBLIC_DEPLOYED_AT?: string;
   readonly PUBLIC_GIT_SHA?: string;
+  readonly PUBLIC_APP_VERSION?: string;
   readonly PUBLIC_SENTRY_DSN?: string;
   readonly PUBLIC_SENTRY_ENVIRONMENT?: string;
   readonly PUBLIC_SENTRY_RELEASE?: string;

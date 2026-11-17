@@ -13,6 +13,10 @@ inputs:
   environment:
     description: 'environment to deploy to'
     required: true
+  app-version:
+    description: 'Version the build reports from /api/version. Empty keeps the package.json version'
+    required: false
+    default: ''
 
 runs:
   using: 'composite'
@@ -42,6 +46,18 @@ runs:
         bunx vercel env rm GIT_SHA production --token ${VERCEL_TOKEN} --yes || true
         echo ${{ steps.git-sha.outputs.git-sha }} | bunx vercel env add GIT_SHA production --token ${VERCEL_TOKEN}
       env:
+        VERCEL_TOKEN: ${{ inputs.vercel-token }}
+        VERCEL_ORG_ID: ${{ inputs.vercel-org-id }}
+        VERCEL_PROJECT_ID: ${{ inputs.vercel-project-id }}
+
+    - name: Set the app version Vercel builds with
+      if: ${{ inputs.app-version != '' }}
+      shell: bash
+      run: |
+        bunx vercel env rm PUBLIC_APP_VERSION production --token ${VERCEL_TOKEN} --yes || true
+        echo "${APP_VERSION}" | bunx vercel env add PUBLIC_APP_VERSION production --token ${VERCEL_TOKEN}
+      env:
+        APP_VERSION: ${{ inputs.app-version }}
         VERCEL_TOKEN: ${{ inputs.vercel-token }}
         VERCEL_ORG_ID: ${{ inputs.vercel-org-id }}
         VERCEL_PROJECT_ID: ${{ inputs.vercel-project-id }}
