@@ -1,0 +1,43 @@
+name: UI tests
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Site to test'
+        required: true
+        default: 'both'
+        type: choice
+        options:
+          - both
+          - dev
+          - prod
+  schedule:
+    - cron: '17 4 * * *'
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: e2e ${{ matrix.environment }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        environment: ${{ fromJSON((inputs.environment == 'dev' && '["dev"]') || (inputs.environment == 'prod' && '["prod"]') || '["dev","prod"]') }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: install dependencies
+        uses: ./.github/actions/install
+
+      - name: UI tests ${{ matrix.environment }}
+        uses: ./.github/actions/ui-test
+        with:
+          target: e2e:${{ matrix.environment }}

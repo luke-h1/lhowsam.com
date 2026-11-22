@@ -1,10 +1,14 @@
 Frontend:
-  - src/**
+  - changed-files:
+      - any-glob-to-any-file: src/**
 
 Infrastructure:
-  - .github/**/*
-  - .github/*
-  - docker
+  - changed-files:
+      - any-glob-to-any-file:
+          - .github/**/*
+          - .github/*
+          - docker
 
 Tests:
-  - e2e/**
+  - changed-files:
+      - any-glob-to-any-file: e2e/**

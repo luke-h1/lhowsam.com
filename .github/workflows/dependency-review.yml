@@ -4,6 +4,10 @@ on:
   pull_request:
     branches: [dev]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 jobs:
@@ -16,4 +20,4 @@ jobs:
         ref: ${{ github.head_ref }}
 
     - name: 'Dependency Review'
-      uses: actions/dependency-review-action@v3
+      uses: actions/dependency-review-action@v4

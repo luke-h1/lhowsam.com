@@ -1,5 +1,10 @@
 name: 'Build frontend'
 description: 'Build frontend'
+inputs:
+  test-script:
+    description: 'bun script that runs the unit tests'
+    required: false
+    default: 'test'
 runs:
   using: 'composite'
   steps:
@@ -12,7 +17,7 @@ runs:
         shell: bash
 
       - name: test
-        run: bun run test
+        run: bun run ${{ inputs.test-script }}
         shell: bash
 
       - name: ts:check
@@ -22,8 +27,3 @@ runs:
       - name: build
         run: bun run build
         shell: bash
-
-      # - name: local UI tests
-      #   uses: ./.github/actions/ui-test
-      #   with:
-      #     target: e2e-local

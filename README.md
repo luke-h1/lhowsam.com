@@ -19,11 +19,7 @@ My website & blog
 
 [![Deploy](https://github.com/luke-h1/lhowsam.com/actions/workflows/deploy.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/deploy.yml)
 
-[![CI / UI tests (live)](https://github.com/luke-h1/lhowsam.com/actions/workflows/live-ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/live-ui-tests.yml)
-
-[![CI / UI tests (development)](https://github.com/luke-h1/lhowsam.com/actions/workflows/dev-ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/dev-ui-tests.yml)
-
-[![CodeQL](https://github.com/luke-h1/lhowsam.com/actions/workflows/codeql.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/codeql.yml)
+[![UI tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml)
 
 [![Dependency Review](https://github.com/luke-h1/lhowsam.com/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/dependency-review.yml)
 
