@@ -21,8 +21,6 @@ My website & blog
 
 [![UI tests](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/ui-tests.yml)
 
-[![CodeQL](https://github.com/luke-h1/lhowsam.com/actions/workflows/codeql.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/codeql.yml)
-
 [![Dependency Review](https://github.com/luke-h1/lhowsam.com/actions/workflows/dependency-review.yml/badge.svg)](https://github.com/luke-h1/lhowsam.com/actions/workflows/dependency-review.yml)
 
 ## Environments
