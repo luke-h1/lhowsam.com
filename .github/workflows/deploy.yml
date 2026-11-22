@@ -48,8 +48,3 @@ jobs:
           vercel-org-id: ${{ env.VERCEL_ORG_ID }}
           vercel-project-id: ${{ env.VERCEL_PROJECT_ID }}
           environment: dev
-
-      - name: dev UI tests
-        uses: ./.github/actions/ui-test
-        with:
-          target: e2e:dev

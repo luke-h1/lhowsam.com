@@ -3,10 +3,22 @@ name: CodeQL
 on:
   push:
     branches: [ dev, main ]
+    paths-ignore:
+      - '*.md'
+      - '.changeset/**'
+      - 'LICENSE'
   pull_request:
     branches: [ dev ]
+    paths-ignore:
+      - '*.md'
+      - '.changeset/**'
+      - 'LICENSE'
   schedule:
     - cron: '19 0 * * 1'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   analyze:
@@ -17,25 +29,17 @@ jobs:
       contents: read
       security-events: write
 
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [ 'javascript', 'typescript' ]
-  
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      with:
-        ref: ${{ github.head_ref }}
 
-    # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
       with:
-        languages: ${{ matrix.language }}
-
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v3
+        languages: javascript-typescript
+        build-mode: none
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v3
+      with:
+        category: /language:javascript
